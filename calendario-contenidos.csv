@@ -1,0 +1,25 @@
+semana,fecha_inicio,tipo,titulo,url,keyword_principal,volumen,intent,objetivo_negocio,cta_principal,palabra_count,responsable,estado
+1,2025-01-06,Landing,Renta de Iluminación para Bodas en CDMX,/servicios/renta-iluminacion-bodas/,renta iluminacion bodas cdmx,720,transaccional,Captar leads bodas,Cotizar ahora,2500,Content + Dev,pendiente
+1,2025-01-06,Landing,Renta de Iluminación para XV Años CDMX,/servicios/renta-iluminacion-xv-anos/,renta luces xv años cdmx,480,transaccional,Captar leads XV años,Cotizar,2000,Content + Dev,pendiente
+2,2025-01-13,Blog,7 Errores de Iluminación que Arruinan las Fotos de tu Boda,/blog/errores-iluminacion-boda/,errores iluminacion boda,90,informacional,Educar + autoridad,Descargar checklist,1800,Content,pendiente
+2,2025-01-13,Landing Local,Renta de Iluminación en Polanco,/zonas-servicio/cdmx/polanco/,renta luces polanco,70,transaccional,Captar zona premium,Cotizar,1200,Content + Dev,pendiente
+3,2025-01-20,Blog,Guía Completa: Cómo Iluminar tu Boda de Noche,/blog/como-iluminar-boda-noche/,como iluminar boda noche,120,informacional,Posicionar informacional,Ver paquetes bodas,2500,Content,pendiente
+3,2025-01-20,Landing Local,Renta de Iluminación en Naucalpan,/zonas-servicio/estado-mexico/naucalpan/,renta iluminacion naucalpan,60,transaccional,Captar EdoMex,Cotizar,1200,Content + Dev,pendiente
+4,2025-01-27,Blog,LED vs Tradicional: ¿Qué Iluminación Elegir para tu Evento?,/blog/led-vs-tradicional-eventos/,luces led vs tradicionales,90,informacional,Educar + posicionar productos,Ver catálogo LED,1500,Content,pendiente
+4,2025-01-27,Producto,Sky Tracker: Qué Es y Cuándo Usarlo en tu Evento,/catalogo/sky-tracker/,renta sky tracker cdmx,320,transaccional,Posicionar producto estrella,Cotizar Sky Tracker,1500,Content + Dev,pendiente
+5,2025-02-03,Blog,Tendencias en Iluminación para Bodas 2025,/blog/tendencias-iluminacion-bodas-2025/,tendencias iluminacion bodas 2025,70,informacional,Contenido temporal,Reservar fecha,1800,Content,pendiente
+5,2025-02-03,Landing,Iluminación para Eventos Corporativos CDMX,/servicios/renta-iluminacion-eventos-corporativos/,iluminacion eventos corporativos cdmx,180,transaccional,Captar B2B,Solicitar propuesta,2000,Content + Dev,pendiente
+6,2025-02-10,Blog,¿Cuánto Cuesta la Iluminación para una Boda en CDMX?,/blog/precio-iluminacion-boda-cdmx/,precio iluminacion boda cdmx,80,comercial,Responder duda comercial,Ver paquetes,1500,Content,pendiente
+6,2025-02-10,Producto,Guirnaldas LED Vintage: El Must-Have para Bodas,/catalogo/guirnaldas-led/,renta guirnaldas led bodas,390,transaccional,Posicionar producto,Cotizar guirnaldas,1200,Content + Dev,pendiente
+7,2025-02-17,Case Study,Cómo Iluminamos una Boda para 300 Personas en Hacienda,/blog/caso-exito-boda-hacienda/,boda hacienda iluminacion,40,informacional,Prueba social,Cotizar boda,1500,Content,pendiente
+7,2025-02-17,Landing Local,Renta de Iluminación en Huixquilucan,/zonas-servicio/estado-mexico/huixquilucan/,iluminacion eventos huixquilucan,40,transaccional,Captar zona residencial,Cotizar,1200,Content + Dev,pendiente
+8,2025-02-24,Blog,5 Tipos de Iluminación para tu Fiesta de XV Años,/blog/tipos-iluminacion-xv-anos/,tipos iluminacion xv años,60,informacional,Educar mercado joven,Ver paquetes XV,1500,Content,pendiente
+8,2025-02-24,Pilar,Guía Completa de Iluminación para Bodas,/guia-iluminacion-bodas/,guia iluminacion bodas,150,informacional,Contenido pilar SEO,Descargar PDF,3500,Content,pendiente
+9,2025-03-03,Blog,Iluminación Arquitectónica: Transforma Cualquier Espacio,/blog/iluminacion-arquitectonica-eventos/,iluminacion arquitectonica eventos,260,comercial,Posicionar servicio premium,Cotizar arquitectónica,1500,Content,pendiente
+9,2025-03-03,Landing Local,Renta de Iluminación en Santa Fe,/zonas-servicio/cdmx/santa-fe/,renta luces santa fe cdmx,50,transaccional,Captar zona corporativa,Cotizar,1200,Content + Dev,pendiente
+10,2025-03-10,Blog,Qué Preguntar Antes de Contratar Iluminación para tu Evento,/blog/preguntas-contratar-iluminacion/,contratar iluminacion eventos,50,informacional,Contenido comparativo,Checklist gratis,1500,Content,pendiente
+10,2025-03-10,Case Study,Iluminación para Lanzamiento de Producto: Caso de Éxito,/blog/caso-exito-lanzamiento-producto/,iluminacion lanzamiento producto,30,informacional,B2B prueba social,Solicitar propuesta,1500,Content,pendiente
+11,2025-03-17,Blog,Cabezas Móviles vs Sky Tracker: ¿Cuál Necesitas?,/blog/cabezas-moviles-vs-sky-tracker/,cabezas moviles vs sky tracker,40,informacional,Comparativa productos,Ver ambos equipos,1200,Content,pendiente
+11,2025-03-17,Landing,Servicio DJ + Iluminación: Paquete Completo,/servicios/paquete-dj-iluminacion/,paquete dj iluminacion cdmx,150,transaccional,Venta cruzada,Cotizar paquete,1500,Content + Dev,pendiente
+12,2025-03-24,Blog,Checklist: Todo lo que Necesitas para Iluminar tu Boda,/blog/checklist-iluminacion-boda/,checklist iluminacion boda,40,informacional,Lead magnet,Descargar checklist,1200,Content,pendiente
+12,2025-03-24,Pilar,Guía Completa de Iluminación para XV Años,/guia-iluminacion-xv-anos/,guia iluminacion xv años,80,informacional,Contenido pilar,Descargar PDF,2500,Content,pendiente

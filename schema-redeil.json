@@ -1,0 +1,376 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://rentadeiluminacion.com/#organization",
+      "name": "REDEIL - Renta de Iluminación Profesional",
+      "alternateName": "REDEIL",
+      "description": "Empresa líder en renta de iluminación profesional para bodas, XV años y eventos corporativos en Ciudad de México y Estado de México. Más de 10 años de experiencia transformando eventos con tecnología de primer nivel.",
+      "url": "https://rentadeiluminacion.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rentadeiluminacion.com/img/logo-redeil.png",
+        "width": 300,
+        "height": 100
+      },
+      "image": [
+        "https://rentadeiluminacion.com/img/iluminacion-bodas-cdmx.jpg",
+        "https://rentadeiluminacion.com/img/sky-tracker-eventos.jpg",
+        "https://rentadeiluminacion.com/img/guirnaldas-led-vintage.jpg"
+      ],
+      "telephone": "+52-55-3068-2988",
+      "email": "hola@rentadeiluminacion.com",
+      "priceRange": "$$",
+      "currenciesAccepted": "MXN",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Río Amazonas 74B, Col. Renacimiento",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "postalCode": "06500",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.4326,
+        "longitude": -99.1332
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ciudad de México",
+          "@id": "https://www.wikidata.org/wiki/Q1489"
+        },
+        {
+          "@type": "State",
+          "name": "Estado de México",
+          "@id": "https://www.wikidata.org/wiki/Q175333"
+        },
+        {
+          "@type": "Place",
+          "name": "Polanco"
+        },
+        {
+          "@type": "Place",
+          "name": "Santa Fe"
+        },
+        {
+          "@type": "Place",
+          "name": "Coyoacán"
+        },
+        {
+          "@type": "Place",
+          "name": "Naucalpan"
+        },
+        {
+          "@type": "Place",
+          "name": "Huixquilucan"
+        },
+        {
+          "@type": "Place",
+          "name": "Tlalnepantla"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/redeil",
+        "https://www.instagram.com/redeil_iluminacion",
+        "https://wa.me/5530682988"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Iluminación para Eventos",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://rentadeiluminacion.com/servicios/renta-iluminacion-bodas/#service",
+              "name": "Renta de Iluminación para Bodas",
+              "description": "Servicio completo de iluminación para bodas incluyendo guirnaldas LED, cascadas luminosas, gobos personalizados con iniciales e iluminación arquitectónica para venues y jardines."
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "4500",
+              "priceCurrency": "MXN",
+              "minPrice": "4500",
+              "maxPrice": "35000",
+              "description": "Paquetes desde eventos íntimos hasta bodas de gran escala"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://rentadeiluminacion.com/servicios/renta-iluminacion-xv-anos/#service",
+              "name": "Renta de Iluminación para XV Años",
+              "description": "Iluminación espectacular para fiestas de quinceañera con Sky Tracker, cabezas móviles, luz neón, efectos láser y máquinas de humo."
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "3500",
+              "priceCurrency": "MXN",
+              "minPrice": "3500",
+              "maxPrice": "25000"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://rentadeiluminacion.com/servicios/renta-iluminacion-eventos-corporativos/#service",
+              "name": "Iluminación para Eventos Corporativos",
+              "description": "Soluciones de iluminación técnica profesional para congresos, lanzamientos de producto, galas corporativas y eventos empresariales. Incluye proyección de gobos con logo."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Renta de Equipo de Audio",
+              "description": "Bocinas profesionales JBL y QSC para eventos de cualquier tamaño, desde fiestas íntimas hasta conciertos."
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "María González"
+          },
+          "reviewBody": "Excelente servicio para nuestra boda. Las guirnaldas quedaron perfectas y el equipo fue muy profesional con la instalación."
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "EventosPro CDMX"
+          },
+          "reviewBody": "Trabajamos con REDEIL para múltiples eventos corporativos. Siempre puntuales y con equipo de primera calidad."
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rentadeiluminacion.com/#website",
+      "url": "https://rentadeiluminacion.com",
+      "name": "REDEIL - Renta de Iluminación Profesional",
+      "description": "Renta de iluminación profesional para bodas, XV años y eventos corporativos en CDMX y Estado de México",
+      "publisher": {
+        "@id": "https://rentadeiluminacion.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://rentadeiluminacion.com/buscar/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "es-MX"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://rentadeiluminacion.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta rentar iluminación para una boda en CDMX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los paquetes de iluminación para bodas en CDMX van desde $4,500 MXN para eventos pequeños (50-80 personas) hasta $35,000+ MXN para bodas grandes con iluminación arquitectónica completa. El precio incluye transporte, instalación profesional y operación durante el evento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El servicio incluye instalación y desmontaje?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, todos nuestros servicios incluyen transporte del equipo, instalación profesional antes del evento, operación técnica durante el evento y desmontaje al finalizar. Nuestro equipo técnico capacitado se encarga de todo el proceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Con cuánta anticipación debo reservar la iluminación para mi evento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recomendamos reservar con 3-4 semanas de anticipación para eventos pequeños y 2-3 meses para bodas y eventos grandes. En temporada alta (noviembre-enero y mayo-junio) te sugerimos mayor anticipación para asegurar disponibilidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Atienden eventos en Estado de México?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, cubrimos toda la zona metropolitana incluyendo Naucalpan, Tlalnepantla, Huixquilucan, Atizapán, Metepec y más municipios del Estado de México. El transporte está incluido en todas nuestras cotizaciones sin costo adicional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué marcas de equipo de iluminación utilizan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trabajamos exclusivamente con marcas profesionales de primer nivel como Martin Professional, Chauvet, Elation, ADJ y Clay Paky para iluminación, y JBL y QSC para audio. Todo nuestro equipo está en óptimas condiciones y recibe mantenimiento constante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es un Sky Tracker y para qué eventos se recomienda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un Sky Tracker es un reflector de alta potencia (7,500W+) que proyecta rayos de luz visibles a varios kilómetros de distancia. Es ideal para eventos grandes como inauguraciones, festivales, bodas espectaculares y lanzamientos de producto donde se busca crear un impacto visual memorable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Pueden personalizar gobos con mi logo o iniciales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, ofrecemos servicio de gobos personalizados. Podemos proyectar tu logo empresarial, las iniciales de los novios, o cualquier diseño personalizado. El gobo se fabrica específicamente para tu evento y queda incluido en el servicio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Ofrecen paquetes que incluyan DJ e iluminación?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, tenemos paquetes integrales que combinan servicio de DJ profesional con iluminación completa. Estos paquetes son ideales para bodas, XV años y fiestas, ya que aseguran perfecta coordinación entre la música y los efectos de luz."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rentadeiluminacion.com/#breadcrumb-home",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://rentadeiluminacion.com/",
+            "name": "Inicio"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rentadeiluminacion.com/servicios/renta-iluminacion-bodas/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://rentadeiluminacion.com/",
+            "name": "Inicio"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": "https://rentadeiluminacion.com/servicios/",
+            "name": "Servicios"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": "https://rentadeiluminacion.com/servicios/renta-iluminacion-bodas/",
+            "name": "Iluminación para Bodas"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://rentadeiluminacion.com/catalogo/sky-tracker/#product",
+      "name": "Renta de Sky Tracker Profesional",
+      "description": "Reflector Sky Tracker de 7,500W para eventos. Rayos de luz visibles a kilómetros. Ideal para inauguraciones, festivales y bodas espectaculares.",
+      "image": "https://rentadeiluminacion.com/img/sky-tracker.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "REDEIL"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "MXN",
+        "price": "5000",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://rentadeiluminacion.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://rentadeiluminacion.com/catalogo/guirnaldas-led/#product",
+      "name": "Renta de Guirnaldas LED Vintage",
+      "description": "Guirnaldas LED estilo Edison vintage para bodas y eventos. Luces cálidas que crean ambientes románticos. Incluye instalación profesional.",
+      "image": "https://rentadeiluminacion.com/img/guirnaldas-led.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "REDEIL"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "MXN",
+        "price": "1500",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://rentadeiluminacion.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://rentadeiluminacion.com/catalogo/cabezas-moviles/#product",
+      "name": "Renta de Cabezas Móviles Profesionales",
+      "description": "Cabezas móviles Martin y Chauvet para eventos. Beam, Spot y Wash disponibles. Incluye programación DMX y operador técnico.",
+      "image": "https://rentadeiluminacion.com/img/cabezas-moviles.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Martin Professional"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "MXN",
+        "price": "2500",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@id": "https://rentadeiluminacion.com/#organization"
+        }
+      }
+    }
+  ]
+}
