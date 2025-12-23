@@ -1,0 +1,10 @@
+# Habilitar el motor de reescritura
+RewriteEngine On
+
+# Página de error 404 personalizada
+ErrorDocument 404 /index.html
+
+# Redirigir todas las páginas no encontradas al index
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L,R=301]
