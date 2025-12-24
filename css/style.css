@@ -3805,6 +3805,144 @@ section {
 }
 
 /* ==========================================================================
+   Showcase Section - Professional Image Galleries by Category
+   ========================================================================== */
+
+.showcase-section {
+  padding: var(--space-16) 0;
+  background: var(--color-white);
+}
+
+.showcase-section.showcase-alt {
+  background: var(--color-gray-100);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .showcase-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .showcase-grid.showcase-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+.showcase-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-secondary);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.showcase-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-2xl);
+}
+
+@media (min-width: 768px) {
+  .showcase-item.showcase-item-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+@media (min-width: 768px) {
+  .showcase-item img {
+    height: 280px;
+  }
+
+  .showcase-item.showcase-item-large img {
+    height: 100%;
+    min-height: 580px;
+  }
+}
+
+.showcase-item:hover img {
+  transform: scale(1.05);
+}
+
+.showcase-item figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+}
+
+.showcase-item:hover figcaption {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .showcase-item.showcase-item-large figcaption {
+    padding: var(--space-6) var(--space-8);
+    font-size: var(--text-base);
+  }
+}
+
+/* Gallery Grid Large - 12 column layout */
+.gallery-grid-large {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid-large {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid-large {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.gallery-grid-large .gallery-item {
+  height: 200px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .gallery-grid-large .gallery-item {
+    height: 220px;
+  }
+}
+
+.gallery-grid-large .gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+}
+
+/* ==========================================================================
    Legal Pages - Aviso de Privacidad, Términos y Condiciones
    ========================================================================== */
 
@@ -7298,7 +7436,7 @@ section {
 
 .why-us-section {
   padding: var(--space-16) 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  background: #000000;
 }
 
 .why-us-section.bg-light {
@@ -8217,11 +8355,11 @@ section {
   display: none;
 }
 
-/* ===== SECCIÓN SERVICIOS (3 columnas equilibradas) ===== */
+/* ===== SECCIÓN SERVICIOS (3 columnas) ===== */
 .footer-links {
   display: grid;
   grid-template-columns: 2fr 1fr 1.5fr;
-  gap: 60px;
+  gap: 40px;
   margin-bottom: 60px;
   padding-bottom: 50px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -8270,6 +8408,94 @@ section {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   padding: 6px 0;
+}
+
+/* ===== SECCIÓN ZONAS DE COBERTURA ===== */
+.footer-zonas-new {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-zonas-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-zonas-header h4 {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.footer-zonas-header p {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 20px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-zonas-header .btn-ver-todas {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-zonas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-zona-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-zona-col h5 {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 107, 53, 0.4);
+}
+
+.footer-zona-col a {
+  display: block;
+  font-family: var(--font-secondary);
+  font-size: 0.938rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  padding: 6px 0;
+  line-height: 1.4;
+}
+
+.footer-zona-col a:hover {
+  color: var(--color-primary);
+}
+
+.footer-zona-col a.ver-mas-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 0.875rem;
 }
 
 /* ===== SECCIÓN SUCURSALES ===== */
@@ -8416,7 +8642,7 @@ section {
 
   .footer-links {
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 25px;
   }
 
   .footer-col:first-child a {
@@ -8427,6 +8653,20 @@ section {
   .branches-grid-new {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+  }
+
+  /* Zonas de Cobertura - 992px */
+  .footer-zonas-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .footer-zona-col h5 {
+    font-size: 0.938rem;
+  }
+
+  .footer-zona-col a {
+    font-size: 0.875rem;
   }
 }
 
@@ -8473,9 +8713,9 @@ section {
     font-size: 0.813rem;
   }
 
-  /* Links: 3 columnas pero más compactas */
+  /* Links: 2 columnas en tablet */
   .footer-links {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     margin-bottom: 40px;
     padding-bottom: 35px;
@@ -8489,6 +8729,48 @@ section {
   .footer-col a {
     font-size: 0.813rem;
     padding: 5px 0;
+  }
+
+  /* Zonas de Cobertura - tablet 768px */
+  .footer-zonas-new {
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+  }
+
+  .footer-zonas-header {
+    margin-bottom: 30px;
+  }
+
+  .footer-zonas-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-zonas-header p {
+    font-size: 0.875rem;
+  }
+
+  .footer-zonas-header .btn-ver-todas {
+    padding: 10px 25px;
+    font-size: 0.813rem;
+  }
+
+  .footer-zonas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 25px;
+  }
+
+  .footer-zona-col h5 {
+    font-size: 0.938rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-zona-col a {
+    font-size: 0.875rem;
+    padding: 5px 0;
+  }
+
+  .footer-zona-col a.ver-mas-link {
+    font-size: 0.813rem;
   }
 
   /* Sucursales 2x2 */
@@ -8636,7 +8918,61 @@ section {
     color: #ffffff;
   }
 
-  /* Sucursales 2x2 compactas */
+  /* Zonas de Cobertura - móvil 576px */
+  .footer-zonas-new {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+
+  .footer-zonas-header {
+    margin-bottom: 25px;
+  }
+
+  .footer-zonas-header h4 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .footer-zonas-header p {
+    font-size: 0.813rem;
+    padding: 0 10px;
+  }
+
+  .footer-zonas-header .btn-ver-todas {
+    padding: 10px 22px;
+    font-size: 0.75rem;
+  }
+
+  .footer-zonas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 15px;
+  }
+
+  .footer-zona-col {
+    text-align: left;
+  }
+
+  .footer-zona-col h5 {
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  .footer-zona-col a {
+    display: block;
+    padding: 4px 0;
+    font-size: 0.813rem;
+    background: transparent;
+  }
+
+  .footer-zona-col a.ver-mas-link {
+    display: block;
+    background: transparent;
+    margin-top: 6px;
+    font-size: 0.75rem;
+  }
+
+  /* Sucursales 1 columna compactas */
   .footer-branches-new {
     margin-bottom: 30px;
     padding-bottom: 30px;
