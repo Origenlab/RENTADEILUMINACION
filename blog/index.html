@@ -63,6 +63,428 @@
     }
   }
   </script>
+
+  <!-- Blog Styles -->
+  <style>
+    :root {
+      --color-primary: #f59e0b;
+      --color-primary-dark: #d97706;
+      --color-primary-light: #fbbf24;
+      --color-dark: #1a1a2e;
+      --color-dark-alt: #16213e;
+      --color-text: #1d1d1f;
+      --color-text-light: #6b7280;
+      --color-bg-light: #f5f5f7;
+      --color-border: #e5e7eb;
+      --color-white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+      --shadow-lg: 0 15px 40px rgba(0,0,0,0.15);
+      --shadow-card: 0 4px 20px rgba(0,0,0,0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition: all 0.3s ease;
+    }
+
+    /* Blog Hero Section */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-alt) 100%);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .blog-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-hero .breadcrumb {
+      margin-bottom: 2rem;
+    }
+
+    .blog-hero .breadcrumb ol {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .blog-hero .breadcrumb li {
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    .blog-hero .breadcrumb li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .blog-hero .breadcrumb a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .blog-hero .breadcrumb a:hover {
+      color: var(--color-primary);
+    }
+
+    .blog-hero .page-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-white);
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    .blog-hero .page-subtitle {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Blog Section */
+    .blog-section {
+      padding: 4rem 0 5rem;
+      background: var(--color-bg-light);
+    }
+
+    /* Blog Filters */
+    .blog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .filter-btn.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-dark);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Blog Card */
+    .blog-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .blog-card-image {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.08);
+    }
+
+    .blog-category-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-primary);
+      color: var(--color-dark);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 10px rgba(245,158,11,0.3);
+    }
+
+    .blog-card-content {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 0 0 0.75rem;
+      color: var(--color-text);
+    }
+
+    .blog-card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .blog-card-title a:hover {
+      color: var(--color-primary-dark);
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+    }
+
+    .blog-reading-time {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .blog-reading-time svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    .blog-card-excerpt {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0 0 1.5rem;
+      flex-grow: 1;
+    }
+
+    .blog-card .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--color-dark);
+      background: transparent;
+      color: var(--color-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--transition);
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .blog-card .btn-outline:hover {
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+
+    .blog-card .btn-outline::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card .btn-outline:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-alt) 100%);
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--color-white);
+      margin: 0 0 1rem;
+    }
+
+    .cta-content p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0 0 2rem;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--color-primary);
+      color: var(--color-dark);
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .cta-buttons .btn-primary:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(245,158,11,0.3);
+    }
+
+    .cta-buttons .btn-outline {
+      padding: 1rem 2rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: var(--color-white);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .cta-buttons .btn-outline:hover {
+      border-color: var(--color-white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* WhatsApp Icon */
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .blog-hero .page-title {
+        font-size: 2rem;
+      }
+
+      .blog-hero .page-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .blog-section {
+        padding: 3rem 0 4rem;
+      }
+
+      .blog-filters {
+        padding: 1rem;
+        gap: 0.5rem;
+      }
+
+      .filter-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .cta-content h2 {
+        font-size: 1.75rem;
+      }
+
+      .cta-content p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-card-content {
+        padding: 1.25rem;
+      }
+
+      .blog-card-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -90,8 +512,8 @@
               <a href="../servicios.html">Servicios</a>
               <ul class="submenu">
                 <li><a href="../renta-de-iluminacion/iluminacion.html">Iluminacion</a></li>
-                <li><a href="../renta-de-audio/audio.html">Audio</a></li>
-                <li><a href="../renta-de-efectos-especiales/efectos-especiales.html">Efectos Especiales</a></li>
+                <li><a href="../renta-de-iluminacion/renta-de-guirnaldas.html">Guirnaldas</a></li>
+                <li><a href="../equipo-para-eventos/equipo-para-eventos.html">Efectos Especiales</a></li>
               </ul>
             </li>
             <li><a href="../zonas-de-cobertura.html">Cobertura</a></li>
@@ -101,7 +523,7 @@
         </nav>
 
         <!-- CTA Button -->
-        <a href="https://wa.me/5215512820000" class="btn btn-primary header-cta" target="_blank" rel="noopener">
+        <a href="https://wa.me/5215530682988?text=Hola%2C%20me%20interesa%20cotizar%20iluminacion%20para%20mi%20evento" class="btn btn-primary header-cta" target="_blank" rel="noopener">
           Cotizar Ahora
         </a>
       </div>
@@ -141,9 +563,9 @@
         <!-- Category Filter -->
         <div class="blog-filters">
           <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="guirnaldas">Guirnaldas</button>
           <button class="filter-btn" data-filter="iluminacion-arquitectonica">Iluminacion Arquitectonica</button>
           <button class="filter-btn" data-filter="bodas">Bodas</button>
-          <button class="filter-btn" data-filter="guirnaldas">Guirnaldas</button>
           <button class="filter-btn" data-filter="efectos">Efectos Especiales</button>
         </div>
 
@@ -152,80 +574,92 @@
           <!-- n8n:INSERT-NEW-CARDS-HERE -->
 
           <!-- Card: Guia Iluminacion Arquitectonica -->
-          <article class="blog-card" data-category="iluminacion-arquitectonica" style="display:flex;flex-direction:column;height:100%;">
+          <article class="blog-card" data-category="iluminacion-arquitectonica">
             <a href="/blog/guia-iluminacion-arquitectonica-eventos.html" class="blog-card-image">
               <img src="/img/iluminacion-arquitectonica/iluminacion-fachada-hacienda-colonial-luz-morada-evento-noche.webp" alt="Iluminacion arquitectonica para eventos con City Color" loading="lazy" width="400" height="250">
               <span class="blog-category-badge">Iluminacion Arquitectonica</span>
             </a>
-            <div class="blog-card-content" style="display:flex;flex-direction:column;flex-grow:1;">
+            <div class="blog-card-content">
               <h3 class="blog-card-title">
                 <a href="/blog/guia-iluminacion-arquitectonica-eventos.html">Iluminacion Arquitectonica para Eventos: Guia Completa de City Color</a>
               </h3>
               <div class="blog-meta">
-                <span class="blog-reading-time">12 min de lectura</span>
+                <span class="blog-reading-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  12 min
+                </span>
               </div>
-              <p class="blog-card-excerpt" style="flex-grow:1;">Descubre como transformar fachadas y espacios arquitectonicos con iluminacion profesional City Color para crear ambientes espectaculares.</p>
-              <a href="/blog/guia-iluminacion-arquitectonica-eventos.html" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">
+              <p class="blog-card-excerpt">Descubre como transformar fachadas y espacios arquitectonicos con iluminacion profesional City Color para crear ambientes espectaculares.</p>
+              <a href="/blog/guia-iluminacion-arquitectonica-eventos.html" class="btn btn-outline">
                 Leer articulo completo
               </a>
             </div>
           </article>
 
           <!-- Card: Guia Iluminacion Bodas -->
-          <article class="blog-card" data-category="bodas" style="display:flex;flex-direction:column;height:100%;">
+          <article class="blog-card" data-category="bodas">
             <a href="/blog/guia-iluminacion-bodas.html" class="blog-card-image">
               <img src="/img/bodas/boda-elegante-iluminacion-centro-mesa.webp" alt="Guia completa de iluminacion para bodas" loading="lazy" width="400" height="250">
               <span class="blog-category-badge">Bodas</span>
             </a>
-            <div class="blog-card-content" style="display:flex;flex-direction:column;flex-grow:1;">
+            <div class="blog-card-content">
               <h3 class="blog-card-title">
                 <a href="/blog/guia-iluminacion-bodas.html">Guia Completa de Iluminacion para Bodas</a>
               </h3>
               <div class="blog-meta">
-                <span class="blog-reading-time">15 min de lectura</span>
+                <span class="blog-reading-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  15 min
+                </span>
               </div>
-              <p class="blog-card-excerpt" style="flex-grow:1;">Todo lo que necesitas saber sobre iluminacion para bodas: desde luces romanticas hasta efectos espectaculares para tu gran dia.</p>
-              <a href="/blog/guia-iluminacion-bodas.html" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">
+              <p class="blog-card-excerpt">Todo lo que necesitas saber sobre iluminacion para bodas: desde luces romanticas hasta efectos espectaculares para tu gran dia.</p>
+              <a href="/blog/guia-iluminacion-bodas.html" class="btn btn-outline">
                 Leer articulo completo
               </a>
             </div>
           </article>
 
           <!-- Card: City Light Eventos -->
-          <article class="blog-card" data-category="iluminacion-arquitectonica" style="display:flex;flex-direction:column;height:100%;">
+          <article class="blog-card" data-category="iluminacion-arquitectonica">
             <a href="/blog/guia-city-light-eventos.html" class="blog-card-image">
               <img src="/img/city-light/city-light-fachada-hacienda-colonial-wash-color.webp" alt="City Light para eventos y fachadas" loading="lazy" width="400" height="250">
               <span class="blog-category-badge">Iluminacion Arquitectonica</span>
             </a>
-            <div class="blog-card-content" style="display:flex;flex-direction:column;flex-grow:1;">
+            <div class="blog-card-content">
               <h3 class="blog-card-title">
                 <a href="/blog/guia-city-light-eventos.html">City Light: Iluminacion Profesional para Eventos</a>
               </h3>
               <div class="blog-meta">
-                <span class="blog-reading-time">10 min de lectura</span>
+                <span class="blog-reading-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  10 min
+                </span>
               </div>
-              <p class="blog-card-excerpt" style="flex-grow:1;">Conoce los reflectores City Light LED y como pueden transformar cualquier espacio en un escenario impresionante.</p>
-              <a href="/blog/guia-city-light-eventos.html" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">
+              <p class="blog-card-excerpt">Conoce los reflectores City Light LED y como pueden transformar cualquier espacio en un escenario impresionante.</p>
+              <a href="/blog/guia-city-light-eventos.html" class="btn btn-outline">
                 Leer articulo completo
               </a>
             </div>
           </article>
 
           <!-- Card: Guirnaldas CDMX -->
-          <article class="blog-card" data-category="guirnaldas" style="display:flex;flex-direction:column;height:100%;">
+          <article class="blog-card" data-category="guirnaldas">
             <a href="/blog/guia-renta-guirnaldas-cdmx.html" class="blog-card-image">
-              <img src="/img/guirnaldas/guirnaldas-decorativas-evento-exterior.webp" alt="Renta de guirnaldas para eventos en CDMX" loading="lazy" width="400" height="250">
+              <img src="/img/guirnaldas/renta-guirnaldas-focos-vintage-eventos-sociales-20.webp" alt="Renta de guirnaldas para eventos en CDMX" loading="lazy" width="400" height="250">
               <span class="blog-category-badge">Guirnaldas</span>
             </a>
-            <div class="blog-card-content" style="display:flex;flex-direction:column;flex-grow:1;">
+            <div class="blog-card-content">
               <h3 class="blog-card-title">
                 <a href="/blog/guia-renta-guirnaldas-cdmx.html">Guia de Renta de Guirnaldas en CDMX</a>
               </h3>
               <div class="blog-meta">
-                <span class="blog-reading-time">8 min de lectura</span>
+                <span class="blog-reading-time">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  8 min
+                </span>
               </div>
-              <p class="blog-card-excerpt" style="flex-grow:1;">Todo sobre la renta de guirnaldas luminosas para eventos: tipos, precios, instalacion y como crear ambientes magicos.</p>
-              <a href="/blog/guia-renta-guirnaldas-cdmx.html" class="btn btn-outline" style="margin-top:auto;align-self:flex-start;">
+              <p class="blog-card-excerpt">Todo sobre la renta de guirnaldas luminosas para eventos: tipos, precios, instalacion y como crear ambientes magicos.</p>
+              <a href="/blog/guia-renta-guirnaldas-cdmx.html" class="btn btn-outline">
                 Leer articulo completo
               </a>
             </div>
@@ -242,12 +676,13 @@
       <div class="container">
         <div class="cta-content">
           <h2>¿Listo para iluminar tu evento?</h2>
-          <p>Contactanos para una cotizacion personalizada. Nuestros expertos te ayudaran a elegir la iluminacion perfecta.</p>
+          <p>Contactanos para una cotizacion personalizada. Nuestros expertos te ayudaran a elegir la iluminacion perfecta para tu boda, XV anos o evento corporativo.</p>
           <div class="cta-buttons">
-            <a href="https://wa.me/5215512820000" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            <a href="https://wa.me/5215530682988?text=Hola%2C%20me%20interesa%20cotizar%20iluminacion%20para%20mi%20evento" class="btn btn-primary" target="_blank" rel="noopener">
+              <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Cotizar por WhatsApp
             </a>
-            <a href="../contacto.html" class="btn btn-outline btn-lg">
+            <a href="../contacto.html" class="btn btn-outline">
               Ver mas opciones
             </a>
           </div>
@@ -265,6 +700,10 @@
         <div class="footer-brand">
           <img src="../img/logo-redeil-white.webp" alt="REDEIL" width="150" height="50" loading="lazy">
           <p>Renta de iluminacion profesional para eventos en CDMX y area metropolitana. Transformamos espacios con luz.</p>
+          <div class="footer-contact-info">
+            <a href="tel:+525530682988">55 3068 2988</a>
+            <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+          </div>
         </div>
 
         <!-- Links rapidos -->
@@ -284,29 +723,30 @@
           <h4>Servicios</h4>
           <ul>
             <li><a href="../renta-de-iluminacion/iluminacion.html">Iluminacion</a></li>
-            <li><a href="../renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html">Iluminacion Arquitectonica</a></li>
             <li><a href="../renta-de-iluminacion/renta-de-guirnaldas.html">Guirnaldas</a></li>
-            <li><a href="../renta-de-efectos-especiales/efectos-especiales.html">Efectos Especiales</a></li>
+            <li><a href="../renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html">Iluminacion Arquitectonica</a></li>
+            <li><a href="../equipo-para-eventos/equipo-para-eventos.html">Efectos Especiales</a></li>
           </ul>
         </div>
 
-        <!-- Contacto -->
-        <div class="footer-contact">
-          <h4>Contacto</h4>
-          <p><a href="tel:+5215512820000">55 1282 0000</a></p>
-          <p><a href="mailto:info@rentadeiluminacion.com">info@rentadeiluminacion.com</a></p>
-          <p>CDMX y Area Metropolitana</p>
+        <!-- Legal -->
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../aviso-privacidad.html">Aviso de Privacidad</a></li>
+            <li><a href="../terminos-condiciones.html">Terminos y Condiciones</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2024 REDEIL - Renta de Iluminacion. Todos los derechos reservados.</p>
+        <p>&copy; 2025 REDEIL - Renta de Iluminacion Profesional. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="../js/main.js" defer></script>
+  <script src="../js/app.js" defer></script>
 
   <!-- Blog Filter Script -->
   <script>
@@ -322,15 +762,26 @@
           filterBtns.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
 
-          // Filter cards
+          // Filter cards with animation
           cards.forEach(card => {
             if (filter === 'all' || card.dataset.category === filter) {
               card.style.display = 'flex';
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
             } else {
               card.style.display = 'none';
             }
           });
         });
+      });
+
+      // Add transition styles
+      cards.forEach(card => {
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
       });
     });
   </script>

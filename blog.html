@@ -45,6 +45,21 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Blog Grid Override - 2 columnas desktop, 1 móvil -->
+  <style>
+    .blog-main .posts-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 1.5rem !important;
+    }
+
+    @media (max-width: 768px) {
+      .blog-main .posts-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -182,35 +197,6 @@
     </section>
 
     <!-- ============================================
-         ARTÍCULO DESTACADO
-         ============================================ -->
-    <section class="blog-featured" aria-labelledby="featured-title">
-      <div class="container">
-        <article class="featured-post">
-          <div class="featured-post-image">
-            <img src="img/city-color/iluminacion-rgbw-eventos-especiales.webp" alt="Guía completa de iluminacion arquitectonica y City Color para eventos" loading="lazy">
-            <span class="featured-badge">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Destacado
-            </span>
-          </div>
-          <div class="featured-post-content">
-            <div class="post-meta">
-              <span class="post-read-time">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                14 min lectura
-              </span>
-              <span class="post-category">Guía Completa</span>
-            </div>
-            <h2 id="featured-title"><a href="blog/guia-iluminacion-arquitectonica-eventos.html">Guía Completa de Iluminación Arquitectónica y City Color para Eventos</a></h2>
-            <p>Descubre cómo transformar fachadas, jardines y espacios con iluminacion arquitectonica profesional. Equipos City Color, técnicas de instalación, psicología del color y aplicaciones por tipo de evento.</p>
-            <a href="blog/guia-iluminacion-arquitectonica-eventos.html" class="btn btn-primary">Leer Artículo</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================
          BLOG CONTENT WITH SIDEBAR
          ============================================ -->
     <section class="blog-content-section" aria-labelledby="posts-title">
@@ -288,9 +274,10 @@
                 </div>
               </article>
 
-              </div>
+              <!-- n8n:INSERT-NEW-CARDS-HERE -->
 
-                      </div>
+            </div>
+          </div>
 
           <!-- Sidebar -->
           <aside class="blog-sidebar">
