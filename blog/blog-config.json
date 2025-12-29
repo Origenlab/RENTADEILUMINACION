@@ -1,0 +1,280 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2024-12-29",
+  "siteName": "REDEIL",
+  "siteUrl": "https://rentadeiluminacion.com",
+  "defaultAuthor": "REDEIL",
+  "categories": [
+    {
+      "id": "iluminacion-arquitectonica",
+      "name": "Iluminacion Arquitectonica",
+      "slug": "iluminacion-arquitectonica",
+      "description": "Articulos sobre iluminacion de fachadas, City Color, wash de color y efectos arquitectonicos"
+    },
+    {
+      "id": "bodas",
+      "name": "Bodas",
+      "slug": "bodas",
+      "description": "Guias y tips de iluminacion para bodas y recepciones"
+    },
+    {
+      "id": "guirnaldas",
+      "name": "Guirnaldas",
+      "slug": "guirnaldas",
+      "description": "Todo sobre guirnaldas luminosas y string lights"
+    },
+    {
+      "id": "efectos-especiales",
+      "name": "Efectos Especiales",
+      "slug": "efectos-especiales",
+      "description": "Humo bajo, confeti, cascadas LED y efectos para eventos"
+    },
+    {
+      "id": "xv-anos",
+      "name": "XV Anos",
+      "slug": "xv-anos",
+      "description": "Iluminacion especial para fiestas de quince anos"
+    },
+    {
+      "id": "corporativos",
+      "name": "Eventos Corporativos",
+      "slug": "corporativos",
+      "description": "Iluminacion profesional para eventos empresariales"
+    }
+  ],
+  "businesses": {
+    "iluminacion-arquitectonica": [
+      {
+        "id": "redeil-city-color",
+        "name": "REDEIL City Color",
+        "slug": "redeil-city-color",
+        "businessPage": "/renta-de-iluminacion/renta-de-city-color.html",
+        "mainImage": "iluminacion-fachada-hacienda-colonial-luz-morada-evento-noche.webp",
+        "services": ["city color", "wash de color", "iluminacion fachadas", "canones LED", "uplighting"],
+        "location": "CDMX",
+        "keywords": ["city color CDMX", "renta iluminacion fachadas", "wash de color eventos", "iluminacion arquitectonica bodas"]
+      },
+      {
+        "id": "redeil-city-light",
+        "name": "REDEIL City Light",
+        "slug": "redeil-city-light",
+        "businessPage": "/renta-de-iluminacion/renta-de-city-light.html",
+        "mainImage": "iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.webp",
+        "services": ["city light", "reflectores LED", "iluminacion exterior", "luz ambiental"],
+        "location": "CDMX",
+        "keywords": ["city light renta", "reflectores LED eventos", "iluminacion exterior profesional"]
+      },
+      {
+        "id": "redeil-iluminacion-arquitectonica",
+        "name": "REDEIL Iluminacion Arquitectonica",
+        "slug": "redeil-iluminacion-arquitectonica",
+        "businessPage": "/renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html",
+        "mainImage": "iluminacion-hacienda-mexicana-arcos-piedra-luz-morada-balcon.webp",
+        "services": ["iluminacion arquitectonica", "gobos", "proyeccion", "efectos de luz"],
+        "location": "CDMX",
+        "keywords": ["iluminacion arquitectonica CDMX", "renta gobos", "proyeccion fachadas"]
+      }
+    ],
+    "bodas": [
+      {
+        "id": "redeil-bodas",
+        "name": "REDEIL Bodas",
+        "slug": "redeil-bodas",
+        "businessPage": "/tipos-de-eventos/bodas.html",
+        "mainImage": "iluminacion-salon-boda-lujo-rosa-candelabros-cristal-centros-mesa.webp",
+        "services": ["iluminacion bodas", "guirnaldas", "luz ambiental", "efectos especiales"],
+        "location": "CDMX",
+        "keywords": ["iluminacion bodas CDMX", "luces para boda", "guirnaldas bodas"]
+      }
+    ],
+    "guirnaldas": [
+      {
+        "id": "redeil-guirnaldas",
+        "name": "REDEIL Guirnaldas",
+        "slug": "redeil-guirnaldas",
+        "businessPage": "/renta-de-iluminacion/renta-de-guirnaldas.html",
+        "mainImage": "iluminacion-corredor-colonial-arcos-string-lights-evento-noche.webp",
+        "services": ["guirnaldas", "string lights", "luces colgantes", "fairy lights"],
+        "location": "CDMX",
+        "keywords": ["renta guirnaldas CDMX", "string lights eventos", "luces colgantes bodas"]
+      }
+    ],
+    "efectos-especiales": [
+      {
+        "id": "redeil-efectos",
+        "name": "REDEIL Efectos Especiales",
+        "slug": "redeil-efectos",
+        "businessPage": "/renta-de-efectos-especiales/efectos-especiales.html",
+        "mainImage": "iluminacion-fiesta-xv-anos-rosa-magenta-salon-chambelanes.webp",
+        "services": ["humo bajo", "confeti", "cascadas LED", "burbujeros"],
+        "location": "CDMX",
+        "keywords": ["efectos especiales eventos", "humo bajo bodas", "confeti XV anos"]
+      }
+    ],
+    "xv-anos": [
+      {
+        "id": "redeil-xv-anos",
+        "name": "REDEIL XV Anos",
+        "slug": "redeil-xv-anos",
+        "businessPage": "/tipos-de-eventos/xv-anos.html",
+        "mainImage": "iluminacion-quinceanera-salon-rosa-dj-pista-baile-globos.webp",
+        "services": ["iluminacion XV anos", "luces rosa", "efectos especiales", "pista de baile"],
+        "location": "CDMX",
+        "keywords": ["iluminacion XV anos CDMX", "luces quinceanera", "efectos XV anos"]
+      }
+    ],
+    "corporativos": [
+      {
+        "id": "redeil-corporativos",
+        "name": "REDEIL Corporativos",
+        "slug": "redeil-corporativos",
+        "businessPage": "/tipos-de-eventos/eventos-corporativos.html",
+        "mainImage": "iluminacion-fachada-moderna-azul-lounge-exterior-evento-corporativo.webp",
+        "services": ["iluminacion corporativa", "branding con luz", "eventos empresariales"],
+        "location": "CDMX",
+        "keywords": ["iluminacion eventos corporativos", "luz branding empresas"]
+      }
+    ]
+  },
+  "articleTypes": [
+    {
+      "id": "guia-completa",
+      "name": "Guia Completa",
+      "description": "Articulo extenso con todos los detalles del tema",
+      "minWords": 2000,
+      "maxWords": 3000
+    },
+    {
+      "id": "resena-servicio",
+      "name": "Resena de Servicio",
+      "description": "Descripcion detallada de un servicio especifico",
+      "minWords": 1500,
+      "maxWords": 2500
+    },
+    {
+      "id": "tips-consejos",
+      "name": "Tips y Consejos",
+      "description": "Lista de consejos practicos para eventos",
+      "minWords": 1200,
+      "maxWords": 2000
+    },
+    {
+      "id": "tendencias",
+      "name": "Tendencias",
+      "description": "Lo ultimo en iluminacion para eventos",
+      "minWords": 1500,
+      "maxWords": 2500
+    },
+    {
+      "id": "caso-exito",
+      "name": "Caso de Exito",
+      "description": "Historia de un evento exitoso con fotos",
+      "minWords": 1000,
+      "maxWords": 1800
+    }
+  ],
+  "images": {
+    "iluminacion-arquitectonica": [
+      "iluminacion-fachada-hacienda-colonial-luz-morada-evento-noche.webp",
+      "iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.webp",
+      "iluminacion-hacienda-mexicana-arcos-piedra-luz-morada-balcon.webp",
+      "iluminacion-fuente-turquesa-hacienda-patio-colonial-elegante.webp",
+      "iluminacion-patio-colonial-magenta-coctel-evento-corporativo.webp",
+      "iluminacion-patio-hacienda-rosa-arcos-coloniales-evento-social.webp",
+      "iluminacion-muro-piedra-textura-wash-luz-ambar-arquitectonica.webp",
+      "iluminacion-arcos-coloniales-columnas-piedra-luz-calida-boda.webp",
+      "iluminacion-arcada-hacienda-plantas-luz-ambar-evento-social.webp",
+      "iluminacion-corredor-colonial-arcos-cantera-luz-ambar-flores.webp",
+      "iluminacion-fachada-cantera-entrada-principal-luz-rosa-elegante.webp",
+      "iluminacion-fachada-moderna-azul-lounge-exterior-evento-corporativo.webp",
+      "iluminacion-contemporanea-lounge-exterior-azul-morado-faroles.webp",
+      "iluminacion-arquitectonica-moderna-azul-turquesa-terraza-lounge.webp",
+      "iluminacion-camino-hacienda-mexicana-agaves-palmeras-entrada.webp",
+      "reflector-led-par-iluminacion-muro-cantera-luz-ambar.webp",
+      "reflectores-led-par-linea-wash-ambar-iluminacion-arquitectonica.webp",
+      "tecnico-iluminacion-consola-fachada-colonial-multicolor-noche.webp"
+    ],
+    "bodas": [
+      "iluminacion-salon-boda-lujo-rosa-candelabros-cristal-centros-mesa.webp",
+      "iluminacion-salon-boda-columnas-morado-vigas-madera-elegante.webp",
+      "iluminacion-boda-hacienda-dosel-luces-fachada-rosa-flores.webp",
+      "iluminacion-boda-fachada-rosa-luces-colgantes-arboles-mesas.webp",
+      "iluminacion-boda-jardin-arboles-violeta-mesa-imperial-hacienda.webp",
+      "iluminacion-boda-lujo-rosa-columnas-pista-baile-pastel.webp",
+      "iluminacion-banquete-boda-salon-colonial-candelabros-luz-violeta.webp",
+      "iluminacion-salon-recepcion-boda-columnas-rosa-vigas-rusticas.webp",
+      "boda-exterior-hacienda-luces-string-fachada-ambar-parejas-bailando.webp",
+      "boda-hacienda-colonial-pista-baile-luces-colgantes-novia.webp",
+      "boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile.webp",
+      "iluminacion-arboles-morados-boda-exterior-mesas-velas-romantico.webp",
+      "iluminacion-recepcion-patio-colonial-rosa-invitados-elegantes.webp",
+      "iluminacion-terraza-mirador-arboles-luz-calida-cena-romantica.webp"
+    ],
+    "guirnaldas": [
+      "iluminacion-corredor-colonial-arcos-string-lights-evento-noche.webp",
+      "iluminacion-arcos-coloniales-luces-cadena-cielo-nocturno-hacienda.webp",
+      "iluminacion-evento-exterior-luces-cadena-fachada-magenta-velas.webp",
+      "boda-exterior-hacienda-luces-string-fachada-ambar-parejas-bailando.webp",
+      "boda-hacienda-colonial-pista-baile-luces-colgantes-novia.webp",
+      "iluminacion-terraza-restaurante-arboles-muro-piedra-elegante.webp"
+    ],
+    "efectos-especiales": [
+      "iluminacion-jardin-multicolor-rgb-plantas-muro-fiesta-tropical.webp",
+      "reflectores-led-rgb-multicolor-arcoiris-iluminacion-pared.webp",
+      "iluminacion-salon-gala-arcos-violeta-pista-baile-candelabros.webp",
+      "iluminacion-salon-elegante-gobo-techo-magenta-candelabros-boda.webp",
+      "iluminacion-pared-cantera-gobo-decorativo-luz-calida-eventos.webp",
+      "iluminacion-muro-textura-patron-gobo-luz-ambar-calida.webp"
+    ],
+    "xv-anos": [
+      "iluminacion-quinceanera-salon-rosa-dj-pista-baile-globos.webp",
+      "iluminacion-quince-anos-salon-rosa-dj-baile-invitados.webp",
+      "iluminacion-fiesta-xv-anos-rosa-magenta-salon-chambelanes.webp",
+      "iluminacion-salon-gala-rosa-candiles-cristal-mesas-elegantes.webp"
+    ],
+    "corporativos": [
+      "iluminacion-fachada-moderna-azul-lounge-exterior-evento-corporativo.webp",
+      "iluminacion-patio-colonial-magenta-coctel-evento-corporativo.webp",
+      "iluminacion-gala-columnas-azul-ambar-cena-formal-centros-florales.webp",
+      "iluminacion-cena-gala-columnas-azul-naranja-salon-elegante.webp",
+      "iluminacion-salon-gala-columnas-azul-piso-marmol-elegante.webp"
+    ],
+    "arboles-jardines": [
+      "iluminacion-arbol-centenario-verde-jardin-boda-luces-decorativas.webp",
+      "iluminacion-arbol-grande-hacienda-jardin-evento-nocturno-verde.webp",
+      "iluminacion-arbol-majestuoso-uplighting-verde-hacienda-colonial.webp",
+      "iluminacion-palmeras-jardin-tropical-luz-nocturna-eventos.webp",
+      "iluminacion-palmeras-paseo-jardin-elegante-evento-noche.webp",
+      "iluminacion-jardin-mexicano-papel-picado-colores-fiesta-tradicional.webp"
+    ],
+    "equipos-tecnicos": [
+      "equipo-reflectores-led-wash-calido-instalacion-profesional.webp",
+      "reflector-led-par-morado-ajuste-tecnico-iluminacion-fachada.webp",
+      "reflector-led-violeta-equipo-iluminacion-arquitectonica-profesional.webp",
+      "reflectores-led-par-fila-cables-iluminacion-profesional-ambar.webp",
+      "instalacion-equipo-iluminacion-truss-tecnicos-salon-eventos.webp",
+      "montaje-iluminacion-salon-torres-truss-tecnicos-profesionales.webp",
+      "operador-consola-dmx-iluminacion-fachada-multicolor-rgb.webp",
+      "tecnico-control-dmx-reflector-led-rgb-multicolor-fachada.webp",
+      "tecnico-instalacion-iluminacion-multicolor-fachada-rgb-evento.webp",
+      "tecnico-instalacion-reflector-led-fachada-colonial-eventos.webp",
+      "tecnico-instalando-reflectores-led-hacienda-iluminacion-profesional.webp"
+    ]
+  },
+  "templates": {
+    "articlePath": "/blog/{categorySlug}/{articleSlug}.html",
+    "imagePath": "/img/img-{categorySlug}/{imageName}",
+    "cardMarker": "<!-- n8n:INSERT-NEW-CARDS-HERE -->"
+  },
+  "seo": {
+    "defaultKeywords": ["renta iluminacion CDMX", "iluminacion eventos", "luces para fiestas", "REDEIL"],
+    "maxTitleLength": 70,
+    "metaDescriptionLength": { "min": 150, "max": 160 }
+  },
+  "workflow": {
+    "scheduleInterval": "every 3 days",
+    "notifyOnSuccess": true,
+    "notifyOnError": true,
+    "maxArticlesPerCategory": 50
+  }
+}
