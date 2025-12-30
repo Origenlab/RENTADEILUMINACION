@@ -6,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <title>Nosotros | REDEIL - Más de 30 Años de Experiencia en Iluminación Profesional</title>
-  <meta name="description" content="Conoce REDEIL: más de 30 años transformando eventos en experiencias inolvidables. Líderes en renta de iluminacion profesional en CDMX y Estado de México. Historia, misión, visión y equipo.">
+  <title>Nosotros | REDEIL - 30 Años de Experiencia</title>
+  <meta name="description" content="REDEIL: más de 30 años en renta de iluminación profesional en CDMX. Conoce nuestra historia, misión y equipo.">
   <meta name="keywords" content="REDEIL empresa, iluminacion profesional CDMX, historia REDEIL, equipo iluminacion eventos, renta iluminacion México">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://rentadeiluminacion.com/nosotros/">
+  <link rel="canonical" href="https://rentadeiluminacion.com/nosotros.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rentadeiluminacion.com/nosotros/">
+  <meta property="og:url" content="https://rentadeiluminacion.com/nosotros.html">
   <meta property="og:title" content="Nosotros | REDEIL - Más de 30 Años de Experiencia">
   <meta property="og:description" content="Conoce REDEIL: más de 30 años transformando eventos en experiencias inolvidables. Líderes en iluminacion profesional.">
   <meta property="og:image" content="https://rentadeiluminacion.com/img/og/og-nosotros-redeil.webp">
@@ -728,7 +728,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -877,6 +877,27 @@
 
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

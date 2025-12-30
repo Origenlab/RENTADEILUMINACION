@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <title>Renta de Iluminación en Tlalpan | Bodas en Jardín y Eventos al Aire Libre | REDEIL</title>
-  <meta name="description" content="Renta de iluminacion profesional para eventos en Tlalpan. Bodas en jardín, haciendas campestres, eventos en el Bosque de Tlalpan. Naturaleza y espacios verdes. Instalación incluida.">
+  <title>Renta de Iluminación en Tlalpan CDMX | REDEIL</title>
+  <meta name="description" content="Renta de iluminación para eventos en Tlalpan. Bodas en jardín, haciendas, Bosque de Tlalpan. Instalación incluida.">
   <meta name="keywords" content="renta iluminacion Tlalpan, luces eventos Tlalpan, iluminacion bodas jardín Tlalpan, eventos Bosque Tlalpan, iluminacion haciendas Tlalpan, luces quintas campestres, eventos aire libre CDMX">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -66,7 +66,7 @@
           "@type": "LocalBusiness",
           "name": "REDEIL - Renta de Iluminación Profesional",
           "telephone": "+52-55-3068-2988",
-          "email": "hola@rentadeiluminacion.com",
+          "email": "contacto[arroba]rentadeiluminacion.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Tlalpan",
@@ -1040,7 +1040,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1191,7 +1191,28 @@
   <!-- ============================================
        SCRIPTS
        ============================================ -->
-  <script src="../js/main.js" defer></script>
+  <script src="../js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

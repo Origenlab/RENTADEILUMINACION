@@ -7,15 +7,15 @@
 
   <!-- SEO Meta Tags -->
   <title>Servicios de Iluminación para Eventos | REDEIL CDMX</title>
-  <meta name="description" content="Servicios profesionales de iluminacion para bodas, XV años, eventos corporativos y fiestas en CDMX. Renta de guirnaldas LED, sky tracker, cabezas móviles y más. Instalación incluida.">
+  <meta name="description" content="Servicios de iluminación para bodas, XV años y eventos en CDMX. Guirnaldas, sky tracker, cabezas móviles. Instalación incluida.">
   <meta name="keywords" content="servicios iluminacion eventos, renta luces bodas CDMX, iluminacion XV años, luces eventos corporativos, guirnaldas LED renta">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://rentadeiluminacion.com/servicios/">
+  <link rel="canonical" href="https://rentadeiluminacion.com/servicios.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rentadeiluminacion.com/servicios/">
+  <meta property="og:url" content="https://rentadeiluminacion.com/servicios.html">
   <meta property="og:title" content="Servicios de Iluminación para Eventos | REDEIL CDMX">
   <meta property="og:description" content="Servicios profesionales de iluminacion para bodas, XV años, eventos corporativos y fiestas. Instalación incluida.">
   <meta property="og:image" content="https://rentadeiluminacion.com/img/og/og-servicios-redeil.webp">
@@ -64,7 +64,7 @@
       "@type": "LocalBusiness",
       "name": "REDEIL - Renta de Iluminación Profesional",
       "telephone": "+52-55-3068-2988",
-      "email": "hola@rentadeiluminacion.com"
+      "email": "contacto[arroba]rentadeiluminacion.com"
     },
     "areaServed": [
       {"@type": "City", "name": "Ciudad de México"},
@@ -1285,7 +1285,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <div>
                   <strong>Email</strong>
-                  <p><a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a></p>
+                  <p><a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a></p>
                 </div>
               </div>
 
@@ -1366,7 +1366,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1521,6 +1521,27 @@
 
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

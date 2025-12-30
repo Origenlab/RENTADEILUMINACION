@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Renta de Luz Negra para Fiestas en CDMX | Cañones UV | REDEIL</title>
-  <meta name="description" content="Renta de luz negra y cañones UV para fiestas glow, Halloween y eventos neon en CDMX. Iluminación ultravioleta profesional que hace brillar colores fluorescentes. Cotiza hoy.">
+  <meta name="description" content="Renta de luz negra y cañones UV para fiestas glow y Halloween en CDMX. Iluminación ultravioleta profesional.">
   <meta name="keywords" content="renta luz negra CDMX, cañones UV fiesta, luz ultravioleta eventos, fiesta glow CDMX, luz negra Halloween, renta UV profesional, iluminacion fluorescente, fiesta neon luz negra">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -916,7 +916,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1100,6 +1100,27 @@
 
       window.open(`https://wa.me/525530682988?text=${mensaje}`, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

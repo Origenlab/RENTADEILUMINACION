@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Renta de Máquina de Humo para Eventos en CDMX | Fog Machine | REDEIL</title>
-  <meta name="description" content="Renta de maquinas de humo profesionales para eventos en CDMX. Fog machines de 700W a 3000W, hazers, geysers LED y efectos CO2. Realza tu iluminacion. Cotiza hoy.">
+  <meta name="description" content="Renta de máquinas de humo para eventos en CDMX. Fog machines, hazers, geysers LED y efectos CO2.">
   <meta name="keywords" content="renta maquina de humo CDMX, fog machine eventos Mexico, humo para fiestas bodas, hazer profesional renta, geyser LED humo, efectos especiales humo eventos">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -944,7 +944,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1159,6 +1159,27 @@
 
       window.open(`https://wa.me/525530682988?text=${mensajeWA}`, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

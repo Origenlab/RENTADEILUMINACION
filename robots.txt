@@ -2,4 +2,7 @@
 
 # Allow crawling of all content
 User-agent: *
-Disallow:
+Disallow: /404.html
+
+# Sitemap
+Sitemap: https://rentadeiluminacion.com/sitemap.xml

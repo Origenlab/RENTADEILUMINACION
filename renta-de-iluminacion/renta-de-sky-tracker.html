@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <title>Renta de Sky Tracker para Eventos en CDMX | Haces de Luz al Cielo | REDEIL</title>
-  <meta name="description" content="Renta de Sky Tracker y cañones de luz xenon para XV anos, inauguraciones y eventos en CDMX. Haces de luz visibles a kilometros. Potencias de 2000W a 7000W. Cotiza hoy.">
+  <title>Renta de Sky Tracker Eventos CDMX | REDEIL</title>
+  <meta name="description" content="Renta de Sky Tracker para XV años e inauguraciones en CDMX. Haces de luz visibles a kilómetros. Cotiza hoy.">
   <meta name="keywords" content="renta sky tracker CDMX, cañones de luz al cielo, haz de luz eventos, sky tracker XV anos, luz xenon inauguraciones, searchlight renta, sky rose eventos, sky beam CDMX">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -1004,7 +1004,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1188,6 +1188,27 @@
 
       window.open(`https://wa.me/525530682988?text=${mensaje}`, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Guirnaldas con Focos Edison: Iluminacion Perfecta para Bodas y Eventos en CDMX | REDEIL</title>
-    <meta name="description" content="Descubre como las guirnaldas con focos Edison transforman bodas y eventos en experiencias magicas. Renta profesional con instalacion incluida en CDMX y Estado de Mexico.">
+    <title>Guirnaldas Focos Edison para Bodas CDMX | REDEIL</title>
+    <meta name="description" content="Guirnaldas con focos Edison para bodas y eventos en CDMX. Renta profesional con instalación incluida.">
     <meta name="keywords" content="guirnaldas focos edison, renta guirnaldas bodas, iluminacion eventos CDMX, focos vintage eventos, luces decorativas bodas, guirnaldas para fiestas, renta iluminacion profesional">
     <meta name="author" content="REDEIL - Renta de Iluminacion Profesional">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -1623,7 +1623,7 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             55 3068 2988
                         </a>
-                        <a href="mailto:hola@rentadeiluminacion.com" class="contact-info-item">
+                        <a href="#" class="email-link contact-info-item" data-u="hola" data-d="rentadeiluminacion.com">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             hola@rentadeiluminacion.com
                         </a>
@@ -1682,7 +1682,7 @@
                         </div>
                         <div class="contact-item-new">
                             <strong>Email</strong>
-                            <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+                            <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
                         </div>
                         <div class="contact-item-new">
                             <strong>Horario</strong>
@@ -1855,5 +1855,26 @@
             });
         });
     </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 </html>

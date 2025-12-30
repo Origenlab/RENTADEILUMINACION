@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Renta de Proyector de Gobos en CDMX | Logos y Monogramas | REDEIL</title>
-  <meta name="description" content="Renta de proyector de gobos para bodas y eventos en CDMX. Proyeccion de logos, nombres y monogramas personalizados en paredes y pisos. Gobos de metal y vidrio. Cotiza hoy.">
+  <meta name="description" content="Renta de proyector de gobos para bodas en CDMX. Proyección de logos y monogramas en paredes. Gobos personalizados.">
   <meta name="keywords" content="renta de proyector de gobos CDMX, proyección de logos eventos, gobos personalizados bodas, monogramas luz boda, proyector de logotipos, gobos de vidrio, gobos de metal, iluminacion personalizada eventos">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -932,7 +932,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1116,6 +1116,27 @@
 
       window.open(`https://wa.me/525530682988?text=${mensaje}`, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Renta de Iluminación en Santa Fe | Corporativos y Eventos | REDEIL</title>
-  <meta name="description" content="Renta de iluminacion profesional para eventos en Santa Fe CDMX. Corporativos, lanzamientos de producto, bodas y eventos sociales. Torres corporativas, Centro Santa Fe. Instalación incluida.">
+  <meta name="description" content="Renta de iluminación para eventos en Santa Fe CDMX. Corporativos, bodas, Centro Santa Fe. Instalación incluida.">
   <meta name="keywords" content="renta iluminacion Santa Fe, luces eventos Santa Fe, iluminacion corporativos Santa Fe, eventos empresariales Santa Fe, iluminacion Centro Santa Fe, luces bodas Santa Fe CDMX">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -66,7 +66,7 @@
           "@type": "LocalBusiness",
           "name": "REDEIL - Renta de Iluminación Profesional",
           "telephone": "+52-55-3068-2988",
-          "email": "hola@rentadeiluminacion.com",
+          "email": "contacto[arroba]rentadeiluminacion.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Santa Fe",
@@ -1037,7 +1037,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1184,7 +1184,28 @@
   </a>
 
   <!-- Scripts -->
-  <script src="../js/main.js" defer></script>
+  <script src="../js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Contacto | REDEIL - Renta de Iluminación Profesional CDMX</title>
-  <meta name="description" content="Contacta a REDEIL para cotizar iluminacion profesional para tu evento. Atención inmediata por WhatsApp. Más de 30 años de experiencia en CDMX y Estado de México.">
+  <meta name="description" content="Contacta a REDEIL para cotizar iluminación para tu evento. Atención por WhatsApp. 30 años de experiencia.">
   <meta name="keywords" content="contacto REDEIL, cotizar iluminacion eventos, renta iluminacion CDMX, teléfono REDEIL, WhatsApp iluminacion eventos">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -66,7 +66,7 @@
       "@type": "Organization",
       "name": "REDEIL - Renta de Iluminación Profesional",
       "telephone": "+52-55-3068-2988",
-      "email": "hola@rentadeiluminacion.com",
+      "email": "contacto[arroba]rentadeiluminacion.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Río Amazonas 74B, Col. Renacimiento",
@@ -371,7 +371,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <div>
                   <strong>Email</strong>
-                  <p><a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a></p>
+                  <p><a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a></p>
                 </div>
               </div>
 
@@ -587,7 +587,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -789,6 +789,27 @@
       const whatsappURL = `https://wa.me/525530682988?text=${encodedMessage}`;
       window.open(whatsappURL, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

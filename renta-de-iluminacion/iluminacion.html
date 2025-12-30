@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <title>Renta de Iluminación para Eventos en CDMX | Guirnaldas, Sky Tracker, Cabezas Móviles | REDEIL</title>
-  <meta name="description" content="Renta de iluminacion profesional para bodas, XV años y eventos en CDMX. Guirnaldas LED, luces neón, sky tracker, cabezas móviles, gobos. Instalación incluida. Cotiza hoy.">
+  <title>Renta de Iluminación para Eventos en CDMX | REDEIL</title>
+  <meta name="description" content="Renta de iluminación para bodas y eventos en CDMX. Guirnaldas, sky tracker, cabezas móviles, gobos. Instalación incluida.">
   <meta name="keywords" content="renta iluminacion CDMX, luces para eventos, guirnaldas LED, sky tracker, cabezas móviles, luces neón, iluminacion bodas, luz negra fiestas">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -1031,7 +1031,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1180,6 +1180,27 @@
 
   <!-- Scripts -->
   <script src="../js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

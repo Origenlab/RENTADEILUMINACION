@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Renta de Bocinas para Bodas CDMX | Sonido Profesional JBL QSC | REDEIL</title>
-  <meta name="description" content="Renta de bocinas para bodas en CDMX. Sistemas de audio JBL y QSC para ceremonia y recepcion. Microfonos inalambricos Shure incluidos. Instalación profesional. Cotiza hoy.">
+  <meta name="description" content="Renta de bocinas para bodas en CDMX. Audio JBL y QSC para ceremonia y recepción. Micrófonos incluidos.">
   <meta name="keywords" content="renta bocinas bodas CDMX, sonido para bodas, bocinas ceremonia boda, audio recepcion boda, microfonos inalambricos boda, sistema sonido boda, renta audio bodas Mexico, bocinas JBL bodas, QSC bodas">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -933,7 +933,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1138,6 +1138,27 @@
       // Abrir WhatsApp
       window.open(`https://wa.me/525530682988?text=${mensajeWA}`, '_blank');
     });
+  </script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
   </script>
 </body>
 

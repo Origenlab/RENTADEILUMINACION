@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <title>Renta de Iluminación en Xochimilco | Bodas y Eventos Tradicionales | REDEIL</title>
-  <meta name="description" content="Renta de iluminacion profesional para eventos en Xochimilco. Bodas en trajineras, eventos en chinampas, haciendas tradicionales. Patrimonio de la Humanidad. Instalación incluida.">
+  <title>Renta de Iluminación en Xochimilco | REDEIL</title>
+  <meta name="description" content="Renta de iluminación para eventos en Xochimilco. Bodas en trajineras, chinampas, haciendas. Instalación incluida.">
   <meta name="keywords" content="renta iluminacion Xochimilco, luces eventos Xochimilco, iluminacion bodas trajineras, eventos chinampas Xochimilco, iluminacion haciendas Xochimilco, luces embarcaderos CDMX, eventos tradicionales mexicanos">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -66,7 +66,7 @@
           "@type": "LocalBusiness",
           "name": "REDEIL - Renta de Iluminación Profesional",
           "telephone": "+52-55-3068-2988",
-          "email": "hola@rentadeiluminacion.com",
+          "email": "contacto[arroba]rentadeiluminacion.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Xochimilco",
@@ -1037,7 +1037,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -1188,7 +1188,28 @@
   <!-- ============================================
        SCRIPTS
        ============================================ -->
-  <script src="../js/main.js" defer></script>
+  <script src="../js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>

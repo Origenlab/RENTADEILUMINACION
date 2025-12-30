@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <title>Blog | REDEIL - Consejos de Iluminación para Eventos, Bodas y Fiestas</title>
-  <meta name="description" content="Descubre las últimas tendencias en iluminacion para eventos, consejos para bodas, XV años y fiestas. Guías profesionales de REDEIL con más de 30 años de experiencia.">
+  <meta name="description" content="Tendencias en iluminación para eventos, bodas y fiestas. Guías profesionales de REDEIL con 30 años de experiencia.">
   <meta name="keywords" content="blog iluminacion eventos, tendencias iluminacion bodas, consejos iluminacion fiestas, ideas decoración luz, REDEIL blog">
   <meta name="author" content="REDEIL">
   <meta name="robots" content="index, follow">
@@ -367,30 +367,30 @@
               </h3>
               <div class="popular-posts">
                 <article class="popular-post">
-                  <a href="blog/guia-iluminacion-arquitectonica-eventos.html" class="popular-post-image">
-                    <img src="img/city-color/iluminacion-rgbw-eventos-especiales.webp" alt="Guía iluminacion arquitectonica City Color" loading="lazy" width="400" height="300">
+                  <a href="blog/guirnaldas-focos-edison-eventos-cdmx.html" class="popular-post-image">
+                    <img src="img/city-color/iluminacion-rgbw-eventos-especiales.webp" alt="Guirnaldas con Focos Edison para Eventos" loading="lazy" width="400" height="300">
                     <span class="popular-rank">1</span>
                   </a>
                   <div class="popular-post-content">
-                    <h4><a href="blog/guia-iluminacion-arquitectonica-eventos.html">Guía de Iluminación Arquitectónica y City Color</a></h4>
+                    <h4><a href="blog/guirnaldas-focos-edison-eventos-cdmx.html">Guirnaldas con Focos Edison para Eventos en CDMX</a></h4>
                   </div>
                 </article>
                 <article class="popular-post">
-                  <a href="blog/guia-renta-guirnaldas-cdmx.html" class="popular-post-image">
-                    <img src="img/guirnaldas/renta-guirnaldas-iluminacion-fiestas-06.webp" alt="Guía renta guirnaldas CDMX" loading="lazy" width="400" height="300">
+                  <a href="blog/guirnaldas-para-bodas-cdmx.html" class="popular-post-image">
+                    <img src="img/guirnaldas/renta-guirnaldas-iluminacion-fiestas-06.webp" alt="Guirnaldas para Bodas en CDMX" loading="lazy" width="400" height="300">
                     <span class="popular-rank">2</span>
                   </a>
                   <div class="popular-post-content">
-                    <h4><a href="blog/guia-renta-guirnaldas-cdmx.html">Guía de Renta de Guirnaldas en CDMX</a></h4>
+                    <h4><a href="blog/guirnaldas-para-bodas-cdmx.html">Guirnaldas para Bodas en CDMX</a></h4>
                   </div>
                 </article>
                 <article class="popular-post">
-                  <a href="blog/guia-iluminacion-bodas.html" class="popular-post-image">
-                    <img src="img/guirnaldas/renta-guirnaldas-hacienda-colonial-31.webp" alt="Guía iluminacion bodas" loading="lazy" width="400" height="300">
+                  <a href="blog/guirnaldas-bodas-cdmx-iluminacion-perfecta.html" class="popular-post-image">
+                    <img src="img/guirnaldas/renta-guirnaldas-hacienda-colonial-31.webp" alt="Iluminación Perfecta para Bodas" loading="lazy" width="400" height="300">
                     <span class="popular-rank">3</span>
                   </a>
                   <div class="popular-post-content">
-                    <h4><a href="blog/guia-iluminacion-bodas.html">Guía Completa de Iluminación para Bodas</a></h4>
+                    <h4><a href="blog/guirnaldas-bodas-cdmx-iluminacion-perfecta.html">Iluminación Perfecta para Bodas en CDMX</a></h4>
                   </div>
                 </article>
                               </div>
@@ -560,7 +560,7 @@
             </div>
             <div class="contact-item-new">
               <strong>Email</strong>
-              <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+              <a href="#" class="email-link" data-u="hola" data-d="rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
             </div>
             <div class="contact-item-new">
               <strong>Horario</strong>
@@ -713,6 +713,27 @@
 
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
+
+  <!-- Email Decoder -->
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Decodificar enlaces de email
+    document.querySelectorAll('.email-link').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d){
+        var e=u+'@'+d;
+        el.href='mailto:'+e;
+        if(!el.textContent||el.textContent==='')el.textContent=e;
+        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+      }
+    });
+    // Decodificar textos de email
+    document.querySelectorAll('.email-text').forEach(function(el){
+      var u=el.dataset.u,d=el.dataset.d;
+      if(u&&d)el.textContent=u+'@'+d;
+    });
+  });
+  </script>
 </body>
 
 </html>
