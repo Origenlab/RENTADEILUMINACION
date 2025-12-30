@@ -1526,13 +1526,27 @@
   <!-- Scripts -->
   <script src="js/app.js" defer></script>
 
-  <!-- Google Analytics 4 (Placeholder - Replace with actual ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google Analytics 4 - Lazy loaded after page interaction -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+
+    function loadGA() {
+      if (window.gaLoaded) return;
+      window.gaLoaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      s.async = true;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    }
+
+    // Load GA after user interaction or after 3 seconds
+    ['scroll', 'click', 'touchstart', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, loadGA, {once: true, passive: true});
+    });
+    setTimeout(loadGA, 3000);
   </script>
 
 </body>
