@@ -41,11 +41,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Preload critical fonts to break dependency chain -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+  <!-- Fonts - non-blocking -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical CSS inline -->
+  <style>:root{--color-primary:#ff5722;--color-primary-dark:#e64a19;--color-secondary:#1a1a2e;--color-white:#ffffff;--color-gray-100:#f8f9fa;--color-gray-200:#e9ecef;--color-gray-600:#6c757d;--color-gray-800:#343a40;--color-whatsapp:#25d366;--font-primary:'Montserrat',sans-serif;--font-secondary:'Open Sans',sans-serif;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--radius-md:0.5rem;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);--transition-fast:150ms ease;--container-max:1200px;--container-padding:1.5rem;--header-height:100px}*,*::before,*::after{box-sizing:border-box}html{font-size:16px;-webkit-font-smoothing:antialiased}body{margin:0;padding:0;font-family:var(--font-secondary);font-size:var(--text-base);line-height:1.6;color:var(--color-gray-800);background:var(--color-white)}h1,h2,h3{font-family:var(--font-primary);font-weight:700;line-height:1.2;margin:0 0 var(--space-4);color:var(--color-secondary)}h1{font-size:var(--text-4xl)}h2{font-size:var(--text-3xl)}a{color:var(--color-primary);text-decoration:none}img{max-width:100%;height:auto;display:block}ul,ol{margin:0;padding:0;list-style:none}.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;border:2px solid transparent;border-radius:var(--radius-md);cursor:pointer;text-decoration:none}.btn-primary{background:linear-gradient(135deg,#ff5722 0%,#ff6f3c 100%);color:var(--color-white);border-color:var(--color-primary);box-shadow:0 4px 15px rgba(255,87,34,0.4)}.btn-whatsapp{background:var(--color-whatsapp);color:var(--color-white);border-color:var(--color-whatsapp)}.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:var(--color-white);z-index:1000;box-shadow:var(--shadow-sm)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-height);gap:var(--space-6)}.logo img{height:75px;width:auto}.main-nav{display:flex;align-items:center}.nav-menu{display:flex;align-items:center;gap:var(--space-2)}.nav-menu>li>a{display:block;padding:var(--space-3) var(--space-4);color:var(--color-gray-800);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:500}.nav-toggle{display:none}.breadcrumb-section{background:var(--color-gray-100);border-bottom:1px solid var(--color-gray-200);padding:var(--space-3) 0;margin-top:var(--header-height)}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--header-height) + var(--space-8)) 0 var(--space-16);overflow:hidden}.breadcrumb-section+main .hero,.breadcrumb-section+.hero{padding-top:0}.hero-bg{position:absolute;inset:0;z-index:-1}.hero-bg img{width:100%;height:100%;object-fit:cover}.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:var(--space-8)}.hero-title{font-size:clamp(2rem,5vw,3.5rem);color:var(--color-white);margin-bottom:var(--space-4);text-shadow:2px 2px 4px rgba(0,0,0,0.3)}.hero-subtitle{font-size:var(--text-xl);color:rgba(255,255,255,0.9);margin-bottom:var(--space-8)}.hero-cta{display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap}@media(max-width:768px){.nav-menu{display:none}.nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:var(--space-2)}.hamburger{display:block;width:24px;height:2px;background:var(--color-gray-800);position:relative}.hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:24px;height:2px;background:var(--color-gray-800)}.hamburger::before{top:-7px}.hamburger::after{bottom:-7px}.hero{min-height:70vh}.hero-title{font-size:var(--text-3xl)}}</style>
+
+  <!-- Full CSS - non-blocking -->
+  <link rel="stylesheet" href="../css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/style.min.css"></noscript>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -175,7 +184,7 @@
       <div class="header-inner">
         <!-- Logo -->
         <a href="https://rentadeiluminacion.com/" class="logo" aria-label="REDEIL - Inicio">
-          <img src="../img/logo-redeil.webp" alt="REDEIL - Renta de Iluminación" width="180" height="60" loading="eager">
+          <img src="../img/logo-redeil.webp" alt="REDEIL - Renta de Iluminación" width="400" height="125" loading="eager">
         </a>
 
         <!-- Navigation -->
@@ -285,7 +294,7 @@
       <div class="hero-background">
         <picture>
           <source srcset="../img/hero/hero-humo-bajo.webp" type="image/webp">
-          <img src="../img/hero/hero-humo-bajo.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+          <img src="../img/hero/hero-humo-bajo.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high" width="1920" height="1080">
         </picture>
         <div class="hero-overlay"></div>
       </div>
@@ -330,7 +339,7 @@
           <!-- Máquina Compacta 700W -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo compacta 700W con enfriador" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo compacta 700W con enfriador" loading="lazy" width="400" height="300">
             </div>
             <div class="info-card-content">
               <h3>Compacta 700W con Enfriador</h3>
@@ -352,7 +361,7 @@
           <!-- Máquina 1000W Antari ICE-101 -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Antari ICE-101 1000W" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Antari ICE-101 1000W" loading="lazy" width="400" height="300">
               <span class="info-card-badge badge-popular">Popular</span>
             </div>
             <div class="info-card-content">
@@ -375,7 +384,7 @@
           <!-- Chauvet Nimbus 3000W -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Chauvet Nimbus 3000W" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Chauvet Nimbus 3000W" loading="lazy" width="400" height="300">
               <span class="info-card-badge badge-premium">Premium</span>
             </div>
             <div class="info-card-content">
@@ -398,7 +407,7 @@
           <!-- Máquina 3500W Alta Capacidad -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo 3500W alta capacidad" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo 3500W alta capacidad" loading="lazy" width="400" height="300">
             </div>
             <div class="info-card-content">
               <h3>Alta Capacidad 3500W</h3>
@@ -420,7 +429,7 @@
           <!-- Stratus 4 Road Case -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Rasha Stratus 4 con road case" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Máquina de humo bajo Rasha Stratus 4 con road case" loading="lazy" width="400" height="300">
               <span class="info-card-badge badge-premium">Road Case</span>
             </div>
             <div class="info-card-content">
@@ -443,7 +452,7 @@
           <!-- Sistema Sin Hielo Seco -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Sistema de humo bajo sin hielo seco Aqua Fogger" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Sistema de humo bajo sin hielo seco Aqua Fogger" loading="lazy" width="400" height="300">
               <span class="info-card-badge">Sin CO2</span>
             </div>
             <div class="info-card-content">
@@ -466,7 +475,7 @@
           <!-- Sistema Dual 2 Máquinas -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Sistema dual de humo bajo con dos maquinas" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Sistema dual de humo bajo con dos maquinas" loading="lazy" width="400" height="300">
             </div>
             <div class="info-card-content">
               <h3>Sistema Dual 2 Máquinas</h3>
@@ -488,7 +497,7 @@
           <!-- Paquete Boda Romantica -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Paquete humo bajo boda romantica con iluminacion" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Paquete humo bajo boda romantica con iluminacion" loading="lazy" width="400" height="300">
               <span class="info-card-badge badge-popular">Paquete</span>
             </div>
             <div class="info-card-content">
@@ -511,7 +520,7 @@
           <!-- Paquete XV Años -->
           <article class="info-card">
             <div class="info-card-image">
-              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Paquete humo bajo XV años vals con chambelanes" loading="lazy">
+              <img src="../img/humo-bajo/humo-bajo-primer-baile-boda-romantico.webp" alt="Paquete humo bajo XV años vals con chambelanes" loading="lazy" width="400" height="300">
               <span class="info-card-badge badge-popular">XV Años</span>
             </div>
             <div class="info-card-content">
@@ -626,28 +635,28 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-01.webp" alt="Primer baile de novios con humo bajo en salón" loading="lazy">
+            <img src="../img/galeria/humo-bajo-01.webp" alt="Primer baile de novios con humo bajo en salón" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-02.webp" alt="Vals de XV años con humo bajo y chambelanes" loading="lazy">
+            <img src="../img/galeria/humo-bajo-02.webp" alt="Vals de XV años con humo bajo y chambelanes" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-03.webp" alt="Entrada de quinceañera con efecto dancing on a cloud" loading="lazy">
+            <img src="../img/galeria/humo-bajo-03.webp" alt="Entrada de quinceañera con efecto dancing on a cloud" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-04.webp" alt="Boda en jardin con humo bajo al atardecer" loading="lazy">
+            <img src="../img/galeria/humo-bajo-04.webp" alt="Boda en jardin con humo bajo al atardecer" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-05.webp" alt="Novios bailando sobre nubes con iluminacion calida" loading="lazy">
+            <img src="../img/galeria/humo-bajo-05.webp" alt="Novios bailando sobre nubes con iluminacion calida" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-06.webp" alt="Sistema dual de humo bajo en pista grande" loading="lazy">
+            <img src="../img/galeria/humo-bajo-06.webp" alt="Sistema dual de humo bajo en pista grande" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-07.webp" alt="Brindis con humo bajo en recepcion de boda" loading="lazy">
+            <img src="../img/galeria/humo-bajo-07.webp" alt="Brindis con humo bajo en recepcion de boda" loading="lazy" width="400" height="300">
           </figure>
           <figure class="gallery-item">
-            <img src="../img/galeria/humo-bajo-08.webp" alt="Ceremonia civil con humo bajo en pasillo" loading="lazy">
+            <img src="../img/galeria/humo-bajo-08.webp" alt="Ceremonia civil con humo bajo en pasillo" loading="lazy" width="400" height="300">
           </figure>
         </div>
       </div>

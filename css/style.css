@@ -526,6 +526,12 @@ address {
   overflow: hidden;
 }
 
+/* Hero después de breadcrumb - sin padding-top extra */
+.breadcrumb-section + main .hero,
+.breadcrumb-section + .hero {
+  padding-top: 0;
+}
+
 .hero-two-columns .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

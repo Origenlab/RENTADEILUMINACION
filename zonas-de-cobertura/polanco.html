@@ -39,11 +39,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Preload critical fonts to break dependency chain -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+  <!-- Fonts - non-blocking -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical CSS inline -->
+  <style>:root{--color-primary:#ff5722;--color-primary-dark:#e64a19;--color-secondary:#1a1a2e;--color-white:#ffffff;--color-gray-100:#f8f9fa;--color-gray-200:#e9ecef;--color-gray-600:#6c757d;--color-gray-800:#343a40;--color-whatsapp:#25d366;--font-primary:'Montserrat',sans-serif;--font-secondary:'Open Sans',sans-serif;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--radius-md:0.5rem;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);--transition-fast:150ms ease;--container-max:1200px;--container-padding:1.5rem;--header-height:100px}*,*::before,*::after{box-sizing:border-box}html{font-size:16px;-webkit-font-smoothing:antialiased}body{margin:0;padding:0;font-family:var(--font-secondary);font-size:var(--text-base);line-height:1.6;color:var(--color-gray-800);background:var(--color-white)}h1,h2,h3{font-family:var(--font-primary);font-weight:700;line-height:1.2;margin:0 0 var(--space-4);color:var(--color-secondary)}h1{font-size:var(--text-4xl)}h2{font-size:var(--text-3xl)}a{color:var(--color-primary);text-decoration:none}img{max-width:100%;height:auto;display:block}ul,ol{margin:0;padding:0;list-style:none}.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;border:2px solid transparent;border-radius:var(--radius-md);cursor:pointer;text-decoration:none}.btn-primary{background:linear-gradient(135deg,#ff5722 0%,#ff6f3c 100%);color:var(--color-white);border-color:var(--color-primary);box-shadow:0 4px 15px rgba(255,87,34,0.4)}.btn-whatsapp{background:var(--color-whatsapp);color:var(--color-white);border-color:var(--color-whatsapp)}.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:var(--color-white);z-index:1000;box-shadow:var(--shadow-sm)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-height);gap:var(--space-6)}.logo img{height:75px;width:auto}.main-nav{display:flex;align-items:center}.nav-menu{display:flex;align-items:center;gap:var(--space-2)}.nav-menu>li>a{display:block;padding:var(--space-3) var(--space-4);color:var(--color-gray-800);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:500}.nav-toggle{display:none}.breadcrumb-section{background:var(--color-gray-100);border-bottom:1px solid var(--color-gray-200);padding:var(--space-3) 0;margin-top:var(--header-height)}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--header-height) + var(--space-8)) 0 var(--space-16);overflow:hidden}.breadcrumb-section+main .hero,.breadcrumb-section+.hero{padding-top:0}.hero-bg{position:absolute;inset:0;z-index:-1}.hero-bg img{width:100%;height:100%;object-fit:cover}.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:var(--space-8)}.hero-title{font-size:clamp(2rem,5vw,3.5rem);color:var(--color-white);margin-bottom:var(--space-4);text-shadow:2px 2px 4px rgba(0,0,0,0.3)}.hero-subtitle{font-size:var(--text-xl);color:rgba(255,255,255,0.9);margin-bottom:var(--space-8)}.hero-cta{display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap}@media(max-width:768px){.nav-menu{display:none}.nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:var(--space-2)}.hamburger{display:block;width:24px;height:2px;background:var(--color-gray-800);position:relative}.hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:24px;height:2px;background:var(--color-gray-800)}.hamburger::before{top:-7px}.hamburger::after{bottom:-7px}.hero{min-height:70vh}.hero-title{font-size:var(--text-3xl)}}</style>
+
+  <!-- Full CSS - non-blocking -->
+  <link rel="stylesheet" href="../css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../css/style.min.css"></noscript>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -117,7 +126,7 @@
       <div class="header-inner">
         <!-- Logo -->
         <a href="https://rentadeiluminacion.com/" class="logo" aria-label="REDEIL - Inicio">
-          <img src="../img/logo-redeil.webp" alt="REDEIL - Renta de Iluminación" width="180" height="60" loading="eager">
+          <img src="../img/logo-redeil.webp" alt="REDEIL - Renta de Iluminación" width="400" height="125" loading="eager">
         </a>
 
         <!-- Navigation -->
@@ -185,7 +194,7 @@
       <div class="hero-background">
         <picture>
           <source srcset="../img/zonas/polanco-hero.webp" type="image/webp">
-          <img src="../img/zonas/polanco-hero.webp" alt="Iluminación profesional para eventos en Polanco CDMX" aria-hidden="true" loading="eager" fetchpriority="high">
+          <img src="../img/zonas/polanco-hero.webp" alt="Iluminación profesional para eventos en Polanco CDMX" aria-hidden="true" loading="eager" fetchpriority="high" width="1920" height="1080">
         </picture>
         <div class="hero-overlay"></div>
       </div>
@@ -523,7 +532,7 @@
         <div class="services-grid">
           <!-- Guirnaldas -->
           <article class="service-card">
-            <img src="../img/guirnaldas/renta-guirnaldas-iluminacion-fiestas-06.webp" alt="Renta de guirnaldas LED para eventos en Polanco" loading="lazy">
+            <img src="../img/guirnaldas/renta-guirnaldas-iluminacion-fiestas-06.webp" alt="Renta de guirnaldas LED para eventos en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Guirnaldas</h3>
               <p>Luces LED vintage perfectas para bodas en jardines y terrazas de Polanco.</p>
@@ -533,7 +542,7 @@
 
           <!-- Luces Neón -->
           <article class="service-card">
-            <img src="../img/luces-neon/renta-letrero-neon-bodas-cdmx.webp" alt="Renta de luces neón para eventos en Polanco" loading="lazy">
+            <img src="../img/luces-neon/renta-letrero-neon-bodas-cdmx.webp" alt="Renta de luces neón para eventos en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Luces Neón</h3>
               <p>Letreros y figuras de neón personalizadas para darle un toque único y moderno a tu evento.</p>
@@ -543,7 +552,7 @@
 
           <!-- Luz Negra -->
           <article class="service-card">
-            <img src="../img/luz-negra/luz-negra-evento-nocturno.webp" alt="Renta de luz negra UV en Polanco" loading="lazy">
+            <img src="../img/luz-negra/luz-negra-evento-nocturno.webp" alt="Renta de luz negra UV en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Luz Negra</h3>
               <p>Iluminación UV para fiestas temáticas, efectos fluorescentes y ambientes únicos.</p>
@@ -553,7 +562,7 @@
 
           <!-- City Color -->
           <article class="service-card">
-            <img src="../img/city-color/city-color-fachada-hacienda-boda.webp" alt="Renta de city color para eventos en Polanco" loading="lazy">
+            <img src="../img/city-color/city-color-fachada-hacienda-boda.webp" alt="Renta de city color para eventos en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>City Color</h3>
               <p>Iluminación de alto impacto para fachadas, escenarios y grandes espacios con colores vibrantes.</p>
@@ -563,7 +572,7 @@
 
           <!-- City Light -->
           <article class="service-card">
-            <img src="../img/city-light/iluminacion-profesional-bodas-cdmx.webp" alt="Renta de city light para eventos en Polanco" loading="lazy">
+            <img src="../img/city-light/iluminacion-profesional-bodas-cdmx.webp" alt="Renta de city light para eventos en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>City Light</h3>
               <p>Luminarias profesionales para iluminar espacios amplios con luz potente y uniforme.</p>
@@ -573,7 +582,7 @@
 
           <!-- Sky Tracker -->
           <article class="service-card">
-            <img src="../img/sky-tracker/renta-sky-tracker-evento-masivo-cdmx.webp" alt="Renta de sky tracker en Polanco" loading="lazy">
+            <img src="../img/sky-tracker/renta-sky-tracker-evento-masivo-cdmx.webp" alt="Renta de sky tracker en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Sky Tracker</h3>
               <p>Potentes haces de luz que iluminan el cielo. Ideales para XV años, inauguraciones y eventos especiales.</p>
@@ -583,7 +592,7 @@
 
           <!-- Cabezas Móviles -->
           <article class="service-card">
-            <img src="../img/cabezas-moviles/renta-cabezas-moviles-fiesta-xv-beams-rosa-azul.webp" alt="Renta de cabezas móviles en Polanco" loading="lazy">
+            <img src="../img/cabezas-moviles/renta-cabezas-moviles-fiesta-xv-beams-rosa-azul.webp" alt="Renta de cabezas móviles en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Cabezas Móviles</h3>
               <p>Luces robotizadas con movimiento y efectos dinámicos para shows y pistas de baile.</p>
@@ -593,7 +602,7 @@
 
           <!-- Cascadas LED -->
           <article class="service-card">
-            <img src="../img/cascadas-led/cascadas-led-novios-mesa-romantica-boda.webp" alt="Renta de cascadas LED en Polanco" loading="lazy">
+            <img src="../img/cascadas-led/cascadas-led-novios-mesa-romantica-boda.webp" alt="Renta de cascadas LED en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Cascadas LED</h3>
               <p>Cortinas de luces que caen como cascada. Perfectas para fondos de mesa y decoración elegante.</p>
@@ -603,7 +612,7 @@
 
           <!-- Gobos -->
           <article class="service-card">
-            <img src="../img/gobos/renta-gobo-monograma-pista-baile.webp" alt="Proyección de gobos personalizados en Polanco" loading="lazy">
+            <img src="../img/gobos/renta-gobo-monograma-pista-baile.webp" alt="Proyección de gobos personalizados en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Gobos</h3>
               <p>Proyección de logos, nombres o diseños personalizados en paredes y pisos.</p>
@@ -613,7 +622,7 @@
 
           <!-- Iluminación Arquitectónica -->
           <article class="service-card">
-            <img src="../img/iluminacion-arquitectonica/iluminacion-hacienda-mexicana-arcos-piedra-luz-morada-balcon.webp" alt="Renta de iluminacion arquitectonica en Polanco" loading="lazy">
+            <img src="../img/iluminacion-arquitectonica/iluminacion-hacienda-mexicana-arcos-piedra-luz-morada-balcon.webp" alt="Renta de iluminacion arquitectonica en Polanco" loading="lazy" width="400" height="300">
             <div class="service-card-content">
               <h3>Arquitectónica</h3>
               <p>Iluminación para resaltar fachadas, columnas, árboles y elementos arquitectónicos.</p>
@@ -623,7 +632,7 @@
 
           <!-- Seguidor -->
           <article class="service-card">
-            <img src="../img/seguidor/seguidor-vals-xv-anos-quinceañera.webp" alt="Renta de seguidor de luz en Polanco" loading="lazy">
+            <img src="../img/seguidor/seguidor-conferencia-orador-podium-evento-gala.webp" alt="Renta de seguidor de luz profesional para eventos corporativos y conferencias - follow spot CDMX" width="400" height="300" loading="lazy">
             <div class="service-card-content">
               <h3>Seguidor</h3>
               <p>Luz de seguimiento profesional para destacar personas en escenario, vals y momentos especiales.</p>
@@ -651,7 +660,7 @@
         <div class="audio-grid">
           <!-- Bocinas para Bodas -->
           <article class="audio-card">
-            <img src="../img/bocinas/renta-bocinas-line-array-concierto.webp" alt="Renta de bocinas para bodas en Polanco" loading="lazy">
+            <img src="../img/bocinas/renta-bocinas-line-array-concierto.webp" alt="Renta de bocinas para bodas en Polanco" loading="lazy" width="400" height="300">
             <div class="audio-card-content">
               <h3>Bodas</h3>
               <p>Sonido cristalino para ceremonias y recepciones. Audio profesional que realza cada momento especial de tu boda.</p>
@@ -661,7 +670,7 @@
 
           <!-- Bocinas para XV Años -->
           <article class="audio-card">
-            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de bocinas para XV años en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de bocinas para XV años en Polanco" loading="lazy" width="400" height="300">
             <div class="audio-card-content">
               <h3>XV Años</h3>
               <p>Potencia y claridad para el vals, brindis y la fiesta. Sistema de audio ideal para quinceañeras.</p>
@@ -671,7 +680,7 @@
 
           <!-- Bocinas para Fiestas -->
           <article class="audio-card">
-            <img src="../img/bocinas/bocinas-profesionales-evento-masivo.webp" alt="Renta de bocinas para fiestas en Polanco" loading="lazy">
+            <img src="../img/bocinas/bocinas-profesionales-evento-masivo.webp" alt="Renta de bocinas para fiestas en Polanco" loading="lazy" width="400" height="300">
             <div class="audio-card-content">
               <h3>Fiestas</h3>
               <p>Bocinas de alto impacto para que tu fiesta retumbe. Sonido potente para pistas de baile inolvidables.</p>
@@ -681,7 +690,7 @@
 
           <!-- Bocinas para Conferencias -->
           <article class="audio-card">
-            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de bocinas para conferencias en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de bocinas para conferencias en Polanco" loading="lazy" width="400" height="300">
             <div class="audio-card-content">
               <h3>Conferencias</h3>
               <p>Audio claro y profesional para presentaciones, congresos y eventos corporativos. Micrófonos incluidos.</p>
@@ -691,7 +700,7 @@
 
           <!-- DJ para Eventos -->
           <article class="audio-card">
-            <img src="../img/cabezas-moviles/renta-cabezas-moviles-fiesta-privada-beams-azul.webp" alt="DJ para eventos en Polanco" loading="lazy">
+            <img src="../img/cabezas-moviles/renta-cabezas-moviles-fiesta-privada-beams-azul.webp" alt="DJ para eventos en Polanco" loading="lazy" width="400" height="300">
             <div class="audio-card-content">
               <h3>DJ</h3>
               <p>DJ profesional con equipo completo. Música para todos los gustos y edades en tu evento.</p>
@@ -719,7 +728,7 @@
         <div class="equipment-grid">
           <!-- Bolas Disco -->
           <article class="equipment-card">
-            <img src="../img/bola-disco/renta-bola-disco-salon-elegante.webp" alt="Renta de bolas disco en Polanco" loading="lazy">
+            <img src="../img/bola-disco/renta-bola-disco-salon-elegante.webp" alt="Renta de bolas disco en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Bolas Disco</h3>
               <p>Efecto clásico de discoteca con destellos de luz que llenan la pista de baile de magia.</p>
@@ -729,7 +738,7 @@
 
           <!-- Máquina de Confeti -->
           <article class="equipment-card">
-            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de maquina de confeti en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de maquina de confeti en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Máquina de Confeti</h3>
               <p>Lluvia de confeti y papelitos para momentos especiales como brindis, vals y celebraciones.</p>
@@ -739,7 +748,7 @@
 
           <!-- Podium -->
           <article class="equipment-card">
-            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de podium en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de podium en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Podium</h3>
               <p>Tarimas y podiums iluminados para DJ, presentaciones y escenarios profesionales.</p>
@@ -749,7 +758,7 @@
 
           <!-- Pantalla Inflable -->
           <article class="equipment-card">
-            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de pantalla inflable en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-hacienda-iluminacion-profesional-completa.webp" alt="Renta de pantalla inflable en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Pantalla Inflable</h3>
               <p>Pantallas gigantes inflables para proyección de videos, fotos y cine al aire libre.</p>
@@ -759,7 +768,7 @@
 
           <!-- Máquina de Humo -->
           <article class="equipment-card">
-            <img src="../img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.webp" alt="Renta de maquina de humo en Polanco" loading="lazy">
+            <img src="../img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.webp" alt="Renta de maquina de humo en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Máquina de Humo</h3>
               <p>Efectos de humo para realzar la iluminacion y crear ambientes espectaculares.</p>
@@ -769,7 +778,7 @@
 
           <!-- Burbujas -->
           <article class="equipment-card">
-            <img src="../img/bodas/boda-jardin-guirnaldas-vintage-elegante.webp" alt="Renta de maquina de burbujas en Polanco" loading="lazy">
+            <img src="../img/bodas/boda-jardin-guirnaldas-vintage-elegante.webp" alt="Renta de maquina de burbujas en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Burbujas</h3>
               <p>Máquinas de burbujas para crear momentos mágicos en bodas, XV años y fiestas infantiles.</p>
@@ -779,7 +788,7 @@
 
           <!-- Humo Bajo -->
           <article class="equipment-card">
-            <img src="../img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.webp" alt="Renta de humo bajo en Polanco" loading="lazy">
+            <img src="../img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.webp" alt="Renta de humo bajo en Polanco" loading="lazy" width="400" height="300">
             <div class="equipment-card-content">
               <h3>Humo Bajo</h3>
               <p>Efecto de nubes en el piso perfecto para el vals, entrada de novios y momentos románticos.</p>

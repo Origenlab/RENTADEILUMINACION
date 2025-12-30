@@ -1,13 +1,13 @@
 /**
- * REDEIL - Renta de Iluminaci�n
- * Main JavaScript Application
+ * REDEIL - Renta de Iluminación
+ * Main JavaScript Application (Optimized)
  */
 
 (function() {
   'use strict';
 
   // ==========================================================================
-  // DOM Elements
+  // DOM Elements (cached)
   // ==========================================================================
 
   const header = document.querySelector('.site-header');
@@ -19,19 +19,35 @@
   const dateInput = document.getElementById('fecha');
 
   // ==========================================================================
-  // Header Scroll Effect
+  // Header Scroll Effect (Optimized with RAF)
   // ==========================================================================
 
-  function handleHeaderScroll() {
-    if (window.scrollY > 50) {
+  let ticking = false;
+  let lastScrollY = 0;
+
+  function updateHeader() {
+    if (lastScrollY > 50) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
+    ticking = false;
   }
 
-  window.addEventListener('scroll', handleHeaderScroll);
-  handleHeaderScroll(); // Check on load
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }
+
+  if (header) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Check on load
+    lastScrollY = window.scrollY;
+    updateHeader();
+  }
 
   // ==========================================================================
   // Mobile Navigation
@@ -80,6 +96,9 @@
   // Smooth Scroll for Anchor Links
   // ==========================================================================
 
+  // Cache header height once
+  let headerHeight = header ? header.offsetHeight : 100;
+
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
@@ -90,11 +109,10 @@
         e.preventDefault();
 
         // Close mobile menu if open
-        navMenu.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
+        if (navMenu) navMenu.classList.remove('active');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
 
-        const headerHeight = header.offsetHeight;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
         window.scrollTo({
@@ -114,15 +132,11 @@
 
   faqItems.forEach(function(item) {
     const summary = item.querySelector('summary');
-
-    summary.addEventListener('click', function(e) {
-      // Optional: Close other FAQ items when opening a new one
-      // faqItems.forEach(function(otherItem) {
-      //   if (otherItem !== item && otherItem.hasAttribute('open')) {
-      //     otherItem.removeAttribute('open');
-      //   }
-      // });
-    });
+    if (summary) {
+      summary.addEventListener('click', function(e) {
+        // Optional: Close other FAQ items when opening a new one
+      });
+    }
   });
 
   // ==========================================================================
@@ -155,7 +169,7 @@
       // Simulate form submission (replace with actual API call)
       setTimeout(function() {
         // Success handling
-        showFormMessage('success', '�Gracias! Tu solicitud ha sido enviada. Te contactaremos pronto.');
+        showFormMessage('success', '¡Gracias! Tu solicitud ha sido enviada. Te contactaremos pronto.');
         quoteForm.reset();
 
         // Reset button
@@ -200,7 +214,7 @@
     // Phone validation (Mexican phone format)
     const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
     if (!phoneRegex.test(whatsapp)) {
-      showFormMessage('error', 'Por favor ingresa un n�mero de WhatsApp v�lido');
+      showFormMessage('error', 'Por favor ingresa un número de WhatsApp válido');
       return false;
     }
 
@@ -262,7 +276,9 @@
 
   document.querySelectorAll('.service-card .btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      const serviceName = this.closest('.service-card').querySelector('h3').textContent;
+      const card = this.closest('.service-card');
+      const h3 = card ? card.querySelector('h3') : null;
+      const serviceName = h3 ? h3.textContent : '';
 
       if (typeof gtag !== 'undefined') {
         gtag('event', 'click', {
@@ -280,7 +296,8 @@
 
   document.querySelectorAll('.catalog-item').forEach(function(item) {
     item.addEventListener('click', function() {
-      const itemName = this.querySelector('h3').textContent;
+      const h3 = this.querySelector('h3');
+      const itemName = h3 ? h3.textContent : '';
 
       if (typeof gtag !== 'undefined') {
         gtag('event', 'click', {
@@ -293,7 +310,7 @@
   });
 
   // ==========================================================================
-  // Back to Top Button (Optional - Add if needed)
+  // Back to Top Button (Optimized with RAF)
   // ==========================================================================
 
   function createBackToTopButton() {
@@ -303,13 +320,23 @@
     btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>';
     document.body.appendChild(btn);
 
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 500) {
+    let btnTicking = false;
+
+    function updateBtnVisibility() {
+      if (lastScrollY > 500) {
         btn.classList.add('visible');
       } else {
         btn.classList.remove('visible');
       }
-    });
+      btnTicking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!btnTicking) {
+        requestAnimationFrame(updateBtnVisibility);
+        btnTicking = true;
+      }
+    }, { passive: true });
 
     btn.addEventListener('click', function() {
       window.scrollTo({
@@ -335,13 +362,5 @@
       }
     });
   });
-
-  // ==========================================================================
-  // Console Greeting (Development)
-  // ==========================================================================
-
-  console.log('%cREDEIL', 'color: #e63946; font-size: 24px; font-weight: bold;');
-  console.log('%cRenta de Iluminaci�n Profesional', 'color: #1a1a2e; font-size: 14px;');
-  console.log('%c�Interesado en trabajar con nosotros? Contacta: hola@rentadeiluminacion.com', 'color: #6c757d; font-size: 12px;');
 
 })();
