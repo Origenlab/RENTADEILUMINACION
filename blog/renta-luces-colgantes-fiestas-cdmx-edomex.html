@@ -54,7 +54,7 @@
   </a>
 
   <script src="../js/app.js" defer></script>
-  <script>document.addEventListener('DOMContentLoaded',function(){var faqButtons=document.querySelectorAll('.faq-question');faqButtons.forEach(function(button){button.addEventListener('click',function(){var item=this.parentElement;var answer=item.querySelector('.faq-answer');var isExpanded=this.getAttribute('aria-expanded')==='true';faqButtons.forEach(function(btn){if(btn!==button){btn.setAttribute('aria-expanded','false');var otherAnswer=btn.parentElement.querySelector('.faq-answer');if(otherAnswer)otherAnswer.style.maxHeight=null}});if(isExpanded){this.setAttribute('aria-expanded','false');answer.style.maxHeight=null}else{this.setAttribute('aria-expanded','true');answer.style.maxHeight=answer.scrollHeight+'px'}})})});</script>
+  <script>document.addEventListener('DOMContentLoaded',function(){var faqButtons=document.querySelectorAll('.faq-question');faqButtons.forEach(function(button){button.addEventListener('click',function(e){e.preventDefault();var item=this.parentElement;var answer=item.querySelector('.faq-answer');var isExpanded=this.getAttribute('aria-expanded')==='true';faqButtons.forEach(function(btn){if(btn!==button){btn.setAttribute('aria-expanded','false');var otherAnswer=btn.parentElement.querySelector('.faq-answer');if(otherAnswer){otherAnswer.style.maxHeight=null;otherAnswer.style.padding='0'}}});if(isExpanded){this.setAttribute('aria-expanded','false');answer.style.maxHeight=null;answer.style.padding='0'}else{this.setAttribute('aria-expanded','true');answer.style.padding='1rem';answer.style.maxHeight='none';var height=answer.scrollHeight;answer.style.maxHeight='0';answer.offsetHeight;answer.style.maxHeight=height+'px'}})})});</script>
 
   <!-- Email Decoder -->
   <script>
