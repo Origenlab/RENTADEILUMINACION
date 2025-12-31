@@ -673,8 +673,9 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease;
+            transition: max-height 0.4s ease, padding 0.3s ease;
             background: var(--color-bg-light);
+            padding: 0;
         }
         .faq-answer p {
             padding: 1.5rem;
@@ -1835,31 +1836,43 @@
     <!-- Scripts -->
     <script src="../js/app.js" defer></script>
     <script>
-        // FAQ Accordion
+        // FAQ Accordion - improved version
         document.addEventListener('DOMContentLoaded', function() {
-            const faqQuestions = document.querySelectorAll('.faq-question');
+            var faqButtons = document.querySelectorAll('.faq-question');
+            faqButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var item = this.parentElement;
+                    var answer = item.querySelector('.faq-answer');
+                    var isExpanded = this.getAttribute('aria-expanded') === 'true';
 
-            faqQuestions.forEach(function(question) {
-                question.addEventListener('click', function() {
-                    const faqItem = this.parentElement;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-                    // Close all others
-                    faqQuestions.forEach(function(q) {
-                        if (q !== question) {
-                            q.setAttribute('aria-expanded', 'false');
-                            q.parentElement.querySelector('.faq-answer').style.maxHeight = null;
+                    // Close all other answers
+                    faqButtons.forEach(function(btn) {
+                        if (btn !== button) {
+                            btn.setAttribute('aria-expanded', 'false');
+                            var otherAnswer = btn.parentElement.querySelector('.faq-answer');
+                            if (otherAnswer) {
+                                otherAnswer.style.maxHeight = null;
+                                otherAnswer.style.padding = '0';
+                            }
                         }
                     });
 
-                    // Toggle current
+                    // Toggle current answer
                     if (isExpanded) {
                         this.setAttribute('aria-expanded', 'false');
                         answer.style.maxHeight = null;
+                        answer.style.padding = '0';
                     } else {
                         this.setAttribute('aria-expanded', 'true');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        answer.style.padding = '1rem';
+                        // Calculate height after padding is applied
+                        answer.style.maxHeight = 'none';
+                        var height = answer.scrollHeight;
+                        answer.style.maxHeight = '0';
+                        // Force reflow
+                        answer.offsetHeight;
+                        answer.style.maxHeight = height + 'px';
                     }
                 });
             });
