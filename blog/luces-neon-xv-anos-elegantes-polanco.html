@@ -583,46 +583,29 @@
   <!-- Scripts -->
   <!-- Scripts -->
   <script src="../js/app.js" defer></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // FAQ accordion
-      var faqButtons = document.querySelectorAll('.faq-question');
-      faqButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-          var item = this.parentElement;
-          var answer = item.querySelector('.faq-answer');
-          var isExpanded = this.getAttribute('aria-expanded') === 'true';
+      <script>
+  (function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var faqItem = this.parentElement;
+        var wasOpen = faqItem.classList.contains('active');
 
-          // Close all other answers
-          faqButtons.forEach(function(btn) {
-            if (btn !== button) {
-              btn.setAttribute('aria-expanded', 'false');
-              btn.parentElement.querySelector('.faq-answer').style.maxHeight = '0';
-            }
-          });
-
-          // Toggle current answer
-          if (isExpanded) {
-            this.setAttribute('aria-expanded', 'false');
-            answer.style.maxHeight = '0';
-          } else {
-            this.setAttribute('aria-expanded', 'true');
-            answer.style.maxHeight = '500px';
-          }
+        // Cerrar todos
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+          item.classList.remove('active');
+          item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
         });
+
+        // Abrir el actual si estaba cerrado
+        if (!wasOpen) {
+          faqItem.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+        }
       });
-
-      // Mobile menu
-      var navToggle = document.querySelector('.nav-toggle');
-      var navMenu = document.querySelector('.nav-menu');
-      if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-          var expanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !expanded);
-          navMenu.classList.toggle('active');
-        });
-      }
     });
+  })();
   </script>
+  <style>.faq-item.active .faq-answer{max-height:500px!important;padding:1rem!important}</style>
 </body>
 <!-- v2024.12.31 --></html>
