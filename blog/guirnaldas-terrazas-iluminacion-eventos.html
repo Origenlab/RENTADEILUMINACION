@@ -54,27 +54,46 @@
   </a>
 
   <script src="../js/app.js" defer></script>
-  <script>document.addEventListener('DOMContentLoaded',function(){var faqButtons=document.querySelectorAll('.faq-question');faqButtons.forEach(function(button){button.addEventListener('click',function(e){e.preventDefault();var item=this.parentElement;var answer=item.querySelector('.faq-answer');var isExpanded=this.getAttribute('aria-expanded')==='true';faqButtons.forEach(function(btn){if(btn!==button){btn.setAttribute('aria-expanded','false');var otherAnswer=btn.parentElement.querySelector('.faq-answer');if(otherAnswer){otherAnswer.style.maxHeight=null;otherAnswer.style.padding='0'}}});if(isExpanded){this.setAttribute('aria-expanded','false');answer.style.maxHeight=null;answer.style.padding='0'}else{this.setAttribute('aria-expanded','true');answer.style.padding='1rem';answer.style.maxHeight='none';var height=answer.scrollHeight;answer.style.maxHeight='0';answer.offsetHeight;answer.style.maxHeight=height+'px'}})})});</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ accordion
+      var faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var item = this.parentElement;
+          var answer = item.querySelector('.faq-answer');
+          var isExpanded = this.getAttribute('aria-expanded') === 'true';
 
-  <!-- Email Decoder -->
-  <script>
-  document.addEventListener('DOMContentLoaded',function(){
-    // Decodificar enlaces de email
-    document.querySelectorAll('.email-link').forEach(function(el){
-      var u=el.dataset.u,d=el.dataset.d;
-      if(u&&d){
-        var e=u+'@'+d;
-        el.href='mailto:'+e;
-        if(!el.textContent||el.textContent==='')el.textContent=e;
-        else if(el.textContent.includes('[arroba]'))el.textContent=e;
+          // Close all other answers
+          faqButtons.forEach(function(btn) {
+            if (btn !== button) {
+              btn.setAttribute('aria-expanded', 'false');
+              btn.parentElement.querySelector('.faq-answer').style.maxHeight = '0';
+            }
+          });
+
+          // Toggle current answer
+          if (isExpanded) {
+            this.setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = '0';
+          } else {
+            this.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 50 + 'px';
+          }
+        });
+      });
+
+      // Mobile menu
+      var navToggle = document.querySelector('.nav-toggle');
+      var navMenu = document.querySelector('.nav-menu');
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          navMenu.classList.toggle('active');
+        });
       }
     });
-    // Decodificar textos de email
-    document.querySelectorAll('.email-text').forEach(function(el){
-      var u=el.dataset.u,d=el.dataset.d;
-      if(u&&d)el.textContent=u+'@'+d;
-    });
-  });
   </script>
 </body>
 </html>

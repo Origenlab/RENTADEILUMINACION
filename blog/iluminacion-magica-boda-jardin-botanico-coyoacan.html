@@ -451,48 +451,35 @@
   <!-- Scripts -->
   <!-- Scripts -->
   <script src="../js/app.js" defer></script>
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // FAQ accordion - improved version
+      // FAQ accordion
       var faqButtons = document.querySelectorAll('.faq-question');
       faqButtons.forEach(function(button) {
-        button.addEventListener('click', function(e) {
-          e.preventDefault();
+        button.addEventListener('click', function() {
           var item = this.parentElement;
           var answer = item.querySelector('.faq-answer');
           var isExpanded = this.getAttribute('aria-expanded') === 'true';
-          
+
           // Close all other answers
           faqButtons.forEach(function(btn) {
             if (btn !== button) {
               btn.setAttribute('aria-expanded', 'false');
-              var otherAnswer = btn.parentElement.querySelector('.faq-answer');
-              if (otherAnswer) {
-                otherAnswer.style.maxHeight = null;
-                otherAnswer.style.padding = '0';
-              }
+              btn.parentElement.querySelector('.faq-answer').style.maxHeight = '0';
             }
           });
-          
+
           // Toggle current answer
           if (isExpanded) {
             this.setAttribute('aria-expanded', 'false');
-            answer.style.maxHeight = null;
-            answer.style.padding = '0';
+            answer.style.maxHeight = '0';
           } else {
             this.setAttribute('aria-expanded', 'true');
-            answer.style.padding = '1rem';
-            // Calculate height after padding is applied
-            answer.style.maxHeight = 'none';
-            var height = answer.scrollHeight;
-            answer.style.maxHeight = '0';
-            // Force reflow
-            answer.offsetHeight;
-            answer.style.maxHeight = height + 'px';
+            answer.style.maxHeight = answer.scrollHeight + 50 + 'px';
           }
         });
       });
-      
+
       // Mobile menu
       var navToggle = document.querySelector('.nav-toggle');
       var navMenu = document.querySelector('.nav-menu');

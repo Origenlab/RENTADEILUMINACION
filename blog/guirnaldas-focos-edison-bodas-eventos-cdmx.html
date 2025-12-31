@@ -1836,47 +1836,34 @@
     <!-- Scripts -->
     <script src="../js/app.js" defer></script>
     <script>
-        // FAQ Accordion - improved version
-        document.addEventListener('DOMContentLoaded', function() {
-            var faqButtons = document.querySelectorAll('.faq-question');
-            faqButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var item = this.parentElement;
-                    var answer = item.querySelector('.faq-answer');
-                    var isExpanded = this.getAttribute('aria-expanded') === 'true';
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ accordion
+      var faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var item = this.parentElement;
+          var answer = item.querySelector('.faq-answer');
+          var isExpanded = this.getAttribute('aria-expanded') === 'true';
 
-                    // Close all other answers
-                    faqButtons.forEach(function(btn) {
-                        if (btn !== button) {
-                            btn.setAttribute('aria-expanded', 'false');
-                            var otherAnswer = btn.parentElement.querySelector('.faq-answer');
-                            if (otherAnswer) {
-                                otherAnswer.style.maxHeight = null;
-                                otherAnswer.style.padding = '0';
-                            }
-                        }
-                    });
+          // Close all other answers
+          faqButtons.forEach(function(btn) {
+            if (btn !== button) {
+              btn.setAttribute('aria-expanded', 'false');
+              btn.parentElement.querySelector('.faq-answer').style.maxHeight = '0';
+            }
+          });
 
-                    // Toggle current answer
-                    if (isExpanded) {
-                        this.setAttribute('aria-expanded', 'false');
-                        answer.style.maxHeight = null;
-                        answer.style.padding = '0';
-                    } else {
-                        this.setAttribute('aria-expanded', 'true');
-                        answer.style.padding = '1rem';
-                        // Calculate height after padding is applied
-                        answer.style.maxHeight = 'none';
-                        var height = answer.scrollHeight;
-                        answer.style.maxHeight = '0';
-                        // Force reflow
-                        answer.offsetHeight;
-                        answer.style.maxHeight = height + 'px';
-                    }
-                });
-            });
+          // Toggle current answer
+          if (isExpanded) {
+            this.setAttribute('aria-expanded', 'false');
+            answer.style.maxHeight = '0';
+          } else {
+            this.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 50 + 'px';
+          }
         });
+      });
+    });
     </script>
 
   <!-- Email Decoder -->
