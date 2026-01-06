@@ -1,862 +1,704 @@
-# Guía de Creación de Artículos - Blog REDEIL
+# Guia de Creacion de Articulos - Blog REDEIL
 
-## Índice
+## Indice
 
-1. [Introducción](#introducción)
-2. [Estructura de Carpetas](#estructura-de-carpetas)
-3. [Reglas Generales del Contenido](#reglas-generales-del-contenido)
-4. [Crear el Archivo del Artículo](#crear-el-archivo-del-artículo)
-5. [Estructura Completa del Artículo HTML](#estructura-completa-del-artículo-html)
-6. [Componentes del Artículo](#componentes-del-artículo)
-7. [Actualizar blog.html](#actualizar-bloghtml)
-8. [Checklist Final](#checklist-final)
-9. [Plantilla Rápida](#plantilla-rápida)
+1. [Introduccion](#introduccion)
+2. [Proceso Completo de Creacion](#proceso-completo-de-creacion)
+3. [FASE 1: Analisis Previo](#fase-1-analisis-previo)
+4. [FASE 2: Parametros de Redaccion](#fase-2-parametros-de-redaccion)
+5. [FASE 3: Arquitectura SEO](#fase-3-arquitectura-seo)
+6. [FASE 4: Estructura de Contenido](#fase-4-estructura-de-contenido)
+7. [FASE 5: Preguntas Frecuentes (FAQ)](#fase-5-preguntas-frecuentes-faq)
+8. [FASE 6: Modulos de Interes Final](#fase-6-modulos-de-interes-final)
+9. [FASE 7: Integracion de Imagenes](#fase-7-integracion-de-imagenes)
+10. [FASE 8: Elementos SEO Adicionales](#fase-8-elementos-seo-adicionales)
+11. [FASE 9: Crear Archivo HTML](#fase-9-crear-archivo-html)
+12. [FASE 10: Agregar Card en blog.html](#fase-10-agregar-card-en-bloghtml)
+13. [Plantilla HTML Completa](#plantilla-html-completa)
+14. [Checklist Final](#checklist-final)
+15. [Restricciones Absolutas](#restricciones-absolutas)
 
 ---
 
-## Introducción
+## Introduccion
 
-Esta guía documenta el proceso completo para crear artículos profesionales en el blog de REDEIL. Cada artículo debe seguir los estándares de diseño, SEO y estructura establecidos para mantener la coherencia del sitio.
+Esta guia documenta el proceso completo para crear articulos profesionales, optimizados para SEO y orientados a conversiones para el blog de REDEIL. Cada articulo debe seguir los estandares establecidos para mantener coherencia y maximizar el impacto comercial.
+
+### Contexto Empresarial REDEIL
+
+- Empresa mexicana de renta de equipo para eventos
+- Operacion en Ciudad de Mexico y Estado de Mexico
+- Mas de 10 anos de experiencia en el mercado
+- Catalogo incluye: iluminacion, audio, inflables, mobiliario, efectos especiales
+- Enfoque en eventos sociales (bodas, XV anos, cumpleanos) y corporativos
+- Diferenciador: servicio integral con personal tecnico incluido
 
 ---
 
-## Estructura de Carpetas
+## Proceso Completo de Creacion
+
+### Resumen del Flujo de Trabajo
+
+```
+1. Analizar carpeta de imagenes del servicio
+2. Definir palabras clave y estructura SEO
+3. Redactar contenido (1,800-2,500 palabras)
+4. Crear 5 FAQs con schema estructurado
+5. Agregar 3 modulos de interes final
+6. Integrar 4-7 imagenes estrategicamente
+7. Generar archivo HTML completo
+8. Agregar card en blog.html
+9. Verificar con checklist final
+```
+
+### Estructura de Carpetas
 
 ```
 RENTADEILUMINACION/
-├── blog.html                    ← Página principal del blog
-├── blog/                        ← Carpeta de artículos
-│   ├── guia-iluminacion-bodas.html
+├── blog.html                    <- Pagina principal del blog (agregar card aqui)
+├── blog/                        <- Carpeta de articulos
+│   ├── renta-bolas-disco-eventos-cdmx.html
 │   ├── [nuevo-articulo].html
 │   └── ...
 ├── css/
-│   └── style.css               ← Estilos (ya incluye estilos de artículos)
+│   ├── style.css
+│   └── blog.css               <- Estilos especificos de articulos
 ├── img/
-│   ├── img-guirnaldas/
-│   ├── img-luces-neon/
-│   ├── img-luz-negra/
+│   ├── bola-disco/            <- Imagenes por servicio
+│   ├── guirnaldas/
+│   ├── luces-neon/
 │   └── ...
 └── js/
     └── app.js
 ```
 
-### Nomenclatura de Archivos
-
-- **Formato:** `nombre-del-articulo.html` (minúsculas, guiones)
-- **Ejemplos válidos:**
-  - `guia-iluminacion-bodas.html`
-  - `tipos-guirnaldas-eventos.html`
-  - `iluminacion-xv-anos.html`
-- **Evitar:**
-  - Espacios: ~~`guia iluminacion.html`~~
-  - Caracteres especiales: ~~`guía-iluminación.html`~~
-  - Mayúsculas: ~~`Guia-Iluminacion.html`~~
-
 ---
 
-## Reglas Generales del Contenido
+## FASE 1: Analisis Previo
 
-### IMPORTANTE: Contenido Atemporal
+### Antes de redactar cualquier contenido:
 
-Todo el contenido debe ser **atemporal** (sin fechas ni precios):
+#### 1.1 Examinar Imagenes Disponibles
 
-| NO INCLUIR | POR QUÉ |
-|------------|---------|
-| Fechas específicas | El contenido debe ser válido indefinidamente |
-| Precios o costos | Los precios cambian constantemente |
-| "Este año 2025..." | Caduca rápidamente |
-| "Tendencias 2025" | Usar solo "Tendencias" |
-| "Desde $X,XXX" | Invitar a cotizar en su lugar |
+Localizar la carpeta de imagenes del servicio y:
 
-### Tono y Estilo
+- Identificar cada imagen y su contenido visual
+- Determinar el orden logico de aparicion dentro del articulo
+- Seleccionar 4-7 imagenes representativas
+- Preparar para cada imagen:
+  - Texto ALT descriptivo con palabra clave integrada naturalmente
+  - Ubicacion estrategica en el articulo
 
-- **Profesional** pero accesible
-- **Informativo** y útil para el lector
-- **Orientado a conversión** (CTAs claros)
-- **SEO optimizado** (keywords naturales)
+**Ejemplo de analisis de imagen:**
+```
+Imagen: bola-disco-gigante-para-eventos.webp
+ALT: Bola disco gigante profesional para eventos y fiestas en CDMX
+Ubicacion: Hero principal del articulo
+```
 
----
-
-## Crear el Archivo del Artículo
-
-### Paso 1: Definir Información del Artículo
-
-Antes de crear el archivo, define:
+#### 1.2 Definir Informacion Base
 
 ```
-TÍTULO: [Título completo del artículo]
-SLUG: [nombre-archivo.html]
-DESCRIPCIÓN SEO: [150-160 caracteres]
-KEYWORDS: [5-8 palabras clave separadas por comas]
-CATEGORÍA: [Guía Profesional / Consejos / Tips / etc.]
-TIEMPO LECTURA: [X min]
-IMAGEN PRINCIPAL: [ruta de imagen]
+TITULO (max 60 chars): [Titulo con palabra clave principal]
+SLUG: [nombre-archivo-optimizado-seo.html]
+DESCRIPCION SEO (150-160 chars): [Descripcion con keyword y CTA]
+CATEGORIA: [Equipo para Eventos / Iluminacion / Sonido / etc.]
+TIEMPO LECTURA: [8-12 min]
+IMAGEN PRINCIPAL: [ruta de imagen hero]
+SERVICIO RELACIONADO: [pagina del servicio en el sitio]
 ```
 
 **Ejemplo:**
 ```
-TÍTULO: Guía Completa de Iluminación para Bodas
-SLUG: guia-iluminacion-bodas.html
-DESCRIPCIÓN SEO: Descubre cómo elegir la iluminación perfecta para tu boda. Guirnaldas, luces neón, efectos especiales y consejos profesionales.
-KEYWORDS: iluminación bodas, luces para boda, guirnaldas boda, decoración luminosa, renta iluminación boda CDMX
-CATEGORÍA: Guía Profesional
-TIEMPO LECTURA: 12 min
-IMAGEN PRINCIPAL: ../img/img-guirnaldas/guirnaldas-edison-hacienda-boda.avif
-```
-
-### Paso 2: Crear el Archivo
-
-Crear archivo en: `/blog/[slug].html`
-
----
-
-## Estructura Completa del Artículo HTML
-
-### 5.1 Sección HEAD (Meta Tags y SEO)
-
-```html
-<!DOCTYPE html>
-<html lang="es-MX">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO Meta Tags -->
-  <title>[TÍTULO] | REDEIL Blog</title>
-  <meta name="description" content="[DESCRIPCIÓN SEO 150-160 caracteres]">
-  <meta name="keywords" content="[KEYWORDS separadas por comas]">
-  <meta name="author" content="REDEIL">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://rentadeiluminacion.com/blog/[SLUG]">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://rentadeiluminacion.com/blog/[SLUG]">
-  <meta property="og:title" content="[TÍTULO] | REDEIL">
-  <meta property="og:description" content="[DESCRIPCIÓN CORTA]">
-  <meta property="og:image" content="https://rentadeiluminacion.com/[RUTA-IMAGEN]">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="REDEIL - Renta de Iluminación">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="[TÍTULO] | REDEIL">
-  <meta name="twitter:description" content="[DESCRIPCIÓN CORTA]">
-  <meta name="twitter:image" content="https://rentadeiluminacion.com/[RUTA-IMAGEN]">
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#1a1a2e">
-
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "[TÍTULO]",
-    "description": "[DESCRIPCIÓN]",
-    "image": "https://rentadeiluminacion.com/[RUTA-IMAGEN]",
-    "author": {
-      "@type": "Organization",
-      "name": "REDEIL"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "REDEIL",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://rentadeiluminacion.com/img/logo-redeil.png"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rentadeiluminacion.com/blog/[SLUG]"
-    }
-  }
-  </script>
-</head>
-```
-
-### 5.2 HEADER (Navegación)
-
-**IMPORTANTE:** Todos los enlaces deben usar `../` para salir de la carpeta `/blog/`
-
-```html
-<body>
-  <!-- Skip to main content (Accessibility) -->
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <div class="header-inner">
-        <!-- Logo -->
-        <a href="../index.html" class="logo" aria-label="REDEIL - Inicio">
-          <img src="../img/logo-redeil.png" alt="REDEIL - Renta de Iluminación" width="180" height="60" loading="eager">
-        </a>
-
-        <!-- Navigation -->
-        <nav class="main-nav" role="navigation" aria-label="Navegación principal">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
-            <span class="hamburger"></span>
-          </button>
-
-          <ul id="main-menu" class="nav-menu">
-            <li><a href="../index.html">Inicio</a></li>
-            <li class="has-submenu">
-              <a href="../servicios.html">Servicios</a>
-              <ul class="submenu">
-                <li class="has-submenu">
-                  <a href="../renta-de-iluminacion/iluminacion.html">Iluminacion</a>
-                  <ul class="submenu">
-                    <li><a href="../renta-de-iluminacion/renta-de-guirnaldas.html">Renta de Guirnaldas</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-luces-neon.html">Renta de Luces Neon</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-luz-negra.html">Renta de Luz Negra</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-city-color.html">Renta de City Color</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-city-light.html">Renta de City Light</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-sky-tracker.html">Renta de Sky Tracker</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-cabezas-moviles.html">Renta de Cabezas Moviles</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-cascadas-led.html">Renta de Cascadas LED</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-gobos.html">Renta de Gobos</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html">Iluminacion Arquitectonica</a></li>
-                    <li><a href="../renta-de-iluminacion/renta-de-seguidor.html">Renta de Seguidor</a></li>
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a href="../renta-de-bocinas/bocinas.html">Bocinas</a>
-                  <ul class="submenu">
-                    <li><a href="../renta-de-bocinas/renta-de-bocinas-para-bodas.html">Bocinas para Bodas</a></li>
-                    <li><a href="../renta-de-bocinas/renta-de-bocinas-para-xv-anos.html">Bocinas para XV Años</a></li>
-                    <li><a href="../renta-de-bocinas/renta-de-bocinas-para-fiestas.html">Bocinas para Fiestas</a></li>
-                    <li><a href="../renta-de-bocinas/renta-de-bocinas-para-conferencias.html">Bocinas para Conferencias</a></li>
-                    <li><a href="../renta-de-bocinas/dj-para-eventos.html">DJ para Eventos</a></li>
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a href="../equipo-para-eventos/equipo-para-eventos.html">Equipo para Eventos</a>
-                  <ul class="submenu">
-                    <li><a href="../equipo-para-eventos/renta-de-bolas-disco.html">Bolas Disco</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-maquina-de-confeti.html">Maquina de Confeti</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-podium.html">Podium</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-pantalla-inflable.html">Pantalla Inflable</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-maquina-de-humo.html">Maquina de Humo</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-maquina-de-burbujas.html">Maquina de Burbujas</a></li>
-                    <li><a href="../equipo-para-eventos/renta-de-humo-bajo.html">Humo Bajo</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="../nosotros.html">Nosotros</a></li>
-            <li><a href="../blog.html" class="active">Blog</a></li>
-          </ul>
-        </nav>
-
-        <!-- CTA Header -->
-        <a href="../index.html#cotizar" class="btn btn-primary header-cta">Cotiza Gratis</a>
-      </div>
-    </div>
-  </header>
-```
-
-### 5.3 BREADCRUMB
-
-```html
-  <!-- BREADCRUMB -->
-  <section class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <nav class="breadcrumb">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <svg class="breadcrumb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <a itemprop="item" href="../index.html"><span itemprop="name">Inicio</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="../blog.html"><span itemprop="name">Blog</span></a>
-            <meta itemprop="position" content="2" />
-          </li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <span itemprop="name">[TÍTULO CORTO DEL ARTÍCULO]</span>
-            <meta itemprop="position" content="3" />
-          </li>
-        </ol>
-      </nav>
-    </div>
-  </section>
-```
-
-### 5.4 ARTICLE HERO
-
-```html
-  <main id="main-content" role="main">
-
-    <!-- ARTICLE HERO -->
-    <section class="article-hero">
-      <div class="container">
-        <div class="article-hero-content">
-          <span class="article-tag">[CATEGORÍA]</span>
-          <h1>[TÍTULO DEL ARTÍCULO]</h1>
-          <p class="article-excerpt">[EXTRACTO/RESUMEN del artículo en 1-2 oraciones]</p>
-          <div class="article-meta-hero">
-            <span class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              [X] min de lectura
-            </span>
-            <span class="meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              +[X] lecturas
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="article-hero-image">
-        <img src="../[RUTA-IMAGEN-PRINCIPAL]" alt="[DESCRIPCIÓN ALT]" loading="eager">
-      </div>
-    </section>
+TITULO: Renta de Bolas Disco para Eventos en CDMX | REDEIL
+SLUG: renta-bolas-disco-eventos-cdmx.html
+DESCRIPCION SEO: Renta de bolas disco profesionales para bodas, XV anos y fiestas en CDMX. Incluye motor e instalacion. Cotiza gratis con REDEIL.
+CATEGORIA: Equipo para Eventos
+TIEMPO LECTURA: 10 min
+IMAGEN PRINCIPAL: ../img/bola-disco/bola-disco-gigante-para-eventos.webp
+SERVICIO RELACIONADO: ../equipo-para-eventos/renta-de-bolas-disco.html
 ```
 
 ---
 
-## Componentes del Artículo
+## FASE 2: Parametros de Redaccion
 
-### 6.1 Tabla de Contenidos
+### Persona Gramatical
+- Segunda persona del singular (tu/tu)
+- Dirigirse directamente al cliente potencial
+
+### Tono y Voz
+- Profesional pero accesible
+- Experto en produccion de eventos y ambientacion
+- Comercial sin ser agresivo
+- Confiable y con autoridad en el sector
+- Orientado a soluciones y beneficios tangibles
+
+### Extension
+- Minimo 1,800 palabras de contenido principal
+- Maximo 2,500 palabras incluyendo FAQs y modulos finales
+- Parrafos de 3 a 5 oraciones para optima legibilidad
+
+### Formato
+- Sin emojis ni iconos decorativos
+- Sin texto generico o de relleno
+- Sin frases vacias como "en este articulo veremos..."
+- Sin repeticion forzada de palabras clave
+- HTML limpio y estructurado
+
+---
+
+## FASE 3: Arquitectura SEO
+
+### Titulo H1 (unico)
+- Incluir palabra clave principal
+- Maximo 60 caracteres para visualizacion optima en SERPs
+- Orientado a intencion de busqueda transaccional/informativa
+
+### Estructura de Encabezados
+- H2: Secciones principales del articulo (4-6 secciones)
+- H3: Subsecciones dentro de cada H2
+- Jerarquia logica y semanticamente coherente
+- Cada encabezado debe contener palabra clave secundaria o variacion semantica
+
+### Palabras Clave a Integrar
+
+#### Primarias (usar 3-5 veces cada una):
+Definir 2-3 keywords principales relacionadas con el servicio.
+
+#### Secundarias (usar 1-2 veces cada una):
+Definir 5-8 keywords secundarias y variaciones semanticas.
+
+#### Long-tail (usar 1 vez cada una):
+Definir 3-4 frases long-tail especificas.
+
+**Ejemplo para Bolas Disco:**
+```
+Primarias:
+- renta de bolas disco
+- bolas disco para eventos
+- bola de espejos para fiestas
+
+Secundarias:
+- iluminacion decorativa para eventos
+- ambientacion para fiestas
+- efecto disco para bodas
+- bola disco gigante
+- renta de equipo de iluminacion CDMX
+- decoracion luminosa para XV anos
+
+Long-tail:
+- renta de bolas disco para bodas en Ciudad de Mexico
+- bola de espejos con motor para eventos
+- donde rentar bolas disco en CDMX
+```
+
+### Densidad de Keywords
+- Primarias: 1.5% - 2%
+- Secundarias: distribucion natural
+- Evitar keyword stuffing
+
+---
+
+## FASE 4: Estructura de Contenido
+
+### SECCION 1: Introduccion (150-200 palabras)
+
+Debe incluir:
+- Apertura que capture atencion inmediata
+- Identificacion del problema o necesidad del cliente
+- Presentacion del servicio/producto como solucion
+- Mencion de REDEIL como proveedor especializado
+- Transicion natural al desarrollo del contenido
+
+**Ejemplo:**
+```html
+<p class="lead">La bola disco ha trascendido generaciones como simbolo universal de celebracion. Su capacidad para dispersar la luz en cientos de destellos la convierte en un elemento decorativo y funcional que eleva cualquier evento.</p>
+
+<p>Cuando planeas un evento, cada detalle cuenta para crear la atmosfera perfecta. La iluminacion juega un papel fundamental, y pocos elementos logran el impacto visual inmediato que ofrece una bola de espejos profesional girando sobre la pista de baile.</p>
+
+<p>En REDEIL hemos iluminado eventos en Ciudad de Mexico y Estado de Mexico durante mas de una decada, y la demanda de bolas disco sigue creciendo...</p>
+```
+
+### SECCION 2: Que Es y Como Funciona (200-250 palabras)
+
+Debe incluir:
+- Descripcion tecnica del producto/servicio
+- Explicacion del efecto visual o beneficio que genera
+- Tipos o variantes disponibles
+- Equipamiento complementario
+- Diferencia entre version profesional y decorativa
+
+### SECCION 3: Aplicaciones por Tipo de Evento (300-400 palabras)
+
+Desarrollar subsecciones H3 para cada tipo de evento:
 
 ```html
-<!-- Table of Contents -->
-<div class="article-toc">
-  <h3>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-    Contenido del Artículo
-  </h3>
-  <ol>
-    <li><a href="#seccion1">[Título Sección 1]</a></li>
-    <li><a href="#seccion2">[Título Sección 2]</a></li>
-    <li><a href="#seccion3">[Título Sección 3]</a></li>
-    <!-- Agregar más según sea necesario -->
-  </ol>
+<h3>Bodas y Recepciones Elegantes</h3>
+<p>[Beneficio especifico + ejemplo de uso + resultado visual esperado]</p>
+
+<h3>XV Anos y Fiestas de Cumpleanos</h3>
+<p>[Beneficio especifico + ejemplo de uso + resultado visual esperado]</p>
+
+<h3>Eventos Corporativos y Fiestas de Fin de Ano</h3>
+<p>[Beneficio especifico + ejemplo de uso + resultado visual esperado]</p>
+
+<h3>Fiestas Tematicas</h3>
+<p>[Beneficio especifico + ejemplo de uso + resultado visual esperado]</p>
+```
+
+### SECCION 4: Beneficios de Rentar con REDEIL (250-300 palabras)
+
+Puntos obligatorios a cubrir:
+- Equipos profesionales de grado comercial
+- Variedad de tamanos/opciones disponibles
+- Que incluye el servicio (instalacion, accesorios, etc.)
+- Personal tecnico para instalacion
+- Cobertura en CDMX y Estado de Mexico
+- Experiencia comprobada en eventos
+- Integracion con otros servicios
+
+### SECCION 5: Como Integrar el Servicio en tu Evento (200-250 palabras)
+
+Consejos practicos:
+- Ubicacion y altura recomendada
+- Combinacion con otros efectos de iluminacion
+- Recomendaciones de uso segun espacio
+- Momentos clave para activar el efecto
+
+### SECCION 6: Proceso de Renta con REDEIL (150-200 palabras)
+
+- Pasos para solicitar cotizacion
+- Que incluye el servicio
+- Tiempos de reservacion recomendados
+- Llamado a la accion claro
+
+---
+
+## FASE 5: Preguntas Frecuentes (FAQ)
+
+### Incluir exactamente 5 preguntas frecuentes
+
+Cada FAQ debe:
+- Resolver la duda completamente
+- Mencionar un beneficio o diferenciador de REDEIL
+- Incluir palabra clave secundaria cuando sea natural
+- Cerrar con micro-llamado a la accion cuando aplique
+
+### Estructura HTML para FAQs:
+
+```html
+<section class="faq-section" id="preguntas-frecuentes">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-accordion" role="list">
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span>[Pregunta optimizada con palabra clave]</span>
+        <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="faq-answer">
+        <p>[Respuesta en parrafo de 60-100 palabras, informativa y orientada a conversion]</p>
+      </div>
+    </div>
+    <!-- Repetir para 5 preguntas -->
+  </div>
+</section>
+```
+
+### Preguntas Sugeridas por Tipo de Servicio:
+
+**Para Bolas Disco:**
+1. Que tamanos de bolas disco tienen disponibles para renta?
+2. La renta incluye instalacion y motor de rotacion?
+3. Puedo combinar la bola disco con otros efectos de iluminacion?
+4. Cuanto tiempo de anticipacion necesito para reservar?
+5. Ofrecen servicio de renta en Estado de Mexico?
+
+**Para Guirnaldas:**
+1. Cuantos metros de guirnaldas necesito para mi evento?
+2. La instalacion esta incluida en el precio?
+3. Que tipo de focos utilizan las guirnaldas?
+4. Cubren eventos fuera de CDMX?
+5. Con cuanta anticipacion debo reservar?
+
+---
+
+## FASE 6: Modulos de Interes Final
+
+### Crear exactamente 3 modulos al final del articulo
+
+Cada modulo debe tener:
+- Titulo corto con palabra clave (maximo 8 palabras)
+- Parrafo de 80-120 palabras
+- Enfoque especifico
+- Llamado a la accion
+
+### Estructura HTML:
+
+```html
+<div class="module-complementario">
+  <h3>[Titulo con Palabra Clave]</h3>
+  <p>[Contenido de 80-120 palabras con CTA]</p>
 </div>
 ```
 
-### 6.2 Párrafo Introductorio
+### Contenido de cada Modulo:
 
-```html
-<p class="article-intro">[Párrafo introductorio destacado que resuma el artículo y enganche al lector. Usar lenguaje profesional pero accesible.]</p>
-```
+**MODULO 1: Servicio Complementario**
+- Enfocado en un servicio complementario o beneficio adicional
+- Incluir llamado a la accion hacia cotizacion
 
-### 6.3 Encabezados de Sección
+**MODULO 2: Experiencia y Trayectoria**
+- Enfocado en la experiencia de REDEIL en eventos
+- Generar confianza y autoridad
 
-```html
-<!-- H2 para secciones principales -->
-<h2 id="seccion1">[Título de Sección Principal]</h2>
+**MODULO 3: Cobertura Geografica**
+- Enfocado en cobertura geografica y disponibilidad
+- Reforzar servicio en CDMX y Estado de Mexico
+- Cerrar con invitacion a contacto
 
-<!-- H3 para subsecciones -->
-<h3>[Título de Subsección]</h3>
-```
+---
 
-### 6.4 Listas
+## FASE 7: Integracion de Imagenes
 
-```html
-<!-- Lista con viñetas -->
-<ul class="article-list">
-  <li><strong>[Término]:</strong> [Descripción del punto]</li>
-  <li><strong>[Término]:</strong> [Descripción del punto]</li>
-  <li><strong>[Término]:</strong> [Descripción del punto]</li>
-</ul>
-```
+### Distribucion Recomendada (4-7 imagenes):
 
-### 6.5 Imágenes con Caption
+| Ubicacion | Tipo de Imagen | Cantidad |
+|-----------|----------------|----------|
+| Hero (despues del titulo) | Imagen principal del servicio | 1 |
+| Despues de introduccion | Imagen complementaria | 1 |
+| Seccion de aplicaciones | Galeria o imagen individual | 1-2 |
+| Seccion de beneficios | Imagen de detalle | 1 |
+| Galeria antes de FAQs | Grid de 4 imagenes | 4 |
+
+### Formato de Imagen Individual:
 
 ```html
 <figure class="article-figure">
-  <img src="../[RUTA-IMAGEN]" alt="[Descripción detallada de la imagen]" loading="lazy">
-  <figcaption>[Texto descriptivo que aparece debajo de la imagen]</figcaption>
+  <img src="../img/[carpeta]/[nombre-archivo].webp" alt="[Descripcion con keyword]" loading="lazy">
+  <figcaption>[Leyenda descriptiva opcional]</figcaption>
 </figure>
 ```
 
-### 6.6 Box Destacado (Highlight)
-
-Para datos curiosos, estadísticas o información importante:
+### Formato de Galeria (4 imagenes):
 
 ```html
-<div class="article-highlight">
-  <div class="highlight-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-  </div>
-  <div class="highlight-content">
-    <h4>¿Sabías que...?</h4>
-    <p>[Dato interesante o estadística relevante]</p>
+<div class="blog-image-gallery">
+  <h3>Galeria de [Servicio] para Eventos</h3>
+  <div class="gallery-grid">
+    <img src="../img/[carpeta]/[imagen1].webp" alt="[ALT con keyword]" loading="lazy">
+    <img src="../img/[carpeta]/[imagen2].webp" alt="[ALT con keyword]" loading="lazy">
+    <img src="../img/[carpeta]/[imagen3].webp" alt="[ALT con keyword]" loading="lazy">
+    <img src="../img/[carpeta]/[imagen4].webp" alt="[ALT con keyword]" loading="lazy">
   </div>
 </div>
 ```
 
-### 6.7 Tip/Consejo Profesional
+### Requisitos de Imagenes:
 
-```html
-<div class="article-tip">
-  <div class="tip-header">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-    <span>Consejo Profesional</span>
-  </div>
-  <p>[Consejo o recomendación de experto]</p>
-</div>
+- Formato: .webp (preferido)
+- Imagen hero: loading="eager"
+- Imagenes secundarias: loading="lazy"
+- Alt text: descriptivo con keyword integrada naturalmente
+- Tamano recomendado: 800x600px minimo
+
+---
+
+## FASE 8: Elementos SEO Adicionales
+
+### Meta Descripcion
+
+- Exactamente 150-160 caracteres
+- Incluir palabra clave principal
+- Incluir llamado a la accion
+- Mencionar CDMX o Ciudad de Mexico
+
+**Ejemplo:**
+```
+Renta de bolas disco profesionales para bodas, XV anos y fiestas en CDMX. Incluye motor e instalacion. Cotiza gratis con REDEIL.
 ```
 
-### 6.8 Grid de Features (4 columnas)
+### Slug Recomendado
 
-Para mostrar características, servicios o efectos especiales:
+Formato: `renta-[servicio]-eventos-cdmx.html`
 
-```html
-<div class="article-grid-features">
-  <div class="feature-card">
-    <div class="feature-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">[SVG PATH]</svg>
-    </div>
-    <h4>[Título Feature]</h4>
-    <p>[Descripción breve]</p>
-  </div>
-  <!-- Repetir para cada feature (recomendado: 4) -->
-</div>
+**Ejemplos:**
+- renta-bolas-disco-eventos-cdmx.html
+- guirnaldas-focos-edison-bodas-cdmx.html
+- luces-neon-xv-anos-renta-cdmx.html
+
+### Schema Estructurado (JSON-LD)
+
+#### Article Schema:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[TITULO]",
+  "description": "[META DESCRIPCION]",
+  "image": "https://rentadeiluminacion.com/img/[carpeta]/[imagen].webp",
+  "author": {
+    "@type": "Organization",
+    "name": "REDEIL"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "REDEIL"
+  }
+}
 ```
 
-### 6.9 Timeline de Momentos
-
-Para secuencias o pasos numerados:
-
-```html
-<div class="article-moments">
-  <div class="moment-item">
-    <div class="moment-number">01</div>
-    <div class="moment-content">
-      <h4>[Título del Momento]</h4>
-      <p>[Descripción del momento o paso]</p>
-    </div>
-  </div>
-  <!-- Repetir para cada momento -->
-</div>
-```
-
-### 6.10 Grid de Tips (6 columnas)
-
-Para consejos numerados:
-
-```html
-<div class="article-tips-grid">
-  <div class="tip-card">
-    <span class="tip-number">1</span>
-    <h4>[Título del Tip]</h4>
-    <p>[Descripción del consejo]</p>
-  </div>
-  <!-- Repetir para cada tip (recomendado: 6) -->
-</div>
-```
-
-### 6.11 Lista de Errores a Evitar
-
-```html
-<div class="article-errors">
-  <div class="error-item">
-    <div class="error-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-    </div>
-    <div class="error-content">
-      <h4>[Título del Error]</h4>
-      <p>[Explicación del error y cómo evitarlo]</p>
-    </div>
-  </div>
-  <!-- Repetir para cada error -->
-</div>
-```
-
-### 6.12 Conclusión
-
-```html
-<div class="article-conclusion">
-  <h3>Conclusión</h3>
-  <p>[Párrafo de cierre resumiendo los puntos principales]</p>
-  <p>[Segundo párrafo con llamado a la acción suave]</p>
-</div>
-```
-
-### 6.13 CTA Box (Llamado a la Acción)
-
-```html
-<div class="article-cta-box">
-  <div class="cta-box-content">
-    <h3>¿Listo para [Acción relacionada al tema]?</h3>
-    <p>[Texto persuasivo invitando a cotizar o contactar]</p>
-    <div class="cta-box-buttons">
-      <a href="../index.html#cotizar" class="btn btn-primary">Solicitar Cotización</a>
-      <a href="https://wa.me/525530682988?text=Hola,%20me%20interesa%20información%20sobre%20[TEMA]" class="btn btn-whatsapp" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-        WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-```
-
-### 6.14 Botones de Compartir
-
-```html
-<div class="article-share">
-  <span class="share-label">Compartir artículo:</span>
-  <div class="share-buttons">
-    <a href="#" class="share-btn facebook" aria-label="Compartir en Facebook">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-    </a>
-    <a href="#" class="share-btn twitter" aria-label="Compartir en Twitter">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <a href="#" class="share-btn whatsapp" aria-label="Compartir en WhatsApp">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    </a>
-    <a href="#" class="share-btn linkedin" aria-label="Compartir en LinkedIn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
-  </div>
-</div>
-```
-
-### 6.15 Sidebar del Artículo
-
-```html
-<!-- Sidebar -->
-<aside class="article-sidebar">
-  <!-- About Widget -->
-  <div class="sidebar-widget widget-about">
-    <h3 class="widget-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      Sobre REDEIL
-    </h3>
-    <div class="about-content">
-      <img src="../img/logo-redeil.png" alt="REDEIL Logo" class="about-logo" loading="lazy">
-      <p>Más de 30 años transformando eventos en experiencias inolvidables con iluminación profesional en CDMX y Estado de México.</p>
-      <div class="about-stats">
-        <div class="about-stat">
-          <span class="stat-number">30+</span>
-          <span class="stat-label">Años</span>
-        </div>
-        <div class="about-stat">
-          <span class="stat-number">15K+</span>
-          <span class="stat-label">Eventos</span>
-        </div>
-        <div class="about-stat">
-          <span class="stat-number">98%</span>
-          <span class="stat-label">Satisfacción</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Related Services - PERSONALIZAR según el tema del artículo -->
-  <div class="sidebar-widget widget-services">
-    <h3 class="widget-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-      Servicios Relacionados
-    </h3>
-    <ul class="services-list">
-      <li>
-        <a href="../renta-de-iluminacion/[SERVICIO].html">
-          <span class="service-name">[Nombre del Servicio]</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-      </li>
-      <!-- Agregar 4-5 servicios relacionados -->
-    </ul>
-  </div>
-
-  <!-- CTA Widget -->
-  <div class="sidebar-widget widget-cta">
-    <div class="cta-widget-content">
-      <div class="cta-widget-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="40" height="40">
-          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-        </svg>
-      </div>
-      <h3>¿Planeas [tu Evento/tu Boda/tu Fiesta]?</h3>
-      <p>Cotiza sin compromiso y descubre cómo podemos iluminar tu celebración.</p>
-      <a href="../index.html#cotizar" class="btn btn-primary btn-block">Cotizar Ahora</a>
-      <a href="https://wa.me/525530682988" class="btn btn-whatsapp btn-block" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-        WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- Newsletter Widget -->
-  <div class="sidebar-widget widget-newsletter">
-    <h3 class="widget-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Newsletter
-    </h3>
-    <div class="newsletter-widget-content">
-      <p>Suscríbete y recibe consejos exclusivos para tu evento.</p>
-      <form class="newsletter-form-widget" action="#" method="post">
-        <input type="email" placeholder="Tu email" required aria-label="Correo electrónico">
-        <button type="submit" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-      </form>
-      <span class="newsletter-note">Sin spam. Cancela cuando quieras.</span>
-    </div>
-  </div>
-</aside>
-```
-
-### 6.16 Sección de Artículos Relacionados
-
-```html
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-  <div class="container">
-    <header class="section-header">
-      <h2>Artículos Relacionados</h2>
-      <p>Continúa explorando más contenido sobre iluminación para eventos</p>
-    </header>
-    <div class="related-grid">
-      <!-- Incluir 3 post-cards de artículos relacionados -->
-      <article class="post-card">
-        <div class="post-card-image">
-          <img src="../[RUTA-IMAGEN]" alt="[ALT]" loading="lazy">
-        </div>
-        <div class="post-card-content">
-          <div class="post-meta">
-            <span class="post-read-time">[X] min lectura</span>
-          </div>
-          <h3><a href="[SLUG].html">[Título del Artículo]</a></h3>
-          <p>[Descripción breve]</p>
-          <a href="[SLUG].html" class="post-link">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
-      <!-- Repetir para 3 artículos -->
-    </div>
-  </div>
-</section>
-```
-
-### 6.17 CTA Section Final
-
-```html
-<!-- CTA SECTION -->
-<section class="cta-section" aria-labelledby="cta-title">
-  <div class="container">
-    <div class="cta-content">
-      <h2 id="cta-title">¿Listo para Iluminar tu Evento?</h2>
-      <p>Más de 30 años de experiencia nos respaldan. Cotiza sin compromiso y descubre cómo podemos transformar tu celebración.</p>
-      <div class="cta-buttons">
-        <a href="../index.html#cotizar" class="btn btn-primary btn-lg">Solicitar Cotización</a>
-        <a href="https://wa.me/525530682988?text=Hola,%20quiero%20información%20sobre%20sus%20servicios" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-          Contactar por WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-```
-
-### 6.18 Footer y Scripts
-
-Copiar el footer completo del archivo de referencia (`blog/guia-iluminacion-bodas.html`) y asegurarse de:
-
-- Todos los enlaces usen `../` para rutas relativas
-- El botón flotante de WhatsApp incluya mensaje personalizado según el artículo
-
-```html
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/525530682988?text=Hola,%20leí%20el%20artículo%20sobre%20[TEMA]%20y%20me%20gustaría%20más%20información" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">...</svg>
-  </a>
-
-  <!-- Scripts -->
-  <script src="../js/app.js" defer></script>
-</body>
-
-</html>
+#### FAQPage Schema:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "[Pregunta 1]",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "[Respuesta 1]"
+      }
+    }
+    // Repetir para 5 preguntas
+  ]
+}
 ```
 
 ---
 
-## Actualizar blog.html
+## FASE 9: Crear Archivo HTML
 
-### Paso 1: Agregar Card en la Grid Principal
+### Ubicacion del Archivo
 
-Localizar la sección `<div class="posts-grid">` en `blog.html` y agregar la nueva card como **primer elemento**:
+Crear en: `/blog/[slug].html`
+
+### Estructura Completa del HTML
+
+El archivo debe incluir en este orden:
+
+1. **HEAD**
+   - Meta charset y viewport
+   - Title (max 60 chars)
+   - Meta description (150-160 chars)
+   - Keywords
+   - Canonical URL
+   - Open Graph tags
+   - Twitter Card tags
+   - Favicon
+   - Fonts
+   - CSS (style.css + blog.css)
+   - Article Schema JSON-LD
+   - FAQPage Schema JSON-LD
+
+2. **HEADER**
+   - Skip link para accesibilidad
+   - Logo con enlace a home
+   - Navegacion principal con submenus
+   - Boton CTA "Cotiza Gratis"
+   - IMPORTANTE: Todos los enlaces usan `../` para salir de /blog/
+
+3. **BREADCRUMB**
+   - Inicio > Blog > [Categoria del Servicio] > [Titulo del Articulo]
+   - Schema BreadcrumbList integrado
+
+4. **HERO SECTION**
+   - Badge de categoria
+   - Titulo H1
+   - Parrafo hook
+   - Meta (tiempo de lectura, palabras)
+   - Imagen principal
+
+5. **CONTENIDO PRINCIPAL**
+   - Tabla de contenidos inline
+   - Lead paragraph
+   - Secciones con H2 y H3
+   - Imagenes con figure/figcaption
+   - Modulos de interes (stat-module, tip-module)
+   - Benefits box
+   - Galeria de imagenes
+   - FAQs con accordion
+   - CTA final
+   - 3 modulos complementarios
+
+6. **SIDEBAR**
+   - Navegacion del articulo
+   - Servicios relacionados
+   - Widget de contacto (WhatsApp, telefono, email)
+   - CTA box
+   - Experiencia badge
+
+7. **FOOTER**
+   - Informacion de marca
+   - Links de servicios
+   - Zonas de cobertura
+   - Sucursales
+   - Links legales
+
+8. **SCRIPTS**
+   - WhatsApp float button
+   - app.js
+   - FAQ accordion script
+
+---
+
+## FASE 10: Agregar Card en blog.html
+
+### Ubicacion de Insercion
+
+Localizar el comentario `<!-- n8n:INSERT-NEW-CARDS-HERE -->` en blog.html y agregar la card INMEDIATAMENTE DESPUES.
+
+### Estructura de la Card:
 
 ```html
-<!-- Post [N] - [Nombre del Artículo] -->
+<!-- [Nombre del Servicio] -->
 <article class="post-card">
   <div class="post-card-image">
-    <img src="img/[RUTA-IMAGEN]" alt="[ALT]" loading="lazy">
+    <img src="img/[carpeta]/[imagen].webp" alt="[ALT con keyword]" loading="lazy" width="400" height="300">
   </div>
   <div class="post-card-content">
     <div class="post-meta">
       <span class="post-read-time">[X] min lectura</span>
-      <span class="post-category">[Categoría]</span> <!-- Opcional -->
+      <span class="post-category">[Categoria]</span>
     </div>
-    <h3><a href="blog/[SLUG].html">[Título del Artículo]</a></h3>
-    <p>[Descripción breve del artículo - máximo 2 líneas]</p>
-    <a href="blog/[SLUG].html" class="post-link">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <h3><a href="blog/[slug].html">[Titulo del Articulo]</a></h3>
+    <p>[Descripcion breve de 1-2 lineas]</p>
+    <a href="blog/[slug].html" class="post-link">Leer mas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </article>
 ```
 
-**IMPORTANTE:** Las rutas de imágenes en `blog.html` NO llevan `../` porque está en el root.
+### Importante:
+- Las rutas de imagenes en blog.html NO llevan `../` porque esta en el root
+- La card del nuevo articulo va como PRIMER elemento despues del marcador
+- Maximo 16 cards por pagina de blog
 
-### Paso 2: Actualizar Artículo Destacado (Opcional)
+### Si hay mas de 16 Cards:
 
-Si el nuevo artículo debe ser el destacado, actualizar la sección `featured-post`:
+Mover la ultima card a blog-page-2.html siguiendo el mismo formato.
 
-```html
-<article class="featured-post">
-  <div class="featured-post-image">
-    <img src="img/[RUTA-IMAGEN]" alt="[ALT]" loading="lazy">
-    <span class="featured-badge">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      Destacado
-    </span>
-  </div>
-  <div class="featured-post-content">
-    <div class="post-meta">
-      <span class="post-read-time">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        [X] min lectura
-      </span>
-      <span class="post-category">[Categoría]</span>
-    </div>
-    <h2 id="featured-title"><a href="blog/[SLUG].html">[Título]</a></h2>
-    <p>[Descripción extendida del artículo]</p>
-    <a href="blog/[SLUG].html" class="btn btn-primary">Leer Artículo</a>
-  </div>
-</article>
-```
+---
 
-### Paso 3: Actualizar Widget "Más Populares" (Sidebar)
+## Plantilla HTML Completa
 
-Agregar el nuevo artículo si corresponde:
+Ver archivo de referencia: `/blog/renta-bolas-disco-eventos-cdmx.html`
 
-```html
-<article class="popular-post">
-  <a href="blog/[SLUG].html" class="popular-post-image">
-    <img src="img/[RUTA-IMAGEN]" alt="[ALT]" loading="lazy">
-    <span class="popular-rank">[N]</span>
-  </a>
-  <div class="popular-post-content">
-    <h4><a href="blog/[SLUG].html">[Título del Artículo]</a></h4>
-  </div>
-</article>
-```
+Este archivo contiene la estructura completa y actualizada que debe usarse como base para nuevos articulos.
+
+### Elementos Clave de la Plantilla:
+
+1. **CSS Inline en HEAD**: Incluye todos los estilos necesarios para el articulo
+2. **Schema Dual**: Article + FAQPage para maximo SEO
+3. **Estructura Responsive**: Grid de 2 columnas (contenido + sidebar)
+4. **Componentes Reutilizables**:
+   - `.lead` - Parrafo destacado inicial
+   - `.interest-module.stat-module` - Estadistica destacada
+   - `.interest-module.tip-module` - Consejo profesional
+   - `.benefits-box` - Lista de beneficios
+   - `.blog-image-gallery` - Galeria de 4 imagenes
+   - `.faq-section` - Accordion de preguntas frecuentes
+   - `.article-cta-final` - CTA principal
+   - `.module-complementario` - Modulos finales
 
 ---
 
 ## Checklist Final
 
-Antes de publicar, verificar que el artículo cumple con:
-
-### Archivo del Artículo
+### Archivo del Articulo
 
 - [ ] Archivo creado en `/blog/[slug].html`
-- [ ] Nombre de archivo en minúsculas con guiones
-- [ ] Meta tags SEO completos (title, description, keywords)
-- [ ] Open Graph tags configurados
-- [ ] Twitter cards configurados
-- [ ] Schema.org JSON-LD incluido
+- [ ] Slug optimizado para SEO (minusculas, guiones)
+- [ ] Title tag: max 60 caracteres con keyword
+- [ ] Meta description: 150-160 caracteres con keyword y CTA
 - [ ] Canonical URL correcta
-- [ ] Todas las rutas usan `../` para salir de `/blog/`
-- [ ] Imagen principal con `loading="eager"`
-- [ ] Imágenes secundarias con `loading="lazy"`
-- [ ] Alt text descriptivo en todas las imágenes
-- [ ] Tabla de contenidos con IDs correctos
-- [ ] CTA box incluido
-- [ ] Botones de compartir incluidos
-- [ ] Sidebar con servicios relacionados
-- [ ] Artículos relacionados al final
-- [ ] Footer completo
-- [ ] Botón WhatsApp con mensaje personalizado
-- [ ] Script `app.js` incluido
+- [ ] Open Graph tags completos
+- [ ] Article Schema JSON-LD
+- [ ] FAQPage Schema JSON-LD
+- [ ] Breadcrumb con schema
+- [ ] Todas las rutas internas usan `../`
 
 ### Contenido
 
-- [ ] Sin fechas específicas (atemporal)
+- [ ] Extension: 1,800-2,500 palabras
+- [ ] Introduccion con lead paragraph
+- [ ] 4-6 secciones H2
+- [ ] Subsecciones H3 donde corresponda
+- [ ] 5 FAQs completas
+- [ ] 3 modulos de interes final
+- [ ] 4-7 imagenes integradas
+- [ ] 3+ CTAs distribuidos
+- [ ] Links internos a servicios relacionados
+- [ ] Sin fechas especificas (contenido atemporal)
 - [ ] Sin precios ni costos
-- [ ] Contenido original y útil
-- [ ] Mínimo 1000 palabras
-- [ ] Al menos 3 imágenes
-- [ ] Al menos 3 secciones H2
-- [ ] Llamados a la acción claros
-- [ ] Ortografía y gramática revisadas
+- [ ] Sin emojis
+
+### SEO
+
+- [ ] Keyword principal en H1
+- [ ] Keywords secundarias en H2s
+- [ ] Alt text con keywords en imagenes
+- [ ] Densidad de keywords: 1.5-2%
+- [ ] Enlaces internos relevantes
 
 ### blog.html
 
-- [ ] Card agregada en posts-grid
-- [ ] Enlace correcto a `blog/[slug].html`
-- [ ] Imagen sin `../` (rutas desde root)
-- [ ] Artículo destacado actualizado (si aplica)
-- [ ] Widget populares actualizado (si aplica)
+- [ ] Card agregada despues de `<!-- n8n:INSERT-NEW-CARDS-HERE -->`
+- [ ] Imagen sin `../` (ruta desde root)
+- [ ] Categoria correcta
+- [ ] Descripcion breve y atractiva
 
 ### Pruebas
 
-- [ ] Verificar que el artículo carga correctamente
-- [ ] Verificar navegación (header, breadcrumb, links)
-- [ ] Verificar imágenes cargan
-- [ ] Verificar links internos funcionan
-- [ ] Verificar responsividad en móvil
-- [ ] Verificar botón WhatsApp funciona
+- [ ] Articulo carga correctamente
+- [ ] Navegacion funciona
+- [ ] Imagenes cargan
+- [ ] FAQ accordion funciona
+- [ ] Links internos funcionan
+- [ ] Responsividad en movil
+- [ ] Boton WhatsApp funciona
 
 ---
 
-## Plantilla Rápida
+## Restricciones Absolutas
 
-Para crear un nuevo artículo rápidamente, usar el archivo `blog/guia-iluminacion-bodas.html` como plantilla base y realizar buscar/reemplazar de:
+### NO hacer:
 
-| Buscar | Reemplazar con |
-|--------|----------------|
-| `Guía Completa de Iluminación para Bodas` | [Nuevo título] |
-| `guia-iluminacion-bodas.html` | [nuevo-slug.html] |
-| `Guía Profesional` | [Nueva categoría] |
-| `12 min` | [Nuevo tiempo] |
-| Textos de meta description | [Nueva descripción] |
-| Contenido del artículo | [Nuevo contenido] |
-| Imágenes y rutas | [Nuevas imágenes] |
-| Servicios relacionados | [Nuevos servicios] |
+- NO usar frases como "en conclusion", "para finalizar", "en resumen"
+- NO incluir emojis, iconos ni caracteres decorativos
+- NO usar bullet points excesivos (maximo 2 listas en todo el articulo)
+- NO repetir la misma palabra clave mas de 4 veces en forma identica
+- NO incluir informacion no verificable sobre REDEIL
+- NO usar superlativos vacios sin respaldo ("los mejores", "unicos en el mercado")
+- NO generar contenido que suene a inteligencia artificial o plantilla generica
+- NO incluir fechas especificas ni precios
+- NO usar "Tendencias 2025" o referencias temporales
 
----
+### SI hacer:
 
-## Notas Adicionales
-
-### Imágenes Recomendadas
-
-- **Formato:** `.avif` (preferido) o `.webp`
-- **Imagen hero:** 1200x600px mínimo
-- **Imágenes de contenido:** 800x450px mínimo
-- **Compresión:** Calidad 80-85%
-
-### Palabras Clave por Tema
-
-| Tema | Keywords sugeridas |
-|------|-------------------|
-| Bodas | iluminación bodas, luces boda, guirnaldas boda, decoración luminosa |
-| XV Años | iluminación xv años, luces quinceañera, decoración quinceaños |
-| Corporativos | iluminación eventos corporativos, luces empresariales |
-| Fiestas Neón | luz negra fiesta, fiesta neón, decoración fluorescente |
-| Guirnaldas | tipos guirnaldas, guirnaldas edison, fairy lights |
+- SI usar segunda persona (tu/tu)
+- SI incluir CTAs claros y estrategicos
+- SI mencionar CDMX, Estado de Mexico y zonas de cobertura
+- SI integrar links internos a servicios relacionados
+- SI usar datos concretos sobre experiencia de REDEIL (+10 anos, +15,000 eventos)
+- SI invitar a cotizar en lugar de mencionar precios
 
 ---
 
-**Última actualización:** Diciembre 2024
+## Entregables por Articulo
 
-**Referencia:** `/blog/guia-iluminacion-bodas.html`
+Al finalizar cada articulo, documentar:
+
+1. **Archivo HTML**: Ruta completa del archivo creado
+2. **Meta Descripcion**: Texto exacto (150-160 chars)
+3. **Slug**: URL final del articulo
+4. **Tabla de Imagenes**: Nombre de archivo + ALT text para cada imagen
+5. **Keywords Utilizadas**: Lista con frecuencia aproximada
+6. **Card en blog.html**: Confirmacion de insercion
+
+---
+
+**Ultima actualizacion:** Enero 2025
+
+**Archivo de referencia:** `/blog/renta-bolas-disco-eventos-cdmx.html`
