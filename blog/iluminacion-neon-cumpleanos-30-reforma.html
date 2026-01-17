@@ -583,7 +583,7 @@
 
   <!-- Scripts -->
   <!-- Scripts -->
-  <script src="../js/app.js" defer></script>
+  <script src="../js/app.min.js" defer></script>
   <script>(function(){document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(e){e.preventDefault();var faqItem=this.parentElement;var wasOpen=faqItem.classList.contains('active');document.querySelectorAll('.faq-item').forEach(function(item){item.classList.remove('active');item.querySelector('.faq-question').setAttribute('aria-expanded','false')});if(!wasOpen){faqItem.classList.add('active');this.setAttribute('aria-expanded','true')}})})})();</script>
   <style>.faq-item.active .faq-answer{max-height:500px!important;padding:1rem!important}</style>
 </body>
