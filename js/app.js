@@ -26,16 +26,18 @@
   let lastScrollY = 0;
 
   function updateHeader() {
-    if (lastScrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    lastScrollY = window.scrollY;
+    if (header) {
+      if (lastScrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
     ticking = false;
   }
 
   function onScroll() {
-    lastScrollY = window.scrollY;
     if (!ticking) {
       requestAnimationFrame(updateHeader);
       ticking = true;
@@ -44,9 +46,7 @@
 
   if (header) {
     window.addEventListener('scroll', onScroll, { passive: true });
-    // Check on load
-    lastScrollY = window.scrollY;
-    updateHeader();
+    requestAnimationFrame(updateHeader);
   }
 
   // ==========================================================================

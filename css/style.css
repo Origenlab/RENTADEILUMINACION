@@ -32,8 +32,8 @@
   --color-whatsapp-dark: #128c7e;
 
   /* Typography */
-  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-secondary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-primary: 'Montserrat', 'Montserrat Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-secondary: 'Open Sans', 'Open Sans Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -109,6 +109,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-secondary);
+  font-size-adjust: 0.5352;
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-gray-800);
@@ -117,6 +118,7 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-primary);
+  font-size-adjust: 0.517;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 var(--space-4);
@@ -559,12 +561,6 @@ address {
   right: 0;
   bottom: 0;
   z-index: -1;
-}
-
-.hero-background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .hero-overlay {
