@@ -6,7 +6,7 @@
       "@id": "https://rentadeiluminacion.com/#organization",
       "name": "REDEIL - Renta de Iluminación Profesional",
       "alternateName": "REDEIL",
-      "description": "Empresa líder en renta de iluminación profesional para bodas, XV años y eventos corporativos en Ciudad de México y Estado de México. Más de 10 años de experiencia transformando eventos con tecnología de primer nivel.",
+      "description": "Empresa líder en renta de iluminación profesional para bodas, XV años y eventos corporativos en Ciudad de México y Estado de México. Más de 30 años de experiencia transformando eventos con tecnología de primer nivel.",
       "url": "https://rentadeiluminacion.com",
       "logo": {
         "@type": "ImageObject",
@@ -84,7 +84,7 @@
       "sameAs": [
         "https://www.facebook.com/redeil",
         "https://www.instagram.com/redeil_iluminacion",
-        "https://wa.me/5530682988"
+        "https://wa.me/525530682988"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
