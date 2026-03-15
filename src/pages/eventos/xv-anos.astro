@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Iluminación y Sonido para XV Años | REDEIL CDMX";
+const description = "Renta de iluminación y sonido profesional para fiestas de XV años en CDMX. REDEIL ofrece seguidor, cabezas móviles, confeti, humo bajo y bocinas para tu fiesta.";
+const canonical = "https://rentadeiluminacion.com/eventos/xv-anos/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Iluminación y Sonido Profesional para XV Años",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio integral de iluminación y sonido profesional para fiestas de XV años en Ciudad de México. Seguidor para el vals, cabezas móviles, confeti, humo bajo y bocinas.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Iluminación y Sonido para XV Años"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>XV Años</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Iluminación y Sonido para XV Años en CDMX"
+      subtitle="Haz que su fiesta de quince años sea verdaderamente inolvidable"
+      whatsappText="Hola,%20quiero%20cotizar%20iluminación%20y%20sonido%20para%20XV%20años"
+      introParagraph1="REDEIL ofrece servicios profesionales de iluminación y sonido para fiestas de XV años en toda la Ciudad de México. Desde el seguidor de luz para el vals hasta cabezas móviles para la pista de baile, confeti, humo bajo y bocinas de alta potencia, cubrimos cada momento de la celebración con equipo profesional."
+      introParagraph2="Nuestro equipo tiene amplia experiencia en fiestas de quinceañeras, conociendo los momentos clave que requieren iluminación especial: la entrada, el vals con chambelanes, el brindis, el cambio de zapatilla y la fiesta. Trabajamos en salones, jardines y haciendas de CDMX para crear la atmósfera perfecta."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>XV años con iluminación profesional: cada momento merece brillar</h2>
+        <p>Una fiesta de XV años está llena de momentos únicos que merecen ser destacados con iluminación profesional. El vals es sin duda el instante más emotivo, y en REDEIL lo iluminamos con seguidor de luz para que la quinceañera sea la protagonista absoluta mientras baila con su padre y sus chambelanes, creando recuerdos que perduran toda la vida.</p>
+        <p>Además del seguidor, ofrecemos cabezas móviles que llenan la pista de baile con patrones de luz y color, humo bajo que crea un efecto de ensueño durante el vals, máquinas de confeti con papelitos de corazones y colores personalizados, y bocinas profesionales para que la música suene con la potencia y claridad que la fiesta requiere.</p>
+        <p>Nuestro servicio para XV años incluye asesoría previa, diseño del esquema de iluminación adaptado al salón o jardín, montaje completo antes de la fiesta y operación técnica durante todo el evento. Nos coordinamos con el DJ, el fotógrafo y los organizadores para que cada efecto de luz se active en el momento preciso.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de XV Años" subtitle="Fiestas de quinceañeras iluminadas por REDEIL en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif" alt="Quinceañera bailando el vals iluminada por seguidor de luz profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/xv-anos/renta-guirnaldas-xv-anos-23.avif" alt="Salón de fiesta de XV años decorado con guirnaldas de luces" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/xv-anos/vals-xv-anos-iluminacion-seguidor.avif" alt="Vals de XV años con iluminación de seguidor destacando a la quinceañera y su chambelán" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/xv-anos/quinceañera-vals-seguidor-iluminacion.avif" alt="Quinceañera durante el vals con seguidor de luz creando ambiente romántico" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/xv-anos/iluminacion-xv-anos-seguidor-profesional.avif" alt="Fiesta de XV años con iluminación profesional de seguidor sobre la pista" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

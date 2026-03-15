@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Iluminación y Sonido para Bodas | REDEIL CDMX";
+const description = "Renta de iluminación y sonido profesional para bodas en CDMX. REDEIL ofrece guirnaldas, city color, cabezas móviles, humo bajo, seguidor y bocinas para tu boda.";
+const canonical = "https://rentadeiluminacion.com/eventos/bodas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Iluminación y Sonido Profesional para Bodas",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio integral de iluminación y sonido profesional para bodas en Ciudad de México. Guirnaldas, city color, cabezas móviles, humo bajo, seguidor y bocinas.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Iluminación y Sonido para Bodas"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bodas</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Iluminación y Sonido para Bodas en CDMX"
+      subtitle="Todo lo que tu boda necesita en iluminación y audio profesional"
+      whatsappText="Hola,%20quiero%20cotizar%20iluminación%20y%20sonido%20para%20mi%20boda"
+      introParagraph1="REDEIL es especialista en iluminación y sonido profesional para bodas en toda la Ciudad de México. Ofrecemos un servicio integral que incluye guirnaldas de luces, city color, cabezas móviles, humo bajo, seguidor de luz, bocinas y todo el equipo necesario para que tu boda luzca y suene espectacular."
+      introParagraph2="Contamos con años de experiencia iluminando bodas en haciendas, jardines, salones y terrazas de CDMX. Nuestro equipo técnico trabaja en coordinación con wedding planners, decoradores y DJs para crear la atmósfera perfecta en cada momento de tu celebración, desde la ceremonia hasta la fiesta."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Tu boda merece iluminación y sonido de primer nivel</h2>
+        <p>La iluminación es uno de los elementos que más impacto tiene en la atmósfera de una boda. En REDEIL combinamos diferentes técnicas y equipos para crear ambientes únicos: guirnaldas de focos Edison para un toque cálido y romántico, city color para bañar fachadas y jardines con el color de tu paleta, cabezas móviles para la pista de baile y seguidor de luz para destacar los momentos más emotivos como el primer baile y el brindis.</p>
+        <p>Complementamos la iluminación con efectos especiales como humo bajo, que crea una atmósfera de ensueño para el primer baile, y máquinas de confeti para momentos de celebración. Además, ofrecemos sonido profesional con bocinas de alta fidelidad para que la música y los discursos se escuchen con claridad en todo el venue.</p>
+        <p>Nuestro servicio para bodas incluye visita previa al lugar, diseño del esquema de iluminación y sonido, montaje completo antes de la ceremonia y operación técnica durante todo el evento. Nos adaptamos a cualquier tipo de venue en CDMX: haciendas coloniales, jardines al aire libre, salones elegantes y rooftops urbanos.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Bodas" subtitle="Bodas reales iluminadas por REDEIL en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/bodas/guirnaldas-edison-boda-hacienda-colonial.avif" alt="Guirnaldas de focos Edison iluminando boda en hacienda colonial" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/iluminacion-completa-boda-hacienda-elegante.avif" alt="Iluminación completa en boda elegante dentro de hacienda con mesas decoradas" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/salon-boda-iluminacion-edison-elegante.avif" alt="Salón de boda con iluminación Edison elegante sobre mesas de invitados" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/boda-salon-colonial-guirnaldas-dj.avif" alt="Boda en salón colonial con guirnaldas de luces y cabina de DJ iluminada" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/guirnaldas-boda-jardin-mesa-imperial.avif" alt="Guirnaldas de luces sobre mesa imperial en boda de jardín al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/recepcion-boda-guirnaldas-hacienda-elegante.avif" alt="Recepción de boda con guirnaldas decorativas en hacienda elegante" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/boda-hacienda-guirnaldas-city-color-dj.avif" alt="Boda en hacienda con guirnaldas y city color iluminando la pista junto a cabina de DJ" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bodas/iluminacion-salon-fiesta-profesional.avif" alt="Salón de fiesta de boda con iluminación profesional en tonos cálidos" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>
