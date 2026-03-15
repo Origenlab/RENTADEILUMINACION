@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Bocinas para Fiestas | REDEIL CDMX";
+const description = "Renta de bocinas y sonido profesional para fiestas en CDMX. Audio potente para cumpleaños, graduaciones, posadas, baby showers y fiestas privadas. REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-fiestas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Bocinas para Fiestas",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de bocinas y sonido profesional para fiestas en Ciudad de México. Audio para cumpleaños, graduaciones, posadas y celebraciones privadas.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Bocinas para Fiestas"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bocinas para Fiestas</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de Bocinas para Fiestas en CDMX"
+      subtitle="Sonido potente y profesional para que tu fiesta sea inolvidable"
+      introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido para todo tipo de fiestas en la Ciudad de México. Ya sea un cumpleaños, graduación, posada navideña, baby shower o fiesta privada, contamos con el equipo de audio perfecto para cada celebración."
+      introParagraph2="Nuestro catálogo incluye bocinas amplificadas, subwoofers, sistemas bluetooth, karaoke y equipos de DJ. Ofrecemos paquetes con y sin operador técnico, adaptándonos al presupuesto y necesidades de cada cliente en CDMX y zona metropolitana."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Audio profesional para todo tipo de fiestas</h2>
+        <p>La música es el alma de cualquier fiesta, y un buen sistema de sonido hace la diferencia entre una celebración memorable y una que pasa desapercibida. En REDEIL ofrecemos equipos de audio profesional que garantizan potencia, claridad y la energía necesaria para mantener la pista de baile llena toda la noche.</p>
+        <p>Para fiestas pequeñas e íntimas, ofrecemos bocinas amplificadas portátiles con conexión bluetooth y micrófono para karaoke. Para celebraciones medianas y grandes, disponemos de sistemas de sonido con subwoofer, mezcladoras y micrófonos inalámbricos. También contamos con paquetes de DJ completo para fiestas que requieren animación profesional.</p>
+        <p>Realizamos montajes en casas, jardines, terrazas, salones, rooftops y cualquier espacio en la CDMX. Nuestro equipo llega con anticipación para instalar y probar el sonido, asegurando que todo esté listo para cuando lleguen tus invitados.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Sonido para Fiestas" subtitle="Montajes de audio en fiestas y celebraciones reales">
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales.avif" alt="Bocinas profesionales montadas para fiesta con pista de baile iluminada" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/bocinas-profesionales-fiestas-noche.avif" alt="Sistema de sonido profesional en fiesta nocturna con luces" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/alquiler-altavoces-fiestas-piscina.avif" alt="Altavoces profesionales en fiesta junto a piscina al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/equipo-sonido-eventos-elegantes.avif" alt="Equipo de sonido elegante montado para celebración formal" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/renta-bocinas-baby-shower.avif" alt="Bocinas rentadas para baby shower con decoración festiva" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-fiestas/sistema-audio-graduaciones-eventos.avif" alt="Sistema de audio profesional instalado para fiesta de graduación" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

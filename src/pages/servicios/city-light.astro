@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de City Lights para Eventos | REDEIL CDMX";
+const description = "Renta de city lights e iluminación ambiental para eventos en CDMX. Luces decorativas para bodas, fiestas y eventos corporativos. Ambiente profesional. REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-light/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de City Lights para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de city lights e iluminación ambiental decorativa para eventos en Ciudad de México. Luces profesionales para bodas, fiestas y corporativos.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de City Lights"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>City Lights</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de City Lights para Eventos en CDMX"
+      subtitle="Iluminación ambiental decorativa que transforma la atmósfera de tu evento"
+      introParagraph1="En REDEIL ofrecemos renta de city lights e iluminación ambiental profesional para eventos en la Ciudad de México. Estas luces decorativas son ideales para crear ambientes elegantes y sofisticados en bodas, fiestas, eventos corporativos y celebraciones especiales, bañando salones y espacios con colores vibrantes y cálidos."
+      introParagraph2="Nuestros city lights son luminarias LED de bajo consumo con capacidad de proyectar una amplia gama de colores. Los instalamos en paredes, columnas, techos, fachadas y jardines para crear efectos de iluminación ambiental que complementan perfectamente la decoración de cualquier evento."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Ambientación lumínica que eleva cualquier espacio</h2>
+        <p>Los city lights son la herramienta perfecta para transformar un espacio ordinario en un ambiente extraordinario. A diferencia de la iluminación general, estas luces permiten personalizar el color del ambiente para que combine con la temática de tu evento: rosa para una boda romántica, azul para un evento corporativo elegante, dorado para una gala o magenta para una fiesta vibrante.</p>
+        <p>En REDEIL utilizamos city lights LED de alta potencia que pueden cubrir grandes superficies con color uniforme. Los colocamos estratégicamente en paredes, columnas, arcos, fachadas y jardines para resaltar la arquitectura del venue y crear profundidad visual. El resultado es un ambiente envolvente que impresiona a los invitados desde que llegan.</p>
+        <p>Cada instalación es diseñada por nuestro equipo de iluminación, considerando las dimensiones del espacio, el color de la decoración y el efecto deseado. Cubrimos eventos en salones, haciendas, jardines, terrazas y cualquier venue en la CDMX y zona metropolitana.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de City Lights" subtitle="Ambientación lumínica profesional en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-profesional-bodas-cdmx.avif" alt="Iluminación profesional con city lights en tono rosa para boda en CDMX" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-salon-bodas.avif" alt="Salón de bodas ambientado con city lights en tonos elegantes" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/luces-arquitectonicas-edificio-evento-azul.avif" alt="Fachada de edificio iluminada en azul con luces arquitectónicas para evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-eventos-recepcion-magenta.avif" alt="Recepción de evento iluminada en magenta con city lights profesionales" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/luces-para-bodas-baile-romantico.avif" alt="Primer baile romántico de novios con city lights en tonos suaves" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/renta-luces-ceremonia-exterior-ambar.avif" alt="Ceremonia exterior iluminada en tono ámbar con luces profesionales" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Bocinas para XV Años | REDEIL CDMX";
+const description = "Renta de bocinas y sonido profesional para XV años en CDMX. Audio para vals, chambelanes, brindis y fiesta. Equipos QSC, JBL y DJ profesional. REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Bocinas para XV Años",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de bocinas y sonido profesional para fiestas de XV años en Ciudad de México. Audio para vals, chambelanes, coronación y fiesta.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Bocinas para XV Años"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bocinas para XV Años</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de Bocinas para XV Años en CDMX"
+      subtitle="Sonido profesional para cada momento especial de la quinceañera"
+      introParagraph1="En REDEIL ofrecemos renta de bocinas y sonido profesional especializado en fiestas de XV años en la Ciudad de México. Cubrimos cada momento de la celebración: la entrada triunfal, el vals con papá, la coreografía de chambelanes, la coronación, el brindis y la fiesta con equipo de audio de primera calidad."
+      introParagraph2="Nuestros paquetes incluyen bocinas QSC y JBL, subwoofers, micrófonos inalámbricos para la ceremonia, mezcladoras digitales y DJ profesional. Cada montaje es diseñado para el venue específico, asegurando cobertura de sonido perfecta en salones, jardines y haciendas."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Audio profesional para una fiesta de XV años perfecta</h2>
+        <p>Una fiesta de XV años es una celebración llena de momentos emotivos y festivos que requieren un sonido impecable. Desde la entrada de la quinceañera con música emotiva, pasando por el vals padre-hija, la coreografía de chambelanes y la coronación, hasta la fiesta libre con los éxitos del momento. En REDEIL nos aseguramos de que cada momento suene perfecto.</p>
+        <p>Trabajamos con equipos profesionales de alta potencia que cubren salones grandes y jardines al aire libre. Nuestros montajes incluyen sistemas de line array para venues amplios, bocinas en columna para salones medianos y sistemas compactos de alta fidelidad para espacios íntimos. Cada configuración se adapta a las necesidades específicas del evento.</p>
+        <p>Nuestro equipo de DJs tiene amplia experiencia en XV años y conoce la secuencia típica de la celebración, coordinándose con el maestro de ceremonias para que cada transición musical sea fluida y profesional. Cubrimos eventos en toda la CDMX y zona metropolitana.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Sonido para XV Años" subtitle="Montajes de audio en fiestas de quinceañera reales">
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon.avif" alt="Vals padre-hija en XV años con sonido profesional DJ en salón elegante" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif" alt="Baile de chambelanes en XV años con bocinas JBL profesionales" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-dj-subwoofer.avif" alt="Entrada triunfal de quinceañera por escalera con DJ y subwoofer" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-coronacion-tiara-flores-bocinas.avif" alt="Coronación de quinceañera con tiara y flores acompañada de sonido profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif" alt="Fiesta de XV años con sistema line array QSC y DJ profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-mariachi-hacienda-luces.avif" alt="Mariachi en hacienda con luces y sonido profesional en XV años" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>
