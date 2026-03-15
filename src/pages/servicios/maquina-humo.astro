@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Máquina de Humo para Eventos | REDEIL CDMX";
+const description = "Renta de máquina de humo para eventos en CDMX. Efectos de niebla profesional para bodas, fiestas, conciertos y producciones. Servicio completo por REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/maquina-humo/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Máquina de Humo para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de máquinas de humo y niebla para bodas, conciertos, fiestas y producciones en la Ciudad de México. Operación profesional incluida.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Máquina de Humo"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Máquina de Humo</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Máquina de Humo para Eventos en CDMX"
+      subtitle="Efectos de humo y niebla profesional que elevan la atmósfera de tu evento"
+      introParagraph1="REDEIL pone a tu disposición el servicio de renta de máquinas de humo para eventos en la Ciudad de México y área metropolitana. Nuestros equipos generan efectos de niebla que realzan la iluminación, crean ambientes envolventes y aportan dramatismo a cualquier celebración."
+      introParagraph2="Desde bodas y fiestas de XV años hasta conciertos, obras de teatro y producciones audiovisuales, nuestro equipo técnico opera las máquinas de humo de forma profesional para lograr el efecto exacto que tu evento necesita."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Efectos de humo profesional para cada tipo de evento</h2>
+        <p>El humo es un recurso escénico fundamental que potencia cualquier sistema de iluminación. Al dispersarse en el ambiente, las partículas de niebla hacen visibles los haces de luz, creando efectos volumétricos que transforman por completo la percepción del espacio.</p>
+        <p>En REDEIL utilizamos máquinas de humo profesionales con líquidos certificados y seguros para espacios cerrados. Controlamos la densidad y la dispersión del humo según las necesidades de cada momento, ya sea un efecto sutil para una sesión fotográfica o una niebla densa para una fiesta electrónica.</p>
+        <p>Nuestro servicio incluye la operación del equipo por parte de un técnico especializado durante todo tu evento en CDMX. Esto garantiza que los efectos de humo se activen en los momentos precisos y con la intensidad adecuada para cada situación.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Máquina de Humo" subtitle="Efectos de humo y niebla en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/humo/maquina-humo-concierto-festival-luces.avif" alt="Máquina de humo generando niebla durante concierto con luces de colores" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/efecto-humo-sesion-fotos-profesional.avif" alt="Efecto de humo utilizado en sesión fotográfica profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/maquina-niebla-boda-romantica-jardin.avif" alt="Niebla suave en boda romántica celebrada en jardín" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/humo-teatral-obra-teatro-escenario.avif" alt="Humo teatral sobre escenario durante obra de teatro" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/niebla-densa-fiesta-electronica-rave.avif" alt="Niebla densa en fiesta electrónica con luces láser atravesando el humo" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/maquina-humo-profesional-boda-pista-baile.avif" alt="Máquina de humo profesional en pista de baile durante boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo/efecto-niebla-fiesta-cumpleanos-luces.avif" alt="Efecto de niebla en fiesta de cumpleaños con iluminación de colores" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Gobos y Proyección de Logotipos | REDEIL CDMX";
+const description = "Renta de gobos personalizados para proyectar logotipos, monogramas y diseños en eventos en CDMX. REDEIL proyecta tu marca o iniciales en bodas y corporativos.";
+const canonical = "https://rentadeiluminacion.com/servicios/gobos/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Gobos y Proyección de Logotipos para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de gobos personalizados para proyección de logotipos, monogramas e iniciales en bodas, eventos corporativos y fiestas en Ciudad de México.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Gobos Personalizados"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Gobos</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Gobos y Proyección de Logotipos en CDMX"
+      subtitle="Proyecta tu marca, monograma o diseño personalizado con luz"
+      introParagraph1="REDEIL ofrece renta de gobos personalizados para la proyección de logotipos, monogramas e iniciales en eventos en la Ciudad de México. Mediante luminarias profesionales, proyectamos tu diseño sobre muros, pisos, pistas de baile y cualquier superficie de tu venue."
+      introParagraph2="Con amplia experiencia en bodas, eventos corporativos, lanzamientos de marca y galas, nuestros gobos personalizados añaden un toque de exclusividad y profesionalismo a cualquier celebración. El equipo técnico de REDEIL se encarga de la fabricación del gobo, el montaje y la calibración perfecta de la proyección."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Gobos personalizados: tu diseño proyectado con luz profesional</h2>
+        <p>Un gobo es una plantilla que se coloca dentro de una luminaria profesional para proyectar un diseño específico con luz. En eventos, los gobos se utilizan para proyectar logotipos corporativos, monogramas de parejas, iniciales, patrones decorativos y cualquier imagen personalizada sobre las superficies del venue.</p>
+        <p>En REDEIL fabricamos gobos a la medida a partir del diseño que nos proporciones. Ya sea el logotipo de tu empresa para un evento corporativo o las iniciales de los novios para una boda, nos aseguramos de que la proyección sea nítida, bien enfocada y ubicada en el punto exacto que genere mayor impacto visual.</p>
+        <p>Nuestro servicio incluye el diseño y fabricación del gobo, la luminaria profesional para la proyección, el montaje en el venue y los ajustes técnicos necesarios para una imagen perfecta. Atendemos eventos en toda la CDMX y zona metropolitana, coordinando con organizadores y decoradores para una integración impecable.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Gobos" subtitle="Proyecciones personalizadas en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/gobos/alquiler-gobos-proyectar-marca-boda.avif" alt="Gobo proyectando marca personalizada en pared durante recepción de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/gobo-personalizado-proyectar-logo-empresa.avif" alt="Logotipo de empresa proyectado con gobo personalizado en evento corporativo" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/gobo-proyectar-logotipo-boda-elegante.avif" alt="Logotipo elegante de boda proyectado con gobo sobre muro del salón" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/proyeccion-gobo-empresa-iluminacion-marca.avif" alt="Proyección de gobo con marca empresarial iluminando espacio corporativo" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/renta-proyeccion-logotipos-eventos-especiales.avif" alt="Proyección de logotipo en evento especial con iluminación profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/renta-gobo-logo-proyectado-fiesta.avif" alt="Logo proyectado con gobo sobre pista de baile durante fiesta" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/gobos/gobos-luz-proyectar-monograma-boda.avif" alt="Monograma de novios proyectado con gobo de luz en celebración de boda" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

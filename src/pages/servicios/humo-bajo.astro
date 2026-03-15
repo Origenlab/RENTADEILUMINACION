@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Humo Bajo para Eventos | REDEIL CDMX";
+const description = "Renta de humo bajo para bodas y eventos en CDMX. Efecto de nubes en el piso para primer baile y vals. Montaje profesional por REDEIL en Ciudad de México.";
+const canonical = "https://rentadeiluminacion.com/servicios/humo-bajo/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Humo Bajo para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de humo bajo para bodas, XV años y eventos en la Ciudad de México. Efecto de nubes en el piso ideal para primer baile y vals.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Humo Bajo"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Humo Bajo</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Humo Bajo para Eventos en CDMX"
+      subtitle="El efecto de nubes en el piso que hace inolvidable tu primer baile"
+      introParagraph1="REDEIL ofrece el servicio de renta de humo bajo para bodas y eventos en la Ciudad de México. Este efecto especial cubre el piso con una capa densa de niebla que simula caminar sobre las nubes, creando momentos verdaderamente memorables."
+      introParagraph2="Nuestro equipo cuenta con amplia experiencia en bodas, XV años, graduaciones y eventos especiales. Utilizamos equipos profesionales que generan humo pesado de forma controlada, garantizando un resultado espectacular sin afectar la visibilidad ni la comodidad de los asistentes."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>El efecto más solicitado para bodas y celebraciones</h2>
+        <p>El humo bajo es uno de los efectos especiales más populares para bodas y XV años. A diferencia del humo convencional que se eleva, el humo bajo permanece a nivel del suelo, creando una alfombra de niebla que transforma la pista de baile en un escenario de ensueño.</p>
+        <p>Este efecto es especialmente impactante durante el primer baile de los novios, el vals de XV años o la entrada triunfal al salón. La combinación de humo bajo con iluminación profesional genera fotografías y videos espectaculares que capturan la magia del momento.</p>
+        <p>En REDEIL nos encargamos de todo: llevamos el equipo, lo instalamos y lo operamos durante tu evento en CDMX. Nuestros técnicos coordinan la activación del humo bajo con los momentos clave de tu celebración para lograr el máximo impacto visual.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Humo Bajo" subtitle="Momentos reales con efecto de humo bajo en bodas y eventos">
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/humo-bajo-pista-baile-luces-led.avif" alt="Humo bajo cubriendo la pista de baile iluminada con luces LED" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/efecto-nubes-piso-boda-jardin.avif" alt="Efecto de nubes en el piso durante boda celebrada en jardín" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/maquina-humo-bajo-entrada-novios.avif" alt="Máquina de humo bajo activada durante la entrada de los novios al salón" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/renta-humo-bajo-primer-baile-boda.avif" alt="Primer baile de boda con humo bajo cubriendo la pista" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif" alt="Vals de boda con humo bajo y pista iluminada" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/maquina-humo-bajo-graduacion-baile.avif" alt="Humo bajo en baile de graduación con iluminación festiva" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/primer-baile-boda-humo-bajo-elegante.avif" alt="Primer baile de boda con elegante efecto de humo bajo en el piso" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/humo-bajo/humo-bajo-profesional-evento-nocturno.avif" alt="Humo bajo profesional en evento nocturno con iluminación ambiental" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

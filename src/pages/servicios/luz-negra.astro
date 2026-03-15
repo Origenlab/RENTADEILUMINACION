@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Luz Negra para Eventos | REDEIL CDMX";
+const description = "Renta de luz negra y blacklight para fiestas y eventos en CDMX. REDEIL crea ambientes neón y fluorescentes para bodas, fiestas temáticas y eventos corporativos.";
+const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Luz Negra para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de luz negra y blacklight para fiestas, bodas y eventos corporativos en Ciudad de México. Ambientes neón y fluorescentes.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Luz Negra"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luz Negra</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Luz Negra para Eventos en CDMX"
+      subtitle="Ambientes neón y fluorescentes que transforman tu celebración"
+      introParagraph1="REDEIL es especialista en la renta de luz negra y blacklight para eventos en toda la Ciudad de México. Nuestros equipos de luz ultravioleta crean ambientes vibrantes y únicos que hacen brillar elementos fluorescentes y neón, transformando salones, jardines y cualquier espacio."
+      introParagraph2="Trabajamos con bodas temáticas, fiestas glow, eventos corporativos y celebraciones privadas. Nuestro equipo técnico diseña la distribución de las luminarias UV para lograr el máximo impacto visual, coordinándose con decoradores y organizadores para integrar la luz negra al concepto del evento."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Luz negra profesional: el efecto más impactante para tu fiesta</h2>
+        <p>La luz negra emite radiación ultravioleta que hace brillar materiales fluorescentes y colores neón, creando un efecto visual sorprendente y envolvente. Es ideal para fiestas temáticas tipo glow, bodas con decoración neón, eventos corporativos con branding fluorescente y celebraciones que buscan una atmósfera diferente y memorable.</p>
+        <p>En REDEIL utilizamos equipos de blacklight profesionales que cubren grandes áreas de manera uniforme. Cada instalación se planifica según las dimensiones del espacio y el tipo de decoración, asegurando que los elementos fluorescentes destaquen con intensidad y que el ambiente general sea coherente y atractivo.</p>
+        <p>Nuestro servicio incluye asesoría sobre materiales y colores que reaccionan a la luz UV, traslado de equipos, montaje profesional y soporte técnico durante el evento. Cubrimos salones, jardines, terrazas y espacios abiertos en CDMX y zona metropolitana.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Luz Negra" subtitle="Fiestas y eventos transformados con iluminación ultravioleta">
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/luz-blacklight-eventos-corporativos.avif" alt="Evento corporativo iluminado con luz blacklight y elementos fluorescentes" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/decoracion-uv-boda.avif" alt="Decoración de boda con luz ultravioleta resaltando flores y telas neón" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/decoracion-neon-fiestas-tematicas.avif" alt="Fiesta temática con decoración neón brillando bajo luz negra" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/ambiente-neon-boda.avif" alt="Ambiente neón en recepción de boda con elementos fluorescentes" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/fiesta-neon-profesional.avif" alt="Fiesta neón profesional con invitados y accesorios fluorescentes" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/luz-negra-salon-eventos.avif" alt="Salón de eventos completamente transformado con luz negra profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/fiesta-glow-nocturna.avif" alt="Fiesta glow nocturna con pulseras y pintura fluorescente bajo blacklight" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luz-negra/luz-negra-evento-corporativo.avif" alt="Evento corporativo con branding y elementos decorativos bajo luz negra" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

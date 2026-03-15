@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de City Color para Eventos | REDEIL CDMX";
+const description = "Renta de city color e iluminación arquitectónica para eventos en CDMX. REDEIL baña fachadas, muros y espacios con luz de color para bodas y eventos corporativos.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-color/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de City Color para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de city color e iluminación arquitectónica para eventos en Ciudad de México. Baño de color en fachadas, muros y espacios exteriores.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de City Color"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>City Color</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="City Color para Eventos en CDMX"
+      subtitle="Iluminación arquitectónica que transforma fachadas y espacios con color"
+      introParagraph1="REDEIL ofrece renta de equipos city color para iluminación arquitectónica de eventos en la Ciudad de México. Estas potentes luminarias bañan fachadas, muros, columnas y jardines con luz de color, creando ambientes sofisticados que elevan la estética de cualquier celebración."
+      introParagraph2="Con experiencia en bodas, galas corporativas, inauguraciones y fiestas privadas, nuestro equipo técnico diseña esquemas de iluminación personalizados que se integran con la paleta de colores de tu evento. Cubrimos toda la CDMX y zona metropolitana."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Iluminación arquitectónica que define la atmósfera de tu evento</h2>
+        <p>Los equipos city color son luminarias de alta potencia diseñadas para bañar grandes superficies con luz de color uniforme. Al iluminar fachadas, muros y elementos arquitectónicos, transforman por completo la percepción del espacio y crean ambientes que van desde lo elegante y romántico hasta lo vibrante y energético.</p>
+        <p>En REDEIL seleccionamos cuidadosamente la ubicación y el ángulo de cada luminaria para lograr un baño de color homogéneo y profesional. Trabajamos con una amplia gama cromática que nos permite adaptar la iluminación a la temática y los colores de tu evento, ya sea una boda íntima en tonos cálidos o un evento corporativo con los colores de tu marca.</p>
+        <p>Nuestro servicio integral incluye la visita previa al venue cuando es necesario, diseño del esquema de iluminación, traslado de equipo, montaje profesional, operación durante el evento y desmontaje. Todo respaldado por la experiencia de REDEIL en iluminación de eventos en la Ciudad de México.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de City Color" subtitle="Iluminación arquitectónica en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/city-color/luces-fiesta-elegante-dorado.avif" alt="Salón de fiesta elegante bañado en tonos dorados con iluminación city color" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/luces-brindis-boda-morado.avif" alt="Momento de brindis en boda con iluminación morada de city color en muros" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/luces-terraza-rooftop-morado.avif" alt="Terraza rooftop iluminada en tonos morados con equipos city color" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/iluminacion-fiesta-corporativa-azul.avif" alt="Fiesta corporativa con fachada iluminada en azul por city color" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/iluminacion-fachadas-bodas-mexico.avif" alt="Fachada de venue de boda en México iluminada con city color" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

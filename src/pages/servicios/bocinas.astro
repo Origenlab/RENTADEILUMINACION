@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Bocinas para Eventos | REDEIL CDMX";
+const description = "Renta de bocinas y sonido profesional para eventos en CDMX. Equipos de audio, line array y sistemas de sonido para bodas, fiestas y conciertos. REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Bocinas y Sonido Profesional para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de bocinas, sistemas de sonido profesional y line array para bodas, fiestas, conciertos y eventos corporativos en la Ciudad de México.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Bocinas y Sonido Profesional"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bocinas</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de Bocinas para Eventos en CDMX"
+      subtitle="Sonido profesional que garantiza la mejor experiencia auditiva en tu evento"
+      introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido profesional para todo tipo de eventos en la Ciudad de México. Desde bodas íntimas hasta conciertos masivos, contamos con el equipo de audio adecuado para cubrir las necesidades acústicas de cada espacio."
+      introParagraph2="Nuestro inventario incluye bocinas activas, sistemas line array, subwoofers, micrófonos y mezcladoras de las mejores marcas del mercado. Cada evento es atendido por técnicos de audio que se encargan del montaje, la ecualización y la operación del equipo durante toda tu celebración."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Equipo de audio profesional para cada ocasión</h2>
+        <p>El sonido es un elemento fundamental en cualquier evento. Una buena calidad de audio asegura que la música se escuche con claridad, que los discursos lleguen a todos los asistentes y que la atmósfera de la celebración sea la adecuada. En REDEIL entendemos esta importancia y ofrecemos soluciones de sonido a la medida.</p>
+        <p>Para bodas y eventos sociales, proporcionamos sistemas de sonido que cubren tanto la ceremonia como la recepción y la fiesta. Nuestros equipos incluyen bocinas de alta fidelidad, micrófonos inalámbricos para ceremonias y brindis, y subwoofers para la pista de baile. Para conciertos y eventos masivos, disponemos de sistemas line array de gran potencia con cobertura uniforme.</p>
+        <p>Cada montaje de sonido en CDMX es diseñado según las dimensiones del espacio, la cantidad de asistentes y el tipo de evento. Nuestro equipo técnico realiza pruebas de audio previas al evento para garantizar una experiencia sonora impecable de principio a fin.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Bocinas y Sonido" subtitle="Montajes de audio profesional en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/bocinas/bocinas-profesionales-evento-masivo.avif" alt="Bocinas profesionales instaladas para evento masivo al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas/sonido-profesional-concierto-estadio.avif" alt="Sistema de sonido profesional montado para concierto en estadio" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas/renta-bocinas-line-array-concierto.avif" alt="Bocinas line array rentadas para concierto con iluminación escénica" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-bodas/renta-bocinas-boda-brindis-microfono-salon.avif" alt="Micrófono y bocinas rentadas para brindis en salón de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif" alt="Sistema line array y equipo Pioneer DJ instalado en salón de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-bodas/renta-bocinas-boda-instalacion-equipo-cases.avif" alt="Instalación de equipo de sonido con cases profesionales en boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif" alt="Montaje de bocinas en tripié bajo carpa para boda en playa" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-bodas/renta-bocinas-boda-descarga-equipo-salon-qsc-k12.avif" alt="Descarga de equipo de sonido QSC en salón para montaje de boda" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

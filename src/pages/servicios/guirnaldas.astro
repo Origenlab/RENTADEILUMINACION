@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Guirnaldas de Luces para Eventos | REDEIL CDMX";
+const description = "Renta de guirnaldas de luces y focos Edison para bodas y eventos en CDMX. REDEIL ofrece instalación profesional de luces decorativas vintage en jardines y salones.";
+const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Guirnaldas de Luces para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta e instalación de guirnaldas de luces y focos Edison para bodas, fiestas y eventos en Ciudad de México.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Guirnaldas de Luces"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Guirnaldas</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Guirnaldas de Luces para Eventos en CDMX"
+      subtitle="Luces decorativas vintage que crean ambientes cálidos e inolvidables"
+      introParagraph1="REDEIL es especialista en la renta e instalación de guirnaldas de luces para eventos en toda la Ciudad de México. Nuestras guirnaldas con focos Edison aportan un toque cálido y elegante a bodas, fiestas y celebraciones al aire libre o en interiores."
+      introParagraph2="Contamos con amplia experiencia en montajes de guirnaldas en jardines, terrazas, pérgolas, salones y rooftops. Nuestro equipo técnico realiza la instalación completa, asegurando que cada detalle luminoso complemente la decoración de tu evento."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Guirnaldas de focos Edison: el toque perfecto para tu celebración</h2>
+        <p>Las guirnaldas de luces se han convertido en uno de los elementos decorativos más solicitados para eventos. Su luz cálida y envolvente transforma cualquier espacio en un ambiente acogedor y fotogénico, ideal para bodas, cenas íntimas, fiestas de cumpleaños y eventos corporativos al aire libre.</p>
+        <p>En REDEIL ofrecemos guirnaldas con focos estilo Edison que combinan un diseño vintage con tecnología confiable. Cada instalación es planeada a la medida del espacio, cuidando la distribución, altura y densidad de las luces para lograr el efecto visual deseado.</p>
+        <p>Nuestro servicio incluye traslado, montaje profesional y desmontaje. Trabajamos en coordinación con wedding planners, decoradores y organizadores de eventos para garantizar una integración perfecta con el concepto general de tu celebración en CDMX.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Guirnaldas" subtitle="Instalaciones reales en bodas y eventos en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif" alt="Guirnaldas de luces decorativas iluminando un evento nocturno al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-vintage-ceremonia-boda-03.avif" alt="Guirnaldas vintage iluminando ceremonia de boda con ambiente cálido" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-focos-edison-jardin-exterior-01.avif" alt="Focos Edison en guirnaldas instaladas sobre jardín exterior para evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif" alt="Guirnaldas vintage decorando rooftop con vista a la ciudad de noche" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-pareja-novios-guirnaldas-boda-32.avif" alt="Pareja de novios bajo guirnaldas de luces durante su boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif" alt="Ceremonia de boda en pérgola decorada con focos Edison" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-colgantes-fiestas-18.avif" alt="Luces colgantes en guirnaldas iluminando fiesta nocturna" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

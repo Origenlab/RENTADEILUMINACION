@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Luces Neón para Eventos | REDEIL CDMX";
+const description = "Renta de letreros y luces neón para fiestas y eventos en CDMX. REDEIL ofrece letreros neón personalizados, glow parties y ambientación UV para bodas y cumpleaños.";
+const canonical = "https://rentadeiluminacion.com/servicios/luces-neon/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Luces Neón para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de luces neón, letreros personalizados y ambientación UV para fiestas, bodas y eventos en Ciudad de México.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Luces Neón"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luces Neón</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Luces Neón para Eventos en CDMX"
+      subtitle="Letreros neón y ambientación luminosa que hacen brillar tu evento"
+      introParagraph1="REDEIL ofrece un servicio completo de renta de luces neón para eventos en la Ciudad de México. Desde letreros personalizados hasta ambientación completa con iluminación UV, creamos experiencias visuales únicas para bodas, cumpleaños, fiestas temáticas y eventos corporativos."
+      introParagraph2="Nuestro catálogo incluye letreros neón con frases populares, hashtags personalizados y diseños a medida. Además, ofrecemos paquetes de glow party con iluminación ultravioleta que transforman por completo la atmósfera de cualquier celebración."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Letreros neón y experiencias luminosas para cada ocasión</h2>
+        <p>Las luces neón se han posicionado como un elemento imprescindible en la decoración de eventos modernos. Un letrero neón no solo aporta un punto focal visualmente atractivo, sino que también se convierte en el escenario perfecto para fotografías memorables de tus invitados.</p>
+        <p>En REDEIL contamos con una amplia variedad de letreros neón disponibles para renta, así como la posibilidad de crear diseños personalizados con nombres, fechas o mensajes especiales. Cada pieza es instalada profesionalmente por nuestro equipo técnico, garantizando un resultado impecable.</p>
+        <p>También somos expertos en la organización de glow parties y fiestas neón, donde combinamos iluminación UV, luces neón y efectos especiales para crear una experiencia inmersiva. Cubrimos eventos en toda la CDMX y zona metropolitana con servicio integral de montaje y operación.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Luces Neón" subtitle="Letreros y ambientación neón en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/renta-luces-neon-cabezas-moviles-escenario.avif" alt="Escenario de evento iluminado con luces neón y cabezas móviles" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/letrero-neon-hashtag-boda.avif" alt="Letrero neón con hashtag personalizado en recepción de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/renta-luces-neon-cumpleanos-happy-birthday-neon.avif" alt="Letrero neón de happy birthday iluminando fiesta de cumpleaños" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/renta-luces-neon-glow-party-salon-eventos.avif" alt="Glow party en salón de eventos con iluminación neón y UV" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/luces-neon-mesa-novios.avif" alt="Mesa de novios decorada con luces neón como fondo luminoso" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/luces-neon/renta-luces-neon-fiesta-neon-experiencia-uv.avif" alt="Fiesta neón con experiencia UV e invitados disfrutando la iluminación" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

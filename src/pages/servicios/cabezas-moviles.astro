@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Cabezas Móviles para Eventos | REDEIL CDMX";
+const description = "Renta de cabezas móviles profesionales para eventos en CDMX. REDEIL ofrece iluminación dinámica con beams, spots y wash para bodas, fiestas y eventos corporativos.";
+const canonical = "https://rentadeiluminacion.com/servicios/cabezas-moviles/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Cabezas Móviles para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de cabezas móviles para eventos en Ciudad de México. Iluminación dinámica con beams, spots y wash para bodas, fiestas y corporativos.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Cabezas Móviles"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Cabezas Móviles</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Cabezas Móviles para Eventos en CDMX"
+      subtitle="Iluminación dinámica profesional que transforma cualquier espacio"
+      introParagraph1="En REDEIL contamos con cabezas móviles de última generación para todo tipo de eventos en la Ciudad de México. Nuestro equipo profesional se encarga del montaje, programación y operación para que tu evento cuente con una iluminación dinámica de alto impacto."
+      introParagraph2="Con amplia experiencia en bodas, fiestas, eventos corporativos y shows en vivo, ofrecemos soluciones de iluminación que se adaptan a cada espacio y concepto. Nuestras cabezas móviles incluyen efectos de beam, spot y wash controlados por operadores certificados."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Iluminación dinámica que eleva la experiencia de tu evento</h2>
+        <p>Las cabezas móviles son el elemento clave para crear ambientes envolventes y espectaculares en cualquier evento. Gracias a su capacidad de movimiento, cambio de color y proyección de gobos, estas luminarias permiten diseñar shows de luz que cautivan a los asistentes desde el primer momento.</p>
+        <p>En REDEIL trabajamos con equipos profesionales que garantizan un rendimiento impecable durante toda la duración de tu evento. Cada montaje es planificado cuidadosamente por nuestro equipo técnico, considerando las dimensiones del venue, la temática del evento y el efecto visual deseado.</p>
+        <p>Ya sea que necesites un ambiente elegante y sutil para una boda o un show de luces energético para una fiesta, nuestras cabezas móviles ofrecen la versatilidad necesaria para lograrlo. Cubrimos eventos en toda la CDMX y zona metropolitana con puntualidad y profesionalismo.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Cabezas Móviles" subtitle="Montajes reales en eventos de la Ciudad de México">
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif" alt="Show profesional con cabezas móviles montadas en truss proyectando beams de luz en un evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-social-iluminacion-dinamica.avif" alt="Evento social iluminado con cabezas móviles creando ambiente dinámico en salón" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-pista-baile-magenta.avif" alt="Pista de baile iluminada en tonos magenta por cabezas móviles durante evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-salon-iluminacion-completa.avif" alt="Salón de boda con iluminación completa de cabezas móviles en tonos cálidos" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-romantica-beams-suaves.avif" alt="Boda romántica con beams suaves de cabezas móviles creando atmósfera íntima" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cabezas-moviles/renta-cabezas-moviles-montaje-gobo-tecnico-truss.avif" alt="Montaje técnico de cabezas móviles con gobos sobre estructura de truss" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

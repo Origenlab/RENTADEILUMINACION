@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Máquina de Burbujas para Eventos | REDEIL CDMX";
+const description = "Renta de máquina de burbujas para bodas y eventos en CDMX. Efecto de burbujas profesional para fiestas, baby showers y celebraciones. Servicio REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/burbujas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Máquina de Burbujas para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de máquinas de burbujas para bodas, fiestas infantiles, baby showers y eventos en la Ciudad de México. Efecto mágico y divertido.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Máquina de Burbujas"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Burbujas</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Máquina de Burbujas para Eventos en CDMX"
+      subtitle="Un efecto mágico y divertido que encanta a invitados de todas las edades"
+      introParagraph1="REDEIL ofrece el servicio de renta de máquinas de burbujas para eventos en la Ciudad de México y zona metropolitana. Las burbujas aportan un toque de fantasía y alegría que complementa a la perfección bodas, fiestas infantiles, baby showers y eventos corporativos."
+      introParagraph2="Contamos con equipos profesionales capaces de generar grandes volúmenes de burbujas de distintos tamaños. Nuestro equipo técnico se encarga de la instalación y operación, adaptando la intensidad del efecto a cada momento de tu celebración."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Burbujas profesionales para momentos inolvidables</h2>
+        <p>Las burbujas son un efecto versátil que funciona tanto en eventos formales como en celebraciones informales. En una boda, las burbujas envolviendo a los novios durante su primer baile crean una atmósfera de cuento de hadas. En una fiesta infantil, llenan el espacio de diversión y asombro para los más pequeños.</p>
+        <p>En REDEIL utilizamos máquinas de burbujas de grado profesional con líquido especial que produce burbujas resistentes y de larga duración. Esto permite que las burbujas floten por más tiempo, generando un efecto visual más impactante y mejores oportunidades fotográficas.</p>
+        <p>Nuestro servicio de renta de burbujas en CDMX es ideal para bodas, aniversarios, baby showers, fiestas de cumpleaños, eventos corporativos y lanzamientos de productos. Nos adaptamos a las dimensiones de tu espacio y a la dinámica de tu evento para ofrecer el mejor resultado.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Burbujas" subtitle="Eventos reales con efecto de burbujas profesional">
+      <figure class="gallery-item">
+        <img src="/img/burbujas/renta-burbujas-aniversario-celebracion.avif" alt="Burbujas envolviendo la celebración de aniversario en evento al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/maquina-burbujas-boda-entrada-novios.avif" alt="Máquina de burbujas activada durante la entrada de los novios a la recepción" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos.avif" alt="Burbujas gigantes en fiesta de cumpleaños con niños jugando" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/renta-burbujas-evento-corporativo-lanzamiento.avif" alt="Efecto de burbujas en evento corporativo de lanzamiento de producto" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif" alt="Máquina de burbujas profesional operando en boda celebrada en jardín" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/renta-burbujas-baby-shower-decoracion.avif" alt="Burbujas como parte de la decoración en baby shower al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif" alt="Burbujas flotando en fiesta temática con iluminación mágica de colores" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

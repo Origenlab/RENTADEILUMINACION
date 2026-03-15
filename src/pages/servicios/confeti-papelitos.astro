@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Máquina de Confeti y Papelitos para Eventos | REDEIL CDMX";
+const description = "Renta de máquina de confeti y papelitos para bodas, XV años y eventos en CDMX. REDEIL crea lluvias de confeti espectaculares para los momentos más emotivos de tu evento.";
+const canonical = "https://rentadeiluminacion.com/servicios/confeti-papelitos/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Máquina de Confeti y Papelitos para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de máquina de confeti y papelitos para bodas, XV años, revelaciones de género y eventos en Ciudad de México. Lluvias de confeti profesionales.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Máquina de Confeti y Papelitos"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Confeti y Papelitos</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Máquina de Confeti y Papelitos para Eventos en CDMX"
+      subtitle="Lluvias de confeti espectaculares para los momentos más emotivos"
+      introParagraph1="REDEIL ofrece el servicio de renta de máquinas de confeti y papelitos para eventos en toda la Ciudad de México. Creamos lluvias de confeti que marcan los momentos más especiales de bodas, XV años, revelaciones de género, fiestas y eventos corporativos con un efecto visual impactante."
+      introParagraph2="Contamos con máquinas profesionales capaces de lanzar confeti de distintos colores, formas y materiales. Nuestro equipo técnico opera cada disparo en el momento preciso, coordinándose con el DJ, el fotógrafo y los organizadores para que la lluvia de papelitos coincida con los instantes más emotivos del evento."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Confeti profesional: el efecto que transforma momentos en recuerdos</h2>
+        <p>Una lluvia de confeti en el momento justo tiene la capacidad de elevar cualquier celebración. Ya sea durante el primer baile, el vals de XV años, una revelación de género o el cierre de un evento corporativo, el confeti añade espectacularidad, emoción y genera fotografías memorables.</p>
+        <p>En REDEIL trabajamos con máquinas de confeti profesionales que permiten controlar la dirección, intensidad y alcance de cada disparo. Ofrecemos confeti en diversos colores y formatos, incluyendo papelitos clásicos, corazones, estrellas y confeti metálico dorado o plateado, adaptándonos al tema y la paleta de colores de cada evento.</p>
+        <p>Nuestro servicio incluye traslado del equipo, instalación en la posición estratégica del venue, operación técnica sincronizada con los momentos clave y retiro al finalizar. Cubrimos bodas, XV años, fiestas, revelaciones de género y eventos corporativos en CDMX y área metropolitana.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Confeti y Papelitos" subtitle="Momentos espectaculares con lluvia de confeti en eventos reales">
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/maquina-confeti-rosa-gender-reveal-nina.avif" alt="Máquina de confeti rosa durante revelación de género anunciando niña" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/explosion-confeti-azul-revelacion-sexo-bebe-nino.avif" alt="Explosión de confeti azul en revelación de sexo de bebé anunciando niño" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/lluvia-confeti-baile-padre-hija-boda.avif" alt="Lluvia de confeti durante baile de padre e hija en boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/lluvia-confeti-fiesta-discoteca-laser-azul.avif" alt="Lluvia de confeti en fiesta con iluminación de discoteca y láser azul" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/lluvia-confeti-corazones-xv-anos-vestido-rosa.avif" alt="Lluvia de confeti de corazones en fiesta de XV años con quinceañera en vestido rosa" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/papelitos-corazones-xv-anos-baile-romantico.avif" alt="Papelitos en forma de corazón cayendo durante baile romántico en XV años" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico.avif" alt="Confeti dorado cayendo durante primer baile romántico de novios" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/maquina-de-papelitos/maquina-papelitos-boda-iluminacion-morada-salon.avif" alt="Máquina de papelitos en boda con iluminación morada en salón de eventos" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

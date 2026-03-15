@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Sky Tracker para Eventos | REDEIL CDMX";
+const description = "Renta de sky tracker y luces antiaéreas para eventos en CDMX. REDEIL proyecta haces de luz al cielo para bodas, inauguraciones y eventos especiales al aire libre.";
+const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Sky Tracker para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de sky tracker y luces antiaéreas para eventos al aire libre en Ciudad de México. Haces de luz visibles a kilómetros de distancia.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Sky Tracker"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Sky Tracker</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Sky Tracker para Eventos en CDMX"
+      subtitle="Haces de luz que iluminan el cielo y hacen visible tu evento"
+      introParagraph1="REDEIL ofrece renta de sky tracker y luces antiaéreas para eventos en la Ciudad de México. Estos potentes equipos proyectan haces de luz hacia el cielo nocturno, creando un efecto espectacular que es visible a gran distancia y marca la ubicación de tu celebración."
+      introParagraph2="Ideales para bodas al aire libre, inauguraciones, eventos corporativos y fiestas en haciendas o jardines, nuestros sky trackers aportan un elemento de grandiosidad que distingue cualquier evento. Nuestro equipo técnico se encarga de la instalación y operación completa."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Sky trackers: el efecto visual más impactante para eventos nocturnos</h2>
+        <p>El sky tracker es una luminaria de alta potencia diseñada para proyectar un haz de luz concentrado hacia el cielo. Este efecto, ampliamente utilizado en eventos de gran escala, genera un impacto visual inmediato que transforma la atmósfera de cualquier celebración nocturna al aire libre.</p>
+        <p>En REDEIL contamos con sky trackers profesionales que pueden operarse de forma estática o con movimiento programado, creando barridos de luz que interactúan con el entorno. Son especialmente populares en bodas en haciendas, terrazas y jardines de la CDMX, donde el cielo abierto permite apreciar todo su potencial.</p>
+        <p>Nuestro servicio incluye traslado, montaje, operación técnica y desmontaje. Coordinamos con los organizadores del evento para definir la ubicación óptima de los equipos y lograr el máximo impacto visual, cumpliendo con todas las normativas vigentes para este tipo de iluminación.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Sky Tracker" subtitle="Haces de luz en eventos reales en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/renta-skytracker-evento-jardin-guirnaldas.avif" alt="Sky tracker iluminando el cielo en evento de jardín decorado con guirnaldas" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/renta-skytracker-cielo-nocturno-potente.avif" alt="Potente haz de sky tracker proyectado al cielo nocturno durante evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif" alt="Haz de luz de sky tracker elevándose desde hacienda durante boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/luces-antiaereas-boda-terraza-alberca.avif" alt="Luces antiaéreas iluminando boda en terraza con alberca de noche" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/seguidor-luz-eventos-instalacion-boda.avif" alt="Instalación de seguidor de luz para boda al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/sky-tracker/seguidor-luz-fiestas-salon-iluminado.avif" alt="Seguidor de luz proyectando haz en salón iluminado para fiesta" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

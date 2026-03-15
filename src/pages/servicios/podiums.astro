@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Podiums para Eventos | REDEIL CDMX";
+const description = "Renta de podiums y atriles de acrílico para conferencias, presentaciones y eventos corporativos en CDMX. REDEIL ofrece podiums elegantes con entrega e instalación.";
+const canonical = "https://rentadeiluminacion.com/servicios/podiums/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Podiums para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de podiums y atriles de acrílico transparente para conferencias, presentaciones y eventos corporativos en Ciudad de México.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Podiums"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Podiums</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Podiums para Eventos en CDMX"
+      subtitle="Atriles y podiums de acrílico elegantes para conferencias y presentaciones"
+      introParagraph1="REDEIL ofrece el servicio de renta de podiums y atriles de acrílico para eventos corporativos, conferencias, congresos y presentaciones en toda la Ciudad de México. Nuestros podiums transparentes aportan una imagen profesional y moderna al escenario de cualquier evento."
+      introParagraph2="Contamos con experiencia en montajes para conferencias de prensa, paneles ejecutivos, ceremonias institucionales y eventos privados. Nuestro equipo se encarga de la entrega, colocación y retiro del podium, garantizando puntualidad y un acabado impecable en cada montaje."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Podiums de acrílico: presencia y elegancia en escenario</h2>
+        <p>Un podium de acrílico transparente es el complemento ideal para cualquier presentación profesional. Su diseño limpio y moderno permite que la atención se centre en el orador, mientras que su estructura ofrece la funcionalidad necesaria para sostener documentos, tablets o micrófonos durante conferencias y discursos.</p>
+        <p>En REDEIL ofrecemos podiums de acrílico de alta calidad, ideales para eventos corporativos, congresos, premiaciones, conferencias de prensa y ceremonias oficiales. Cada podium se entrega limpio, pulido y en perfectas condiciones para que luzca impecable frente a la audiencia y las cámaras.</p>
+        <p>Nuestro servicio incluye traslado, colocación en el punto exacto del escenario y retiro al finalizar el evento. Podemos complementar la renta del podium con iluminación de escenario, audio profesional y otros servicios de REDEIL para ofrecer una solución integral para tu evento en CDMX.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Podiums" subtitle="Podiums de acrílico en conferencias y eventos corporativos">
+      <figure class="gallery-item">
+        <img src="/img/podiums/conferencia-estadio-podium-transparente-multitud-pantallas.avif" alt="Conferencia en estadio con podium transparente frente a multitud y pantallas gigantes" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/presentacion-corporativa-podium-acrilico-graficos-audiencia.avif" alt="Presentación corporativa con orador en podium de acrílico mostrando gráficos a la audiencia" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/presentacion-ejecutivo-podium-acrilico-graficos-pantalla-azul.avif" alt="Ejecutivo realizando presentación desde podium de acrílico con pantalla azul de gráficos" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/podium-acrilico-transparente-columna-plateada-conferencia.avif" alt="Podium de acrílico transparente con columna plateada en escenario de conferencia" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/conferencia-mujer-traje-rojo-podium-acrilico-evento-corporativo.avif" alt="Mujer con traje rojo hablando desde podium de acrílico en evento corporativo" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/conferencia-mujer-podium-acrilico-tablet-presentacion.avif" alt="Mujer en conferencia usando tablet sobre podium de acrílico durante presentación" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/podiums/conferencia-orador-microfono-podium-acrilico-escenario-azul.avif" alt="Orador con micrófono en podium de acrílico sobre escenario iluminado en azul" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

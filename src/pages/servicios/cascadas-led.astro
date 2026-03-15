@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Cascadas LED para Eventos | REDEIL CDMX";
+const description = "Renta de cascadas LED para bodas y eventos en CDMX. Cortinas de luces LED que crean ambientes mágicos y románticos. Montaje profesional por REDEIL.";
+const canonical = "https://rentadeiluminacion.com/servicios/cascadas-led/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Cascadas LED para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de cascadas LED y cortinas de luces para bodas, fiestas y eventos en la Ciudad de México. Montaje e instalación profesional incluida.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Cascadas LED"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Cascadas LED</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Cascadas LED para Eventos en CDMX"
+      subtitle="Cortinas de luces LED que transforman cualquier espacio en un escenario mágico"
+      introParagraph1="En REDEIL ofrecemos el servicio de renta de cascadas LED para bodas, fiestas y todo tipo de eventos en la Ciudad de México y zona metropolitana. Nuestras cortinas de luces crean un efecto visual impactante que envuelve tu celebración en un ambiente cálido y sofisticado."
+      introParagraph2="Contamos con amplia experiencia en montajes para bodas, XV años, eventos corporativos y fiestas privadas. Nuestro equipo profesional se encarga de la instalación completa, garantizando un resultado impecable que tus invitados recordarán."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Transforma tu evento con cortinas de luces LED</h2>
+        <p>Las cascadas LED son uno de los elementos decorativos más solicitados para bodas y eventos especiales. Estas cortinas de luces generan un efecto de caída luminosa que recuerda a una cascada de agua cristalina, aportando elegancia y romanticismo a cualquier espacio.</p>
+        <p>En REDEIL trabajamos con equipos LED de alta calidad que ofrecen una iluminación uniforme y envolvente. Cada instalación se adapta al espacio de tu evento, ya sea en interiores como salones y jardines techados, o en exteriores como terrazas y haciendas. Nuestro equipo técnico realiza el montaje y desmontaje completo para que tú solo te preocupes por disfrutar.</p>
+        <p>Las cascadas LED son ideales para enmarcar la mesa principal, crear fondos fotográficos espectaculares, decorar escaleras o delimitar áreas dentro de tu celebración. Consulta con nuestro equipo para diseñar la distribución perfecta según las características de tu evento en CDMX.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Cascadas LED" subtitle="Instalaciones reales en bodas y eventos de nuestros clientes">
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/cascadas-led-cortina-luces-boda-exterior.avif" alt="Cortina de luces LED tipo cascada instalada en una boda al aire libre" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/renta-luces-led-cascada-ambiente-magico.avif" alt="Cascadas LED creando un ambiente mágico con luces cálidas en evento nocturno" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/cascadas-led-montaje-profesional-escalera.avif" alt="Montaje profesional de cascadas LED decorando una escalera en salón de eventos" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/cascadas-led-iluminacion-ambiente-romantico.avif" alt="Iluminación romántica con cascadas LED en celebración de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/luces-para-bodas-cascada-instalacion-salon.avif" alt="Instalación de cascada de luces LED en salón de bodas" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/renta-luces-led-cortina-decorativa-salon.avif" alt="Cortina decorativa de luces LED rentada para evento en salón elegante" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/cascadas-led-cortina-luz-calida-boda.avif" alt="Cortina de luz cálida tipo cascada LED ambientando recepción de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/cascadas-led/luces-para-bodas-cascada-fondo-brillante.avif" alt="Fondo brillante de cascada LED como telón para mesa principal de boda" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>
