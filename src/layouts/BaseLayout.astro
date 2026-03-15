@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  schemaMarkup?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://ek8wn5x6rqg.exactdn.com/img/og/og-image-redeil.avif',
+  ogTitle,
+  ogDescription,
+  schemaMarkup,
+} = Astro.props;
+
+const finalOgTitle = ogTitle || title;
+const finalOgDescription = ogDescription || description;
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="author" content="REDEIL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href={canonical}>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonical}>
+  <meta property="og:title" content={finalOgTitle}>
+  <meta property="og:description" content={finalOgDescription}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="REDEIL - Renta de Iluminación">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={finalOgTitle}>
+  <meta name="twitter:description" content={finalOgDescription}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1a1a2e">
+
+  <link rel="preload" href="/fonts/montserrat-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/open-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
+
+  <style>:root{--color-primary:#ff5722;--color-primary-dark:#e64a19;--color-secondary:#1a1a2e;--color-white:#ffffff;--color-gray-100:#f8f9fa;--color-gray-200:#e9ecef;--color-gray-600:#6c757d;--color-gray-800:#343a40;--color-whatsapp:#25d366;--font-primary:'Montserrat','Montserrat Fallback',sans-serif;--font-secondary:'Open Sans','Open Sans Fallback',sans-serif;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-16:4rem;--radius-md:0.5rem;--shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);--shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1);--transition-fast:150ms ease;--container-max:1200px;--container-padding:1.5rem;--header-height:100px}*,*::before,*::after{box-sizing:border-box}html{font-size:16px;-webkit-font-smoothing:antialiased}body{margin:0;padding:0;font-family:var(--font-secondary);font-size-adjust:0.5352;font-size:var(--text-base);line-height:1.6;color:var(--color-gray-800);background:var(--color-white)}h1,h2,h3{font-family:var(--font-primary);font-size-adjust:0.517;font-weight:700;line-height:1.2;margin:0 0 var(--space-4);color:var(--color-secondary)}h1{font-size:var(--text-4xl)}h2{font-size:var(--text-3xl)}a{color:var(--color-primary);text-decoration:none}img{max-width:100%;height:auto;display:block}ul,ol{margin:0;padding:0;list-style:none}.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--space-6);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:600;text-transform:uppercase;border:2px solid transparent;border-radius:var(--radius-md);cursor:pointer;text-decoration:none}.btn-primary{background:linear-gradient(135deg,#ff5722 0%,#ff6f3c 100%);color:var(--color-white);border-color:var(--color-primary);box-shadow:0 4px 15px rgba(255,87,34,0.4)}.btn-whatsapp{background:var(--color-whatsapp);color:var(--color-white);border-color:var(--color-whatsapp)}.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:var(--color-white);z-index:1000;box-shadow:var(--shadow-sm)}.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-height);gap:var(--space-6)}.logo img{height:75px;width:auto}.main-nav{display:flex;align-items:center}.nav-menu{display:flex;align-items:center;gap:var(--space-2)}.nav-menu>li>a{display:block;padding:var(--space-3) var(--space-4);color:var(--color-gray-800);font-family:var(--font-primary);font-size:var(--text-sm);font-weight:500}.nav-toggle{display:none}.breadcrumb-section{background:var(--color-gray-100);border-bottom:1px solid var(--color-gray-200);padding:var(--space-3) 0;margin-top:var(--header-height)}.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--header-height) + var(--space-8)) 0 var(--space-16);overflow:hidden}.breadcrumb-section+main .hero{padding-top:0}.hero-background{position:absolute;inset:0;z-index:0}.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,46,0.85),rgba(22,33,62,0.8))}.hero-content{position:relative;z-index:2}.hero-title{font-size:clamp(2rem,5vw,3.5rem);color:var(--color-white);margin-bottom:var(--space-4);text-shadow:2px 2px 4px rgba(0,0,0,0.3)}.hero-subtitle{font-size:var(--text-xl);color:rgba(255,255,255,0.9);margin-bottom:var(--space-8)}@media(max-width:768px){.nav-menu{display:none}.nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:var(--space-2)}.hamburger{display:block;width:24px;height:2px;background:var(--color-gray-800);position:relative}.hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:24px;height:2px;background:var(--color-gray-800)}.hamburger::before{top:-7px}.hamburger::after{bottom:-7px}.hero{min-height:70vh}.hero-title{font-size:var(--text-3xl)}}</style>
+
+  <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>
+
+  {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup} />}
+  <script is:inline src="https://app.rybbit.io/api/script.js" data-site-id="b94cbfdc97f2" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <Header />
+
+  <slot />
+
+  <Footer />
+
+  <script is:inline src="/js/app.min.js" defer></script>
+</body>
+</html>

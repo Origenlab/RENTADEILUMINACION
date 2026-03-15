@@ -1,0 +1,19 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title = "Galería de Eventos", subtitle = "Algunos de nuestros trabajos más destacados" } = Astro.props;
+---
+<section class="gallery-section" aria-labelledby="gallery-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 id="gallery-title">{title}</h2>
+      <p>{subtitle}</p>
+    </header>
+    <div class="gallery-grid">
+      <slot />
+    </div>
+  </div>
+</section>

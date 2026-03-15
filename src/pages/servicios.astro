@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Servicios de Iluminación para Eventos | REDEIL CDMX";
+const description = "Servicios de iluminación para bodas, XV años y eventos en CDMX. Guirnaldas, sky tracker, cabezas móviles. Instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Iluminación Profesional para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ciudad de México",
+      "addressCountry": "MX"
+    }
+  },
+  "description": "Servicios profesionales de renta de iluminación para bodas, XV años, fiestas y eventos corporativos en CDMX y Estado de México.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Ciudad de México"
+  },
+  "serviceType": "Renta de Iluminación para Eventos"
+});
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li>Servicios</li>
+        </ol>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="hero hero-two-columns">
+      <div class="hero-background" style="background-color: var(--color-secondary);"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Servicios de Iluminación Profesional para Eventos</h1>
+            <p class="hero-subtitle">Soluciones completas de iluminacion para bodas, XV años, fiestas y eventos corporativos en CDMX y Estado de México</p>
+            <div class="hero-ctas">
+              <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Ahora</a>
+              <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="hero-intro">
+            <p>En <strong>REDEIL</strong> ofrecemos una amplia gama de servicios de iluminacion profesional para todo tipo de eventos. Desde elegantes guirnaldas LED para bodas románticas, hasta potentes sky trackers y cabezas móviles para fiestas y eventos corporativos. Nuestro equipo incluye marcas líderes como <strong>Martin Professional, Chauvet y Elation</strong>.</p>
+            <p>Cada servicio incluye <strong>transporte, instalación profesional, operación durante el evento y desmontaje</strong>. Contamos con técnicos especializados que garantizan el funcionamiento perfecto de cada luminaria. Atendemos toda la CDMX y zona metropolitana: Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Tlalnepantla y más. <strong>Cotiza hoy sin compromiso</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Iluminación -->
+    <section class="section" id="iluminacion">
+      <div class="container">
+        <div class="section-header">
+          <h2>Iluminación</h2>
+          <p>Equipos profesionales de iluminación para crear la atmósfera perfecta en tu evento</p>
+        </div>
+        <div class="services-grid">
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-guirnaldas.html">
+              <picture>
+                <img src="/img/guirnaldas/guirnaldas-focos-edison-eventos.avif" alt="Renta de guirnaldas LED para bodas y eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-guirnaldas.html">Guirnaldas</a></h3>
+              <p>Guirnaldas LED y focos Edison para bodas, jardines y terrazas. Ambiente cálido y romántico.</p>
+              <a href="/renta-de-iluminacion/renta-de-guirnaldas.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-luces-neon.html">
+              <picture>
+                <img src="/img/luces-neon/letrero-led-neon-fiestas.avif" alt="Renta de luces neón personalizadas para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-luces-neon.html">Luces Neón</a></h3>
+              <p>Letreros LED neón personalizados para bodas, fiestas y eventos. Mensajes únicos y decoración moderna.</p>
+              <a href="/renta-de-iluminacion/renta-de-luces-neon.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-luz-negra.html">
+              <picture>
+                <img src="/img/luz-negra/ambiente-blacklight-fiesta.avif" alt="Renta de luz negra UV para fiestas neón en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-luz-negra.html">Luz Negra</a></h3>
+              <p>Luz ultravioleta para fiestas neón y temáticas. Efectos fluorescentes espectaculares.</p>
+              <a href="/renta-de-iluminacion/renta-de-luz-negra.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-city-color.html">
+              <picture>
+                <img src="/img/city-color/city-color-fachada-hacienda-boda.avif" alt="Renta de city color para iluminación de fachadas en eventos CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-city-color.html">City Color</a></h3>
+              <p>Iluminación de fachadas y exteriores con colores vibrantes para eventos y celebraciones.</p>
+              <a href="/renta-de-iluminacion/renta-de-city-color.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-city-light.html">
+              <picture>
+                <img src="/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif" alt="Renta de city light para salones de eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-city-light.html">City Light</a></h3>
+              <p>Iluminación ambiental para salones y espacios interiores. Colores personalizables para cada evento.</p>
+              <a href="/renta-de-iluminacion/renta-de-city-light.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-sky-tracker.html">
+              <picture>
+                <img src="/img/sky-tracker/luces-antiaereas-boda-nocturna-crew.avif" alt="Renta de sky tracker luces antiáereas para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-sky-tracker.html">Sky Tracker</a></h3>
+              <p>Luces antiáereas de alto impacto. Haces de luz visibles a kilómetros para eventos espectaculares.</p>
+              <a href="/renta-de-iluminacion/renta-de-sky-tracker.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-cabezas-moviles.html">
+              <picture>
+                <img src="/img/cabezas-moviles/renta-cabezas-moviles-beam-spot-wash-totem-salon.avif" alt="Renta de cabezas móviles beam spot wash para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-cabezas-moviles.html">Cabezas Móviles</a></h3>
+              <p>Cabezas móviles beam, spot y wash. Efectos dinámicos profesionales para pistas de baile y shows.</p>
+              <a href="/renta-de-iluminacion/renta-de-cabezas-moviles.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-cascadas-led.html">
+              <picture>
+                <img src="/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas.avif" alt="Renta de cascadas LED para bodas y ceremonias en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-cascadas-led.html">Cascadas LED</a></h3>
+              <p>Cortinas de luces LED tipo cascada para decoración de ceremonias, arcos y backdrops.</p>
+              <a href="/renta-de-iluminacion/renta-de-cascadas-led.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-gobos.html">
+              <picture>
+                <img src="/img/gobos/alquiler-gobo-logotipo-proyectado-fiesta.avif" alt="Renta de gobos personalizados para bodas y eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-gobos.html">Gobos</a></h3>
+              <p>Proyección de logos, nombres e imágenes personalizadas. Ideal para bodas y eventos corporativos.</p>
+              <a href="/renta-de-iluminacion/renta-de-gobos.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html">
+              <picture>
+                <img src="/img/iluminacion-arquitectonica/boda-exterior-hacienda-luces-string-fachada-ambar-parejas-bailando.avif" alt="Renta de iluminación arquitectónica para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html">Arquitectónica</a></h3>
+              <p>Iluminación profesional para resaltar la arquitectura de haciendas, edificios y espacios de eventos.</p>
+              <a href="/renta-de-iluminacion/renta-de-iluminacion-arquitectonica.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-iluminacion/renta-de-seguidor.html">
+              <picture>
+                <img src="/img/seguidor/equipo-seguidor-boda-tecnicos-filtros-color.avif" alt="Renta de seguidor de luz para eventos y presentaciones en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-iluminacion/renta-de-seguidor.html">Seguidor</a></h3>
+              <p>Seguidor de luz profesional para destacar presentadores, novios y momentos especiales del evento.</p>
+              <a href="/renta-de-iluminacion/renta-de-seguidor.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bocinas -->
+    <section class="section" id="bocinas" style="background-color: var(--color-gray-100);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Bocinas</h2>
+          <p>Sonido profesional para cada tipo de evento y celebración</p>
+        </div>
+        <div class="services-grid">
+
+          <div class="service-card">
+            <a href="/renta-de-bocinas/renta-de-bocinas-para-bodas.html">
+              <picture>
+                <img src="/img/bocinas-bodas/renta-bocinas-boda-baile-padre-hija-iluminacion.avif" alt="Renta de bocinas profesionales para bodas en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-bocinas/renta-de-bocinas-para-bodas.html">Bocinas para Bodas</a></h3>
+              <p>Sonido profesional para ceremonias y recepciones. Audio cristalino para cada momento de tu boda.</p>
+              <a href="/renta-de-bocinas/renta-de-bocinas-para-bodas.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-bocinas/renta-de-bocinas-para-xv-anos.html">
+              <picture>
+                <img src="/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif" alt="Renta de bocinas para XV años en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-bocinas/renta-de-bocinas-para-xv-anos.html">Bocinas para XV Años</a></h3>
+              <p>Equipo de sonido potente para fiestas de XV años. Subwoofers y amplificación profesional.</p>
+              <a href="/renta-de-bocinas/renta-de-bocinas-para-xv-anos.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-bocinas/renta-de-bocinas-para-fiestas.html">
+              <picture>
+                <img src="/img/bocinas-fiestas/alquiler-altavoces-eventos-terraza.avif" alt="Renta de bocinas para fiestas privadas en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-bocinas/renta-de-bocinas-para-fiestas.html">Bocinas para Fiestas</a></h3>
+              <p>Sistemas de sonido para fiestas privadas, cumpleaños y celebraciones. Potencia garantizada.</p>
+              <a href="/renta-de-bocinas/renta-de-bocinas-para-fiestas.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-bocinas/renta-de-bocinas-para-conferencias.html">
+              <picture>
+                <img src="/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif" alt="Renta de bocinas para conferencias y eventos corporativos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-bocinas/renta-de-bocinas-para-conferencias.html">Bocinas para Conferencias</a></h3>
+              <p>Audio profesional para conferencias, congresos y eventos corporativos. Microfonía incluida.</p>
+              <a href="/renta-de-bocinas/renta-de-bocinas-para-conferencias.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/renta-de-bocinas/dj-para-eventos.html">
+              <picture>
+                <img src="/img/hero/hero-dj-eventos.avif" alt="DJ profesional para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/renta-de-bocinas/dj-para-eventos.html">DJ para Eventos</a></h3>
+              <p>DJ profesional con equipo completo de sonido e iluminación para fiestas y eventos.</p>
+              <a href="/renta-de-bocinas/dj-para-eventos.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipo para Eventos -->
+    <section class="section" id="equipo">
+      <div class="container">
+        <div class="section-header">
+          <h2>Equipo para Eventos</h2>
+          <p>Complementos y efectos especiales para hacer tu evento inolvidable</p>
+        </div>
+        <div class="services-grid">
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-bolas-disco.html">
+              <picture>
+                <img src="/img/bola-disco/bola-disco-dj-pista-baile-evento.avif" alt="Renta de bolas de disco para fiestas y eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-bolas-disco.html">Bolas Disco</a></h3>
+              <p>Bolas de espejo y disco para pistas de baile. Ambiente retro y divertido para cualquier fiesta.</p>
+              <a href="/equipo-para-eventos/renta-de-bolas-disco.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-maquina-de-confeti.html">
+              <picture>
+                <img src="/img/confeti/confeti-dorado-boda-novios-fiesta.avif" alt="Renta de máquina de confeti para bodas y eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-maquina-de-confeti.html">Confeti</a></h3>
+              <p>Máquinas de confeti y papelitos para momentos especiales. Lluvia de confeti espectacular.</p>
+              <a href="/equipo-para-eventos/renta-de-maquina-de-confeti.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-podium.html">
+              <picture>
+                <img src="/img/podiums/conferencia-auditorio-grande-podium-transparente-iluminacion.avif" alt="Renta de podium para eventos corporativos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-podium.html">Podium</a></h3>
+              <p>Podiums profesionales con iluminación para conferencias, discursos y presentaciones.</p>
+              <a href="/equipo-para-eventos/renta-de-podium.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-pantalla-inflable.html">
+              <picture>
+                <img src="/img/pantalla-inflable/alquiler-pantalla-cine-inflable-posada.avif" alt="Renta de pantalla inflable para eventos al aire libre en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-pantalla-inflable.html">Pantalla Inflable</a></h3>
+              <p>Pantallas inflables para proyección en eventos al aire libre. Cine bajo las estrellas.</p>
+              <a href="/equipo-para-eventos/renta-de-pantalla-inflable.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-maquina-de-humo.html">
+              <picture>
+                <img src="/img/humo/efecto-humo-evento-corporativo-escenario.avif" alt="Renta de máquina de humo para eventos en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-maquina-de-humo.html">Humo</a></h3>
+              <p>Máquinas de humo profesionales para efectos dramáticos y ambiente en pistas de baile.</p>
+              <a href="/equipo-para-eventos/renta-de-maquina-de-humo.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-maquina-de-burbujas.html">
+              <picture>
+                <img src="/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif" alt="Renta de máquina de burbujas para fiestas en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-maquina-de-burbujas.html">Burbujas</a></h3>
+              <p>Máquinas de burbujas para bodas, fiestas infantiles y momentos mágicos en tu evento.</p>
+              <a href="/equipo-para-eventos/renta-de-maquina-de-burbujas.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <a href="/equipo-para-eventos/renta-de-humo-bajo.html">
+              <picture>
+                <img src="/img/humo-bajo/efecto-humo-bajo-baile-novios.avif" alt="Renta de humo bajo para vals de bodas en CDMX" width="400" height="300" loading="lazy">
+              </picture>
+            </a>
+            <div class="service-card-content">
+              <h3><a href="/equipo-para-eventos/renta-de-humo-bajo.html">Humo Bajo</a></h3>
+              <p>Efecto de humo bajo para primer baile y vals. Camina entre las nubes en tu momento especial.</p>
+              <a href="/equipo-para-eventos/renta-de-humo-bajo.html" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>

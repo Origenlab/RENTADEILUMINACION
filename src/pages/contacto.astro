@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Contacto | REDEIL - Renta de Iluminación Profesional CDMX";
+const description = "Contacta a REDEIL para cotizar iluminación para tu evento. Atención por WhatsApp. 30 años de experiencia.";
+const canonical = "https://rentadeiluminacion.com/contacto/";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li>Contacto</li>
+        </ol>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="hero hero-two-columns">
+      <div class="hero-background" style="background-color: var(--color-secondary);"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-title">Cotiza Tu Iluminación para Eventos</h1>
+            <p class="hero-subtitle">Cuéntanos sobre tu evento y te enviamos una cotización personalizada por WhatsApp en minutos</p>
+            <div class="hero-ctas">
+              <a href="#formulario" class="btn btn-primary btn-lg">Llenar Formulario</a>
+              <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="hero-intro">
+            <p>Llena nuestro formulario con los detalles de tu evento y recibirás una <strong>cotización personalizada por WhatsApp</strong> en cuestión de minutos. Nuestro equipo de asesores está disponible de lunes a domingo para ayudarte a elegir la iluminación perfecta.</p>
+            <p>También puedes contactarnos directamente por <strong>teléfono o WhatsApp al 55 3068 2988</strong>. Atendemos bodas, XV años, fiestas, eventos corporativos y todo tipo de celebraciones en CDMX y Estado de México.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section" id="formulario">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- WhatsApp Form -->
+          <div class="contact-form-wrapper">
+            <div class="section-header" style="text-align: left; margin: 0 0 var(--space-8);">
+              <h2>Solicita tu Cotización</h2>
+              <p>Completa el formulario y te contactamos por WhatsApp</p>
+            </div>
+
+            <form id="whatsapp-form" class="contact-form">
+              <div class="form-group">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+              </div>
+
+              <div class="form-group">
+                <label for="tipo-evento">Tipo de evento *</label>
+                <select id="tipo-evento" name="tipo-evento" required>
+                  <option value="">Selecciona el tipo de evento</option>
+                  <option value="Boda">Boda</option>
+                  <option value="XV Años">XV Años</option>
+                  <option value="Fiesta">Fiesta</option>
+                  <option value="Evento Corporativo">Evento Corporativo</option>
+                  <option value="Conferencia">Conferencia</option>
+                  <option value="Concierto">Concierto</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fecha">Fecha del evento *</label>
+                  <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                  <label for="invitados">Número de invitados</label>
+                  <input type="number" id="invitados" name="invitados" placeholder="Ej. 150">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="whatsapp">WhatsApp *</label>
+                  <input type="tel" id="whatsapp" name="whatsapp" required placeholder="55 1234 5678">
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo electrónico</label>
+                  <input type="email" id="email" name="email" placeholder="tu@email.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ubicacion">Ubicación del evento</label>
+                <input type="text" id="ubicacion" name="ubicacion" placeholder="Colonia, alcaldía o municipio">
+              </div>
+
+              <div class="form-group">
+                <label for="servicios">Servicios de interés</label>
+                <input type="text" id="servicios" name="servicios" placeholder="Ej. Guirnaldas, cabezas móviles, humo bajo">
+              </div>
+
+              <div class="form-group">
+                <label for="mensaje">Mensaje adicional</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos más detalles sobre tu evento..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-whatsapp btn-lg" style="width: 100%;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Enviar por WhatsApp
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Sidebar -->
+          <div class="contact-sidebar">
+            <div class="contact-info-card">
+              <h3>Información de Contacto</h3>
+
+              <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-primary)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <div>
+                  <strong>Teléfono</strong>
+                  <a href="tel:+525530682988">55 3068 2988</a>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-whatsapp)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento" target="_blank" rel="noopener noreferrer">55 3068 2988</a>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-primary)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <div>
+                  <strong>Correo Electrónico</strong>
+                  <a href="mailto:hola@rentadeiluminacion.com">hola@rentadeiluminacion.com</a>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--color-primary)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                <div>
+                  <strong>Horario de Atención</strong>
+                  <span>Lunes a Domingo: 8:00 - 18:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Branches -->
+    <section class="section" style="background-color: var(--color-gray-100);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nuestras Sucursales</h2>
+          <p>4 ubicaciones estratégicas para atenderte mejor</p>
+        </div>
+        <div class="footer-branches-grid">
+
+          <div class="footer-branch">
+            <h5 class="footer-branch-title">Benito Juárez</h5>
+            <address class="footer-branch-address">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Av. Insurgentes Sur 615, Piso 6, Col. Nápoles, C.P. 03810</span>
+            </address>
+          </div>
+
+          <div class="footer-branch">
+            <h5 class="footer-branch-title">Polanco</h5>
+            <address class="footer-branch-address">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Av. Homero 1933, Piso 3, Col. Polanco I Secc, C.P. 11510</span>
+            </address>
+          </div>
+
+          <div class="footer-branch">
+            <h5 class="footer-branch-title">Naucalpan</h5>
+            <address class="footer-branch-address">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Blvd. Manuel Ávila Camacho 5, Lomas de Sotelo, Piso 10, Torre B, C.P. 53390</span>
+            </address>
+          </div>
+
+          <div class="footer-branch">
+            <h5 class="footer-branch-title">Tlalnepantla</h5>
+            <address class="footer-branch-address">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Emilio Carranza 17, Tlalnepantla Centro, C.P. 54000</span>
+            </address>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>¿Por Qué Elegir REDEIL?</h2>
+          <p>Razones por las que somos la mejor opción para iluminar tu evento</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-card-content">
+              <h3>30+ Años de Experiencia</h3>
+              <p>Más de tres décadas iluminando eventos nos respaldan. Conocemos cada detalle para que tu evento sea perfecto.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-content">
+              <h3>Servicio Integral</h3>
+              <p>Transporte, instalación, operación y desmontaje incluidos. No te preocupes por nada, nosotros nos encargamos.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-content">
+              <h3>Equipo de Primera</h3>
+              <p>Trabajamos con Martin Professional, Chauvet y Elation. Solo las mejores marcas para tu evento.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-content">
+              <h3>Atención Personalizada</h3>
+              <p>Cada evento es único. Te asesoramos para elegir la iluminación ideal según tu espacio, estilo y presupuesto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var nombre = document.getElementById('nombre').value;
+      var tipoEvento = document.getElementById('tipo-evento').value;
+      var fecha = document.getElementById('fecha').value;
+      var whatsapp = document.getElementById('whatsapp').value;
+      var email = document.getElementById('email').value;
+      var ubicacion = document.getElementById('ubicacion').value;
+      var invitados = document.getElementById('invitados').value;
+      var servicios = document.getElementById('servicios').value;
+      var mensaje = document.getElementById('mensaje').value;
+
+      var text = 'Hola, quiero cotizar iluminación para mi evento.\n\n';
+      text += '*Nombre:* ' + nombre + '\n';
+      text += '*Tipo de evento:* ' + tipoEvento + '\n';
+      text += '*Fecha:* ' + fecha + '\n';
+      text += '*WhatsApp:* ' + whatsapp + '\n';
+      if (email) text += '*Email:* ' + email + '\n';
+      if (ubicacion) text += '*Ubicación:* ' + ubicacion + '\n';
+      if (invitados) text += '*Invitados:* ' + invitados + '\n';
+      if (servicios) text += '*Servicios:* ' + servicios + '\n';
+      if (mensaje) text += '*Mensaje:* ' + mensaje + '\n';
+
+      var url = 'https://wa.me/525530682988?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    });
+  </script>
+
+</BaseLayout>
