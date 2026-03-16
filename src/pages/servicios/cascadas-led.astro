@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Cascadas LED para Eventos | REDEIL CDMX";
 const description = "Renta de cascadas LED para bodas y eventos en CDMX. Cortinas de luces LED que crean ambientes mágicos y románticos. Montaje profesional por REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Contamos con amplia experiencia en montajes para bodas, XV años, eventos corporativos y fiestas privadas. Nuestro equipo profesional se encarga de la instalación completa, garantizando un resultado impecable que tus invitados recordarán."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Transforma tu evento con cortinas de luces LED</h2>
-        <p>Las cascadas LED son uno de los elementos decorativos más solicitados para bodas y eventos especiales. Estas cortinas de luces generan un efecto de caída luminosa que recuerda a una cascada de agua cristalina, aportando elegancia y romanticismo a cualquier espacio.</p>
-        <p>En REDEIL trabajamos con equipos LED de alta calidad que ofrecen una iluminación uniforme y envolvente. Cada instalación se adapta al espacio de tu evento, ya sea en interiores como salones y jardines techados, o en exteriores como terrazas y haciendas. Nuestro equipo técnico realiza el montaje y desmontaje completo para que tú solo te preocupes por disfrutar.</p>
+      <SectionHeader
+          title="Transforma tu evento con cortinas de luces LED"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Las cascadas LED son uno de los elementos decorativos más solicitados para bodas y eventos especiales. Estas cortinas de luces generan un efecto de caída luminosa que recuerda a una cascada de agua cristalina, aportando elegancia y romanticismo a cualquier espacio."
+          paragraph2="En REDEIL trabajamos con equipos LED de alta calidad que ofrecen una iluminación uniforme y envolvente. Cada instalación se adapta al espacio de tu evento, ya sea en interiores como salones y jardines techados, o en exteriores como terrazas y haciendas. Nuestro equipo técnico realiza el montaje y desmontaje completo para que tú solo te preocupes por disfrutar."
+        />
         <p>Las cascadas LED son ideales para enmarcar la mesa principal, crear fondos fotográficos espectaculares, decorar escaleras o delimitar áreas dentro de tu celebración. Consulta con nuestro equipo para diseñar la distribución perfecta según las características de tu evento en CDMX.</p>
       </div>
     </section>

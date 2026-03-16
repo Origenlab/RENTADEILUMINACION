@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Seguidor de Luz para Eventos | REDEIL CDMX";
 const description = "Renta de seguidor de luz (follow spot) para bodas, XV años y eventos en CDMX. REDEIL destaca momentos clave con iluminación profesional operada por técnicos expertos.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Cada seguidor es operado por un técnico profesional de REDEIL que coordina los movimientos de luz con el desarrollo del evento. Trabajamos en bodas, XV años, conciertos, obras de teatro, eventos corporativos y cualquier celebración que requiera destacar protagonistas con iluminación dirigida."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Seguidor profesional: el protagonismo que tus momentos merecen</h2>
-        <p>El seguidor de luz es un equipo de iluminación profesional que proyecta un haz concentrado y direccionable, permitiendo seguir en tiempo real a una persona o un punto focal durante el evento. Es el recurso ideal para dar protagonismo al primer baile de los novios, al vals de XV años, a un orador en escenario o al artista en un concierto.</p>
-        <p>En REDEIL operamos seguidores profesionales con control preciso de intensidad, apertura del haz y temperatura de color. Nuestros técnicos tienen experiencia en todo tipo de eventos y saben anticipar los movimientos para que la iluminación acompañe de forma fluida cada momento sin distracciones.</p>
+      <SectionHeader
+          title="Seguidor profesional: el protagonismo que tus momentos merecen"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="El seguidor de luz es un equipo de iluminación profesional que proyecta un haz concentrado y direccionable, permitiendo seguir en tiempo real a una persona o un punto focal durante el evento. Es el recurso ideal para dar protagonismo al primer baile de los novios, al vals de XV años, a un orador en escenario o al artista en un concierto."
+          paragraph2="En REDEIL operamos seguidores profesionales con control preciso de intensidad, apertura del haz y temperatura de color. Nuestros técnicos tienen experiencia en todo tipo de eventos y saben anticipar los movimientos para que la iluminación acompañe de forma fluida cada momento sin distracciones."
+        />
         <p>El servicio incluye traslado del equipo, montaje en la posición óptima del venue, operación técnica durante todo el evento y desmontaje. Nos coordinamos con DJs, wedding planners y organizadores para que cada entrada de luz sea precisa y oportuna.</p>
       </div>
     </section>

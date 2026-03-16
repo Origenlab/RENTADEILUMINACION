@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Gobos y Proyección de Logotipos | REDEIL CDMX";
 const description = "Renta de gobos personalizados para proyectar logotipos, monogramas y diseños en eventos en CDMX. REDEIL proyecta tu marca o iniciales en bodas y corporativos.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Con amplia experiencia en bodas, eventos corporativos, lanzamientos de marca y galas, nuestros gobos personalizados añaden un toque de exclusividad y profesionalismo a cualquier celebración. El equipo técnico de REDEIL se encarga de la fabricación del gobo, el montaje y la calibración perfecta de la proyección."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Gobos personalizados: tu diseño proyectado con luz profesional</h2>
-        <p>Un gobo es una plantilla que se coloca dentro de una luminaria profesional para proyectar un diseño específico con luz. En eventos, los gobos se utilizan para proyectar logotipos corporativos, monogramas de parejas, iniciales, patrones decorativos y cualquier imagen personalizada sobre las superficies del venue.</p>
-        <p>En REDEIL fabricamos gobos a la medida a partir del diseño que nos proporciones. Ya sea el logotipo de tu empresa para un evento corporativo o las iniciales de los novios para una boda, nos aseguramos de que la proyección sea nítida, bien enfocada y ubicada en el punto exacto que genere mayor impacto visual.</p>
+      <SectionHeader
+          title="Gobos personalizados: tu diseño proyectado con luz profesional"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Un gobo es una plantilla que se coloca dentro de una luminaria profesional para proyectar un diseño específico con luz. En eventos, los gobos se utilizan para proyectar logotipos corporativos, monogramas de parejas, iniciales, patrones decorativos y cualquier imagen personalizada sobre las superficies del venue."
+          paragraph2="En REDEIL fabricamos gobos a la medida a partir del diseño que nos proporciones. Ya sea el logotipo de tu empresa para un evento corporativo o las iniciales de los novios para una boda, nos aseguramos de que la proyección sea nítida, bien enfocada y ubicada en el punto exacto que genere mayor impacto visual."
+        />
         <p>Nuestro servicio incluye el diseño y fabricación del gobo, la luminaria profesional para la proyección, el montaje en el venue y los ajustes técnicos necesarios para una imagen perfecta. Atendemos eventos en toda la CDMX y zona metropolitana, coordinando con organizadores y decoradores para una integración impecable.</p>
       </div>
     </section>

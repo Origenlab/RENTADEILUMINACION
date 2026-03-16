@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Sky Tracker para Eventos | REDEIL CDMX";
 const description = "Renta de sky tracker y luces antiaéreas para eventos en CDMX. REDEIL proyecta haces de luz al cielo para bodas, inauguraciones y eventos especiales al aire libre.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Ideales para bodas al aire libre, inauguraciones, eventos corporativos y fiestas en haciendas o jardines, nuestros sky trackers aportan un elemento de grandiosidad que distingue cualquier evento. Nuestro equipo técnico se encarga de la instalación y operación completa."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Sky trackers: el efecto visual más impactante para eventos nocturnos</h2>
-        <p>El sky tracker es una luminaria de alta potencia diseñada para proyectar un haz de luz concentrado hacia el cielo. Este efecto, ampliamente utilizado en eventos de gran escala, genera un impacto visual inmediato que transforma la atmósfera de cualquier celebración nocturna al aire libre.</p>
-        <p>En REDEIL contamos con sky trackers profesionales que pueden operarse de forma estática o con movimiento programado, creando barridos de luz que interactúan con el entorno. Son especialmente populares en bodas en haciendas, terrazas y jardines de la CDMX, donde el cielo abierto permite apreciar todo su potencial.</p>
+      <SectionHeader
+          title="Sky trackers: el efecto visual más impactante para eventos nocturnos"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="El sky tracker es una luminaria de alta potencia diseñada para proyectar un haz de luz concentrado hacia el cielo. Este efecto, ampliamente utilizado en eventos de gran escala, genera un impacto visual inmediato que transforma la atmósfera de cualquier celebración nocturna al aire libre."
+          paragraph2="En REDEIL contamos con sky trackers profesionales que pueden operarse de forma estática o con movimiento programado, creando barridos de luz que interactúan con el entorno. Son especialmente populares en bodas en haciendas, terrazas y jardines de la CDMX, donde el cielo abierto permite apreciar todo su potencial."
+        />
         <p>Nuestro servicio incluye traslado, montaje, operación técnica y desmontaje. Coordinamos con los organizadores del evento para definir la ubicación óptima de los equipos y lograr el máximo impacto visual, cumpliendo con todas las normativas vigentes para este tipo de iluminación.</p>
       </div>
     </section>

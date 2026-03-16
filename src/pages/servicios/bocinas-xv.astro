@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bocinas para XV Años | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para XV años en CDMX. Audio para vals, chambelanes, brindis y fiesta. Equipos QSC, JBL y DJ profesional. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestros paquetes incluyen bocinas QSC y JBL, subwoofers, micrófonos inalámbricos para la ceremonia, mezcladoras digitales y DJ profesional. Cada montaje es diseñado para el venue específico, asegurando cobertura de sonido perfecta en salones, jardines y haciendas."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Audio profesional para una fiesta de XV años perfecta</h2>
-        <p>Una fiesta de XV años es una celebración llena de momentos emotivos y festivos que requieren un sonido impecable. Desde la entrada de la quinceañera con música emotiva, pasando por el vals padre-hija, la coreografía de chambelanes y la coronación, hasta la fiesta libre con los éxitos del momento. En REDEIL nos aseguramos de que cada momento suene perfecto.</p>
-        <p>Trabajamos con equipos profesionales de alta potencia que cubren salones grandes y jardines al aire libre. Nuestros montajes incluyen sistemas de line array para venues amplios, bocinas en columna para salones medianos y sistemas compactos de alta fidelidad para espacios íntimos. Cada configuración se adapta a las necesidades específicas del evento.</p>
+      <SectionHeader
+          title="Audio profesional para una fiesta de XV años perfecta"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una fiesta de XV años es una celebración llena de momentos emotivos y festivos que requieren un sonido impecable. Desde la entrada de la quinceañera con música emotiva, pasando por el vals padre-hija, la coreografía de chambelanes y la coronación, hasta la fiesta libre con los éxitos del momento. En REDEIL nos aseguramos de que cada momento suene perfecto."
+          paragraph2="Trabajamos con equipos profesionales de alta potencia que cubren salones grandes y jardines al aire libre. Nuestros montajes incluyen sistemas de line array para venues amplios, bocinas en columna para salones medianos y sistemas compactos de alta fidelidad para espacios íntimos. Cada configuración se adapta a las necesidades específicas del evento."
+        />
         <p>Nuestro equipo de DJs tiene amplia experiencia en XV años y conoce la secuencia típica de la celebración, coordinándose con el maestro de ceremonias para que cada transición musical sea fluida y profesional. Cubrimos eventos en toda la CDMX y zona metropolitana.</p>
       </div>
     </section>

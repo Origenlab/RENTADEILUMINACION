@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Máquina de Confeti para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de confeti para bodas y eventos en CDMX. Lluvia de confeti profesional para celebraciones inolvidables. Servicio completo por REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Con experiencia en bodas, eventos corporativos, lanzamientos y fiestas privadas, nuestro equipo se encarga de coordinar las descargas de confeti en los instantes precisos para generar el mayor impacto visual y emocional en tus invitados."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>El toque final que corona tu celebración</h2>
-        <p>Una lluvia de confeti en el momento justo puede transformar un instante memorable en un recuerdo imborrable. Ya sea durante el brindis de los novios, el conteo de Año Nuevo o la revelación de un producto, el confeti aporta espectacularidad y emoción a cualquier evento.</p>
-        <p>En REDEIL trabajamos con máquinas de confeti profesionales que permiten controlar la dirección, altura y densidad de la descarga. Utilizamos confeti de distintos colores y materiales que se adaptan a la temática de cada evento, incluyendo opciones metálicas doradas y plateadas ideales para bodas.</p>
+      <SectionHeader
+          title="El toque final que corona tu celebración"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una lluvia de confeti en el momento justo puede transformar un instante memorable en un recuerdo imborrable. Ya sea durante el brindis de los novios, el conteo de Año Nuevo o la revelación de un producto, el confeti aporta espectacularidad y emoción a cualquier evento."
+          paragraph2="En REDEIL trabajamos con máquinas de confeti profesionales que permiten controlar la dirección, altura y densidad de la descarga. Utilizamos confeti de distintos colores y materiales que se adaptan a la temática de cada evento, incluyendo opciones metálicas doradas y plateadas ideales para bodas."
+        />
         <p>Nuestro servicio en CDMX incluye el equipo, la operación técnica y el confeti necesario para tu evento. Coordinamos las descargas con tu DJ, maestro de ceremonias o coordinador para asegurar que el efecto ocurra en el momento perfecto.</p>
       </div>
     </section>

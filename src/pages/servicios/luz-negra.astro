@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Luz Negra para Eventos | REDEIL CDMX";
 const description = "Renta de luz negra y blacklight para fiestas y eventos en CDMX. REDEIL crea ambientes neón y fluorescentes para bodas, fiestas temáticas y eventos corporativos.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Trabajamos con bodas temáticas, fiestas glow, eventos corporativos y celebraciones privadas. Nuestro equipo técnico diseña la distribución de las luminarias UV para lograr el máximo impacto visual, coordinándose con decoradores y organizadores para integrar la luz negra al concepto del evento."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Luz negra profesional: el efecto más impactante para tu fiesta</h2>
-        <p>La luz negra emite radiación ultravioleta que hace brillar materiales fluorescentes y colores neón, creando un efecto visual sorprendente y envolvente. Es ideal para fiestas temáticas tipo glow, bodas con decoración neón, eventos corporativos con branding fluorescente y celebraciones que buscan una atmósfera diferente y memorable.</p>
-        <p>En REDEIL utilizamos equipos de blacklight profesionales que cubren grandes áreas de manera uniforme. Cada instalación se planifica según las dimensiones del espacio y el tipo de decoración, asegurando que los elementos fluorescentes destaquen con intensidad y que el ambiente general sea coherente y atractivo.</p>
+      <SectionHeader
+          title="Luz negra profesional: el efecto más impactante para tu fiesta"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La luz negra emite radiación ultravioleta que hace brillar materiales fluorescentes y colores neón, creando un efecto visual sorprendente y envolvente. Es ideal para fiestas temáticas tipo glow, bodas con decoración neón, eventos corporativos con branding fluorescente y celebraciones que buscan una atmósfera diferente y memorable."
+          paragraph2="En REDEIL utilizamos equipos de blacklight profesionales que cubren grandes áreas de manera uniforme. Cada instalación se planifica según las dimensiones del espacio y el tipo de decoración, asegurando que los elementos fluorescentes destaquen con intensidad y que el ambiente general sea coherente y atractivo."
+        />
         <p>Nuestro servicio incluye asesoría sobre materiales y colores que reaccionan a la luz UV, traslado de equipos, montaje profesional y soporte técnico durante el evento. Cubrimos salones, jardines, terrazas y espacios abiertos en CDMX y zona metropolitana.</p>
       </div>
     </section>

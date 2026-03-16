@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Humo Bajo para Eventos | REDEIL CDMX";
 const description = "Renta de humo bajo para bodas y eventos en CDMX. Efecto de nubes en el piso para primer baile y vals. Montaje profesional por REDEIL en Ciudad de México.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestro equipo cuenta con amplia experiencia en bodas, XV años, graduaciones y eventos especiales. Utilizamos equipos profesionales que generan humo pesado de forma controlada, garantizando un resultado espectacular sin afectar la visibilidad ni la comodidad de los asistentes."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>El efecto más solicitado para bodas y celebraciones</h2>
-        <p>El humo bajo es uno de los efectos especiales más populares para bodas y XV años. A diferencia del humo convencional que se eleva, el humo bajo permanece a nivel del suelo, creando una alfombra de niebla que transforma la pista de baile en un escenario de ensueño.</p>
-        <p>Este efecto es especialmente impactante durante el primer baile de los novios, el vals de XV años o la entrada triunfal al salón. La combinación de humo bajo con iluminación profesional genera fotografías y videos espectaculares que capturan la magia del momento.</p>
+      <SectionHeader
+          title="El efecto más solicitado para bodas y celebraciones"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="El humo bajo es uno de los efectos especiales más populares para bodas y XV años. A diferencia del humo convencional que se eleva, el humo bajo permanece a nivel del suelo, creando una alfombra de niebla que transforma la pista de baile en un escenario de ensueño."
+          paragraph2="Este efecto es especialmente impactante durante el primer baile de los novios, el vals de XV años o la entrada triunfal al salón. La combinación de humo bajo con iluminación profesional genera fotografías y videos espectaculares que capturan la magia del momento."
+        />
         <p>En REDEIL nos encargamos de todo: llevamos el equipo, lo instalamos y lo operamos durante tu evento en CDMX. Nuestros técnicos coordinan la activación del humo bajo con los momentos clave de tu celebración para lograr el máximo impacto visual.</p>
       </div>
     </section>

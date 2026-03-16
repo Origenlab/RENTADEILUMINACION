@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de DJ para Eventos | REDEIL CDMX";
 const description = "Renta de DJ profesional para eventos en CDMX. DJ para bodas, fiestas, XV años y corporativos con equipo de sonido, luces y cabina profesional. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="El servicio incluye DJ con equipo completo: consola profesional Pioneer, bocinas de alta potencia, subwoofers, micrófonos para animación, cabina DJ y luces básicas. Nos encargamos del montaje, la ambientación musical y la animación durante todo tu evento."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>DJ profesional que marca el ritmo de tu celebración</h2>
-        <p>Un buen DJ no solo pone música: lee al público, crea atmósferas y guía los momentos clave de tu evento. En REDEIL nuestros DJs tienen experiencia en todo tipo de celebraciones y manejan géneros variados, desde música romántica para vals y primer baile hasta los éxitos más actuales para la pista de baile.</p>
-        <p>Trabajamos con equipo de última generación de marcas como Pioneer, QSC y JBL. Cada DJ llega con su consola profesional, bocinas, subwoofer, micrófono para animación y cabina. Para eventos que requieren mayor producción, podemos agregar luces, pantallas LED y efectos especiales.</p>
+      <SectionHeader
+          title="DJ profesional que marca el ritmo de tu celebración"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Un buen DJ no solo pone música: lee al público, crea atmósferas y guía los momentos clave de tu evento. En REDEIL nuestros DJs tienen experiencia en todo tipo de celebraciones y manejan géneros variados, desde música romántica para vals y primer baile hasta los éxitos más actuales para la pista de baile."
+          paragraph2="Trabajamos con equipo de última generación de marcas como Pioneer, QSC y JBL. Cada DJ llega con su consola profesional, bocinas, subwoofer, micrófono para animación y cabina. Para eventos que requieren mayor producción, podemos agregar luces, pantallas LED y efectos especiales."
+        />
         <p>Cubrimos eventos en salones, jardines, haciendas, terrazas, rooftops y cualquier venue en la CDMX y zona metropolitana. Nuestros DJs llegan con anticipación para montar y hacer pruebas de sonido, garantizando un inicio puntual.</p>
       </div>
     </section>

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bocinas para Bodas | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para bodas en CDMX. Equipos de audio para ceremonia, recepción y fiesta. DJ, micrófonos y line array. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestros paquetes de sonido para bodas incluyen bocinas activas, subwoofers, micrófonos inalámbricos para votos y discursos, mezcladoras digitales y operadores de audio que garantizan una experiencia sonora impecable durante toda la celebración."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Sonido perfecto para cada momento de tu boda</h2>
-        <p>Una boda tiene múltiples momentos que requieren atención sonora diferente: la música suave durante la ceremonia, la claridad del micrófono para los votos y brindis, la ambientación durante la cena y la potencia en la pista de baile. En REDEIL diseñamos el montaje de audio considerando cada uno de estos momentos.</p>
-        <p>Trabajamos con equipos profesionales de marcas como QSC, JBL y Pioneer que aseguran nitidez y potencia en cualquier tipo de venue. Ya sea un jardín al aire libre, una hacienda colonial o un salón de banquetes, adaptamos la configuración de bocinas para lograr cobertura uniforme en todo el espacio.</p>
+      <SectionHeader
+          title="Sonido perfecto para cada momento de tu boda"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una boda tiene múltiples momentos que requieren atención sonora diferente: la música suave durante la ceremonia, la claridad del micrófono para los votos y brindis, la ambientación durante la cena y la potencia en la pista de baile. En REDEIL diseñamos el montaje de audio considerando cada uno de estos momentos."
+          paragraph2="Trabajamos con equipos profesionales de marcas como QSC, JBL y Pioneer que aseguran nitidez y potencia en cualquier tipo de venue. Ya sea un jardín al aire libre, una hacienda colonial o un salón de banquetes, adaptamos la configuración de bocinas para lograr cobertura uniforme en todo el espacio."
+        />
         <p>Nuestro servicio incluye montaje previo al evento, pruebas de sonido, operación técnica durante la boda y desmontaje al finalizar. Cubrimos bodas en toda la CDMX y zona metropolitana con puntualidad y profesionalismo.</p>
       </div>
     </section>

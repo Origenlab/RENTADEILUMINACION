@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Luces Neón para Eventos | REDEIL CDMX";
 const description = "Renta de letreros y luces neón para fiestas y eventos en CDMX. REDEIL ofrece letreros neón personalizados, glow parties y ambientación UV para bodas y cumpleaños.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestro catálogo incluye letreros neón con frases populares, hashtags personalizados y diseños a medida. Además, ofrecemos paquetes de glow party con iluminación ultravioleta que transforman por completo la atmósfera de cualquier celebración."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Letreros neón y experiencias luminosas para cada ocasión</h2>
-        <p>Las luces neón se han posicionado como un elemento imprescindible en la decoración de eventos modernos. Un letrero neón no solo aporta un punto focal visualmente atractivo, sino que también se convierte en el escenario perfecto para fotografías memorables de tus invitados.</p>
-        <p>En REDEIL contamos con una amplia variedad de letreros neón disponibles para renta, así como la posibilidad de crear diseños personalizados con nombres, fechas o mensajes especiales. Cada pieza es instalada profesionalmente por nuestro equipo técnico, garantizando un resultado impecable.</p>
+      <SectionHeader
+          title="Letreros neón y experiencias luminosas para cada ocasión"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Las luces neón se han posicionado como un elemento imprescindible en la decoración de eventos modernos. Un letrero neón no solo aporta un punto focal visualmente atractivo, sino que también se convierte en el escenario perfecto para fotografías memorables de tus invitados."
+          paragraph2="En REDEIL contamos con una amplia variedad de letreros neón disponibles para renta, así como la posibilidad de crear diseños personalizados con nombres, fechas o mensajes especiales. Cada pieza es instalada profesionalmente por nuestro equipo técnico, garantizando un resultado impecable."
+        />
         <p>También somos expertos en la organización de glow parties y fiestas neón, donde combinamos iluminación UV, luces neón y efectos especiales para crear una experiencia inmersiva. Cubrimos eventos en toda la CDMX y zona metropolitana con servicio integral de montaje y operación.</p>
       </div>
     </section>

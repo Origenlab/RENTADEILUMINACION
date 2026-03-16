@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bocinas para Eventos | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para eventos en CDMX. Equipos de audio, line array y sistemas de sonido para bodas, fiestas y conciertos. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestro inventario incluye bocinas activas, sistemas line array, subwoofers, micrófonos y mezcladoras de las mejores marcas del mercado. Cada evento es atendido por técnicos de audio que se encargan del montaje, la ecualización y la operación del equipo durante toda tu celebración."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Equipo de audio profesional para cada ocasión</h2>
-        <p>El sonido es un elemento fundamental en cualquier evento. Una buena calidad de audio asegura que la música se escuche con claridad, que los discursos lleguen a todos los asistentes y que la atmósfera de la celebración sea la adecuada. En REDEIL entendemos esta importancia y ofrecemos soluciones de sonido a la medida.</p>
-        <p>Para bodas y eventos sociales, proporcionamos sistemas de sonido que cubren tanto la ceremonia como la recepción y la fiesta. Nuestros equipos incluyen bocinas de alta fidelidad, micrófonos inalámbricos para ceremonias y brindis, y subwoofers para la pista de baile. Para conciertos y eventos masivos, disponemos de sistemas line array de gran potencia con cobertura uniforme.</p>
+      <SectionHeader
+          title="Equipo de audio profesional para cada ocasión"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="El sonido es un elemento fundamental en cualquier evento. Una buena calidad de audio asegura que la música se escuche con claridad, que los discursos lleguen a todos los asistentes y que la atmósfera de la celebración sea la adecuada. En REDEIL entendemos esta importancia y ofrecemos soluciones de sonido a la medida."
+          paragraph2="Para bodas y eventos sociales, proporcionamos sistemas de sonido que cubren tanto la ceremonia como la recepción y la fiesta. Nuestros equipos incluyen bocinas de alta fidelidad, micrófonos inalámbricos para ceremonias y brindis, y subwoofers para la pista de baile. Para conciertos y eventos masivos, disponemos de sistemas line array de gran potencia con cobertura uniforme."
+        />
         <p>Cada montaje de sonido en CDMX es diseñado según las dimensiones del espacio, la cantidad de asistentes y el tipo de evento. Nuestro equipo técnico realiza pruebas de audio previas al evento para garantizar una experiencia sonora impecable de principio a fin.</p>
       </div>
     </section>

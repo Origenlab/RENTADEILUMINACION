@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Podiums para Eventos | REDEIL CDMX";
 const description = "Renta de podiums y atriles de acrílico para conferencias, presentaciones y eventos corporativos en CDMX. REDEIL ofrece podiums elegantes con entrega e instalación.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Contamos con experiencia en montajes para conferencias de prensa, paneles ejecutivos, ceremonias institucionales y eventos privados. Nuestro equipo se encarga de la entrega, colocación y retiro del podium, garantizando puntualidad y un acabado impecable en cada montaje."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Podiums de acrílico: presencia y elegancia en escenario</h2>
-        <p>Un podium de acrílico transparente es el complemento ideal para cualquier presentación profesional. Su diseño limpio y moderno permite que la atención se centre en el orador, mientras que su estructura ofrece la funcionalidad necesaria para sostener documentos, tablets o micrófonos durante conferencias y discursos.</p>
-        <p>En REDEIL ofrecemos podiums de acrílico de alta calidad, ideales para eventos corporativos, congresos, premiaciones, conferencias de prensa y ceremonias oficiales. Cada podium se entrega limpio, pulido y en perfectas condiciones para que luzca impecable frente a la audiencia y las cámaras.</p>
+      <SectionHeader
+          title="Podiums de acrílico: presencia y elegancia en escenario"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Un podium de acrílico transparente es el complemento ideal para cualquier presentación profesional. Su diseño limpio y moderno permite que la atención se centre en el orador, mientras que su estructura ofrece la funcionalidad necesaria para sostener documentos, tablets o micrófonos durante conferencias y discursos."
+          paragraph2="En REDEIL ofrecemos podiums de acrílico de alta calidad, ideales para eventos corporativos, congresos, premiaciones, conferencias de prensa y ceremonias oficiales. Cada podium se entrega limpio, pulido y en perfectas condiciones para que luzca impecable frente a la audiencia y las cámaras."
+        />
         <p>Nuestro servicio incluye traslado, colocación en el punto exacto del escenario y retiro al finalizar el evento. Podemos complementar la renta del podium con iluminación de escenario, audio profesional y otros servicios de REDEIL para ofrecer una solución integral para tu evento en CDMX.</p>
       </div>
     </section>

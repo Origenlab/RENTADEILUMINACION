@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bocinas para Fiestas | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para fiestas en CDMX. Audio potente para cumpleaños, graduaciones, posadas, baby showers y fiestas privadas. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestro catálogo incluye bocinas amplificadas, subwoofers, sistemas bluetooth, karaoke y equipos de DJ. Ofrecemos paquetes con y sin operador técnico, adaptándonos al presupuesto y necesidades de cada cliente en CDMX y zona metropolitana."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Audio profesional para todo tipo de fiestas</h2>
-        <p>La música es el alma de cualquier fiesta, y un buen sistema de sonido hace la diferencia entre una celebración memorable y una que pasa desapercibida. En REDEIL ofrecemos equipos de audio profesional que garantizan potencia, claridad y la energía necesaria para mantener la pista de baile llena toda la noche.</p>
-        <p>Para fiestas pequeñas e íntimas, ofrecemos bocinas amplificadas portátiles con conexión bluetooth y micrófono para karaoke. Para celebraciones medianas y grandes, disponemos de sistemas de sonido con subwoofer, mezcladoras y micrófonos inalámbricos. También contamos con paquetes de DJ completo para fiestas que requieren animación profesional.</p>
+      <SectionHeader
+          title="Audio profesional para todo tipo de fiestas"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La música es el alma de cualquier fiesta, y un buen sistema de sonido hace la diferencia entre una celebración memorable y una que pasa desapercibida. En REDEIL ofrecemos equipos de audio profesional que garantizan potencia, claridad y la energía necesaria para mantener la pista de baile llena toda la noche."
+          paragraph2="Para fiestas pequeñas e íntimas, ofrecemos bocinas amplificadas portátiles con conexión bluetooth y micrófono para karaoke. Para celebraciones medianas y grandes, disponemos de sistemas de sonido con subwoofer, mezcladoras y micrófonos inalámbricos. También contamos con paquetes de DJ completo para fiestas que requieren animación profesional."
+        />
         <p>Realizamos montajes en casas, jardines, terrazas, salones, rooftops y cualquier espacio en la CDMX. Nuestro equipo llega con anticipación para instalar y probar el sonido, asegurando que todo esté listo para cuando lleguen tus invitados.</p>
       </div>
     </section>

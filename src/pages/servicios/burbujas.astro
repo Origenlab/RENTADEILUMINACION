@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Máquina de Burbujas para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de burbujas para bodas y eventos en CDMX. Efecto de burbujas profesional para fiestas, baby showers y celebraciones. Servicio REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Contamos con equipos profesionales capaces de generar grandes volúmenes de burbujas de distintos tamaños. Nuestro equipo técnico se encarga de la instalación y operación, adaptando la intensidad del efecto a cada momento de tu celebración."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Burbujas profesionales para momentos inolvidables</h2>
-        <p>Las burbujas son un efecto versátil que funciona tanto en eventos formales como en celebraciones informales. En una boda, las burbujas envolviendo a los novios durante su primer baile crean una atmósfera de cuento de hadas. En una fiesta infantil, llenan el espacio de diversión y asombro para los más pequeños.</p>
-        <p>En REDEIL utilizamos máquinas de burbujas de grado profesional con líquido especial que produce burbujas resistentes y de larga duración. Esto permite que las burbujas floten por más tiempo, generando un efecto visual más impactante y mejores oportunidades fotográficas.</p>
+      <SectionHeader
+          title="Burbujas profesionales para momentos inolvidables"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Las burbujas son un efecto versátil que funciona tanto en eventos formales como en celebraciones informales. En una boda, las burbujas envolviendo a los novios durante su primer baile crean una atmósfera de cuento de hadas. En una fiesta infantil, llenan el espacio de diversión y asombro para los más pequeños."
+          paragraph2="En REDEIL utilizamos máquinas de burbujas de grado profesional con líquido especial que produce burbujas resistentes y de larga duración. Esto permite que las burbujas floten por más tiempo, generando un efecto visual más impactante y mejores oportunidades fotográficas."
+        />
         <p>Nuestro servicio de renta de burbujas en CDMX es ideal para bodas, aniversarios, baby showers, fiestas de cumpleaños, eventos corporativos y lanzamientos de productos. Nos adaptamos a las dimensiones de tu espacio y a la dinámica de tu evento para ofrecer el mejor resultado.</p>
       </div>
     </section>

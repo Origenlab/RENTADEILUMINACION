@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de City Lights para Eventos | REDEIL CDMX";
 const description = "Renta de city lights e iluminación ambiental para eventos en CDMX. Luces decorativas para bodas, fiestas y eventos corporativos. Ambiente profesional. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestros city lights son luminarias LED de bajo consumo con capacidad de proyectar una amplia gama de colores. Los instalamos en paredes, columnas, techos, fachadas y jardines para crear efectos de iluminación ambiental que complementan perfectamente la decoración de cualquier evento."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Ambientación lumínica que eleva cualquier espacio</h2>
-        <p>Los city lights son la herramienta perfecta para transformar un espacio ordinario en un ambiente extraordinario. A diferencia de la iluminación general, estas luces permiten personalizar el color del ambiente para que combine con la temática de tu evento: rosa para una boda romántica, azul para un evento corporativo elegante, dorado para una gala o magenta para una fiesta vibrante.</p>
-        <p>En REDEIL utilizamos city lights LED de alta potencia que pueden cubrir grandes superficies con color uniforme. Los colocamos estratégicamente en paredes, columnas, arcos, fachadas y jardines para resaltar la arquitectura del venue y crear profundidad visual. El resultado es un ambiente envolvente que impresiona a los invitados desde que llegan.</p>
+      <SectionHeader
+          title="Ambientación lumínica que eleva cualquier espacio"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Los city lights son la herramienta perfecta para transformar un espacio ordinario en un ambiente extraordinario. A diferencia de la iluminación general, estas luces permiten personalizar el color del ambiente para que combine con la temática de tu evento: rosa para una boda romántica, azul para un evento corporativo elegante, dorado para una gala o magenta para una fiesta vibrante."
+          paragraph2="En REDEIL utilizamos city lights LED de alta potencia que pueden cubrir grandes superficies con color uniforme. Los colocamos estratégicamente en paredes, columnas, arcos, fachadas y jardines para resaltar la arquitectura del venue y crear profundidad visual. El resultado es un ambiente envolvente que impresiona a los invitados desde que llegan."
+        />
         <p>Cada instalación es diseñada por nuestro equipo de iluminación, considerando las dimensiones del espacio, el color de la decoración y el efecto deseado. Cubrimos eventos en salones, haciendas, jardines, terrazas y cualquier venue en la CDMX y zona metropolitana.</p>
       </div>
     </section>

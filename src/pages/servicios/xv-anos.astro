@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Iluminación para XV Años en CDMX | REDEIL";
 const description = "Renta de iluminación profesional para XV años en CDMX. Guirnaldas, seguidor, cabezas móviles, humo bajo y más. Paquetes completos de luz para quinceañeras. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestros paquetes de iluminación para quinceañeras incluyen el seguidor que ilumina a la festejada durante su entrada, vals y coreografía, cabezas móviles para la fiesta, y efectos como humo bajo, confeti y luces neón. Diseñamos cada montaje según el venue y la temática elegida."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Iluminación diseñada para cada momento de los XV años</h2>
-        <p>Una fiesta de XV años es una celebración llena de momentos únicos que merecen una iluminación a la altura: la entrada triunfal con seguidor y humo bajo, el vals padre-hija con luz cálida y emotiva, la coreografía de chambelanes con efectos dinámicos y la fiesta libre con cabezas móviles y colores vibrantes. En REDEIL planificamos cada cambio de luz para que la transición entre momentos sea fluida y espectacular.</p>
-        <p>El seguidor profesional es el protagonista de la iluminación en XV años: sigue a la quinceañera durante su entrada, vals y baile sorpresa, haciéndola brillar como la estrella de la noche. Complementamos con cabezas móviles que crean shows de luz durante la fiesta, city color para ambientar el salón y efectos especiales como humo bajo, cascadas LED y confeti.</p>
+      <SectionHeader
+          title="Iluminación diseñada para cada momento de los XV años"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una fiesta de XV años es una celebración llena de momentos únicos que merecen una iluminación a la altura: la entrada triunfal con seguidor y humo bajo, el vals padre-hija con luz cálida y emotiva, la coreografía de chambelanes con efectos dinámicos y la fiesta libre con cabezas móviles y colores vibrantes. En REDEIL planificamos cada cambio de luz para que la transición entre momentos sea fluida y espectacular."
+          paragraph2="El seguidor profesional es el protagonista de la iluminación en XV años: sigue a la quinceañera durante su entrada, vals y baile sorpresa, haciéndola brillar como la estrella de la noche. Complementamos con cabezas móviles que crean shows de luz durante la fiesta, city color para ambientar el salón y efectos especiales como humo bajo, cascadas LED y confeti."
+        />
         <p>Cubrimos fiestas de XV años en salones, jardines, haciendas, terrazas y cualquier venue en la CDMX y zona metropolitana. Nuestro equipo se coordina con el DJ y el maestro de ceremonias para sincronizar la iluminación con cada momento del protocolo.</p>
       </div>
     </section>

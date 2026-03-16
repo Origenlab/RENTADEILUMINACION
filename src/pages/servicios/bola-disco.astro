@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bola de Disco para Eventos | REDEIL CDMX";
 const description = "Renta de bola de disco y esfera de espejos para fiestas y eventos en CDMX. REDEIL instala bolas de disco profesionales para bodas, cumpleaños y fiestas temáticas.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Con experiencia en bodas, cumpleaños, fiestas retro, eventos corporativos y celebraciones temáticas, instalamos bolas de disco de distintos tamaños según las necesidades de cada espacio. Nuestro equipo técnico se encarga de todo el proceso de montaje y desmontaje."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Esferas de espejos que transforman la pista de baile</h2>
-        <p>La bola de disco es un elemento icónico que nunca pasa de moda. Sus cientos de pequeños espejos reflejan la luz en todas direcciones, creando un manto de destellos que envuelve a los invitados y convierte cualquier espacio en una pista de baile vibrante y festiva.</p>
-        <p>En REDEIL contamos con esferas de espejos de diferentes dimensiones, adecuadas tanto para salones amplios como para espacios más íntimos. Cada bola de disco se instala con un motor de rotación y se complementa con luminarias tipo pinspot o LED para maximizar el efecto de reflejos.</p>
+      <SectionHeader
+          title="Esferas de espejos que transforman la pista de baile"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La bola de disco es un elemento icónico que nunca pasa de moda. Sus cientos de pequeños espejos reflejan la luz en todas direcciones, creando un manto de destellos que envuelve a los invitados y convierte cualquier espacio en una pista de baile vibrante y festiva."
+          paragraph2="En REDEIL contamos con esferas de espejos de diferentes dimensiones, adecuadas tanto para salones amplios como para espacios más íntimos. Cada bola de disco se instala con un motor de rotación y se complementa con luminarias tipo pinspot o LED para maximizar el efecto de reflejos."
+        />
         <p>Ya sea para una fiesta temática de los 70s, un cumpleaños retro o una boda con toque divertido, la bola de disco aporta un elemento visual y emocional que eleva la energía de la celebración. Cubrimos eventos en toda la CDMX y zona metropolitana con servicio profesional completo.</p>
       </div>
     </section>

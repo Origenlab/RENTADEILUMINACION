@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Pantalla Inflable para Eventos | REDEIL CDMX";
 const description = "Renta de pantalla inflable para eventos en CDMX. Cine al aire libre, bodas y fiestas con pantalla gigante inflable. Montaje profesional por REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Ofrecemos un servicio integral que incluye el montaje de la pantalla inflable, proyector de alta luminosidad y sistema de audio. Nuestro equipo técnico se encarga de todo para que tú y tus invitados disfruten de una experiencia audiovisual de primer nivel."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Pantalla gigante inflable para todo tipo de eventos</h2>
-        <p>Las pantallas inflables han revolucionado la forma de disfrutar el entretenimiento visual en eventos al aire libre. Su gran tamaño permite que todos los asistentes disfruten del contenido con comodidad, ya sea una película, un video de bodas, presentaciones corporativas o transmisiones deportivas en vivo.</p>
-        <p>En REDEIL contamos con pantallas inflables de gran formato que se instalan en minutos y ofrecen una superficie de proyección uniforme y sin arrugas. Son perfectas para jardines, terrazas, azoteas, estacionamientos y cualquier espacio abierto donde se quiera crear una experiencia de cine bajo las estrellas.</p>
+      <SectionHeader
+          title="Pantalla gigante inflable para todo tipo de eventos"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Las pantallas inflables han revolucionado la forma de disfrutar el entretenimiento visual en eventos al aire libre. Su gran tamaño permite que todos los asistentes disfruten del contenido con comodidad, ya sea una película, un video de bodas, presentaciones corporativas o transmisiones deportivas en vivo."
+          paragraph2="En REDEIL contamos con pantallas inflables de gran formato que se instalan en minutos y ofrecen una superficie de proyección uniforme y sin arrugas. Son perfectas para jardines, terrazas, azoteas, estacionamientos y cualquier espacio abierto donde se quiera crear una experiencia de cine bajo las estrellas."
+        />
         <p>Nuestro servicio de renta de pantalla inflable en CDMX es muy solicitado para bodas donde se proyectan videos de los novios, fiestas de cumpleaños con películas temáticas, eventos corporativos con presentaciones y noches de cine comunitario. Nos adaptamos a las necesidades específicas de tu evento para garantizar una experiencia memorable.</p>
       </div>
     </section>

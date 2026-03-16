@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Iluminación y Sonido para Bodas | REDEIL CDMX";
 const description = "Renta de iluminación y sonido profesional para bodas en CDMX. REDEIL ofrece guirnaldas, city color, cabezas móviles, humo bajo, seguidor y bocinas para tu boda.";
@@ -37,9 +38,12 @@ const schemaMarkup = JSON.stringify({
     />
     <section class="service-detail">
       <div class="container">
-        <h2>Tu boda merece iluminación y sonido de primer nivel</h2>
-        <p>La iluminación es uno de los elementos que más impacto tiene en la atmósfera de una boda. En REDEIL combinamos diferentes técnicas y equipos para crear ambientes únicos: guirnaldas de focos Edison para un toque cálido y romántico, city color para bañar fachadas y jardines con el color de tu paleta, cabezas móviles para la pista de baile y seguidor de luz para destacar los momentos más emotivos como el primer baile y el brindis.</p>
-        <p>Complementamos la iluminación con efectos especiales como humo bajo, que crea una atmósfera de ensueño para el primer baile, y máquinas de confeti para momentos de celebración. Además, ofrecemos sonido profesional con bocinas de alta fidelidad para que la música y los discursos se escuchen con claridad en todo el venue.</p>
+        <SectionHeader
+          title="Tu boda merece iluminación y sonido de primer nivel"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La iluminación es uno de los elementos que más impacto tiene en la atmósfera de una boda. En REDEIL combinamos diferentes técnicas y equipos para crear ambientes únicos: guirnaldas de focos Edison para un toque cálido y romántico, city color para bañar fachadas y jardines con el color de tu paleta, cabezas móviles para la pista de baile y seguidor de luz para destacar los momentos más emotivos como el primer baile y el brindis."
+          paragraph2="Complementamos la iluminación con efectos especiales como humo bajo, que crea una atmósfera de ensueño para el primer baile, y máquinas de confeti para momentos de celebración. Además, ofrecemos sonido profesional con bocinas de alta fidelidad para que la música y los discursos se escuchen con claridad en todo el venue."
+        />
         <p>Nuestro servicio para bodas incluye visita previa al lugar, diseño del esquema de iluminación y sonido, montaje completo antes de la ceremonia y operación técnica durante todo el evento. Nos adaptamos a cualquier tipo de venue en CDMX: haciendas coloniales, jardines al aire libre, salones elegantes y rooftops urbanos.</p>
       </div>
     </section>

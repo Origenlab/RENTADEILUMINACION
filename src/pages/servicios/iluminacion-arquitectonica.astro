@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Iluminación Arquitectónica para Eventos | REDEIL CDMX";
 const description = "Renta de iluminación arquitectónica para eventos en CDMX. REDEIL transforma fachadas, jardines y espacios con reflectores LED RGB y técnicas profesionales de iluminación.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Nuestro equipo técnico cuenta con amplia experiencia iluminando haciendas, jardines, terrazas y recintos históricos. Trabajamos con bodas, eventos corporativos, galas y fiestas privadas, adaptando la paleta de colores y la intensidad lumínica al concepto de cada evento."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Iluminación que realza la arquitectura de tu evento</h2>
-        <p>La iluminación arquitectónica permite transformar por completo la apariencia de un espacio. Mediante reflectores LED RGB estratégicamente colocados, es posible bañar de color fachadas coloniales, resaltar la textura de muros de piedra, iluminar árboles centenarios y crear atmósferas que van desde lo romántico hasta lo dramático.</p>
-        <p>En REDEIL contamos con equipos de iluminación profesional y operadores técnicos que programan cada escena a través de consolas DMX. Esto nos permite realizar cambios de color sincronizados, transiciones suaves y efectos personalizados que se adaptan a los distintos momentos de tu evento.</p>
+      <SectionHeader
+          title="Iluminación que realza la arquitectura de tu evento"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La iluminación arquitectónica permite transformar por completo la apariencia de un espacio. Mediante reflectores LED RGB estratégicamente colocados, es posible bañar de color fachadas coloniales, resaltar la textura de muros de piedra, iluminar árboles centenarios y crear atmósferas que van desde lo romántico hasta lo dramático."
+          paragraph2="En REDEIL contamos con equipos de iluminación profesional y operadores técnicos que programan cada escena a través de consolas DMX. Esto nos permite realizar cambios de color sincronizados, transiciones suaves y efectos personalizados que se adaptan a los distintos momentos de tu evento."
+        />
         <p>Nuestro servicio incluye visita previa al venue, diseño del esquema de iluminación, traslado de equipo, montaje completo y operación técnica durante el evento. Cubrimos haciendas, jardines, salones, terrazas y cualquier espacio en CDMX y área metropolitana.</p>
       </div>
     </section>

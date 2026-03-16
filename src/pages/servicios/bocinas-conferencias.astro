@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Bocinas para Conferencias | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para conferencias, seminarios y eventos corporativos en CDMX. Audio claro para presentaciones y ponencias. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Cada montaje incluye bocinas de rango completo, micrófonos de solapa e inalámbricos, mezcladoras digitales y técnicos de audio que se encargan de la operación durante todo el evento. Garantizamos que cada palabra llegue con claridad a todos los asistentes."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Sonido claro y profesional para eventos corporativos</h2>
-        <p>En una conferencia, la calidad del audio es fundamental para que el mensaje llegue con claridad a cada asistente. Un sistema de sonido mal configurado puede arruinar una presentación importante, generar fatiga auditiva y restar profesionalismo al evento. En REDEIL entendemos estas necesidades y ofrecemos soluciones de audio a la medida.</p>
-        <p>Nuestro inventario incluye bocinas de alta definición, sistemas de line array para auditorios grandes, micrófonos de solapa para ponentes, micrófonos de mano para sesiones de preguntas y respuestas, y mezcladoras digitales con procesamiento de voz. Cada equipo es seleccionado según las dimensiones del espacio y el número de asistentes.</p>
+      <SectionHeader
+          title="Sonido claro y profesional para eventos corporativos"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="En una conferencia, la calidad del audio es fundamental para que el mensaje llegue con claridad a cada asistente. Un sistema de sonido mal configurado puede arruinar una presentación importante, generar fatiga auditiva y restar profesionalismo al evento. En REDEIL entendemos estas necesidades y ofrecemos soluciones de audio a la medida."
+          paragraph2="Nuestro inventario incluye bocinas de alta definición, sistemas de line array para auditorios grandes, micrófonos de solapa para ponentes, micrófonos de mano para sesiones de preguntas y respuestas, y mezcladoras digitales con procesamiento de voz. Cada equipo es seleccionado según las dimensiones del espacio y el número de asistentes."
+        />
         <p>Cubrimos conferencias en hoteles, centros de convenciones, universidades, salas de capacitación y auditorios en toda la CDMX y zona metropolitana. Nuestro equipo técnico realiza pruebas de audio previas para asegurar cobertura uniforme.</p>
       </div>
     </section>

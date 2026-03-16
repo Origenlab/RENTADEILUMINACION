@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Renta de Máquina de Confeti y Papelitos para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de confeti y papelitos para bodas, XV años y eventos en CDMX. REDEIL crea lluvias de confeti espectaculares para los momentos más emotivos de tu evento.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Contamos con máquinas profesionales capaces de lanzar confeti de distintos colores, formas y materiales. Nuestro equipo técnico opera cada disparo en el momento preciso, coordinándose con el DJ, el fotógrafo y los organizadores para que la lluvia de papelitos coincida con los instantes más emotivos del evento."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Confeti profesional: el efecto que transforma momentos en recuerdos</h2>
-        <p>Una lluvia de confeti en el momento justo tiene la capacidad de elevar cualquier celebración. Ya sea durante el primer baile, el vals de XV años, una revelación de género o el cierre de un evento corporativo, el confeti añade espectacularidad, emoción y genera fotografías memorables.</p>
-        <p>En REDEIL trabajamos con máquinas de confeti profesionales que permiten controlar la dirección, intensidad y alcance de cada disparo. Ofrecemos confeti en diversos colores y formatos, incluyendo papelitos clásicos, corazones, estrellas y confeti metálico dorado o plateado, adaptándonos al tema y la paleta de colores de cada evento.</p>
+      <SectionHeader
+          title="Confeti profesional: el efecto que transforma momentos en recuerdos"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una lluvia de confeti en el momento justo tiene la capacidad de elevar cualquier celebración. Ya sea durante el primer baile, el vals de XV años, una revelación de género o el cierre de un evento corporativo, el confeti añade espectacularidad, emoción y genera fotografías memorables."
+          paragraph2="En REDEIL trabajamos con máquinas de confeti profesionales que permiten controlar la dirección, intensidad y alcance de cada disparo. Ofrecemos confeti en diversos colores y formatos, incluyendo papelitos clásicos, corazones, estrellas y confeti metálico dorado o plateado, adaptándonos al tema y la paleta de colores de cada evento."
+        />
         <p>Nuestro servicio incluye traslado del equipo, instalación en la posición estratégica del venue, operación técnica sincronizada con los momentos clave y retiro al finalizar. Cubrimos bodas, XV años, fiestas, revelaciones de género y eventos corporativos en CDMX y área metropolitana.</p>
       </div>
     </section>

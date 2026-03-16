@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Máquina de Humo para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de humo para eventos en CDMX. Efectos de niebla profesional para bodas, fiestas, conciertos y producciones. Servicio completo por REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Desde bodas y fiestas de XV años hasta conciertos, obras de teatro y producciones audiovisuales, nuestro equipo técnico opera las máquinas de humo de forma profesional para lograr el efecto exacto que tu evento necesita."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Efectos de humo profesional para cada tipo de evento</h2>
-        <p>El humo es un recurso escénico fundamental que potencia cualquier sistema de iluminación. Al dispersarse en el ambiente, las partículas de niebla hacen visibles los haces de luz, creando efectos volumétricos que transforman por completo la percepción del espacio.</p>
-        <p>En REDEIL utilizamos máquinas de humo profesionales con líquidos certificados y seguros para espacios cerrados. Controlamos la densidad y la dispersión del humo según las necesidades de cada momento, ya sea un efecto sutil para una sesión fotográfica o una niebla densa para una fiesta electrónica.</p>
+      <SectionHeader
+          title="Efectos de humo profesional para cada tipo de evento"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="El humo es un recurso escénico fundamental que potencia cualquier sistema de iluminación. Al dispersarse en el ambiente, las partículas de niebla hacen visibles los haces de luz, creando efectos volumétricos que transforman por completo la percepción del espacio."
+          paragraph2="En REDEIL utilizamos máquinas de humo profesionales con líquidos certificados y seguros para espacios cerrados. Controlamos la densidad y la dispersión del humo según las necesidades de cada momento, ya sea un efecto sutil para una sesión fotográfica o una niebla densa para una fiesta electrónica."
+        />
         <p>Nuestro servicio incluye la operación del equipo por parte de un técnico especializado durante todo tu evento en CDMX. Esto garantiza que los efectos de humo se activen en los momentos precisos y con la intensidad adecuada para cada situación.</p>
       </div>
     </section>

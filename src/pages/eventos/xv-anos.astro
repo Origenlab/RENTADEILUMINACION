@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Iluminación y Sonido para XV Años | REDEIL CDMX";
 const description = "Renta de iluminación y sonido profesional para fiestas de XV años en CDMX. REDEIL ofrece seguidor, cabezas móviles, confeti, humo bajo y bocinas para tu fiesta.";
@@ -37,9 +38,12 @@ const schemaMarkup = JSON.stringify({
     />
     <section class="service-detail">
       <div class="container">
-        <h2>XV años con iluminación profesional: cada momento merece brillar</h2>
-        <p>Una fiesta de XV años está llena de momentos únicos que merecen ser destacados con iluminación profesional. El vals es sin duda el instante más emotivo, y en REDEIL lo iluminamos con seguidor de luz para que la quinceañera sea la protagonista absoluta mientras baila con su padre y sus chambelanes, creando recuerdos que perduran toda la vida.</p>
-        <p>Además del seguidor, ofrecemos cabezas móviles que llenan la pista de baile con patrones de luz y color, humo bajo que crea un efecto de ensueño durante el vals, máquinas de confeti con papelitos de corazones y colores personalizados, y bocinas profesionales para que la música suene con la potencia y claridad que la fiesta requiere.</p>
+        <SectionHeader
+          title="XV años con iluminación profesional: cada momento merece brillar"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="Una fiesta de XV años está llena de momentos únicos que merecen ser destacados con iluminación profesional. El vals es sin duda el instante más emotivo, y en REDEIL lo iluminamos con seguidor de luz para que la quinceañera sea la protagonista absoluta mientras baila con su padre y sus chambelanes, creando recuerdos que perduran toda la vida."
+          paragraph2="Además del seguidor, ofrecemos cabezas móviles que llenan la pista de baile con patrones de luz y color, humo bajo que crea un efecto de ensueño durante el vals, máquinas de confeti con papelitos de corazones y colores personalizados, y bocinas profesionales para que la música suene con la potencia y claridad que la fiesta requiere."
+        />
         <p>Nuestro servicio para XV años incluye asesoría previa, diseño del esquema de iluminación adaptado al salón o jardín, montaje completo antes de la fiesta y operación técnica durante todo el evento. Nos coordinamos con el DJ, el fotógrafo y los organizadores para que cada efecto de luz se active en el momento preciso.</p>
       </div>
     </section>

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 const title = "Iluminación para Bodas en CDMX | REDEIL";
 const description = "Renta de iluminación profesional para bodas en CDMX. Guirnaldas, cabezas móviles, city color, gobos y más. Paquetes completos de luz para tu boda. REDEIL.";
@@ -35,10 +36,12 @@ const schemaMarkup = JSON.stringify({
       introParagraph2="Ofrecemos paquetes completos de iluminación que cubren desde la ceremonia hasta la fiesta. Nuestro equipo de diseño lumínico visita el venue previamente para planificar cada detalle, asegurando que la luz realce la decoración, el espacio y cada momento especial de tu boda."
     />
     <section class="service-detail">
-      <div class="container">
-        <h2>Iluminación que hace única cada boda</h2>
-        <p>La iluminación es uno de los elementos más transformadores en una boda. Las guirnaldas edison crean ese ambiente cálido y romántico en jardines y haciendas. Las cabezas móviles añaden dinamismo durante la fiesta y el primer baile. El city color permite bañar paredes y fachadas con el color temático de tu boda. Y los gobos personalizados proyectan monogramas e iniciales de los novios.</p>
-        <p>En REDEIL diseñamos la iluminación de tu boda considerando cada momento: luz suave y cálida para la ceremonia, ambientación elegante para la cena, iluminación dinámica para el primer baile y efectos de alto impacto para la fiesta. Cada transición es operada en vivo por nuestros técnicos para crear una experiencia visual fluida.</p>
+      <SectionHeader
+          title="Iluminación que hace única cada boda"
+          subtitle="Instalación profesional incluida en CDMX y Edomex."
+          paragraph1="La iluminación es uno de los elementos más transformadores en una boda. Las guirnaldas edison crean ese ambiente cálido y romántico en jardines y haciendas. Las cabezas móviles añaden dinamismo durante la fiesta y el primer baile. El city color permite bañar paredes y fachadas con el color temático de tu boda. Y los gobos personalizados proyectan monogramas e iniciales de los novios."
+          paragraph2="En REDEIL diseñamos la iluminación de tu boda considerando cada momento: luz suave y cálida para la ceremonia, ambientación elegante para la cena, iluminación dinámica para el primer baile y efectos de alto impacto para la fiesta. Cada transición es operada en vivo por nuestros técnicos para crear una experiencia visual fluida."
+        />
         <p>Cubrimos bodas en haciendas, jardines, salones, terrazas, rooftops, playas y cualquier venue en la CDMX y zona metropolitana. Contamos con equipo de respaldo y generadores de energía para venues sin conexión eléctrica.</p>
       </div>
     </section>
