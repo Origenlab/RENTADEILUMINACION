@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import ZoneCards from '../components/ZoneCards.astro';
+import FaqSection from '../components/FaqSection.astro';
 
 const title = "Renta de Iluminación y Sonido para Eventos CDMX | REDEIL";
 const description = "Iluminación profesional, audio JBL y DJ para bodas, XV años y eventos en CDMX. Instalación incluida. Cotiza gratis por WhatsApp. +500 eventos realizados.";
@@ -471,45 +472,17 @@ const efectos = [
           paragraph1="Las dudas más comunes que nos hacen por WhatsApp antes de reservar. Si no encuentras tu respuesta aquí, escríbenos directo."
           paragraph2="Cada evento es diferente, pero estos son los puntos que casi todos los clientes quieren saber antes de confirmar."
         />
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>¿Qué incluye el servicio?</summary>
-            <div class="faq-answer">
-              <p>Todo: transporte del equipo a tu venue, instalación profesional, operación técnica durante el evento y desmontaje al finalizar. No tienes que contratar nada extra.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>¿Cuánto cuesta rentar iluminación para una boda?</summary>
-            <div class="faq-answer">
-              <p>Depende del equipo y la cantidad. Un paquete básico de guirnaldas para jardín arranca desde $3,500. Producciones completas con audio, luces y efectos van desde $15,000. Cotiza por WhatsApp y te armamos algo a tu presupuesto.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>¿Con cuánta anticipación debo reservar?</summary>
-            <div class="faq-answer">
-              <p>Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido, así que entre antes reserves, mejor.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>¿Trabajan con DJ propio o puedo traer el mío?</summary>
-            <div class="faq-answer">
-              <p>Las dos opciones. Tenemos DJ profesional con consola y repertorio listo, pero si ya tienes tu DJ de confianza, le conectamos todo el audio sin problema.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>¿Qué pasa si mi venue no tiene corriente eléctrica?</summary>
-            <div class="faq-answer">
-              <p>Contamos con plantas de luz para eventos al aire libre, haciendas, jardines y cualquier espacio sin instalación eléctrica. El equipo técnico se encarga de todo.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>¿Cubren eventos en el Estado de México?</summary>
-            <div class="faq-answer">
-              <p>Sí, operamos en toda la zona metropolitana: Naucalpan, Huixquilucan, Tlalnepantla, Metepec, Toluca y más. El transporte está incluido en el servicio.</p>
-            </div>
-          </details>
-        </div>
       </div>
+      <FaqSection items={[
+        { question: "¿Qué incluye el servicio de renta?", answer: "Todo: transporte del equipo a tu venue, instalación profesional, operación técnica durante el evento y desmontaje al finalizar. No tienes que contratar nada extra — nuestro staff se encarga de cada detalle." },
+        { question: "¿Cuánto cuesta rentar iluminación para una boda?", answer: "Depende del equipo y la cantidad. Un paquete básico de guirnaldas para jardín arranca desde $3,500. Producciones completas con audio, luces y efectos van desde $15,000. Cotiza por WhatsApp y te armamos algo a tu presupuesto." },
+        { question: "¿Con cuánta anticipación debo reservar?", answer: "Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido, así que entre antes reserves, mejor. Fines de semana en diciembre se agotan primero." },
+        { question: "¿Trabajan con DJ propio o puedo traer el mío?", answer: "Las dos opciones. Tenemos DJ profesional con consola Pioneer y repertorio listo, pero si ya tienes tu DJ de confianza, le conectamos todo el audio sin problema. También rentamos solo el equipo de sonido." },
+        { question: "¿Qué pasa si mi venue no tiene corriente eléctrica?", answer: "Contamos con plantas de luz para eventos al aire libre, haciendas, jardines y cualquier espacio sin instalación eléctrica. El equipo técnico se encarga de toda la logística eléctrica." },
+        { question: "¿Cubren eventos en el Estado de México?", answer: "Sí, operamos en toda la zona metropolitana: Naucalpan, Huixquilucan, Tlalnepantla, Metepec, Toluca y más. El transporte está incluido en el servicio sin costo adicional." },
+        { question: "¿Puedo combinar iluminación, sonido y efectos en un solo paquete?", answer: "Claro, es lo que más nos piden. Armamos paquetes personalizados de luz y sonido que incluyen todo lo que necesitas. Cuéntanos tu evento y te hacemos una propuesta integral con precio especial." },
+        { question: "¿Qué marcas de equipo utilizan?", answer: "En iluminación trabajamos con Martin Professional, Chauvet y Elation. En audio usamos JBL y QSC. Todo equipo profesional, probado y en óptimas condiciones. Nada genérico." }
+      ]} />
     </section>
 
     <!-- CTA FINAL -->
