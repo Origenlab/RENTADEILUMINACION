@@ -1,8 +1,30 @@
-# https://www.robotstxt.org/
+# rentadeiluminacion.com — robots.txt
 
-# Allow crawling of all content
 User-agent: *
+Allow: /
 Disallow: /404.html
 
-# Sitemap
-Sitemap: https://rentadeiluminacion.com/sitemap.xml
+# Sitemaps (Astro generates sitemap-index.xml)
+Sitemap: https://rentadeiluminacion.com/sitemap-index.xml
+
+# Block AI training bots
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
