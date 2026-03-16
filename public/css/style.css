@@ -582,55 +582,6 @@ section {
   background: var(--color-gray-100, #f8f9fa);
 }
 
-.coverage-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8);
-}
-
-.coverage-column {
-  background: var(--color-gray-100);
-  padding: var(--space-8);
-  border-radius: var(--radius-xl);
-}
-
-.coverage-column h3 {
-  font-size: var(--text-xl);
-  color: var(--color-secondary);
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-3);
-  border-bottom: 2px solid var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.coverage-lists {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-}
-
-.coverage-list li {
-  margin-bottom: var(--space-3);
-}
-
-.coverage-list a {
-  color: var(--color-gray-700);
-  font-size: var(--text-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.coverage-list a::before {
-  content: '→';
-  color: var(--color-primary);
-}
-
-.coverage-list a:hover {
-  color: var(--color-primary);
-}
-
 /* ==========================================================================
    FAQ Section
    ========================================================================== */
@@ -1044,9 +995,7 @@ section {
   /* Cards verticales compactas en móviles pequeños */
   
 
-  .coverage-lists {
-    grid-template-columns: 1fr;
-  }
+  
 
   /* Footer móvil pequeño - diseño 2x2 */
 
@@ -2339,7 +2288,6 @@ section {
   right: 0;
   z-index: 1000;
 }
-
 
 /* ══════════════════════════════════════
    Events Section
