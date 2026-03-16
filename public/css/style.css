@@ -754,12 +754,6 @@ section {
 
 /* Primer Piso - Info Principal */
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-10);
-}
-
 /* Grid especial para footer-main con 6 columnas */
 
 /* Footer-main responsive para pantallas medianas */
@@ -767,10 +761,7 @@ section {
 /* Footer móvil mejorado */
 @media (max-width: 768px) {
 
-  .footer-logo img,
-  .footer-logo svg {
-    height: 35px;
-  }
+  
 
   /* Columnas colapsables estilo acordeón */
 
@@ -781,16 +772,6 @@ section {
   /* Footer branches */
 
   /* Footer bottom */
-}
-
-.footer-logo {
-  display: inline-block;
-  margin-bottom: var(--space-4);
-}
-
-.footer-logo img {
-  height: 40px;
-  width: auto;
 }
 
 /* Logo texto sin icono */
@@ -960,10 +941,7 @@ section {
   /* Cards horizontales en móvil */
   
 
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
-  }
+  
 
   /* Footer principal con 6 columnas - tablet: 3 columnas */
 
@@ -999,9 +977,7 @@ section {
 
   /* Footer móvil pequeño - diseño 2x2 */
 
-  .footer-logo svg {
-    height: 28px;
-  }
+  
 
   /* Columnas 2x2 */
 
@@ -1872,39 +1848,8 @@ section {
 /* ===== FILA SUPERIOR: Brand + Contacto ===== */
 
 /* ===== SECCIÓN BRAND (Logo + Descripción + Redes) ===== */
-.footer-brand {
-  text-align: left;
-}
-
-.footer-brand .footer-logo {
-  display: inline-block;
-  font-family: var(--font-primary);
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  text-decoration: none;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-}
-
-.footer-brand > p {
-  font-family: var(--font-secondary);
-  font-size: 1.063rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-  margin-bottom: 20px;
-  max-width: 400px;
-}
 
 /* ===== SECCIÓN SERVICIOS (3 columnas) ===== */
-.footer-links {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr;
-  gap: 40px;
-  margin-bottom: 60px;
-  padding-bottom: 50px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
 
 /* Iluminación: 2 columnas internas */
 
@@ -1927,10 +1872,7 @@ section {
    ======================================== */
 @media (max-width: 992px) {
 
-  .footer-links {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
+  
 
   /* Zonas de Cobertura - 992px */
 
@@ -1943,26 +1885,16 @@ section {
 
   /* Fila superior: 2 columnas en tablet */
 
-  .footer-brand .footer-logo {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
+  
 
-  .footer-brand > p {
-    font-size: 0.875rem;
-  }
+  
 
   .contact-grid {
     gap: 15px;
   }
 
   /* Links: 2 columnas en tablet */
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-bottom: 40px;
-    padding-bottom: 35px;
-  }
+  
 
   /* Zonas de Cobertura - tablet 768px */
 
@@ -1979,31 +1911,18 @@ section {
 
   /* Fila superior: 1 columna en móvil */
 
-  .footer-brand {
-    text-align: center;
-  }
+  
 
-  .footer-brand .footer-logo {
-    font-size: 1.875rem;
-    letter-spacing: 2px;
-  }
+  
 
-  .footer-brand > p {
-    font-size: 0.875rem;
-    max-width: 100%;
-  }
+  
 
   .contact-grid {
     gap: 12px;
   }
 
   /* Links: 1 columna con acordeón visual */
-  .footer-links {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 35px;
-    padding-bottom: 30px;
-  }
+  
 
   /* Zonas de Cobertura - móvil 576px */
 
@@ -2019,261 +1938,60 @@ section {
 
 /* ===== COLUMNA DE MARCA ===== */
 
-.footer-logo-text {
-  display: inline-block;
-  font-family: var(--font-primary);
-  font-size: 2rem;
-  font-weight: 800;
-  color: #ff5722;
-  text-decoration: none;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-}
-
-.footer-logo-text:hover {
-  color: #ff7a50;
-}
-
-.footer-tagline {
-  font-size: 13px;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.footer-description {
-  color: #b0b0b0;
-  margin-bottom: 30px;
-  line-height: 1.8;
-}
-
-.footer-contact-info {
-  border-top: 1px solid #2a2a2a;
-  padding-top: 25px;
-}
-
-.footer-contact-info p {
-  margin: 0 0 10px 0;
-  color: #b0b0b0;
-}
-
-.footer-contact-info strong {
-  color: #e5e5e5;
-  font-weight: 600;
-  display: inline-block;
-  min-width: 80px;
-}
-
-.footer-contact-info a {
-  color: #e5e5e5;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-contact-info a:hover {
-  color: #ff5722;
-}
-
 /* ===== COLUMNAS DE ENLACES ===== */
 
-.footer-heading {
-  font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 0 0 25px 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #ff5722;
-  display: inline-block;
-}
-
 /* ===== SECCIÓN DE ZONAS DE COBERTURA ===== */
-.footer-zones {
-  padding: 50px 0;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.footer-zones > .footer-heading {
-  margin-bottom: 35px;
-  font-size: 13px;
-}
-
-.footer-zones-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
-}
-
-.footer-zone-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-zone-list li {
-  margin-bottom: 8px;
-}
-
-.footer-zone-list a {
-  color: #888;
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s ease;
-}
-
-.footer-zone-list a:hover {
-  color: #ff5722;
-}
 
 /* ===== SECCIÓN DE SUCURSALES ===== */
-.footer-branches {
-  padding: 50px 0;
-  border-bottom: 1px solid #2a2a2a;
-}
-
-.footer-branches > .footer-heading {
-  margin-bottom: 35px;
-  font-size: 13px;
-}
-
-.footer-branches-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.footer-branch {
-  min-width: 0;
-}
-
-.footer-branch address {
-  font-style: normal;
-  color: #888;
-  font-size: 13px;
-  line-height: 1.7;
-}
 
 /* ===== SECCIÓN INFERIOR ===== */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 0;
-  gap: 20px;
-}
 
 /* ===== RESPONSIVE: TABLET ===== */
 @media (max-width: 1024px) {
 
-  .footer-zones-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
+  
 
-  .footer-branches-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
+  
 }
 
 /* ===== RESPONSIVE: MÓVIL ===== */
 @media (max-width: 768px) {
 
-  .footer-logo-text {
-    font-size: 1.75rem;
-  }
+  
 
-  .footer-contact-info {
-    text-align: left;
-  }
+  
 
-  .footer-contact-info strong {
-    display: block;
-    margin-bottom: 2px;
-  }
+  
 
-  .footer-heading {
-    display: block;
-    text-align: center;
-  }
+  
 
-  .footer-zones {
-    padding: 40px 0;
-  }
+  
 
-  .footer-zones > .footer-heading {
-    text-align: center;
-    display: block;
-  }
+  
 
-  .footer-zones-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 20px;
-  }
+  
 
-  .footer-branches {
-    padding: 40px 0;
-  }
+  
 
-  .footer-branches > .footer-heading {
-    text-align: center;
-    display: block;
-  }
-
-  .footer-branches-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    text-align: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    padding: 25px 0;
-    gap: 15px;
-  }
+  
 }
 
 /* ===== RESPONSIVE: MÓVIL PEQUEÑO ===== */
 @media (max-width: 480px) {
 
-  .footer-logo-text {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-  }
+  
 
-  .footer-tagline {
-    font-size: 11px;
-  }
+  
 
-  .footer-description {
-    font-size: 13px;
-  }
+  
 
-  .footer-heading {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
+  
 
-  .footer-zones-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
+  
 
-  .footer-zone-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px 15px;
-  }
+  
 
-  .footer-zone-list li {
-    margin-bottom: 0;
-  }
+  
 
 }
 

@@ -1,171 +1,282 @@
 ---
+/**
+ * Footer — OrigenLab Standard v2 (REDEIL)
+ * Profesional, oscuro neutro, navegación completa.
+ * Sin animaciones. Código limpio.
+ */
+const year = new Date().getFullYear();
 ---
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
 
-      <!-- Brand Column -->
-      <div class="footer-column footer-brand">
-        <a href="/" class="footer-logo" aria-label="REDEIL - Inicio">
-          <span class="footer-logo-text">REDEIL</span>
+<footer class="ft">
+
+  <!-- ═══ PRINCIPAL ═══ -->
+  <div class="container ft__main">
+    <div class="ft__grid">
+
+      <!-- Marca + contacto -->
+      <div class="ft__brand">
+        <a href="/" class="ft__logo">
+          <img src="/img/logo-redeil-white.avif" alt="REDEIL" width="140" height="44" loading="lazy" />
         </a>
-        <p class="footer-tagline">Renta de Iluminación Profesional</p>
-        <p class="footer-description">Más de 30 años creando atmósferas únicas para bodas, XV años, eventos corporativos y celebraciones especiales en la Ciudad de México y Estado de México.</p>
-        <div class="footer-contact-info">
-          <a href="tel:+525530682988" class="footer-contact-item">
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            <span>55 3068 2988</span>
+        <p class="ft__tagline">Renta de iluminación, sonido y efectos especiales para bodas, XV años y eventos en Ciudad de México y Estado de México.</p>
+
+        <div class="ft__contact-list">
+          <a href="tel:+525530682988" class="ft__contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            55 3068 2988
           </a>
-          <a href="mailto:hola@rentadeiluminacion.com" class="footer-contact-item">
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>hola@rentadeiluminacion.com</span>
+          <a href="https://wa.me/5530682988" target="_blank" rel="noopener" class="ft__contact-link ft__contact-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
           </a>
-          <span class="footer-contact-item">
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            <span>Lunes a Domingo, 8:00 - 18:00</span>
+          <a href="mailto:hola@rentadeiluminacion.com" class="ft__contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hola@rentadeiluminacion.com
+          </a>
+          <span class="ft__schedule">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Lun–Dom 8:00–18:00
           </span>
         </div>
       </div>
 
-      <!-- Iluminación Links -->
-      <div class="footer-column">
-        <h4 class="footer-heading">Iluminación</h4>
-        <ul class="footer-links">
-          <li><a href="/servicios/guirnaldas/">Guirnaldas</a></li>
-          <li><a href="/servicios/luces-neon/">Luces Neón</a></li>
-          <li><a href="/servicios/cabezas-moviles/">Cabezas Móviles</a></li>
-          <li><a href="/servicios/luz-negra/">Luz Negra UV</a></li>
-          <li><a href="/servicios/iluminacion-arquitectonica/">Iluminación Arquitectónica</a></li>
-          <li><a href="/servicios/city-color/">City Color</a></li>
+      <!-- Iluminación -->
+      <div class="ft__col">
+        <h4 class="ft__heading">Iluminación</h4>
+        <ul>
+          <li><a href="/servicios/guirnaldas/">Guirnaldas Edison</a></li>
+          <li><a href="/servicios/luces-neon/">Luces Neón y UV</a></li>
+          <li><a href="/servicios/luz-negra/">Luz Negra</a></li>
           <li><a href="/servicios/sky-tracker/">Sky Tracker</a></li>
-          <li><a href="/servicios/gobos/">Proyección Gobos</a></li>
+          <li><a href="/servicios/cabezas-moviles/">Cabezas Móviles</a></li>
+          <li><a href="/servicios/cascadas-led/">Cascadas LED</a></li>
+          <li><a href="/servicios/city-color/">City Color</a></li>
+          <li><a href="/servicios/iluminacion-arquitectonica/">Ilum. Arquitectónica</a></li>
+          <li><a href="/servicios/gobos/">Gobos</a></li>
+          <li><a href="/servicios/seguidor/">Seguidor</a></li>
         </ul>
       </div>
 
-      <!-- Sonido y Equipo -->
-      <div class="footer-column">
-        <h4 class="footer-heading">Sonido y Equipo</h4>
-        <ul class="footer-links">
-          <li><a href="/servicios/bocinas/">Renta de Bocinas</a></li>
-          <li><a href="/servicios/bocinas-djs/">DJ para Eventos</a></li>
-          <li><a href="/servicios/maquina-humo/">Máquina de Humo</a></li>
+      <!-- Sonido + Efectos -->
+      <div class="ft__col">
+        <h4 class="ft__heading">Sonido y DJ</h4>
+        <ul>
+          <li><a href="/servicios/bocinas/">Audio para Eventos</a></li>
+          <li><a href="/servicios/bocinas-djs/">DJ para Fiestas</a></li>
+          <li><a href="/servicios/bocinas-bodas/">Bocinas para Bodas</a></li>
+          <li><a href="/servicios/bocinas-xv/">Bocinas para XV Años</a></li>
+          <li><a href="/servicios/bocinas-fiestas/">Bocinas para Fiestas</a></li>
+          <li><a href="/servicios/bocinas-conferencias/">Conferencias</a></li>
+        </ul>
+
+        <h4 class="ft__heading ft__heading--mt">Efectos Especiales</h4>
+        <ul>
           <li><a href="/servicios/humo-bajo/">Humo Bajo</a></li>
-          <li><a href="/servicios/confeti/">Máquina de Confeti</a></li>
-          <li><a href="/servicios/bola-disco/">Bolas de Disco</a></li>
+          <li><a href="/servicios/confeti/">Confeti</a></li>
+          <li><a href="/servicios/burbujas/">Burbujas</a></li>
+          <li><a href="/servicios/bola-disco/">Bola Disco</a></li>
           <li><a href="/servicios/pantalla-inflable/">Pantalla Inflable</a></li>
+          <li><a href="/servicios/podiums/">Podium</a></li>
         </ul>
       </div>
 
-      <!-- Empresa -->
-      <div class="footer-column">
-        <h4 class="footer-heading">Empresa</h4>
-        <ul class="footer-links">
+      <!-- Empresa + Cobertura -->
+      <div class="ft__col">
+        <h4 class="ft__heading">Empresa</h4>
+        <ul>
           <li><a href="/nosotros/">Nosotros</a></li>
           <li><a href="/servicios/">Servicios</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contacto/">Contacto</a></li>
-          <li><a href="/zonas-de-cobertura/">Zonas de Cobertura</a></li>
+          <li><a href="/eventos/bodas/">Bodas</a></li>
+          <li><a href="/eventos/xv-anos/">XV Años</a></li>
+        </ul>
+
+        <h4 class="ft__heading ft__heading--mt">Cobertura</h4>
+        <ul>
+          <li><a href="/zonas-de-cobertura/">Todas las zonas</a></li>
+          <li>Polanco · Santa Fe · Coyoacán</li>
+          <li>Naucalpan · Huixquilucan</li>
+          <li>Tlalnepantla · Metepec</li>
         </ul>
       </div>
 
     </div>
-
-    <!-- Coverage Zones -->
-    <div class="footer-zones">
-      <h4 class="footer-heading">Zonas de Cobertura</h4>
-      <div class="footer-zones-grid">
-        <div class="footer-zone-column">
-          <h5 class="footer-zone-title">CDMX Poniente</h5>
-          <ul class="footer-zone-list">
-            <li>Polanco</li>
-            <li>Santa Fe</li>
-            <li>Condesa y Roma</li>
-            <li>Miguel Hidalgo</li>
-          </ul>
-        </div>
-        <div class="footer-zone-column">
-          <h5 class="footer-zone-title">CDMX Sur</h5>
-          <ul class="footer-zone-list">
-            <li>Coyoacán</li>
-            <li>Pedregal</li>
-            <li>Del Valle</li>
-            <li>Tlalpan</li>
-          </ul>
-        </div>
-        <div class="footer-zone-column">
-          <h5 class="footer-zone-title">CDMX Centro y Norte</h5>
-          <ul class="footer-zone-list">
-            <li>Cuauhtémoc</li>
-            <li>Benito Juárez</li>
-            <li>Azcapotzalco</li>
-            <li>Gustavo A. Madero</li>
-          </ul>
-        </div>
-        <div class="footer-zone-column">
-          <h5 class="footer-zone-title">Estado de México</h5>
-          <ul class="footer-zone-list">
-            <li>Naucalpan</li>
-            <li>Huixquilucan</li>
-            <li>Tlalnepantla</li>
-            <li>Interlomas</li>
-          </ul>
-        </div>
-        <div class="footer-zone-column">
-          <h5 class="footer-zone-title">Más Zonas Edomex</h5>
-          <ul class="footer-zone-list">
-            <li>Atizapán</li>
-            <li>Ecatepec</li>
-            <li>Toluca</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Branches -->
-    <div class="footer-branches">
-      <h4 class="footer-heading">Nuestras Sucursales</h4>
-      <div class="footer-branches-grid">
-        <div class="footer-branch">
-          <h5 class="footer-branch-title">Benito Juárez</h5>
-          <address class="footer-branch-address">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Av. Insurgentes Sur 615, Piso 6, Col. Nápoles, C.P. 03810</span>
-          </address>
-        </div>
-        <div class="footer-branch">
-          <h5 class="footer-branch-title">Polanco</h5>
-          <address class="footer-branch-address">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Av. Homero 1933, Piso 3, Col. Polanco I Secc, C.P. 11510</span>
-          </address>
-        </div>
-        <div class="footer-branch">
-          <h5 class="footer-branch-title">Naucalpan</h5>
-          <address class="footer-branch-address">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Blvd. Manuel Ávila Camacho 5, Lomas de Sotelo, Piso 10, Torre B, C.P. 53390</span>
-          </address>
-        </div>
-        <div class="footer-branch">
-          <h5 class="footer-branch-title">Tlalnepantla</h5>
-          <address class="footer-branch-address">
-            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Emilio Carranza 17, Tlalnepantla Centro, C.P. 54000</span>
-          </address>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="container">
-      <p>&copy; 2026 REDEIL - Renta de Iluminación Profesional para Eventos. Todos los derechos reservados.</p>
-      <div class="footer-bottom-links">
-        <a href="/aviso-privacidad/">Aviso de Privacidad</a>
-        <a href="/terminos-condiciones/">Términos y Condiciones</a>
+  <!-- ═══ BOTTOM BAR ═══ -->
+  <div class="ft__bar">
+    <div class="container ft__bar-inner">
+      <p>&copy; {year} REDEIL — Renta de Iluminación Profesional para Eventos. Todos los derechos reservados.</p>
+      <div class="ft__bar-links">
+        <a href="/aviso-privacidad/">Aviso de privacidad</a>
+        <span class="ft__bar-sep">·</span>
+        <a href="/contacto/">Contacto</a>
       </div>
     </div>
   </div>
+
 </footer>
+
+<style>
+  .ft {
+    background: #18181B;
+    color: #fff;
+  }
+
+  .ft__main {
+    padding: 4rem 0 3rem;
+  }
+
+  .ft__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* ── Marca ── */
+  .ft__logo {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .ft__logo img {
+    height: 44px;
+    width: auto;
+  }
+
+  .ft__tagline {
+    color: #A1A1AA;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    max-width: 300px;
+    margin-bottom: 1.5rem;
+  }
+
+  .ft__contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ft__contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #D4D4D8;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .ft__contact-link:hover { color: #fff; }
+
+  .ft__contact-link svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .ft__contact-wa { color: #25D366; }
+  .ft__contact-wa:hover { color: #2ee077; }
+
+  .ft__schedule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #71717A;
+    font-size: 0.8125rem;
+  }
+
+  .ft__schedule svg {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  /* ── Columnas ── */
+  .ft__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    color: #FAFAFA;
+  }
+
+  .ft__heading--mt { margin-top: 1.75rem; }
+
+  .ft__col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ft__col li {
+    font-size: 0.8125rem;
+    color: #71717A;
+  }
+
+  .ft__col a {
+    color: #A1A1AA;
+    font-size: 0.8125rem;
+    text-decoration: none;
+  }
+
+  .ft__col a:hover { color: #fff; }
+
+  /* ── Bottom ── */
+  .ft__bar {
+    border-top: 1px solid #27272A;
+    padding: 1.25rem 0;
+  }
+
+  .ft__bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #52525B;
+    font-size: 0.75rem;
+  }
+
+  .ft__bar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ft__bar-links a {
+    color: #52525B;
+    text-decoration: none;
+  }
+
+  .ft__bar-links a:hover { color: #A1A1AA; }
+
+  .ft__bar-sep { color: #3F3F46; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .ft__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .ft__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ft__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .ft__bar-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>
