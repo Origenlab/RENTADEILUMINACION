@@ -20,7 +20,7 @@ nav:
     href: "/"
 
   - label: "Iluminación"
-    href: "/servicios/#iluminacion"
+    href: "/servicios/iluminacion/"
     children:
       - label: "Guirnaldas Edison"
         href: "/servicios/guirnaldas/"
@@ -46,7 +46,7 @@ nav:
         href: "/servicios/seguidor/"
 
   - label: "Sonido y DJ"
-    href: "/servicios/#sonido"
+    href: "/servicios/sonido/"
     children:
       - label: "Audio para Eventos"
         href: "/servicios/bocinas/"
@@ -62,7 +62,7 @@ nav:
         href: "/servicios/bocinas-conferencias/"
 
   - label: "Efectos Especiales"
-    href: "/servicios/#efectos"
+    href: "/servicios/efectos-especiales/"
     children:
       - label: "Humo Bajo"
         href: "/servicios/humo-bajo/"

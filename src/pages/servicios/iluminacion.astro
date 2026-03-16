@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación para Eventos en CDMX | REDEIL";
+const description = "11 tipos de iluminación profesional para bodas, XV años y eventos. Guirnaldas, sky tracker, cabezas móviles. Instalación incluida. Cotiza por WhatsApp.";
+const canonical = "https://rentadeiluminacion.com/servicios/iluminacion/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Iluminación Profesional para Eventos",
+  "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988" },
+  "description": "Servicio profesional de renta de iluminación para bodas, XV años y eventos en CDMX. 11 tipos de luces con instalación incluida.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" }
+});
+
+const servicios = [
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas con focos Edison para boda al aire libre", description: "Focos tipo Edison con luz cálida vintage que transforman jardines, terrazas y haciendas. Las más pedidas para bodas al aire libre. Cableado certificado IP65.", link: "/servicios/guirnaldas/" },
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón y UV en fiesta glow party", description: "Efectos fluorescentes y glow que convierten cualquier espacio en una fiesta de colores. Perfectas para XV años y fiestas temáticas.", link: "/servicios/luces-neon/" },
+  { title: "Luz Negra", image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Luz negra UV para fiesta neón", description: "Iluminación UV que hace brillar todo lo blanco y fluorescente. Transforma pistas de baile en experiencias únicas.", link: "/servicios/luz-negra/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker proyectando haces de luz al cielo", description: "Haces de luz xenón de 7,000W visibles a 5-7 km. El efecto que hace que tu evento se vea desde toda la colonia.", link: "/servicios/sky-tracker/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED en boda elegante", description: "Luces robóticas con movimiento programable vía DMX. Beams, spots y wash para shows de luces profesionales.", link: "/servicios/cabezas-moviles/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas-400w.avif", alt: "Cascadas LED en arco de ceremonia", description: "Cortinas de luces LED que caen como cascada. Fondo espectacular para la mesa de novios o el arco de ceremonia.", link: "/servicios/cascadas-led/" },
+  { title: "City Color", image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif", alt: "City Color iluminando hacienda para boda", description: "Cañones de luz LED de alto impacto para bañar de color fachadas, escenarios y espacios grandes.", link: "/servicios/city-color/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif", alt: "City Light iluminando salón de eventos", description: "Luminarias profesionales de luz potente y uniforme para salones, carpas y venues grandes.", link: "/servicios/city-light/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif", alt: "Uplighting en fachada de hacienda", description: "Uplighting profesional para transformar fachadas, columnas, árboles y jardines con color.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyección de nombres, logos y diseños personalizados en paredes y pisos. El detalle que todos recuerdan.", link: "/servicios/gobos/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight seguidor en primer baile de novios", description: "Spotlight profesional que sigue al festejado en el vals, brindis o entrada triunfal.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Iluminación" }]} />
+</Fragment>
+
+    <Hero
+      title="Renta de Iluminación Profesional para Eventos en CDMX"
+      subtitle="11 tipos de luces profesionales con instalación incluida. Equipo Martin Professional, Chauvet y Elation."
+      introParagraph1='En <strong>REDEIL</strong> nos especializamos en alquiler de luces para todo tipo de celebraciones en la Ciudad de México y Estado de México. Nuestro catálogo incluye desde guirnaldas vintage con focos Edison hasta sky trackers de 7,000W que se ven a kilómetros — cada equipo pensado para crear un ambiente diferente.'
+      introParagraph2='Cada servicio incluye transporte, montaje profesional, operación técnica durante tu evento y desmontaje. Nuestro equipo trabaja con marcas líderes como <strong>Martin Professional</strong>, <strong>Chauvet</strong> y <strong>Elation</strong>. Más de 500 eventos iluminados en Polanco, Coyoacán, Santa Fe, Naucalpan, Huixquilucan y toda la zona metropolitana.'
+    />
+
+    <CtaBar
+      headline="¿Qué tipo de iluminación buscas?"
+      items={[
+        { label: "Guirnaldas", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "Sky Tracker", href: "/servicios/sky-tracker/", icon: "iluminacion" },
+        { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20iluminación%20para%20mi%20evento", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Nuestro Catálogo de Iluminación"
+          subtitle="11 servicios con equipo profesional e instalación incluida."
+          paragraph1="Cada tipo de luz crea una atmósfera diferente. Las guirnaldas Edison aportan calidez a una boda en jardín, mientras que las cabezas móviles convierten una pista de baile en un show de luces."
+          paragraph2="Nuestros técnicos te asesoran sobre qué equipo funciona mejor para tu espacio y tipo de evento. Haciendas, salones, terrazas, jardines — cada venue tiene su solución ideal."
+        />
+        <div class="services-grid">
+          {servicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Iluminación"
+          subtitle="Lo que nuestros clientes preguntan antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada evento es diferente — por eso armamos propuestas personalizadas según tu espacio, fecha y presupuesto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tipo de iluminación recomiendan para una boda en jardín?", answer: "Para bodas al aire libre, las guirnaldas Edison son el número uno — crean un ambiente cálido y romántico. Las complementamos con uplighting arquitectónico en fachadas y gobos con los nombres de los novios. Para el vals, un seguidor profesional hace toda la diferencia." },
+        { question: "¿Cuántas luces necesito para mi evento?", answer: "Depende del tamaño del espacio y el efecto que quieras lograr. En una visita previa o con las medidas de tu venue, nuestro equipo te recomienda la cantidad exacta. No vendemos de más — lo que cotizamos es lo que realmente necesitas." },
+        { question: "¿La instalación está incluida en el precio?", answer: "Sí, siempre. Todos nuestros servicios incluyen transporte, instalación profesional, operación durante el evento y desmontaje. Nuestro staff llega horas antes para que todo esté listo cuando lleguen tus invitados." },
+        { question: "¿Puedo combinar varios tipos de iluminación?", answer: "Claro, es lo más recomendable. La mayoría de nuestros clientes combinan 2-4 tipos de luces. Por ejemplo: guirnaldas + uplighting + seguidor + humo bajo para una boda completa. Te armamos un paquete con precio especial." },
+      ]} />
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para iluminar tu evento?</h2>
+          <p>Cuéntanos la fecha, el lugar y qué tienes en mente. Te armamos una propuesta de iluminación a tu medida.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20iluminación%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp — 55 3068 2988</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

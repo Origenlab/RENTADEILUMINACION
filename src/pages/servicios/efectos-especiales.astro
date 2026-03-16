@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Efectos Especiales para Eventos CDMX | REDEIL";
+const description = "Humo bajo, confeti, burbujas, bola disco y más para tu boda o fiesta. Operación profesional incluida. 7 efectos disponibles. Cotiza por WhatsApp.";
+const canonical = "https://rentadeiluminacion.com/servicios/efectos-especiales/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Efectos Especiales para Eventos",
+  "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988" },
+  "description": "Servicio profesional de efectos especiales para bodas, XV años y eventos en CDMX. Humo bajo, confeti, burbujas y más.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" }
+});
+
+const servicios = [
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo creando nube a nivel de piso en vals de boda", description: "La nube mágica a nivel de piso que todo mundo quiere para el vals o la entrada de los novios. El efecto más solicitado en bodas y XV años.", link: "/servicios/humo-bajo/" },
+  { title: "Máquina de Humo", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Humo escénico en pista de baile", description: "Humo escénico para crear atmósferas en pistas de baile y shows de luces. Complemento perfecto para cabezas móviles.", link: "/servicios/maquina-humo/" },
+  { title: "Confeti", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Cañón de confeti dorado en celebración de boda", description: "Cañones de confeti dorado, plateado o multicolor para el brindis, la mordida del pastel o la hora loca.", link: "/servicios/confeti/" },
+  { title: "Burbujas", image: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos-400w.avif", alt: "Máquina de burbujas en fiesta infantil", description: "Máquinas de burbujas para fiestas infantiles, jardines y recepciones al aire libre. Un efecto que encanta a todos.", link: "/servicios/burbujas/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco gigante en pista de baile", description: "Bola disco gigante con luces LED que llenan la pista de destellos. Perfecta para bodas, XV años y fiestas retro.", link: "/servicios/bola-disco/" },
+  { title: "Pantalla Inflable", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para cine al aire libre", description: "Cine al aire libre con pantalla gigante y proyector HD incluido. Ideal para jardines, roof gardens y terrazas.", link: "/servicios/pantalla-inflable/" },
+  { title: "Podium", image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules-300w.avif", alt: "Podium profesional en auditorio corporativo", description: "Tarimas y podiums para DJ, músicos o presentaciones corporativas. Base firme con acabado profesional.", link: "/servicios/podiums/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Efectos Especiales" }]} />
+</Fragment>
+
+    <Hero
+      title="Efectos Especiales para Eventos en CDMX"
+      subtitle="7 efectos profesionales con operación incluida. El detalle que nadie espera y todos recuerdan."
+      introParagraph1='Los efectos especiales son lo que convierte un buen evento en uno inolvidable. En <strong>REDEIL</strong> tenemos humo bajo para el vals, confeti para el brindis, burbujas para las fotos y bola disco para la pista de baile — cada efecto diseñado para un momento específico de tu celebración.'
+      introParagraph2='Nuestro equipo técnico opera cada efecto en el momento exacto. No tienes que preocuparte por nada — nosotros sabemos cuándo activar el humo bajo durante el vals, cuándo lanzar el confeti y cuándo encender la bola disco. Atendemos bodas, XV años y fiestas en toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar
+      headline="¿Qué efecto quieres para tu evento?"
+      items={[
+        { label: "Humo Bajo", href: "/servicios/humo-bajo/", icon: "efectos" },
+        { label: "Confeti", href: "/servicios/confeti/", icon: "efectos" },
+        { label: "Burbujas", href: "/servicios/burbujas/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20efectos%20especiales%20para%20mi%20evento", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Catálogo de Efectos Especiales"
+          subtitle="7 efectos con operación profesional incluida."
+          paragraph1="Cada efecto tiene su momento perfecto. El humo bajo es para el vals, el confeti para el brindis, las burbujas para la sesión de fotos. Nuestro técnico los activa exactamente cuando deben ocurrir."
+          paragraph2="Todos los efectos se pueden combinar entre sí y con nuestros servicios de iluminación y sonido. Armamos paquetes completos con precio especial."
+        />
+        <div class="services-grid">
+          {servicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Efectos Especiales"
+          subtitle="Lo que nuestros clientes preguntan antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada evento es diferente — por eso armamos propuestas personalizadas."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El humo bajo es seguro para eventos en interiores?", answer: "Sí, usamos máquinas profesionales con líquido especial que no irrita, no mancha y se disipa rápidamente. Es seguro para salones, haciendas y espacios cerrados. Lo hemos usado en más de 500 eventos sin problema." },
+        { question: "¿Puedo combinar varios efectos en un solo paquete?", answer: "Claro, es lo más común. Por ejemplo, para una boda completa: humo bajo para el vals + confeti para el brindis + bola disco para la fiesta. Te armamos un paquete con precio especial." },
+        { question: "¿El confeti es fácil de limpiar después?", answer: "Usamos confeti biodegradable que se recoge fácilmente. Nuestro equipo hace limpieza básica como parte del servicio de desmontaje." },
+        { question: "¿La pantalla inflable funciona de día o solo de noche?", answer: "Funciona mejor después del atardecer, aunque con proyectores de alta luminosidad puede verse bien en sombra. Para eventos de día recomendamos usarla a partir de las 7pm." },
+      ]} />
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para hacer tu evento inolvidable?</h2>
+          <p>Cuéntanos qué tipo de evento tienes y qué efectos te interesan. Te armamos una propuesta a tu medida.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20efectos%20especiales%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp — 55 3068 2988</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

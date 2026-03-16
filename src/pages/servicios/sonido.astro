@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Sonido y DJ para Eventos en CDMX | REDEIL";
+const description = "Audio profesional JBL y QSC para bodas, XV años y fiestas. DJ, bocinas, micrófonos. Desde 50 hasta 2,000 personas. Instalación incluida. Cotiza gratis.";
+const canonical = "https://rentadeiluminacion.com/servicios/sonido/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Sonido y DJ Profesional para Eventos",
+  "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988" },
+  "description": "Servicio profesional de renta de audio, bocinas y DJ para bodas, XV años y eventos en CDMX.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" }
+});
+
+const servicios = [
+  { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de bocinas line array JBL para evento", description: "Bocinas JBL y sistemas QSC desde 50 hasta 2,000+ personas. Sonido cristalino y potente con técnico de audio incluido.", link: "/servicios/bocinas/" },
+  { title: "DJ para Fiestas y Bodas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional con consola en evento", description: "DJ con consola profesional y repertorio adaptado a tu evento. Desde el vals y la hora loca hasta el after.", link: "/servicios/bocinas-djs/" },
+  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio profesional para ceremonia y fiesta de boda", description: "Equipo dimensionado para cada momento de tu boda — ceremonia con sonido claro para los votos y potencia para la pista.", link: "/servicios/bocinas-bodas/" },
+  { title: "Bocinas para XV Años", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Sistema de audio para fiesta de XV años", description: "Vals con sonido cristalino, hora loca con potencia máxima, y un DJ que sabe exactamente cuándo cambiar el ritmo.", link: "/servicios/bocinas-xv/" },
+  { title: "Bocinas para Fiestas", image: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales-300w.avif", alt: "Bocinas profesionales para fiesta privada", description: "Cumpleaños, graduaciones, posadas. Audio profesional que se adapta al tamaño — desde una reunión íntima hasta 500 personas.", link: "/servicios/bocinas-fiestas/" },
+  { title: "Bocinas para Conferencias", image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif", alt: "Audio para conferencia en salón ejecutivo", description: "Audio cristalino para presentaciones y capacitaciones. Micrófonos inalámbricos, bocinas de línea y mezcladoras profesionales.", link: "/servicios/bocinas-conferencias/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Sonido y DJ" }]} />
+</Fragment>
+
+    <Hero
+      title="Renta de Sonido y DJ para Eventos en CDMX"
+      subtitle="Audio profesional JBL y QSC con técnico incluido. Desde 50 hasta 2,000+ personas."
+      introParagraph1='No hay fiesta sin buen sonido — y hay una diferencia enorme entre "se oye" y "se siente". En <strong>REDEIL</strong> trabajamos con equipo de audio <strong>JBL</strong> y <strong>QSC</strong>, las mismas marcas que usan en conciertos y producciones profesionales. Cada sistema se dimensiona para tu espacio específico.'
+      introParagraph2='Nuestro servicio incluye técnico de audio que opera todo el equipo durante tu evento. DJ con consola profesional, micrófonos inalámbricos para ceremonias y brindis, bocinas para cada tipo de celebración. Atendemos bodas, XV años, fiestas privadas y eventos corporativos en toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar
+      headline="¿Qué necesitas para tu evento?"
+      items={[
+        { label: "Audio Eventos", href: "/servicios/bocinas/", icon: "sonido" },
+        { label: "DJ Profesional", href: "/servicios/bocinas-djs/", icon: "sonido" },
+        { label: "Conferencias", href: "/servicios/bocinas-conferencias/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20sonido%20para%20mi%20evento", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Equipo de Audio Profesional"
+          subtitle="6 servicios de sonido con equipo JBL, QSC y técnico incluido."
+          paragraph1="Cada evento tiene necesidades de audio diferentes. No es lo mismo una ceremonia de boda donde necesitas claridad absoluta en los votos, que una pista de baile donde quieres que el bajo se sienta en el pecho."
+          paragraph2="Por eso no rentamos bocinas genéricas — dimensionamos el equipo para tu espacio y tipo de evento. Nuestro técnico de audio está presente todo el tiempo para que cada momento suene perfecto."
+        />
+        <div class="services-grid">
+          {servicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Sonido y DJ"
+          subtitle="Lo que nuestros clientes preguntan antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Armamos propuestas personalizadas según el tamaño de tu evento, el venue y tu presupuesto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuántas bocinas necesito para mi evento?", answer: "Depende del espacio y la cantidad de personas. Para eventos de hasta 100 personas en salón cerrado, un par de bocinas JBL PRX es suficiente. Para 200+, usamos sistemas line array. Te asesoramos según las dimensiones de tu venue." },
+        { question: "¿El DJ trae su propio equipo de sonido?", answer: "Sí. Nuestro DJ llega con consola profesional, bocinas, subwoofer y todo lo necesario. Si ya tienes equipo de sonido contratado, también puede trabajar con tu setup existente." },
+        { question: "¿Puedo rentar solo las bocinas sin DJ?", answer: "Claro. Muchos clientes rentan solo el equipo de audio con técnico. Conectamos tu playlist de Spotify, tu laptop o el micrófono que necesites. El técnico se encarga de que todo suene bien." },
+        { question: "¿Incluyen micrófonos para la ceremonia?", answer: "Sí, incluimos micrófonos inalámbricos profesionales. Para bodas, normalmente usamos 2: uno para los votos y otro para el oficiante. Para conferencias, hasta 4 micrófonos según necesidad." },
+      ]} />
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu evento suene increíble?</h2>
+          <p>Cuéntanos la fecha, el lugar y cuántas personas esperas. Te armamos una propuesta de audio a tu medida.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20sonido%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp — 55 3068 2988</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>
