@@ -1,0 +1,102 @@
+---
+/**
+ * Breadcrumbs Component — Origenlab Standard
+ * ─────────────────────────────────────────
+ * Migas de pan con Schema BreadcrumbList.
+ * Se posiciona debajo del hdr-stack.
+ */
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const schemaItems = items.map((item, index) => ({
+  "@type": "ListItem",
+  "position": index + 1,
+  "name": item.label,
+  ...(item.href ? { "item": `https://rentadeiluminacion.com${item.href}` } : {})
+}));
+
+const breadcrumbSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": schemaItems
+});
+---
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="crumbs__inner">
+    <ol class="crumbs__list">
+      {items.map((item, index) => (
+        <li class="crumbs__item">
+          {item.href && index < items.length - 1 ? (
+            <a href={item.href} class="crumbs__link">{item.label}</a>
+          ) : (
+            <span class="crumbs__current" aria-current="page">{item.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<script type="application/ld+json" set:html={breadcrumbSchema} />
+
+<style>
+  .crumbs {
+    background: var(--color-gray-100, #f8f9fa);
+    border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+    padding: 0.6rem 0;
+  }
+
+  .crumbs__inner {
+    max-width: var(--container-max, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .crumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8125rem;
+  }
+
+  .crumbs__item {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-gray-600, #6c757d);
+  }
+
+  .crumbs__item:not(:last-child)::after {
+    content: '›';
+    margin-left: 0.35rem;
+    color: var(--color-gray-400, #ced4da);
+    font-size: 0.875rem;
+  }
+
+  .crumbs__link {
+    color: var(--color-gray-600, #6c757d);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .crumbs__link:hover {
+    color: var(--color-primary, #ff5722);
+  }
+
+  .crumbs__current {
+    color: var(--color-gray-800, #343a40);
+    font-weight: 500;
+  }
+</style>

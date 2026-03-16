@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de City Color para Eventos | REDEIL CDMX";
 const description = "Renta de city color e iluminación arquitectónica para eventos en CDMX. REDEIL baña fachadas, muros y espacios con luz de color para bodas y eventos corporativos.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>City Color</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "City Color" }]} />
+</Fragment>
+<Hero
       title="City Color para Eventos en CDMX"
       subtitle="Iluminación arquitectónica que transforma fachadas y espacios con color"
       introParagraph1="REDEIL ofrece renta de equipos city color para iluminación arquitectónica de eventos en la Ciudad de México. Estas potentes luminarias bañan fachadas, muros, columnas y jardines con luz de color, creando ambientes sofisticados que elevan la estética de cualquier celebración."
@@ -61,5 +59,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/city-color/iluminacion-fachadas-bodas-mexico.avif" alt="Fachada de venue de boda en México iluminada con city color" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

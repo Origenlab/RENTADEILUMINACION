@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Luces Neón para Eventos | REDEIL CDMX";
 const description = "Renta de letreros y luces neón para fiestas y eventos en CDMX. REDEIL ofrece letreros neón personalizados, glow parties y ambientación UV para bodas y cumpleaños.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luces Neón</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Luces Neón" }]} />
+</Fragment>
+<Hero
       title="Luces Neón para Eventos en CDMX"
       subtitle="Letreros neón y ambientación luminosa que hacen brillar tu evento"
       introParagraph1="REDEIL ofrece un servicio completo de renta de luces neón para eventos en la Ciudad de México. Desde letreros personalizados hasta ambientación completa con iluminación UV, creamos experiencias visuales únicas para bodas, cumpleaños, fiestas temáticas y eventos corporativos."
@@ -64,5 +62,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/luces-neon/renta-luces-neon-fiesta-neon-experiencia-uv.avif" alt="Fiesta neón con experiencia UV e invitados disfrutando la iluminación" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

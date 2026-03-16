@@ -8,8 +8,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.3.1",
     "astro": "^5.7.10",
-    "@astrojs/sitemap": "^3.3.1"
+    "gray-matter": "^4.0.3"
   },
   "devDependencies": {
     "sharp": "^0.34.5"

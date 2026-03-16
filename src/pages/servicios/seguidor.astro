@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Seguidor de Luz para Eventos | REDEIL CDMX";
 const description = "Renta de seguidor de luz (follow spot) para bodas, XV años y eventos en CDMX. REDEIL destaca momentos clave con iluminación profesional operada por técnicos expertos.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Seguidor</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Seguidor" }]} />
+</Fragment>
+<Hero
       title="Seguidor de Luz para Eventos en CDMX"
       subtitle="Destaca los momentos más importantes con un haz de luz profesional"
       introParagraph1="REDEIL ofrece el servicio de renta de seguidor de luz (follow spot) para eventos en toda la Ciudad de México. El seguidor permite iluminar de manera precisa a personas o elementos clave durante momentos especiales como el primer baile, el vals, brindis, discursos y presentaciones en escenario."
@@ -70,5 +68,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/seguidor/seguidor-escenario-auditorio-geles-multicolor.avif" alt="Escenario de auditorio iluminado con seguidor y geles de colores multicolor" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

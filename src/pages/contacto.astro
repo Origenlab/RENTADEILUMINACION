@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const title = "Contacto | REDEIL - Renta de Iluminación Profesional CDMX";
 const description = "Contacta a REDEIL para cotizar iluminación para tu evento. Atención por WhatsApp. 30 años de experiencia.";
@@ -8,20 +9,10 @@ const canonical = "https://rentadeiluminacion.com/contacto/";
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Contacto</li>
-        </ol>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content">
-
-    <section class="hero hero-two-columns">
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Contacto" }]} />
+</Fragment>
+<section class="hero hero-two-columns">
       <div class="hero-background" style="background-color: var(--color-secondary);"></div>
       <div class="container">
         <div class="hero-grid">
@@ -243,10 +234,7 @@ const canonical = "https://rentadeiluminacion.com/contacto/";
         </div>
       </div>
     </section>
-
-  </main>
-
-  <script is:inline>
+<script is:inline>
     document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
       e.preventDefault();
 

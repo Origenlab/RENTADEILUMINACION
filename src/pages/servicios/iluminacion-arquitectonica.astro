@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Iluminación Arquitectónica para Eventos | REDEIL CDMX";
 const description = "Renta de iluminación arquitectónica para eventos en CDMX. REDEIL transforma fachadas, jardines y espacios con reflectores LED RGB y técnicas profesionales de iluminación.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Iluminación Arquitectónica</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Iluminación Arquitectónica" }]} />
+</Fragment>
+<Hero
       title="Iluminación Arquitectónica para Eventos en CDMX"
       subtitle="Transforma fachadas, jardines y espacios con luz profesional"
       introParagraph1="REDEIL ofrece servicios de iluminación arquitectónica para eventos en toda la Ciudad de México. Utilizamos reflectores LED RGB con control DMX para resaltar fachadas, arcos, columnas, fuentes y árboles, creando ambientes espectaculares que elevan la experiencia de cada celebración."
@@ -70,5 +68,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/iluminacion-arquitectonica/iluminacion-terraza-mirador-arboles-luz-calida-cena-romantica.avif" alt="Terraza mirador con árboles iluminados en luz cálida durante cena romántica" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

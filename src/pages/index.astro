@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 
-const title = "Renta de Iluminación para Eventos en CDMX | REDEIL";
-const description = "Renta de iluminación para bodas, XV años y eventos en CDMX. Guirnaldas, Sky Tracker, cabezas móviles. Instalación incluida.";
+const title = "Renta de Iluminación y Sonido para Eventos CDMX | REDEIL";
+const description = "Iluminación profesional, audio JBL y DJ para bodas, XV años y eventos en CDMX. Instalación incluida. Cotiza gratis por WhatsApp. +500 eventos realizados.";
 const canonical = "https://rentadeiluminacion.com/";
 
 const schemaMarkup = JSON.stringify([
@@ -40,12 +43,7 @@ const schemaMarkup = JSON.stringify([
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "REDEIL - Renta de Iluminación",
-    "url": "https://rentadeiluminacion.com/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://rentadeiluminacion.com/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://rentadeiluminacion.com/"
   },
   {
     "@context": "https://schema.org",
@@ -53,18 +51,42 @@ const schemaMarkup = JSON.stringify([
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Cómo puedo cotizar la renta de iluminación para mi evento?",
+        "name": "¿Qué incluye el servicio de renta de iluminación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Puedes cotizar tu evento contactándonos por WhatsApp al 55 3068 2988, por correo a hola@rentadeiluminacion.com o a través de nuestro formulario de contacto. Cuéntanos la fecha, lugar y tipo de evento para enviarte una cotización personalizada sin compromiso."
+          "text": "Todo: transporte del equipo a tu venue, instalación profesional, operación técnica durante el evento y desmontaje al finalizar. No tienes que contratar nada extra."
         }
       },
       {
         "@type": "Question",
-        "name": "¿La instalación está incluida en el servicio de renta?",
+        "name": "¿Cuánto cuesta rentar iluminación para una boda?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, todos nuestros servicios de renta de iluminación incluyen transporte, instalación profesional, operación durante el evento y desmontaje. Nuestro equipo técnico se encarga de todo para que tú solo disfrutes de tu evento."
+          "text": "Depende del equipo y la cantidad. Un paquete básico de guirnaldas para jardín arranca desde $3,500. Producciones completas con audio, luces y efectos van desde $15,000. Cotiza por WhatsApp y te armamos algo a tu presupuesto."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido, así que entre antes reserves, mejor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con DJ propio o puedo traer el mío?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Las dos opciones. Tenemos DJ profesional con consola y repertorio listo, pero si ya tienes tu DJ de confianza, le conectamos todo el audio sin problema."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si mi venue no tiene corriente eléctrica?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Contamos con plantas de luz para eventos al aire libre, haciendas, jardines y cualquier espacio sin instalación eléctrica. El equipo técnico se encarga de todo."
         }
       },
       {
@@ -72,208 +94,444 @@ const schemaMarkup = JSON.stringify([
         "name": "¿Cubren eventos en el Estado de México?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, además de toda la Ciudad de México, cubrimos el Estado de México incluyendo Naucalpan, Huixquilucan, Interlomas, Tlalnepantla, Atizapán, Metepec, Toluca, Cuautitlán, Coacalco, Ecatepec, Tecámac y Texcoco."
+          "text": "Sí, operamos en toda la zona metropolitana: Naucalpan, Huixquilucan, Tlalnepantla, Metepec, Toluca y más. El transporte está incluido en el servicio."
         }
       }
     ]
   }
 ]);
 
-const services = [
+const iluminacion = [
   {
-    title: "Guirnaldas",
+    title: "Guirnaldas Edison",
     image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif",
-    description: "Luces LED vintage perfectas para bodas, jardines y eventos al aire libre. Ambiente cálido y romántico.",
+    alt: "Guirnaldas con focos Edison iluminando terraza para recepción de boda",
+    description: "Focos tipo Edison con luz cálida vintage que transforman cualquier jardín, terraza o hacienda. Las más pedidas para bodas al aire libre. Instalación profesional con cableado IP65.",
     link: "/servicios/guirnaldas/"
   },
   {
-    title: "Luces Neón",
+    title: "Luces Neón y UV",
     image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif",
-    description: "Iluminacion neon, luz UV y efectos glow para fiestas espectaculares con colores vibrantes.",
+    alt: "Fiesta glow party con luces neón UV y colores vibrantes",
+    description: "Efectos fluorescentes, luz UV y glow que convierten cualquier espacio en una fiesta de colores. Perfectas para XV años, fiestas temáticas y pistas de baile.",
     link: "/servicios/luces-neon/"
   },
   {
     title: "Luz Negra",
     image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif",
-    description: "Iluminación UV para fiestas temáticas, efectos fluorescentes y ambientes únicos.",
+    alt: "Fiesta con luz negra UV y efectos fluorescentes",
+    description: "Iluminación UV que hace brillar todo lo blanco y fluorescente. Ideal para fiestas neón, XV años temáticos y pistas de baile con un ambiente completamente diferente.",
     link: "/servicios/luz-negra/"
-  },
-  {
-    title: "City Color",
-    image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif",
-    description: "Iluminación de alto impacto para fachadas, escenarios y grandes espacios con colores vibrantes.",
-    link: "/servicios/city-color/"
-  },
-  {
-    title: "City Light",
-    image: "/img/city-color/iluminacion-salon-boda-rosa-300w.avif",
-    description: "Luminarias profesionales para iluminar espacios amplios con luz potente y uniforme.",
-    link: "/servicios/city-light/"
   },
   {
     title: "Sky Tracker",
     image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif",
-    description: "Potentes haces de luz que iluminan el cielo. Ideales para XV años, inauguraciones y eventos especiales.",
+    alt: "Sky tracker proyectando haces de luz al cielo nocturno",
+    description: "Haces de luz xenón de 7,000W visibles a 5-7 km. El efecto que hace que tu evento se vea desde toda la colonia. Ideales para inauguraciones, XV años y lanzamientos.",
     link: "/servicios/sky-tracker/"
   },
   {
     title: "Cabezas Móviles",
-    image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif",
-    description: "Luces robotizadas con movimiento y efectos dinámicos para shows y pistas de baile.",
+    image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif",
+    alt: "Cabezas móviles LED con beams blancos en boda elegante",
+    description: "Luces robóticas con movimiento programable vía DMX. Beams, spots y wash para shows de luces en el vals, la entrada de los novios o la pista de baile.",
     link: "/servicios/cabezas-moviles/"
   },
   {
     title: "Cascadas LED",
-    image: "/img/cascadas-led/renta-cascada-led-cortina-luces-mesa-novios-300w.avif",
-    description: "Cortinas de luces que caen como cascada. Perfectas para fondos de mesa y decoración elegante.",
+    image: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas-400w.avif",
+    alt: "Cascadas de luces LED en arco de ceremonia con tonos morados",
+    description: "Cortinas de luces LED que caen como cascada creando un fondo espectacular. El complemento perfecto para la mesa de novios, el arco de ceremonia o el pastel.",
     link: "/servicios/cascadas-led/"
   },
   {
-    title: "Gobos",
-    image: "/img/gobos/renta-gobo-proyeccion-logo-evento-corporativo-300w.avif",
-    description: "Proyección de logos, nombres o diseños personalizados en paredes y pisos.",
-    link: "/servicios/gobos/"
+    title: "City Color",
+    image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif",
+    alt: "Iluminación City Color en hacienda para boda con fuente iluminada",
+    description: "Cañones de luz LED de alto impacto para bañar de color fachadas, escenarios y espacios grandes. Transforma por completo la atmósfera de cualquier venue con un solo equipo.",
+    link: "/servicios/city-color/"
+  },
+  {
+    title: "City Light",
+    image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif",
+    alt: "Luminarias City Light iluminando salón de eventos profesionalmente",
+    description: "Luminarias profesionales de luz potente y uniforme para iluminar espacios amplios. Perfectas para salones de eventos, carpas y venues que necesitan iluminación base de calidad.",
+    link: "/servicios/city-light/"
   },
   {
     title: "Iluminación Arquitectónica",
-    image: "/img/iluminacion-arquitectonica/renta-iluminacion-arquitectonica-hacienda-boda-300w.avif",
-    description: "Iluminación para resaltar fachadas, columnas, árboles y elementos arquitectónicos.",
+    image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif",
+    alt: "Uplighting arquitectónico en fachada de hacienda colonial tono ámbar",
+    description: "Uplighting profesional para transformar fachadas, columnas, árboles y jardines con color. Un solo equipo cambia la atmósfera completa de una hacienda o salón.",
     link: "/servicios/iluminacion-arquitectonica/"
   },
   {
+    title: "Gobos",
+    image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif",
+    alt: "Proyección de gobo con monograma en pista de baile para boda",
+    description: "Proyección de nombres, logos, monogramas o diseños personalizados en paredes y pisos. El detalle que nadie espera y todos recuerdan. Ideal para bodas y eventos corporativos.",
+    link: "/servicios/gobos/"
+  },
+  {
     title: "Seguidor",
-    image: "/img/seguidor/renta-seguidor-spotlight-vals-boda-300w.avif",
-    description: "Luz de seguimiento profesional para destacar personas en escenario, vals y momentos especiales.",
+    image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif",
+    alt: "Luz de seguimiento profesional iluminando primer baile de novios",
+    description: "Spotlight profesional que sigue al festejado en el vals, brindis o entrada triunfal. El toque de producción que hace que los momentos importantes se vean espectaculares.",
     link: "/servicios/seguidor/"
+  }
+];
+
+const sonido = [
+  {
+    title: "Audio para Eventos",
+    image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif",
+    alt: "Sistema de bocinas line array JBL profesional para evento",
+    description: "Bocinas JBL y sistemas QSC dimensionados para tu espacio — desde reuniones de 50 personas hasta eventos de 2,000+. Sonido cristalino, potente, sin distorsión.",
+    link: "/servicios/bocinas/"
+  },
+  {
+    title: "DJ para Fiestas y Bodas",
+    image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif",
+    alt: "DJ profesional en cabina con consola mezclando música en evento",
+    description: "DJ con consola profesional, mezcla en vivo y repertorio adaptado. Desde el vals y la hora loca hasta el after. Solo o con paquete completo de audio e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  },
+  {
+    title: "Bocinas para Bodas",
+    image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif",
+    alt: "Sistema de bocinas profesional montado para ceremonia y fiesta de boda",
+    description: "Audio dimensionado para cada momento de tu boda — ceremonia, coctel, vals y fiesta. Sonido claro para los votos y potente para la pista de baile.",
+    link: "/servicios/bocinas-bodas/"
+  },
+  {
+    title: "Bocinas para XV Años",
+    image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif",
+    alt: "Audio profesional para fiesta de XV años con DJ en salón",
+    description: "El audio que tus XV merecen — vals con sonido cristalino, hora loca con potencia, y DJ que sabe exactamente cuándo subir el ritmo.",
+    link: "/servicios/bocinas-xv/"
+  },
+  {
+    title: "Bocinas para Fiestas",
+    image: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales-300w.avif",
+    alt: "Bocinas profesionales para fiesta privada con luces",
+    description: "Cumpleaños, graduaciones, posadas, reuniones. Audio profesional que se adapta al tamaño de tu fiesta — desde una reunión íntima hasta un evento de 500 personas.",
+    link: "/servicios/bocinas-fiestas/"
+  },
+  {
+    title: "Bocinas para Conferencias",
+    image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif",
+    alt: "Sistema de audio profesional en salón ejecutivo para conferencia",
+    description: "Audio cristalino para presentaciones, conferencias y capacitaciones. Micrófonos inalámbricos, bocinas de línea y mezcladoras profesionales para que cada palabra se escuche.",
+    link: "/servicios/bocinas-conferencias/"
+  }
+];
+
+const efectos = [
+  {
+    title: "Humo Bajo",
+    image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif",
+    alt: "Efecto de humo bajo creando nube a nivel de piso durante vals de boda",
+    description: "La nube mágica a nivel de piso que todo mundo quiere para el vals o la entrada de los novios. El efecto más solicitado en bodas y XV años.",
+    link: "/servicios/humo-bajo/"
+  },
+  {
+    title: "Máquina de Humo",
+    image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif",
+    alt: "Humo escénico en pista de baile para efecto de show de luces",
+    description: "Humo escénico para crear atmósferas en pistas de baile y shows de luces. El complemento perfecto para cabezas móviles y efectos láser.",
+    link: "/servicios/maquina-humo/"
+  },
+  {
+    title: "Confeti",
+    image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif",
+    alt: "Cañón de confeti dorado lanzando papelitos en celebración de boda",
+    description: "Cañones de confeti para el brindis, la mordida del pastel o la hora loca. Confeti dorado, plateado o multicolor — tú eliges. Operación profesional incluida.",
+    link: "/servicios/confeti/"
+  },
+  {
+    title: "Burbujas",
+    image: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos-400w.avif",
+    alt: "Máquina de burbujas gigantes en fiesta de cumpleaños para niños",
+    description: "Máquinas de burbujas para fiestas infantiles, jardines de eventos y recepciones al aire libre. Un efecto mágico que encanta a niños y adultos por igual.",
+    link: "/servicios/burbujas/"
+  },
+  {
+    title: "Bola Disco",
+    image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif",
+    alt: "Bola disco gigante con luces LED en pista de baile",
+    description: "El clásico que nunca pasa de moda. Bola disco gigante con luces LED que llenan la pista de destellos. Perfecta para bodas, XV años y fiestas retro.",
+    link: "/servicios/bola-disco/"
+  },
+  {
+    title: "Pantalla Inflable",
+    image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif",
+    alt: "Pantalla inflable gigante para cine al aire libre en jardín",
+    description: "Cine al aire libre con pantalla inflable gigante y proyector HD incluido. Ideal para jardines, roof gardens y terrazas. Perfecta después de la cena.",
+    link: "/servicios/pantalla-inflable/"
+  },
+  {
+    title: "Podium",
+    image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules-300w.avif",
+    alt: "Podium acrílico profesional en auditorio corporativo con iluminación",
+    description: "Tarimas y podiums para DJ, músicos o presentaciones corporativas. Base firme, acabado profesional, con iluminación integrada opcional.",
+    link: "/servicios/podiums/"
   }
 ];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
 
-  <!-- Breadcrumb -->
-  <section class="breadcrumb-section">
-    <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Inicio</li>
-        </ol>
-      </nav>
-    </div>
-  </section>
-
-  <main id="main-content">
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio" }]} />
+</Fragment>
 
     <!-- HERO -->
-    <section class="hero hero-two-columns hero-home">
-      <div class="hero-background" style="background-color: var(--color-secondary);"></div>
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <h1 class="hero-title">Renta de Iluminación Profesional para Eventos en CDMX</h1>
-            <p class="hero-subtitle">Transforma tu boda, XV años o evento corporativo con iluminacion que crea momentos inolvidables</p>
-            <div class="hero-ctas">
-              <a href="/contacto/" class="btn btn-primary">Cotiza tu Evento</a>
-              <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-              </a>
-            </div>
-          </div>
-          <div class="hero-intro">
-            <p><strong>REDEIL</strong> es la empresa líder en <strong>renta de iluminacion para eventos sociales</strong> en Ciudad de México y Estado de México. Ofrecemos soluciones completas de iluminacion profesional para <strong>bodas, XV años, fiestas, eventos corporativos</strong> y celebraciones especiales. Nuestro catálogo incluye guirnaldas LED, sky trackers, cabezas móviles, iluminacion arquitectonica, cascadas luminosas, luz neón, efectos especiales y mucho más, todo con equipo de marcas reconocidas como Martin Professional, Chauvet y Elation.</p>
-            <p>Con más de <strong>30 años de experiencia</strong> y <strong>500 eventos realizados</strong> en la zona metropolitana, en REDEIL nos encargamos de todo: transporte, instalación profesional, operación durante tu evento y desmontaje. Atendemos Polanco, Santa Fe, Coyoacán, Condesa, Naucalpan, Huixquilucan, Tlalnepantla, Metepec y toda la CDMX. <strong>Cotiza sin compromiso</strong> y descubre por qué somos la opción preferida para iluminar los momentos más importantes de tu vida.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Hero
+      title="Renta de Iluminación y Sonido para Eventos en CDMX"
+      subtitle="Tu boda, tus XV años o tu evento corporativo merecen algo más que unas luces bonitas. Merecen una producción profesional."
+      extraClass="hero-home"
+      introParagraph1='En <strong>REDEIL</strong> nos dedicamos a una sola cosa y la hacemos bien: que tu evento se vea y se escuche increíble. Trabajamos con equipo de <strong>Martin Professional</strong>, <strong>Chauvet</strong>, <strong>Elation</strong>, bocinas <strong>JBL</strong> y sistemas <strong>QSC</strong> — las mismas marcas que usan en conciertos y producciones de televisión. Operamos en toda la Ciudad de México y zona metropolitana, desde Polanco y Santa Fe hasta Naucalpan, Huixquilucan y Metepec.'
+      introParagraph2='Lo que nos hace diferentes es simple: no solo entregamos equipo, lo instalamos, lo operamos durante tu evento y lo desmontamos al terminar. Llevamos más de 10 años haciendo esto y más de 500 eventos nos respaldan — bodas en jardines de Coyoacán, XV años en salones de Tlalnepantla, lanzamientos corporativos en Santa Fe. <strong>Cuéntanos qué tienes en mente</strong> y te armamos una propuesta a tu medida.'
+    />
 
-    <!-- Services -->
-    <section class="services-section">
+    <!-- SERVICIOS: ILUMINACIÓN -->
+    <section class="services-section" id="iluminacion">
       <div class="container">
-        <div class="section-header">
-          <h2>Servicios de Iluminación</h2>
-          <p class="section-subtitle">Soluciones profesionales para cada tipo de evento</p>
-        </div>
+        <SectionHeader
+          title="Iluminación Profesional"
+          subtitle="Equipo Martin Professional, Chauvet y Elation — lo mismo que usan en conciertos."
+          paragraph1="Transformamos espacios con luces que cambian por completo la atmósfera de cualquier lugar. No es solo prender focos — es diseñar un ambiente que haga sentir algo a tus invitados."
+          paragraph2="Desde guirnaldas vintage para una boda íntima en jardín hasta sky trackers para eventos que quieren ser imposibles de ignorar. Instalación y operación incluida en cada servicio."
+        />
         <div class="services-grid">
-          {services.map((service) => (
+          {iluminacion.map((s) => (
             <ServiceCard
-              title={service.title}
-              image={service.image}
-              description={service.description}
-              link={service.link}
+              title={s.title}
+              image={s.image}
+              alt={s.alt}
+              description={s.description}
+              link={s.link}
             />
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- SERVICIOS: SONIDO Y DJ -->
+    <section class="services-section services-alt" id="sonido">
+      <div class="container">
+        <SectionHeader
+          title="Sonido y DJ"
+          subtitle="Audio JBL y QSC — la diferencia entre que se oiga y que se sienta."
+          paragraph1="No hay fiesta sin buen sonido. Sistemas de bocinas dimensionados para tu espacio, desde reuniones de 50 personas hasta eventos masivos de 2,000+."
+          paragraph2="DJ con consola y repertorio adaptado, micrófonos inalámbricos para ceremonias y brindis, pantallas LED para proyección. Todo con instalación y operación incluida."
+        />
+        <div class="services-grid">
+          {sonido.map((s) => (
+            <ServiceCard
+              title={s.title}
+              image={s.image}
+              alt={s.alt}
+              description={s.description}
+              link={s.link}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS: EFECTOS ESPECIALES -->
+    <section class="services-section" id="efectos">
+      <div class="container">
+        <SectionHeader
+          title="Efectos Especiales"
+          subtitle="El detalle que nadie espera y todos recuerdan."
+          paragraph1="Los detalles que convierten un buen evento en uno inolvidable. Humo bajo para el vals, confeti para el brindis, burbujas para los niños — cada efecto tiene su momento perfecto."
+          paragraph2="Nuestro equipo técnico se encarga de la operación en el momento exacto. Tú solo disfrutas y tus invitados se llevan fotos increíbles."
+        />
+        <div class="services-grid">
+          {efectos.map((s) => (
+            <ServiceCard
+              title={s.title}
+              image={s.image}
+              alt={s.alt}
+              description={s.description}
+              link={s.link}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿POR QUÉ REDEIL? -->
     <section class="why-us-section">
       <div class="container">
-        <h2>¿Por Qué Elegir REDEIL?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3>Instalación Incluida</h3>
-            <p>Transporte, montaje profesional, operación durante tu evento y desmontaje. Nos encargamos de todo para que tú solo disfrutes.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Equipo Profesional</h3>
-            <p>Trabajamos con marcas líderes como Martin Professional, Chauvet y Elation. Equipo de última generación siempre en óptimas condiciones.</p>
-          </div>
-          <div class="feature-card">
-            <h3>+500 Eventos Realizados</h3>
-            <p>Más de 30 años de experiencia iluminando bodas, XV años, eventos corporativos y celebraciones especiales en CDMX y Estado de México.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Cobertura Total</h3>
-            <p>Atendemos toda la Ciudad de México y Estado de México: Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Metepec y más.</p>
-          </div>
+        <SectionHeader
+          title="¿Por Qué REDEIL?"
+          subtitle="+500 eventos en CDMX y Edomex. Instalación incluida siempre."
+          paragraph1="Llevamos más de 10 años iluminando bodas, XV años, eventos corporativos y fiestas en la Ciudad de México y Estado de México. Más de 500 eventos nos respaldan."
+          paragraph2="No solo entregamos equipo — lo instalamos, lo operamos durante tu evento y lo desmontamos al terminar. Esa es la diferencia entre rentar luces y contratar una producción profesional."
+          dark={true}
+        />
+        <div class="services-grid">
+          <ServiceCard
+            title="Instalación Profesional"
+            image="/img/general/placeholder-instalacion.avif"
+            alt="Equipo técnico de REDEIL montando iluminación profesional en evento"
+            description="Nuestro staff llega, monta todo, opera las luces y el audio durante tu evento, y desmonta al finalizar. Tú solo disfruta — nosotros nos encargamos de cada detalle técnico."
+            link="/contacto/"
+          />
+          <ServiceCard
+            title="Equipo de Primera"
+            image="/img/general/placeholder-equipo.avif"
+            alt="Equipo profesional Martin Chauvet JBL QSC para eventos en CDMX"
+            description="Martin Professional, Chauvet y Elation en iluminación. JBL y QSC en audio. No usamos equipo genérico — cada pieza está probada y en óptimas condiciones para tu evento."
+            link="/servicios/"
+          />
+          <ServiceCard
+            title="+500 Eventos Realizados"
+            image="/img/general/placeholder-eventos.avif"
+            alt="Boda iluminada profesionalmente por REDEIL en hacienda de CDMX"
+            description="Bodas en jardines de Coyoacán, XV años en Tlalnepantla, lanzamientos en Santa Fe. Cada evento nos enseñó algo y esa experiencia se nota en cómo resolvemos imprevistos."
+            link="/nosotros/"
+          />
+          <ServiceCard
+            title="Cobertura Total CDMX"
+            image="/img/general/placeholder-cobertura.avif"
+            alt="Mapa de cobertura de REDEIL en CDMX y Estado de México"
+            description="Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Metepec, Toluca y toda la zona metropolitana. Con plantas de luz para venues sin corriente eléctrica."
+            link="/zonas-de-cobertura/"
+          />
         </div>
       </div>
     </section>
 
-    <!-- Coverage Zones -->
+    <!-- TIPOS DE EVENTO -->
+    <section class="events-section">
+      <div class="container">
+        <SectionHeader
+          title="Iluminamos Todo Tipo de Evento"
+          subtitle="Bodas, XV años, corporativos, fiestas — cada uno con su propia propuesta."
+          paragraph1="Cada evento tiene su propia personalidad y merece una iluminación que la refleje. No es lo mismo ambientar una boda romántica en jardín que un lanzamiento corporativo en hotel."
+          paragraph2="Por eso diseñamos propuestas a la medida. Cuéntanos qué tipo de evento tienes y te recomendamos el equipo ideal para que todo salga perfecto."
+        />
+        <div class="services-grid">
+          <ServiceCard
+            title="Bodas"
+            image="/img/hero/hero-iluminacion-bodas.avif"
+            alt="Iluminación profesional para boda en jardín con guirnaldas y uplighting"
+            description="Desde guirnaldas vintage en un jardín de Coyoacán hasta un show de luces completo en hacienda. Diseñamos la iluminación y el audio para que cada momento tenga su propia atmósfera."
+            link="/eventos/bodas/"
+          />
+          <ServiceCard
+            title="XV Años"
+            image="/img/hero/hero-iluminacion-eventos.avif"
+            alt="Show de luces para XV años con sky tracker y pista iluminada"
+            description="Sky trackers que se ven desde toda la colonia, pistas de baile iluminadas para el vals, DJ que sabe exactamente cuándo cambiar el ritmo. Los XV solo pasan una vez — que se noten."
+            link="/eventos/xv-anos/"
+          />
+          <ServiceCard
+            title="Eventos Corporativos"
+            image="/img/hero/hero-equipo-eventos.avif"
+            alt="Iluminación arquitectónica y audio profesional en evento corporativo"
+            description="Lanzamientos de producto, conferencias, cenas de fin de año. Audio cristalino para presentaciones, iluminación arquitectónica para ambientar, gobos con el logo de tu empresa."
+            link="/contacto/"
+          />
+          <ServiceCard
+            title="Fiestas y Eventos Sociales"
+            image="/img/hero/hero-dj-eventos.avif"
+            alt="DJ y luces para fiesta con pista de baile iluminada"
+            description="Cumpleaños, graduaciones, reuniones. Desde un par de bocinas con DJ para fiestas en jardín hasta una producción completa con luces, humo bajo y confeti."
+            link="/contacto/"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONAS DE COBERTURA -->
     <section class="coverage-section">
       <div class="container">
-        <h2>Zonas de Cobertura</h2>
-        <div class="coverage-grid">
-          <div class="coverage-column">
-            <h3>Ciudad de México</h3>
-            <ul>
-              <li>Polanco</li>
-              <li>Santa Fe</li>
-              <li>Coyoacán</li>
-              <li>Condesa / Roma</li>
-              <li>Pedregal</li>
-              <li>Del Valle</li>
-              <li>Nápoles</li>
-              <li>Xochimilco</li>
-              <li>Tlalpan</li>
-              <li>Azcapotzalco</li>
-            </ul>
-          </div>
-          <div class="coverage-column">
-            <h3>Estado de México</h3>
-            <ul>
-              <li>Naucalpan</li>
-              <li>Huixquilucan</li>
-              <li>Interlomas</li>
-              <li>Tlalnepantla</li>
-              <li>Atizapán</li>
-              <li>Metepec</li>
-              <li>Toluca</li>
-              <li>Cuautitlán</li>
-              <li>Coacalco</li>
-              <li>Ecatepec</li>
-              <li>Tecámac</li>
-              <li>Texcoco</li>
-            </ul>
+        <SectionHeader
+          title="Zonas de Cobertura"
+          subtitle="CDMX y Estado de México — transporte incluido siempre."
+          paragraph1="Operamos en toda la Ciudad de México y el Estado de México. Nuestro equipo llega con todo incluido — transporte, montaje y desmontaje — sin importar la zona."
+          paragraph2="Polanco, Santa Fe, Coyoacán, Condesa, Naucalpan, Huixquilucan, Interlomas, Tlalnepantla, Metepec, Toluca y toda la zona metropolitana. Si tu venue está aquí, llegamos."
+        />
+        <div class="coverage-content">
+          <a href="/zonas-de-cobertura/" class="btn btn-primary">Ver todas las zonas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas Frecuentes"
+          subtitle="Lo que todos preguntan antes de cotizar."
+          paragraph1="Las dudas más comunes que nos hacen por WhatsApp antes de reservar. Si no encuentras tu respuesta aquí, escríbenos directo."
+          paragraph2="Cada evento es diferente, pero estos son los puntos que casi todos los clientes quieren saber antes de confirmar."
+        />
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>¿Qué incluye el servicio?</summary>
+            <div class="faq-answer">
+              <p>Todo: transporte del equipo a tu venue, instalación profesional, operación técnica durante el evento y desmontaje al finalizar. No tienes que contratar nada extra.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cuánto cuesta rentar iluminación para una boda?</summary>
+            <div class="faq-answer">
+              <p>Depende del equipo y la cantidad. Un paquete básico de guirnaldas para jardín arranca desde $3,500. Producciones completas con audio, luces y efectos van desde $15,000. Cotiza por WhatsApp y te armamos algo a tu presupuesto.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Con cuánta anticipación debo reservar?</summary>
+            <div class="faq-answer">
+              <p>Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido, así que entre antes reserves, mejor.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Trabajan con DJ propio o puedo traer el mío?</summary>
+            <div class="faq-answer">
+              <p>Las dos opciones. Tenemos DJ profesional con consola y repertorio listo, pero si ya tienes tu DJ de confianza, le conectamos todo el audio sin problema.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué pasa si mi venue no tiene corriente eléctrica?</summary>
+            <div class="faq-answer">
+              <p>Contamos con plantas de luz para eventos al aire libre, haciendas, jardines y cualquier espacio sin instalación eléctrica. El equipo técnico se encarga de todo.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cubren eventos en el Estado de México?</summary>
+            <div class="faq-answer">
+              <p>Sí, operamos en toda la zona metropolitana: Naucalpan, Huixquilucan, Tlalnepantla, Metepec, Toluca y más. El transporte está incluido en el servicio.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para cotizar tu evento?</h2>
+          <p>Cuéntanos la fecha, el lugar y qué tienes en mente. Te armamos una propuesta sin compromiso en menos de 24 horas.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp — 55 3068 2988
+            </a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              Llámanos — 55 3068 2988
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
 
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Máquina de Burbujas para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de burbujas para bodas y eventos en CDMX. Efecto de burbujas profesional para fiestas, baby showers y celebraciones. Servicio REDEIL.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Burbujas</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Burbujas" }]} />
+</Fragment>
+<Hero
       title="Máquina de Burbujas para Eventos en CDMX"
       subtitle="Un efecto mágico y divertido que encanta a invitados de todas las edades"
       introParagraph1="REDEIL ofrece el servicio de renta de máquinas de burbujas para eventos en la Ciudad de México y zona metropolitana. Las burbujas aportan un toque de fantasía y alegría que complementa a la perfección bodas, fiestas infantiles, baby showers y eventos corporativos."
@@ -67,5 +65,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif" alt="Burbujas flotando en fiesta temática con iluminación mágica de colores" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

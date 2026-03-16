@@ -1,105 +1,591 @@
 ---
+/**
+ * Header Component — Origenlab Standard
+ * ─────────────────────────────────────
+ * Configurable via /src/data/header.md
+ * Features:
+ *   - Sticky header with glassmorphism
+ *   - Desktop nav with dropdown submenus
+ *   - Mobile slide-in panel with accordion submenus
+ *   - Active link state detection
+ *   - CTA button (optional, configurable)
+ *   - Scroll shadow effect
+ *   - Minimal JS, semantic HTML, ARIA accessible
+ */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import matter from 'gray-matter';
+
+// ── Load config ──
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+let config: Record<string, any> = {};
+try {
+  const raw = readFileSync(join(process.cwd(), 'src/data/header.md'), 'utf-8');
+  config = matter(raw).data;
+} catch { /* defaults below */ }
+
+const brand       = config.brand ?? 'MesPic';
+const brandAccent = config.brandAccent ?? '·';
+const logoHref    = config.logoHref ?? '/';
+const navLinks    = (config.nav ?? []) as NavItem[];
+const cta         = config.cta ?? { enabled: false, label: '', href: '' };
+const scrollEffect = config.scrollEffect ?? true;
+const blurBg       = config.blurBg ?? true;
+
+// ── Active link detection ──
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string, children?: { href: string }[]): boolean {
+  if (href === '/') return currentPath === '/';
+  if (currentPath.startsWith(href)) return true;
+  if (children?.some(c => currentPath.startsWith(c.href))) return true;
+  return false;
+}
 ---
-<div class="top-bar">
-  <div class="container">
-    <div class="top-bar-inner">
-      <div class="top-bar-contact">
-        <span class="top-bar-brand">Renta de Iluminación</span>
-        <a href="tel:+525530682988" aria-label="Llamar al 55 3068 2988">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <span>Tel: 55 3068 2988</span>
-        </a>
-        <span class="top-bar-info">
-          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          <span>Lun - Dom: 8:00 - 18:00</span>
-        </span>
-        <span class="top-bar-info">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span>CDMX y Edo. Méx.</span>
-        </span>
-      </div>
-      <div class="top-bar-social">
-        <a href="https://www.facebook.com/profile.php?id=61568702498498" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/redaborraril/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://www.tiktok.com/@redaborraril" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-        </a>
-        <a href="https://wa.me/525530682988" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<header class="site-header" role="banner">
-  <div class="container">
-    <div class="header-inner">
-      <a href="/" class="logo" aria-label="REDEIL - Inicio">
-        <img src="/img/logo-redeil.avif" alt="REDEIL - Renta de Iluminación Profesional para Eventos CDMX" width="400" height="125" loading="eager" decoding="async">
-      </a>
+<header
+  class:list={['hdr', { 'hdr--blur': blurBg }]}
+  id="hdr"
+  data-scroll={scrollEffect ? 'true' : undefined}
+>
+  <div class="hdr__inner">
+    {/* ── Logo ── */}
+    <a href={logoHref} class="hdr__logo" aria-label={`${brand} — Inicio`}>
+      <img src="/img/logo-redeil.avif" alt="REDEIL - Renta de Iluminación Profesional" width="160" height="50" loading="eager" decoding="async">
+    </a>
 
-      <nav class="main-nav" role="navigation" aria-label="Navegación principal">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menú">
-          <span class="hamburger"></span>
-        </button>
-
-        <ul id="main-menu" class="nav-menu">
-          <li><a href="/">Inicio</a></li>
-          <li class="has-submenu">
-            <a href="/servicios/">Servicios</a>
-            <ul class="submenu">
-              <li class="has-submenu">
-                <a href="/servicios/#iluminacion">Iluminación</a>
-                <ul class="submenu">
-                  <li><a href="/servicios/guirnaldas/">Renta de Guirnaldas</a></li>
-                  <li><a href="/servicios/luces-neon/">Renta de Luces Neón</a></li>
-                  <li><a href="/servicios/luz-negra/">Renta de Luz Negra</a></li>
-                  <li><a href="/servicios/city-color/">Renta de City Color</a></li>
-                  <li><a href="/servicios/city-light/">Renta de City Light</a></li>
-                  <li><a href="/servicios/sky-tracker/">Renta de Sky Tracker</a></li>
-                  <li><a href="/servicios/cabezas-moviles/">Renta de Cabezas Móviles</a></li>
-                  <li><a href="/servicios/cascadas-led/">Renta de Cascadas LED</a></li>
-                  <li><a href="/servicios/gobos/">Renta de Gobos</a></li>
-                  <li><a href="/servicios/iluminacion-arquitectonica/">Iluminación Arquitectónica</a></li>
-                  <li><a href="/servicios/seguidor/">Renta de Seguidor</a></li>
-                </ul>
-              </li>
-              <li class="has-submenu">
-                <a href="/servicios/#bocinas">Bocinas</a>
-                <ul class="submenu">
-                  <li><a href="/servicios/bocinas-bodas/">Bocinas para Bodas</a></li>
-                  <li><a href="/servicios/bocinas-xv/">Bocinas para XV Años</a></li>
-                  <li><a href="/servicios/bocinas-fiestas/">Bocinas para Fiestas</a></li>
-                  <li><a href="/servicios/bocinas-conferencias/">Bocinas para Conferencias</a></li>
-                  <li><a href="/servicios/bocinas-djs/">DJ para Eventos</a></li>
-                </ul>
-              </li>
-              <li class="has-submenu">
-                <a href="/servicios/#equipo">Equipo para Eventos</a>
-                <ul class="submenu">
-                  <li><a href="/servicios/bola-disco/">Bolas Disco</a></li>
-                  <li><a href="/servicios/confeti/">Máquina de Confeti</a></li>
-                  <li><a href="/servicios/podiums/">Podium</a></li>
-                  <li><a href="/servicios/pantalla-inflable/">Pantalla Inflable</a></li>
-                  <li><a href="/servicios/maquina-humo/">Máquina de Humo</a></li>
-                  <li><a href="/servicios/burbujas/">Máquina de Burbujas</a></li>
-                  <li><a href="/servicios/humo-bajo/">Humo Bajo</a></li>
-                </ul>
-              </li>
-            </ul>
+    {/* ── Desktop Navigation ── */}
+    <nav class="hdr__nav" aria-label="Navegación principal">
+      <ul class="hdr__list" role="menubar">
+        {navLinks.map((link) => (
+          <li class:list={[{ 'hdr__has-sub': !!link.children }]} role="none">
+            <a
+              href={link.href}
+              role="menuitem"
+              class:list={['hdr__link', { 'hdr__link--active': isActive(link.href, link.children) }]}
+              aria-haspopup={link.children ? 'true' : undefined}
+            >
+              {link.label}
+              {link.children && (
+                <svg class="hdr__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              )}
+            </a>
+            {link.children && (
+              <ul class="hdr__dropdown" role="menu">
+                {link.children.map((sub) => (
+                  <li role="none">
+                    <a
+                      href={sub.href}
+                      role="menuitem"
+                      class:list={['hdr__drop-link', { 'hdr__drop-link--active': currentPath === sub.href }]}
+                    >
+                      {sub.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
-          <li><a href="/nosotros/">Nosotros</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/contacto/">Contacto</a></li>
-        </ul>
-      </nav>
+        ))}
+      </ul>
+    </nav>
 
-      <a href="/contacto/" class="btn btn-primary header-cta">Cotiza Gratis</a>
-    </div>
+    {/* ── CTA Button ── */}
+    {cta.enabled && (
+      <a href={cta.href} class="hdr__cta btn btn-primary">{cta.label}</a>
+    )}
+
+    {/* ── Hamburger ── */}
+    <button
+      class="hdr__toggle"
+      id="hdrToggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="hdrPanel"
+    >
+      <span class="hdr__bar"></span>
+    </button>
   </div>
 </header>
+
+{/* ── Mobile overlay ── */}
+<div class="hdr__overlay" id="hdrOverlay" aria-hidden="true"></div>
+
+{/* ── Mobile panel ── */}
+<nav class="hdr__panel" id="hdrPanel" aria-label="Menú móvil" aria-hidden="true">
+  <div class="hdr__panel-head">
+    <span class="hdr__panel-brand">{brand}<span class="hdr__logo-dot">{brandAccent}</span></span>
+    <button class="hdr__panel-close" id="hdrClose" type="button" aria-label="Cerrar menú">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="hdr__panel-list">
+    {navLinks.map((link) => (
+      <li class:list={[{ 'hdr__panel-hassub': !!link.children }]}>
+        {link.children ? (
+          <>
+            <button class="hdr__panel-link hdr__panel-subtoggle" type="button" data-sub>
+              <span>{link.label}</span>
+              <svg class="hdr__panel-chev" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true">
+                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="hdr__panel-sub">
+              {link.children.map((sub) => (
+                <li>
+                  <a
+                    href={sub.href}
+                    class:list={['hdr__panel-link hdr__panel-sublink', { 'hdr__panel-link--active': currentPath === sub.href }]}
+                  >
+                    {sub.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <a
+            href={link.href}
+            class:list={['hdr__panel-link', { 'hdr__panel-link--active': isActive(link.href) }]}
+          >
+            {link.label}
+          </a>
+        )}
+      </li>
+    ))}
+  </ul>
+
+  {cta.enabled && (
+    <div class="hdr__panel-foot">
+      <a href={cta.href} class="btn btn-primary hdr__panel-cta">{cta.label}</a>
+    </div>
+  )}
+</nav>
+
+<style>
+  /* ══════════════════════════════════════
+     Header — Core
+     ══════════════════════════════════════ */
+  .hdr {
+    height: var(--header-height, 70px);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+  }
+
+  .hdr--blur {
+    background: #ffffff;
+  }
+
+  .hdr--scrolled {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .hdr__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container, 1200px);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+  }
+
+  /* ── Logo ── */
+  .hdr__logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .hdr__logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .hdr__logo:hover { opacity: 0.85; }
+
+  /* ── Desktop Nav ── */
+  .hdr__nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hdr__list {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hdr__link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--c-text, #1a1a1a);
+    transition: color 0.2s var(--ease, ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.25rem 0;
+    position: relative;
+    line-height: 1;
+  }
+
+  .hdr__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--c-primary, #2D5016);
+    border-radius: 1px;
+    transition: width 0.25s var(--ease, ease);
+  }
+
+  .hdr__link:hover { color: var(--c-primary, #2D5016); }
+  .hdr__link:hover::after { width: 100%; }
+  .hdr__link--active { color: var(--c-primary, #2D5016); }
+  .hdr__link--active::after { width: 100%; }
+
+  .hdr__chevron {
+    transition: transform 0.2s var(--ease, ease);
+  }
+
+  /* ── Dropdown ── */
+  .hdr__has-sub { position: relative; }
+
+  .hdr__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: 210px;
+    background: #fff;
+    border-radius: var(--radius-md, 12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    transition: opacity 0.15s var(--ease, ease), visibility 0.15s;
+    pointer-events: none;
+    padding-top: 0.75rem;
+  }
+
+  /* Puente invisible — evita perder hover entre link y dropdown */
+  .hdr__dropdown::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
+
+  .hdr__has-sub:hover .hdr__dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .hdr__has-sub:hover .hdr__chevron {
+    transform: rotate(180deg);
+  }
+
+  .hdr__drop-link {
+    display: block;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.875rem;
+    color: var(--c-text, #1a1a1a);
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+
+  .hdr__drop-link:hover,
+  .hdr__drop-link--active {
+    background: var(--c-bg-alt, #FAF8F5);
+    color: var(--c-primary, #2D5016);
+  }
+
+  /* ── CTA ── */
+  .hdr__cta {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  /* ── Hamburger ── */
+  .hdr__toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .hdr__bar,
+  .hdr__bar::before,
+  .hdr__bar::after {
+    width: 20px;
+    height: 1.5px;
+    background: var(--c-text, #1a1a1a);
+    border-radius: 1px;
+    transition: all 0.3s var(--ease, ease);
+    position: absolute;
+    left: 12px;
+  }
+
+  .hdr__bar { top: 21px; }
+  .hdr__bar::before { content: ''; top: -6px; }
+  .hdr__bar::after { content: ''; top: 6px; }
+
+  .hdr__toggle--open .hdr__bar { background: transparent; }
+  .hdr__toggle--open .hdr__bar::before { top: 0; transform: rotate(45deg); }
+  .hdr__toggle--open .hdr__bar::after { top: 0; transform: rotate(-45deg); }
+
+  /* ══════════════════════════════════════
+     Mobile Overlay
+     ══════════════════════════════════════ */
+  .hdr__overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease, ease);
+  }
+
+  .hdr__overlay--visible {
+    display: block;
+    opacity: 1;
+  }
+
+  /* ══════════════════════════════════════
+     Mobile Panel
+     ══════════════════════════════════════ */
+  .hdr__panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 360px;
+    background: var(--c-bg, #fff);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.35s var(--ease, ease);
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hdr__panel--open {
+    transform: translateX(0);
+  }
+
+  .hdr__panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem;
+    height: 64px;
+    border-bottom: 1px solid var(--c-border, #e5e7eb);
+    flex-shrink: 0;
+  }
+
+  .hdr__panel-brand {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary, #ff5722);
+  }
+
+  .hdr__panel-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-text-muted, #6b7280);
+    border-radius: var(--radius-sm, 8px);
+    border: 1px solid var(--c-border, #e5e7eb);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .hdr__panel-close:hover {
+    background: var(--c-bg-alt, #FAF8F5);
+    color: var(--c-text, #1a1a1a);
+  }
+
+  .hdr__panel-list {
+    flex: 1;
+    padding: 0.75rem 0;
+  }
+
+  .hdr__panel-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: var(--c-text, #1a1a1a);
+    transition: background 0.15s;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  .hdr__panel-link:hover { background: var(--c-bg-alt, #FAF8F5); }
+  .hdr__panel-link--active { color: var(--c-primary, #2D5016); font-weight: 600; }
+
+  .hdr__panel-chev {
+    transition: transform 0.25s var(--ease, ease);
+    flex-shrink: 0;
+    color: var(--c-text-muted, #6b7280);
+  }
+
+  .hdr__panel-subtoggle--open .hdr__panel-chev {
+    transform: rotate(180deg);
+  }
+
+  .hdr__panel-sub {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s var(--ease, ease);
+    background: var(--c-bg-alt, #FAF8F5);
+  }
+
+  .hdr__panel-sub--open { max-height: 300px; }
+
+  .hdr__panel-sublink {
+    padding-left: 2.25rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+
+  .hdr__panel-foot {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--c-border, #e5e7eb);
+    flex-shrink: 0;
+  }
+
+  .hdr__panel-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  /* ══════════════════════════════════════
+     Responsive
+     ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .hdr__nav,
+    .hdr__cta { display: none; }
+    .hdr__toggle { display: block; }
+    .hdr__panel { display: flex; }
+  }
+
+  @media (max-width: 400px) {
+    .hdr__panel { width: 100%; max-width: none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var hdr     = document.getElementById('hdr');
+    var toggle  = document.getElementById('hdrToggle');
+    var panel   = document.getElementById('hdrPanel');
+    var overlay = document.getElementById('hdrOverlay');
+    var close   = document.getElementById('hdrClose');
+    var topbar  = document.querySelector('.topbar');
+
+    /* ── Mobile menu ── */
+    function open() {
+      toggle.classList.add('hdr__toggle--open');
+      toggle.setAttribute('aria-expanded', 'true');
+      panel.classList.add('hdr__panel--open');
+      panel.setAttribute('aria-hidden', 'false');
+      overlay.classList.add('hdr__overlay--visible');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function shut() {
+      toggle.classList.remove('hdr__toggle--open');
+      toggle.setAttribute('aria-expanded', 'false');
+      panel.classList.remove('hdr__panel--open');
+      panel.setAttribute('aria-hidden', 'true');
+      overlay.classList.remove('hdr__overlay--visible');
+      document.body.style.overflow = '';
+    }
+
+    if (toggle) toggle.addEventListener('click', function () {
+      panel.classList.contains('hdr__panel--open') ? shut() : open();
+    });
+    if (close)   close.addEventListener('click', shut);
+    if (overlay) overlay.addEventListener('click', shut);
+
+    /* Close on link click */
+    if (panel) {
+      var links = panel.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) links[i].addEventListener('click', shut);
+    }
+
+    /* ── Accordion submenus ── */
+    var subs = document.querySelectorAll('[data-sub]');
+    for (var j = 0; j < subs.length; j++) {
+      subs[j].addEventListener('click', function () {
+        this.classList.toggle('hdr__panel-subtoggle--open');
+        var sub = this.nextElementSibling;
+        if (sub) sub.classList.toggle('hdr__panel-sub--open');
+      });
+    }
+
+    /* ── Scroll: hide topbar, add shadow ── */
+    if (hdr && hdr.dataset.scroll === 'true') {
+      var topbarH = topbar ? topbar.offsetHeight : 0;
+      var stack = document.querySelector('.hdr-stack');
+
+      window.addEventListener('scroll', function () {
+        var y = window.pageYOffset || document.documentElement.scrollTop;
+        if (y > topbarH) {
+          hdr.classList.add('hdr--scrolled');
+          if (stack) stack.style.top = '0';
+          if (topbar) topbar.style.transform = 'translateY(-100%)';
+        } else {
+          hdr.classList.remove('hdr--scrolled');
+          if (stack) stack.style.top = topbarH + 'px';
+          if (topbar) topbar.style.transform = '';
+        }
+      }, { passive: true });
+    }
+  })();
+</script>

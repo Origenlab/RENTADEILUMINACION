@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Blog | REDEIL - Consejos de Iluminación para Eventos, Bodas y Fiestas";
 const description = "Tendencias en iluminación para eventos, bodas y fiestas. Guías profesionales de REDEIL con 30 años de experiencia.";
@@ -8,20 +9,10 @@ const canonical = "https://rentadeiluminacion.com/blog/";
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Blog</li>
-        </ol>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content">
-
-    <section class="hero hero-two-columns">
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
+</Fragment>
+<section class="hero hero-two-columns">
       <div class="hero-background" style="background-color: var(--color-secondary);"></div>
       <div class="container">
         <div class="hero-grid">
@@ -56,7 +47,4 @@ const canonical = "https://rentadeiluminacion.com/blog/";
         </div>
       </div>
     </section>
-
-  </main>
-
 </BaseLayout>

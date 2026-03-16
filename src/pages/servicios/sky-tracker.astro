@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Sky Tracker para Eventos | REDEIL CDMX";
 const description = "Renta de sky tracker y luces antiaéreas para eventos en CDMX. REDEIL proyecta haces de luz al cielo para bodas, inauguraciones y eventos especiales al aire libre.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Sky Tracker</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Sky Tracker" }]} />
+</Fragment>
+<Hero
       title="Sky Tracker para Eventos en CDMX"
       subtitle="Haces de luz que iluminan el cielo y hacen visible tu evento"
       introParagraph1="REDEIL ofrece renta de sky tracker y luces antiaéreas para eventos en la Ciudad de México. Estos potentes equipos proyectan haces de luz hacia el cielo nocturno, creando un efecto espectacular que es visible a gran distancia y marca la ubicación de tu celebración."
@@ -64,5 +62,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/sky-tracker/seguidor-luz-fiestas-salon-iluminado.avif" alt="Seguidor de luz proyectando haz en salón iluminado para fiesta" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

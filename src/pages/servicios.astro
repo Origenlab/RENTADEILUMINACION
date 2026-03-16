@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const title = "Servicios de Iluminación para Eventos | REDEIL CDMX";
 const description = "Servicios de iluminación para bodas, XV años y eventos en CDMX. Guirnaldas, sky tracker, cabezas móviles. Instalación incluida.";
@@ -31,20 +32,10 @@ const schemaMarkup = JSON.stringify({
 
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
 
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Servicios</li>
-        </ol>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content">
-
-    <section class="hero hero-two-columns">
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios" }]} />
+</Fragment>
+<section class="hero hero-two-columns">
       <div class="hero-background" style="background-color: var(--color-secondary);"></div>
       <div class="container">
         <div class="hero-grid">
@@ -443,7 +434,4 @@ const schemaMarkup = JSON.stringify({
         </div>
       </div>
     </section>
-
-  </main>
-
 </BaseLayout>

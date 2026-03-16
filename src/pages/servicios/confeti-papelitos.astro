@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Máquina de Confeti y Papelitos para Eventos | REDEIL CDMX";
 const description = "Renta de máquina de confeti y papelitos para bodas, XV años y eventos en CDMX. REDEIL crea lluvias de confeti espectaculares para los momentos más emotivos de tu evento.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Confeti y Papelitos</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Confeti y Papelitos" }]} />
+</Fragment>
+<Hero
       title="Máquina de Confeti y Papelitos para Eventos en CDMX"
       subtitle="Lluvias de confeti espectaculares para los momentos más emotivos"
       introParagraph1="REDEIL ofrece el servicio de renta de máquinas de confeti y papelitos para eventos en toda la Ciudad de México. Creamos lluvias de confeti que marcan los momentos más especiales de bodas, XV años, revelaciones de género, fiestas y eventos corporativos con un efecto visual impactante."
@@ -70,5 +68,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/maquina-de-papelitos/maquina-papelitos-boda-iluminacion-morada-salon.avif" alt="Máquina de papelitos en boda con iluminación morada en salón de eventos" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

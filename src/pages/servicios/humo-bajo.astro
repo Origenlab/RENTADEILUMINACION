@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Humo Bajo para Eventos | REDEIL CDMX";
 const description = "Renta de humo bajo para bodas y eventos en CDMX. Efecto de nubes en el piso para primer baile y vals. Montaje profesional por REDEIL en Ciudad de México.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Humo Bajo</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Humo Bajo" }]} />
+</Fragment>
+<Hero
       title="Humo Bajo para Eventos en CDMX"
       subtitle="El efecto de nubes en el piso que hace inolvidable tu primer baile"
       introParagraph1="REDEIL ofrece el servicio de renta de humo bajo para bodas y eventos en la Ciudad de México. Este efecto especial cubre el piso con una capa densa de niebla que simula caminar sobre las nubes, creando momentos verdaderamente memorables."
@@ -70,5 +68,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/humo-bajo/humo-bajo-profesional-evento-nocturno.avif" alt="Humo bajo profesional en evento nocturno con iluminación ambiental" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

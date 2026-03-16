@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const title = "Aviso de Privacidad | REDEIL - Renta de Iluminación Profesional";
 const description = "Aviso de Privacidad de REDEIL. Conoce cómo protegemos y tratamos tus datos personales conforme a la Ley Federal de Protección de Datos Personales.";
@@ -8,20 +9,10 @@ const canonical = "https://rentadeiluminacion.com/aviso-privacidad/";
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li>Aviso de Privacidad</li>
-        </ol>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main-content">
-
-    <section class="hero hero-two-columns">
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Aviso de Privacidad" }]} />
+</Fragment>
+<section class="hero hero-two-columns">
       <div class="hero-background" style="background-color: var(--color-secondary);"></div>
       <div class="container">
         <div class="hero-grid">
@@ -125,7 +116,4 @@ const canonical = "https://rentadeiluminacion.com/aviso-privacidad/";
         </div>
       </div>
     </section>
-
-  </main>
-
 </BaseLayout>

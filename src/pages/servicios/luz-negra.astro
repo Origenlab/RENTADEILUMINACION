@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Luz Negra para Eventos | REDEIL CDMX";
 const description = "Renta de luz negra y blacklight para fiestas y eventos en CDMX. REDEIL crea ambientes neón y fluorescentes para bodas, fiestas temáticas y eventos corporativos.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luz Negra</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Luz Negra" }]} />
+</Fragment>
+<Hero
       title="Luz Negra para Eventos en CDMX"
       subtitle="Ambientes neón y fluorescentes que transforman tu celebración"
       introParagraph1="REDEIL es especialista en la renta de luz negra y blacklight para eventos en toda la Ciudad de México. Nuestros equipos de luz ultravioleta crean ambientes vibrantes y únicos que hacen brillar elementos fluorescentes y neón, transformando salones, jardines y cualquier espacio."
@@ -70,5 +68,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/luz-negra/luz-negra-evento-corporativo.avif" alt="Evento corporativo con branding y elementos decorativos bajo luz negra" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Iluminación y Sonido para XV Años | REDEIL CDMX";
 const description = "Renta de iluminación y sonido profesional para fiestas de XV años en CDMX. REDEIL ofrece seguidor, cabezas móviles, confeti, humo bajo y bocinas para tu fiesta.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>XV Años</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "XV Años" }]} />
+</Fragment>
+<Hero
       title="Iluminación y Sonido para XV Años en CDMX"
       subtitle="Haz que su fiesta de quince años sea verdaderamente inolvidable"
       whatsappText="Hola,%20quiero%20cotizar%20iluminación%20y%20sonido%20para%20XV%20años"
@@ -62,5 +60,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/xv-anos/iluminacion-xv-anos-seguidor-profesional.avif" alt="Fiesta de XV años con iluminación profesional de seguidor sobre la pista" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

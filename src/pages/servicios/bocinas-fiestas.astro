@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Bocinas para Fiestas | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para fiestas en CDMX. Audio potente para cumpleaños, graduaciones, posadas, baby showers y fiestas privadas. REDEIL.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bocinas para Fiestas</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para Fiestas" }]} />
+</Fragment>
+<Hero
       title="Renta de Bocinas para Fiestas en CDMX"
       subtitle="Sonido potente y profesional para que tu fiesta sea inolvidable"
       introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido para todo tipo de fiestas en la Ciudad de México. Ya sea un cumpleaños, graduación, posada navideña, baby shower o fiesta privada, contamos con el equipo de audio perfecto para cada celebración."
@@ -64,5 +62,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/bocinas-fiestas/sistema-audio-graduaciones-eventos.avif" alt="Sistema de audio profesional instalado para fiesta de graduación" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

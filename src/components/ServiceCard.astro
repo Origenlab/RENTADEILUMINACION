@@ -1,28 +1,111 @@
 ---
+/**
+ * ServiceCard — OrigenLab Standard (REDEIL)
+ * ────────────────────────────────────────
+ * Card de servicio con imagen 16:9, título H3, extracto SEO
+ * y botón full-width con keyword. Sin animaciones.
+ */
 interface Props {
   title: string;
-  image: string;
-  alt: string;
   description: string;
+  image: string;
+  alt?: string;
   link: string;
+  btnLabel?: string;
 }
 
-const { title, image, alt, description, link } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  alt = title,
+  link,
+  btnLabel,
+} = Astro.props;
+
+const finalBtnLabel = btnLabel || title;
 ---
-<article class="service-card">
-  <a href={link}>
-    <img
-      src={image}
-      alt={alt}
-      loading="lazy"
-      width="300"
-      height="400"
-      decoding="async"
-    >
+
+<article class="sc">
+  <a href={link} class="sc__img-link">
+    <div class="sc__img">
+      <img src={image} alt={alt} loading="lazy" width="400" height="225" />
+    </div>
   </a>
-  <div class="service-card-content">
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <a href={link} class="btn btn-primary">{title}</a>
+  <div class="sc__body">
+    <h3 class="sc__title">{title}</h3>
+    <p class="sc__desc">{description}</p>
+    <a href={link} class="sc__btn">{finalBtnLabel}</a>
   </div>
 </article>
+
+<style>
+  .sc {
+    background: #fff;
+    border: 1px solid var(--color-gray-200, #e9ecef);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sc__img-link {
+    display: block;
+  }
+
+  .sc__img {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .sc__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sc__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .sc__title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-secondary, #1a1a2e);
+    margin: 0 0 0.625rem;
+    line-height: 1.3;
+  }
+
+  .sc__desc {
+    font-size: 0.875rem;
+    color: var(--color-gray-600, #6c757d);
+    line-height: 1.75;
+    flex: 1;
+    margin: 0 0 1.25rem;
+  }
+
+  .sc__btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: 0.01em;
+    transition: background 0.2s ease;
+  }
+
+  .sc__btn:hover {
+    background: var(--color-primary-dark, #e64a19);
+  }
+</style>

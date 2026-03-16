@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Iluminación y Sonido para Bodas | REDEIL CDMX";
 const description = "Renta de iluminación y sonido profesional para bodas en CDMX. REDEIL ofrece guirnaldas, city color, cabezas móviles, humo bajo, seguidor y bocinas para tu boda.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bodas</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bodas" }]} />
+</Fragment>
+<Hero
       title="Iluminación y Sonido para Bodas en CDMX"
       subtitle="Todo lo que tu boda necesita en iluminación y audio profesional"
       whatsappText="Hola,%20quiero%20cotizar%20iluminación%20y%20sonido%20para%20mi%20boda"
@@ -71,5 +69,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/bodas/iluminacion-salon-fiesta-profesional.avif" alt="Salón de fiesta de boda con iluminación profesional en tonos cálidos" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import GallerySection from "../../components/GallerySection.astro";
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const title = "Renta de Bocinas para XV Años | REDEIL CDMX";
 const description = "Renta de bocinas y sonido profesional para XV años en CDMX. Audio para vals, chambelanes, brindis y fiesta. Equipos QSC, JBL y DJ profesional. REDEIL.";
@@ -24,13 +25,10 @@ const schemaMarkup = JSON.stringify({
 });
 ---
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Bocinas para XV Años</li></ol></div>
-    </div>
-  </nav>
-  <main id="main-content">
-    <Hero
+  <Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para XV Años" }]} />
+</Fragment>
+<Hero
       title="Renta de Bocinas para XV Años en CDMX"
       subtitle="Sonido profesional para cada momento especial de la quinceañera"
       introParagraph1="En REDEIL ofrecemos renta de bocinas y sonido profesional especializado en fiestas de XV años en la Ciudad de México. Cubrimos cada momento de la celebración: la entrada triunfal, el vals con papá, la coreografía de chambelanes, la coronación, el brindis y la fiesta con equipo de audio de primera calidad."
@@ -64,5 +62,4 @@ const schemaMarkup = JSON.stringify({
         <img src="/img/bocinas-xv/renta-bocinas-xv-anos-mariachi-hacienda-luces.avif" alt="Mariachi en hacienda con luces y sonido profesional en XV años" width="800" height="533" loading="lazy">
       </figure>
     </GallerySection>
-  </main>
 </BaseLayout>
