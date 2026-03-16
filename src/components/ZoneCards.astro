@@ -1,0 +1,154 @@
+---
+/**
+ * ZoneCards — REDEIL
+ * 2 columnas: CDMX | Estado de México
+ * CSS 100% scoped, sin dependencias externas
+ */
+---
+
+<div class="zc">
+  <div class="zc__grid">
+    <div class="zc__card">
+      <div class="zc__header">
+        <span class="zc__icon">🏙️</span>
+        <h3 class="zc__title">Ciudad de México</h3>
+      </div>
+      <ul class="zc__list">
+        <li>Polanco</li>
+        <li>Santa Fe</li>
+        <li>Coyoacán</li>
+        <li>Condesa y Roma</li>
+        <li>Pedregal</li>
+        <li>Del Valle</li>
+        <li>Nápoles</li>
+        <li>Miguel Hidalgo</li>
+        <li>Xochimilco</li>
+        <li>Tlalpan</li>
+        <li>Benito Juárez</li>
+        <li>Azcapotzalco</li>
+      </ul>
+    </div>
+    <div class="zc__card">
+      <div class="zc__header">
+        <span class="zc__icon">🏔️</span>
+        <h3 class="zc__title">Estado de México</h3>
+      </div>
+      <ul class="zc__list">
+        <li>Naucalpan</li>
+        <li>Huixquilucan</li>
+        <li>Interlomas</li>
+        <li>Tlalnepantla</li>
+        <li>Atizapán</li>
+        <li>Metepec</li>
+        <li>Toluca</li>
+        <li>Cuautitlán</li>
+        <li>Coacalco</li>
+        <li>Ecatepec</li>
+        <li>Tecámac</li>
+        <li>Texcoco</li>
+      </ul>
+    </div>
+  </div>
+  <div class="zc__cta">
+    <a href="/zonas-de-cobertura/" class="zc__btn">Ver todas las zonas</a>
+  </div>
+</div>
+
+<style>
+  .zc__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .zc__card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .zc__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ff5722;
+  }
+
+  .zc__icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .zc__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .zc__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0;
+  }
+
+  .zc__list li {
+    font-size: 0.9375rem;
+    color: #495057;
+    padding: 0.4rem 0 0.4rem 1.25rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .zc__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: #ff5722;
+    border-radius: 50%;
+  }
+
+  .zc__cta {
+    text-align: center;
+  }
+
+  .zc__btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: #ff5722;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .zc__btn:hover {
+    background: #e64a19;
+  }
+
+  @media (max-width: 768px) {
+    .zc__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .zc__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
