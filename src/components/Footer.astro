@@ -15,9 +15,7 @@ const year = new Date().getFullYear();
 
       <!-- Marca + contacto -->
       <div class="ft__brand">
-        <a href="/" class="ft__logo">
-          <img src="/img/logo-redeil-white.avif" alt="REDEIL" width="140" height="44" loading="lazy" />
-        </a>
+        <a href="/" class="ft__logo">REDEIL</a>
         <p class="ft__tagline">Renta de iluminación, sonido y efectos especiales para bodas, XV años y eventos en Ciudad de México y Estado de México.</p>
 
         <div class="ft__contact-list">
@@ -137,12 +135,16 @@ const year = new Date().getFullYear();
   /* ── Marca ── */
   .ft__logo {
     display: inline-block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
     margin-bottom: 1rem;
+    text-decoration: none;
   }
 
-  .ft__logo img {
-    height: 44px;
-    width: auto;
+  .ft__logo:hover {
+    opacity: 0.85;
   }
 
   .ft__tagline {
