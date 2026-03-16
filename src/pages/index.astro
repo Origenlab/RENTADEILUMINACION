@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import CtaBar from '../components/CtaBar.astro';
 import ZoneCards from '../components/ZoneCards.astro';
 import FaqSection from '../components/FaqSection.astro';
 
@@ -294,6 +295,17 @@ const efectos = [
       extraClass="hero-home"
       introParagraph1='En <strong>REDEIL</strong> nos dedicamos a una sola cosa y la hacemos bien: que tu evento se vea y se escuche increíble. Trabajamos con equipo de <strong>Martin Professional</strong>, <strong>Chauvet</strong>, <strong>Elation</strong>, bocinas <strong>JBL</strong> y sistemas <strong>QSC</strong> — las mismas marcas que usan en conciertos y producciones de televisión. Operamos en toda la Ciudad de México y zona metropolitana, desde Polanco y Santa Fe hasta Naucalpan, Huixquilucan y Metepec.'
       introParagraph2='Lo que nos hace diferentes es simple: no solo entregamos equipo, lo instalamos, lo operamos durante tu evento y lo desmontamos al terminar. Llevamos más de 10 años haciendo esto y más de 500 eventos nos respaldan — bodas en jardines de Coyoacán, XV años en salones de Tlalnepantla, lanzamientos corporativos en Santa Fe. <strong>Cuéntanos qué tienes en mente</strong> y te armamos una propuesta a tu medida.'
+    />
+
+    <!-- CTA BAR -->
+    <CtaBar
+      headline="¿Qué necesitas para tu evento?"
+      items={[
+        { label: "Iluminación", href: "#iluminacion", icon: "iluminacion" },
+        { label: "Sonido y DJ", href: "#sonido", icon: "sonido" },
+        { label: "Efectos Especiales", href: "#efectos", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20para%20mi%20evento", icon: "cotizar" },
+      ]}
     />
 
     <!-- SERVICIOS: ILUMINACIÓN -->
