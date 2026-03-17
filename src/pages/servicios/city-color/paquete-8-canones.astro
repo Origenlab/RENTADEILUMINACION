@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "8 Cañones City Color para Bodas en Hacienda CDMX | REDEIL";
+const description = "Fachada completa + salón con 8 cañones LED RGBW. El más popular para bodas en hacienda. 2 colores DMX. $7,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-color/paquete-8-canones/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 8 Cañones City Color — REDEIL",
+    "description": "Renta de 8 cañones LED RGBW para iluminar la fachada completa y el salón de tu boda en hacienda. Dos zonas de color independientes controladas vía DMX. El paquete más popular para bodas grandes en haciendas de la CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-color/paquete-8-canones/",
+      "priceCurrency": "MXN",
+      "price": "7000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "61",
+      "reviewCount": "61"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Herrera" },
+        "datePublished": "2026-02-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nos casamos en una hacienda en Tlalpan con 150 invitados. Los 8 cañones cubrieron la fachada y el salón perfectamente — dos colores distintos, cada zona con su ambiente. Las fotos nocturnas quedaron de revista. El operador cambió los colores en el vals sin que nadie le dijera nada. Profesionalísimos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Mora" },
+        "datePublished": "2026-01-28",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los XV años de mi hija en una finca al sur de la ciudad. Con el paquete de 8 cañones iluminamos la fachada en rosa y el jardín en lila — dos colores que ella eligió. Todos los invitados preguntaban quién había hecho la iluminación. Vale cada peso."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo Sánchez" },
+        "datePublished": "2025-11-14",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Cena de gala corporativa para 100 personas. El salón quedó completamente transformado con el azul de nuestra marca. Muy profesionales en todo — la instalación, el operador y el desmontaje. Lo contrataría para cada evento de la empresa."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-color/renta-city-color-haciendas.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Por qué el paquete de 8 cañones es el más popular?", "acceptedAnswer": { "@type": "Answer", "text": "Porque con 8 cañones puedes iluminar simultáneamente la fachada completa de una hacienda y el salón interior — dos zonas con colores independientes. Es el equilibrio perfecto entre cobertura total e inversión razonable para bodas en hacienda con 80-200 invitados." }},
+      { "@type": "Question", "name": "¿Qué son las 2 zonas de color independientes?", "acceptedAnswer": { "@type": "Answer", "text": "Con el controlador DMX, dividimos los 8 cañones en 2 grupos. La fachada puede estar en rosa mientras el salón está en dorado. Durante la ceremonia, ambas zonas en blanco cálido; para la fiesta, la fachada en azul y el salón en multicolor. Cada zona se controla por separado en tiempo real." }},
+      { "@type": "Question", "name": "¿Qué tamaño de hacienda cubre este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "8 cañones cubren hasta 200m² de superficie iluminada. Esto es suficiente para la fachada principal de una hacienda estándar (15-20 metros de frente) más el muro o bóveda del salón de recepción. Para haciendas muy grandes con jardín, fuentes y múltiples áreas, recomendamos el paquete de 16 cañones." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "4 Cañones — Básico", image: "/img/city-color/city-color-fachada-hacienda-boda-400w.avif", alt: "4 cañones city color para boda íntima", description: "Fachada frontal o salón pequeño. Ideal para bodas íntimas y quinceaños compactos. $4,000 + IVA.", link: "/servicios/city-color/paquete-4-canones/" },
+  { title: "16 Cañones — Premium", image: "/img/city-color/iluminacion-hacienda-evento-nocturno.avif", alt: "16 cañones para hacienda completa", description: "Hacienda completa: fachada, jardín, salón y fuentes. 4 zonas independientes. $12,000 + IVA.", link: "/servicios/city-color/paquete-16-canones/" },
+  { title: "Producción — 24+ Cañones", image: "/img/city-color/renta-city-color-show-luces.avif", alt: "Producción de city color para festival", description: "Festivales, conciertos y escenarios de TV. Coreografía de color sincronizada. $18,000 + IVA.", link: "/servicios/city-color/paquete-produccion/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Fachada bañada de color afuera + cascadas LED brillantes dentro del salón. Adentro y afuera.", link: "/servicios/cascadas-led/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Color", href: "/servicios/city-color/" },
+    { label: "8 Cañones" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 8 Cañones City Color — El Favorito para Bodas en Hacienda"
+    subtitle="$7,000 + IVA. Fachada completa + salón. 2 zonas de color independientes. Operador DMX incluido."
+    introParagraph1='El paquete de 8 cañones es el más contratado por nuestros clientes — y no es casualidad. Con ocho <strong>cañones LED RGBW de 180 a 360W</strong> tienes la potencia para iluminar simultáneamente la <strong>fachada completa</strong> de tu hacienda y el <strong>salón de recepción</strong>, cada zona con su propio color. Rosa en la entrada, dorado dentro. Azul afuera, blanco cálido en el salón. Las combinaciones son tuyas.'
+    introParagraph2='Perfecto para bodas con 80 a 200 invitados en haciendas y fincas de la CDMX y Estado de México. El operador DMX gestiona los cambios en tiempo real — blanco suave durante la ceremonia, el color de tu paleta para la cena, multicolor para la fiesta. Incluye transporte, instalación profesional con <strong>certificación IP65</strong> para exteriores, operador durante todo el evento y desmontaje al finalizar. Sin sorpresas en el presupuesto.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes"
+    items={[
+      { label: "4 Cañones — $4,000", href: "/servicios/city-color/paquete-4-canones/", icon: "iluminacion" },
+      { label: "16 Cañones — $12,000", href: "/servicios/city-color/paquete-16-canones/", icon: "iluminacion" },
+      { label: "24+ Producción — $18,000", href: "/servicios/city-color/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza tu Boda", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete 8 Cañones"
+      price="$7,000"
+      priceNote="+ IVA · Instalación incluida"
+      badge="Más popular"
+      features={[
+        { text: "8 cañones LED RGBW de 180-360W" },
+        { text: "Cobertura hasta 200m² de superficie" },
+        { text: "2 zonas de color independientes" },
+        { text: "Operador DMX profesional" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Montaje profesional incluido" },
+        { text: "Operador durante todo el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Certificación IP65 exteriores" },
+        { text: "Cambios sincronizados por momentos" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 8 cañones City Color para mi boda."
+      packages={[
+        { label: "4 cañones", price: "$4,000", href: "/servicios/city-color/paquete-4-canones/" },
+        { label: "8 cañones", price: "$7,000", href: "/servicios/city-color/paquete-8-canones/", active: true },
+        { label: "16 cañones", price: "$12,000", href: "/servicios/city-color/paquete-16-canones/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/city-color/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Dos zonas, dos colores, una producción completa"
+          subtitle="Fachada y salón con colores independientes controlados vía DMX."
+          paragraph1="La gran ventaja del paquete de 8 cañones es el control por zonas. Dividimos los cañones en dos grupos independientes: los que apuntan a la fachada exterior y los que iluminan el interior del salón. Cada grupo tiene su propio canal DMX."
+          paragraph2="El operador puede cambiar el color de cada zona por separado en tiempo real. Durante la ceremonia, todo en blanco cálido. Para el vals, la fachada en el color de tu paleta. Para la fiesta, la combinación que quieras. La producción se adapta a tu programa de eventos."
+        />
+        <FeatureGrid features={[
+          { title: "Fachada Completa", description: "Iluminación uniforme de la fachada principal de haciendas de 15-20 metros de frente." },
+          { title: "Salón de Recepción", description: "Muro o bóveda del salón con color que complementa o contrasta con el exterior." },
+          { title: "Bodas 80-200 Personas", description: "Cobertura suficiente para eventos medianos-grandes en haciendas y fincas." },
+          { title: "XV Años en Finca", description: "Dos colores para la festejada — uno para la entrada, otro para el escenario del vals." },
+          { title: "Cenas de Gala", description: "Color corporativo uniforme en salón y entrada. Branding visual en el evento." },
+          { title: "Hacienda Fachada + Jardín", description: "Cuatro cañones para la fachada, cuatro para el jardín o fuente principal." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Bodas en hacienda: el color que transforma todo"
+          subtitle="El momento en que se encienden los cañones es el wow de la noche."
+          paragraph1="Hemos iluminado decenas de haciendas en Tlalpan, Xochimilco, Milpa Alta y Valle de Bravo. Cada vez que los cañones se encienden al caer la noche, los invitados voltean a ver la fachada transformada. Es uno de los momentos más fotogénicos de toda la boda."
+          paragraph2="El color unifica el ambiente: los fotógrafos aprovechan el baño de luz para tomas artísticas, los videos capturan el contraste entre la arquitectura colonial y el color vibrante. Es producción de calidad sin costo de producción masiva."
+        />
+        <FeatureGrid features={[
+          { title: "Rosa para Bodas", description: "El tono más solicitado. Cálido, romántico y muy fotogénico en fachadas de cantera." },
+          { title: "Dorado para Gala", description: "Elegancia sin igual en haciendas coloniales. El color que eleva cualquier celebración." },
+          { title: "Lila y Morado", description: "Muy pedido para XV años y bodas con paleta lavanda o violeta." },
+          { title: "Azul para Corporativos", description: "Branding visual en el evento. El color de tu empresa en la entrada." },
+          { title: "Blanco para Ceremonias", description: "Pureza y solemnidad durante la ceremonia religiosa o civil." },
+          { title: "Multicolor para Fiesta", description: "Cambios dinámicos cuando empieza la música. El operador lo maneja en vivo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes ya lo contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 61 reseñas."
+          paragraph1="El paquete de 8 cañones es el más reseñado de nuestro catálogo. Estos son tres testimonios de bodas y eventos reales."
+          paragraph2="¿Tienes dudas sobre si 8 cañones cubren tu venue? Mándanos fotos del espacio y te respondemos en minutos."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Sofía Herrera", event: "Boda en hacienda — Tlalpan, 150 invitados", rating: 5, text: "Los 8 cañones cubrieron la fachada y el salón perfectamente — dos colores distintos. Las fotos nocturnas quedaron de revista. El operador cambió los colores en el vals sin que nadie le dijera nada. Profesionalísimos." },
+          { name: "Gabriela Mora", event: "XV años en finca — Sur CDMX", rating: 5, text: "Iluminamos la fachada en rosa y el jardín en lila — los dos colores que eligió mi hija. Todos los invitados preguntaban quién había hecho la iluminación. Vale cada peso." },
+          { name: "Eduardo Sánchez", event: "Cena de gala corporativa — 100 personas", rating: 5, text: "El salón quedó completamente transformado con el azul de nuestra marca. Muy profesionales en todo — instalación, operador y desmontaje. Lo contrataría para cada evento de la empresa." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Haciendas y salones transformados con 8 cañones"
+        subtitle="Fachada completa más salón de recepción iluminados al mismo tiempo."
+        paragraph1="Estas fotos muestran el resultado real del paquete de 8 cañones en bodas y eventos en haciendas de la CDMX. La diferencia entre la fachada sin iluminación y con los cañones encendidos es radical — es el momento que todos esperan cuando cae la noche."
+        paragraph2="¿Tienes fotos de tu hacienda? Mándanoslas por WhatsApp y te mostramos cómo quedaría la distribución de los 8 cañones en tu espacio específico."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-color/renta-city-color-haciendas.avif", alt: "Hacienda completa iluminada con 8 cañones city color" },
+        { src: "/img/city-color/iluminacion-patio-hacienda-colonial.avif", alt: "Patio de hacienda colonial iluminado con city color" },
+        { src: "/img/city-color/luces-boda-hacienda-mexicana.avif", alt: "Boda en hacienda mexicana con luces de color" },
+        { src: "/img/city-color/renta-luces-hacienda-boda-fuente.avif", alt: "Fuente de hacienda iluminada para boda" },
+        { src: "/img/city-color/iluminacion-fiesta-xv-magenta-400w.avif", alt: "XV años con city color magenta en salón y fachada" },
+        { src: "/img/city-color/renta-city-color-pastel-boda.avif", alt: "Boda romántica con colores pastel en city color" },
+        { src: "/img/city-color/iluminacion-hacienda-evento-nocturno.avif", alt: "Evento nocturno en hacienda con cañones de luz" },
+        { src: "/img/city-color/renta-city-color-terraza-ciudad.avif", alt: "Terraza urbana con fachada iluminada con city color" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 8 Cañones"
+        subtitle="Lo que necesitas saber para confirmar tu reserva."
+        paragraph1="Si tienes dudas específicas sobre tu venue, mándanos fotos por WhatsApp y te asesoramos sin costo."
+        paragraph2="Somos el equipo que más bodas en hacienda ha iluminado en la CDMX — conocemos los venues y sabemos qué funciona."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Por qué el paquete de 8 cañones es el más popular?", answer: "Porque es el equilibrio perfecto entre cobertura y precio. Con 8 cañones iluminas la fachada completa y el salón al mismo tiempo — dos zonas con colores independientes. Es suficiente para bodas de 80-200 invitados en haciendas estándar sin pagar el precio de 16 cañones." },
+      { question: "¿Qué significa '2 zonas de color independientes'?", answer: "Los 8 cañones se dividen en 2 grupos controlados por separado. Grupo A (fachada): puede estar en rosa. Grupo B (salón): puede estar en dorado. El operador cambia cada grupo de forma independiente según el momento del evento. No son siempre el mismo color." },
+      { question: "¿Cubre toda la fachada de una hacienda grande?", answer: "Para haciendas con fachada de hasta 20 metros de ancho, 8 cañones son suficientes. Para haciendas muy grandes con múltiples frentes, jardines y fuentes, recomendamos el paquete de 16 cañones que incluye 4 zonas independientes. Mándanos fotos y te confirmamos." },
+      { question: "¿El operador trabaja todo el evento o solo al inicio?", answer: "El operador DMX está presente durante todo el evento, desde la instalación hasta el desmontaje. Programa los cambios de color según tu timeline — cuando empieza la ceremonia, cuando salen los novios, cuando comienza la música, cuando hacen el brindis. Todo coordinado con tu programa." },
+      { question: "¿Se puede combinar con otros servicios?", answer: "Sí, y es lo más recomendable. Los 8 cañones de city color para fachada y salón se complementan perfectamente con cascadas LED para la mesa de novios, uplighting arquitectónico para columnas y árboles, y sky tracker para haces de luz al cielo. Armamos paquetes combinados con precio especial." },
+      { question: "¿Cuál es la diferencia entre 8 y 16 cañones?", answer: "Con 8 cañones cubres 2 zonas principales (fachada + salón). Con 16 cañones cubres 4 zonas independientes: fachada, jardín, salón y áreas de detalle como fuentes o columnas. Si tu hacienda tiene varias áreas que quieres iluminar simultáneamente, el paquete de 16 es la elección correcta." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu evento necesita más cobertura o un servicio complementario?"
+        paragraph1="Si tu hacienda tiene jardín, fuentes y múltiples fachadas, el paquete de 16 cañones te da cobertura total con 4 zonas de color independientes. Para festivales y grandes producciones, tenemos el paquete completo."
+        paragraph2="Combinamos city color con cascadas LED, uplighting y sky tracker. Propuestas integrales con precio especial."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista tu boda para el city color más popular?</h2>
+        <p>Mándanos fotos de tu hacienda por WhatsApp. Te decimos exactamente cómo quedarían los 8 cañones y te enviamos el presupuesto completo sin compromiso.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Boda — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

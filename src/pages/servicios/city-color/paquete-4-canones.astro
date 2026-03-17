@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "4 Cañones City Color para Bodas en Hacienda CDMX | REDEIL";
+const description = "Baño de color en fachada frontal o salón pequeño con 4 cañones LED RGBW. Boda o evento íntimo en CDMX. $4,000 + IVA instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-color/paquete-4-canones/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 4 Cañones City Color — REDEIL",
+    "description": "Renta de 4 cañones LED RGBW para bañar de color la fachada frontal o el salón de tu evento íntimo. Ideal para bodas en jardín, quinceaños en salón pequeño y aperturas de negocios. Incluye transporte, instalación, operador DMX y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-color/paquete-4-canones/",
+      "priceCurrency": "MXN",
+      "price": "4000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "42",
+      "reviewCount": "42"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Reyes" },
+        "datePublished": "2026-02-08",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos los 4 cañones para nuestra boda en un jardín de Coyoacán. La fachada de la casa quedó iluminada en rosa toda la noche — las fotos salieron preciosas. El equipo llegó puntual y trabajó limpio. Muy recomendados."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jessica Ramírez" },
+        "datePublished": "2026-01-15",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los usamos para los XV años de mi hija en un salón de Iztapalapa. Con 4 cañones transformaron completamente el muro del escenario — de blanco aburrido a magenta vibrante. El cambio de color para el vals fue perfecto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Vega" },
+        "datePublished": "2025-12-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Abrimos nuestra tienda en Polanco y queríamos algo especial para la inauguración. Los 4 cañones azules en la fachada se veían desde la calle y nos trajo mucha gente curiosa. Excelente inversión para visibilidad."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-color/city-color-fachada-hacienda-boda-400w.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Son suficientes 4 cañones para mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "4 cañones son ideales para iluminar una fachada frontal de hasta 15 metros, un muro de salón pequeño o una zona de 80m². Para bodas íntimas, quinceaños en salón compacto o inauguraciones de negocio es el paquete perfecto." }},
+      { "@type": "Question", "name": "¿Qué incluye el precio de $4,000?", "acceptedAnswer": { "@type": "Answer", "text": "Los $4,000 + IVA incluyen todo: 4 cañones LED RGBW de 180W, tripies o soportes, cableado DMX, operador técnico durante el evento, transporte a tu venue en CDMX y Estado de México, y desmontaje al finalizar. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿Puedo cambiar el color durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro operador DMX programa los cambios de color para cada momento de tu evento — suave durante la ceremonia, intenso para la fiesta, un color especial para el vals. Los cambios se hacen en tiempo real según el programa de tu celebración." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "8 Cañones — Más Popular", image: "/img/city-color/renta-city-color-boda-romantica-400w.avif", alt: "8 cañones city color para boda en hacienda", description: "Fachada completa + salón. El más pedido para bodas en hacienda. 2 zonas independientes. $7,000 + IVA.", link: "/servicios/city-color/paquete-8-canones/" },
+  { title: "16 Cañones — Hacienda Completa", image: "/img/city-color/iluminacion-hacienda-evento-nocturno.avif", alt: "16 cañones para hacienda completa", description: "4 zonas de color independientes. Hacienda completa iluminada con operador DMX. $12,000 + IVA.", link: "/servicios/city-color/paquete-16-canones/" },
+  { title: "Producción — 24+ Cañones", image: "/img/city-color/renta-city-color-show-luces.avif", alt: "Producción de city color para festival", description: "Festivales, conciertos y escenarios de TV. Coreografía de color sincronizada. $18,000 + IVA.", link: "/servicios/city-color/paquete-produccion/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Complementa tus 4 cañones con uplighting para columnas y árboles. Cobertura total del venue.", link: "/servicios/iluminacion-arquitectonica/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Color", href: "/servicios/city-color/" },
+    { label: "4 Cañones" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 4 Cañones City Color — Fachada Frontal y Bodas Íntimas"
+    subtitle="$4,000 + IVA. 4 cañones LED RGBW de 180W. Operador DMX incluido. Instalación en CDMX."
+    introParagraph1='El paquete de 4 cañones es el punto de entrada ideal para transformar visualmente tu evento: bañar la fachada frontal de tu hacienda o jardín con el color que elijas, iluminar el muro principal de un salón pequeño, o darle protagonismo a la zona de escenario de tus XV años. Con 4 cañones <strong>LED RGBW de 180W</strong> cada uno, cubres hasta <strong>80m² de superficie</strong> con luz uniforme y color saturado que impresiona.'
+    introParagraph2='Ideal para bodas íntimas de hasta 80 invitados, quinceaños en salón compacto, inauguraciones de negocio y eventos corporativos en espacios pequeños. Todo incluido: transporte del equipo a tu venue en <strong>CDMX y Estado de México</strong>, montaje profesional con soportes y cableado, operador DMX durante toda la celebración y desmontaje al finalizar. El operador programa cambios de color para cada momento de tu evento — sin que tengas que preocuparte por nada técnico.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más cobertura?"
+    items={[
+      { label: "8 Cañones — $7,000", href: "/servicios/city-color/paquete-8-canones/", icon: "iluminacion" },
+      { label: "16 Cañones — $12,000", href: "/servicios/city-color/paquete-16-canones/", icon: "iluminacion" },
+      { label: "24+ Producción — $18,000", href: "/servicios/city-color/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Personalizado", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete 4 Cañones"
+      price="$4,000"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "4 cañones LED RGBW de 180W" },
+        { text: "Cobertura hasta 80m² de superficie" },
+        { text: "Control DMX con operador" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Montaje profesional incluido" },
+        { text: "Operador durante el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Certificación IP65 exteriores" },
+        { text: "Cambios de color programados" },
+        { text: "Colores RGBW a elegir" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 4 cañones City Color para mi evento."
+      packages={[
+        { label: "4 cañones", price: "$4,000", href: "/servicios/city-color/paquete-4-canones/", active: true },
+        { label: "8 cañones", price: "$7,000", href: "/servicios/city-color/paquete-8-canones/" },
+        { label: "16 cañones", price: "$12,000", href: "/servicios/city-color/paquete-16-canones/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/city-color/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos y espacios"
+          subtitle="4 cañones cubren fachadas frontales y salones hasta 80m²."
+          paragraph1="Este paquete está diseñado para quienes quieren el impacto visual del city color sin sobredimensionar el presupuesto. Cuatro cañones estratégicamente colocados hacen toda la diferencia en una boda íntima o un evento de negocio."
+          paragraph2="Nuestro operador posiciona los cañones para máxima cobertura según la arquitectura de tu espacio — sin puntos muertos ni sombras en la zona que quieras destacar."
+        />
+        <FeatureGrid features={[
+          { title: "Fachadas Frontales", description: "Ilumina la entrada principal de tu hacienda o jardín. El primer impacto visual para tus invitados." },
+          { title: "Salones hasta 80m²", description: "Muro principal o escenario de eventos íntimos. Un solo color domina el ambiente." },
+          { title: "Bodas Íntimas", description: "Hasta 80 invitados. La fachada de la casa o jardín bañada en el color de tu paleta." },
+          { title: "XV Años en Salón", description: "La pared del escenario o el fondo del vals iluminado con el rosa o morado de la festejada." },
+          { title: "Inauguraciones", description: "Fachada del negocio iluminada para la noche de apertura. Visibilidad desde la calle." },
+          { title: "Corporativos Pequeños", description: "Cenas de equipo y presentaciones donde el color de marca ambienta el salón." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué colores puedo usar?"
+          subtitle="RGBW: rojo, verde, azul, blanco — y todas las mezclas posibles."
+          paragraph1="Los cañones RGBW mezclan cuatro canales de color para generar cualquier tono: rosa chicle, lila suave, dorado cálido, azul marino, magenta vibrante o blanco frío. Tú eliges el color de tu evento y el operador lo programa desde el inicio."
+          paragraph2="Para bodas románticas recomendamos rosa (FF69B4) o lila (9B59B6). Para XV años, magenta o rosa fuerte. Para corporativos, el color de tu marca. Para inauguraciones, azul o verde que resalte desde la calle."
+        />
+        <FeatureGrid features={[
+          { title: "Rosa y Lila", description: "El favorito para bodas y XV años. Romantismo en cada foto." },
+          { title: "Dorado y Ámbar", description: "Elegancia cálida para ceremonias y cenas de gala." },
+          { title: "Azul y Verde", description: "Corporativos, inauguraciones y eventos de marca." },
+          { title: "Magenta Vibrante", description: "XV años y fiestas donde el color debe impactar." },
+          { title: "Blanco Frío y Neutro", description: "Minimalismo moderno para eventos de diseño." },
+          { title: "Multicolor Festivo", description: "Cambios entre colores durante la fiesta. El operador lo maneja en vivo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="El montaje que no complica tu evento"
+          subtitle="Llegamos 2 horas antes. Al terminar, recogemos todo."
+          paragraph1="Nuestro equipo llega con tiempo suficiente para instalar, probar y afinar la posición de cada cañón antes de que lleguen tus invitados. No hay cables expuestos donde no deban estar, ni estructuras que molesten."
+          paragraph2="Al finalizar el evento, desmontamos todo discretamente. No tienes que devolver equipos ni gestionar nada. Llevamos y traemos — tú solo disfruta."
+        />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 42 reseñas."
+          paragraph1="Clientes reales que contrataron el paquete de 4 cañones para sus eventos en CDMX."
+          paragraph2="¿Tienes dudas sobre si 4 cañones son suficientes para tu venue? Escríbenos con fotos y te asesoramos gratis."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Daniela Reyes", event: "Boda en jardín — Coyoacán", rating: 5, text: "La fachada de la casa quedó iluminada en rosa toda la noche — las fotos salieron preciosas. El equipo llegó puntual y trabajó limpio. Muy recomendados." },
+          { name: "Jessica Ramírez", event: "XV años en salón — Iztapalapa", rating: 5, text: "Con 4 cañones transformaron completamente el muro del escenario — de blanco aburrido a magenta vibrante. El cambio de color para el vals fue perfecto." },
+          { name: "Roberto Vega", event: "Inauguración de negocio — Polanco", rating: 5, text: "Los 4 cañones azules en la fachada se veían desde la calle y nos trajo mucha gente curiosa. Excelente inversión para visibilidad en la apertura." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="City color en fachadas y salones íntimos"
+        subtitle="Así se ven 4 cañones LED RGBW en eventos reales."
+        paragraph1="Cada foto muestra el resultado de nuestros cañones city color en bodas, quinceaños e inauguraciones de la CDMX. La cobertura de 4 unidades es más que suficiente para transformar visualmente una fachada frontal o el muro principal de un salón compacto."
+        paragraph2="¿Tu venue se parece a alguno de estos espacios? Mándanos fotos por WhatsApp y te mostramos cómo quedaría la iluminación."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-color/city-color-fachada-hacienda-boda-400w.avif", alt: "Fachada de hacienda bañada de color rosa para boda íntima" },
+        { src: "/img/city-color/renta-city-color-boda-romantica-400w.avif", alt: "City color romántico para boda pequeña" },
+        { src: "/img/city-color/renta-city-color-xv-anos-rosa.avif", alt: "City color rosa para XV años en salón" },
+        { src: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "Ceremonia de boda íntima con iluminación city color" },
+        { src: "/img/city-color/renta-city-color-primer-baile.avif", alt: "Primer baile iluminado con city color" },
+        { src: "/img/city-color/iluminacion-salon-boda-rosa.avif", alt: "Salón de boda pequeño iluminado en rosa" },
+        { src: "/img/city-color/renta-city-color-fiesta-magenta.avif", alt: "Fiesta de XV años con city color magenta" },
+        { src: "/img/city-color/iluminacion-fachada-colonial-ambar.avif", alt: "Fachada colonial iluminada en ámbar para evento" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 4 Cañones"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Te asesoramos en minutos y sin compromiso."
+        paragraph2="Cuéntanos las dimensiones de tu espacio y te confirmamos si 4 cañones son suficientes o si conviene subir al paquete de 8."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Son suficientes 4 cañones para la fachada de mi hacienda?", answer: "Para una fachada frontal de hasta 15 metros de ancho, 4 cañones son suficientes. Si tu hacienda tiene múltiples fachadas o quieres iluminar también el jardín y el salón, te recomendamos el paquete de 8 o 16 cañones. Mándanos fotos y te decimos con exactitud." },
+      { question: "¿El precio de $4,000 incluye todo?", answer: "Sí. Los $4,000 + IVA incluyen los 4 cañones LED RGBW, soportes, cableado DMX, operador técnico durante el evento, transporte a tu venue en CDMX y Estado de México, y desmontaje al terminar. Sin costos ocultos." },
+      { question: "¿Puedo elegir el color que quiero?", answer: "Sí. Los cañones RGBW generan cualquier color: rosa, lila, dorado, azul, magenta, blanco y todos los tonos intermedios. Dinos el color de tu evento y el operador lo programa antes de que lleguen tus invitados." },
+      { question: "¿Funcionan en exteriores si llueve?", answer: "Sí. Nuestros cañones tienen certificación IP65 — resistentes a lluvia, humedad y polvo. Están diseñados para uso en exteriores y los hemos usado en eventos bajo lluvia sin ningún problema." },
+      { question: "¿Con cuánta anticipación debo contratar?", answer: "Lo ideal es reservar con 2-3 semanas de anticipación. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido. Para garantizar disponibilidad en tu fecha, entre antes reserves, mejor." },
+      { question: "¿Puedo ampliar a más cañones el día del evento?", answer: "Si hay equipo disponible, sí. Pero te recomendamos definir la cantidad desde el inicio para que la instalación sea óptima y el diseño de distribución esté bien planeado. Siempre es mejor cotizar con la cantidad correcta desde el principio." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de City Color"
+        subtitle="¿Tu evento necesita más cobertura o múltiples zonas?"
+        paragraph1="Si tu hacienda tiene varias fachadas o quieres iluminar también el jardín y el salón al mismo tiempo, nuestros paquetes de 8 y 16 cañones te dan cobertura total con zonas de color independientes."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas city color con uplighting, cascadas LED o sky tracker."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu fachada con city color?</h2>
+        <p>Mándanos la fecha, el venue y las dimensiones aproximadas por WhatsApp. Te confirmamos disponibilidad y te enviamos el presupuesto completo en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

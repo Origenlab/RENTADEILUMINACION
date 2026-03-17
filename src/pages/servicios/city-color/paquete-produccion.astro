@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "City Color Producción para Festivales CDMX | REDEIL";
+const description = "24+ cañones LED para festivales, conciertos y escenarios masivos en CDMX. Coreografía de color sincronizada. $18,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-color/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "City Color Producción — 24+ Cañones — REDEIL",
+    "description": "Producción profesional de city color con 24 o más cañones LED RGBW para festivales, conciertos, escenarios de TV y eventos masivos. Incluye coreografía de color sincronizada con audio, equipo técnico completo, visita previa y logística integral en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-color/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "18000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "16",
+      "reviewCount": "16"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Fernanda Campos" },
+        "datePublished": "2026-02-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos un festival gastronómico con 3 escenarios en el Bosque de Chapultepec. REDEIL manejó los 28 cañones con una coreografía de color que iba cambiando según la música en cada escenario. Nunca había visto un nivel así de coordinación técnica en un evento de este tamaño en la Ciudad de México."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Director Técnico, Concierto CDMX" },
+        "datePublished": "2025-12-01",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los usamos para el lighting de fachada en un concierto de artista internacional en el Zócalo. La sincronización entre el city color y el audio fue impecable. El equipo técnico de REDEIL se coordinó perfectamente con nuestro director de iluminación. Profesionales de alto nivel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Producción, Feria Empresarial CDMX" },
+        "datePublished": "2025-09-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Feria empresarial de 3 días con 4,000 visitantes. REDEIL instaló 32 cañones para iluminar el venue de forma diferente cada día. Logística impecable — llegaron a tiempo, montaron sin estorbar el setup general y desmontaron en tiempo récord al final del último día."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-color/renta-city-color-show-luces.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de producción incluye 24 o más cañones LED RGBW (la cantidad exacta se define según el venue), coreografía de color programada y sincronizada, equipo técnico completo (director de iluminación + operadores + técnicos), visita técnica previa, logística de transporte y generadores si son necesarios, montaje, operación durante el evento y desmontaje." }},
+      { "@type": "Question", "name": "¿Pueden sincronizar el color con la música?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos controladores DMX con capacidad de sincronización de audio. El sistema detecta los beats de la música y cambia los colores en tiempo real siguiendo el ritmo. Para shows con música en vivo o DJ, la sincronización es dinámica. Para escenarios de TV o presentaciones formales, la coreografía se programa manualmente según el guión del evento." }},
+      { "@type": "Question", "name": "¿Cuánto cuesta más de 24 cañones?", "acceptedAnswer": { "@type": "Answer", "text": "El precio base de $18,000 + IVA es para 24 cañones. Para producciones que requieren más equipo — 32, 48 o más cañones — cotizamos por separado. El precio final depende de la cantidad de cañones, días de producción, tamaño del equipo técnico requerido y logística específica del venue." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "4 Cañones — Básico", image: "/img/city-color/city-color-fachada-hacienda-boda-400w.avif", alt: "4 cañones city color para evento pequeño", description: "Fachada frontal o salón pequeño. Eventos íntimos y negocios. $4,000 + IVA.", link: "/servicios/city-color/paquete-4-canones/" },
+  { title: "8 Cañones — Más Popular", image: "/img/city-color/renta-city-color-boda-romantica-400w.avif", alt: "8 cañones city color para boda hacienda", description: "Fachada completa + salón. El favorito para bodas en hacienda. $7,000 + IVA.", link: "/servicios/city-color/paquete-8-canones/" },
+  { title: "16 Cañones — Premium", image: "/img/city-color/iluminacion-hacienda-evento-nocturno.avif", alt: "16 cañones para hacienda completa", description: "Hacienda completa con 4 zonas independientes. Bodas grandes. $12,000 + IVA.", link: "/servicios/city-color/paquete-16-canones/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para concierto y show", description: "City color para el ambiente + cabezas móviles para el show. La combinación de los conciertos.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Color", href: "/servicios/city-color/" },
+    { label: "Producción" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="City Color Producción — 24+ Cañones para Festivales y Conciertos"
+    subtitle="$18,000 + IVA. 24+ cañones LED RGBW. Coreografía de color sincronizada. Equipo técnico completo."
+    introParagraph1='Cuando la escala del evento supera lo que puede hacer una hacienda, necesitas producción. El paquete de producción de city color arranca en <strong>24 cañones LED RGBW</strong> y escala según las dimensiones de tu venue — 32, 48 o más unidades para cubrir múltiples escenarios, fachadas masivas o estructuras de gran formato. No es solo iluminación: es una <strong>coreografía de color</strong> programada y sincronizada con la música, el video y los momentos del evento.'
+    introParagraph2='Ideal para festivales gastronómicos, culturales y de música; conciertos de artistas nacionales e internacionales; ferias empresariales de gran escala; presentaciones en escenarios de TV y transmisiones en vivo; y cualquier producción donde el director de iluminación necesite un aliado técnico en <strong>city color de alto impacto</strong>. Incluye <strong>visita técnica previa</strong>, coordinación con el equipo de producción general, logística integral y operadores especializados durante toda la producción.'
+  />
+
+  <CtaBar
+    headline="¿Cuántos cañones necesita tu producción?"
+    items={[
+      { label: "8 Cañones — $7,000", href: "/servicios/city-color/paquete-8-canones/", icon: "iluminacion" },
+      { label: "16 Cañones — $12,000", href: "/servicios/city-color/paquete-16-canones/", icon: "iluminacion" },
+      { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+      { label: "Cotiza tu Producción", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete Producción"
+      price="$18,000"
+      priceNote="+ IVA · 24 cañones base"
+      features={[
+        { text: "24+ cañones LED RGBW alta potencia" },
+        { text: "Coreografía de color programada" },
+        { text: "Sincronización con audio/video" },
+        { text: "Director de iluminación + equipo" },
+        { text: "Visita técnica previa al venue" },
+        { text: "Coordinación con producción general" },
+        { text: "Logística integral incluida" },
+        { text: "Generadores si son requeridos" },
+        { text: "Montaje y desmontaje completo" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de producción de City Color para mi festival/concierto."
+      packages={[
+        { label: "4 cañones", price: "$4,000", href: "/servicios/city-color/paquete-4-canones/" },
+        { label: "8 cañones", price: "$7,000", href: "/servicios/city-color/paquete-8-canones/" },
+        { label: "16 cañones", price: "$12,000", href: "/servicios/city-color/paquete-16-canones/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/city-color/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Producción de city color para eventos de gran escala"
+          subtitle="24+ cañones, coreografía sincronizada, equipo técnico especializado."
+          paragraph1="En este nivel, el city color deja de ser 'iluminación de ambiente' y se convierte en un elemento de producción con dirección artística. Cada cambio de color es una decisión programada — cuándo, en qué zona, a qué velocidad, en qué color exacto, sincronizado con qué momento del evento."
+          paragraph2="Trabajamos con directores de iluminación externos, coordinadores de producción general y técnicos de audio y video. Nos integramos al equipo de producción, no somos un proveedor aislado."
+        />
+        <FeatureGrid features={[
+          { title: "Festivales Culturales", description: "Múltiples escenarios con coreografías independientes. Cada escenario tiene su historia de color." },
+          { title: "Conciertos", description: "Sincronización con el setlist. El color cambia con la música — beat por beat si se requiere." },
+          { title: "Ferias Empresariales", description: "3, 4 o 5 días de producción. Cada día con paleta diferente si se necesita." },
+          { title: "Escenarios de TV", description: "Iluminación de fondo para transmisiones en vivo con control preciso de color en cámara." },
+          { title: "Venues Masivos", description: "Estadios, parques, plazas públicas y centros de convenciones. Sin límite de escala." },
+          { title: "Bodas VIP", description: "Para parejas que quieren una producción de concierto en su boda. Sin restricciones." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Coreografía de color: más que cambiar el color"
+          subtitle="Cada cambio tiene un propósito narrativo en tu evento."
+          paragraph1="Una coreografía de color no es presionar un botón cuando se te ocurre. Es una secuencia programada donde cada zona, cada cambio y cada transición están diseñados para apoyar la narrativa del evento. Cuando el artista sube al escenario, los colores abren. Cuando llega el clímax de la canción, la intensidad sube. Cuando termina el set, los colores cierran suavemente."
+          paragraph2="Trabajamos con el programa del evento con semanas de anticipación. El director de iluminación programa la coreografía en software DMX y la refina en los ensayos. El día del evento, se ejecuta según lo ensayado — con capacidad de ajuste en vivo si algo cambia."
+        />
+        <FeatureGrid features={[
+          { title: "Programación DMX Avanzada", description: "Software de producción profesional para coreografías complejas con múltiples parámetros." },
+          { title: "Sincronización de Audio", description: "Detección automática de beats o programación manual por tiempo de la música." },
+          { title: "Transiciones Suaves", description: "Fade, strobe, chase y efectos de transición entre colores para impacto visual máximo." },
+          { title: "Ensayos Previos", description: "Prueba de la coreografía completa antes del evento con ajustes en tiempo real." },
+          { title: "Operación en Vivo", description: "El director puede modificar la coreografía en vivo si el artista o el director creativo lo pide." },
+          { title: "Documentación Técnica", description: "Rider técnico completo, plano de distribución y coreografía documentada para el archivo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Producciones que confían en REDEIL"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 16 reseñas de grandes producciones."
+          paragraph1="Los clientes de este paquete son productores, directores técnicos y organizadores de eventos que saben lo que necesitan y no aceptan improvisación."
+          paragraph2="Si estás en la fase de planeación de un festival o concierto, contáctanos ahora — las fechas de producción se agendan con meses de anticipación."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Lic. Fernanda Campos", event: "Festival gastronómico — Bosque de Chapultepec", rating: 5, text: "REDEIL manejó los 28 cañones con una coreografía de color que iba cambiando según la música en cada escenario. Nunca había visto un nivel así de coordinación técnica en un evento de este tamaño en CDMX." },
+          { name: "Director Técnico", event: "Concierto artista internacional — Zócalo CDMX", rating: 5, text: "La sincronización entre el city color y el audio fue impecable. El equipo técnico de REDEIL se coordinó perfectamente con nuestro director de iluminación. Profesionales de alto nivel." },
+          { name: "Producción Feria", event: "Feria empresarial 3 días — 4,000 visitantes", rating: 5, text: "REDEIL instaló 32 cañones para iluminar el venue diferente cada día. Logística impecable — llegaron a tiempo, montaron sin estorbar el setup general y desmontaron en tiempo récord." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="City color en festivales, conciertos y escenarios masivos"
+        subtitle="24+ cañones en producciones de gran escala en la CDMX."
+        paragraph1="Estos son los resultados cuando el city color opera a escala de producción. La diferencia con los paquetes menores no es solo cantidad — es la dimensión visual del efecto cuando decenas de cañones de alta potencia bañan estructuras masivas con colores sincronizados."
+        paragraph2="¿Estás planeando un festival, concierto o evento de gran escala? Escríbenos ahora para iniciar la fase de cotización y visita técnica."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-color/renta-city-color-show-luces.avif", alt: "Show de luces de city color en festival con 24+ cañones" },
+        { src: "/img/city-color/renta-city-color-evento-nocturno.avif", alt: "Evento nocturno masivo con producción de city color" },
+        { src: "/img/city-color/luces-terraza-rooftop-morado-400w.avif", alt: "Rooftop iluminado en morado con producción de cañones LED" },
+        { src: "/img/city-color/iluminacion-fiesta-corporativa-azul-400w.avif", alt: "Fiesta corporativa masiva con city color azul" },
+        { src: "/img/city-color/renta-luces-evento-corporativo-azul.avif", alt: "Evento corporativo de gran escala iluminado con city color azul" },
+        { src: "/img/city-color/iluminacion-rgbw-eventos-especiales-400w.avif", alt: "Producción RGBW para evento especial masivo" },
+        { src: "/img/city-color/luces-fachada-edificio-moderno-azul-400w.avif", alt: "Edificio moderno con fachada bañada de azul en producción" },
+        { src: "/img/city-color/renta-city-color-terraza-ciudad.avif", alt: "Terraza urbana con producción de city color nocturna" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete de Producción"
+        subtitle="Resuelve las dudas técnicas antes de iniciar la cotización."
+        paragraph1="Para producciones de este nivel, la mejor forma de resolver las dudas es en una llamada de briefing con nuestro director técnico."
+        paragraph2="Escríbenos por WhatsApp con el nombre del evento, la fecha, el venue y el número estimado de asistentes."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántos cañones exactamente incluye el paquete?", answer: "El precio base de $18,000 + IVA incluye 24 cañones. Para producciones que requieren más equipo, cotizamos por separado según la cantidad de cañones adicionales, el tamaño del equipo técnico y los días de producción. Nunca vendemos más de lo que necesitas ni menos de lo que requiere el resultado." },
+      { question: "¿Cuánto tiempo antes debo reservar para un festival?", answer: "Para festivales y conciertos de gran escala, recomendamos reservar con al menos 4-8 semanas de anticipación. Necesitamos tiempo para la visita técnica, diseño de la coreografía, ensayos previos y logística de equipo. Fechas muy próximas pueden no tener disponibilidad." },
+      { question: "¿Pueden coordinarse con el director de iluminación del evento?", answer: "Sí. En producciones grandes, lo estándar es que trabajemos integrados al equipo de producción general. Nos coordinamos con el director de iluminación, el director técnico, el proveedor de audio y cualquier otro proveedor de iluminación. Somos el equipo de city color, no el único equipo." },
+      { question: "¿Qué pasa si el venue no tiene energía suficiente?", answer: "Lo evaluamos en la visita técnica. Si el venue no tiene capacidad eléctrica suficiente para 24+ cañones, incluimos generadores silenciosos en la cotización. La energía nunca es un limitante — siempre tenemos solución técnica disponible." },
+      { question: "¿Se puede hacer una prueba de la coreografía antes del evento?", answer: "Sí. Para producciones de este nivel siempre hacemos ensayo técnico previo al evento. Montamos el equipo con anticipación (usualmente el día anterior o la mañana del evento), ejecutamos la coreografía completa y hacemos los ajustes necesarios. El show del día del evento no es la primera vez que se ejecuta." },
+      { question: "¿Puede ser parte de un rider técnico?", answer: "Sí. Emitimos rider técnico completo con especificaciones de equipo, requerimientos eléctricos, espacio de instalación, acceso para montaje y desmontaje. Compatible con los formatos estándar de producción de conciertos y festivales. Lo entregamos en la fase de cotización." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu evento es más íntimo o quieres agregar otros efectos?"
+        paragraph1="Si tu producción necesita además haces de luz, efectos de movimiento o seguidor para artistas, combinamos city color con cabezas móviles, sky tracker y otros equipos de producción."
+        paragraph2="Si tu evento es más pequeño que un festival, los paquetes de 8 o 16 cañones son el punto de entrada correcto."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu festival merece una producción de city color de verdad?</h2>
+        <p>Cuéntanos el evento, el venue y la fecha. Agendamos un briefing técnico y te enviamos la propuesta de producción completa.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Iniciar Briefing Técnico</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

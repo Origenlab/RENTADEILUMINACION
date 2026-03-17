@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "1 Gobo Personalizado para Bodas en CDMX | REDEIL";
+const description = "Proyección de nombres o iniciales en pista de baile para bodas en CDMX. Gobo metálico fabricado con tu diseño. $2,500 + IVA instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/gobos/paquete-1-gobo/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "1 Gobo Personalizado para Bodas — REDEIL",
+    "description": "Proyección de nombres o iniciales en pista de baile para bodas en CDMX. Gobo metálico fabricado con tu diseño. Incluye fabricación, proyector profesional, transporte, montaje y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/gobos/paquete-1-gobo/",
+      "priceCurrency": "MXN",
+      "price": "2500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "72",
+      "reviewCount": "72"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Herrera" },
+        "datePublished": "2026-01-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el gobo con los nombres de los novios para nuestra boda en un jardín de Tlalpan. Quedó precioso — la proyección en la pista de baile fue el detalle que todos comentaron. La fabricación fue rápida y la instalación impecable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valentina Cruz" },
+        "datePublished": "2025-11-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo pedí para los XV años de mi hija en un salón de Polanco. El monograma con sus iniciales y la fecha en la pista quedó espectacular. Las fotos son increíbles. 100% lo recomiendo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Salinas" },
+        "datePublished": "2025-10-05",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el gobo con el logo de la empresa para nuestro aniversario corporativo. La proyección en la pared del escenario le dio una presencia de marca que ningún banner iguala. Muy profesional el servicio."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/gobos/renta-gobo-monograma-pista-baile.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete de 1 gobo?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete incluye la fabricación del gobo metálico con tu diseño, un proyector profesional de 575W, transporte al venue, montaje, enfoque y posicionamiento, operación durante el evento y desmontaje. El gobo personalizado es tuyo al finalizar." }},
+      { "@type": "Question", "name": "¿Con cuánto tiempo debo enviar mi diseño?", "acceptedAnswer": { "@type": "Answer", "text": "Necesitamos el diseño final con 5-7 días hábiles de anticipación para fabricar el gobo metálico. Si no tienes diseño, nuestro equipo puede crearlo — solo dinos los nombres, la fecha y el estilo que te gusta." }},
+      { "@type": "Question", "name": "¿El gobo se ve bien en pistas de baile oscuras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, de hecho la proyección se ve mejor con poca luz ambiente. En pistas de baile oscuras durante el vals o el primer baile, el gobo crea un efecto dramático y cinematográfico que todos van a fotografiar." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "2 Gobos — Pista y Entrada", image: "/img/gobos/gobo-proyeccion-monograma-boda-elegante-400w.avif", alt: "2 gobos para pista de baile y entrada en boda", description: "Proyección doble: nombres en la pista + monograma en la entrada o pared. El más pedido para bodas completas. $4,500 + IVA.", link: "/servicios/gobos/paquete-2-gobos/" },
+  { title: "4 Gobos Full Color", image: "/img/gobos/gobo-personalizado-proyeccion-logo-empresa-400w.avif", alt: "4 gobos full color para bodas premium", description: "2 metálicos + 2 de vidrio full color. Logos, fotos y diseños complejos a color. Bodas premium y corporativos. $7,500 + IVA.", link: "/servicios/gobos/paquete-4-gobos/" },
+  { title: "Producción — 6+ Gobos", image: "/img/gobos/gobos-eventos-proyectar-marca-personalizada-400w.avif", alt: "Producción completa con 6 gobos o más", description: "Branding completo del venue. Logos a color, patrones y múltiples proyecciones para lanzamientos y galas. $12,000 + IVA.", link: "/servicios/gobos/paquete-produccion/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop de cascadas LED detrás de la mesa de novios + monograma en la pista. El dúo perfecto para bodas.", link: "/servicios/cascadas-led/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Gobos", href: "/servicios/gobos/" },
+    { label: "1 Gobo Personalizado" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="1 Gobo Personalizado — Nombres o Iniciales en la Pista de Baile"
+    subtitle="Desde $2,500 + IVA. Gobo metálico fabricado con tu diseño. Instalación profesional incluida."
+    introParagraph1='El gobo con los nombres de los novios proyectado en la pista de baile es el detalle que convierte un momento especial en una imagen que todos van a fotografiar. Con un solo proyector posicionado estratégicamente, tu nombre, monograma o iniciales iluminan el piso durante el vals, la entrada o cualquier momento que quieras destacar. En <strong>REDEIL</strong> fabricamos el gobo metálico con tu diseño y lo proyectamos con equipos profesionales <strong>ETC Source Four</strong> de 575W.'
+    introParagraph2='Este paquete es ideal para bodas íntimas de hasta 80 personas, celebraciones en jardín, XV años en salón y aniversarios corporativos donde se busca un detalle de personalización elegante sin producción compleja. El precio de <strong>$2,500 + IVA</strong> incluye todo: fabricación del gobo, proyector, transporte, instalación y desmontaje. Y lo mejor: el gobo metálico es tuyo después del evento — muchos clientes lo enmarcan como recuerdo.'
+  />
+
+  <CtaBar
+    headline="¿Quieres más proyecciones?"
+    items={[
+      { label: "2 Gobos — $4,500", href: "/servicios/gobos/paquete-2-gobos/", icon: "iluminacion" },
+      { label: "4 Gobos Full Color — $7,500", href: "/servicios/gobos/paquete-4-gobos/", icon: "iluminacion" },
+      { label: "Producción — $12,000", href: "/servicios/gobos/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="1 Gobo Metálico"
+      price="$2,500"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "1 gobo metálico personalizado" },
+        { text: "Proyector profesional ETC 575W" },
+        { text: "Fabricación con tu diseño" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Instalación y enfoque profesional" },
+        { text: "Operación durante el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "El gobo es tuyo al terminar" },
+        { text: "Ideal: nombres, iniciales, monograma" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar 1 gobo personalizado para mi evento."
+      packages={[
+        { label: "1 Gobo", price: "$2,500", href: "/servicios/gobos/paquete-1-gobo/", active: true },
+        { label: "2 Gobos", price: "$4,500", href: "/servicios/gobos/paquete-2-gobos/" },
+        { label: "4 Gobos", price: "$7,500", href: "/servicios/gobos/paquete-4-gobos/" },
+        { label: "Producción", price: "$12,000", href: "/servicios/gobos/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos momentos"
+          subtitle="Un solo gobo bien posicionado cambia la atmósfera completa."
+          paragraph1="No hace falta una producción de 6 proyectores para crear un momento visual impactante. Un gobo bien posicionado en la pista de baile, proyectando los nombres de los novios durante el vals, crea una imagen que aparecerá en todas las fotos del evento."
+          paragraph2="Nuestro técnico revisa el espacio, elige el ángulo de proyección óptimo y enfoca el diseño para que se vea nítido y legible. Llegamos 2 horas antes para que todo esté listo cuando lleguen tus invitados."
+        />
+        <FeatureGrid features={[
+          { title: "Vals y Primer Baile", description: "La proyección enmarca a los novios mientras bailan. El momento más fotografiado de cualquier boda." },
+          { title: "Entrada de Novios", description: "Los nombres proyectados en el piso cuando entran al salón. Un recibimiento que nadie olvida." },
+          { title: "Pista de Baile", description: "El monograma en el centro de la pista durante toda la recepción. Personalización constante." },
+          { title: "XV Años", description: "Las iniciales de la festejada proyectadas en su primer vals. Elegante y memorable." },
+          { title: "Pared del Escenario", description: "Para corporativos: el logo de la empresa iluminado en la pared principal. Presencia de marca superior." },
+          { title: "Bodas Íntimas", description: "Hasta 80 personas. El detalle correcto para eventos donde cada elemento cuenta." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="El gobo metálico: sencillo y elegante"
+          subtitle="Silueta en un color. Impacto garantizado."
+          paragraph1="El gobo metálico proyecta tu diseño en silueta — blanco puro o con un gel de color. Es el formato clásico que mejor funciona para nombres, iniciales, fechas y monogramas. La nitidez es perfecta y el contraste con la oscuridad del salón lo hace muy fotogénico."
+          paragraph2="Fabricamos el gobo con tu arte final — un archivo con los nombres, la tipografía elegida y cualquier elemento decorativo. Si no tienes arte, te ayudamos a crearlo sin costo adicional."
+        />
+        <FeatureGrid features={[
+          { title: "Nombres de Novios", description: "La opción más pedida. Tipografía script o serif, con fechas y elementos decorativos." },
+          { title: "Monograma", description: "Las iniciales entrelazadas de los novios. Clásico y atemporal." },
+          { title: "Logo Corporativo", description: "El logotipo de tu empresa en silueta. Perfecto para eventos de marca." },
+          { title: "Diseño Incluido", description: "Si no tienes arte final, nuestro equipo crea el diseño del gobo sin costo extra." },
+          { title: "Fabricación en 5-7 días", description: "Tiempo de producción del gobo metálico desde que apruebas el arte." },
+          { title: "El gobo es tuyo", description: "Después del evento te lo entregamos. Es un recuerdo físico único." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 72 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató nuestro servicio de gobos."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Sofía Herrera", event: "Boda en jardín — Tlalpan", rating: 5, text: "La proyección en la pista de baile fue el detalle que todos comentaron. La fabricación fue rápida y la instalación impecable. El gobo quedó precioso con nuestros nombres." },
+          { name: "Valentina Cruz", event: "XV años en salón — Polanco", rating: 5, text: "El monograma con las iniciales de mi hija y la fecha en la pista quedó espectacular. Las fotos son increíbles. El equipo llegó a tiempo y dejó todo listo antes de los invitados." },
+          { name: "Roberto Salinas", event: "Aniversario corporativo — CDMX", rating: 5, text: "El logo proyectado en la pared del escenario le dio una presencia de marca que ningún banner iguala. Muy profesional el servicio, lo contrataremos de nuevo." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Así se ve 1 gobo proyectado"
+        subtitle="Nombres, monogramas e iniciales en pistas y paredes."
+        paragraph1="Cada foto es de un montaje real con nuestro paquete de 1 gobo. La proyección se adapta al tamaño del espacio — desde una pista íntima de 20 personas hasta un salón de 100."
+        paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos por WhatsApp y te mostramos cómo quedaría tu diseño."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/gobos/renta-gobo-monograma-pista-baile.avif", alt: "Monograma de novios proyectado en pista de baile" },
+        { src: "/img/gobos/gobo-proyeccion-monograma-boda-elegante.avif", alt: "Proyección de monograma elegante en boda" },
+        { src: "/img/gobos/gobos-luz-proyectar-monograma-boda.avif", alt: "Gobo proyectando monograma en boda con luz cálida" },
+        { src: "/img/gobos/renta-proyeccion-gobos-monograma-boda.avif", alt: "Renta de proyección de monograma para boda en CDMX" },
+        { src: "/img/gobos/alquiler-proyeccion-gobos-boda-elegante.avif", alt: "Proyección de gobo en boda elegante" },
+        { src: "/img/gobos/alquiler-gobos-proyectar-marca-boda.avif", alt: "Gobo personalizado en boda" },
+        { src: "/img/gobos/proyeccion-gobo-personalizado-evento-social.avif", alt: "Gobo personalizado en evento social íntimo" },
+        { src: "/img/gobos/gobos-para-eventos-proyeccion-personalizada.avif", alt: "Proyección personalizada de gobo para evento" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 1 Gobo"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Cada venue es diferente — te asesoramos sobre el mejor ángulo y posición para tu proyección."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete de 1 gobo a $2,500?", answer: "Incluye todo: fabricación del gobo metálico con tu diseño personalizado, proyector profesional ETC Source Four de 575W, transporte al venue, montaje, enfoque y posicionamiento, operación durante el evento y desmontaje al finalizar. El gobo metálico es tuyo al terminar." },
+      { question: "¿Con cuánto tiempo debo enviar mi diseño?", answer: "Para gobos metálicos necesitamos el diseño final aprobado con 5-7 días hábiles de anticipación. Si no tienes arte final, nuestro equipo crea el diseño del gobo sin costo adicional — solo dinos los nombres, la tipografía o el estilo que te gusta." },
+      { question: "¿En qué superficies se puede proyectar?", answer: "La proyección se ve mejor en superficies claras y lisas — pisos de mármol o madera clara, paredes blancas, techos lisos. En salones oscuros el contraste es perfecto. Te asesoramos sobre la mejor superficie en tu venue específico." },
+      { question: "¿Puedo cambiar el color de la proyección?", answer: "Sí. Con geles de color podemos cambiar el tono de la proyección — blanco puro, cálido, azul hielo, dorado. El gobo metálico proyecta la silueta de tu diseño en el color que elijas." },
+      { question: "¿1 gobo es suficiente para una boda?", answer: "Para bodas íntimas de hasta 80 personas con una sola área principal (pista de baile), 1 gobo es suficiente y muy efectivo. Si tienes una boda más grande con múltiples áreas o quieres proyección en entrada y pista simultáneamente, el paquete de 2 gobos ($4,500 + IVA) es la elección correcta." },
+      { question: "¿Con qué anticipación debo reservar?", answer: "Idealmente 2-3 semanas antes para garantizar disponibilidad y tiempo suficiente para fabricar el gobo. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido. Reserva con tiempo para que también haya margen para el diseño." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más proyecciones o combinar con otro servicio?"
+        paragraph1="Si tu evento tiene múltiples áreas o quieres más impacto visual, tenemos paquetes de 2, 4 y 6+ gobos. Y si quieres personalización total, combinamos gobos con cascadas LED, seguidor y cabezas móviles."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para proyectar tus nombres en la pista?</h2>
+        <p>Mándanos tu diseño o los nombres de los novios por WhatsApp. Te fabricamos el gobo y confirmamos disponibilidad en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

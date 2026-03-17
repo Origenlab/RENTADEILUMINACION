@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "2 Seguidores de Luz para Galas y Shows CDMX | REDEIL";
+const description = "Dos spotlights cruzados para galas, obras de teatro y shows. Efecto nivel TV. 2 operadores incluidos. $8,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/seguidor/paquete-2-seguidores/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 2 Seguidores para Galas y Shows",
+    "description": "Dos follow spots profesionales con dos operadores técnicos para galas corporativas, obras de teatro, shows y eventos con producción elevada. Iluminación cruzada desde dos ángulos simultáneos. Incluye transporte, montaje y 4 horas de operación continua.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/seguidor/paquete-2-seguidores/",
+      "priceCurrency": "MXN",
+      "price": "8500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "44",
+      "reviewCount": "44"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Patricia Solano" },
+        "datePublished": "2026-01-25",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para la gala anual de nuestra empresa en el Pedregal. Los dos seguidores cruzados crearon un efecto digno de los Oscares. Los ponentes se veían espectaculares en el escenario. Nuestros invitados preguntaron si era una producción de televisión. Absolutamente recomendado para galas corporativas de alto nivel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Arturo Villareal" },
+        "datePublished": "2025-10-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos los 2 seguidores para una obra de teatro privada en la colonia Roma. El efecto dramático que lograron los dos operadores siguiendo a los actores fue impresionante. Los actores lo agradecieron enormemente — la luz les da presencia escénica que no se logra de otra manera."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Verónica Castillo" },
+        "datePublished": "2025-09-05",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para nuestro concierto íntimo en salón privado, los 2 seguidores fueron perfectos. Un spotlight seguía al cantante y el otro iluminaba los músicos de fondo. El resultado fue un nivel de producción que normalmente solo ves en TV. Los 2 operadores estuvieron perfectamente coordinados toda la noche."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/seguidor/luz-seguidor-gala-premiacion-pasarela-operadores.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuál es la diferencia entre 1 y 2 seguidores?", "acceptedAnswer": { "@type": "Answer", "text": "Con un solo seguidor, el spotlight ilumina al protagonista desde un ángulo. Con dos seguidores cruzados, la luz llega desde dos puntos distintos del venue eliminando sombras y creando el efecto cinematográfico que ves en TV y teatro profesional. El protagonista se ve tridimensional y perfectamente iluminado desde cualquier ángulo del salón." }},
+      { "@type": "Question", "name": "¿Los 2 operadores se coordinan entre sí?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los dos operadores trabajan en comunicación constante durante el evento. Uno lidera el seguimiento y el otro mantiene el ángulo complementario. Esta coordinación es la que crea el efecto de iluminación cruzada profesional." }},
+      { "@type": "Question", "name": "¿Para qué tipo de eventos está diseñado este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "Está diseñado para galas corporativas, premiaciones, obras de teatro, shows musicales íntimos, conferencias de gala y cualquier evento donde se busca un nivel de producción elevado con efecto cinematográfico." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Recepción Completa", image: "/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif", alt: "Seguidor para recepción completa de boda", description: "Para bodas y XV años. Un seguidor 4 horas. El más popular para recepciones completas. $5,000 + IVA.", link: "/servicios/seguidor/paquete-recepcion-completa/" },
+  { title: "Producción 4+", image: "/img/seguidor/luz-seguidor-gala-operadores-plataforma-candil.avif", alt: "Producción con 4 seguidores para concierto", description: "¿Concierto o festival? 4+ seguidores con equipo de operadores para producciones de gran escala. $15,000 + IVA.", link: "/servicios/seguidor/paquete-produccion/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para gala corporativa", description: "Beams de color + 2 seguidores cruzados. La producción completa para galas de alto nivel.", link: "/servicios/cabezas-moviles/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo logo empresa para gala corporativa", description: "El logo de tu empresa proyectado en el escenario + los 2 spotlights sobre los ponentes. Branding total.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Seguidor", href: "/servicios/seguidor/" },
+    { label: "2 Seguidores" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="2 Seguidores de Luz — Galas, Teatro y Shows con Efecto Nivel TV"
+      subtitle="$8,500 + IVA. 2 spotlights cruzados. 2 operadores incluidos. El estándar de la iluminación profesional."
+      introParagraph1='Cuando ves a un artista en televisión perfectamente iluminado desde todos los ángulos sin sombras, estás viendo el efecto de dos o más follow spots cruzados. El paquete de 2 Seguidores replica exactamente ese nivel de producción para tu gala corporativa, obra de teatro o show musical en CDMX. Dos follow spots profesionales, posicionados en ángulos opuestos del venue, crean una iluminación tridimensional que hace que los protagonistas se vean impecables desde cualquier punto del salón.'
+      introParagraph2='Cada seguidor tiene su propio operador técnico — los dos trabajan en comunicación constante para mantener los ángulos cruzados en tiempo real mientras el protagonista se mueve. En <strong>REDEIL</strong> tenemos equipos <strong>Robert Juliat</strong> y <strong>Strong Super Trouper</strong> de 1200W a 2500W para galas y venues de gran escala. El resultado es el que logra hacer que una gala corporativa, una premiación o una obra de teatro privada se vean como una producción de TV.'
+    />
+
+    <CtaBar
+      headline="¿Tu evento necesita más potencia?"
+      items={[
+        { label: "Producción 4+ — $15,000", href: "/servicios/seguidor/paquete-produccion/", icon: "iluminacion" },
+        { label: "Recepción Completa — $5,000", href: "/servicios/seguidor/paquete-recepcion-completa/", icon: "iluminacion" },
+        { label: "Ver todos los paquetes", href: "/servicios/seguidor/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="2 Seguidores"
+        price="$8,500"
+        priceNote="+ IVA · 2 operadores incluidos"
+        features={[
+          { text: "2 follow spots profesionales" },
+          { text: "2 operadores técnicos incluidos" },
+          { text: "Iluminación cruzada 2 ángulos" },
+          { text: "Geles de color + iris en ambos" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Montaje y desmontaje completo" },
+          { text: "4 horas de operación continua" },
+          { text: "Coordinación con dirección escena" },
+          { text: "Ideal: galas, teatro, shows" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de 2 seguidores para mi evento."
+        packages={[
+          { label: "1 Momento Estelar", price: "$3,000", href: "/servicios/seguidor/paquete-momento-estelar/" },
+          { label: "Recepción Completa", price: "$5,000", href: "/servicios/seguidor/paquete-recepcion-completa/" },
+          { label: "2 Seguidores", price: "$8,500", href: "/servicios/seguidor/paquete-2-seguidores/", active: true },
+          { label: "Producción 4+", price: "$15,000", href: "/servicios/seguidor/paquete-produccion/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="¿Para qué eventos está diseñado?"
+            subtitle="Cuando un solo spotlight no es suficiente para la escala del evento."
+            paragraph1="El paquete de 2 Seguidores está diseñado para eventos que superan el nivel de una recepción de boda estándar. Galas corporativas, premiaciones, teatro privado, shows musicales y eventos donde la calidad de producción es un requisito — no un lujo."
+            paragraph2="Los dos spotlights cruzados garantizan que el protagonista siempre esté perfectamente iluminado, sin sombras, desde cualquier ángulo del venue."
+          />
+          <FeatureGrid features={[
+            { title: "Galas Corporativas", description: "Ponentes y premiados en el escenario iluminados con efecto digno de los Oscares. Impacto garantizado." },
+            { title: "Obras de Teatro Privadas", description: "Los actores iluminados con la misma calidad que un teatro profesional. La luz da presencia escénica." },
+            { title: "Shows Musicales", description: "El cantante principal y los músicos de fondo en ángulos distintos. Cobertura completa del escenario." },
+            { title: "Premiaciones y Reconocimientos", description: "Cada premiado caminando al escenario iluminado desde dos ángulos. El momento de su carrera." },
+            { title: "Conferencias de Gala", description: "Los keynote speakers iluminados como en TED Talks. Autoridad y presencia desde el primer segundo." },
+            { title: "Graduaciones Privadas", description: "Cada graduado recibiendo su diploma con spotlight desde dos ángulos. El recuerdo de vida que merece." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Por qué 2 ángulos cambian todo"
+            subtitle="La diferencia entre iluminación correcta e iluminación cinematográfica."
+            paragraph1="Un solo spotlight crea sombras en un lado del rostro cuando el protagonista se mueve. Dos spotlights cruzados desde ángulos opuestos se complementan — cuando uno crea sombra, el otro la rellena. El resultado es una iluminación uniforme desde cualquier posición."
+            paragraph2="En teatro y televisión esto es el estándar mínimo para actores y presentadores. Con este paquete tu evento tiene esa misma calidad."
+          />
+          <FeatureGrid features={[
+            { title: "Sin Sombras en Rostro", description: "Dos fuentes de luz desde ángulos opuestos eliminan las sombras duras. El protagonista siempre se ve perfecto." },
+            { title: "Visible desde Todo el Salón", description: "Dos ángulos garantizan que los invitados en cualquier parte del venue vean al protagonista bien iluminado." },
+            { title: "Operadores Coordinados", description: "Los dos técnicos trabajan en comunicación constante. Un lead y un complementario — perfecta sincronía." },
+            { title: "Colores Independientes", description: "Cada spotlight puede tener un color diferente. Efecto dramático con contraste — blanco + color lateral." },
+            { title: "Movimientos Fluidos", description: "Cuando el protagonista camina por el escenario, ambos spotlights se mueven al unísono. Sin saltos." },
+            { title: "Estándar de TV y Teatro", description: "Los mismos equipos y técnicas que usan en televisión nacional y teatro profesional de CDMX." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 44 reseñas."
+            paragraph1="Galas corporativas, teatro privado y conciertos íntimos — el paquete favorito para eventos de producción elevada."
+            paragraph2="¿Tu evento se parece a alguno de estos? Pregúntanos cuando nos escribas."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Ing. Patricia Solano", event: "Gala anual corporativa — Pedregal", rating: 5, text: "Los dos seguidores cruzados crearon un efecto digno de los Oscares. Los ponentes se veían espectaculares en el escenario. Nuestros invitados preguntaron si era una producción de televisión." },
+            { name: "Arturo Villareal", event: "Obra de teatro privada — Col. Roma", rating: 5, text: "El efecto dramático que lograron los dos operadores siguiendo a los actores fue impresionante. Los actores lo agradecieron enormemente — la luz les da presencia escénica que no se logra de otra manera." },
+            { name: "Verónica Castillo", event: "Concierto íntimo — Salón privado", rating: 5, text: "Un spotlight seguía al cantante y el otro iluminaba los músicos de fondo. El resultado fue un nivel de producción que normalmente solo ves en TV. Los 2 operadores perfectamente coordinados toda la noche." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve la iluminación con 2 seguidores cruzados"
+          subtitle="Galas, teatro y shows en CDMX con efecto nivel TV."
+          paragraph1="Cada imagen muestra la diferencia que hace la iluminación cruzada desde dos ángulos. Los protagonistas en el escenario, sin sombras, perfectamente visibles desde cualquier punto del salón."
+          paragraph2="¿Tu venue es similar a alguno de estos? Mándanos las dimensiones y te recomendamos la posición óptima de los dos spotlights."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/luz-seguidor-gala-premiacion-pasarela-operadores.avif", alt: "Gala de premiación con 2 seguidores en pasarela" },
+          { src: "/img/seguidor/luz-seguidor-conferencia-ponente-escenario-gala.avif", alt: "Ponente en escenario de gala iluminado con spotlight" },
+          { src: "/img/seguidor/luz-seguidor-conferencia-ponente-pantalla-corporativo.avif", alt: "Conferencia corporativa con ponente y pantalla iluminados" },
+          { src: "/img/seguidor/luz-seguidor-teatro-actor-escenario-monologo.avif", alt: "Actor de teatro en monólogo iluminado con 2 seguidores" },
+          { src: "/img/seguidor/seguidor-gala-premiacion-pasarela-operadores.avif", alt: "Premiación de gala con pasarela y operadores de seguidor" },
+          { src: "/img/seguidor/luz-seguidor-gala-operadores-plataforma-candil.avif", alt: "Operadores de seguidor en plataforma elevada para gala" },
+          { src: "/img/seguidor/seguidor-conferencia-orador-podium-evento-gala.avif", alt: "Orador en pódium iluminado con spotlight para gala" },
+          { src: "/img/seguidor/luz-seguidor-gala-brindis-operador-candil.avif", alt: "Brindis de gala con spotlight follow spot" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 2 Seguidores"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Dinos el tipo de evento y las dimensiones del venue — te recomendamos la posición óptima de los dos spotlights."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuál es la diferencia entre 1 y 2 seguidores?", answer: "Con un solo seguidor, el spotlight ilumina al protagonista desde un ángulo. Con dos seguidores cruzados, la luz llega desde dos puntos distintos eliminando sombras y creando el efecto cinematográfico de TV y teatro profesional. El protagonista se ve tridimensional y perfectamente iluminado desde cualquier ángulo del salón." },
+        { question: "¿Los 2 operadores se coordinan entre sí?", answer: "Sí. Los dos operadores trabajan en comunicación constante durante el evento. Uno lidera el seguimiento principal y el otro mantiene el ángulo complementario. Esta coordinación es la que crea el efecto de iluminación cruzada profesional sin que parezca que hay dos luces peleando." },
+        { question: "¿Funciona para teatro con varios actores?", answer: "Para obras con un protagonista principal en escena, los dos seguidores cruzados son perfectos. Si la obra tiene múltiples actores en escena simultáneamente o un coro, considera el paquete de Producción con 4+ seguidores para cobertura completa del escenario." },
+        { question: "¿Cuánto espacio necesitan los operadores?", answer: "Cada operador necesita un punto elevado con línea de visión directa al escenario — generalmente al fondo del salón o en lados opuestos del venue. El equipo incluye tripies profesionales. Comparte el plano del venue y te indicamos las posiciones óptimas." },
+        { question: "¿Incluye colores diferentes para cada spotlight?", answer: "Sí. Cada spotlight tiene su propio set de geles de color. Puedes tener ambos en blanco para efecto limpio y profesional, o usar combinaciones de colores para un efecto más dramático. El equipo lo decide según el tipo de evento y lo que hayas coordinado previamente." },
+        { question: "¿Las 4 horas cubren toda la gala o solo partes?", answer: "Las 4 horas cubren toda la gala o show de forma continua. Los operadores permanecen disponibles durante ese tiempo — si hay momentos de pausa entre actos, simplemente apagan y esperan la siguiente señal del director o coordinador del evento." },
+      ]} />
+    </section>
+
+    <!-- Otros Paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Amplía la Producción o Combina Servicios"
+          subtitle="Desde una gala hasta un concierto — tenemos el equipo."
+          paragraph1="Si tu evento necesita más de dos ángulos o tienes múltiples protagonistas simultáneos, el paquete de Producción con 4+ seguidores es el siguiente nivel."
+          paragraph2="También puedes combinar los 2 seguidores con cabezas móviles para el ambiente y gobos con el logo de tu empresa para una producción corporativa completa."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu gala o show tenga producción nivel TV?</h2>
+          <p>Cuéntanos el tipo de evento, el venue y la fecha. Te armamos la propuesta de 2 seguidores en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Seguidor para Vals de Boda — 1 Momento Estelar CDMX | REDEIL";
+const description = "Un spotlight profesional para el vals, brindis o entrada de novios. Operador incluido. El momento más fotografiado de tu boda. $3,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/seguidor/paquete-momento-estelar/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Seguidor para 1 Momento Estelar — Vals de Boda",
+    "description": "Follow spot profesional con operador técnico para iluminar un momento específico: el vals de los novios, el brindis o la entrada triunfal. Incluye transporte, montaje, 1 hora de operación y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/seguidor/paquete-momento-estelar/",
+      "priceCurrency": "MXN",
+      "price": "3000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "95",
+      "reviewCount": "95"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Reyes" },
+        "datePublished": "2026-01-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el seguidor solo para el vals en nuestra boda en un jardín de Coyoacán. Cuando bajaron las luces y el spotlight encontró a los novios, el salón completo se paralizó. El fotógrafo dijo que fue la mejor luz que había tenido en años. Valió cada peso."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Gutiérrez" },
+        "datePublished": "2025-11-30",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para el brindis en nuestra boda en una hacienda de Tlalpan. El operador llegó 2 horas antes, coordinó todo con el DJ y en el momento exacto — perfecto. El video quedó espectacular. Muy profesionales."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Moreno" },
+        "datePublished": "2025-10-12",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo reservamos para la entrada de los novios al salón de fiestas. El efecto fue increíble — toda la gente volteó a verlos. El operador siguió cada paso a la perfección. Definitivamente lo recomiendo para cualquiera con presupuesto ajustado que quiera ese momento memorable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué momentos cubre el paquete de 1 momento estelar?", "acceptedAnswer": { "@type": "Answer", "text": "Cubre un solo momento específico: el vals de los novios, el brindis, la entrada triunfal al salón o el primer baile. La operación dura aproximadamente 1 hora, centrada en ese momento cumbre que quieres iluminar." }},
+      { "@type": "Question", "name": "¿El operador viene incluido en los $3,000?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $3,000 + IVA incluyen el follow spot profesional, el operador técnico, transporte, montaje, 1 hora de operación y desmontaje. El operador coordina con tu DJ o MC para encender en el momento exacto." }},
+      { "@type": "Question", "name": "¿Puedo agregar más momentos el día del evento?", "acceptedAnswer": { "@type": "Answer", "text": "Si necesitas cubrir más momentos (vals + brindis + pastel), el paquete de Recepción Completa ($5,000 + IVA) incluye 4 horas de operación continua. Es más conveniente reservarlo así desde el inicio." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Recepción Completa", image: "/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif", alt: "Seguidor iluminando recepción completa de boda", description: "4 horas continuas. Vals, brindis, pastel y ramo. El más pedido para bodas completas. $5,000 + IVA.", link: "/servicios/seguidor/paquete-recepcion-completa/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para boda", description: "Guirnaldas cálidas de ambiente + spotlight para el vals. La combinación más romántica de la temporada.", link: "/servicios/guirnaldas/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Los nombres proyectados en la pista + el spotlight siguiendo a los novios. Épico y muy fotografiado.", link: "/servicios/gobos/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo efecto nubes para boda", description: "Nubes en el piso + spotlight de vals. La combinación que detiene el tiempo en toda boda.", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Seguidor", href: "/servicios/seguidor/" },
+    { label: "1 Momento Estelar" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Seguidor para 1 Momento Estelar — Vals, Brindis o Entrada de Novios"
+      subtitle="$3,000 + IVA. Operador técnico incluido. El círculo de luz que congela el tiempo en tu boda."
+      introParagraph1='¿Solo necesitas iluminar el vals? ¿El brindis? ¿La entrada de los novios al salón? El paquete de 1 Momento Estelar está diseñado exactamente para eso: un follow spot profesional operado por un técnico experto, dedicado a ese único instante que será el centro de todas las fotos y el video de tu boda. En <strong>REDEIL</strong> llevamos más de 500 bodas iluminadas en CDMX y Estado de México con este efecto cinematográfico.'
+      introParagraph2='El operador llega 1-2 horas antes para montar el equipo en la posición óptima, hacer la prueba de enfoque y coordinar con tu DJ o maestro de ceremonias. En el momento exacto — cuando la canción del vals empieza — el spotlight se enciende y sigue cada paso de los novios con precisión milimétrica. El resultado: una fotografía de boda que parece sacada de una película y un recuerdo que todos los invitados recordarán por años.'
+    />
+
+    <CtaBar
+      headline="¿Necesitas cubrir más momentos?"
+      items={[
+        { label: "Recepción Completa — $5,000", href: "/servicios/seguidor/paquete-recepcion-completa/", icon: "iluminacion" },
+        { label: "2 Seguidores — $8,500", href: "/servicios/seguidor/paquete-2-seguidores/", icon: "iluminacion" },
+        { label: "Ver todos los paquetes", href: "/servicios/seguidor/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="1 Momento Estelar"
+        price="$3,000"
+        priceNote="+ IVA · Operador incluido"
+        features={[
+          { text: "Follow spot profesional 575W" },
+          { text: "Operador técnico incluido" },
+          { text: "Geles de color intercambiables" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Montaje y desmontaje" },
+          { text: "1 hora de operación" },
+          { text: "Coordinación con DJ/MC" },
+          { text: "Iris para ajuste de haz" },
+          { text: "Ideal: vals, brindis, entrada" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el seguidor para 1 momento estelar en mi boda."
+        packages={[
+          { label: "1 Momento Estelar", price: "$3,000", href: "/servicios/seguidor/paquete-momento-estelar/", active: true },
+          { label: "Recepción Completa", price: "$5,000", href: "/servicios/seguidor/paquete-recepcion-completa/" },
+          { label: "2 Seguidores", price: "$8,500", href: "/servicios/seguidor/paquete-2-seguidores/" },
+          { label: "Producción 4+", price: "$15,000", href: "/servicios/seguidor/paquete-produccion/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="¿Para qué momento exacto lo necesitas?"
+            subtitle="Un spotlight cambia completamente la emoción del instante."
+            paragraph1="El paquete de 1 Momento Estelar está optimizado para un solo momento cumbre de tu evento. No necesitas contratar horas que no vas a usar — si solo quieres el vals iluminado con un spotlight, este es tu paquete."
+            paragraph2="El operador profesional se enfoca en ese único instante y lo ejecuta a la perfección."
+          />
+          <FeatureGrid features={[
+            { title: "Vals de Novios", description: "El momento más fotografiado de toda boda. El spotlight sigue cada giro y cada paso con precisión." },
+            { title: "Entrada Triunfal", description: "Los novios entran al salón en la oscuridad y el spotlight los encuentra. El salón entero reacciona." },
+            { title: "Brindis del Padre", description: "El momento más emotivo de la noche, bien iluminado para el fotógrafo y el videógrafo." },
+            { title: "Primer Baile", description: "Ideal para bodas íntimas de hasta 80 personas donde un solo momento especial hace toda la diferencia." },
+            { title: "Bodas con Presupuesto Ajustado", description: "Obtén el efecto cinematográfico sin pagar por horas que no necesitas. Máximo impacto, mínima inversión." },
+            { title: "Bodas en Jardín o Hacienda", description: "El spotlight funciona tanto en espacios cerrados como en jardines y haciendas con luz baja ambiental." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que incluye el paquete"
+            subtitle="Todo en un precio. Sin costos ocultos."
+            paragraph1="Los $3,000 + IVA cubren desde que llegamos a montar hasta que desmontamos el equipo al final. El operador llega con tiempo para coordinarse con tu equipo."
+            paragraph2="El follow spot de 575W es suficiente para salones de hasta 400 personas. Si tu venue es más grande, contáctanos para recomendar la potencia ideal."
+          />
+          <FeatureGrid features={[
+            { title: "Follow spot 575W", description: "Potencia profesional para salones de hasta 400 invitados. Luz blanca, definida y controlada." },
+            { title: "Operador Técnico", description: "Con experiencia en teatro y eventos. Sigue cada movimiento con precisión en tiempo real." },
+            { title: "Geles de Color", description: "Blanco cálido, rosa, azul, ámbar — el color que mejor va con tu decoración y temática." },
+            { title: "Iris Ajustable", description: "El operador ajusta el tamaño del haz para que encuadre perfecto, sin luz de más." },
+            { title: "Coordinación Previa", description: "El operador habla con tu DJ antes del evento para saber exactamente la canción y la señal." },
+            { title: "Montaje Discreto", description: "El equipo se instala sin estorbar la decoración. Tripie profesional que se integra al espacio." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen quienes eligieron este paquete"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 95 reseñas."
+            paragraph1="Bodas íntimas, jardines, haciendas y salones — el efecto es el mismo: un momento que detiene el tiempo."
+            paragraph2="¿Tu evento se parece al de alguno de estos clientes? Pregúntanos cuando nos escribas."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Sofía Reyes", event: "Boda en jardín — Coyoacán", rating: 5, text: "Cuando bajaron las luces y el spotlight encontró a los novios, el salón entero se paralizó. El fotógrafo dijo que fue la mejor luz que había tenido en años. Valió cada peso." },
+            { name: "Roberto Gutiérrez", event: "Brindis boda — Hacienda Tlalpan", rating: 5, text: "El operador llegó 2 horas antes, coordinó todo con el DJ y en el momento exacto — perfecto. El video quedó espectacular. Muy profesionales." },
+            { name: "Daniela Moreno", event: "Entrada de novios — Salón de fiestas", rating: 5, text: "El efecto fue increíble — toda la gente volteó a verlos. El operador siguió cada paso a la perfección. Lo recomiendo para cualquiera que quiera ese momento memorable." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="El vals iluminado con spotlight — así se ve"
+          subtitle="Momentos reales capturados con follow spot profesional."
+          paragraph1="Cada foto es de un evento real en CDMX y Estado de México. El círculo de luz sobre los novios, la entrada al salón con confeti, el brindis iluminado — así se ve un momento estelar bien iluminado."
+          paragraph2="¿Tu venue es similar a alguno de estos? Mándanos fotos por WhatsApp y te decimos qué potencia de spotlight necesitas."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Novios bailando vals iluminados con seguidor en salón con candil" },
+          { src: "/img/seguidor/seguidor-primer-baile-boda-vestido-rosa-luz-morada.avif", alt: "Primer baile de boda con vestido rosa y luz morada del spotlight" },
+          { src: "/img/seguidor/luz-seguidor-boda-novios-baile-vestido-rosa.avif", alt: "Novios en baile de vals con spotlight profesional" },
+          { src: "/img/seguidor/luz-seguidor-boda-entrada-novios-confeti-puerta.avif", alt: "Entrada triunfal de novios con confeti iluminada con seguidor" },
+          { src: "/img/seguidor/luz-seguidor-brindis-boda-evento-corporativo.avif", alt: "Brindis de boda iluminado con spotlight follow spot" },
+          { src: "/img/seguidor/seguidor-boda-primer-baile-novios-candil-elegante.avif", alt: "Primer baile de novios con candil elegante y spotlight" },
+          { src: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w.avif", alt: "Seguidor HMI 1200W para primer baile de bodas" },
+          { src: "/img/seguidor/operador-seguidor-hmi-evento-boda-headset.avif", alt: "Operador de seguidor HMI con headset coordinando boda" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 1 Momento Estelar"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Si tu boda tiene más momentos que quieres iluminar, podemos recomendar el paquete más conveniente."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué momentos cubre este paquete?", answer: "Cubre un momento específico de tu evento: el vals de los novios, el brindis, la entrada triunfal al salón o el primer baile. La operación se concentra en esa única secuencia. Si necesitas cubrir varios momentos a lo largo de la noche, el paquete de Recepción Completa ($5,000 + IVA) es más conveniente." },
+        { question: "¿El operador viene incluido en los $3,000?", answer: "Sí. Los $3,000 + IVA incluyen el follow spot profesional 575W, el operador técnico, transporte del equipo, montaje, 1 hora de operación durante el evento y desmontaje al finalizar. No hay costos adicionales." },
+        { question: "¿Cómo coordina el operador con el DJ?", answer: "El operador llega 1-2 horas antes del evento, se presenta con tu DJ o maestro de ceremonias y acuerdan la señal. Cuando el DJ va a anunciar el vals, le da al operador 30 segundos de aviso. El spotlight se enciende en el momento exacto — nunca antes, nunca tarde." },
+        { question: "¿Funciona en jardines y espacios abiertos?", answer: "Sí, funciona perfectamente en jardines, haciendas y terrazas. El follow spot de 575W es potente para espacios abiertos de tamaño íntimo. Para jardines muy grandes o al aire libre sin techo, contacta para recomendar la potencia correcta." },
+        { question: "¿Se puede cambiar el color de la luz?", answer: "Sí. El operador lleva geles de color: blanco cálido (el clásico para bodas), rosa, azul, ámbar. Tú eliges el color según la temática de tu boda y el vestido de la novia. Se puede cambiar antes del evento según lo planeado." },
+        { question: "¿Con cuánta anticipación debo reservar?", answer: "Idealmente 2-3 semanas antes. En temporada alta (noviembre-enero, mayo-junio) las fechas se llenan rápido. Para fechas en fin de semana, entre antes reserves, mejor garantizas tu fecha." },
+      ]} />
+    </section>
+
+    <!-- Otros Paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="¿Quieres más momentos iluminados?"
+          subtitle="Amplía la cobertura o combina con otros servicios."
+          paragraph1="Si tu boda tiene varios momentos especiales — vals, brindis, pastel, ramo — el paquete de Recepción Completa te da 4 horas de seguidor sin preocuparte de contar minutos."
+          paragraph2="También puedes combinar el spotlight con humo bajo en el piso, gobos con tu monograma o guirnaldas de ambiente para una producción completa."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu vals sea el momento más emotivo de la noche?</h2>
+          <p>Cuéntanos la fecha, el venue y el momento que quieres iluminar. Te confirmamos disponibilidad en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

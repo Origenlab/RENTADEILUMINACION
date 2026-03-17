@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Seguidor para Recepción de Boda Completa CDMX | REDEIL";
+const description = "Spotlight profesional durante 4 horas de recepción. Vals, brindis, pastel, lanzamiento ramo. Operador 4h incluido. $5,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/seguidor/paquete-recepcion-completa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Seguidor para Recepción Completa de Boda — 4 Horas",
+    "description": "Follow spot profesional 1200W con operador técnico durante toda la recepción (4 horas). Cubre vals, brindis, corte de pastel, lanzamiento de ramo y todos los momentos de bodas y XV años. Incluye transporte, montaje, coordinación con DJ y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/seguidor/paquete-recepcion-completa/",
+      "priceCurrency": "MXN",
+      "price": "5000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "118",
+      "reviewCount": "118"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Fuentes" },
+        "datePublished": "2026-02-08",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Tuvimos 200 personas en una hacienda de Tepotzotlán. El seguidor estuvo presente en todos los momentos importantes: la entrada, el vals, el brindis, el pastel y hasta el lanzamiento del ramo. El operador fue increíblemente profesional — nunca perdió a los novios. Todas las fotos y el video quedaron perfectos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carmen Vargas" },
+        "datePublished": "2025-12-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo contratamos para los XV años de mi hija en un salón de Santa Fe. El seguidor la iluminó en el vals con su papá, el baile con los chambelanes y la sorpresa. Cada momento quedó perfectamente iluminado. El operador llegó puntual y coordinó todo sin problemas."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Torres" },
+        "datePublished": "2025-11-15",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra boda fue en un hotel del centro y el spotlight estuvo presente toda la recepción. Lo mejor fue que el operador coordinó con el DJ en tiempo real y cada vez que había un momento especial, el spotlight ya estaba listo. Sin duda el servicio que más emocionó a los invitados."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué momentos cubre el paquete de recepción completa?", "acceptedAnswer": { "@type": "Answer", "text": "Cubre todos los momentos especiales durante 4 horas: entrada de los novios, primer vals, brindis, corte de pastel, lanzamiento del ramo, baile de la quinceañera con chambelanes, sorpresas y cualquier momento que coordines con el operador. Es la cobertura completa para no perderte ningún instante." }},
+      { "@type": "Question", "name": "¿El paquete sirve también para XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es uno de los paquetes más solicitados para XV años. Cubre el vals con el papá, el baile de chambelanes, la sorpresa y todos los momentos especiales durante las 4 horas de fiesta." }},
+      { "@type": "Question", "name": "¿Cómo coordina el operador con el DJ durante 4 horas?", "acceptedAnswer": { "@type": "Answer", "text": "El operador llega 1-2 horas antes del evento, se reúne con el DJ y maestro de ceremonias y repasan juntos el programa de la noche. Usan comunicación por headset durante el evento para que el DJ avise con anticipación cada momento. El spotlight nunca llega tarde." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Momento Estelar", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor para un momento estelar de boda", description: "Solo necesitas iluminar el vals o el brindis. Un momento perfecto, un precio más accesible. $3,000 + IVA.", link: "/servicios/seguidor/paquete-momento-estelar/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para boda elegante", description: "Complementa el seguidor con beams de color. Ambiente completo para toda la recepción.", link: "/servicios/cabezas-moviles/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Su monograma proyectado en la pista + spotlight siguiéndolos mientras bailan sobre su nombre.", link: "/servicios/gobos/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo efecto nubes para vals de boda", description: "Las nubes en el piso + spotlight de vals. El efecto que más lloran de emoción los invitados.", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Seguidor", href: "/servicios/seguidor/" },
+    { label: "Recepción Completa" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Seguidor para Recepción Completa — 4 Horas, Todos los Momentos"
+      subtitle="$5,000 + IVA. Operador técnico 4 horas. Vals, brindis, pastel, ramo — todo cubierto."
+      introParagraph1='Las bodas y los XV años tienen muchos momentos especiales — no solo el vals. La entrada de los novios, el brindis del padre, el corte de pastel, el lanzamiento del ramo, la sorpresa de la quinceañera con sus chambelanes. El paquete de Recepción Completa te da un follow spot profesional con operador durante las 4 horas completas de tu recepción para que ningún instante se pierda sin ese spotlight cinematográfico. En <strong>REDEIL</strong> es nuestro paquete más solicitado — y el que más reseñas de 5 estrellas acumula.'
+      introParagraph2='El operador llega con anticipación, repasa el programa completo con tu DJ o maestro de ceremonias, y pasa toda la recepción en comunicación directa para anticipar cada momento. No hay sorpresas — el spotlight está listo antes de que el DJ anuncie. El equipo incluye un follow spot de 1200W con geles de color, iris ajustable y tripie profesional. Atendemos bodas, XV años, recepciones de todo tipo en toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar
+      headline="¿Quieres dos ángulos de luz simultáneos?"
+      items={[
+        { label: "2 Seguidores — $8,500", href: "/servicios/seguidor/paquete-2-seguidores/", icon: "iluminacion" },
+        { label: "1 Momento — $3,000", href: "/servicios/seguidor/paquete-momento-estelar/", icon: "iluminacion" },
+        { label: "Ver todos los paquetes", href: "/servicios/seguidor/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Recepción Completa"
+        price="$5,000"
+        priceNote="+ IVA · Operador 4 horas"
+        badge="Más popular"
+        features={[
+          { text: "Follow spot profesional 1200W" },
+          { text: "Operador técnico 4 horas" },
+          { text: "Geles de color + iris ajustable" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Montaje y desmontaje" },
+          { text: "4 horas de operación continua" },
+          { text: "Coordinación con DJ y MC" },
+          { text: "Todos los momentos cubiertos" },
+          { text: "Ideal: bodas completas, XV años" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el seguidor para recepción completa (4 horas) para mi boda."
+        packages={[
+          { label: "1 Momento Estelar", price: "$3,000", href: "/servicios/seguidor/paquete-momento-estelar/" },
+          { label: "Recepción Completa", price: "$5,000", href: "/servicios/seguidor/paquete-recepcion-completa/", active: true },
+          { label: "2 Seguidores", price: "$8,500", href: "/servicios/seguidor/paquete-2-seguidores/" },
+          { label: "Producción 4+", price: "$15,000", href: "/servicios/seguidor/paquete-produccion/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="Todos los momentos de tu recepción, iluminados"
+            subtitle="4 horas continuas. El operador no se mueve hasta que termines."
+            paragraph1="Una recepción de boda tiene entre 8 y 12 momentos especiales en 4 horas. El paquete de Recepción Completa cubre absolutamente todos — sin que tengas que preocuparte de cuánto tiempo lleva operando el spotlight."
+            paragraph2="El operador pasa toda la recepción en coordinación con tu DJ para saber exactamente qué sigue y cuándo."
+          />
+          <FeatureGrid features={[
+            { title: "Entrada de Novios", description: "El momento que marca el inicio de la fiesta. El spotlight los encuentra al cruzar la puerta." },
+            { title: "Primer Vals", description: "El momento más romántico y fotografiado. El spotlight sigue cada giro con precisión milimétrica." },
+            { title: "Brindis", description: "Cada discurso y brindis iluminado perfectamente para foto y video. Sin momentos oscuros." },
+            { title: "Corte de Pastel", description: "El novio y la novia iluminados en ese instante dulce que no debe perderse en las fotos." },
+            { title: "Lanzamiento de Ramo", description: "La novia iluminada con spotlight mientras lanza el ramo. La foto que todas las solteras quieren." },
+            { title: "Baile de Chambelanes (XV)", description: "La quinceañera y sus chambelanes iluminados desde el inicio hasta el final del baile sorpresa." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="¿Por qué es el más popular?"
+            subtitle="La tranquilidad de tenerlo todo cubierto no tiene precio."
+            paragraph1="Con el paquete de 1 Momento tienes que decidir de antemano qué momento iluminar y apegarte a eso. Con Recepción Completa, el operador está disponible para cualquier momento durante 4 horas — incluso los que no tenías planeados."
+            paragraph2="En bodas, siempre hay sorpresas: un brindis inesperado, un baile espontáneo, un momento emotivo que no estaba en el programa. Tener el spotlight disponible durante toda la recepción es el seguro de que ningún momento especial quede en las sombras."
+          />
+          <FeatureGrid features={[
+            { title: "Follow spot 1200W", description: "Mayor potencia que el paquete básico. Ideal para salones grandes y venues de 100-300 personas." },
+            { title: "4 Horas Continuas", description: "El operador permanece durante toda la recepción. Sin relojes, sin límites de tiempo." },
+            { title: "Comunicación Headset", description: "Operador y DJ en comunicación constante. El spotlight está listo siempre 30 segundos antes." },
+            { title: "Cambios de Color en Vivo", description: "El operador puede cambiar geles durante el evento: blanco para vals, rosa para la novia, azul para fiesta." },
+            { title: "Para Bodas de 80-300 Personas", description: "La potencia del 1200W cubre venues medianos y grandes sin perder la definición del haz." },
+            { title: "Coordinado con DJ y MC", description: "Una reunión previa garantiza que operador, DJ y maestro de ceremonias trabajen como un equipo." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 118 reseñas."
+            paragraph1="El paquete más contratado y el más elogiado. Bodas de 50 hasta 300 personas en salones, haciendas y jardines."
+            paragraph2="¿Tu boda se parece a alguna de estas? Pregúntanos cuando nos escribas."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Alejandra Fuentes", event: "Boda hacienda — Tepotzotlán (200 personas)", rating: 5, text: "El operador fue increíblemente profesional — nunca perdió a los novios en las 4 horas. Todos los momentos: entrada, vals, brindis, pastel y ramo. Todas las fotos quedaron perfectas." },
+            { name: "Carmen Vargas", event: "XV años — Salón Santa Fe", rating: 5, text: "El seguidor iluminó el vals con su papá, el baile con los chambelanes y la sorpresa. Cada momento perfectamente iluminado. El operador llegó puntual y coordinó todo sin problemas." },
+            { name: "Miguel Ángel Torres", event: "Boda — Hotel Centro Histórico", rating: 5, text: "Lo mejor fue que el operador coordinó con el DJ en tiempo real y cada vez que había un momento especial, el spotlight ya estaba listo. Sin duda el servicio que más emocionó a los invitados." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="4 horas de spotlight — así se ve una recepción completa"
+          subtitle="Bodas y XV años reales en CDMX y Estado de México."
+          paragraph1="Desde la entrada hasta el último baile — el follow spot presente en cada momento especial. Así se ve una recepción iluminada con spotlight profesional durante 4 horas continuas."
+          paragraph2="¿Boda en hacienda, salón o jardín? Mándanos fotos de tu venue y te decimos cómo quedaría la cobertura."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif", alt: "Vals de boda iluminado con spotlight en salón con candelabros" },
+          { src: "/img/seguidor/luz-seguidor-boda-pastel-novios-salon-azul.avif", alt: "Corte de pastel de boda iluminado con seguidor" },
+          { src: "/img/seguidor/luz-seguidor-brindis-boda-evento-corporativo.avif", alt: "Brindis de boda con spotlight follow spot" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vals-chambelan-vestido-rosa.avif", alt: "Vals de quinceañera con chambelán iluminado con seguidor" },
+          { src: "/img/seguidor/seguidor-xv-anos-baile-quinceañera-salon-elegante.avif", alt: "Baile de XV años en salón elegante con spotlight" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vestido-azul-salon-candelabros.avif", alt: "Quinceañera con vestido azul en salón con candelabros y seguidor" },
+          { src: "/img/seguidor/seguidor-vals-xv-anos-quinceañera.avif", alt: "Vals de XV años iluminado con seguidor profesional" },
+          { src: "/img/seguidor/seguidor-xv-anos-vals-quinceañera-vestido-rosa-tiara.avif", alt: "Quinceañera con vestido rosa y tiara en vals con spotlight" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Recepción Completa"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Dinos el número de invitados y el venue — te confirmamos la potencia de equipo que necesitas."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuántos momentos cubre en 4 horas?", answer: "Todos los que necesites. En 4 horas de recepción típicamente hay entre 8 y 12 momentos especiales: entrada, vals, primer brindis, brindis de padrinos, brindis del padre, corte de pastel, lanzamiento de ramo, liga, baile general. El operador está disponible para todos." },
+        { question: "¿Sirve también para XV años?", answer: "Sí, es uno de los paquetes más solicitados para XV años. Cubre el vals de la quinceañera con el padre, el cambio de zapatillas, el baile de chambelanes, la fiesta sorpresa y cualquier momento especial durante las 4 horas de celebración." },
+        { question: "¿Cómo coordina el operador con el DJ durante 4 horas?", answer: "El operador llega 1-2 horas antes del evento y repasa el programa completo con el DJ y el maestro de ceremonias. Durante la recepción usan comunicación por headset — el DJ avisa con 30 segundos de anticipación antes de cada momento. El spotlight nunca llega tarde." },
+        { question: "¿Para cuántos invitados funciona?", answer: "El follow spot de 1200W funciona para eventos de 50 hasta 300 personas en salones cerrados. Para haciendas de techo alto o jardines muy amplios, contacta para recomendar la potencia correcta sin costo adicional de asesoría." },
+        { question: "¿Puedo agregar un segundo seguidor?", answer: "Sí, el paquete Premium de 2 Seguidores ($8,500 + IVA) te da dos spotlights cruzados para cobertura desde dos ángulos simultáneos. Perfecto si tienes una producción más grande o quieres el efecto de TV." },
+        { question: "¿Hay cargo extra si la recepción se extiende más de 4 horas?", answer: "Si el evento se extiende, el operador puede continuar con cargo de hora adicional. Acuerda esto al contratar para que el operador lo tenga contemplado en su planificación del día." },
+      ]} />
+    </section>
+
+    <!-- Otros Paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El spotlight crea protagonistas — complementa el escenario."
+          paragraph1="El seguidor durante toda la recepción es el servicio base. Combínalo con humo bajo para el vals, gobos con el monograma en la pista y guirnaldas cálidas de ambiente para una producción completa."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la propuesta."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que cada momento de tu boda quede iluminado perfectamente?</h2>
+          <p>Cuéntanos la fecha, el venue y el número de invitados. Te confirmamos disponibilidad y te armamos la propuesta en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

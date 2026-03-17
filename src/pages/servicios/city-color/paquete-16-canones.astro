@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "16 Cañones City Color — Hacienda Completa CDMX | REDEIL";
+const description = "Hacienda completa iluminada con 16 cañones LED RGBW, 4 zonas independientes y operador DMX. Bodas grandes en CDMX. $12,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-color/paquete-16-canones/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 16 Cañones City Color — Hacienda Completa — REDEIL",
+    "description": "Renta de 16 cañones LED RGBW de alta potencia para iluminar haciendas completas con 4 zonas de color independientes. Incluye visita previa al venue, operador DMX principal y asistente, instalación y desmontaje. El paquete premium para bodas grandes en haciendas de la CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-color/paquete-16-canones/",
+      "priceCurrency": "MXN",
+      "price": "12000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "28",
+      "reviewCount": "28"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Fuentes" },
+        "datePublished": "2026-02-25",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda de 250 personas en una hacienda grande al sur de la Ciudad. Los 16 cañones iluminaron la fachada, el jardín, el salón y la fuente central — cada zona con su color. La visita previa fue fundamental para que todo quedara perfecto. Resultados de producción profesional a un precio muy razonable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Patricia Ruiz" },
+        "datePublished": "2026-01-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el paquete de 16 para la boda de nuestra hija. Queríamos que toda la hacienda estuviera iluminada y así fue — cada rincón tenía color. El operador fue increíble, supo cambiar los colores en cada momento sin que nadie se lo pidiera. Los invitados no paraban de tomar fotos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Marco Torres" },
+        "datePublished": "2025-10-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento corporativo de 200 asistentes en un venue de lujo. Necesitábamos que toda la instalación estuviera en los colores de nuestra marca. REDEIL hizo la visita técnica una semana antes y el día del evento todo estuvo impecable. Servicio de primer nivel."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-color/iluminacion-hacienda-evento-nocturno.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Para qué tipo de evento es el paquete de 16 cañones?", "acceptedAnswer": { "@type": "Answer", "text": "Es para bodas grandes en haciendas (200+ invitados), corporativos de alto perfil y cualquier evento donde quieras que TODA la hacienda esté iluminada — fachada, jardín, salón y áreas de detalle como fuentes o pasillos — cada zona con su propio color." }},
+      { "@type": "Question", "name": "¿Por qué incluye visita previa?", "acceptedAnswer": { "@type": "Answer", "text": "Con 16 cañones y 4 zonas independientes, la planificación de la distribución es crítica para que no queden puntos sin cobertura. La visita previa nos permite medir el espacio, identificar los puntos eléctricos, diseñar el plano de iluminación y programar el show de colores con anticipación. Garantiza un resultado perfecto." }},
+      { "@type": "Question", "name": "¿Qué son las 4 zonas de color independientes?", "acceptedAnswer": { "@type": "Answer", "text": "Dividimos los 16 cañones en 4 grupos controlados por separado: Zona 1 (fachada principal), Zona 2 (jardín/patio), Zona 3 (salón de recepción) y Zona 4 (áreas de detalle: fuente, columnas, accesos). Cada zona puede tener un color diferente y cambiar de forma independiente durante el evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "4 Cañones — Básico", image: "/img/city-color/city-color-fachada-hacienda-boda-400w.avif", alt: "4 cañones city color para boda íntima", description: "Fachada frontal o salón pequeño. Bodas íntimas y quinceaños compactos. $4,000 + IVA.", link: "/servicios/city-color/paquete-4-canones/" },
+  { title: "8 Cañones — Más Popular", image: "/img/city-color/renta-city-color-boda-romantica-400w.avif", alt: "8 cañones city color para boda hacienda", description: "Fachada completa + salón. El favorito para bodas en hacienda. 2 zonas. $7,000 + IVA.", link: "/servicios/city-color/paquete-8-canones/" },
+  { title: "Producción — 24+ Cañones", image: "/img/city-color/renta-city-color-show-luces.avif", alt: "Producción de city color para festival", description: "Festivales, conciertos y escenarios de TV. Coreografía de color sincronizada. $18,000 + IVA.", link: "/servicios/city-color/paquete-produccion/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker al cielo nocturno", description: "Hacienda completa iluminada + haces de luz al cielo. La producción más impactante de la noche.", link: "/servicios/sky-tracker/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Color", href: "/servicios/city-color/" },
+    { label: "16 Cañones" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 16 Cañones — Hacienda Completa Iluminada con City Color"
+    subtitle="$12,000 + IVA. 4 zonas de color independientes. Visita previa incluida. Operador DMX + asistente."
+    introParagraph1='Cuando quieres que toda la hacienda cuente una historia de color — no solo la fachada, sino también el jardín, la fuente, los pasillos y el salón — necesitas 16 cañones. Este paquete premium incluye <strong>16 cañones LED RGBW de alta potencia</strong> distribuidos en <strong>4 zonas de color completamente independientes</strong>. La fachada puede estar en dorado, el jardín en azul, el salón en blanco cálido y los accesos en lila — todo al mismo tiempo, todo controlado en tiempo real.'
+    introParagraph2='Incluye <strong>visita técnica previa al venue</strong> para diseñar el plano de iluminación, identificar puntos eléctricos y programar el show de colores con anticipación. El equipo del día del evento son dos personas: operador DMX principal y asistente técnico. Para bodas de 200+ invitados, corporativos de alto perfil y cualquier evento donde el nivel de la iluminación no puede estar a medias. Cobertura en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes"
+    items={[
+      { label: "4 Cañones — $4,000", href: "/servicios/city-color/paquete-4-canones/", icon: "iluminacion" },
+      { label: "8 Cañones — $7,000", href: "/servicios/city-color/paquete-8-canones/", icon: "iluminacion" },
+      { label: "24+ Producción — $18,000", href: "/servicios/city-color/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza tu Evento", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete 16 Cañones"
+      price="$12,000"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "16 cañones LED RGBW alta potencia" },
+        { text: "4 zonas de color independientes" },
+        { text: "Visita técnica previa al venue" },
+        { text: "Operador DMX + asistente técnico" },
+        { text: "Diseño de plano de iluminación" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Montaje profesional completo" },
+        { text: "Operación durante todo el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Certificación IP65 exteriores" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 16 cañones City Color para mi evento en hacienda."
+      packages={[
+        { label: "4 cañones", price: "$4,000", href: "/servicios/city-color/paquete-4-canones/" },
+        { label: "8 cañones", price: "$7,000", href: "/servicios/city-color/paquete-8-canones/" },
+        { label: "16 cañones", price: "$12,000", href: "/servicios/city-color/paquete-16-canones/", active: true },
+        { label: "Producción", price: "$18,000", href: "/servicios/city-color/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="4 zonas independientes — control total del color"
+          subtitle="Cada zona tiene su canal DMX, su color, su momento."
+          paragraph1="La diferencia entre el paquete de 8 cañones y el de 16 no es solo cantidad — es dimensión. Con 16 cañones y 4 zonas independientes, tienes control granular sobre cada área de tu hacienda. El operador puede ajustar el color de cualquier zona sin afectar las demás."
+          paragraph2="Diseñamos el plano de zonas durante la visita previa según tu hacienda específica. Un plan típico para hacienda colonial: Zona 1 fachada principal, Zona 2 jardín lateral, Zona 3 bóveda del salón, Zona 4 fuente y accesos. Pero cada hacienda es diferente y cada plan se adapta."
+        />
+        <FeatureGrid features={[
+          { title: "Zona 1 — Fachada Principal", description: "La entrada y frente de la hacienda. El primer impacto visual para los invitados." },
+          { title: "Zona 2 — Jardín y Patio", description: "Áreas verdes, pérgolas y pasillos entre jardín y salón." },
+          { title: "Zona 3 — Salón de Recepción", description: "Bóveda, muros o fondo del salón principal. El escenario de la cena y el baile." },
+          { title: "Zona 4 — Detalles y Accesos", description: "Fuente, columnas, arcos de entrada, corredores. Los detalles que completan la imagen." },
+          { title: "Corporativos 200+ Personas", description: "Venues de lujo con branding visual en todas las áreas. Color de marca en cada zona." },
+          { title: "Bodas de Gran Escala", description: "Para los novios que quieren que cada metro cuadrado de la hacienda sea parte de la producción." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="La visita previa: el secreto del resultado perfecto"
+          subtitle="Nunca improvisamos en una hacienda que no conocemos."
+          paragraph1="El paquete de 16 cañones incluye una visita técnica al venue con al menos una semana de anticipación. En esa visita medimos cada área, identificamos las tomas eléctricas disponibles, probamos ángulos de proyección y diseñamos el plano definitivo de distribución."
+          paragraph2="La visita también sirve para programar el show de colores: qué zona enciende primero, cuándo cambia el color, cuál es la configuración para la ceremonia y cuál para la fiesta. El día del evento, el equipo llega con todo preparado — solo instalar, probar y ejecutar."
+        />
+        <FeatureGrid features={[
+          { title: "Medición de Espacios", description: "Dimensiones exactas de cada zona para calcular la cobertura de cada cañón." },
+          { title: "Análisis Eléctrico", description: "Identificamos tomas disponibles y planificamos extensiones para cero improvisaciones." },
+          { title: "Plano de Distribución", description: "Documento con la posición exacta de cada cañón. Lo comparte con el venue." },
+          { title: "Programación Previa", description: "El show de colores se programa antes del evento. El operador solo ejecuta el día." },
+          { title: "Coordinación con el Venue", description: "Coordinamos con el coordinador del salón para que no haya conflictos de espacio." },
+          { title: "Plan de Contingencia", description: "Si algo cambia el día del evento, el operador tiene protocolos de ajuste rápido." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Opiniones de clientes con eventos grandes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 28 reseñas."
+          paragraph1="Quienes contratan 16 cañones son clientes que saben lo que quieren: producción profesional, resultado sin margen de error."
+          paragraph2="Si estás organizando un evento de este nivel, escríbenos para agendar la visita previa lo antes posible."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandra Fuentes", event: "Boda — Hacienda al Sur CDMX, 250 invitados", rating: 5, text: "Los 16 cañones iluminaron la fachada, el jardín, el salón y la fuente — cada zona con su color. La visita previa fue fundamental para que todo quedara perfecto. Resultados de producción profesional a un precio muy razonable." },
+          { name: "Patricia Ruiz", event: "Boda familiar — Hacienda completa CDMX", rating: 5, text: "Queríamos que toda la hacienda estuviera iluminada y así fue — cada rincón tenía color. El operador supo cambiar los colores en cada momento sin que nadie se lo pidiera. Los invitados no paraban de tomar fotos." },
+          { name: "Ing. Marco Torres", event: "Corporativo — Venue de lujo, 200 asistentes", rating: 5, text: "Toda la instalación en los colores de nuestra marca. REDEIL hizo la visita técnica una semana antes y el día del evento todo estuvo impecable. Servicio de primer nivel." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Haciendas completas iluminadas en 4 zonas"
+        subtitle="Fachada, jardín, salón y fuente — cada área con su color."
+        paragraph1="Estas imágenes muestran el nivel de cobertura que logra el paquete de 16 cañones. No es una fachada iluminada — es una hacienda completa transformada, con cada zona contando su parte de la historia visual del evento."
+        paragraph2="¿Tienes fotos de tu hacienda o venue? Compártelas al WhatsApp y diseñamos el plano de iluminación personalizado sin costo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-color/iluminacion-hacienda-evento-nocturno.avif", alt: "Hacienda completa iluminada en evento nocturno con 16 cañones" },
+        { src: "/img/city-color/iluminacion-patio-hacienda-colonial.avif", alt: "Patio colonial con múltiples zonas de city color" },
+        { src: "/img/city-color/renta-luces-hacienda-boda-fuente.avif", alt: "Fuente de hacienda iluminada zona 4 city color" },
+        { src: "/img/city-color/luces-boda-hacienda-mexicana.avif", alt: "Hacienda mexicana con iluminación completa para boda" },
+        { src: "/img/city-color/renta-iluminacion-eventos-nocturnos.avif", alt: "Evento nocturno con cobertura total de city color" },
+        { src: "/img/city-color/luces-fachada-edificio-moderno-azul-400w.avif", alt: "Fachada moderna iluminada en azul con cañones RGBW" },
+        { src: "/img/city-color/renta-luces-evento-corporativo-azul.avif", alt: "Corporativo con iluminación azul en todas las zonas" },
+        { src: "/img/city-color/iluminacion-rgbw-eventos-especiales-400w.avif", alt: "RGBW en evento especial con 4 zonas independientes" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 16 Cañones"
+        subtitle="Resuelve tus dudas antes de agendar la visita previa."
+        paragraph1="Este paquete es para quienes no quieren dejar nada a la improvisación. Todas las dudas técnicas las resolvemos en la visita previa."
+        paragraph2="Escríbenos con el nombre de tu hacienda o venue para darte información específica sobre ese espacio."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Para qué tamaño de evento es el paquete de 16 cañones?", answer: "Está diseñado para bodas grandes de 150-300 invitados en haciendas completas, corporativos de alto perfil en venues de lujo, y cualquier evento donde se quiera cobertura total del venue con múltiples zonas de color. Si tu hacienda tiene fachada, jardín, salón y fuente, este es el paquete." },
+      { question: "¿La visita previa tiene costo adicional?", answer: "No. La visita técnica previa está incluida en el precio de $12,000 + IVA. Es parte de nuestro proceso para garantizar el resultado. La realizamos con al menos una semana de anticipación al evento." },
+      { question: "¿Qué diferencia hay entre el operador de 16 vs el de 8 cañones?", answer: "El paquete de 16 incluye operador DMX principal más asistente técnico. Con 4 zonas independientes y más cañones que gestionar, dos personas garantizan que ningún ajuste tarde en ejecutarse. En eventos muy dinámicos, el segundo técnico monitorea el equipo mientras el operador gestiona el show." },
+      { question: "¿Se puede iluminar también el jardín y la fuente?", answer: "Sí. Con 16 cañones y 4 zonas, diseñamos la distribución para cubrir todas las áreas relevantes de tu hacienda. La fuente, los jardines, los pasillos y los corredores pueden tener su zona de iluminación. Todo se define en la visita previa." },
+      { question: "¿Qué pasa si el venue no tiene suficientes tomas eléctricas?", answer: "Lo detectamos en la visita previa. Si las tomas son insuficientes, llevamos extensiones y distribuidores certificados. Para venues sin acceso a toma eléctrica suficiente, podemos incluir un generador silencioso a un costo adicional. Nunca dejamos el equipo sin energía el día del evento." },
+      { question: "¿Se puede combinar con sky tracker o cabezas móviles?", answer: "Sí, es una combinación muy poderosa para bodas y corporativos grandes. La hacienda completa iluminada con 16 cañones de city color, más un sky tracker cortando el cielo, más cabezas móviles para el show durante la fiesta — producción profesional completa. Armamos el paquete combinado con precio especial." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="Complementa o escala tu producción de iluminación."
+        paragraph1="Si tu evento crece más allá de una hacienda y entra al territorio de festivales y grandes escenarios, el paquete de producción de 24+ cañones es el siguiente paso."
+        paragraph2="También combinamos los 16 cañones con sky tracker para haces al cielo, uplighting arquitectónico para detalles finos y cabezas móviles para el show de la fiesta."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu hacienda merece iluminación completa?</h2>
+        <p>Escríbenos el nombre de tu venue y la fecha del evento. Agendamos la visita técnica previa y diseñamos el plano de iluminación personalizado para tu hacienda.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Agendar Visita Previa</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

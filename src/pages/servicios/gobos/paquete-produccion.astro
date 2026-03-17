@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Gobos Producción — Branding Completo para Eventos CDMX | REDEIL";
+const description = "6+ gobos con branding completo del venue. Logos a color, patrones y proyecciones múltiples para corporativos en CDMX. $12,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/gobos/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Gobos Producción — Branding Completo para Eventos — REDEIL",
+    "description": "6 o más gobos con branding completo del venue. Logos a color, patrones decorativos y proyecciones múltiples simultáneas para lanzamientos de marca, galas corporativas y congresos en CDMX. Incluye visita previa, diseño gráfico, operador técnico y producción completa.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/gobos/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "12000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "21",
+      "reviewCount": "21"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Fuentes" },
+        "datePublished": "2026-02-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lanzamos una marca nacional con el paquete de producción de 8 gobos. El logo de la marca proyectado en 4 puntos del venue más patrones decorativos en paredes y piso — la coherencia visual fue total. REDEIL llegó con un equipo completo y ejecutó perfectamente. Fue un lanzamiento que todos recuerdan."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Domínguez" },
+        "datePublished": "2026-01-15",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra empresa de tecnología organizó una gala anual con 6 gobos de producción. El branding visual del venue fue impresionante — desde la entrada hasta el escenario, todo proyectaba los colores y el logo de la empresa. El nivel de profesionalismo de REDEIL es comparable con producción internacional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Dra. Patricia Leal" },
+        "datePublished": "2025-11-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para nuestro congreso médico anual de 500 asistentes usamos el paquete de producción. 6 gobos con el logo del congreso y los patrones institucionales transformaron completamente el venue en un espacio de marca reconocible. Excelente coordinación con el equipo de producción del evento."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/gobos/proyector-gobo-marca-evento-corporativo.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es el paquete de Producción de gobos?", "acceptedAnswer": { "@type": "Answer", "text": "Es el servicio más completo de REDEIL: 6 o más gobos metálicos y de vidrio full color para cubrir un venue completo con branding coherente. Incluye visita previa al venue, diseño gráfico de todos los gobos, fabricación, montaje con equipo técnico completo y operación durante el evento. Ideal para lanzamientos de marca, galas corporativas y congresos." }},
+      { "@type": "Question", "name": "¿Cuántos gobos incluye el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete base incluye 6 gobos (combinación de metálicos y de vidrio según las necesidades del evento). Para eventos más grandes con más superficies de proyección, podemos escalar a 8, 10 o más gobos. El precio base es $12,000 + IVA para 6 gobos — cotizamos adicionales según el alcance." }},
+      { "@type": "Question", "name": "¿Incluye visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, el paquete de producción incluye visita técnica previa obligatoria. Nuestro director técnico visita el venue para medir ángulos, identificar superficies de proyección, planificar la distribución de los equipos y garantizar que el día del evento todo funcione perfectamente desde el primer momento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Gobo — Pista de Baile", image: "/img/gobos/renta-gobo-monograma-pista-baile-400w.avif", alt: "1 gobo para pista de baile", description: "Proyección de nombres o iniciales en pista de baile. Para bodas íntimas. $2,500 + IVA.", link: "/servicios/gobos/paquete-1-gobo/" },
+  { title: "2 Gobos — Pista y Entrada", image: "/img/gobos/gobo-proyeccion-monograma-boda-elegante-400w.avif", alt: "2 gobos pista y entrada en boda", description: "El más pedido para bodas completas. Proyección doble simultánea. $4,500 + IVA.", link: "/servicios/gobos/paquete-2-gobos/" },
+  { title: "4 Gobos Full Color", image: "/img/gobos/proyeccion-logotipo-gobo-fiesta-corporativa-400w.avif", alt: "4 gobos full color para eventos premium", description: "2 metálicos + 2 de vidrio full color. Logos, fotos y diseños a color. $7,500 + IVA.", link: "/servicios/gobos/paquete-4-gobos/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting arquitectónico para eventos", description: "Complemento perfecto para producción completa. Uplighting en columnas y fachada + gobos en piso y paredes.", link: "/servicios/iluminacion-arquitectonica/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Gobos", href: "/servicios/gobos/" },
+    { label: "Paquete Producción" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Gobos Producción — Branding Completo del Venue con 6+ Proyecciones"
+    subtitle="Desde $12,000 + IVA. Logos a color, patrones y proyecciones múltiples. Visita previa incluida."
+    introParagraph1='Cuando el evento exige que el branding esté presente en cada rincón del venue — desde la entrada hasta el escenario, desde el piso hasta las columnas — el paquete de Producción es el único nivel que lo logra. Con 6 o más gobos activos simultáneamente, transformamos cualquier espacio en un ambiente de marca inmersivo. Logos a color en paredes del escenario, patrones decorativos en pisos, proyecciones en accesos, columnas y áreas de networking — todo coordinado bajo un solo concepto visual. En <strong>REDEIL</strong> ejecutamos producción de este nivel para lanzamientos nacionales, galas de empresa y congresos internacionales.'
+    introParagraph2='El precio base de <strong>$12,000 + IVA</strong> incluye 6 gobos (metálicos y de vidrio full color según diseño), proyectores de alta potencia, visita técnica previa obligatoria, diseño gráfico de todos los gobos, equipo técnico completo para montaje y operación, y desmontaje al finalizar. Para eventos con más de 6 puntos de proyección cotizamos según el alcance. Si tu evento necesita que la marca se vea en todos lados — este es el paquete.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes"
+    items={[
+      { label: "1 Gobo — $2,500", href: "/servicios/gobos/paquete-1-gobo/", icon: "iluminacion" },
+      { label: "2 Gobos — $4,500", href: "/servicios/gobos/paquete-2-gobos/", icon: "iluminacion" },
+      { label: "4 Gobos — $7,500", href: "/servicios/gobos/paquete-4-gobos/", icon: "iluminacion" },
+      { label: "Cotiza Producción", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Completa"
+      price="$12,000"
+      priceNote="+ IVA · 6+ gobos"
+      features={[
+        { text: "6+ gobos (metálicos + vidrio)" },
+        { text: "Full color y diseños complejos" },
+        { text: "6+ proyectores de alta potencia" },
+        { text: "Visita técnica previa al venue" },
+        { text: "Diseño gráfico profesional incluido" },
+        { text: "Branding completo del venue" },
+        { text: "Equipo técnico completo" },
+        { text: "Director técnico en el evento" },
+        { text: "Montaje, operación y desmontaje" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de producción de gobos para mi evento."
+      packages={[
+        { label: "1 Gobo", price: "$2,500", href: "/servicios/gobos/paquete-1-gobo/" },
+        { label: "2 Gobos", price: "$4,500", href: "/servicios/gobos/paquete-2-gobos/" },
+        { label: "4 Gobos", price: "$7,500", href: "/servicios/gobos/paquete-4-gobos/" },
+        { label: "Producción", price: "$12,000", href: "/servicios/gobos/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Branding total: el venue habla por tu marca"
+          subtitle="6+ proyecciones activas. Cada superficie del venue, en tu identidad."
+          paragraph1="En un lanzamiento de marca o gala corporativa, el venue tiene que respirar la identidad de tu empresa desde que los asistentes entran. Un banner no lo logra. Una pantalla tampoco. Las proyecciones de gobo sí — porque la luz que lleva tu logo cubre la pared entera, el piso del escenario, las columnas del hall y la entrada principal al mismo tiempo."
+          paragraph2="El paquete de Producción comienza con una visita técnica donde levantamos un plano de proyección — identificamos cada superficie, medimos ángulos y distancias, y diseñamos la distribución de los 6+ equipos para máximo impacto visual con coherencia de marca."
+        />
+        <FeatureGrid features={[
+          { title: "Lanzamientos de Marca", description: "Logo y colores de marca en todas las superficies del venue. Experiencia inmersiva de 360°." },
+          { title: "Galas Corporativas", description: "Branding de empresa en escenario, áreas de networking, hall y accesos. Imagen premium." },
+          { title: "Congresos y Conferencias", description: "Identidad visual del congreso proyectada en todas las áreas. Profesionalismo institucional." },
+          { title: "Festivales y Ferias", description: "Marca del evento proyectada en múltiples puntos. Navegación visual para los asistentes." },
+          { title: "Producciones de TV y Cine", description: "Gobos para sets de filmación, backdrops y escenarios de presentación en vivo." },
+          { title: "Bodas de Ultra Lujo", description: "Ambientación visual completa — nombres, patrones decorativos y colores en todo el venue." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="El proceso de producción"
+          subtitle="Visita previa → Diseño → Fabricación → Montaje → Operación."
+          paragraph1="La producción de este nivel no se improvisa. Todo comienza con una visita técnica al venue donde levantamos el plano de proyección, medimos superficies y planificamos la distribución exacta de los equipos. Con esos datos, nuestro equipo de diseño crea el arte de cada gobo y lo presenta para aprobación."
+          paragraph2="El día del evento llegamos con tiempo suficiente para un montaje ordenado y profesional. Un director técnico supervisa cada proyección y ajusta posición, enfoque y potencia en tiempo real durante el evento. Al finalizar, desmontamos todo sin dejar rastro."
+        />
+        <FeatureGrid features={[
+          { title: "Visita Técnica Previa", description: "Levantamiento de plano, medición de superficies y planificación de proyecciones en el venue real." },
+          { title: "Diseño Gráfico Incluido", description: "Arte de todos los gobos — metálicos y de vidrio. Presentación digital para aprobación previa." },
+          { title: "Fabricación 7-10 días", description: "Producción de los gobos de vidrio full color en taller especializado con aprobación previa." },
+          { title: "Equipo Técnico Completo", description: "2-3 técnicos para montaje y 1 director técnico presente durante todo el evento." },
+          { title: "Coordinación con Producción", description: "Coordinamos con el productor general del evento para timing, accesos y logística técnica." },
+          { title: "Desmontaje Ordenado", description: "Recogemos todo el equipo al finalizar. Sin daños al venue, sin basura, sin problemas." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 21 reseñas."
+          paragraph1="El paquete de Producción es para eventos donde la iluminación tiene que estar a la altura del presupuesto y la visión del cliente."
+          paragraph2="Cuéntanos tu evento y te hacemos una propuesta con plano de proyección incluido."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandra Fuentes", event: "Lanzamiento de marca nacional — CDMX", rating: 5, text: "8 gobos, coherencia visual total. El logo proyectado en 4 puntos del venue más patrones en paredes y piso — REDEIL llegó con equipo completo y ejecutó perfectamente. Un lanzamiento que todos recuerdan." },
+          { name: "Carlos Domínguez", event: "Gala tech empresarial — Polanco", rating: 5, text: "Gala anual con 6 gobos de producción. Desde la entrada hasta el escenario, todo proyectaba los colores y logo de la empresa. El nivel de profesionalismo es comparable con producción internacional." },
+          { name: "Dra. Patricia Leal", event: "Congreso médico — 500 asistentes", rating: 5, text: "6 gobos con logo del congreso y patrones institucionales transformaron el venue en un espacio de marca reconocible. Excelente coordinación con el equipo de producción del evento." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Así se ve la producción completa de gobos"
+        subtitle="Branding total, logos a color y patrones en venues de gran formato."
+        paragraph1="Estos son eventos reales donde REDEIL ejecutó producción completa de gobos. La diferencia entre un evento con producción de gobos y uno sin ella es inmediata — el espacio se convierte en una experiencia de marca."
+        paragraph2="¿Ya tienes el venue definido? Mándanos las fotos y te presentamos un plano de proyección con las posiciones sugeridas para cada gobo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/gobos/proyector-gobo-marca-evento-corporativo.avif", alt: "Proyector de gobo para marca en evento corporativo grande" },
+        { src: "/img/gobos/gobos-eventos-proyectar-marca-personalizada.avif", alt: "Gobos proyectando marca personalizada en evento" },
+        { src: "/img/gobos/proyeccion-gobo-empresa-iluminacion-marca.avif", alt: "Proyección de gobo para iluminación de marca corporativa" },
+        { src: "/img/gobos/gobo-proyector-logo-empresa-corporativo.avif", alt: "Proyector de gobo con logo de empresa corporativa" },
+        { src: "/img/gobos/alquiler-gobo-proyeccion-marca-empresa.avif", alt: "Alquiler de gobo con proyección de marca empresarial" },
+        { src: "/img/gobos/renta-gobos-proyeccion-logotipo-evento.avif", alt: "Renta de gobos con proyección de logotipo para evento" },
+        { src: "/img/gobos/proyeccion-logotipo-gobo-fiesta-corporativa.avif", alt: "Proyección de logotipo con gobo en fiesta corporativa" },
+        { src: "/img/gobos/proyector-gobo-logotipo-corporativo.avif", alt: "Proyector de gobo con logotipo corporativo en producción" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Producción"
+        subtitle="Todo sobre la producción completa de gobos para eventos de gran formato."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Agenda una llamada con nuestro director técnico para planificar tu producción."
+        paragraph2="Para eventos de este nivel recomendamos contactarnos con al menos 4 semanas de anticipación."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye exactamente el paquete de Producción?", answer: "El paquete base a $12,000 + IVA incluye 6 gobos (combinación de metálicos y de vidrio full color), proyectores de alta potencia, visita técnica previa al venue, diseño gráfico de todos los gobos, equipo de 2-3 técnicos para montaje, director técnico presente durante el evento y desmontaje. Para más de 6 gobos, cotizamos adicionales según el alcance." },
+      { question: "¿Con cuánto tiempo debo contactarlos para producción?", answer: "Recomendamos iniciar el proceso con mínimo 4 semanas de anticipación: 1 semana para visita técnica y diseño, 1-2 semanas para fabricación de gobos de vidrio full color y aprobaciones, y 1 semana de margen antes del evento. Para producciones de más de 8 gobos, 6-8 semanas." },
+      { question: "¿Pueden coordinar con mi productor general de eventos?", answer: "Sí, de hecho es parte del proceso estándar. Nuestro director técnico se coordina directamente con el productor general para logística de acceso al venue, timing de montaje, requerimientos eléctricos y cualquier detalle técnico que necesite sincronizarse con la producción general del evento." },
+      { question: "¿Qué pasa si el venue tiene paredes de color oscuro?", answer: "Las paredes oscuras reducen el brillo percibido de la proyección. En la visita técnica evaluamos las superficies y recomendamos proyectores de mayor potencia si es necesario, o ajustamos la estrategia de proyección para usar superficies más claras o agregar equipos adicionales. Nunca llegamos al evento sin tener esto resuelto." },
+      { question: "¿Pueden integrar video mapping o proyección dinámica?", answer: "Para video mapping (imágenes en movimiento, video) necesitamos proyectores de video con mediana de imagen, que es un servicio diferente al de gobos. Los gobos son imágenes fijas de alta calidad proyectadas con intensidad superior. Si necesitas video mapping, lo cotizamos por separado y podemos coordinar ambos servicios para el mismo evento." },
+      { question: "¿El precio incluye los diseños de marca o necesito entregar el arte?", answer: "El precio incluye diseño gráfico — pero trabajamos mejor cuando el cliente tiene un manual de marca o los elementos clave (logo vectorial, colores Pantone/hex, tipografías). Si no tienes nada, nuestro equipo crea los elementos desde cero. Si tienes el arte listo, el proceso es más rápido y el resultado más fiel a tu identidad de marca." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas menos gobos o complementar la producción?"
+        paragraph1="Si tu evento no requiere producción completa, tenemos paquetes desde 1 hasta 4 gobos. Y para producción integral, combinamos gobos con iluminación arquitectónica, cabezas móviles y seguidor."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para producción de gobos de alto nivel?</h2>
+        <p>Cuéntanos el evento, el venue y la visión de marca. Nuestro director técnico te llama y te presenta una propuesta con plano de proyección y cotización detallada.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Iniciar Producción — Cotiza</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

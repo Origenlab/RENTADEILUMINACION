@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción con 4+ Seguidores para Conciertos CDMX | REDEIL";
+const description = "4+ follow spots profesionales para conciertos, festivales y producciones de TV en CDMX. Equipo de operadores incluido. $15,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/seguidor/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Producción con 4+ Seguidores para Conciertos y Festivales",
+    "description": "4 o más follow spots profesionales de alta potencia con equipo de operadores técnicos para conciertos, festivales de música, producciones de televisión y eventos con múltiples artistas simultáneos en CDMX. Incluye visita previa de producción, logística completa, plataformas de operación, coordinación con dirección de escena.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/seguidor/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "15000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "23",
+      "reviewCount": "23"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Fernando Escobedo" },
+        "datePublished": "2025-11-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos un festival de música independiente en el Foro Tlalpan con 4 bandas en cartel. Los 6 seguidores de REDEIL cubrieron cada artista durante sus sets sin ningún hueco. La coordinación entre operadores fue impecable — el jefe de iluminación de REDEIL se integró con nuestro director de escena desde los ensayos. Profesionalismo total."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marco Antonio Ibarra" },
+        "datePublished": "2025-09-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Concierto privado en auditorio de 800 personas en Polanco. Contratamos 4 seguidores de 2500W para 2 artistas principales y su banda. Los operadores conocían el set list de antemano y los cambios de seguimiento fueron fluidos y precisos. El nivel de producción que logramos se acercó a lo que ves en Televisa Auditorio."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Prod. Jimena Alcántara" },
+        "datePublished": "2025-08-14",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción para un especial de TV grabado en estudio. Los 4 seguidores de REDEIL se integraron perfectamente con nuestra iluminación de set. El equipo entendió desde el primer día las necesidades técnicas de televisión — temperatura de color, ángulos de cámara y movimientos coordinados con el director de fotografía."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/seguidor/luz-seguidor-concierto-cantante-microfono-vintage.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántos seguidores incluye el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete base de producción incluye 4 follow spots profesionales de alta potencia (1200W-2500W según el venue) con 4 operadores técnicos. Para festivales o producciones más grandes, podemos escalar a 6, 8 o más equipos según las necesidades específicas del show." }},
+      { "@type": "Question", "name": "¿Trabajan con directores de escena y directores de fotografía?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para producciones de TV y conciertos formales, nuestro jefe de iluminación se integra al equipo de producción desde la etapa de ensayos. Coordinamos con el director de escena o director de fotografía para que los seguimientos de spotlight sean parte del plan técnico del show." }},
+      { "@type": "Question", "name": "¿El paquete incluye visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para producciones de esta escala, realizamos una visita técnica previa al venue para determinar las posiciones óptimas de los spotlights, las plataformas de operación necesarias y el plan de cables y energía. Esta visita es parte del servicio — sin costo adicional." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "2 Seguidores", image: "/img/seguidor/luz-seguidor-gala-premiacion-pasarela-operadores.avif", alt: "2 seguidores para gala corporativa", description: "Para galas y shows íntimos. Dos ángulos cruzados con efecto nivel TV. $8,500 + IVA.", link: "/servicios/seguidor/paquete-2-seguidores/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para concierto", description: "Beams y wash de color para el ambiente del concierto + seguidores para los artistas. Producción completa.", link: "/servicios/cabezas-moviles/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas para festival", description: "Iluminación de ambiente para festivales al aire libre. Complemento perfecto para los spotlights.", link: "/servicios/guirnaldas/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo logo para festival o concierto", description: "Proyecta el logo del festival o el nombre del artista en el escenario. Branding en cada foto.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Seguidor", href: "/servicios/seguidor/" },
+    { label: "Producción 4+" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Producción con 4+ Seguidores — Conciertos, Festivales y TV en CDMX"
+      subtitle="$15,000 + IVA. 4+ follow spots de alta potencia. Equipo de operadores. Logística completa de producción."
+      introParagraph1='Cuando el show tiene múltiples artistas en escena simultáneamente, un solista que se mueve entre el foro y el público, o cuando las cámaras de TV van a capturar cada movimiento — necesitas una producción de follow spots a la altura. El paquete de Producción de <strong>REDEIL</strong> incluye 4 o más seguidores profesionales de alta potencia (de 1200W a 2500W según el venue), un equipo completo de operadores técnicos y un jefe de iluminación que se integra con tu dirección de escena desde los ensayos.'
+      introParagraph2='Operamos equipos <strong>Robert Juliat Lancelot</strong> y <strong>Strong Super Trouper</strong> — los follow spots de referencia en televisión, conciertos masivos y producciones de escena a nivel internacional. En CDMX hemos cubierto festivales en foros abiertos, conciertos en auditorios privados de hasta 2,000 personas y grabaciones para televisión donde la precisión técnica no admite error. La visita previa al venue es parte del servicio — llegamos a la producción con el plan ya definido.'
+    />
+
+    <CtaBar
+      headline="¿Necesitas cotización para tu producción?"
+      items={[
+        { label: "2 Seguidores — $8,500", href: "/servicios/seguidor/paquete-2-seguidores/", icon: "iluminacion" },
+        { label: "Ver todos los paquetes", href: "/servicios/seguidor/", icon: "iluminacion" },
+        { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+        { label: "Cotiza tu Producción", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Producción 4+ Seguidores"
+        price="$15,000"
+        priceNote="+ IVA · Equipo completo incluido"
+        features={[
+          { text: "4+ follow spots alta potencia" },
+          { text: "Equipo de operadores técnicos" },
+          { text: "Jefe de iluminación de producción" },
+          { text: "Visita técnica previa al venue" },
+          { text: "Coordinación con dirección escena" },
+          { text: "Plataformas de operación elevadas" },
+          { text: "Geles, iris y efectos especiales" },
+          { text: "Plan técnico de seguimientos" },
+          { text: "Logística completa de producción" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de producción con 4+ seguidores para mi evento."
+        packages={[
+          { label: "1 Momento Estelar", price: "$3,000", href: "/servicios/seguidor/paquete-momento-estelar/" },
+          { label: "Recepción Completa", price: "$5,000", href: "/servicios/seguidor/paquete-recepcion-completa/" },
+          { label: "2 Seguidores", price: "$8,500", href: "/servicios/seguidor/paquete-2-seguidores/" },
+          { label: "Producción 4+", price: "$15,000", href: "/servicios/seguidor/paquete-produccion/", active: true },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="¿Para qué tipo de producción es este paquete?"
+            subtitle="Cuando la escala del evento exige una solución profesional de múltiples equipos."
+            paragraph1="El paquete de Producción está diseñado para eventos donde un solo spotlight — o incluso dos — no es suficiente. Conciertos con múltiples artistas, festivales con cambios de set, grabaciones de TV y producciones donde la iluminación es parte del diseño del show."
+            paragraph2="Con 4 o más seguidores y un equipo coordinado, cubrimos cualquier movimiento en el escenario desde múltiples ángulos simultáneamente."
+          />
+          <FeatureGrid features={[
+            { title: "Conciertos en Auditorio", description: "2+ artistas principales + músicos de banda. Cobertura completa del escenario durante todo el show." },
+            { title: "Festivales de Música", description: "Múltiples actos en cartel con cambios de set. El equipo se adapta a cada artista y estilo." },
+            { title: "Producciones de TV", description: "Follow spots coordinados con el director de fotografía. Temperatura de color calibrada para cámara." },
+            { title: "Shows con Coreografías", description: "Bailarines y artistas con movimientos amplios por el escenario. Los spotlights nunca los pierden." },
+            { title: "Galas de Gran Escala", description: "Premiaciones o ceremonias con muchos premiados. Cada persona en el escenario perfectamente iluminada." },
+            { title: "Teatro de Gran Formato", description: "Producciones teatrales con elenco completo donde el diseño de iluminación es parte del show." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="El proceso de producción de REDEIL"
+            subtitle="No llegamos el día del evento — llegamos antes para planificar."
+            paragraph1="Para producciones de esta escala, el proceso empieza semanas antes del evento. Visita técnica al venue, reunión con el director de escena, plan de seguimientos por canción o acto, prueba de equipo en el espacio."
+            paragraph2="El día del evento, el equipo de REDEIL llega con todo definido. No improvisamos en producción — ejecutamos el plan con precisión."
+          />
+          <FeatureGrid features={[
+            { title: "1. Visita Técnica al Venue", description: "Evaluamos dimensiones, altura, posiciones de operadores, puntos de luz y acceso a energía." },
+            { title: "2. Reunión de Producción", description: "Nos integramos con el director de escena o de fotografía para alinear el plan técnico." },
+            { title: "3. Plan de Seguimientos", description: "Definimos quién sigue a quién, desde qué ángulo y qué colores en cada momento del show." },
+            { title: "4. Prueba de Equipo", description: "Calibramos los spotlights en el espacio real. Sin sorpresas el día del evento." },
+            { title: "5. Briefing del Equipo", description: "Todos los operadores conocen el plan antes de que empiece el show. Ejecución coordinada." },
+            { title: "6. Ejecución en Vivo", description: "El jefe de iluminación coordina en tiempo real. Los operadores ejecutan el plan con adaptaciones en vivo." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen productores y organizadores"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 23 reseñas de producción."
+            paragraph1="Festivales, conciertos privados y producciones de TV — el paquete para cuando la calidad de producción no es negociable."
+            paragraph2="¿Tu producción se parece a alguna de estas? Cuéntanos cuando nos escribas."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Lic. Fernando Escobedo", event: "Festival de música — Foro Tlalpan", rating: 5, text: "Los 6 seguidores cubrieron cada artista durante sus sets sin ningún hueco. La coordinación entre operadores fue impecable — el jefe de iluminación de REDEIL se integró con nuestro director de escena desde los ensayos." },
+            { name: "Marco Antonio Ibarra", event: "Concierto privado — Auditorio Polanco (800 pax)", rating: 5, text: "Los operadores conocían el set list de antemano y los cambios de seguimiento fueron fluidos y precisos. El nivel de producción que logramos se acercó a lo que ves en Televisa Auditorio." },
+            { name: "Prod. Jimena Alcántara", event: "Especial de TV — Estudio grabación CDMX", rating: 5, text: "Los 4 seguidores de REDEIL se integraron perfectamente con nuestra iluminación de set. El equipo entendió desde el primer día las necesidades técnicas de televisión — temperatura de color y ángulos para cámara." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Producciones reales con 4+ seguidores en CDMX"
+          subtitle="Conciertos, festivales y shows con follow spots profesionales."
+          paragraph1="Cada imagen muestra una producción real con múltiples seguidores. El nivel de iluminación que distingue un concierto amateur de uno profesional — los follow spots siguiendo a cada artista desde ángulos calculados."
+          paragraph2="¿Tu producción necesita esta escala? Cuéntanos las dimensiones del venue y el número de artistas para armar la propuesta correcta."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/luz-seguidor-concierto-cantante-microfono-vintage.avif", alt: "Cantante en concierto iluminado con spotlight follow spot" },
+          { src: "/img/seguidor/seguidor-concierto-cantante-microfono-escenario.avif", alt: "Artista en escenario de concierto con seguidor de luz" },
+          { src: "/img/seguidor/luz-seguidor-gala-operadores-plataforma-candil.avif", alt: "Operadores de seguidor en plataformas elevadas para producción" },
+          { src: "/img/seguidor/seguidor-gala-premiacion-pasarela-operadores.avif", alt: "Premiación con múltiples seguidores y operadores en pasarela" },
+          { src: "/img/seguidor/luz-seguidor-graduacion-diploma-universidad.avif", alt: "Graduación universitaria con spotlight de producción" },
+          { src: "/img/seguidor/seguidor-graduacion-ceremonia-estudiante-toga.avif", alt: "Ceremonia de graduación con seguidor profesional" },
+          { src: "/img/seguidor/luz-seguidor-teatro-actor-escenario-monologo.avif", alt: "Actor en escenario de teatro iluminado con follow spot" },
+          { src: "/img/seguidor/seguidor-teatro-actor-monologo-escenario-negro.avif", alt: "Monólogo de teatro en escenario negro con spotlight" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Producción con 4+ Seguidores"
+          subtitle="Todo lo que necesitas saber antes de cotizar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Para producciones de gran escala, también podemos agendar una llamada técnica con el jefe de producción."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuántos seguidores incluye el paquete?", answer: "El paquete base incluye 4 follow spots con 4 operadores. Para festivales o producciones más grandes, podemos escalar a 6, 8 o más equipos. El precio de $15,000 + IVA es para 4 seguidores — los equipos adicionales tienen precio por unidad." },
+        { question: "¿Trabajan con directores de escena y directores de fotografía?", answer: "Sí. Para producciones de TV y conciertos formales, nuestro jefe de iluminación se integra al equipo de producción desde los ensayos. Coordinamos con el director de escena o director de fotografía para que los seguimientos sean parte del plan técnico del show." },
+        { question: "¿El paquete incluye visita previa al venue?", answer: "Sí. Para producciones de esta escala, realizamos una visita técnica previa para determinar posiciones óptimas de los spotlights, plataformas de operación necesarias y plan de cables. Esta visita es parte del servicio sin costo adicional." },
+        { question: "¿Qué potencia de equipos manejan?", answer: "Manejamos follow spots de 1200W para auditorios medianos y 2500W para espacios grandes o al aire libre. Los equipos Robert Juliat Lancelot y Strong Super Trouper son el estándar en televisión y conciertos profesionales. La potencia exacta se determina en la visita técnica." },
+        { question: "¿Pueden coordinarse con el equipo de iluminación ya contratado?", answer: "Sí. Si tu producción ya tiene un diseñador de iluminación o un sistema de control de luces, nuestro equipo se integra y coordina. Los operadores de seguidor trabajan bajo las indicaciones del jefe de iluminación general del evento." },
+        { question: "¿Con cuánta anticipación debo contratar?", answer: "Para producciones de esta escala, recomendamos reservar con al menos 4-6 semanas de anticipación para coordinar la visita técnica, reunión de producción y prueba de equipo antes del evento. Para festivales o grabaciones de TV, entre más tiempo, mejor." },
+      ]} />
+    </section>
+
+    <!-- Otros Paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Producción"
+          subtitle="Los seguidores iluminan a los artistas — el resto crea el ambiente."
+          paragraph1="Los follow spots se enfocan en los protagonistas. Para una producción completa, complementa con cabezas móviles para los beams y wash de color, gobos con el logo del festival y guirnaldas para el área del público."
+          paragraph2="Armamos propuestas de producción integral con precio especial cuando combinas múltiples servicios. Cuéntanos tu show."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Tu concierto o festival merece producción profesional?</h2>
+          <p>Cuéntanos el tipo de show, el venue y la fecha. Agendamos una reunión técnica y te armamos la propuesta completa.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Producción</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

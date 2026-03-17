@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "4 Gobos Full Color para Bodas Premium CDMX | REDEIL";
+const description = "2 gobos metálicos + 2 de vidrio full color con logo o foto a color. Diseño profesional incluido. Bodas premium CDMX. $7,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/gobos/paquete-4-gobos/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "4 Gobos Full Color para Bodas Premium — REDEIL",
+    "description": "2 gobos metálicos + 2 de vidrio full color con logo o foto a color. Diseño profesional incluido. Cuatro proyectores profesionales, montaje completo y operación para bodas premium y corporativos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/gobos/paquete-4-gobos/",
+      "priceCurrency": "MXN",
+      "price": "7500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "35",
+      "reviewCount": "35"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernanda Ríos" },
+        "datePublished": "2026-01-25",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos los 4 gobos para una gala corporativa de 300 personas. Los 2 de vidrio con el logo de la empresa a color en las paredes del escenario fueron espectaculares — parecía producción de televisión. El diseño gráfico que hicieron fue exactamente lo que necesitábamos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Isabel Pedraza" },
+        "datePublished": "2025-12-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para nuestra boda de lujo en hacienda usamos el paquete de 4 gobos. Los 2 metálicos con nuestros nombres en la pista y 2 de vidrio con patrones florales dorados en las columnas. El resultado fue mágico — cada ángulo del salón era una foto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Torres" },
+        "datePublished": "2025-11-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lanzamiento de marca con 4 gobos — los 2 de vidrio proyectaban el logo a color en toda la pared del fondo y los 2 metálicos creaban patrones en el piso del área de networking. El equipo de REDEIL entendió exactamente lo que necesitábamos para el branding del evento."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/gobos/proyeccion-logotipo-gobo-fiesta-corporativa.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué diferencia hay entre gobo metálico y gobo de vidrio?", "acceptedAnswer": { "@type": "Answer", "text": "El gobo metálico proyecta siluetas en un solo color — ideal para nombres, iniciales y patrones geométricos. El gobo de vidrio proyecta diseños full color con fotos, logos a color, degradados y detalles finos. El paquete de 4 gobos combina 2 de cada tipo para máxima versatilidad." }},
+      { "@type": "Question", "name": "¿Se puede proyectar el logo de mi empresa a color?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, con los gobos de vidrio full color. Necesitamos el logotipo en alta resolución y lo fabricamos en vidrio de color. El resultado es tu logo proyectado con todos sus colores en la pared o piso — mucho más impactante que cualquier banner o pantalla." }},
+      { "@type": "Question", "name": "¿El diseño gráfico de los gobos está incluido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete de 4 gobos incluye diseño gráfico profesional. Nuestro equipo trabaja contigo para crear el arte de cada gobo — tanto los metálicos como los de vidrio full color. Solo necesitamos los elementos que quieres proyectar: logos, nombres, fotos, tipografía." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Gobo — Solo Pista", image: "/img/gobos/renta-gobo-monograma-pista-baile-400w.avif", alt: "1 gobo para pista de baile en boda íntima", description: "Proyección de nombres o iniciales en pista de baile. Ideal para bodas íntimas hasta 80 personas. $2,500 + IVA.", link: "/servicios/gobos/paquete-1-gobo/" },
+  { title: "2 Gobos — Pista y Entrada", image: "/img/gobos/gobo-proyeccion-monograma-boda-elegante-400w.avif", alt: "2 gobos para pista y entrada en boda", description: "El más pedido para bodas completas. Nombres en pista + monograma en entrada. $4,500 + IVA.", link: "/servicios/gobos/paquete-2-gobos/" },
+  { title: "Producción — 6+ Gobos", image: "/img/gobos/proyector-gobo-marca-evento-corporativo-400w.avif", alt: "Producción completa con 6 o más gobos", description: "Branding completo del venue. Logos a color, patrones y múltiples proyecciones para lanzamientos. $12,000 + IVA.", link: "/servicios/gobos/paquete-produccion/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams para eventos", description: "Las cabezas Spot tienen gobos giratorios integrados. Combina proyección fija + dinámica en el mismo evento.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Gobos", href: "/servicios/gobos/" },
+    { label: "4 Gobos Full Color" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="4 Gobos — 2 Metálicos + 2 Full Color para Bodas Premium y Corporativos"
+    subtitle="Desde $7,500 + IVA. Gobos de vidrio con logo o foto a color. Diseño profesional incluido."
+    introParagraph1='Cuando la personalización tiene que ir más allá de los nombres en blanco, el paquete de 4 gobos es la respuesta. Dos gobos metálicos para proyecciones clásicas en pista de baile y accesos, más dos gobos de vidrio full color que pueden proyectar tu logotipo corporativo con todos sus colores, una foto, un patrón decorativo complejo o diseños con degradados. En <strong>REDEIL</strong> fabricamos los 4 gobos con tu arte — incluyendo el diseño gráfico si lo necesitas.'
+    introParagraph2='Este paquete es el preferido para <strong>bodas de lujo</strong> donde se quiere ambientación visual completa, <strong>eventos corporativos de gala</strong> con branding fuerte, y <strong>lanzamientos de marca</strong> donde el logo tiene que lucir impecable. El paquete de <strong>$7,500 + IVA</strong> incluye 4 proyectores profesionales, fabricación de las 4 plantillas, diseño gráfico, transporte, montaje y operación. Las 4 plantillas son tuyas al finalizar.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes"
+    items={[
+      { label: "1 Gobo — $2,500", href: "/servicios/gobos/paquete-1-gobo/", icon: "iluminacion" },
+      { label: "2 Gobos — $4,500", href: "/servicios/gobos/paquete-2-gobos/", icon: "iluminacion" },
+      { label: "Producción — $12,000", href: "/servicios/gobos/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="4 Gobos Mixtos"
+      price="$7,500"
+      priceNote="+ IVA · Diseño incluido"
+      features={[
+        { text: "2 gobos metálicos personalizados" },
+        { text: "2 gobos de vidrio full color" },
+        { text: "4 proyectores profesionales" },
+        { text: "Diseño gráfico incluido" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y enfoque de 4 proyecciones" },
+        { text: "Operador técnico en el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Las 4 plantillas son tuyas" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 4 gobos full color para mi evento."
+      packages={[
+        { label: "1 Gobo", price: "$2,500", href: "/servicios/gobos/paquete-1-gobo/" },
+        { label: "2 Gobos", price: "$4,500", href: "/servicios/gobos/paquete-2-gobos/" },
+        { label: "4 Gobos", price: "$7,500", href: "/servicios/gobos/paquete-4-gobos/", active: true },
+        { label: "Producción", price: "$12,000", href: "/servicios/gobos/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="2 metálicos + 2 de vidrio: lo mejor de los dos mundos"
+          subtitle="Siluetas precisas donde quieres contraste. Color donde quieres impacto."
+          paragraph1="Los gobos metálicos proyectan siluetas perfectas — nombres, iniciales, fechas y patrones con bordes nítidos. Los gobos de vidrio añaden la dimensión del color — logos corporativos con sus colores de marca, fotos, diseños complejos con degradados. Combinados, cubren cualquier necesidad visual de tu evento."
+          paragraph2="La distribución más común: 2 metálicos en pista de baile y acceso, 2 de vidrio en paredes del escenario o columnas. Pero cada venue es diferente — diseñamos la distribución según tu espacio."
+        />
+        <FeatureGrid features={[
+          { title: "Logo a Color en Pared", description: "El logotipo de tu empresa proyectado con todos sus colores. Superior a cualquier banner o pantalla." },
+          { title: "Fotos Proyectadas", description: "Con gobo de vidrio puedes proyectar fotos de los novios, diseños con imagen y tipografía combinados." },
+          { title: "Patrones Decorativos", description: "Diseños florales, geométricos o abstractos en color que transforman paredes y pisos." },
+          { title: "Nombres + Color", description: "2 metálicos con nombres en pista y acceso, 2 de vidrio con patrones de color en columnas." },
+          { title: "Bodas de Lujo", description: "Ambientación visual completa con 4 puntos de proyección activos durante toda la noche." },
+          { title: "Corporativos de Gala", description: "Branding completo del escenario. Logo + colores de marca en todas las superficies clave." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Gobos de vidrio full color: tecnología superior"
+          subtitle="Diseños complejos, múltiples colores, fotos — proyectados con luz."
+          paragraph1="Un gobo de vidrio no es simplemente un recorte — es una imagen pintada en vidrio óptico que permite proyectar colores, degradados y fotografías con detalle sorprendente. La resolución es suficiente para ver texto pequeño, logotipos complejos y fotos reconocibles proyectadas en gran formato."
+          paragraph2="Necesitamos tu logo en vectores o foto en alta resolución. Si el arte no existe en la calidad necesaria, nuestro equipo de diseño lo crea o lo adapta. El resultado final siempre se aprueba contigo antes de fabricar."
+        />
+        <FeatureGrid features={[
+          { title: "Full Color", description: "Múltiples colores y degradados. Reproduce el logotipo exactamente como en tu manual de marca." },
+          { title: "Fotografías", description: "Fotos de los novios, retratos y composiciones proyectadas en gran formato sobre paredes." },
+          { title: "Vectores y Logos", description: "Logotipos corporativos con todos sus colores y detalles finos bien definidos." },
+          { title: "Diseño Incluido", description: "Si no tienes arte en alta calidad, nuestro equipo lo crea o adapta sin costo adicional." },
+          { title: "Aprobación Digital", description: "Ves el arte digital antes de que fabriquemos el gobo. Sin sorpresas el día del evento." },
+          { title: "7-10 días de fabricación", description: "Los gobos de vidrio requieren 7-10 días hábiles por su proceso de manufactura más complejo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 35 reseñas."
+          paragraph1="El paquete de 4 gobos es el favorito de eventos premium que buscan producción visual de alto nivel."
+          paragraph2="Cuéntanos tu evento y te decimos exactamente cómo distribuiríamos las 4 proyecciones."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Fernanda Ríos", event: "Gala corporativa — 300 personas", rating: 5, text: "Los 2 de vidrio con el logo a color en las paredes del escenario fueron espectaculares — parecía producción de televisión. El diseño que hicieron fue exactamente lo que necesitábamos." },
+          { name: "Isabel Pedraza", event: "Boda de lujo en hacienda — CDMX", rating: 5, text: "2 metálicos con nuestros nombres en la pista y 2 de vidrio con patrones florales dorados en las columnas. El resultado fue mágico — cada ángulo del salón era una foto perfecta." },
+          { name: "Miguel Ángel Torres", event: "Lanzamiento de marca — Polanco", rating: 5, text: "El logo a color en la pared del fondo y los patrones en el piso del área de networking. El equipo de REDEIL entendió exactamente lo que necesitábamos para el branding del evento." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Así se ven 4 gobos en un evento premium"
+        subtitle="Full color, logos y patrones en bodas de lujo y corporativos."
+        paragraph1="Estas fotos muestran eventos con proyecciones de color, logos y diseños complejos. Con 4 proyectores activos, el nivel visual del evento cambia completamente — de elegante a producción de alto nivel."
+        paragraph2="Mándanos tu logo o diseño por WhatsApp y te enviamos una simulación de cómo se vería proyectado en tu venue."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/gobos/proyeccion-logotipo-gobo-fiesta-corporativa.avif", alt: "Logotipo proyectado con gobo en fiesta corporativa" },
+        { src: "/img/gobos/proyector-gobo-logotipo-corporativo.avif", alt: "Proyector de gobo con logotipo corporativo" },
+        { src: "/img/gobos/gobo-personalizado-proyeccion-logo-empresa.avif", alt: "Logo de empresa proyectado con gobo personalizado" },
+        { src: "/img/gobos/gobo-personalizado-proyectar-logo-empresa.avif", alt: "Gobo personalizado proyectando logotipo en evento" },
+        { src: "/img/gobos/proyeccion-gobo-empresa-iluminacion-marca.avif", alt: "Proyección de gobo para iluminación de marca empresarial" },
+        { src: "/img/gobos/proyector-gobo-marca-evento-corporativo.avif", alt: "Proyector de gobo para marca en evento corporativo" },
+        { src: "/img/gobos/alquiler-gobo-proyeccion-marca-empresa.avif", alt: "Alquiler de gobo con proyección de marca de empresa" },
+        { src: "/img/gobos/alquiler-gobo-logotipo-proyectado-fiesta.avif", alt: "Logotipo proyectado con gobo en fiesta" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 4 Gobos"
+        subtitle="Todo sobre la combinación de gobos metálicos y full color."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Te asesoramos sobre la mejor combinación para tu evento."
+        paragraph2="Podemos visitar el venue previamente para planificar las 4 proyecciones con máxima precisión."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete de 4 gobos a $7,500?", answer: "Incluye fabricación de 2 gobos metálicos y 2 gobos de vidrio full color, 4 proyectores profesionales, diseño gráfico de los 4 gobos incluido, transporte, montaje y enfoque de las 4 proyecciones, operador técnico durante el evento y desmontaje. Las 4 plantillas son tuyas al finalizar." },
+      { question: "¿Qué necesito entregar para los gobos de vidrio full color?", answer: "Necesitamos el logotipo en vectores (AI, EPS o PDF de alta resolución) o la fotografía en alta resolución (mínimo 2000px). Si no tienes arte en la calidad necesaria, nuestro equipo lo crea o adapta. Siempre apruebas el arte digital antes de fabricar." },
+      { question: "¿Cuánto tiempo tarda la fabricación de los 4 gobos?", answer: "Los gobos metálicos tardan 5-7 días hábiles. Los de vidrio full color, 7-10 días hábiles. Recomendamos tener todos los diseños aprobados con al menos 2 semanas de anticipación para trabajar cómodamente." },
+      { question: "¿Puedo elegir qué proyectar en cada uno de los 4 gobos?", answer: "Sí, cada gobo es independiente. La combinación más común es: 2 metálicos con nombres de novios (pista y acceso) + 2 de vidrio con logo o patrón decorativo (paredes del escenario). Pero puedes elegir cualquier combinación según las necesidades de tu evento." },
+      { question: "¿Los gobos de vidrio se ven bien en exteriores?", answer: "Se ven bien en exteriores semi-oscuros — jardines nocturnos, terrazas con poca luz ambiental, patios de hacienda. En exteriores con mucha luz ambiental la proyección se debilita. Para exteriores recomendamos proyectores de mayor potencia, que cotizamos por separado si es necesario." },
+      { question: "¿Este paquete incluye visita previa al venue?", answer: "Sí. El paquete de 4 gobos incluye visita técnica previa para planificar la distribución exacta de los 4 proyectores. Esto garantiza que todas las proyecciones estén perfectamente posicionadas el día del evento." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Quieres más proyecciones o una producción completa?"
+        paragraph1="Si tu evento requiere 6 o más proyecciones para cubrir el venue completo, el paquete de Producción es el siguiente nivel. Para producción integral de iluminación, combinamos gobos con cabezas móviles, seguidor e iluminación arquitectónica."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para llevar tu evento al siguiente nivel?</h2>
+        <p>Mándanos tu logo, el diseño que quieres proyectar y las fotos del venue. Te diseñamos la distribución de las 4 proyecciones y cotizamos todo en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Enviar Diseño — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
