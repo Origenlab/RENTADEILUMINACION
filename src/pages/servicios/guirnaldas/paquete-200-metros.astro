@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete 200 Metros Guirnaldas para Eventos Grandes CDMX — $11,500 + IVA | REDEIL";
+const description = "200 metros de guirnaldas Edison para bodas grandes, corporativos y haciendas amplias. Dimmer incluido. Asesoría en sitio. Instalación profesional IP65.";
+const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/paquete-200-metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete 200 Metros — Guirnaldas Edison Premium",
+    "description": "200 metros lineales de guirnaldas Edison con dimmer para control de intensidad. Para bodas grandes, corporativos y haciendas amplias en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "11500", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "34", "reviewCount": "34" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Grupo Financiero Banorte" }, "datePublished": "2026-03-01", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "REDEIL iluminó nuestra cena de fin de año corporativa en una hacienda de Metepec. 200 metros cubrieron toda la finca. La posibilidad de controlar la intensidad con dimmer fue clave para las distintas etapas del evento." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Alejandra Ruiz" }, "datePublished": "2026-01-10", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Nuestra boda tuvo 250 invitados en una finca en Huixquilucan. Los 200 metros cubrieron ceremonia, cocktail, cena y pista de baile. La visita previa fue esencial para el diseño. Resultado espectacular." }
+    ]
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿200 metros cubren todo el venue?", "acceptedAnswer": { "@type": "Answer", "text": "200 metros cubren fincas y haciendas de hasta 300m² con múltiples zonas: ceremonia, cocktail, cena y pista. Para venues más grandes, el paquete de 500 metros es la opción." }},
+      { "@type": "Question", "name": "¿Qué es el dimmer y para qué sirve?", "acceptedAnswer": { "@type": "Answer", "text": "El dimmer permite ajustar la intensidad de las guirnaldas. Útil para bajar la luz durante el vals, subirla para la cena, y crear transiciones suaves entre momentos del evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Estándar — 100m", image: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "100 metros para bodas", description: "El más pedido para bodas. Ceremonia + recepción hasta 120 invitados. $6,500 + IVA.", link: "/servicios/guirnaldas/paquete-100-metros/" },
+  { title: "Producción — 500m", image: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif", alt: "500 metros para festival", description: "Festivales, ferias y venues masivos. Producción completa con plantas de luz. $24,000 + IVA.", link: "/servicios/guirnaldas/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor para vals", description: "Spotlight para el vals y momentos importantes. El complemento que eleva cualquier producción.", link: "/servicios/seguidor/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con logo", description: "Proyecta el logo de tu empresa o los nombres de los novios. Ideal para corporativos y bodas premium.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Guirnaldas", href: "/servicios/guirnaldas/" },
+    { label: "Paquete 200 metros" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete 200 Metros — Guirnaldas Premium para Eventos Grandes"
+      subtitle="$11,500 + IVA. Dimmer incluido. Asesoría en sitio. Para 200+ invitados en haciendas, fincas y venues amplios."
+      introParagraph1='Cuando tu evento necesita cobertura completa de iluminación decorativa, 200 metros de guirnaldas Edison transforman haciendas, fincas y venues amplios en espacios espectaculares. Este paquete incluye <strong>dimmer para control de intensidad</strong> — baja la luz para el vals, súbela para la cena, crea transiciones suaves entre cada momento.'
+      introParagraph2='Ideal para bodas de 200+ invitados, cenas corporativas de fin de año, lanzamientos de producto en hacienda y eventos de gala. Incluye asesoría en sitio antes del evento — nuestro equipo visita tu venue para diseñar la distribución óptima según las estructuras del espacio. Atendemos Metepec, Toluca, Huixquilucan, Naucalpan y toda la zona metropolitana.'
+    />
+
+    <CtaBar
+      headline="Compara paquetes"
+      items={[
+        { label: "50m — $3,500", href: "/servicios/guirnaldas/paquete-50-metros/", icon: "iluminacion" },
+        { label: "100m — $6,500", href: "/servicios/guirnaldas/paquete-100-metros/", icon: "iluminacion" },
+        { label: "500m — $24,000", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete Premium"
+        price="$11,500"
+        priceNote="+ IVA · Dimmer incluido"
+        features={[
+          { text: "200 metros lineales" },
+          { text: "Focos Edison LED o vintage" },
+          { text: "Dimmer control de intensidad" },
+          { text: "Certificación IP65 lluvia" },
+          { text: "Transporte + montaje + desmontaje" },
+          { text: "Diseño personalizado" },
+          { text: "Asesoría en sitio (visita previa)" },
+          { text: "Coordinación con planner/decorador" },
+          { text: "Cobertura: 200+ invitados" },
+          { text: "Zonas múltiples incluidas" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de 200 metros de guirnaldas para mi evento."
+        packages={[
+          { label: "50 metros", price: "$3,500", href: "/servicios/guirnaldas/paquete-50-metros/" },
+          { label: "100 metros", price: "$6,500", href: "/servicios/guirnaldas/paquete-100-metros/" },
+          { label: "200 metros", price: "$11,500", href: "/servicios/guirnaldas/paquete-200-metros/", active: true },
+          { label: "500 metros", price: "$24,000", href: "/servicios/guirnaldas/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="Para venues que necesitan cobertura total"
+            subtitle="Haciendas, fincas, venues corporativos y bodas de escala."
+            paragraph1="200 metros permiten iluminar múltiples zonas de un mismo venue sin interrupciones visuales. Ceremonia, cocktail, cena, pista de baile, pasillos — todo conectado por un hilo de luz cálida."
+            paragraph2="El dimmer incluido te permite crear atmósferas diferentes durante la noche: luz tenue durante el vals, más brillo para la cena, y un ambiente festivo para la fiesta."
+          />
+          <FeatureGrid features={[
+            { title: "Haciendas completas", description: "Corredores, patios, capilla, área de recepción y jardines. La arquitectura colonial se ve espectacular con guirnaldas." },
+            { title: "Fincas y jardines amplios", description: "Cobertura de áreas de 200-300m². Múltiples zonas con diseño integrado y continuo." },
+            { title: "Corporativos y galas", description: "Cenas de fin de año, lanzamientos de producto, galas empresariales. Ambiente premium con dimmer." },
+            { title: "Bodas de 200+ invitados", description: "Ceremonia + cocktail + cena + pista. Cuatro zonas iluminadas con un solo paquete." },
+            { title: "Dimmer de intensidad", description: "Control total del brillo. Transiciones suaves entre momentos: vals tenue, cena brillante, fiesta vibrante." },
+            { title: "Visita previa al venue", description: "Nuestro equipo va a tu espacio antes del evento para medir, diseñar y planificar cada detalle del montaje." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Reseñas de eventos con 200 metros"
+            subtitle="⭐⭐⭐⭐⭐ 34 reseñas verificadas."
+            paragraph1="Corporativos y bodas grandes que eligieron el paquete premium."
+            paragraph2="El dimmer y la asesoría en sitio hacen la diferencia en eventos de esta escala."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Grupo Financiero Banorte", event: "Cena corporativa — Metepec", rating: 5, text: "Iluminaron toda la hacienda para nuestra cena de fin de año. La posibilidad de controlar la intensidad con dimmer fue clave para las distintas etapas del evento. Muy profesionales." },
+            { name: "Alejandra Ruiz", event: "Boda 250 inv. — Huixquilucan", rating: 5, text: "Los 200 metros cubrieron ceremonia, cocktail, cena y pista. La visita previa al venue fue esencial para el diseño. Resultado espectacular que superó lo que imaginamos." },
+            { name: "EventTech MX", event: "Lanzamiento de producto — Santa Fe", rating: 5, text: "Ambientaron toda la terraza del hotel para nuestro lanzamiento. Las guirnaldas dieron ese toque premium que buscábamos para la marca. Excelente coordinación con nuestro equipo." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Eventos iluminados con 200 metros"
+          subtitle="Haciendas, fincas y venues corporativos en CDMX."
+          paragraph1="Cada foto es de un evento real donde montamos el paquete premium de 200 metros."
+          paragraph2="Mándanos fotos de tu venue y te mostramos cómo quedaría la distribución."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif", alt: "Patio colonial de hacienda con 200 metros de guirnaldas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "Hacienda mexicana iluminada con guirnaldas premium" },
+          { src: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif", alt: "Baile de novios en hacienda con guirnaldas Edison" },
+          { src: "/img/guirnaldas/renta-guirnaldas-brindis-boda-guirnaldas-hacienda-43.avif", alt: "Brindis en hacienda bajo guirnaldas vintage" },
+          { src: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", alt: "Guirnaldas Edison en hacienda para evento premium" },
+          { src: "/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif", alt: "Venue corporativo con guirnaldas premium" },
+          { src: "/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif", alt: "Evento grande iluminado con guirnaldas vintage" },
+          { src: "/img/guirnaldas/renta-guirnaldas-brindis-boda-novios-guirnaldas-emocion-42.avif", alt: "Momento emotivo en evento premium con guirnaldas" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre el Paquete 200 Metros" subtitle="Para eventos grandes y producción premium." paragraph1="Escríbenos por WhatsApp si tienes otra duda." paragraph2="Armamos propuestas a la medida según tu venue y presupuesto." />
+      </div>
+      <FaqSection items={[
+        { question: "¿200 metros cubren todo mi venue?", answer: "200 metros cubren fincas y haciendas de hasta 300m² con múltiples zonas. Para venues más grandes, el paquete de 500 metros es la opción. Te asesoramos gratis según las dimensiones de tu espacio." },
+        { question: "¿Qué es el dimmer y para qué sirve?", answer: "El dimmer permite ajustar la intensidad de las guirnaldas en tiempo real. Baja la luz para el vals, súbela para la cena, crea transiciones suaves. Lo operamos nosotros durante tu evento." },
+        { question: "¿La visita previa tiene costo adicional?", answer: "No. La asesoría en sitio está incluida en el paquete de 200 metros. Visitamos tu venue, medimos, tomamos fotos y diseñamos la distribución óptima sin costo extra." },
+        { question: "¿Sirve para eventos corporativos?", answer: "Sí. Hemos iluminado cenas de fin de año, lanzamientos de producto, galas empresariales y conferencias. Las guirnaldas crean un ambiente premium que eleva cualquier evento corporativo." },
+        { question: "¿Puedo combinar con gobos y seguidor?", answer: "Claro. Para eventos de esta escala, la combinación más popular es guirnaldas + gobos con logo/nombres + seguidor. Armamos paquetes integrales con precio especial." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="Compara opciones o agrega servicios premium." paragraph1="Cada evento tiene su escala. Encuentra el paquete correcto." paragraph2="Cotiza sin compromiso." />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para iluminar tu evento con 200 metros?</h2>
+          <p>Mándanos fotos de tu venue y te diseñamos la distribución ideal. Propuesta personalizada sin compromiso.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Solicitar Asesoría Gratis</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

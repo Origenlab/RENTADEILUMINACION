@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete 500 Metros Guirnaldas — Producción para Festivales y Eventos Masivos | REDEIL";
+const description = "500 metros de guirnaldas Edison para festivales, ferias, venues de gran escala. Dimmer + plantas de luz + prueba de iluminación. $24,000 + IVA. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/paquete-500-metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete 500 Metros — Producción Guirnaldas Edison",
+    "description": "Producción completa de 500 metros de guirnaldas Edison para festivales, ferias, bazares y venues de gran escala en CDMX. Incluye dimmer, plantas de luz y prueba previa.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "24000", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "12", "reviewCount": "12" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Bazar Sábado San Ángel" }, "datePublished": "2025-12-15", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "REDEIL iluminó todo nuestro bazar navideño con 500 metros de guirnaldas. El efecto fue espectacular — los visitantes no dejaban de tomar fotos. Las plantas de luz resolvieron el tema eléctrico sin problema." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Festival Gastronómico CDMX" }, "datePublished": "2026-02-08", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos la producción completa para nuestro festival en Coyoacán. 500 metros cubrieron 40 stands y las áreas comunes. La prueba previa de iluminación fue clave para el resultado final." }
+    ]
+  },
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿500 metros necesitan instalación eléctrica especial?", "acceptedAnswer": { "@type": "Answer", "text": "No necesariamente. El paquete incluye plantas de luz si tu venue no tiene suficiente capacidad eléctrica. Evaluamos la infraestructura en la visita previa y traemos lo necesario." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo toma el montaje?", "acceptedAnswer": { "@type": "Answer", "text": "Para 500 metros, el montaje toma 6-8 horas con nuestro equipo completo. Por eso hacemos visita previa y, cuando es posible, montamos el día anterior al evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Básico — 50m", image: "/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif", alt: "50 metros para ceremonias", description: "Terrazas y ceremonias íntimas. $3,500 + IVA.", link: "/servicios/guirnaldas/paquete-50-metros/" },
+  { title: "Estándar — 100m", image: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "100 metros para bodas", description: "El más pedido para bodas. Ceremonia + recepción. $6,500 + IVA.", link: "/servicios/guirnaldas/paquete-100-metros/" },
+  { title: "Premium — 200m", image: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif", alt: "200 metros para eventos grandes", description: "Haciendas y corporativos. Dimmer incluido. $11,500 + IVA.", link: "/servicios/guirnaldas/paquete-200-metros/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker para festivales", description: "Haces de luz al cielo visibles a kilómetros. El complemento perfecto para festivales y eventos masivos.", link: "/servicios/sky-tracker/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Guirnaldas", href: "/servicios/guirnaldas/" },
+    { label: "Paquete 500 metros" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete 500 Metros — Producción de Guirnaldas para Festivales"
+      subtitle="$24,000 + IVA. Dimmer + plantas de luz + visita previa + prueba de iluminación. Para eventos masivos."
+      introParagraph1='500 metros de guirnaldas Edison es una producción a gran escala. Este paquete está diseñado para festivales, ferias gastronómicas, bazares navideños, venues de gran formato y eventos masivos donde la iluminación decorativa cubre áreas extensas y múltiples zonas simultáneamente.'
+      introParagraph2='Incluye todo lo de los paquetes menores más: <strong>dimmer para control de intensidad</strong>, <strong>plantas de luz</strong> si el venue no tiene suficiente capacidad eléctrica, <strong>visita previa</strong> para diseñar la distribución, y <strong>prueba de iluminación</strong> antes del evento. Nuestro equipo de producción se encarga de cada detalle logístico.'
+    />
+
+    <CtaBar
+      headline="Compara paquetes"
+      items={[
+        { label: "50m — $3,500", href: "/servicios/guirnaldas/paquete-50-metros/", icon: "iluminacion" },
+        { label: "100m — $6,500", href: "/servicios/guirnaldas/paquete-100-metros/", icon: "iluminacion" },
+        { label: "200m — $11,500", href: "/servicios/guirnaldas/paquete-200-metros/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete Producción"
+        price="$24,000"
+        priceNote="+ IVA · Producción completa"
+        features={[
+          { text: "500 metros lineales" },
+          { text: "Focos Edison LED o vintage" },
+          { text: "Dimmer control de intensidad" },
+          { text: "Plantas de luz incluidas" },
+          { text: "Visita previa al venue" },
+          { text: "Prueba de iluminación" },
+          { text: "Transporte + montaje + desmontaje" },
+          { text: "Equipo de producción completo" },
+          { text: "Certificación IP65 exteriores" },
+          { text: "500+ invitados / múltiples zonas" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de 500 metros de guirnaldas para mi evento/festival."
+        packages={[
+          { label: "50 metros", price: "$3,500", href: "/servicios/guirnaldas/paquete-50-metros/" },
+          { label: "100 metros", price: "$6,500", href: "/servicios/guirnaldas/paquete-100-metros/" },
+          { label: "200 metros", price: "$11,500", href: "/servicios/guirnaldas/paquete-200-metros/" },
+          { label: "500 metros", price: "$24,000", href: "/servicios/guirnaldas/paquete-500-metros/", active: true },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="Producción a gran escala"
+            subtitle="Festivales, ferias, bazares y venues de formato masivo."
+            paragraph1="500 metros permiten cubrir espacios de 500m²+ con múltiples zonas iluminadas. Nuestro equipo de producción planifica cada metro para maximizar el impacto visual y resolver la logística eléctrica."
+            paragraph2="A diferencia de montajes pequeños, una producción de esta escala requiere planificación previa, pruebas y equipo adicional. Todo está incluido en el precio."
+          />
+          <FeatureGrid features={[
+            { title: "Festivales y ferias", description: "Cobertura de 30-50+ stands con áreas comunes iluminadas. Montaje el día anterior con prueba completa." },
+            { title: "Bazares navideños", description: "La estética vintage de las guirnaldas Edison es perfecta para mercados navideños. Ambiente mágico garantizado." },
+            { title: "Venues de gran formato", description: "Explanadas, jardines extensos, haciendas con múltiples edificios. Diseño personalizado por zona." },
+            { title: "Plantas de luz", description: "Si tu venue no tiene suficiente capacidad eléctrica, traemos generadores silenciosos. Sin costo adicional." },
+            { title: "Prueba de iluminación", description: "Montamos, probamos y ajustamos antes del evento. Tú apruebas el resultado y hacemos cambios si es necesario." },
+            { title: "Equipo de producción", description: "Equipo ampliado de técnicos para montaje de 6-8 horas. Supervisión continua durante el evento." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Reseñas de producciones" subtitle="⭐⭐⭐⭐⭐ 12 producciones a gran escala." paragraph1="Festivales, ferias y eventos masivos que confiaron en REDEIL." paragraph2="Cada producción nos enseña algo nuevo que aplicamos en la siguiente." />
+          <TestimonialCards testimonials={[
+            { name: "Bazar Sábado San Ángel", event: "Bazar navideño — San Ángel", rating: 5, text: "500 metros cubrieron todo nuestro bazar. El efecto fue espectacular — los visitantes no dejaban de tomar fotos. Las plantas de luz resolvieron el tema eléctrico sin problema." },
+            { name: "Festival Gastronómico CDMX", event: "Festival — Coyoacán", rating: 5, text: "Producción completa para nuestro festival. 500 metros cubrieron 40 stands y áreas comunes. La prueba previa fue clave para el resultado. Volveremos a contratarlos." },
+            { name: "Corporativo Televisa", event: "Gala de fin de año — Sta. Fe", rating: 5, text: "Iluminaron toda la explanada del corporativo. El dimmer permitió crear momentos diferentes durante la noche. Producción impecable de principio a fin." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Producciones con 500 metros" subtitle="Festivales, ferias y eventos masivos." paragraph1="Cada foto es de una producción real a gran escala." paragraph2="¿Organizas un festival o feria? Platícanos tu proyecto." />
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif", alt: "Producción de 500 metros de guirnaldas en evento masivo" },
+          { src: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", alt: "Venue grande iluminado con guirnaldas vintage" },
+          { src: "/img/guirnaldas/guirnaldas-led-fiestas-cdmx.avif", alt: "Festival iluminado con guirnaldas LED en CDMX" },
+          { src: "/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif", alt: "Producción de guirnaldas en venue de gran formato" },
+          { src: "/img/guirnaldas/luces-decorativas-eventos-cdmx.avif", alt: "Feria gastronómica iluminada con guirnaldas Edison" },
+          { src: "/img/guirnaldas/guirnaldas-focos-edison-eventos.avif", alt: "Guirnaldas Edison en evento de producción masiva" },
+          { src: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif", alt: "Venue extenso con producción completa de guirnaldas" },
+          { src: "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif", alt: "Ambiente cálido en producción de gran escala" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Producción 500 Metros" subtitle="Logística y planificación de gran escala." paragraph1="Cada producción es única — platícanos tu proyecto." paragraph2="Respondemos en minutos por WhatsApp." />
+      </div>
+      <FaqSection items={[
+        { question: "¿500 metros necesitan instalación eléctrica especial?", answer: "No necesariamente. El paquete incluye plantas de luz si tu venue no tiene suficiente capacidad. Evaluamos la infraestructura en la visita previa y traemos lo necesario — sin costo adicional." },
+        { question: "¿Cuánto tiempo toma el montaje?", answer: "Para 500 metros, el montaje toma 6-8 horas con nuestro equipo completo de producción. Por eso hacemos visita previa y, cuando es posible, montamos el día anterior al evento." },
+        { question: "¿Puedo rentar más de 500 metros?", answer: "Sí. Tenemos capacidad hasta 1,000 metros lineales. Para producciones de esa escala, cotiza directamente y armamos una propuesta personalizada." },
+        { question: "¿El precio incluye las plantas de luz?", answer: "Sí. Las plantas de luz (generadores silenciosos) están incluidas si tu venue las necesita. Sin sorpresas ni costos adicionales." },
+        { question: "¿Cuántas personas trae el equipo de producción?", answer: "Para 500 metros, nuestro equipo incluye 4-6 técnicos especializados más un supervisor de producción. Durante el evento, al menos 2 técnicos permanecen de guardia." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Servicios" subtitle="Compara o complementa tu producción." paragraph1="Cada escala tiene su paquete." paragraph2="Combina guirnaldas con sky tracker para un efecto masivo." />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Organizas un festival, feria o evento masivo?</h2>
+          <p>Platícanos tu proyecto. Hacemos visita al venue, diseñamos la producción y te entregamos una propuesta integral.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Solicitar Propuesta</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>
