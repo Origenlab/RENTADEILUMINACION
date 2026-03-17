@@ -6,7 +6,6 @@ import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import GallerySection from '../../components/GallerySection.astro';
-import ContentWithSidebar from '../../components/ContentWithSidebar.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
@@ -81,53 +80,67 @@ const serviciosRelacionados = [
       ]}
     />
 
-    <!-- Contenido principal + Sidebar -->
+    <!-- LED vs Vintage -->
     <section class="services-section">
       <div class="container">
         <SectionHeader
-          title="Guirnaldas Edison: la iluminación perfecta para cualquier espacio"
-          subtitle="LED y vintage tradicional. Hasta 1,000 metros lineales disponibles."
-          paragraph1="No es lo mismo prender series de luces que diseñar un ambiente con iluminación vintage profesional. Nuestras guirnaldas tipo Edison crean la atmósfera que tus invitados van a recordar — y fotografiar."
-          paragraph2="Disponibles en tono cálido, ámbar y blanco neutro. Resistentes a lluvia con certificación IP65. Bombillas LED o vintage de filamento — tú eliges el estilo."
+          title="Focos Edison: LED vs Vintage Tradicional"
+          subtitle="Dos opciones profesionales. Tú eliges la estética."
+          paragraph1="Las bombillas Edison LED tienen la misma estética vintage con luz cálida y tono ámbar, pero consumen menos energía y generan menos calor — ideales para montajes largos en carpas o pérgolas donde el voltaje es limitado."
+          paragraph2="Los focos de filamento vintage dan un brillo más natural y orgánico que gusta mucho en bodas rústicas y eventos al aire libre. Ambas opciones son resistentes, profesionales y con certificación IP65 para uso en exteriores."
         />
+        <div class="services-grid" style="grid-template-columns: 1fr 1fr;">
+          <ServiceCard
+            title="Edison LED"
+            image="/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif"
+            alt="Guirnaldas con focos Edison LED de bajo consumo iluminando terraza"
+            description="Bajo consumo eléctrico, menos calor, misma estética vintage. Ideales para montajes de 100+ metros, carpas y espacios con instalación eléctrica limitada. Tonos: cálido, ámbar y blanco neutro."
+            link="/servicios/guirnaldas/"
+          />
+          <ServiceCard
+            title="Edison Vintage"
+            image="/img/guirnaldas/renta-guirnaldas-guirnaldas-focos-edison-jardin-exterior-01-300w.avif"
+            alt="Guirnaldas con focos Edison vintage de filamento en jardín exterior"
+            description="Filamento incandescente con brillo natural y cálido. La opción favorita para bodas rústicas, haciendas y eventos donde la calidez orgánica de la luz es protagonista. Estética clásica inconfundible."
+            link="/servicios/guirnaldas/"
+          />
+        </div>
       </div>
-      <ContentWithSidebar
-        sidebarTitle="Guirnaldas Edison"
-        price="$3,500 MXN"
-        priceNote="Precio varía según metros lineales"
-        features={[
-          { text: "Focos Edison LED o vintage" },
-          { text: "Certificación IP65 exteriores" },
-          { text: "Hasta 1,000 metros disponibles" },
-          { text: "Tonos: cálido, ámbar, blanco" },
-          { text: "Diseño personalizado" },
-          { text: "Transporte + montaje + desmontaje" },
-          { text: "Cobertura CDMX y Edomex" },
-        ]}
-        waMessage="Hola REDEIL, quiero cotizar guirnaldas para mi evento."
-      >
-        <h3>Focos Edison: LED vs Vintage Tradicional</h3>
-        <p>Las bombillas Edison LED tienen la misma estética vintage con luz cálida y tono ámbar, pero consumen menos energía y generan menos calor — ideales para montajes largos en carpas o pérgolas. Los focos de filamento vintage dan un brillo más natural y orgánico que gusta mucho en bodas rústicas y eventos al aire libre.</p>
-        <p>Ambas opciones son resistentes y profesionales. Nuestro equipo te recomienda la mejor opción según el tipo de evento, el tamaño del espacio y la estética de la decoración que buscas.</p>
+    </section>
 
-        <h3>¿Dónde se instalan?</h3>
-        <p>Cada instalación se planifica según las estructuras del lugar. Trabajamos en:</p>
-        <ul>
-          <li><strong>Jardines y terrazas</strong> — tendido entre postes, árboles o soportes temporales</li>
-          <li><strong>Pérgolas y arcos</strong> — entrelazado decorativo para ceremonias</li>
-          <li><strong>Carpas para eventos</strong> — distribución perimetral o en zigzag</li>
-          <li><strong>Salones y rooftops</strong> — montaje en techos y vigas</li>
-          <li><strong>Haciendas y fincas</strong> — iluminación de fachadas y pasillos</li>
-          <li><strong>Espacios lounge</strong> — ambientación cálida para zonas de descanso</li>
-        </ul>
-
-        <h3>El montaje profesional que marca la diferencia</h3>
-        <p>No solo colgamos luces — diseñamos la distribución, altura y densidad de las guirnaldas para que el efecto visual sea perfecto. Nuestro equipo llega horas antes del evento para que todo esté listo y probado. Al finalizar, nos encargamos del desmontaje completo.</p>
-        <p>Trabajamos en coordinación con wedding planners, decoradores y organizadores de fiestas para que las luces se integren al concepto general de tu celebración. Más de 500 eventos montados en Polanco, Coyoacán, Santa Fe, Naucalpan, Huixquilucan y toda la zona metropolitana.</p>
-
-        <h3>También disponibles</h3>
-        <p>Además de las guirnaldas tipo Edison, ofrecemos <strong>series navideñas LED</strong>, <strong>cortinas de luces</strong> y <strong>cascadas LED</strong> para decoración de eventos corporativos, fiestas de XV años y celebraciones especiales. Todo con la misma calidad de instalación profesional.</p>
-      </ContentWithSidebar>
+    <!-- Dónde se instalan -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde se instalan las guirnaldas?"
+          subtitle="Cada espacio tiene su solución. Montaje profesional incluido."
+          paragraph1="Cada instalación se planifica según las estructuras del lugar — pérgolas, árboles, postes, carpas o techos de salón. Nuestro equipo diseña la distribución, altura y densidad de las luces para crear la atmósfera ideal."
+          paragraph2="Trabajamos en coordinación con wedding planners, decoradores y organizadores de fiestas. Más de 500 eventos montados en Polanco, Coyoacán, Santa Fe, Naucalpan, Huixquilucan y toda la zona metropolitana."
+        />
+        <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <ServiceCard
+            title="Jardines y Terrazas"
+            image="/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif"
+            alt="Guirnaldas vintage iluminando jardín para evento nocturno al aire libre"
+            description="Tendido entre postes, árboles o soportes temporales. La opción clásica para bodas al aire libre y fiestas en jardín."
+            link="/servicios/guirnaldas/"
+          />
+          <ServiceCard
+            title="Pérgolas y Carpas"
+            image="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif"
+            alt="Pérgola decorada con focos Edison para ceremonia de boda rústica"
+            description="Entrelazado decorativo en pérgolas para ceremonias o distribución perimetral y en zigzag dentro de carpas para eventos."
+            link="/servicios/guirnaldas/"
+          />
+          <ServiceCard
+            title="Haciendas y Rooftops"
+            image="/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif"
+            alt="Guirnaldas tipo Edison decorando rooftop con vista nocturna a la ciudad"
+            description="Iluminación de fachadas, pasillos y espacios lounge. Montaje en techos, vigas y estructuras existentes del venue."
+            link="/servicios/guirnaldas/"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- Paquetes -->
