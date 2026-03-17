@@ -1,74 +1,243 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Luz Negra para Eventos | REDEIL CDMX";
-const description = "Renta de luz negra y blacklight para fiestas y eventos en CDMX. REDEIL crea ambientes neón y fluorescentes para bodas, fiestas temáticas y eventos corporativos.";
+const title = "Renta de Luz Negra UV para Fiestas Neón y Eventos CDMX | REDEIL";
+const description = "Luz negra UV profesional para fiestas neón, XV años y eventos temáticos en CDMX. Efecto blacklight que hace brillar todo lo fluorescente. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Luz Negra para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Luz Negra UV para Fiestas y Eventos",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de luz negra UV (blacklight) para fiestas neón, eventos temáticos y celebraciones nocturnas en CDMX. Efecto fluorescente espectacular.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Renta de Luz Negra UV",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de luz negra y blacklight para fiestas, bodas y eventos corporativos en Ciudad de México. Ambientes neón y fluorescentes.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Luz Negra"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es una glow party?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Incluye pintura corporal neón, accesorios luminosos y decoración fluorescente." }},
+      { "@type": "Question", "name": "¿Las luces UV son seguras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son las mismas que las lámparas UV industriales. Son las mismas que se usan en parques de diversiones y discotecas." }},
+      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón LED para fiesta", description: "Letreros neón personalizados y efectos UV decorativos. Complemento visual para tu fiesta.", link: "/servicios/luces-neon/" },
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para fiesta neón", description: "DJ con repertorio de música electrónica y reggaetón. El soundtrack perfecto para tu glow party.", link: "/servicios/bocinas-djs/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo con luces neón", description: "El humo escénico con luces UV crea un efecto espectacular. Perfecto para la pista de baile.", link: "/servicios/humo-bajo/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco para fiesta neón", description: "Combina bola disco con luces neón para una pista de baile inolvidable.", link: "/servicios/bola-disco/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Luz Negra" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luz Negra" }
+  ]} />
 </Fragment>
-<Hero
-      title="Luz Negra para Eventos en CDMX"
-      subtitle="Ambientes neón y fluorescentes que transforman tu celebración"
-      introParagraph1="REDEIL es especialista en la renta de luz negra y blacklight para eventos en toda la Ciudad de México. Nuestros equipos de luz ultravioleta crean ambientes vibrantes y únicos que hacen brillar elementos fluorescentes y neón, transformando salones, jardines y cualquier espacio."
-      introParagraph2="Trabajamos con bodas temáticas, fiestas glow, eventos corporativos y celebraciones privadas. Nuestro equipo técnico diseña la distribución de las luminarias UV para lograr el máximo impacto visual, coordinándose con decoradores y organizadores para integrar la luz negra al concepto del evento."
+
+    <Hero
+      title="Renta de Luz Negra UV para Fiestas Neón en CDMX"
+      subtitle="Efecto blacklight profesional para fiestas neón, XV años y eventos nocturnos. Todo lo blanco y fluorescente brilla. Desde $3,500 + IVA."
+      introParagraph1='La luz negra UV es el secreto detrás de las fiestas neón más espectaculares. En <strong>REDEIL</strong> instalamos sistemas de blacklight profesional que hacen que todo lo blanco y fluorescente brille intensamente en la oscuridad — ropa, decoración, pintura corporal, accesorios. El efecto es inmediato y transforma cualquier espacio oscuro en una experiencia visual única.'
+      introParagraph2='Nuestras barras UV LED de grado profesional <strong>Chauvet</strong> y <strong>Elation</strong> cubren desde pistas de baile pequeñas hasta salones completos. A diferencia de las luces neón decorativas, la luz negra UV ilumina TODO el espacio — no solo un punto. Ideal para fiestas temáticas, XV años con efecto glow, discotecas privadas y eventos nocturnos en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Luz negra profesional: el efecto más impactante para tu fiesta"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="La luz negra emite radiación ultravioleta que hace brillar materiales fluorescentes y colores neón, creando un efecto visual sorprendente y envolvente. Es ideal para fiestas temáticas tipo glow, bodas con decoración neón, eventos corporativos con branding fluorescente y celebraciones que buscan una atmósfera diferente y memorable."
-          paragraph2="En REDEIL utilizamos equipos de blacklight profesionales que cubren grandes áreas de manera uniforme. Cada instalación se planifica según las dimensiones del espacio y el tipo de decoración, asegurando que los elementos fluorescentes destaquen con intensidad y que el ambiente general sea coherente y atractivo."
+
+    <CtaBar
+      headline="¿Para qué evento necesitas luz negra?"
+      items={[
+        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
+        { label: "XV Años UV", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería de impacto -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve un evento con luz negra UV"
+          subtitle="Todo lo blanco y fluorescente brilla en la oscuridad."
+          paragraph1="Cuando enciendes la luz negra en un espacio oscuro, la transformación es instantánea. Camisas blancas, zapatos, dientes, decoración fluorescente — todo cobra vida con un brillo intenso que sorprende a cualquiera. Es el efecto más fotogénico que puedes agregar a tu evento."
+          paragraph2="Nuestro equipo distribuye las barras UV estratégicamente para cobertura uniforme en todo el espacio — sin zonas oscuras ni puntos muertos. Desde salones cerrados hasta carpas y terrazas nocturnas."
         />
-        <p>Nuestro servicio incluye asesoría sobre materiales y colores que reaccionan a la luz UV, traslado de equipos, montaje profesional y soporte técnico durante el evento. Cubrimos salones, jardines, terrazas y espacios abiertos en CDMX y zona metropolitana.</p>
+        <Gallery4x4 images={[
+          { src: "/img/luz-negra/ambiente-blacklight-fiesta.avif", alt: "Glow party con luces neón UV en celebración" },
+          { src: "/img/luz-negra/ambiente-blacklight-disco.avif", alt: "Fiesta UV con maquillaje neón fluorescente" },
+          { src: "/img/luz-negra/ambiente-fluorescente-club.avif", alt: "Invitados bailando en glow party con luces UV" },
+          { src: "/img/luz-negra/ambiente-glow-xv-anos.avif", alt: "Letrero LED neón personalizado para fiesta" },
+          { src: "/img/luz-negra/ambiente-neon-boda.avif", alt: "Letrero neón con mensaje personalizado para evento" },
+          { src: "/img/luz-negra/ambiente-neon-discoteca.avif", alt: "Letrero luminoso neón para boda romántica" },
+          { src: "/img/luz-negra/ambiente-neon-fiesta-privada.avif", alt: "Letrero neón para XV años" },
+          { src: "/img/luz-negra/ambiente-ultravioleta-club.avif", alt: "Letrero neón Better Together para boda" },
+          { src: "/img/luz-negra/ambiente-uv-cumpleanos.avif", alt: "Letrero neón de bienvenida para evento" },
+          { src: "/img/luz-negra/decoracion-fluorescente-salon.avif", alt: "Letrero neón Love para decoración de boda" },
+          { src: "/img/luz-negra/decoracion-glow-boda.avif", alt: "Letrero neón con hashtag personalizado para boda" },
+          { src: "/img/luz-negra/decoracion-neon-fiesta-privada.avif", alt: "Decoración neón para fiestas temáticas" },
+          { src: "/img/luz-negra/ambiente-glow-party-neon.avif", alt: "Luces neón decorativas para bodas" },
+          { src: "/img/luz-negra/ambiente-neon-evento-social.avif", alt: "Neón decorativo para bodas en CDMX" },
+          { src: "/img/luz-negra/decoracion-neon-fiestas-tematicas.avif", alt: "Frases personalizadas en neón LED" },
+          { src: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Letrero neón para celebración en CDMX" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Luz Negra" subtitle="Fiestas y eventos transformados con iluminación ultravioleta">
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/luz-blacklight-eventos-corporativos.avif" alt="Evento corporativo iluminado con luz blacklight y elementos fluorescentes" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/decoracion-uv-boda.avif" alt="Decoración de boda con luz ultravioleta resaltando flores y telas neón" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/decoracion-neon-fiestas-tematicas.avif" alt="Fiesta temática con decoración neón brillando bajo luz negra" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/ambiente-neon-boda.avif" alt="Ambiente neón en recepción de boda con elementos fluorescentes" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/fiesta-neon-profesional.avif" alt="Fiesta neón profesional con invitados y accesorios fluorescentes" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/luz-negra-salon-eventos.avif" alt="Salón de eventos completamente transformado con luz negra profesional" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/fiesta-glow-nocturna.avif" alt="Fiesta glow nocturna con pulseras y pintura fluorescente bajo blacklight" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luz-negra/luz-negra-evento-corporativo.avif" alt="Evento corporativo con branding y elementos decorativos bajo luz negra" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Luz Negra UV"
+          subtitle="4 opciones según el tamaño de tu evento. Instalación profesional incluida."
+          paragraph1="Cada paquete de luz negra se arma por cobertura del espacio y nivel de producción. Desde un kit básico para la pista de baile hasta una producción completa con accesorios y decoración fluorescente."
+          paragraph2="¿Tu evento necesita algo especial? Armamos propuestas a la medida según el tamaño del espacio y el número de invitados. Cotiza sin compromiso."
+        />
+        <PricingCards packages={[
+          {
+            name: "Blacklight Básico",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Kit de luz ultravioleta para la pista de baile. Transforma cualquier espacio oscuro en una experiencia fluorescente.",
+            features: [
+              { text: "4-6 barras UV LED profesionales", included: true },
+              { text: "Cobertura pista de hasta 80m²", included: true },
+              { text: "Certificación DMX", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: pista de baile, XV años", included: true },
+              { text: "Accesorios fluorescentes", included: false },
+              { text: "Letreros neón personalizados", included: false },
+              { text: "Decoración temática UV", included: false },
+            ],
+            ctaLabel: "Ver paquete UV Básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Blacklight Party",
+            price: "$6,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "La experiencia glow completa. UV + accesorios fluorescentes para que todos brillen. El más pedido para XV años.",
+            features: [
+              { text: "8-12 barras UV LED profesionales", included: true },
+              { text: "Cobertura hasta 150m²", included: true },
+              { text: "50 pulseras + 50 collares neón", included: true },
+              { text: "Pintura facial fluorescente (10 kits)", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: glow party, XV años, cumpleaños", included: true },
+              { text: "Letreros neón personalizados", included: false },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Ver paquete Glow Party",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "UV Premium",
+            price: "$10,000",
+            priceNote: "+ IVA",
+            description: "UV completo + letreros LED neón personalizados con tu mensaje. Para eventos que quieren ser únicos e irrepetibles.",
+            features: [
+              { text: "12+ barras UV LED profesionales", included: true },
+              { text: "Cobertura hasta 200m²", included: true },
+              { text: "100 accesorios fluorescentes", included: true },
+              { text: "2 letreros LED neón personalizados", included: true },
+              { text: "Pintura facial + body paint UV", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: fiestas premium, corporativos temáticos", included: true },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Ver paquete Neón Premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción UV",
+            price: "$15,000",
+            priceNote: "+ IVA",
+            description: "Producción completa temática UV/neón para eventos masivos. Todo incluido: luces, decoración, accesorios, DJ y efectos.",
+            features: [
+              { text: "20+ barras UV + cañones de luz", included: true },
+              { text: "Cobertura 300m²+", included: true },
+              { text: "200+ accesorios fluorescentes", included: true },
+              { text: "3 letreros LED neón personalizados", included: true },
+              { text: "Decoración temática completa", included: true },
+              { text: "Lásers + humo escénico", included: true },
+              { text: "DJ para fiestas incluido", included: true },
+              { text: "Ideal para: eventos masivos, festivales, corporativos", included: true },
+            ],
+            ctaLabel: "Ver producción Neón",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Luz Negra UV"
+          subtitle="Todo lo que necesitas saber antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Te asesoramos sobre qué paquete va mejor según tu espacio y tipo de evento."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué es una glow party y cómo funciona?", answer: "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Se complementa con pintura corporal neón, pulseras luminosas, collares y decoración fluorescente. El efecto visual es espectacular y muy fotogénico." },
+        { question: "¿Las luces UV son seguras para los invitados?", answer: "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son lámparas UV industriales. Son las mismas que se usan en parques de diversiones, discotecas y eventos temáticos. La pintura facial que incluimos también es dermatológicamente segura." },
+        { question: "¿Qué accesorios fluorescentes incluyen?", answer: "Depende del paquete. El Glow Party incluye 50 pulseras + 50 collares neón + 10 kits de pintura facial. El Neón Premium sube a 100 accesorios + body paint UV. La Producción incluye 200+ accesorios + decoración temática completa." },
+        { question: "¿Sirve para XV años?", answer: "Es uno de los usos más populares. Los XV años con temática neón son tendencia — la festejada y sus chambelanes con maquillaje fluorescente, pista iluminada con UV, fotos espectaculares. El paquete Glow Party es el más pedido para XV años." },
+        { question: "¿Puedo personalizar los letreros neón?", answer: "Sí. Los paquetes Neón Premium y Producción incluyen letreros LED neón personalizados con el mensaje que quieras — nombres, frases, hashtags, logos. Se fabrican a medida y los montamos el día del evento." },
+        { question: "¿Funciona en espacios abiertos?", answer: "Las luces neón y UV funcionan mejor en espacios con poca luz natural. En eventos al aire libre, recomendamos usarlas después del atardecer. Para eventos nocturnos de noche completa, el efecto es espectacular en cualquier espacio." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina Luz Negra con Otros Servicios"
+          subtitle="La luz negra UV se potencia cuando la combinas con otros efectos."
+          paragraph1="Una fiesta con blacklight se convierte en algo épico cuando agregas DJ, humo escénico y efectos visuales adicionales. Nuestros clientes más satisfechos combinan 2-3 servicios para un resultado espectacular."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te hacemos una propuesta integral."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para encender la luz negra en tu evento?</h2>
+          <p>Cuéntanos el tipo de evento, cuántos invitados esperas y si quieres temática glow completa. Te diseñamos la experiencia neón perfecta.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Evento UV</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
