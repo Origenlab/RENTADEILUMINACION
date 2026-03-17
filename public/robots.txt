@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 # rentadeiluminacion.com — robots.txt
 
+=======
+>>>>>>> d28d61a (feat(seo): sitemap estático, robots.txt, 404 redirects WP, schemas, breadcrumbs)
 User-agent: *
 Allow: /
 Disallow: /404.html
 
+<<<<<<< HEAD
 # Sitemaps (Astro generates sitemap-index.xml)
 Sitemap: https://rentadeiluminacion.com/sitemap-index.xml
 
 # Block AI training bots
+=======
+Sitemap: https://rentadeiluminacion.com/sitemap.xml
+
+>>>>>>> d28d61a (feat(seo): sitemap estático, robots.txt, 404 redirects WP, schemas, breadcrumbs)
 User-agent: Amazonbot
 Disallow: /
 
@@ -17,6 +25,12 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
+<<<<<<< HEAD
+=======
+User-agent: ClaudeBot
+Disallow: /
+
+>>>>>>> d28d61a (feat(seo): sitemap estático, robots.txt, 404 redirects WP, schemas, breadcrumbs)
 User-agent: Google-Extended
 Disallow: /
 

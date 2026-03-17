@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de DJ para Fiestas y Eventos | REDEIL CDMX";
+const description = "Renta de DJ profesional para fiestas y eventos en CDMX. DJ con equipo de sonido completo para bodas, XV años, corporativos y celebraciones. Cotiza gratis.";
+const canonical = "https://rentadeiluminacion.com/servicios/dj/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de DJ para Fiestas y Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio de renta de DJ profesional para fiestas y eventos en Ciudad de México. DJ con equipo completo de sonido, luces y cabina para bodas, XV años y corporativos.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de DJ para Eventos"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>DJ</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de DJ para Fiestas y Eventos en CDMX"
+      subtitle="DJ profesional con equipo completo para hacer inolvidable tu celebración"
+      introParagraph1="REDEIL te ofrece servicio de DJ profesional para todo tipo de fiestas y eventos en la Ciudad de México. Nuestros DJs combinan experiencia, repertorio amplio y equipo de última generación para crear la atmósfera perfecta en tu boda, fiesta de XV años, evento corporativo o celebración privada."
+      introParagraph2="Cada servicio de DJ incluye consola profesional, bocinas de alta potencia, subwoofer, micrófono para animación y cabina. Nos adaptamos al estilo musical de tu evento y coordinamos los momentos clave: vals, brindis, ramo, liga y hora loca."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>DJ profesional que hace vibrar tu evento</h2>
+        <p>Un DJ profesional marca la diferencia entre una fiesta buena y una inolvidable. En REDEIL nuestros DJs leen al público, dominan géneros desde románticos hasta urbanos, y saben exactamente cuándo subir la energía y cuándo crear momentos íntimos. Con años de experiencia en eventos en CDMX, garantizamos una pista llena toda la noche.</p>
+        <p>Trabajamos con equipo profesional de marcas reconocidas como Pioneer, QSC y JBL. Nuestro DJ llega con todo lo necesario: consola CDJ, mixer, bocinas amplificadas, subwoofer para graves potentes, micrófono inalámbrico y cabina iluminada. Para mayor producción, complementamos con luces robóticas, máquina de humo y efectos especiales.</p>
+        <p>Cubrimos bodas, fiestas de XV años, cumpleaños, graduaciones, eventos corporativos, despedidas y cualquier celebración en salones, jardines, haciendas, terrazas y rooftops de toda la CDMX y área metropolitana. Montaje anticipado y prueba de sonido incluidos.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de DJ para Eventos" subtitle="DJs profesionales animando eventos reales en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif" alt="DJ profesional con cabina completa en evento nocturno en CDMX" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif" alt="DJ mezclando música durante recepción de boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-profesional-consola-pioneer-cdj.avif" alt="Consola Pioneer CDJ operada por DJ profesional" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif" alt="Pista de baile iluminada con DJ profesional en evento" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-para-bodas-vals-primer-baile.avif" alt="DJ acompañando el vals y primer baile en boda elegante" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/bocinas-djs/dj-profesional-cabina-led-neon.avif" alt="Cabina de DJ con iluminación LED neón en fiesta" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>

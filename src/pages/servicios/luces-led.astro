@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import GallerySection from "../../components/GallerySection.astro";
+
+const title = "Renta de Luces LED para Eventos | REDEIL CDMX";
+const description = "Renta de luces LED para bodas, fiestas y eventos en CDMX. Iluminación LED profesional en colores personalizados. REDEIL instala y opera tu iluminación.";
+const canonical = "https://rentadeiluminacion.com/servicios/luces-led/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Luces LED para Eventos",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  },
+  "description": "Servicio profesional de renta de luces LED para eventos en Ciudad de México. Iluminación LED en colores personalizados para bodas, fiestas y corporativos.",
+  "areaServed": { "@type": "City", "name": "Ciudad de México" },
+  "serviceType": "Renta de Luces LED"
+});
+---
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luces LED</li></ol></div>
+    </div>
+  </nav>
+  <main id="main-content">
+    <Hero
+      title="Renta de Luces LED para Eventos en CDMX"
+      subtitle="Iluminación LED profesional que transforma tus espacios con color"
+      introParagraph1="En REDEIL ofrecemos renta de luces LED para todo tipo de eventos en la Ciudad de México. Nuestros equipos LED permiten crear ambientes personalizados con millones de colores, adaptando la iluminación al estilo y temática de tu boda, fiesta, evento corporativo o celebración especial."
+      introParagraph2="Contamos con una amplia variedad de luminarias LED: barras, wash, par LED, uplights y paneles que bañan muros, fachadas, techos y jardines con luz de color uniforme. Nuestro equipo técnico se encarga de la instalación, programación y operación durante todo tu evento."
+    />
+    <section class="service-detail">
+      <div class="container">
+        <h2>Iluminación LED profesional para cada tipo de evento</h2>
+        <p>Las luces LED son la solución más versátil para iluminar eventos. Ofrecen una gama infinita de colores, consumen poca energía, no generan calor y permiten crear desde ambientes románticos hasta pistas de baile vibrantes. En REDEIL utilizamos equipos LED de grado profesional que garantizan brillo uniforme y colores intensos.</p>
+        <p>Diseñamos esquemas de iluminación LED personalizados para cada evento. Ya sea que necesites bañar la fachada de una hacienda en tonos dorados para tu boda, crear un ambiente corporativo con los colores de tu marca o transformar un salón con cambios de color dinámicos, nuestro equipo tiene la experiencia para lograrlo.</p>
+        <p>El servicio incluye visita previa al venue (cuando se requiere), diseño del plan de iluminación, traslado de equipo, montaje, operación técnica durante el evento y desmontaje. Cubrimos toda la CDMX y zona metropolitana con la garantía y profesionalismo de REDEIL.</p>
+      </div>
+    </section>
+    <GallerySection title="Galería de Luces LED" subtitle="Iluminación LED profesional en eventos reales en CDMX">
+      <figure class="gallery-item">
+        <img src="/img/city-color/city-color-fachada-hacienda-boda.avif" alt="Fachada de hacienda iluminada con luces LED de color para boda" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/city-color-fachadas-monumentos.avif" alt="Fachada monumental iluminada con luces LED profesionales" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-color/city-color-hacienda-evento-especial.avif" alt="Hacienda iluminada con luces LED para evento especial" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-bodas-hacienda.avif" alt="Iluminación LED para boda en hacienda con tonos cálidos" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-eventos-corporativos.avif" alt="Luces LED para evento corporativo con colores de marca" width="800" height="533" loading="lazy">
+      </figure>
+      <figure class="gallery-item">
+        <img src="/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif" alt="Entrada de novios iluminada con luces LED magenta" width="800" height="533" loading="lazy">
+      </figure>
+    </GallerySection>
+  </main>
+</BaseLayout>
