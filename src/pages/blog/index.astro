@@ -2,49 +2,107 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
-const title = "Blog | REDEIL - Consejos de Iluminación para Eventos, Bodas y Fiestas";
-const description = "Tendencias en iluminación para eventos, bodas y fiestas. Guías profesionales de REDEIL con 30 años de experiencia.";
+const title = "Blog de Iluminación para Eventos | REDEIL CDMX";
+const description = "Guías, consejos y tendencias de iluminación para bodas, XV años y eventos en CDMX. 30 años de experiencia REDEIL en cada artículo.";
 const canonical = "https://rentadeiluminacion.com/blog/";
+
+const articles = [
+  // Bodas
+  { slug: "cuanto-cuesta-iluminacion-boda-cdmx", title: "¿Cuánto Cuesta la Iluminación para una Boda en CDMX?", excerpt: "Precios reales, rangos por paquete y qué incluye cada opción. Guía honesta para planear tu presupuesto.", category: "Bodas", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
+  { slug: "checklist-iluminacion-boda", title: "Checklist de Iluminación para Boda: Todo lo que Debes Confirmar", excerpt: "La lista que usan los wedding planners profesionales para no olvidar nada en la iluminación.", category: "Bodas", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
+  { slug: "iluminacion-primer-vals-boda", title: "Iluminación para el Primer Vals: Follow Spot, Gobo y Efectos", excerpt: "Cómo crear el momento más fotogénico de la boda con iluminación profesional.", category: "Bodas", img: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif" },
+  { slug: "paquete-iluminacion-boda-completo", title: "Paquete Completo de Iluminación para Boda: Qué Incluye", excerpt: "Desglose real de qué equipos conforman un paquete de iluminación completo para boda.", category: "Paquetes", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
+  // XV Años
+  { slug: "iluminacion-xv-anos-tendencias", title: "Tendencias de Iluminación para XV Años en CDMX 2025", excerpt: "Neón, luces LED de colores, bengalas frías y más. Todo lo que está de moda este año.", category: "XV Años", img: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif" },
+  { slug: "entrada-xv-anos-efectos-especiales", title: "Efectos Especiales para Entrada de XV Años: CO2, Bengalas y Sky Tracker", excerpt: "Cómo hacer la entrada más impactante con efectos especiales profesionales.", category: "XV Años", img: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif" },
+  // Guirnaldas
+  { slug: "cuantos-metros-guirnaldas-necesito", title: "¿Cuántos Metros de Guirnaldas Necesito para mi Boda?", excerpt: "Calculadora práctica con tablas por metros cuadrados, tipo de espacio y número de invitados.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
+  { slug: "guirnaldas-boda-jardin-vs-salon", title: "Guirnaldas para Boda: Jardín vs Salón — Diferencias Clave", excerpt: "No todas las guirnaldas funcionan igual en interior y exterior. Lo que debes saber antes de contratar.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-boda-finca-hacienda-600w.avif" },
+  { slug: "diferencia-guirnaldas-edison-led", title: "Focos Edison vs LED para Guirnaldas: ¿Cuál Elegir?", excerpt: "Temperatura de color, consumo eléctrico, costo y estética. Comparativa honesta.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-foco-edison-vintage-bodas-600w.avif" },
+  { slug: "paquete-guirnaldas-50-vs-100-metros", title: "Paquete 50 vs 100 Metros de Guirnaldas: ¿Cuál Elegir?", excerpt: "Cómo saber cuántos metros necesitas según el tamaño de tu espacio y número de invitados.", category: "Paquetes", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
+  // Neón
+  { slug: "decoracion-neon-bodas-2025", title: "Decoración Neón para Bodas 2025: Ideas y Cómo Pedirla", excerpt: "Las tendencias más buscadas en decoración neón para bodas y cómo integrarlas en tu evento.", category: "Luces Neón", img: "/img/luces-neon/renta-luces-neon-boda-letrero-mr-mrs-600w.avif" },
+  { slug: "glow-party-ideas-cdmx", title: "Glow Party en CDMX: Guía Completa con UV y Neón", excerpt: "Todo lo que necesitas para organizar una glow party épica: equipos, vestuario, logística.", category: "Luces Neón", img: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif" },
+  // Cabezas móviles
+  { slug: "que-son-cabezas-moviles", title: "¿Qué Son las Cabezas Móviles y Para Qué Sirven?", excerpt: "La guía que necesitas si nunca has contratado iluminación profesional para eventos.", category: "Equipos", img: "/img/cabezas-moviles/renta-cabezas-moviles-beam-wash-eventos-cdmx-600w.avif" },
+  { slug: "cabezas-moviles-vs-par-led", title: "Cabezas Móviles vs Par LED: ¿Cuál Necesita Tu Evento?", excerpt: "Comparativa técnica y práctica para elegir el equipo correcto según tu tipo de evento.", category: "Equipos", img: "/img/cabezas-moviles/renta-cabezas-moviles-beam-wash-eventos-cdmx-600w.avif" },
+  // Técnicos
+  { slug: "tipos-iluminacion-para-eventos", title: "Tipos de Iluminación para Eventos: Guía Completa", excerpt: "Wash, spot, efectos, arquitectónica, ambiental. Todo lo que debes conocer antes de cotizar.", category: "Guía", img: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif" },
+  { slug: "sky-tracker-que-es", title: "Sky Tracker para Eventos: Qué Es, Cómo Funciona y Cuándo Usarlo", excerpt: "El efecto más vistoso para entradas y exteriores nocturnos. Todo sobre los search lights.", category: "Equipos", img: "/img/sky-tracker/renta-sky-tracker-eventos-cdmx-600w.avif" },
+  { slug: "bengalas-frias-seguras-interiores", title: "Bengalas Frías en Interiores: ¿Son Seguras?", excerpt: "Mitos y verdades sobre los sparksters en salones. Por qué no queman, no generan humo y no activan alarmas.", category: "Efectos", img: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif" },
+  // Corporativo
+  { slug: "iluminacion-eventos-corporativos-cdmx", title: "Iluminación para Eventos Corporativos en CDMX", excerpt: "Cómo elegir la iluminación correcta para conferencias, lanzamientos y cenas empresariales.", category: "Corporativo", img: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif" },
+  { slug: "audiovisual-conferencias-cdmx", title: "Equipo Audiovisual para Conferencias en CDMX", excerpt: "Pantallas, micrófonos y sonido. Todo lo que necesita una conferencia profesional.", category: "Corporativo", img: "/img/bocinas/renta-bocinas-conferencias-corporativos-600w.avif" },
+  // Comparativa
+  { slug: "iluminacion-completa-vs-basica", title: "Iluminación Completa vs Básica: Diferencia en Fotos y Video", excerpt: "Por qué la iluminación profesional transforma completamente el recuerdo visual de tu evento.", category: "Guía", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
+];
+
+const categories = [...new Set(articles.map(a => a.category))];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
-
   <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
-</Fragment>
-<section class="hero hero-two-columns">
-      <div class="hero-background" style="background-color: var(--color-secondary);"></div>
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <h1 class="hero-title">Blog de Iluminación para Eventos</h1>
-            <p class="hero-subtitle">Consejos, tendencias y guías profesionales para la iluminación perfecta en tu evento</p>
-            <div class="hero-ctas">
-              <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Ahora</a>
-              <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-              </a>
-            </div>
-          </div>
-          <div class="hero-intro">
-            <p>Bienvenido al blog de <strong>REDEIL</strong>, tu fuente de información sobre iluminación profesional para eventos. Aquí encontrarás consejos expertos, tendencias actuales y guías prácticas para elegir la iluminación perfecta para bodas, XV años, fiestas y eventos corporativos.</p>
-            <p>Con más de <strong>30 años de experiencia</strong> en la industria, nuestro equipo comparte conocimientos y recomendaciones para que cada evento brille con luz propia. Próximamente publicaremos contenido exclusivo para ti.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
+  </Fragment>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Artículos</h2>
-          <p>Próximamente encontrarás aquí nuestros artículos sobre iluminación para eventos.</p>
-        </div>
-        <div style="text-align: center; padding: var(--space-8) 0;">
-          <p style="font-size: var(--text-lg); color: var(--color-gray-600); margin-bottom: var(--space-8);">Estamos preparando contenido valioso sobre tendencias en iluminación, consejos para bodas, guías de equipos y mucho más.</p>
-          <a href="/contacto/" class="btn btn-primary btn-lg">Mientras tanto, cotiza tu evento</a>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Blog de Iluminación para Eventos</h1>
+        <p>Guías, consejos y tendencias de iluminación profesional para bodas, XV años, corporativos y fiestas en CDMX.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
         </div>
       </div>
-    </section>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL comparte más de 30 años de experiencia en iluminación para eventos a través de guías prácticas y honestas. Cada artículo está escrito por nuestro equipo técnico con base en situaciones reales que vivimos en bodas, XV años y eventos corporativos en la Ciudad de México y Zona Metropolitana.</p>
+        <p class="hero__seo">Encontrarás información concreta sobre precios, metros de guirnaldas, diferencias entre equipos, efectos especiales y todo lo que necesitas saber para tomar la mejor decisión para tu evento. Sin tecnicismos innecesarios, con datos reales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {articles.map(article => (
+          <article class="blog-card">
+            <a href={`/blog/${article.slug}/`} class="blog-card__link">
+              <div class="blog-card__img">
+                <img
+                  src={article.img}
+                  alt={article.title}
+                  loading="lazy"
+                  width="400"
+                  height="225"
+                />
+              </div>
+              <div class="blog-card__body">
+                <span class="blog-card__cat">{article.category}</span>
+                <h2 class="blog-card__title">{article.title}</h2>
+                <p class="blog-card__excerpt">{article.excerpt}</p>
+                <span class="blog-card__cta">Leer artículo →</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .blog-card { border-radius: var(--radius-md, 12px); overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .blog-card__link { display: block; text-decoration: none; color: inherit; }
+  .blog-card__img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .blog-card__body { padding: 1.25rem; }
+  .blog-card__cat { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--primary, #ff5722); }
+  .blog-card__title { font-size: 1rem; font-weight: 700; margin: .5rem 0; line-height: 1.35; color: #1a1a1a; }
+  .blog-card__excerpt { font-size: .875rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+  .blog-card__cta { font-size: .875rem; font-weight: 600; color: var(--primary, #ff5722); }
+</style>
