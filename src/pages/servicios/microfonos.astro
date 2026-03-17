@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Micrófonos para Eventos CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Sonido profesional garantizado.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Micrófonos",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Micrófonos Inalámbricos CDMX | REDEIL — Bodas y Eventos"
+  description="Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Lavalier, de mano y diadema. Instalación incluida."
+  canonical="https://rentadeiluminacion.com/servicios/microfonos/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Micrófonos Inalámbricos en CDMX</h1>
+        <p>Micrófonos de mano, lavalier y diadema para bodas, XV años, conferencias y presentaciones. Sonido cristalino sin cables.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta micrófonos inalámbricos profesionales en la Ciudad de México y Zona Metropolitana. Contamos con micrófonos de mano Shure y Sennheiser, lavalier para presentadores y celebrantes, y diademas para actores y animadores. Frecuencias profesionales sin interferencias garantizadas para espacios de hasta 1,000 personas.</p>
+        <p class="hero__seo">El servicio incluye configuración y prueba de sonido antes del evento, técnico de audio durante la ceremonia o presentación, y retiro del equipo al finalizar. Disponible en paquete solo micrófono o combinado con sistema de bocinas REDEIL para eventos en cualquier punto del Valle de México.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

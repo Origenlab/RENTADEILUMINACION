@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Máquina CO2 para Eventos CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para efectos especiales en pistas de baile de bodas, XV años y fiestas.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Máquina CO2",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Máquina CO2 CDMX | REDEIL — Efectos Especiales para Eventos"
+  description="Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para pistas de baile en bodas, XV años y fiestas. Instalación incluida. Cotiza gratis."
+  canonical="https://rentadeiluminacion.com/servicios/co2/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Máquina CO2 en CDMX</h1>
+        <p>Chorros de vapor frío que crean efectos espectaculares en la pista de baile. Sin humo real, sin calor, sin residuos.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta máquinas de CO2 profesionales en la Ciudad de México y Zona Metropolitana. Los cañones de CO2 proyectan vapor frío a presión creando columnas de niebla que se dispersan rápidamente sin manchar ni mojar el piso. Perfectos para el primer baile en bodas, la entrada de quinceañera y los momentos especiales de cualquier evento.</p>
+        <p class="hero__seo">Con más de 20 años de experiencia y más de 3,000 eventos en CDMX, garantizamos operación segura durante todo el evento. El servicio incluye transporte, instalación, CO2 ilimitado durante el evento y retiro. Disponible para toda la zona metropolitana del Valle de México.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

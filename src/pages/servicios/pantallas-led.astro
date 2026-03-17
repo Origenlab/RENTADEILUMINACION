@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Pantallas LED para Eventos CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Pantallas LED",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Pantallas LED CDMX | REDEIL — Videowall para Eventos"
+  description="Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales. Instalación incluida."
+  canonical="https://rentadeiluminacion.com/servicios/pantallas-led/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Pantallas LED en CDMX</h1>
+        <p>Pantallas individuales o videowall para proyección de video, fotos y transmisiones en vivo durante tu evento.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta pantallas LED profesionales en la Ciudad de México y Zona Metropolitana. Disponemos de pantallas de 55", 65" y 75" para ambientes pequeños, y configuraciones de videowall modular de 3×3, 4×4 y personalizadas para escenarios grandes. Resolución 4K disponible para presentaciones corporativas de alto impacto.</p>
+        <p class="hero__seo">El servicio incluye transporte, montaje en estructura o trípode, calibración de imagen, operador de contenido durante el evento y retiro. Compatibles con laptop, tablet, USB, HDMI y transmisión en vivo por streaming. Ideales para bodas con galería de fotos en tiempo real, eventos corporativos y lanzamientos de productos en CDMX y Edomex.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
