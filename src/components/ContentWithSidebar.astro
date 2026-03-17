@@ -10,11 +10,19 @@ interface Feature {
   text: string;
 }
 
+interface RelatedPackage {
+  label: string;
+  price: string;
+  href: string;
+  active?: boolean;
+}
+
 interface Props {
   sidebarTitle?: string;
   price?: string;
   priceNote?: string;
   features?: Feature[];
+  packages?: RelatedPackage[];
   whatsapp?: string;
   waMessage?: string;
   phone?: string;
@@ -25,6 +33,7 @@ const {
   price,
   priceNote,
   features = [],
+  packages = [],
   whatsapp = "5530682988",
   waMessage = "Hola REDEIL, quiero cotizar para mi evento.",
   phone = "55 3068 2988",
@@ -68,6 +77,18 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
           {phone}
         </a>
       </div>
+
+      {packages.length > 0 && (
+        <div class="cws__packages">
+          <span class="cws__packages-title">Otros paquetes</span>
+          {packages.map((pkg) => (
+            <a href={pkg.href} class:list={['cws__pkg', { 'cws__pkg--active': pkg.active }]}>
+              <span class="cws__pkg-label">{pkg.label}</span>
+              <span class="cws__pkg-price">{pkg.price}</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </aside>
 </div>
@@ -250,6 +271,59 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
 
   .cws__btn--tel:hover {
     background: #e9ecef;
+  }
+
+  /* ── Package mini cards ── */
+  .cws__packages {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cws__packages-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+  }
+
+  .cws__pkg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0.875rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .cws__pkg:hover {
+    border-color: #ff5722;
+    background: #FFF4ED;
+  }
+
+  .cws__pkg--active {
+    border-color: #ff5722;
+    background: #FFF4ED;
+  }
+
+  .cws__pkg-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .cws__pkg-price {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #ff5722;
   }
 
   /* ── Responsive ── */
