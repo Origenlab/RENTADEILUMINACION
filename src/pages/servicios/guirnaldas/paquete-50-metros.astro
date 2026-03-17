@@ -7,6 +7,7 @@ import SectionHeader from '../../../components/SectionHeader.astro';
 import Gallery4x4 from '../../../components/Gallery4x4.astro';
 import FeatureGrid from '../../../components/FeatureGrid.astro';
 import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
 import FaqSection from '../../../components/FaqSection.astro';
 import ServiceCard from '../../../components/ServiceCard.astro';
 
@@ -115,73 +116,83 @@ const otrosPaquetes = [
       ]}
     />
 
-    <!-- Espacios ideales -->
+    <!-- Contenido principal + Sidebar sticky -->
     <section class="services-section">
-      <div class="container">
-        <SectionHeader
-          title="Perfecto para estos espacios"
-          subtitle="50 metros cubren hasta 60m² de área iluminada."
-          paragraph1="Este paquete está diseñado para espacios íntimos donde la luz cálida de los focos Edison crea un ambiente acogedor y fotogénico. 50 metros lineales dan para cubrir el perímetro completo de una terraza mediana o crear un dosel sobre una mesa larga."
-          paragraph2="Nuestro equipo diseña la distribución según las estructuras de tu venue para aprovechar cada metro al máximo."
-        />
-        <FeatureGrid features={[
-          { title: "Terrazas hasta 60m²", description: "Tendido perimetral o en zigzag sobre el área del evento. La opción más pedida para cenas al aire libre." },
-          { title: "Pérgolas y Arcos", description: "Entrelazado decorativo que enmarca la ceremonia. Perfecto para bodas y eventos románticos." },
-          { title: "Mesas Imperiales", description: "Dosel colgante sobre mesa larga para cenas íntimas. Efecto espectacular para 20-30 personas." },
-          { title: "Jardines Pequeños", description: "Montaje entre árboles, postes o soportes temporales. Transforma cualquier jardín en un escenario." },
-          { title: "Rooftops Compactos", description: "Instalación en barandales y estructuras del lugar. Ideal para departamentos y restaurantes." },
-          { title: "Salones Lounge", description: "Ambientación cálida para zonas de descanso y cocktail. Crea un espacio acogedor dentro de tu evento." },
-        ]} columns={3} />
-      </div>
-    </section>
+      <ContentWithSidebar
+        sidebarTitle="Paquete Básico"
+        price="$3,500"
+        priceNote="+ IVA · Instalación incluida"
+        features={[
+          { text: "50 metros lineales" },
+          { text: "Focos Edison LED o vintage" },
+          { text: "Certificación IP65 exteriores" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Instalación profesional" },
+          { text: "Operación durante el evento" },
+          { text: "Desmontaje al finalizar" },
+          { text: "Diseño de distribución" },
+          { text: "Tonos: cálido, ámbar, blanco" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de 50 metros de guirnaldas para mi evento."
+      >
+        <div class="container">
+          <SectionHeader
+            title="Perfecto para estos espacios"
+            subtitle="50 metros cubren hasta 60m² de área iluminada."
+            paragraph1="Este paquete está diseñado para espacios íntimos donde la luz cálida de los focos Edison crea un ambiente acogedor y fotogénico. 50 metros lineales cubren el perímetro de una terraza mediana o crean un dosel sobre una mesa larga."
+            paragraph2="Nuestro equipo diseña la distribución según las estructuras de tu venue para aprovechar cada metro al máximo."
+          />
+          <FeatureGrid features={[
+            { title: "Terrazas hasta 60m²", description: "Tendido perimetral o en zigzag. La opción más pedida para cenas al aire libre." },
+            { title: "Pérgolas y Arcos", description: "Entrelazado decorativo que enmarca la ceremonia. Perfecto para bodas románticas." },
+            { title: "Mesas Imperiales", description: "Dosel colgante sobre mesa larga para cenas íntimas de 20-30 personas." },
+            { title: "Jardines Pequeños", description: "Montaje entre árboles, postes o soportes temporales." },
+            { title: "Rooftops Compactos", description: "Instalación en barandales y estructuras del lugar." },
+            { title: "Salones Lounge", description: "Ambientación cálida para zonas de descanso y cocktail." },
+          ]} columns={2} />
+        </div>
 
-    <!-- LED vs Vintage -->
-    <section class="services-section services-alt">
-      <div class="container">
-        <SectionHeader
-          title="Focos Edison: tú eliges el estilo"
-          subtitle="LED o vintage de filamento. Mismo precio, diferente brillo."
-          paragraph1="Los focos Edison LED consumen menos energía y generan menos calor — perfectos si tu terraza tiene techo bajo o capacidad eléctrica limitada. Los focos vintage de filamento dan esa luz orgánica y cálida que tanto gusta en bodas rústicas."
-          paragraph2="Ambas opciones con certificación IP65 para exteriores. Disponibles en tono cálido (2700K), ámbar (2200K) y blanco neutro (3000K). Nuestro equipo te asesora sobre cuál va mejor con tu espacio."
-        />
-        <FeatureGrid features={[
-          { title: "Edison LED", description: "Bajo consumo, menos calor, larga duración. Ideal para montajes largos y carpas. Misma estética vintage." },
-          { title: "Vintage Filamento", description: "Brillo orgánico y natural. La favorita para bodas rústicas, haciendas y eventos donde la calidez es protagonista." },
-          { title: "Certificación IP65", description: "Resistentes a lluvia, humedad y polvo. Cableado protegido para uso seguro en exteriores todo el año." },
-          { title: "Tono Cálido 2700K", description: "El clásico dorado cálido. El más versátil para cualquier tipo de evento y decoración." },
-          { title: "Tono Ámbar 2200K", description: "Más dorado e intenso. Perfecto para bodas rústicas, haciendas coloniales y ambientes románticos." },
-          { title: "Blanco Neutro 3000K", description: "Más limpio y moderno. Ideal para eventos corporativos, rooftops urbanos y estética contemporánea." },
-        ]} columns={3} />
-      </div>
-    </section>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Focos Edison: tú eliges el estilo"
+            subtitle="LED o vintage de filamento. Mismo precio, diferente brillo."
+            paragraph1="Los focos Edison LED consumen menos energía y generan menos calor — perfectos si tu terraza tiene techo bajo. Los vintage de filamento dan esa luz orgánica que gusta en bodas rústicas."
+            paragraph2="Ambas opciones con certificación IP65. Disponibles en cálido (2700K), ámbar (2200K) y blanco neutro (3000K)."
+          />
+          <FeatureGrid features={[
+            { title: "Edison LED", description: "Bajo consumo, menos calor, larga duración. Ideal para montajes largos." },
+            { title: "Vintage Filamento", description: "Brillo orgánico y natural. La favorita para bodas rústicas y haciendas." },
+            { title: "Certificación IP65", description: "Resistentes a lluvia, humedad y polvo. Uso seguro en exteriores." },
+            { title: "Tono Cálido 2700K", description: "El clásico dorado. Versátil para cualquier evento." },
+            { title: "Tono Ámbar 2200K", description: "Más dorado e intenso. Bodas rústicas y haciendas." },
+            { title: "Blanco Neutro 3000K", description: "Limpio y moderno. Corporativos y rooftops." },
+          ]} columns={2} />
+        </div>
 
-    <!-- Montaje -->
-    <section class="services-section">
-      <div class="container">
-        <SectionHeader
-          title="El montaje profesional que marca la diferencia"
-          subtitle="Llegamos 2-3 horas antes. Al finalizar, recogemos todo."
-          paragraph1="Nuestro equipo revisa las estructuras de tu venue — pérgolas, árboles, postes, vigas — y monta las guirnaldas según el diseño acordado. Probamos cada conexión antes de que lleguen tus invitados."
-          paragraph2="Al finalizar tu celebración, desmontamos cada metro de cable y nos llevamos todo. No tienes que preocuparte por devolver nada ni limpiar cables. Más de 500 eventos montados en CDMX y Estado de México."
-        />
-      </div>
-    </section>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="El montaje profesional"
+            subtitle="Llegamos 2-3 horas antes. Al finalizar, recogemos todo."
+            paragraph1="Nuestro equipo revisa las estructuras — pérgolas, árboles, postes, vigas — y monta según el diseño acordado. Probamos cada conexión antes de que lleguen tus invitados."
+            paragraph2="Al finalizar, desmontamos cada metro de cable. No tienes que devolver nada. Más de 500 eventos montados en CDMX y Estado de México."
+          />
+        </div>
 
-    <!-- Reseñas -->
-    <section class="services-section services-alt">
-      <div class="container">
-        <SectionHeader
-          title="Lo que dicen nuestros clientes"
-          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 47 reseñas verificadas."
-          paragraph1="Cada reseña es de un cliente real que contrató nuestro servicio de guirnaldas. La satisfacción de nuestros clientes es nuestra mejor publicidad."
-          paragraph2="¿Quieres ver más? Pregunta por referencias de eventos similares al tuyo cuando nos contactes por WhatsApp."
-        />
-        <TestimonialCards testimonials={[
-          { name: "María González", event: "Boda en jardín — Coyoacán", rating: 5, text: "Contratamos las guirnaldas para nuestra boda en un jardín de Coyoacán. La instalación fue impecable — llegaron 3 horas antes y dejaron todo perfecto. La luz cálida hizo que las fotos quedaran increíbles. 100% recomendados." },
-          { name: "Carlos Mendoza", event: "Ceremonia en pérgola — Santa Fe", rating: 5, text: "Usamos el paquete de 50 metros para la ceremonia en una pérgola en Santa Fe. El equipo de REDEIL fue muy profesional y el resultado superó nuestras expectativas. El precio es justo por el servicio completo." },
-          { name: "Ana Martínez", event: "Cena de cumpleaños — Condesa", rating: 5, text: "Renté las guirnaldas para una cena de cumpleaños en mi terraza. Transformaron completamente el espacio — parecía un restaurante europeo. El montaje y desmontaje fue rápido y limpio." },
-        ]} />
-      </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 47 reseñas."
+            paragraph1="Cada reseña es de un cliente real que contrató nuestro servicio de guirnaldas."
+            paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "María González", event: "Boda en jardín — Coyoacán", rating: 5, text: "La instalación fue impecable — llegaron 3 horas antes y dejaron todo perfecto. La luz cálida hizo que las fotos quedaran increíbles. 100% recomendados." },
+            { name: "Carlos Mendoza", event: "Ceremonia en pérgola — Santa Fe", rating: 5, text: "El equipo de REDEIL fue muy profesional y el resultado superó nuestras expectativas. El precio es justo por el servicio completo." },
+            { name: "Ana Martínez", event: "Cena de cumpleaños — Condesa", rating: 5, text: "Transformaron completamente mi terraza — parecía un restaurante europeo. El montaje y desmontaje fue rápido y limpio." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
     </section>
 
     <!-- Galería -->
