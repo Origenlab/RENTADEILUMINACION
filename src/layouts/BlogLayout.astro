@@ -1,11 +1,16 @@
 ---
 /**
  * BlogLayout — REDEIL
- * Layout para artículos del blog.
- * Sin animaciones. Sin fechas visibles. 100% SEO.
+ * Usa los mismos componentes que las páginas de servicio:
+ * BaseLayout + Hero + ContentWithSidebar + SectionHeader + ServiceCard
+ * Sin CSS custom. Sin animaciones. Sin fechas.
  */
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Hero from '../components/Hero.astro';
+import ContentWithSidebar from '../components/ContentWithSidebar.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
 interface Props {
   title: string;
@@ -15,7 +20,6 @@ interface Props {
   imageAlt: string;
   category: string;
   schemaMarkup?: string;
-  headings?: { depth: number; slug: string; text: string }[];
 }
 
 const {
@@ -26,10 +30,14 @@ const {
   imageAlt,
   category,
   schemaMarkup,
-  headings = [],
 } = Astro.props;
 
-const h2s = headings.filter(h => h.depth === 2);
+const serviciosRelacionados = [
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para bodas", description: "Focos Edison con luz cálida vintage para jardines, terrazas y haciendas. Las más pedidas para bodas.", link: "/servicios/guirnaldas/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Cortinas de luces LED como backdrop para la mesa de novios. Efecto brillante y fotogénico.", link: "/servicios/cascadas-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Show de luces para eventos", description: "Show de luces robóticas Beam, Spot y Wash con control DMX. El efecto de concierto en tu evento.", link: "/servicios/cabezas-moviles/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para vals de boda", description: "Niebla baja que crea nubes en el piso para el vals. El efecto más emotivo para bodas y XV años.", link: "/servicios/humo-bajo/" },
+];
 ---
 
 <BaseLayout
@@ -43,92 +51,64 @@ const h2s = headings.filter(h => h.depth === 2);
     <Breadcrumbs items={[
       { label: "Inicio", href: "/" },
       { label: "Blog", href: "/blog/" },
-      { label: title.length > 40 ? title.substring(0, 40) + "…" : title }
+      { label: title.length > 45 ? title.substring(0, 45) + "…" : title }
     ]} />
   </Fragment>
 
-  <!-- Hero del artículo -->
-  <section class="bl-hero">
+  <!-- Hero del artículo — mismo componente Hero del sitio -->
+  <Hero
+    title={title}
+    subtitle={description}
+    introParagraph1={`Categoría: <strong>${category}</strong> · Publicado por el equipo técnico de <strong>REDEIL</strong> — más de 30 años de experiencia en iluminación profesional para eventos en CDMX y Estado de México.`}
+    introParagraph2={`<img src="${image}" alt="${imageAlt}" style="width:100%; border-radius:8px; margin-top:0.5rem;" />`}
+  />
+
+  <!-- Contenido del artículo con sidebar -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Cotiza tu Evento"
+      features={[
+        { text: "30 años de experiencia" },
+        { text: "Equipo profesional" },
+        { text: "Instalación incluida" },
+        { text: "CDMX y Estado de México" },
+        { text: "Sin costos ocultos" },
+        { text: "Asesoría gratuita" },
+      ]}
+      waMessage={`Hola REDEIL, leí el artículo "${title}" y quiero cotizar iluminación para mi evento.`}
+      packages={[
+        { label: "Iluminación", price: "", href: "/servicios/iluminacion/" },
+        { label: "Sonido", price: "", href: "/servicios/sonido/" },
+        { label: "Efectos", price: "", href: "/servicios/efectos-especiales/" },
+        { label: "Cotizar", price: "", href: "/contacto/" },
+      ]}
+    >
+      <div class="container">
+        <div class="blog-content">
+          <slot />
+        </div>
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Servicios relacionados -->
+  <section class="services-section services-alt">
     <div class="container">
-      <div class="bl-hero__cat">{category}</div>
-      <h1 class="bl-hero__title">{title}</h1>
-      <p class="bl-hero__desc">{description}</p>
+      <SectionHeader
+        title="Servicios Relacionados"
+        subtitle="Conoce nuestros servicios más solicitados."
+        paragraph1="Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje. Cotiza sin compromiso."
+        paragraph2="Combinamos servicios con precio especial. Cuéntanos tu evento y te armamos la propuesta perfecta."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- Imagen destacada -->
-  <div class="bl-cover">
-    <div class="container">
-      <img
-        src={image}
-        alt={imageAlt}
-        class="bl-cover__img"
-        loading="eager"
-        width="1200"
-        height="630"
-      />
-    </div>
-  </div>
-
-  <!-- Cuerpo: contenido + sidebar -->
-  <div class="bl-body">
-    <div class="container">
-      <div class="bl-body__grid">
-
-        <!-- Contenido del artículo -->
-        <article class="bl-article">
-          <slot />
-        </article>
-
-        <!-- Sidebar -->
-        <aside class="bl-sidebar">
-
-          <!-- Tabla de contenidos -->
-          {h2s.length > 1 && (
-            <div class="bl-toc">
-              <p class="bl-toc__title">En este artículo</p>
-              <nav>
-                <ul class="bl-toc__list">
-                  {h2s.map(h => (
-                    <li>
-                      <a href={`#${h.slug}`} class="bl-toc__link">{h.text}</a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-          )}
-
-          <!-- CTA Cotizar -->
-          <div class="bl-cta-box">
-            <p class="bl-cta-box__title">¿Listo para iluminar tu evento?</p>
-            <p class="bl-cta-box__text">30 años de experiencia. Equipo profesional. Instalación incluida en CDMX y Edo. Méx.</p>
-            <a href="/contacto/" class="bl-cta-box__btn">Cotizar Gratis</a>
-            <a href="tel:+525530682988" class="bl-cta-box__tel">55 3068 2988</a>
-          </div>
-
-          <!-- Categorías / Servicios -->
-          <div class="bl-sidebar-links">
-            <p class="bl-sidebar-links__title">Nuestros Servicios</p>
-            <ul class="bl-sidebar-links__list">
-              <li><a href="/servicios/guirnaldas/">Guirnaldas Edison</a></li>
-              <li><a href="/servicios/luces-neon/">Luces Neón y UV</a></li>
-              <li><a href="/servicios/cabezas-moviles/">Cabezas Móviles</a></li>
-              <li><a href="/servicios/sky-tracker/">Sky Tracker</a></li>
-              <li><a href="/servicios/iluminacion-arquitectonica/">Uplighting</a></li>
-              <li><a href="/servicios/cascadas-led/">Cascadas LED</a></li>
-              <li><a href="/servicios/gobos/">Gobos</a></li>
-              <li><a href="/servicios/seguidor/">Seguidor de Luz</a></li>
-              <li><a href="/servicios/humo-bajo/">Humo Bajo</a></li>
-            </ul>
-          </div>
-
-        </aside>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA Final -->
+  <!-- CTA Final — mismo estilo que las páginas de servicio -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -145,141 +125,80 @@ const h2s = headings.filter(h => h.depth === 2);
 </BaseLayout>
 
 <style>
-/* ── Hero del artículo ── */
-.bl-hero {
-  background: var(--color-secondary, #1C2B4A);
-  padding: calc(var(--topbar-h, 36px) + var(--header-h, 72px) + 3rem) 0 3rem;
-}
-.bl-hero__cat {
-  display: inline-block;
-  background: var(--color-primary, #E05800);
-  color: #fff;
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.85rem;
-  border-radius: 4px;
-  margin-bottom: 1.25rem;
-}
-.bl-hero__title {
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.15;
-  margin: 0 0 1rem;
-  max-width: 72ch;
-}
-.bl-hero__desc {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(255,255,255,0.8);
-  line-height: 1.7;
-  max-width: 65ch;
-  margin: 0;
-}
-
-/* ── Imagen destacada ── */
-.bl-cover {
-  background: var(--color-secondary, #1C2B4A);
-  padding-bottom: 2rem;
-}
-.bl-cover__img {
-  width: 100%;
-  max-height: 480px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-/* ── Cuerpo del artículo ── */
-.bl-body {
-  padding: 3rem 0 4rem;
-  background: #fff;
-}
-.bl-body__grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 3.5rem;
-  align-items: start;
-}
-
-/* ── Artículo ── */
-.bl-article {
-  min-width: 0;
-  font-family: var(--font-body, 'Open Sans', sans-serif);
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  color: var(--color-gray-800, #343a40);
-}
-.bl-article :global(h2) {
+/* Estilos del contenido markdown del artículo — usa las variables y fuentes del sitio */
+.blog-content :global(h2) {
   font-family: var(--font-primary, 'Montserrat', sans-serif);
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
   margin: 2.5rem 0 1rem;
   line-height: 1.25;
-  scroll-margin-top: 130px;
 }
-.bl-article :global(h3) {
+.blog-content :global(h3) {
   font-family: var(--font-primary, 'Montserrat', sans-serif);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
   margin: 2rem 0 0.75rem;
-  scroll-margin-top: 130px;
 }
-.bl-article :global(p) {
+.blog-content :global(p) {
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-gray-800, #343a40);
   margin: 0 0 1.4rem;
 }
-.bl-article :global(strong) {
+.blog-content :global(strong) {
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
 }
-.bl-article :global(ul),
-.bl-article :global(ol) {
+.blog-content :global(ul),
+.blog-content :global(ol) {
   margin: 0 0 1.4rem 1.5rem;
   padding: 0;
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-gray-800, #343a40);
 }
-.bl-article :global(li) {
+.blog-content :global(li) {
   margin-bottom: 0.5rem;
 }
-.bl-article :global(a) {
+.blog-content :global(a) {
   color: var(--color-primary, #E05800);
   text-decoration: underline;
-  text-decoration-color: rgba(224,88,0,0.35);
 }
-.bl-article :global(a:hover) {
-  text-decoration-color: var(--color-primary, #E05800);
+.blog-content :global(a:hover) {
+  color: #c44d00;
 }
-.bl-article :global(blockquote) {
+.blog-content :global(blockquote) {
   border-left: 4px solid var(--color-primary, #E05800);
   background: rgba(224,88,0,0.05);
   margin: 1.5rem 0;
   padding: 1rem 1.5rem;
   border-radius: 0 8px 8px 0;
-  font-style: italic;
 }
-.bl-article :global(blockquote p) {
+.blog-content :global(blockquote p) {
   margin: 0;
   color: var(--color-secondary, #1C2B4A);
   font-weight: 600;
+  font-style: italic;
 }
-.bl-article :global(img) {
+.blog-content :global(img) {
   width: 100%;
   height: auto;
   border-radius: 8px;
   margin: 1.5rem 0;
   display: block;
 }
-.bl-article :global(table) {
+.blog-content :global(table) {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.9375rem;
+  font-family: var(--font-body, 'Open Sans', sans-serif);
 }
-.bl-article :global(th) {
+.blog-content :global(th) {
   background: var(--color-secondary, #1C2B4A);
   color: #fff;
   padding: 0.75rem 1rem;
@@ -287,177 +206,11 @@ const h2s = headings.filter(h => h.depth === 2);
   font-family: var(--font-primary, 'Montserrat', sans-serif);
   font-size: 0.875rem;
 }
-.bl-article :global(td) {
+.blog-content :global(td) {
   padding: 0.65rem 1rem;
   border-bottom: 1px solid var(--color-gray-200, #e9ecef);
 }
-.bl-article :global(tr:nth-child(even) td) {
+.blog-content :global(tr:nth-child(even) td) {
   background: var(--color-gray-50, #f8f9fa);
-}
-
-/* ── Sidebar ── */
-.bl-sidebar {
-  position: sticky;
-  top: calc(var(--topbar-h, 36px) + var(--header-h, 72px) + 1.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Tabla de contenidos */
-.bl-toc {
-  background: var(--color-gray-50, #f8f9fa);
-  border: 1px solid var(--color-gray-200, #e9ecef);
-  border-radius: 10px;
-  padding: 1.5rem;
-}
-.bl-toc__title {
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-gray-500, #6c757d);
-  margin: 0 0 1rem;
-}
-.bl-toc__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.bl-toc__link {
-  font-size: 0.9rem;
-  color: var(--color-secondary, #1C2B4A);
-  text-decoration: none;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  line-height: 1.4;
-}
-.bl-toc__link::before {
-  content: "→";
-  color: var(--color-primary, #E05800);
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  margin-top: 0.15em;
-}
-.bl-toc__link:hover {
-  color: var(--color-primary, #E05800);
-}
-
-/* CTA Box */
-.bl-cta-box {
-  background: var(--color-secondary, #1C2B4A);
-  border-radius: 12px;
-  padding: 1.75rem;
-  text-align: center;
-}
-.bl-cta-box__title {
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 0.75rem;
-  line-height: 1.3;
-}
-.bl-cta-box__text {
-  font-size: 0.875rem;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.6;
-  margin: 0 0 1.25rem;
-}
-.bl-cta-box__btn {
-  display: block;
-  background: var(--color-primary, #E05800);
-  color: #fff;
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.85rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-}
-.bl-cta-box__btn:hover {
-  background: #c44d00;
-}
-.bl-cta-box__tel {
-  display: block;
-  color: rgba(255,255,255,0.7);
-  font-size: 0.875rem;
-  text-decoration: none;
-}
-.bl-cta-box__tel:hover {
-  color: #fff;
-}
-
-/* Sidebar links */
-.bl-sidebar-links {
-  background: #fff;
-  border: 1px solid var(--color-gray-200, #e9ecef);
-  border-radius: 10px;
-  padding: 1.5rem;
-}
-.bl-sidebar-links__title {
-  font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-gray-500, #6c757d);
-  margin: 0 0 1rem;
-}
-.bl-sidebar-links__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.bl-sidebar-links__list a {
-  font-size: 0.9rem;
-  color: var(--color-secondary, #1C2B4A);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0;
-  border-bottom: 1px solid var(--color-gray-100, #f1f3f5);
-}
-.bl-sidebar-links__list a::before {
-  content: "›";
-  color: var(--color-primary, #E05800);
-  font-size: 1.1rem;
-  line-height: 1;
-}
-.bl-sidebar-links__list a:hover {
-  color: var(--color-primary, #E05800);
-}
-.bl-sidebar-links__list li:last-child a {
-  border-bottom: none;
-}
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .bl-body__grid {
-    grid-template-columns: 1fr 280px;
-    gap: 2.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .bl-body__grid {
-    grid-template-columns: 1fr;
-  }
-  .bl-sidebar {
-    position: static;
-    order: -1;
-  }
-  .bl-toc {
-    display: none;
-  }
 }
 </style>
