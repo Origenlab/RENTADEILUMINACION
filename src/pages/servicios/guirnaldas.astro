@@ -7,6 +7,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import GallerySection from '../../components/GallerySection.astro';
 import ContentWithSidebar from '../../components/ContentWithSidebar.astro';
+import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
 const title = "Renta de Guirnaldas de Luces para Bodas y Eventos CDMX | REDEIL";
@@ -127,6 +128,94 @@ const serviciosRelacionados = [
         <h3>También disponibles</h3>
         <p>Además de las guirnaldas tipo Edison, ofrecemos <strong>series navideñas LED</strong>, <strong>cortinas de luces</strong> y <strong>cascadas LED</strong> para decoración de eventos corporativos, fiestas de XV años y celebraciones especiales. Todo con la misma calidad de instalación profesional.</p>
       </ContentWithSidebar>
+    </section>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Guirnaldas"
+          subtitle="4 opciones según el tamaño de tu evento. Instalación incluida en todos."
+          paragraph1="Cada paquete incluye focos Edison (LED o vintage a tu elección), cableado certificado IP65, transporte, montaje profesional, operación y desmontaje. Sin costos ocultos — el precio es todo incluido."
+          paragraph2="¿Tu evento necesita algo diferente? Armamos paquetes a la medida. Cotiza por WhatsApp y te hacemos una propuesta personalizada en menos de 24 horas."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 50 metros",
+            price: "$3,500",
+            priceNote: "IVA incluido",
+            description: "Perfecto para terrazas pequeñas, pérgolas y ceremonias íntimas de hasta 50 invitados.",
+            features: [
+              { text: "50 metros lineales de guirnaldas", included: true },
+              { text: "Focos Edison LED o vintage", included: true },
+              { text: "Certificación IP65 exteriores", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño de distribución incluido", included: true },
+              { text: "Ideal para: pérgola, terraza, ceremonia", included: true },
+              { text: "Asesoría personalizada", included: false },
+              { text: "Dimmer para control de intensidad", included: false },
+            ],
+            ctaLabel: "Cotizar 50 metros",
+            ctaHref: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20el%20paquete%20de%2050%20metros%20de%20guirnaldas",
+          },
+          {
+            name: "Estándar — 100 metros",
+            price: "$6,500",
+            priceNote: "IVA incluido",
+            badge: "Más popular",
+            highlight: true,
+            description: "El más pedido para bodas en jardín. Cubre el área de ceremonia + recepción para hasta 120 invitados.",
+            features: [
+              { text: "100 metros lineales de guirnaldas", included: true },
+              { text: "Focos Edison LED o vintage", included: true },
+              { text: "Certificación IP65 exteriores", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño de distribución incluido", included: true },
+              { text: "Ideal para: bodas, jardines, haciendas", included: true },
+              { text: "Asesoría personalizada de montaje", included: true },
+              { text: "Dimmer para control de intensidad", included: false },
+            ],
+            ctaLabel: "Cotizar 100 metros",
+            ctaHref: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20el%20paquete%20de%20100%20metros%20de%20guirnaldas",
+          },
+          {
+            name: "Premium — 200 metros",
+            price: "$11,500",
+            priceNote: "IVA incluido",
+            description: "Para bodas grandes y eventos corporativos. Cubre áreas amplias con iluminación completa para 200+ invitados.",
+            features: [
+              { text: "200 metros lineales de guirnaldas", included: true },
+              { text: "Focos Edison LED o vintage", included: true },
+              { text: "Certificación IP65 exteriores", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño personalizado del montaje", included: true },
+              { text: "Ideal para: haciendas, fincas, eventos grandes", included: true },
+              { text: "Asesoría en sitio antes del evento", included: true },
+              { text: "Dimmer para control de intensidad", included: true },
+            ],
+            ctaLabel: "Cotizar 200 metros",
+            ctaHref: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20el%20paquete%20de%20200%20metros%20de%20guirnaldas",
+          },
+          {
+            name: "Producción — 500 metros",
+            price: "$24,000",
+            priceNote: "IVA incluido",
+            description: "Producción completa para festivales, ferias, eventos masivos y venues de gran escala con 500+ invitados.",
+            features: [
+              { text: "500 metros lineales de guirnaldas", included: true },
+              { text: "Focos Edison LED o vintage", included: true },
+              { text: "Certificación IP65 exteriores", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño personalizado + visita previa", included: true },
+              { text: "Ideal para: festivales, ferias, venues grandes", included: true },
+              { text: "Asesoría en sitio + prueba de iluminación", included: true },
+              { text: "Dimmer + plantas de luz si se requiere", included: true },
+            ],
+            ctaLabel: "Cotizar 500 metros",
+            ctaHref: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20el%20paquete%20de%20500%20metros%20de%20guirnaldas",
+          },
+        ]} />
+      </div>
     </section>
 
     <!-- Galería -->
