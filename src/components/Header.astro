@@ -253,14 +253,14 @@ function isActive(href: string, children?: { href: string }[]): boolean {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--c-primary, #2D5016);
+    background: #ff5722;
     border-radius: 1px;
     transition: width 0.25s var(--ease, ease);
   }
 
-  .hdr__link:hover { color: var(--c-primary, #2D5016); }
+  .hdr__link:hover { color: #ff5722; }
   .hdr__link:hover::after { width: 100%; }
-  .hdr__link--active { color: var(--c-primary, #2D5016); }
+  .hdr__link--active { color: #ff5722; }
   .hdr__link--active::after { width: 100%; }
 
   .hdr__chevron {
@@ -268,36 +268,42 @@ function isActive(href: string, children?: { href: string }[]): boolean {
   }
 
   /* ── Dropdown ── */
-  .hdr__has-sub { position: relative; }
+  .hdr__has-sub {
+    position: relative;
+    padding-bottom: 8px;
+    margin-bottom: -8px;
+  }
 
   .hdr__dropdown {
     position: absolute;
     top: 100%;
     left: 50%;
-    min-width: 210px;
+    min-width: 230px;
+    max-height: 70vh;
+    overflow-y: auto;
     background: #fff;
-    border-radius: var(--radius-md, 12px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
     padding: 0.5rem 0;
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%);
-    transition: opacity 0.15s var(--ease, ease), visibility 0.15s;
+    transition: opacity 0.15s ease, visibility 0.15s;
     pointer-events: none;
-    padding-top: 0.75rem;
   }
 
-  /* Puente invisible — evita perder hover entre link y dropdown */
-  .hdr__dropdown::before {
+  /* Puente invisible grande — zona segura entre link y dropdown */
+  .hdr__has-sub::after {
     content: '';
     position: absolute;
-    top: -12px;
-    left: 0;
-    right: 0;
-    height: 12px;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 20px;
   }
 
-  .hdr__has-sub:hover .hdr__dropdown {
+  .hdr__has-sub:hover .hdr__dropdown,
+  .hdr__has-sub:focus-within .hdr__dropdown {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -318,8 +324,8 @@ function isActive(href: string, children?: { href: string }[]): boolean {
 
   .hdr__drop-link:hover,
   .hdr__drop-link--active {
-    background: var(--c-bg-alt, #FAF8F5);
-    color: var(--c-primary, #2D5016);
+    background: #FFF4ED;
+    color: #ff5722;
   }
 
   /* ── CTA ── */
