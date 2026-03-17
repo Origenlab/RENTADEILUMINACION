@@ -6,6 +6,7 @@ import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import GallerySection from '../../components/GallerySection.astro';
+import ContentWithSidebar from '../../components/ContentWithSidebar.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
 const title = "Renta de Guirnaldas de Luces para Bodas y Eventos CDMX | REDEIL";
@@ -79,40 +80,53 @@ const serviciosRelacionados = [
       ]}
     />
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal + Sidebar -->
     <section class="services-section">
       <div class="container">
         <SectionHeader
           title="Guirnaldas Edison: la iluminación perfecta para cualquier espacio"
           subtitle="LED y vintage tradicional. Hasta 1,000 metros lineales disponibles."
-          paragraph1="No es lo mismo prender series de luces que diseñar un ambiente con iluminación vintage profesional. Nuestras guirnaldas tipo Edison están disponibles con bombillas LED de bajo consumo eléctrico — ideales para montajes largos — o con focos vintage de filamento que dan esa calidez natural y orgánica que tanto gusta en bodas rústicas."
-          paragraph2="Cada instalación se planifica según las estructuras del lugar — pérgolas, árboles, postes, carpas o techos de salón. Nuestro equipo diseña la distribución, altura y densidad de las luces para crear la atmósfera ideal. Disponibles en tono cálido, ámbar y blanco neutro. Resistentes a lluvia con certificación IP65 para uso en exteriores."
+          paragraph1="No es lo mismo prender series de luces que diseñar un ambiente con iluminación vintage profesional. Nuestras guirnaldas tipo Edison crean la atmósfera que tus invitados van a recordar — y fotografiar."
+          paragraph2="Disponibles en tono cálido, ámbar y blanco neutro. Resistentes a lluvia con certificación IP65. Bombillas LED o vintage de filamento — tú eliges el estilo."
         />
       </div>
-    </section>
+      <ContentWithSidebar
+        sidebarTitle="Guirnaldas Edison"
+        price="$3,500 MXN"
+        priceNote="Precio varía según metros lineales"
+        features={[
+          { text: "Focos Edison LED o vintage" },
+          { text: "Certificación IP65 exteriores" },
+          { text: "Hasta 1,000 metros disponibles" },
+          { text: "Tonos: cálido, ámbar, blanco" },
+          { text: "Diseño personalizado" },
+          { text: "Transporte + montaje + desmontaje" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar guirnaldas para mi evento."
+      >
+        <h3>Focos Edison: LED vs Vintage Tradicional</h3>
+        <p>Las bombillas Edison LED tienen la misma estética vintage con luz cálida y tono ámbar, pero consumen menos energía y generan menos calor — ideales para montajes largos en carpas o pérgolas. Los focos de filamento vintage dan un brillo más natural y orgánico que gusta mucho en bodas rústicas y eventos al aire libre.</p>
+        <p>Ambas opciones son resistentes y profesionales. Nuestro equipo te recomienda la mejor opción según el tipo de evento, el tamaño del espacio y la estética de la decoración que buscas.</p>
 
-    <!-- Qué incluye -->
-    <section class="services-section services-alt">
-      <div class="container">
-        <SectionHeader
-          title="¿Qué incluye la renta de guirnaldas?"
-          subtitle="Servicio completo de principio a fin. Sin costos ocultos."
-          paragraph1="Cuando contratas guirnaldas con REDEIL, no solo recibes luces — recibes una producción completa. Desde la asesoría inicial sobre cuántos metros necesitas, hasta el desmontaje al finalizar tu evento."
-          paragraph2="Trabajamos en jardines, terrazas, haciendas, salones tipo lounge, carpas para eventos, rooftops y cualquier área que necesite ambientar con iluminación decorativa profesional en CDMX y Estado de México."
-        />
-        <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem 2rem;">
-          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Guirnaldas con focos Edison LED o vintage</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Certificación IP65 resistente a lluvia</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Diseño personalizado del montaje</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Transporte, instalación y desmontaje</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Hasta 1,000 metros lineales disponibles</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Asesoría de cantidades según tu espacio</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Tonos: cálido, ámbar y blanco neutro</li>
-            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Cobertura total CDMX y Estado de México</li>
-          </ul>
-        </div>
-      </div>
+        <h3>¿Dónde se instalan?</h3>
+        <p>Cada instalación se planifica según las estructuras del lugar. Trabajamos en:</p>
+        <ul>
+          <li><strong>Jardines y terrazas</strong> — tendido entre postes, árboles o soportes temporales</li>
+          <li><strong>Pérgolas y arcos</strong> — entrelazado decorativo para ceremonias</li>
+          <li><strong>Carpas para eventos</strong> — distribución perimetral o en zigzag</li>
+          <li><strong>Salones y rooftops</strong> — montaje en techos y vigas</li>
+          <li><strong>Haciendas y fincas</strong> — iluminación de fachadas y pasillos</li>
+          <li><strong>Espacios lounge</strong> — ambientación cálida para zonas de descanso</li>
+        </ul>
+
+        <h3>El montaje profesional que marca la diferencia</h3>
+        <p>No solo colgamos luces — diseñamos la distribución, altura y densidad de las guirnaldas para que el efecto visual sea perfecto. Nuestro equipo llega horas antes del evento para que todo esté listo y probado. Al finalizar, nos encargamos del desmontaje completo.</p>
+        <p>Trabajamos en coordinación con wedding planners, decoradores y organizadores de fiestas para que las luces se integren al concepto general de tu celebración. Más de 500 eventos montados en Polanco, Coyoacán, Santa Fe, Naucalpan, Huixquilucan y toda la zona metropolitana.</p>
+
+        <h3>También disponibles</h3>
+        <p>Además de las guirnaldas tipo Edison, ofrecemos <strong>series navideñas LED</strong>, <strong>cortinas de luces</strong> y <strong>cascadas LED</strong> para decoración de eventos corporativos, fiestas de XV años y celebraciones especiales. Todo con la misma calidad de instalación profesional.</p>
+      </ContentWithSidebar>
     </section>
 
     <!-- Galería -->
