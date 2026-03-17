@@ -1,65 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de City Color para Eventos | REDEIL CDMX";
-const description = "Renta de city color e iluminación arquitectónica para eventos en CDMX. REDEIL baña fachadas, muros y espacios con luz de color para bodas y eventos corporativos.";
+const title = "Renta de City Color y Cañones de Luz LED para Eventos CDMX | REDEIL";
+const description = "Cañones de luz LED RGBW para bañar de color fachadas, salones y escenarios. Bodas, corporativos y festivales en CDMX. Instalación incluida. Desde $4,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/city-color/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de City Color para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de City Color para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de city color y cañones de luz LED RGBW para bañar de color fachadas, salones y escenarios en bodas y eventos en CDMX.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de City Color",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de city color e iluminación arquitectónica para eventos en Ciudad de México. Baño de color en fachadas, muros y espacios exteriores.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de City Color"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es un city color?", "acceptedAnswer": { "@type": "Answer", "text": "Un city color es un cañón de luz LED RGBW de alto impacto diseñado para bañar grandes superficies con color — fachadas de haciendas, muros de salones, columnas, escenarios. Proyecta un haz ancho y potente que cubre de 10 a 30 metros cuadrados por unidad." }},
+      { "@type": "Question", "name": "¿Cuántos city colors necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una fachada de hacienda estándar, 4-6 cañones son suficientes. Para un salón de eventos mediano, 8 unidades. Para venues grandes con múltiples zonas, 16 o más. Te asesoramos según las dimensiones de tu espacio." }},
+      { "@type": "Question", "name": "¿Se puede cambiar el color durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los city colors se controlan vía DMX512 y pueden cambiar de color en tiempo real — rosa para el vals, dorado para la cena, multicolor para la fiesta. Nuestro operador programa los cambios según los momentos de tu evento." }},
+      { "@type": "Question", "name": "¿Funcionan en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros cañones de luz tienen protección IP65 para uso en exteriores. Son ideales para fachadas, jardines, fuentes y espacios al aire libre." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales de hacienda", description: "Uplighting puntual para columnas y árboles. El complemento perfecto para los cañones de color en fachadas.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz de luz al cielo nocturno", description: "Fachada bañada de color + haces de luz al cielo = la producción nocturna más espectacular.", link: "/servicios/sky-tracker/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios romántica", description: "Color en las paredes + cascadas brillantes detrás de la mesa de novios. Dentro y fuera, todo iluminado.", link: "/servicios/cascadas-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams blancos en boda", description: "City color para ambientar + cabezas móviles para el show. La combinación que usan en conciertos.", link: "/servicios/cabezas-moviles/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "City Color" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Color" }
+  ]} />
 </Fragment>
-<Hero
-      title="City Color para Eventos en CDMX"
-      subtitle="Iluminación arquitectónica que transforma fachadas y espacios con color"
-      introParagraph1="REDEIL ofrece renta de equipos city color para iluminación arquitectónica de eventos en la Ciudad de México. Estas potentes luminarias bañan fachadas, muros, columnas y jardines con luz de color, creando ambientes sofisticados que elevan la estética de cualquier celebración."
-      introParagraph2="Con experiencia en bodas, galas corporativas, inauguraciones y fiestas privadas, nuestro equipo técnico diseña esquemas de iluminación personalizados que se integran con la paleta de colores de tu evento. Cubrimos toda la CDMX y zona metropolitana."
+
+    <Hero
+      title="Renta de City Color para Eventos en CDMX"
+      subtitle="Cañones de luz LED RGBW que bañan de color fachadas, salones y escenarios. Control DMX. Desde $4,000 + IVA."
+      introParagraph1='El city color transforma cualquier superficie en un lienzo de luz — una fachada de hacienda colonial bañada en rosa para la boda, un salón de eventos teñido de dorado para la cena de gala, un escenario envuelto en azul para un concierto. En <strong>REDEIL</strong> operamos cañones de luz LED RGBW <strong>Elation SixPar</strong>, <strong>Chauvet Colorado</strong> y <strong>Martin Rush</strong> de 180W a 360W por unidad, capaces de cubrir superficies de hasta 30 metros cuadrados cada uno.'
+      introParagraph2='A diferencia de la iluminación arquitectónica (que es puntual para columnas y árboles), los wash lights de tipo city color están diseñados para bañar superficies grandes con color uniforme y potente. Cada cañón se controla vía DMX512 — el operador cambia colores en tiempo real según los momentos del evento: suave y cálido durante la ceremonia, vibrante y saturado en la fiesta. Incluye transporte, montaje, operador y desmontaje en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Iluminación arquitectónica que define la atmósfera de tu evento"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Los equipos city color son luminarias de alta potencia diseñadas para bañar grandes superficies con luz de color uniforme. Al iluminar fachadas, muros y elementos arquitectónicos, transforman por completo la percepción del espacio y crean ambientes que van desde lo elegante y romántico hasta lo vibrante y energético."
-          paragraph2="En REDEIL seleccionamos cuidadosamente la ubicación y el ángulo de cada luminaria para lograr un baño de color homogéneo y profesional. Trabajamos con una amplia gama cromática que nos permite adaptar la iluminación a la temática y los colores de tu evento, ya sea una boda íntima en tonos cálidos o un evento corporativo con los colores de tu marca."
+
+    <CtaBar
+      headline="¿Qué quieres bañar de color?"
+      items={[
+        { label: "Fachadas", href: "#paquetes", icon: "iluminacion" },
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Fachadas, salones y escenarios bañados de color"
+          subtitle="Cada cañón cubre hasta 30m² de superficie con luz potente y uniforme."
+          paragraph1="El impacto visual del city color es inmediato: cuando las luces se encienden y la fachada de la hacienda se tiñe de rosa o el salón se envuelve en dorado, los invitados saben que están en un evento de otro nivel. Las fotos nocturnas quedan espectaculares — el color saturado y uniforme es muy fotogénico."
+          paragraph2="Nuestro equipo distribuye los cañones estratégicamente para cobertura total sin puntos muertos ni sombras. Cada montaje se diseña según la arquitectura del venue."
         />
-        <p>Nuestro servicio integral incluye la visita previa al venue cuando es necesario, diseño del esquema de iluminación, traslado de equipo, montaje profesional, operación durante el evento y desmontaje. Todo respaldado por la experiencia de REDEIL en iluminación de eventos en la Ciudad de México.</p>
+        <Gallery4x4 images={[
+          { src: "/img/city-color/city-color-fachada-hacienda-boda.avif", alt: "Fachada de hacienda bañada de color para boda" },
+          { src: "/img/city-color/iluminacion-ceremonia-boda-hacienda.avif", alt: "Ceremonia de boda con iluminación city color en hacienda" },
+          { src: "/img/city-color/iluminacion-salon-boda-rosa.avif", alt: "Salón de boda iluminado en rosa con city color" },
+          { src: "/img/city-color/renta-city-color-boda-romantica.avif", alt: "City color romántico para boda" },
+          { src: "/img/city-color/iluminacion-fachada-colonial-ambar.avif", alt: "Fachada colonial iluminada en ámbar" },
+          { src: "/img/city-color/renta-city-color-xv-anos-rosa.avif", alt: "City color rosa para XV años" },
+          { src: "/img/city-color/iluminacion-fiesta-corporativa-azul.avif", alt: "Fiesta corporativa iluminada en azul" },
+          { src: "/img/city-color/renta-city-color-haciendas.avif", alt: "City color en hacienda para evento nocturno" },
+          { src: "/img/city-color/iluminacion-rooftop-vista-nocturna.avif", alt: "Rooftop iluminado con city color vista nocturna" },
+          { src: "/img/city-color/renta-city-color-primer-baile.avif", alt: "Primer baile con iluminación city color" },
+          { src: "/img/city-color/iluminacion-fiesta-xv-magenta.avif", alt: "Fiesta de XV años con iluminación magenta" },
+          { src: "/img/city-color/luces-boda-hacienda-mexicana.avif", alt: "Luces de color en hacienda mexicana para boda" },
+          { src: "/img/city-color/renta-city-color-evento-nocturno.avif", alt: "Evento nocturno con cañones de color" },
+          { src: "/img/city-color/iluminacion-profesional-jardines-eventos.avif", alt: "Iluminación profesional de jardines para eventos" },
+          { src: "/img/city-color/renta-city-color-terraza-ciudad.avif", alt: "Terraza urbana iluminada con city color" },
+          { src: "/img/city-color/luces-salon-quinceanos-morado.avif", alt: "Salón de quinceaños iluminado en morado" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de City Color" subtitle="Iluminación arquitectónica en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/city-color/luces-fiesta-elegante-dorado.avif" alt="Salón de fiesta elegante bañado en tonos dorados con iluminación city color" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/luces-brindis-boda-morado.avif" alt="Momento de brindis en boda con iluminación morada de city color en muros" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/luces-terraza-rooftop-morado.avif" alt="Terraza rooftop iluminada en tonos morados con equipos city color" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/iluminacion-fiesta-corporativa-azul.avif" alt="Fiesta corporativa con fachada iluminada en azul por city color" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/iluminacion-fachadas-bodas-mexico.avif" alt="Fachada de venue de boda en México iluminada con city color" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de City Color"
+          subtitle="4 opciones según la superficie a iluminar. Operador DMX incluido."
+          paragraph1="Cada paquete incluye los cañones LED RGBW, tripies o soportes de piso, cableado DMX, operador técnico y desmontaje. El operador programa cambios de color para cada momento del evento — ceremonia, cena, fiesta, brindis."
+          paragraph2="¿Tu venue necesita una configuración especial? Armamos propuestas a la medida. Cotiza por WhatsApp con fotos de tu espacio."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 4 Cañones",
+            price: "$4,000",
+            priceNote: "+ IVA",
+            description: "Baño de color para una fachada frontal o un lateral del salón. El punto de partida para transformar tu venue.",
+            features: [
+              { text: "4 cañones LED RGBW de 180W", included: true },
+              { text: "Cobertura hasta 80m² de superficie", included: true },
+              { text: "Control DMX con operador", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: fachada, un lateral del salón", included: true },
+              { text: "Cambios de color programados", included: true },
+              { text: "Múltiples zonas de color", included: false },
+              { text: "IP65 para exteriores", included: true },
+            ],
+            ctaLabel: "Cotizar 4 cañones",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 8 Cañones",
+            price: "$7,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Fachada completa + interior del salón. El más pedido para bodas en haciendas — transforma dentro y fuera.",
+            features: [
+              { text: "8 cañones LED RGBW de 180-360W", included: true },
+              { text: "Cobertura hasta 200m² de superficie", included: true },
+              { text: "2 zonas de color independientes", included: true },
+              { text: "Operador DMX profesional", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas, haciendas, salones", included: true },
+              { text: "Cambios sincronizados con momentos", included: true },
+              { text: "IP65 para exteriores", included: true },
+            ],
+            ctaLabel: "Cotizar 8 cañones",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 16 Cañones",
+            price: "$12,000",
+            priceNote: "+ IVA",
+            description: "Hacienda completa: fachada, jardín, salón, fuentes. Múltiples zonas con colores independientes.",
+            features: [
+              { text: "16 cañones LED RGBW de alta potencia", included: true },
+              { text: "4+ zonas de color independientes", included: true },
+              { text: "Fachada + jardín + salón + detalles", included: true },
+              { text: "Operador DMX + asistente", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño de color personalizado", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: haciendas completas, fincas", included: true },
+            ],
+            ctaLabel: "Cotizar premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 24+ Cañones",
+            price: "$18,000",
+            priceNote: "+ IVA",
+            description: "Producción completa para festivales, conciertos y eventos de gran escala. Escenarios, fachadas y estructuras.",
+            features: [
+              { text: "24+ cañones LED de alta potencia", included: true },
+              { text: "Coreografía de color programada", included: true },
+              { text: "Sincronización con audio/video", included: true },
+              { text: "Equipo completo de operadores", included: true },
+              { text: "Logística y generadores incluidos", included: true },
+              { text: "Múltiples escenarios y zonas", included: true },
+              { text: "Visita técnica previa", included: true },
+              { text: "Ideal para: festivales, conciertos, TV", included: true },
+            ],
+            ctaLabel: "Cotizar producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre City Color"
+          subtitle="Todo lo que necesitas saber sobre los cañones de luz."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te asesoramos en minutos."
+          paragraph2="Cada venue es diferente — te recomendamos la cantidad exacta de cañones según tu espacio."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué es un city color exactamente?", answer: "Es un cañón de luz LED RGBW de alto impacto diseñado para bañar grandes superficies con color uniforme. A diferencia de un foco o reflector común, el city color tiene un haz ancho y potente que cubre de 10 a 30m² por unidad. Se controla vía DMX para cambiar colores en tiempo real." },
+        { question: "¿Cuántos cañones necesito para la fachada de mi hacienda?", answer: "Depende del tamaño. Para una fachada frontal estándar de 10-15 metros de ancho, 4-6 cañones son suficientes. Para haciendas con múltiples fachadas, jardines y fuentes, recomendamos 12-16 unidades. Mándanos fotos de tu venue y te cotizamos la cantidad exacta." },
+        { question: "¿Se puede cambiar el color durante el evento?", answer: "Sí, es una de las grandes ventajas. Nuestro operador programa cambios de color para cada momento: rosa suave durante el vals, dorado cálido para la cena, azul o multicolor para la fiesta. Los cambios pueden ser graduales o instantáneos según el efecto deseado." },
+        { question: "¿Funcionan bajo lluvia?", answer: "Sí. Nuestros cañones tienen certificación IP65 — resistentes a lluvia, humedad y polvo. Son equipo diseñado específicamente para uso en exteriores. Hemos montado en bodas bajo lluvia sin problema." },
+        { question: "¿Qué diferencia hay entre city color y uplighting?", answer: "El city color usa cañones de alta potencia para cubrir superficies grandes (fachadas completas, escenarios). El uplighting arquitectónico usa reflectores más pequeños para iluminar puntos específicos (columnas, árboles, arcos). Lo ideal es combinar ambos — city color para las fachadas y uplighting para los detalles." },
+        { question: "¿Consume mucha energía?", answer: "Los cañones LED son muy eficientes — cada unidad consume entre 180W y 360W. Un paquete de 8 cañones consume menos que un microondas. En venues con toma eléctrica estándar no hay problema. Para eventos muy grandes, llevamos generadores." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El city color se potencia cuando lo combinas con otros efectos."
+          paragraph1="La fachada bañada de color es solo el inicio. Cuando agregas uplighting en las columnas, cascadas LED dentro del salón y un sky tracker cortando el cielo, el venue se transforma de arriba a abajo."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la iluminación completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para bañar tu evento de color?</h2>
+          <p>Mándanos fotos de tu venue por WhatsApp. Te decimos cuántos cañones necesitas, qué colores recomendamos y el precio exacto.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

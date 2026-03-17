@@ -1,68 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Cabezas Móviles para Eventos | REDEIL CDMX";
-const description = "Renta de cabezas móviles profesionales para eventos en CDMX. REDEIL ofrece iluminación dinámica con beams, spots y wash para bodas, fiestas y eventos corporativos.";
+const title = "Renta de Cabezas Móviles para Eventos y Bodas CDMX | REDEIL";
+const description = "Luces robóticas Beam, Spot y Wash con control DMX para shows de luces en bodas, XV años y eventos. Martin, Chauvet, Elation. Desde $6,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/cabezas-moviles/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Cabezas Móviles para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Cabezas Móviles para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de cabezas móviles LED y luminarias robóticas DMX para shows de luces en bodas, XV años y eventos en CDMX.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Cabezas Móviles",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de cabezas móviles para eventos en Ciudad de México. Iluminación dinámica con beams, spots y wash para bodas, fiestas y corporativos.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Cabezas Móviles"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué diferencia hay entre Beam, Spot y Wash?", "acceptedAnswer": { "@type": "Answer", "text": "Beam proyecta un haz concentrado y delgado — ideal para shows aéreos y efectos con humo. Spot proyecta patrones, gobos y colores con bordes definidos. Wash baña grandes áreas con color suave y uniforme. La mayoría de los eventos usan una combinación de los tres." }},
+      { "@type": "Question", "name": "¿Las cabezas móviles necesitan operador?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos nuestros paquetes incluyen operador con consola DMX512. El operador programa las secuencias antes del evento y las controla en vivo para sincronizar con la música y los momentos clave." }},
+      { "@type": "Question", "name": "¿Cuántas cabezas móviles necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una pista de baile estándar, 4-8 cabezas son suficientes. Para bodas completas con show de luces, recomendamos 8-12. Para conciertos y eventos masivos, 20 o más. Te asesoramos según tu espacio." }},
+      { "@type": "Question", "name": "¿Se pueden sincronizar con la música?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras cabezas móviles se operan vía DMX512 y pueden sincronizarse con el audio del DJ o la banda en vivo. El operador programa cues específicos para momentos clave como el vals, brindis o entrada de los novios." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz de luz al cielo nocturno", description: "Mientras las cabezas móviles iluminan la pista, el sky tracker marca el cielo. Producción aérea completa.", link: "/servicios/sky-tracker/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en boda con efecto de nubes en el piso", description: "Los beams de las cabezas móviles se ven espectaculares cortando el humo. El combo favorito para el vals.", link: "/servicios/humo-bajo/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyecta nombres o logos mientras las cabezas móviles hacen el show de luces. Dos efectos que se complementan.", link: "/servicios/gobos/" },
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional con cabina para eventos CDMX", description: "DJ + show de luces sincronizado. La combinación que transforma cualquier pista de baile en una experiencia.", link: "/servicios/bocinas-djs/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Cabezas Móviles" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cabezas Móviles" }
+  ]} />
 </Fragment>
-<Hero
-      title="Cabezas Móviles para Eventos en CDMX"
-      subtitle="Iluminación dinámica profesional que transforma cualquier espacio"
-      introParagraph1="En REDEIL contamos con cabezas móviles de última generación para todo tipo de eventos en la Ciudad de México. Nuestro equipo profesional se encarga del montaje, programación y operación para que tu evento cuente con una iluminación dinámica de alto impacto."
-      introParagraph2="Con amplia experiencia en bodas, fiestas, eventos corporativos y shows en vivo, ofrecemos soluciones de iluminación que se adaptan a cada espacio y concepto. Nuestras cabezas móviles incluyen efectos de beam, spot y wash controlados por operadores certificados."
+
+    <Hero
+      title="Renta de Cabezas Móviles para Shows de Luces en CDMX"
+      subtitle="Luces robóticas Beam, Spot y Wash con control DMX. Operador profesional incluido. Desde $6,000 + IVA."
+      introParagraph1='Las cabezas móviles son las responsables de los shows de luces que ves en conciertos, programas de televisión y los eventos más espectaculares. Luces robóticas que se mueven, cambian de color, proyectan patrones y crean efectos aéreos — todo controlado en tiempo real por un operador profesional con consola DMX512. En <strong>REDEIL</strong> trabajamos con equipos <strong>Martin MAC Aura</strong>, <strong>Chauvet Rogue R2</strong> y <strong>Elation Platinum</strong> — el mismo nivel que se usa en producciones de Televisa y conciertos en Foro Sol.'
+      introParagraph2='Ofrecemos tres tipos de luminarias inteligentes: <strong>Beam</strong> (haces concentrados para efectos aéreos), <strong>Spot</strong> (proyección de gobos y patrones con bordes definidos) y <strong>Wash</strong> (baño amplio de color para ambientar salones). La combinación de los tres tipos crea un show de luces completo que transforma cualquier pista de baile. Montamos en truss profesional o totems, con cableado DMX certificado. Bodas, XV años, galas corporativas y fiestas privadas en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Iluminación dinámica que eleva la experiencia de tu evento"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las cabezas móviles son el elemento clave para crear ambientes envolventes y espectaculares en cualquier evento. Gracias a su capacidad de movimiento, cambio de color y proyección de gobos, estas luminarias permiten diseñar shows de luz que cautivan a los asistentes desde el primer momento."
-          paragraph2="En REDEIL trabajamos con equipos profesionales que garantizan un rendimiento impecable durante toda la duración de tu evento. Cada montaje es planificado cuidadosamente por nuestro equipo técnico, considerando las dimensiones del venue, la temática del evento y el efecto visual deseado."
+
+    <CtaBar
+      headline="¿Para qué tipo de evento necesitas el show de luces?"
+      items={[
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Shows de luces en eventos reales"
+          subtitle="Beam, Spot y Wash en acción — bodas, XV años y galas."
+          paragraph1="Cada foto es de un evento real en CDMX. Los haces de luz cortando el salón, los colores bañando la pista de baile, los patrones girando en las paredes — eso es lo que logran las cabezas móviles cuando las opera un profesional con la música indicada."
+          paragraph2="El efecto cambia completamente según el momento: suave y romántico durante el vals, explosivo y colorido en la hora loca, elegante y contenido durante la cena."
         />
-        <p>Ya sea que necesites un ambiente elegante y sutil para una boda o un show de luces energético para una fiesta, nuestras cabezas móviles ofrecen la versatilidad necesaria para lograrlo. Cubrimos eventos en toda la CDMX y zona metropolitana con puntualidad y profesionalismo.</p>
+        <Gallery4x4 images={[
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif", alt: "Cabezas móviles con beams blancos en boda elegante" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-pista-baile-azul-rosa.avif", alt: "Pista de baile iluminada con cabezas móviles azul y rosa" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores.avif", alt: "Show de luces con beams de colores en evento" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-xv-beams-rosa-azul.avif", alt: "Fiesta de XV años con beams rosa y azul" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-baile-novios-iluminacion.avif", alt: "Baile de novios con iluminación de cabezas móviles" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif", alt: "Evento corporativo con show de beams profesional" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-romantica-beams-suaves.avif", alt: "Boda romántica con beams suaves y cálidos" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-beams-humo-pista.avif", alt: "Fiesta con beams cortando el humo en pista de baile" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif", alt: "Montaje profesional en truss con múltiples cabezas móviles" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-xv-anos-pista-baile-rosa.avif", alt: "Pista de baile rosa para XV años con cabezas móviles" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-gala-corporativa-salon-rosa.avif", alt: "Gala corporativa en salón iluminado con wash rosa" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-beams-cruzados-fiesta.avif", alt: "Beams cruzados en fiesta nocturna" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-salon-iluminacion-completa.avif", alt: "Salón de boda con iluminación completa de cabezas móviles" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-operador-consola-dmx-boda.avif", alt: "Operador controlando consola DMX en boda" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-pista-baile-gobos-espiral.avif", alt: "Gobos en espiral proyectados en pista de baile" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-masivo-luces-show.avif", alt: "Evento masivo con show de luces de cabezas móviles" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Cabezas Móviles" subtitle="Montajes reales en eventos de la Ciudad de México">
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif" alt="Show profesional con cabezas móviles montadas en truss proyectando beams de luz en un evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-social-iluminacion-dinamica.avif" alt="Evento social iluminado con cabezas móviles creando ambiente dinámico en salón" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-pista-baile-magenta.avif" alt="Pista de baile iluminada en tonos magenta por cabezas móviles durante evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-salon-iluminacion-completa.avif" alt="Salón de boda con iluminación completa de cabezas móviles en tonos cálidos" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-romantica-beams-suaves.avif" alt="Boda romántica con beams suaves de cabezas móviles creando atmósfera íntima" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cabezas-moviles/renta-cabezas-moviles-montaje-gobo-tecnico-truss.avif" alt="Montaje técnico de cabezas móviles con gobos sobre estructura de truss" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Cabezas Móviles"
+          subtitle="4 niveles de show según el tamaño de tu evento. Operador DMX incluido."
+          paragraph1="Cada paquete incluye las luminarias robóticas, truss o totems para montaje, cableado DMX, operador profesional con consola, programación de secuencias y desmontaje. El operador llega horas antes para programar los cues según tu playlist y momentos clave."
+          paragraph2="¿Necesitas algo específico? Armamos configuraciones a la medida con la cantidad exacta de beam, spot y wash que tu evento necesita."
+        />
+        <PricingCards packages={[
+          {
+            name: "Show Básico — 4 Cabezas",
+            price: "$6,000",
+            priceNote: "+ IVA",
+            description: "Show de luces para la pista de baile. Ideal para bodas íntimas y fiestas privadas de hasta 80 invitados.",
+            features: [
+              { text: "4 cabezas móviles LED (beam + wash)", included: true },
+              { text: "Montaje en totems profesionales", included: true },
+              { text: "Operador DMX incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: pista de baile, bodas", included: true },
+              { text: "Programación por momentos clave", included: true },
+              { text: "Montaje en truss aéreo", included: false },
+              { text: "Sincronización con música en vivo", included: false },
+            ],
+            ctaLabel: "Cotizar show básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Show Estándar — 8 Cabezas",
+            price: "$10,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El show completo para bodas y XV años. Beam + Spot + Wash que cubren pista y salón para 150+ invitados.",
+            features: [
+              { text: "8 cabezas móviles (beam + spot + wash)", included: true },
+              { text: "Montaje en truss o totems", included: true },
+              { text: "Operador DMX con consola profesional", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Programación de cues por momento", included: true },
+              { text: "Ideal para: bodas, XV años, galas", included: true },
+              { text: "Sincronización con playlist/DJ", included: true },
+              { text: "Gobos personalizados", included: false },
+            ],
+            ctaLabel: "Cotizar show estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Show Premium — 12 Cabezas",
+            price: "$16,000",
+            priceNote: "+ IVA",
+            description: "Producción de luces nivel concierto. 12 luminarias robóticas para eventos grandes y galas corporativas.",
+            features: [
+              { text: "12 cabezas móviles de alta potencia", included: true },
+              { text: "Montaje en truss profesional aéreo", included: true },
+              { text: "Operador DMX + asistente técnico", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Programación completa sincronizada", included: true },
+              { text: "Gobos personalizados incluidos", included: true },
+              { text: "Ideal para: galas, corporativos, shows", included: true },
+              { text: "Visita previa al venue", included: true },
+            ],
+            ctaLabel: "Cotizar producción premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 20+ Cabezas",
+            price: "$28,000",
+            priceNote: "+ IVA",
+            description: "Producción completa nivel concierto para festivales, lanzamientos y mega eventos. Show coreografiado.",
+            features: [
+              { text: "20+ cabezas móviles profesionales", included: true },
+              { text: "Truss aéreo + ground support", included: true },
+              { text: "Equipo de operadores DMX", included: true },
+              { text: "Coreografía de luces programada", included: true },
+              { text: "Sincronización con audio + video", included: true },
+              { text: "Gobos + efectos especiales", included: true },
+              { text: "Logística completa + visita previa", included: true },
+              { text: "Ideal para: conciertos, festivales, TV", included: true },
+            ],
+            ctaLabel: "Cotizar mega producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Cabezas Móviles"
+          subtitle="Todo lo que necesitas saber sobre el show de luces."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te asesoramos en minutos."
+          paragraph2="Cada evento tiene su configuración ideal — te recomendamos la combinación exacta de beam, spot y wash para tu espacio."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué diferencia hay entre Beam, Spot y Wash?", answer: "Beam proyecta un haz de luz concentrado y delgado — es el efecto aéreo que ves en conciertos cuando los rayos cruzan el salón, y se ve espectacular con humo. Spot proyecta patrones, gobos y colores con bordes definidos — ideal para logos y figuras en paredes. Wash baña áreas grandes con color suave y uniforme — perfecto para ambientar salones completos." },
+        { question: "¿Necesito un operador para las cabezas móviles?", answer: "Sí, y todos nuestros paquetes lo incluyen. Las cabezas móviles se controlan con consola DMX512 — el operador programa secuencias antes del evento y las ejecuta en vivo. Esto permite sincronizar las luces con la música y crear cues específicos para el vals, brindis, hora loca y entrada de novios." },
+        { question: "¿Se pueden sincronizar con la música del DJ?", answer: "Sí. Nuestro operador se coordina con el DJ o la banda en vivo para sincronizar los cambios de luces con la música. El resultado es un show donde las luces se mueven al ritmo — suave durante las baladas, explosivo en la fiesta." },
+        { question: "¿Cuántas cabezas móviles necesito?", answer: "Para una pista de baile estándar de 100m², 4 cabezas son suficientes. Para cubrir pista + salón en una boda, recomendamos 8. Para galas y corporativos en venues grandes, 12 o más. Te asesoramos según las dimensiones de tu espacio." },
+        { question: "¿El montaje en truss es seguro?", answer: "100%. Nuestro truss es de aluminio certificado con capacidad de carga superior al peso de los equipos. Lo aseguramos con slings de acero y cadenas de seguridad. Cada cabeza móvil tiene su propio cable de seguridad independiente del soporte principal." },
+        { question: "¿Cuánto tiempo toma la instalación?", answer: "El montaje completo toma entre 2 y 4 horas dependiendo de la cantidad de equipos y si es truss aéreo o totems. Llegamos temprano para que todo esté listo y probado antes de que lleguen tus invitados." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="Las cabezas móviles brillan más cuando las complementas."
+          paragraph1="Un show de luces se convierte en una experiencia inolvidable cuando agregas humo escénico (los beams se ven espectaculares cortando el humo), gobos personalizados y un DJ que coordine la música con las luces."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para un show de luces en tu evento?</h2>
+          <p>Cuéntanos el tipo de evento, el tamaño del venue y qué efecto quieres lograr. Te diseñamos el show de luces perfecto.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Diseña tu Show de Luces</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

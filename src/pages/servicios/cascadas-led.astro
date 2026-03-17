@@ -1,74 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Cascadas LED para Eventos | REDEIL CDMX";
-const description = "Renta de cascadas LED para bodas y eventos en CDMX. Cortinas de luces LED que crean ambientes mágicos y románticos. Montaje profesional por REDEIL.";
+const title = "Renta de Cascadas LED para Bodas y Eventos CDMX | REDEIL";
+const description = "Cortinas de luces LED para mesa de novios, arcos de ceremonia y fondos fotográficos. Efecto cascada brillante. Instalación incluida. Desde $3,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/cascadas-led/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Cascadas LED para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Cascadas LED para Bodas y Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de cascadas LED y cortinas de luces para mesa de novios, backdrops y decoración de bodas en CDMX y Estado de México.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Cascadas LED",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de cascadas LED y cortinas de luces para bodas, fiestas y eventos en la Ciudad de México. Montaje e instalación profesional incluida.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Cascadas LED"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tamaño tienen las cortinas LED?", "acceptedAnswer": { "@type": "Answer", "text": "Cada cortina mide 3×3 metros (ancho × alto). Se pueden unir varias para crear backdrops más amplios. Para una mesa de novios estándar, una cortina es suficiente. Para un backdrop completo, recomendamos 2-3 cortinas." }},
+      { "@type": "Question", "name": "¿Las cascadas LED se pueden usar en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras cortinas LED tienen protección para uso semi-exterior (bajo techo o carpa). Para uso a la intemperie directa, las protegemos con estructuras adicionales. La mayoría de los montajes son en salones y carpas." }},
+      { "@type": "Question", "name": "¿Qué colores están disponibles?", "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos cascadas en blanco cálido (la más popular para bodas), blanco frío, multicolor y con efecto twinkle (parpadeo estrellado). Las versiones DMX permiten cambiar de color durante el evento." }},
+      { "@type": "Question", "name": "¿La instalación daña las paredes?", "acceptedAnswer": { "@type": "Answer", "text": "No. Montamos las cortinas en estructuras de truss portátiles independientes de las paredes del salón. No se perfora, pega ni daña ninguna superficie del venue." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza de boda", description: "La combinación clásica para bodas: cascadas LED detrás de la mesa de novios y guirnaldas cálidas en el techo.", link: "/servicios/guirnaldas/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales de hacienda", description: "Uplighting en fachadas y columnas complementa el efecto brillante de las cascadas dentro del salón.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight seguidor en primer baile de novios", description: "Spotlight para el vals y momentos especiales. Con las cascadas LED de fondo, el efecto visual es espectacular.", link: "/servicios/seguidor/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyecta los nombres de los novios en la pista mientras las cascadas brillan detrás de la mesa principal.", link: "/servicios/gobos/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Cascadas LED" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cascadas LED" }
+  ]} />
 </Fragment>
-<Hero
-      title="Cascadas LED para Eventos en CDMX"
-      subtitle="Cortinas de luces LED que transforman cualquier espacio en un escenario mágico"
-      introParagraph1="En REDEIL ofrecemos el servicio de renta de cascadas LED para bodas, fiestas y todo tipo de eventos en la Ciudad de México y zona metropolitana. Nuestras cortinas de luces crean un efecto visual impactante que envuelve tu celebración en un ambiente cálido y sofisticado."
-      introParagraph2="Contamos con amplia experiencia en montajes para bodas, XV años, eventos corporativos y fiestas privadas. Nuestro equipo profesional se encarga de la instalación completa, garantizando un resultado impecable que tus invitados recordarán."
+
+    <Hero
+      title="Renta de Cascadas LED para Bodas y Eventos en CDMX"
+      subtitle="Cortinas de luces brillantes para mesa de novios, backdrops y arcos de ceremonia. Instalación profesional incluida. Desde $3,000 + IVA."
+      introParagraph1='Las cascadas LED son el fondo perfecto para la mesa de novios — una cortina de miles de luces LED que caen como lluvia brillante y crean un backdrop espectacular para fotos y video. En <strong>REDEIL</strong> montamos cortinas de luces profesionales de 3×3 metros con efecto cascada, twinkle (parpadeo estrellado) y luz fija en blanco cálido, frío o multicolor. Es el elemento decorativo más fotografiado en las bodas que iluminamos.'
+      introParagraph2='Cada cortina se monta sobre estructura de truss portátil — no dañamos paredes ni techos del venue. El montaje incluye transporte, estructura metálica, instalación profesional, operación durante el evento y desmontaje completo. Nuestras cascadas LED funcionan como backdrop para la mesa principal, como arco luminoso de ceremonia, como fondo fotográfico o como cortina decorativa para dividir ambientes. Bodas, XV años, baby showers y eventos corporativos en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Transforma tu evento con cortinas de luces LED"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las cascadas LED son uno de los elementos decorativos más solicitados para bodas y eventos especiales. Estas cortinas de luces generan un efecto de caída luminosa que recuerda a una cascada de agua cristalina, aportando elegancia y romanticismo a cualquier espacio."
-          paragraph2="En REDEIL trabajamos con equipos LED de alta calidad que ofrecen una iluminación uniforme y envolvente. Cada instalación se adapta al espacio de tu evento, ya sea en interiores como salones y jardines techados, o en exteriores como terrazas y haciendas. Nuestro equipo técnico realiza el montaje y desmontaje completo para que tú solo te preocupes por disfrutar."
+
+    <CtaBar
+      headline="¿Dónde vas a colocar las cascadas LED?"
+      items={[
+        { label: "Mesa de Novios", href: "#paquetes", icon: "iluminacion" },
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Así se ven las cascadas LED en un evento real"
+          subtitle="Backdrops, arcos de ceremonia y mesas de novios iluminadas."
+          paragraph1="El efecto de las cascadas LED es inmediato: cuando se encienden detrás de la mesa de novios, todo el salón cambia de atmósfera. Las miles de luces LED crean un fondo brillante y elegante que hace que cada foto tomada en esa zona se vea profesional."
+          paragraph2="Cada montaje se adapta al espacio — salones con techo alto, carpas en jardín, patios de haciendas. Nuestro equipo mide y diseña la distribución antes del evento."
         />
-        <p>Las cascadas LED son ideales para enmarcar la mesa principal, crear fondos fotográficos espectaculares, decorar escaleras o delimitar áreas dentro de tu celebración. Consulta con nuestro equipo para diseñar la distribución perfecta según las características de tu evento en CDMX.</p>
+        <Gallery4x4 images={[
+          { src: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular.avif", alt: "Backdrop espectacular de cascadas LED en boda" },
+          { src: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas.avif", alt: "Arco de ceremonia con cascadas LED moradas" },
+          { src: "/img/cascadas-led/cascadas-led-cortina-luz-calida-boda.avif", alt: "Cortina de luz cálida para boda romántica" },
+          { src: "/img/cascadas-led/cascadas-led-cortina-luz-mesa-novios.avif", alt: "Cascada LED detrás de mesa de novios" },
+          { src: "/img/cascadas-led/cascadas-led-decoracion-mesa-novios-flores.avif", alt: "Decoración de mesa de novios con cascadas LED y flores" },
+          { src: "/img/cascadas-led/cascadas-led-backdrop-mesa-principal-boda.avif", alt: "Backdrop de mesa principal con cascadas LED brillantes" },
+          { src: "/img/cascadas-led/cascadas-led-carpa-exterior-iluminacion.avif", alt: "Cascadas LED en carpa exterior para evento" },
+          { src: "/img/cascadas-led/cascadas-led-iluminacion-completa-boda.avif", alt: "Iluminación completa de boda con cascadas LED" },
+          { src: "/img/cascadas-led/renta-cascadas-led-fondo-fotografico-novios.avif", alt: "Fondo fotográfico de cascadas LED para novios" },
+          { src: "/img/cascadas-led/renta-cascadas-led-mesa-novios-romantico.avif", alt: "Mesa de novios con cascadas LED románticas" },
+          { src: "/img/cascadas-led/luces-para-bodas-cascada-efecto-estrellado.avif", alt: "Cascada LED con efecto estrellado twinkle para boda" },
+          { src: "/img/cascadas-led/renta-luces-led-cascada-ambiente-magico.avif", alt: "Ambiente mágico creado por cascadas LED" },
+          { src: "/img/cascadas-led/cascadas-led-iluminacion-ambiente-romantico.avif", alt: "Iluminación romántica con cascadas LED" },
+          { src: "/img/cascadas-led/renta-cascadas-led-cortina-luz-dorada.avif", alt: "Cortina de luz dorada cascada LED" },
+          { src: "/img/cascadas-led/luces-para-bodas-cascada-fondo-elegante.avif", alt: "Fondo elegante de cascada LED para boda" },
+          { src: "/img/cascadas-led/renta-luces-led-cascada-estructura-moderna.avif", alt: "Cascada LED en estructura moderna de evento" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Cascadas LED" subtitle="Instalaciones reales en bodas y eventos de nuestros clientes">
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/cascadas-led-cortina-luces-boda-exterior.avif" alt="Cortina de luces LED tipo cascada instalada en una boda al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/renta-luces-led-cascada-ambiente-magico.avif" alt="Cascadas LED creando un ambiente mágico con luces cálidas en evento nocturno" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/cascadas-led-montaje-profesional-escalera.avif" alt="Montaje profesional de cascadas LED decorando una escalera en salón de eventos" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/cascadas-led-iluminacion-ambiente-romantico.avif" alt="Iluminación romántica con cascadas LED en celebración de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/luces-para-bodas-cascada-instalacion-salon.avif" alt="Instalación de cascada de luces LED en salón de bodas" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/renta-luces-led-cortina-decorativa-salon.avif" alt="Cortina decorativa de luces LED rentada para evento en salón elegante" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/cascadas-led-cortina-luz-calida-boda.avif" alt="Cortina de luz cálida tipo cascada LED ambientando recepción de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/cascadas-led/luces-para-bodas-cascada-fondo-brillante.avif" alt="Fondo brillante de cascada LED como telón para mesa principal de boda" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Cascadas LED"
+          subtitle="4 opciones según el tamaño del backdrop. Estructura incluida."
+          paragraph1="Cada paquete incluye las cortinas LED, estructura de truss portátil (no dañamos el venue), cableado, montaje profesional y desmontaje. Las cortinas miden 3×3 metros cada una y se pueden unir para crear backdrops más amplios."
+          paragraph2="¿Tu evento necesita una configuración diferente? Armamos propuestas a la medida. Cotiza por WhatsApp y te hacemos un diseño personalizado."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 1 Cortina 3×3m",
+            price: "$3,000",
+            priceNote: "+ IVA",
+            description: "Una cortina de cascada LED perfecta para la mesa de novios o como fondo fotográfico. Lo más solicitado.",
+            features: [
+              { text: "1 cortina LED de 3×3 metros", included: true },
+              { text: "Estructura de truss incluida", included: true },
+              { text: "Blanco cálido, frío o multicolor", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: mesa de novios, photo booth", included: true },
+              { text: "Efecto twinkle (parpadeo)", included: true },
+              { text: "Control DMX de colores", included: false },
+              { text: "Cortinas adicionales", included: false },
+            ],
+            ctaLabel: "Cotizar 1 cortina",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 2 Cortinas 3×3m",
+            price: "$5,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Backdrop completo de 6 metros de ancho. Cubre toda la pared detrás de la mesa principal. El más pedido para bodas.",
+            features: [
+              { text: "2 cortinas LED de 3×3 metros", included: true },
+              { text: "Backdrop continuo de 6m de ancho", included: true },
+              { text: "Estructura de truss incluida", included: true },
+              { text: "Blanco cálido, frío o multicolor", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Efecto twinkle (parpadeo)", included: true },
+              { text: "Ideal para: bodas, XV años, galas", included: true },
+              { text: "Control DMX de colores", included: false },
+            ],
+            ctaLabel: "Cotizar backdrop estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 4 Cortinas",
+            price: "$9,000",
+            priceNote: "+ IVA",
+            description: "12 metros de cortinas LED para cubrir todo un lateral del salón. Efecto envolvente que transforma el espacio completo.",
+            features: [
+              { text: "4 cortinas LED (12m de ancho total)", included: true },
+              { text: "Estructuras de truss independientes", included: true },
+              { text: "Control DMX para cambios de color", included: true },
+              { text: "Efecto twinkle + cascada programada", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas grandes, salones", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Diseño de distribución personalizado", included: true },
+            ],
+            ctaLabel: "Cotizar premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 8+ Cortinas",
+            price: "$15,000",
+            priceNote: "+ IVA",
+            description: "Decoración total con cascadas LED en todo el venue. Paredes, divisiones, backdrop y arcos luminosos.",
+            features: [
+              { text: "8+ cortinas LED (24m+ de cobertura)", included: true },
+              { text: "Múltiples zonas iluminadas", included: true },
+              { text: "Control DMX completo", included: true },
+              { text: "Efectos programados y sincronizados", included: true },
+              { text: "Arcos y figuras luminosas", included: true },
+              { text: "Equipo técnico completo", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: eventos masivos, producción", included: true },
+            ],
+            ctaLabel: "Cotizar producción completa",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Cascadas LED"
+          subtitle="Lo que todos preguntan antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada salón es diferente — te asesoramos sobre cuántas cortinas necesitas según las dimensiones de tu venue."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tamaño tienen las cortinas LED?", answer: "Cada cortina mide 3×3 metros (ancho × alto). Se unen para crear backdrops más amplios: 2 cortinas = 6m, 4 cortinas = 12m. La altura de 3 metros es suficiente para la mayoría de los salones de eventos en CDMX." },
+        { question: "¿La instalación daña las paredes del salón?", answer: "No. Montamos todas las cortinas en estructuras de truss portátiles que no tocan las paredes del venue. No se perfora, pega ni daña ninguna superficie. Al terminar, retiramos todo sin dejar rastro." },
+        { question: "¿Se pueden usar en exteriores?", answer: "Sí, bajo techo o carpa. Para eventos al aire libre, las cortinas funcionan perfecto en pérgolas, carpas y estructuras cubiertas. En caso de lluvia directa, las protegemos con cubiertas adicionales." },
+        { question: "¿Qué efecto se ve mejor para bodas?", answer: "El más popular es blanco cálido con efecto twinkle — un parpadeo suave que simula estrellas. Se ve elegante, romántico y espectacular en fotos. El blanco frío da un look más moderno, y el multicolor es ideal para XV años y fiestas temáticas." },
+        { question: "¿Cuánto tiempo toma la instalación?", answer: "El montaje de 1-2 cortinas toma aproximadamente 1 hora. Para 4+ cortinas, entre 2-3 horas. Llegamos con tiempo suficiente para que todo esté listo y probado antes de tu evento." },
+        { question: "¿Se pueden combinar con otros servicios de iluminación?", answer: "Sí, y es lo más recomendable para bodas. La combinación más popular: cascadas LED detrás de la mesa de novios + guirnaldas Edison en el techo + seguidor para el vals. Te armamos un paquete con precio especial." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="Las cascadas LED se ven aún mejor cuando las complementas."
+          paragraph1="El backdrop de cascadas LED es el punto focal visual de la boda — pero cuando lo combinas con guirnaldas cálidas en el techo, uplighting en las columnas y un seguidor para el vals, el resultado es un salón completamente transformado."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la iluminación completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu mesa de novios brille?</h2>
+          <p>Mándanos fotos de tu salón por WhatsApp. Te decimos cuántas cortinas necesitas y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

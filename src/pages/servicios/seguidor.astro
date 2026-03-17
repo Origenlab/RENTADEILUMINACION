@@ -1,74 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Seguidor de Luz para Eventos | REDEIL CDMX";
-const description = "Renta de seguidor de luz (follow spot) para bodas, XV años y eventos en CDMX. REDEIL destaca momentos clave con iluminación profesional operada por técnicos expertos.";
+const title = "Renta de Seguidor de Luz para Bodas y Eventos CDMX | REDEIL";
+const description = "Follow spot profesional para el vals, brindis y entrada de novios. Operador técnico incluido. Bodas, XV años y galas en CDMX. Desde $3,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/seguidor/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Seguidor de Luz para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Seguidor de Luz para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de seguidor de luz (follow spot) para bodas, XV años y eventos en CDMX. Spotlight que sigue al protagonista del momento.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Seguidor de Luz",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de seguidor de luz (follow spot) para bodas, XV años, conciertos y eventos en Ciudad de México. Operación por técnicos expertos.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Seguidor de Luz"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Para qué momentos se usa el seguidor?", "acceptedAnswer": { "@type": "Answer", "text": "Los momentos más comunes: el vals de los novios, la entrada triunfal, el brindis, el corte de pastel, el baile de la quinceañera con sus chambelanes, y discursos en galas corporativas. Cualquier momento donde quieras que una persona sea el centro de atención." }},
+      { "@type": "Question", "name": "¿Viene con operador?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El seguidor requiere un operador profesional que lo maneje en tiempo real — siguiendo los movimientos de la persona focal con precisión. Todos nuestros paquetes incluyen operador técnico." }},
+      { "@type": "Question", "name": "¿Se puede cambiar el color de la luz?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros seguidores tienen geles de color intercambiables e iris para ajustar el tamaño del haz. El operador puede cambiar de blanco cálido a rosa, azul o cualquier color según el momento." }},
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta del seguidor?", "acceptedAnswer": { "@type": "Answer", "text": "Un seguidor con operador para un momento específico (vals, brindis) arranca desde $3,000 + IVA. Para cobertura de toda la recepción (4 horas), desde $5,000 + IVA." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "Guirnaldas cálidas ambientando el jardín + un spotlight siguiendo a los novios en el vals. La boda perfecta.", link: "/servicios/guirnaldas/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en boda con efecto de nubes", description: "Humo en el piso + spotlight del seguidor = el vals más mágico. Los novios bailando sobre nubes, iluminados desde arriba.", link: "/servicios/humo-bajo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams blancos en boda", description: "Show de luces DMX + seguidor para los momentos clave. Las cabezas crean el ambiente, el seguidor crea el protagonista.", link: "/servicios/cabezas-moviles/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Nombres proyectados en la pista + seguidor iluminando a los novios bailando sobre su monograma. Épico.", link: "/servicios/gobos/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Seguidor" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Seguidor" }
+  ]} />
 </Fragment>
-<Hero
-      title="Seguidor de Luz para Eventos en CDMX"
-      subtitle="Destaca los momentos más importantes con un haz de luz profesional"
-      introParagraph1="REDEIL ofrece el servicio de renta de seguidor de luz (follow spot) para eventos en toda la Ciudad de México. El seguidor permite iluminar de manera precisa a personas o elementos clave durante momentos especiales como el primer baile, el vals, brindis, discursos y presentaciones en escenario."
-      introParagraph2="Cada seguidor es operado por un técnico profesional de REDEIL que coordina los movimientos de luz con el desarrollo del evento. Trabajamos en bodas, XV años, conciertos, obras de teatro, eventos corporativos y cualquier celebración que requiera destacar protagonistas con iluminación dirigida."
+
+    <Hero
+      title="Renta de Seguidor de Luz para Bodas y Eventos en CDMX"
+      subtitle="Spotlight profesional que sigue a los novios en el vals, a la quinceañera en su baile, al orador en su discurso. Operador incluido. Desde $3,000 + IVA."
+      introParagraph1='El seguidor de luz — o follow spot — es el servicio que convierte un momento en EL momento. Cuando las luces del salón bajan y un círculo de luz blanca sigue a los novios mientras caminan hacia la pista de baile, el efecto es cinematográfico. En <strong>REDEIL</strong> operamos follow spots profesionales <strong>Robert Juliat</strong> y <strong>Strong Super Trouper</strong> de 575W a 2500W — los mismos que se usan en teatro, conciertos y programas de televisión.'
+      introParagraph2='Cada seguidor viene con un operador profesional que controla la intensidad, el color (con geles intercambiables), el tamaño del haz (con iris) y el movimiento — siguiendo al protagonista del momento con precisión milimétrica. Es el servicio que más emociona en las bodas: el vals iluminado con un spotlight, la entrada de los novios al salón, el brindis del padre de la novia, el baile de la quinceañera con sus chambelanes. Atendemos bodas, XV años, galas y conferencias en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Seguidor profesional: el protagonismo que tus momentos merecen"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="El seguidor de luz es un equipo de iluminación profesional que proyecta un haz concentrado y direccionable, permitiendo seguir en tiempo real a una persona o un punto focal durante el evento. Es el recurso ideal para dar protagonismo al primer baile de los novios, al vals de XV años, a un orador en escenario o al artista en un concierto."
-          paragraph2="En REDEIL operamos seguidores profesionales con control preciso de intensidad, apertura del haz y temperatura de color. Nuestros técnicos tienen experiencia en todo tipo de eventos y saben anticipar los movimientos para que la iluminación acompañe de forma fluida cada momento sin distracciones."
+
+    <CtaBar
+      headline="¿Para qué momento necesitas el seguidor?"
+      items={[
+        { label: "Vals de Novios", href: "#paquetes", icon: "iluminacion" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="El momento más emotivo de tu evento, iluminado"
+          subtitle="Vals, brindis, entrada triunfal — el seguidor crea protagonistas."
+          paragraph1="Hay algo que pasa cuando un spotlight te encuentra en la oscuridad: el mundo se detiene y todo el salón mira hacia ti. Los novios lo sienten en el vals, la quinceañera lo siente en su baile, el CEO lo siente en su discurso. El seguidor no es solo luz — es atención concentrada, emoción amplificada."
+          paragraph2="Nuestros operadores son técnicos con experiencia en teatro y televisión. Siguen cada paso, cada giro, cada movimiento con precisión. El resultado: un momento iluminado que se graba en la memoria de todos los invitados."
         />
-        <p>El servicio incluye traslado del equipo, montaje en la posición óptima del venue, operación técnica durante todo el evento y desmontaje. Nos coordinamos con DJs, wedding planners y organizadores para que cada entrada de luz sea precisa y oportuna.</p>
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor iluminando baile de novios en salón con candil" },
+          { src: "/img/seguidor/luz-seguidor-boda-novios-baile-vestido-rosa.avif", alt: "Novios bailando vals con spotlight de seguidor" },
+          { src: "/img/seguidor/luz-seguidor-boda-entrada-novios-confeti-puerta.avif", alt: "Entrada de novios con confeti y seguidor de luz" },
+          { src: "/img/seguidor/luz-seguidor-boda-pastel-novios-salon-azul.avif", alt: "Corte de pastel iluminado con seguidor en salón azul" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vals-chambelan-vestido-rosa.avif", alt: "Quinceañera bailando vals con chambelán iluminada con seguidor" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vestido-azul-salon-candelabros.avif", alt: "Quinceañera con vestido azul en salón con candelabros" },
+          { src: "/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif", alt: "Baile de novios en salón elegante con candelabros" },
+          { src: "/img/seguidor/luz-seguidor-concierto-cantante-microfono-vintage.avif", alt: "Cantante en concierto iluminado con seguidor" },
+          { src: "/img/seguidor/luz-seguidor-conferencia-ponente-escenario-gala.avif", alt: "Ponente en escenario de gala con spotlight seguidor" },
+          { src: "/img/seguidor/luz-seguidor-gala-brindis-operador-candil.avif", alt: "Brindis en gala iluminado con seguidor" },
+          { src: "/img/seguidor/luz-seguidor-graduacion-diploma-universidad.avif", alt: "Graduación universitaria con seguidor en entrega de diploma" },
+          { src: "/img/seguidor/luz-seguidor-teatro-actor-escenario-monologo.avif", alt: "Actor en monólogo de teatro iluminado con seguidor" },
+          { src: "/img/seguidor/seguidor-primer-baile-boda-vestido-rosa-luz-morada.avif", alt: "Primer baile con vestido rosa y luz morada del seguidor" },
+          { src: "/img/seguidor/seguidor-vals-xv-anos-quinceañera.avif", alt: "Vals de XV años con quinceañera iluminada" },
+          { src: "/img/seguidor/equipo-seguidor-boda-tecnicos-filtros-color.avif", alt: "Equipo de seguidor con técnicos y filtros de color" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vestido-azul-tiara-salon.avif", alt: "Quinceañera con tiara y vestido azul iluminada con seguidor" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Seguidor de Luz" subtitle="Momentos destacados con iluminación dirigida en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/seguidor/luz-seguidor-brindis-boda-evento-corporativo.avif" alt="Seguidor de luz iluminando brindis durante boda y evento corporativo" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/seguidor-boda-primer-baile-novios-candil-invitados.avif" alt="Primer baile de novios iluminado con seguidor bajo candil con invitados alrededor" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/seguidor-iluminacion-evento-boda-pasillo-flores.avif" alt="Seguidor iluminando pasillo de boda decorado con flores" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/luz-seguidor-quinceañera-vals-chambelan-vestido-rosa.avif" alt="Quinceañera bailando vals con chambelán iluminada por seguidor con vestido rosa" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/luz-seguidor-teatro-actor-escenario-monologo.avif" alt="Actor en escenario iluminado por seguidor durante monólogo de teatro" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/seguidor-boda-corte-pastel-novios-iluminacion.avif" alt="Novios cortando pastel de boda iluminados por seguidor profesional" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/seguidor-concierto-cantante-microfono-escenario.avif" alt="Cantante en concierto iluminado por seguidor mientras canta al micrófono en escenario" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/seguidor/seguidor-escenario-auditorio-geles-multicolor.avif" alt="Escenario de auditorio iluminado con seguidor y geles de colores multicolor" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Seguidor"
+          subtitle="4 opciones según los momentos que quieras iluminar. Operador incluido."
+          paragraph1="Cada paquete incluye el follow spot profesional, operador técnico, geles de color, tripie de altura profesional, montaje y desmontaje. El operador se coordina con el DJ o maestro de ceremonias para saber exactamente cuándo encender y a quién seguir."
+          paragraph2="¿Tu evento tiene momentos especiales que quieres destacar? Cuéntanos y te armamos la cobertura perfecta."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 1 Momento",
+            price: "$3,000",
+            priceNote: "+ IVA",
+            description: "Un follow spot para el momento estelar: el vals, la entrada o el brindis. Una hora de operación.",
+            features: [
+              { text: "1 seguidor profesional 575W", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Geles de color intercambiables", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "1 hora de operación", included: true },
+              { text: "Ideal para: vals, entrada, brindis", included: true },
+              { text: "Cobertura de toda la recepción", included: false },
+              { text: "Iris para ajuste de tamaño", included: false },
+            ],
+            ctaLabel: "Cotizar 1 momento",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — Recepción Completa",
+            price: "$5,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Follow spot durante toda la recepción (4 horas). Vals, brindis, pastel, ramo, liga — todos los momentos cubiertos.",
+            features: [
+              { text: "1 seguidor profesional 1200W", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Geles de color + iris ajustable", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "4 horas de operación continua", included: true },
+              { text: "Coordinación con DJ/MC", included: true },
+              { text: "Ideal para: bodas completas, XV años", included: true },
+              { text: "Segundo seguidor", included: false },
+            ],
+            ctaLabel: "Cotizar recepción completa",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 2 Seguidores",
+            price: "$8,500",
+            priceNote: "+ IVA",
+            description: "Dos ángulos de luz simultáneos. El efecto de teatro y televisión — dos spotlights cruzados sobre el protagonista.",
+            features: [
+              { text: "2 seguidores profesionales", included: true },
+              { text: "2 operadores técnicos", included: true },
+              { text: "Geles de color + iris en ambos", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Iluminación cruzada de 2 ángulos", included: true },
+              { text: "Coordinación con DJ/MC", included: true },
+              { text: "Ideal para: galas, teatro, shows", included: true },
+              { text: "4 horas de operación continua", included: true },
+            ],
+            ctaLabel: "Cotizar 2 seguidores",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 4+ Seguidores",
+            price: "$15,000",
+            priceNote: "+ IVA",
+            description: "Producción completa para conciertos, festivales y eventos con múltiples protagonistas simultáneos.",
+            features: [
+              { text: "4+ seguidores de alta potencia", included: true },
+              { text: "Equipo de operadores", included: true },
+              { text: "Cobertura de múltiples artistas", included: true },
+              { text: "Geles, iris y efectos especiales", included: true },
+              { text: "Coordinación con dirección de escena", included: true },
+              { text: "Plataformas de operación elevadas", included: true },
+              { text: "Logística completa", included: true },
+              { text: "Ideal para: conciertos, TV, producciones", included: true },
+            ],
+            ctaLabel: "Cotizar producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Seguidor"
+          subtitle="Todo lo que necesitas saber sobre el spotlight profesional."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada evento tiene sus momentos especiales — te ayudamos a elegir cuáles iluminar."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿En qué momentos se usa el seguidor en una boda?", answer: "Los momentos más comunes: la entrada de los novios al salón, el primer vals, el brindis del padre de la novia, el corte de pastel, el lanzamiento del ramo y la liga. El paquete Estándar cubre todos estos momentos durante 4 horas — el operador se coordina con el DJ para saber cuándo encender." },
+        { question: "¿El operador viene incluido?", answer: "Sí, siempre. El seguidor es un equipo que se opera manualmente — requiere un técnico profesional que siga los movimientos de la persona con precisión. Nuestros operadores tienen experiencia en teatro, televisión y eventos de gala. Todos los paquetes incluyen operador." },
+        { question: "¿Se puede cambiar el color de la luz?", answer: "Sí. Nuestros seguidores tienen geles de color intercambiables (blanco, rosa, azul, ámbar, etc.) e iris para ajustar el tamaño del haz. El operador puede cambiar de blanco cálido en la ceremonia a rosa durante el vals o azul para el baile — según lo que quieras." },
+        { question: "¿Se ve bien en salones grandes?", answer: "Absolutamente. Nuestros seguidores tienen potencia de 575W a 2500W — suficiente para iluminar a una persona en un salón de cualquier tamaño. En venues muy grandes o al aire libre, usamos equipos de mayor potencia para que el círculo de luz se vea definido y brillante." },
+        { question: "¿Sirve para XV años?", answer: "Es uno de los servicios más emotivos en XV años. El seguidor ilumina a la quinceañera en su cambio de zapatillas, su vals con el papá, el baile con los chambelanes y la fiesta sorpresa. El paquete Estándar es perfecto para cubrir toda la celebración." },
+        { question: "¿Dónde se coloca el operador?", answer: "El operador se ubica en un punto elevado con vista directa a la pista — generalmente al fondo del salón o en un mezanine. El equipo incluye tripie de altura profesional que permite operar por encima de los invitados sin obstruir la vista. Todo se monta discretamente." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El seguidor crea el momento — agrégale el escenario perfecto."
+          paragraph1="Un spotlight sobre los novios en el vals es espectacular por sí solo. Pero cuando le agregas humo bajo en el piso, guirnaldas cálidas arriba y los nombres proyectados en la pista con un gobo — el resultado es un momento que parece sacado de una película."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para iluminar tus momentos más especiales?</h2>
+          <p>Cuéntanos qué momentos de tu evento quieres destacar. Te armamos la cobertura perfecta con seguidor profesional.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

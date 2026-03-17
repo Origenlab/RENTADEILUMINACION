@@ -1,74 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Iluminación Arquitectónica para Eventos | REDEIL CDMX";
-const description = "Renta de iluminación arquitectónica para eventos en CDMX. REDEIL transforma fachadas, jardines y espacios con reflectores LED RGB y técnicas profesionales de iluminación.";
+const title = "Renta de Iluminación Arquitectónica y Uplighting para Eventos CDMX | REDEIL";
+const description = "Uplighting LED inalámbrico para fachadas, columnas, árboles y arcos de haciendas en CDMX. Sin cables. Instalación incluida. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/iluminacion-arquitectonica/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Iluminación Arquitectónica para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación Arquitectónica para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de uplighting e iluminación arquitectónica LED para fachadas, columnas, árboles y arcos en bodas y eventos en CDMX.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Iluminación Arquitectónica",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de iluminación arquitectónica para eventos en Ciudad de México. Transformamos fachadas, jardines y espacios con reflectores LED RGB y control DMX.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Iluminación Arquitectónica"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es el uplighting?", "acceptedAnswer": { "@type": "Answer", "text": "El uplighting consiste en colocar reflectores LED en el piso apuntando hacia arriba para bañar de luz y color fachadas, columnas, árboles, arcos y muros. Transforma la arquitectura del venue en un elemento decorativo espectacular." }},
+      { "@type": "Question", "name": "¿Los reflectores son inalámbricos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos uplighters LED con batería recargable que duran hasta 12 horas. Sin cables en el piso — se colocan al pie de columnas, árboles y fachadas sin instalación eléctrica." }},
+      { "@type": "Question", "name": "¿Funciona en haciendas y patios coloniales?", "acceptedAnswer": { "@type": "Answer", "text": "Es donde mejor se ve. Las haciendas con arcos de cantera, columnas coloniales y árboles centenarios son el escenario perfecto para uplighting. La luz resalta la textura de la piedra y crea sombras dramáticas que transforman el espacio." }},
+      { "@type": "Question", "name": "¿Cuántos reflectores necesito?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de lo que quieras iluminar. Para una fachada frontal con arcos, 6 uplighters. Para fachada + jardín con árboles, 12. Para una hacienda completa, 20 o más. Te asesoramos según fotos de tu venue." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "Guirnaldas cálidas arriba + uplighting en las columnas abajo. La combinación más romántica para bodas en hacienda.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en ceremonia de boda en hacienda", description: "City color para las fachadas grandes + uplighting para los detalles. Cobertura total del venue.", link: "/servicios/city-color/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Uplighting en las paredes + nombres de los novios proyectados. Dos capas de personalización visual.", link: "/servicios/gobos/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile de novios", description: "Las columnas iluminadas como escenario + un spotlight que sigue a los novios en el vals. Perfecto.", link: "/servicios/seguidor/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Iluminación Arquitectónica" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Iluminación Arquitectónica" }
+  ]} />
 </Fragment>
-<Hero
-      title="Iluminación Arquitectónica para Eventos en CDMX"
-      subtitle="Transforma fachadas, jardines y espacios con luz profesional"
-      introParagraph1="REDEIL ofrece servicios de iluminación arquitectónica para eventos en toda la Ciudad de México. Utilizamos reflectores LED RGB con control DMX para resaltar fachadas, arcos, columnas, fuentes y árboles, creando ambientes espectaculares que elevan la experiencia de cada celebración."
-      introParagraph2="Nuestro equipo técnico cuenta con amplia experiencia iluminando haciendas, jardines, terrazas y recintos históricos. Trabajamos con bodas, eventos corporativos, galas y fiestas privadas, adaptando la paleta de colores y la intensidad lumínica al concepto de cada evento."
+
+    <Hero
+      title="Renta de Iluminación Arquitectónica y Uplighting en CDMX"
+      subtitle="Reflectores LED inalámbricos para fachadas, columnas, árboles y arcos. Sin cables. Desde $3,500 + IVA."
+      introParagraph1='El uplighting transforma la arquitectura de tu venue en protagonista del evento. Reflectores LED colocados al pie de fachadas, columnas, arcos y árboles que bañan de color cada superficie de abajo hacia arriba — la cantera de la hacienda en ámbar cálido, los arcos coloniales en violeta, los árboles centenarios del jardín en verde profundo. En <strong>REDEIL</strong> usamos uplighters inalámbricos <strong>Chauvet Freedom Par</strong> y <strong>ADJ Element</strong> con batería de hasta 12 horas — sin cables en el piso, sin instalación eléctrica invasiva.'
+      introParagraph2='La iluminación arquitectónica es el servicio más solicitado para bodas en haciendas de la CDMX y Estado de México. Las texturas de piedra, ladrillo y cantera cobran vida bajo la luz LED — cada grieta, cada arco, cada columna se convierte en un elemento decorativo. Nuestro equipo diseña la distribución de reflectores según la arquitectura de tu venue, prueba los colores antes del evento y opera los cambios en vivo vía control inalámbrico o DMX. Transporte, montaje y desmontaje incluidos.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Iluminación que realza la arquitectura de tu evento"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="La iluminación arquitectónica permite transformar por completo la apariencia de un espacio. Mediante reflectores LED RGB estratégicamente colocados, es posible bañar de color fachadas coloniales, resaltar la textura de muros de piedra, iluminar árboles centenarios y crear atmósferas que van desde lo romántico hasta lo dramático."
-          paragraph2="En REDEIL contamos con equipos de iluminación profesional y operadores técnicos que programan cada escena a través de consolas DMX. Esto nos permite realizar cambios de color sincronizados, transiciones suaves y efectos personalizados que se adaptan a los distintos momentos de tu evento."
+
+    <CtaBar
+      headline="¿Qué quieres iluminar de tu venue?"
+      items={[
+        { label: "Fachadas", href: "#paquetes", icon: "iluminacion" },
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Haciendas, arcos y jardines transformados con uplighting"
+          subtitle="La arquitectura de tu venue se convierte en decoración."
+          paragraph1="Cuando el sol se pone y los reflectores se encienden, la hacienda se transforma. Los arcos de cantera que durante el día son grises cobran vida en violeta, ámbar o rosa. Los árboles del jardín se convierten en esculturas de luz verde. Las columnas del patio marcan un camino de color hacia la recepción."
+          paragraph2="Cada montaje se diseña según la arquitectura específica de tu venue. Colocamos los reflectores en puntos estratégicos para resaltar texturas, crear profundidad y generar sombras dramáticas que transforman el espacio."
         />
-        <p>Nuestro servicio incluye visita previa al venue, diseño del esquema de iluminación, traslado de equipo, montaje completo y operación técnica durante el evento. Cubrimos haciendas, jardines, salones, terrazas y cualquier espacio en CDMX y área metropolitana.</p>
+        <Gallery4x4 images={[
+          { src: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile.avif", alt: "Patio de hacienda con uplighting ámbar y guirnaldas para boda" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arbol-centenario-verde-jardin-boda-luces-decorativas.avif", alt: "Árbol centenario iluminado en verde para boda en jardín" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arbol-majestuoso-uplighting-verde-hacienda-colonial.avif", alt: "Uplighting verde en árbol majestuoso de hacienda colonial" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arcada-hacienda-plantas-luz-ambar-evento-social.avif", alt: "Arcada de hacienda iluminada en ámbar para evento social" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arcos-coloniales-columnas-piedra-luz-calida-boda.avif", alt: "Arcos coloniales y columnas de piedra con luz cálida para boda" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.avif", alt: "Fachada con arcos coloniales en luz violeta" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arboles-morados-boda-exterior-mesas-velas-romantico.avif", alt: "Árboles iluminados en morado para boda exterior romántica" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-boda-fachada-rosa-luces-colgantes-arboles-mesas.avif", alt: "Fachada rosa con luces colgantes y árboles iluminados" },
+          { src: "/img/iluminacion-arquitectonica/boda-exterior-hacienda-luces-string-fachada-ambar-parejas-bailando.avif", alt: "Boda exterior en hacienda con fachada ámbar y parejas bailando" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arcos-coloniales-luces-cadena-cielo-nocturno-hacienda.avif", alt: "Arcos coloniales con luces cadena bajo cielo nocturno" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-moderna-azul-turquesa-terraza-lounge.avif", alt: "Iluminación arquitectónica moderna azul turquesa en terraza lounge" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-boda-hacienda-dosel-luces-fachada-rosa-flores.avif", alt: "Boda en hacienda con dosel de luces y fachada rosa" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-boda-lujo-rosa-columnas-pista-baile-pastel.avif", alt: "Boda de lujo con columnas rosa y pista de baile" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-camino-hacienda-mexicana-agaves-palmeras-entrada.avif", alt: "Camino de hacienda mexicana iluminado con agaves y palmeras" },
+          { src: "/img/iluminacion-arquitectonica/iluminacion-boda-jardin-arboles-violeta-mesa-imperial-hacienda.avif", alt: "Jardín con árboles violeta y mesa imperial en hacienda" },
+          { src: "/img/iluminacion-arquitectonica/equipo-reflectores-led-wash-calido-instalacion-profesional.avif", alt: "Equipo de reflectores LED wash cálido instalación profesional" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Iluminación Arquitectónica" subtitle="Proyectos reales en haciendas, jardines y recintos de CDMX">
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/iluminacion-arbol-grande-hacienda-jardin-evento-nocturno-verde.avif" alt="Árbol grande iluminado en verde dentro del jardín de una hacienda durante evento nocturno" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/reflector-led-par-morado-ajuste-tecnico-iluminacion-fachada.avif" alt="Técnico ajustando reflector LED par morado para iluminación de fachada" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/iluminacion-fuente-colonial-luz-aqua-patio-hacienda-evento.avif" alt="Fuente colonial iluminada con luz aqua en el patio de hacienda durante evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/iluminacion-patio-hacienda-rosa-arcos-coloniales-evento-social.avif" alt="Patio de hacienda con arcos coloniales iluminados en rosa durante evento social" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/iluminacion-boda-lujo-rosa-columnas-pista-baile-pastel.avif" alt="Boda de lujo con columnas iluminadas en rosa, pista de baile y mesa de pastel" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/tecnico-control-dmx-reflector-led-rgb-multicolor-fachada.avif" alt="Técnico operando control DMX con reflector LED RGB multicolor sobre fachada" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/reflectores-led-rgb-multicolor-arcoiris-iluminacion-pared.avif" alt="Reflectores LED RGB proyectando colores de arcoíris sobre pared de recinto" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/iluminacion-arquitectonica/iluminacion-terraza-mirador-arboles-luz-calida-cena-romantica.avif" alt="Terraza mirador con árboles iluminados en luz cálida durante cena romántica" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Uplighting"
+          subtitle="4 opciones según lo que quieras iluminar. Reflectores inalámbricos."
+          paragraph1="Cada paquete incluye reflectores LED inalámbricos con batería (sin cables en el piso), diseño de distribución según tu venue, montaje profesional y desmontaje. Los colores se controlan de forma inalámbrica o vía DMX según el modelo."
+          paragraph2="¿Tu venue tiene una arquitectura especial? Mándanos fotos por WhatsApp y te diseñamos la distribución de reflectores ideal."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 6 Uplighters",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Fachada frontal o arco de ceremonia iluminado. El detalle que transforma la primera impresión de tu venue.",
+            features: [
+              { text: "6 uplighters LED inalámbricos", included: true },
+              { text: "Batería hasta 12h (sin cables)", included: true },
+              { text: "Color a tu elección (RGBW)", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: fachada frontal, arco, entrada", included: true },
+              { text: "Diseño de distribución incluido", included: true },
+              { text: "Múltiples zonas de color", included: false },
+              { text: "Cambios de color durante el evento", included: false },
+            ],
+            ctaLabel: "Cotizar 6 uplighters",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 12 Uplighters",
+            price: "$6,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Fachada completa + jardín con árboles. El más pedido para bodas en haciendas coloniales.",
+            features: [
+              { text: "12 uplighters LED inalámbricos", included: true },
+              { text: "Batería hasta 12h (sin cables)", included: true },
+              { text: "2 zonas de color independientes", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Fachada + árboles + columnas", included: true },
+              { text: "Ideal para: bodas en hacienda, jardines", included: true },
+              { text: "Diseño personalizado de distribución", included: true },
+              { text: "Cambios de color durante el evento", included: false },
+            ],
+            ctaLabel: "Cotizar 12 uplighters",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 20 Uplighters",
+            price: "$9,500",
+            priceNote: "+ IVA",
+            description: "Hacienda completa: fachada, columnas, arcos, árboles, fuentes. Múltiples zonas con paletas diferentes.",
+            features: [
+              { text: "20 uplighters LED con control DMX", included: true },
+              { text: "4+ zonas de color independientes", included: true },
+              { text: "Cambios de color durante el evento", included: true },
+              { text: "Operador con control inalámbrico", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: haciendas completas, fincas", included: true },
+              { text: "Diseño de iluminación personalizado", included: true },
+            ],
+            ctaLabel: "Cotizar premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 30+ Uplighters",
+            price: "$14,000",
+            priceNote: "+ IVA",
+            description: "Iluminación arquitectónica completa para venues grandes, edificios históricos y producciones especiales.",
+            features: [
+              { text: "30+ uplighters de alta potencia", included: true },
+              { text: "Coreografía de color programada", included: true },
+              { text: "Múltiples fachadas y zonas", included: true },
+              { text: "Equipo técnico completo", included: true },
+              { text: "Sincronización con otros servicios", included: true },
+              { text: "Logística + generadores si requerido", included: true },
+              { text: "Visita técnica previa", included: true },
+              { text: "Ideal para: edificios históricos, mega venues", included: true },
+            ],
+            ctaLabel: "Cotizar producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Iluminación Arquitectónica"
+          subtitle="Lo que nuestros clientes preguntan antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada venue tiene su arquitectura — te recomendamos la distribución de reflectores ideal para resaltar lo mejor de tu espacio."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Los reflectores son realmente inalámbricos?", answer: "Sí. Usamos uplighters LED con batería recargable interna que duran hasta 12 horas con carga completa. Se colocan al pie de columnas, árboles y fachadas sin ningún cable en el piso. Son seguros para invitados y no interfieren con la decoración del venue." },
+        { question: "¿Dañan las fachadas o las superficies del venue?", answer: "No. Los reflectores se colocan en el piso apuntando hacia arriba — no se pegan, atornillan ni fijan a ninguna superficie. Al terminar el evento, los recogemos y el venue queda exactamente igual que antes." },
+        { question: "¿En qué tipo de venues se ve mejor?", answer: "Los mejores resultados se logran en haciendas coloniales (arcos de cantera, columnas de piedra), jardines con árboles grandes, fincas con fachadas de ladrillo, y patios interiores con fuentes. La textura natural de la piedra y la madera absorbe la luz de forma espectacular." },
+        { question: "¿Puedo cambiar los colores durante la noche?", answer: "En los paquetes Premium y Producción, sí. Los reflectores con control DMX cambian de color en tiempo real — ámbar durante la cena, rosa durante el vals, multicolor en la fiesta. En los paquetes Básico y Estándar, el color se fija al inicio del evento." },
+        { question: "¿Funciona bajo lluvia?", answer: "Sí. Nuestros uplighters tienen protección IP para uso en exteriores. Son equipo diseñado para eventos al aire libre. En caso de lluvia fuerte, los reflectores siguen operando sin problema — la arquitectura mojada refleja la luz de forma aún más dramática." },
+        { question: "¿Cuál es la diferencia entre uplighting y city color?", answer: "El uplighting usa reflectores pequeños inalámbricos colocados al pie de columnas, árboles y detalles arquitectónicos — es iluminación puntual. El city color usa cañones de alta potencia para bañar superficies grandes (fachadas completas, escenarios). Lo ideal es combinar ambos — city color para las fachadas y uplighting para los detalles." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El uplighting es la base — agrega capas para un resultado espectacular."
+          paragraph1="Las columnas iluminadas son solo el primer nivel. Cuando agregas guirnaldas cálidas sobre las mesas, un seguidor para el vals y gobos con los nombres de los novios en la pista, la hacienda se convierte en un escenario de película."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu venue y te diseñamos la iluminación completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu venue brille como nunca?</h2>
+          <p>Mándanos fotos de las fachadas, columnas y jardines de tu venue. Te diseñamos la distribución de uplighting perfecta y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

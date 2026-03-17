@@ -1,68 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Sky Tracker para Eventos | REDEIL CDMX";
-const description = "Renta de sky tracker y luces antiaéreas para eventos en CDMX. REDEIL proyecta haces de luz al cielo para bodas, inauguraciones y eventos especiales al aire libre.";
+const title = "Renta de Sky Tracker y Luces Antiaéreas para Eventos CDMX | REDEIL";
+const description = "Sky trackers xenón de 7,000W visibles a 5 km. Haces de luz al cielo para bodas, inauguraciones y festivales en CDMX. Instalación incluida. Desde $5,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Sky Tracker para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Sky Tracker para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de sky tracker y luces antiaéreas para bodas, inauguraciones y eventos nocturnos en CDMX. Haces de luz xenón visibles a kilómetros de distancia.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Sky Tracker",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de sky tracker y luces antiaéreas para eventos al aire libre en Ciudad de México. Haces de luz visibles a kilómetros de distancia.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Sky Tracker"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿A qué distancia se ven los haces de luz del sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestros sky trackers xenón de 7,000W son visibles a 5-7 kilómetros de distancia en noches despejadas. Son las mismas luminarias que usan en estrenos de cine y apertura de centros comerciales." }},
+      { "@type": "Question", "name": "¿Necesito permiso para usar sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de la ubicación. En zonas cercanas a aeropuertos se requiere autorización de SENEAM. Nosotros tramitamos el permiso si es necesario y verificamos que tu venue sea apto antes del evento." }},
+      { "@type": "Question", "name": "¿El sky tracker funciona con lluvia?", "acceptedAnswer": { "@type": "Answer", "text": "Con lluvia ligera sí. Nuestros equipos tienen protección IP54. En lluvia fuerte se recomienda cubrir los equipos o pausar la operación temporalmente." }},
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta de sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Un sky tracker individual arranca desde $5,500 + IVA con instalación incluida. Los paquetes de 2 unidades (efecto cruzado) van desde $9,500 + IVA. Cotiza gratis por WhatsApp." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams blancos en boda elegante", description: "Show de luces DMX complementario. Beams y spots que se combinan perfecto con los haces del sky tracker.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting arquitectónico en arcos coloniales de hacienda", description: "Uplighting para fachadas y jardines. Mientras el sky tracker marca el cielo, el uplighting transforma el venue.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "La combinación favorita para bodas al aire libre: guirnaldas cálidas abajo y haces de luz al cielo.", link: "/servicios/guirnaldas/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Efecto de humo bajo en jardín para boda", description: "Humo escénico en el piso con haces de luz cruzando el cielo. El efecto visual más impactante para bodas nocturnas.", link: "/servicios/humo-bajo/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Sky Tracker" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Sky Tracker" }
+  ]} />
 </Fragment>
-<Hero
-      title="Sky Tracker para Eventos en CDMX"
-      subtitle="Haces de luz que iluminan el cielo y hacen visible tu evento"
-      introParagraph1="REDEIL ofrece renta de sky tracker y luces antiaéreas para eventos en la Ciudad de México. Estos potentes equipos proyectan haces de luz hacia el cielo nocturno, creando un efecto espectacular que es visible a gran distancia y marca la ubicación de tu celebración."
-      introParagraph2="Ideales para bodas al aire libre, inauguraciones, eventos corporativos y fiestas en haciendas o jardines, nuestros sky trackers aportan un elemento de grandiosidad que distingue cualquier evento. Nuestro equipo técnico se encarga de la instalación y operación completa."
+
+    <Hero
+      title="Renta de Sky Tracker y Luces Antiaéreas en CDMX"
+      subtitle="Haces de luz xenón de 7,000W visibles a 5 km. Instalación profesional incluida. Desde $5,500 + IVA."
+      introParagraph1='El sky tracker es el efecto más espectacular que puedes agregar a un evento nocturno al aire libre. Un haz de luz concentrado que corta el cielo y se ve a kilómetros de distancia — marca la ubicación de tu boda, tu inauguración o tu festival como un faro que atrae todas las miradas. En <strong>REDEIL</strong> operamos sky trackers xenón <strong>Strong</strong> y <strong>Syncrolite</strong> de 4,000W a 7,000W, los mismos que se usan en estrenos de cine y aperturas de centros comerciales en CDMX.'
+      introParagraph2='Nuestras luces antiaéreas se pueden operar de forma estática (haz fijo al cielo) o con movimiento programado — barridos lentos, cruzados entre dos o más equipos, o sincronizados con música. El servicio incluye transporte, generador de energía si el venue lo requiere, instalación profesional, operador técnico durante el evento y desmontaje. Atendemos bodas en haciendas, inauguraciones, fiestas corporativas y festivales en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Sky trackers: el efecto visual más impactante para eventos nocturnos"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="El sky tracker es una luminaria de alta potencia diseñada para proyectar un haz de luz concentrado hacia el cielo. Este efecto, ampliamente utilizado en eventos de gran escala, genera un impacto visual inmediato que transforma la atmósfera de cualquier celebración nocturna al aire libre."
-          paragraph2="En REDEIL contamos con sky trackers profesionales que pueden operarse de forma estática o con movimiento programado, creando barridos de luz que interactúan con el entorno. Son especialmente populares en bodas en haciendas, terrazas y jardines de la CDMX, donde el cielo abierto permite apreciar todo su potencial."
+
+    <CtaBar
+      headline="¿Para qué evento necesitas sky tracker?"
+      items={[
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería sky trackers -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve un sky tracker en un evento real"
+          subtitle="Haces de luz que transforman el cielo nocturno de tu celebración."
+          paragraph1="El efecto es inmediato: cuando los haces de luz se encienden, todos los invitados levantan la vista. Las fotos y los videos capturan algo que ningún otro servicio de iluminación puede lograr — un espectáculo en el cielo que se convierte en la imagen más recordada de la noche."
+          paragraph2="Cada montaje se adapta a tu venue. En haciendas con cielo abierto el impacto es máximo. En jardines y terrazas, los haces cruzados crean un arco de luz sobre los invitados."
         />
-        <p>Nuestro servicio incluye traslado, montaje, operación técnica y desmontaje. Coordinamos con los organizadores del evento para definir la ubicación óptima de los equipos y lograr el máximo impacto visual, cumpliendo con todas las normativas vigentes para este tipo de iluminación.</p>
+        <Gallery4x4 images={[
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif", alt: "Sky tracker proyectando haz de luz desde hacienda en boda nocturna" },
+          { src: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente.avif", alt: "Haz potente de sky tracker cortando el cielo nocturno" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-cielo-estrellado.avif", alt: "Sky tracker iluminando cielo estrellado en evento al aire libre" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-jardin-guirnaldas.avif", alt: "Sky tracker en evento de jardín decorado con guirnaldas Edison" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-jardin-carpa.avif", alt: "Haces de luz en evento con carpa en jardín nocturno" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-exterior-guirnaldas.avif", alt: "Boda exterior con sky tracker y guirnaldas de fondo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-banquete.avif", alt: "Banquete de boda en hacienda con sky tracker iluminando el cielo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-noche-cielo.avif", alt: "Hacienda de noche con haz de sky tracker al cielo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-jardin-arco-floral.avif", alt: "Boda en jardín con arco floral y sky tracker de fondo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-jardin-filtros-color.avif", alt: "Sky tracker con filtros de color en boda de jardín" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-nocturno-haz-potente.avif", alt: "Haz potente de sky tracker en evento nocturno" },
+          { src: "/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif", alt: "Luces antiaéreas iluminando hacienda colonial para boda" },
+          { src: "/img/sky-tracker/luces-antiaereas-espectaculo-cielo-noche.avif", alt: "Espectáculo de luces antiaéreas en cielo nocturno" },
+          { src: "/img/sky-tracker/luces-antiaereas-gala-nocturna-elegante.avif", alt: "Gala nocturna elegante con luces antiaéreas" },
+          { src: "/img/sky-tracker/luces-antiaereas-multiple-haz-evento.avif", alt: "Múltiples haces de luz antiaérea en evento masivo" },
+          { src: "/img/sky-tracker/sky-tracker-concierto-haces-luz.avif", alt: "Sky trackers en concierto con haces de luz cruzados" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Sky Tracker" subtitle="Haces de luz en eventos reales en CDMX">
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/renta-skytracker-evento-jardin-guirnaldas.avif" alt="Sky tracker iluminando el cielo en evento de jardín decorado con guirnaldas" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/renta-skytracker-cielo-nocturno-potente.avif" alt="Potente haz de sky tracker proyectado al cielo nocturno durante evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif" alt="Haz de luz de sky tracker elevándose desde hacienda durante boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/luces-antiaereas-boda-terraza-alberca.avif" alt="Luces antiaéreas iluminando boda en terraza con alberca de noche" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/seguidor-luz-eventos-instalacion-boda.avif" alt="Instalación de seguidor de luz para boda al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/sky-tracker/seguidor-luz-fiestas-salon-iluminado.avif" alt="Seguidor de luz proyectando haz en salón iluminado para fiesta" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Sky Tracker"
+          subtitle="4 opciones según el impacto que quieres lograr. Operador incluido."
+          paragraph1="Cada paquete incluye el equipo, transporte, generador de energía (si el venue lo requiere), operador técnico durante el evento y desmontaje. El operador controla los movimientos del haz en tiempo real para máximo impacto."
+          paragraph2="¿Tu evento necesita algo diferente? Armamos configuraciones a la medida. Cotiza por WhatsApp y te hacemos una propuesta en menos de 24 horas."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 1 Sky Tracker",
+            price: "$5,500",
+            priceNote: "+ IVA",
+            description: "Un haz de luz que marca la ubicación de tu evento. Ideal para bodas en haciendas y jardines.",
+            features: [
+              { text: "1 sky tracker xenón 4,000W", included: true },
+              { text: "Visible a 3-5 km de distancia", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas, fiestas privadas", included: true },
+              { text: "Generador de energía incluido", included: true },
+              { text: "Movimiento programado", included: false },
+              { text: "Filtros de color", included: false },
+            ],
+            ctaLabel: "Cotizar 1 sky tracker",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 2 Sky Trackers",
+            price: "$9,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Efecto cruzado: dos haces que se encuentran en el cielo. El más pedido para bodas grandes e inauguraciones.",
+            features: [
+              { text: "2 sky trackers xenón 4,000-7,000W", included: true },
+              { text: "Visible a 5-7 km de distancia", included: true },
+              { text: "Efecto cruzado programable", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Generador de energía incluido", included: true },
+              { text: "Ideal para: bodas grandes, inauguraciones", included: true },
+              { text: "Filtros de color", included: false },
+            ],
+            ctaLabel: "Cotizar 2 sky trackers",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 4 Sky Trackers",
+            price: "$16,000",
+            priceNote: "+ IVA",
+            description: "Producción completa con 4 haces cruzados, filtros de color y movimiento sincronizado.",
+            features: [
+              { text: "4 sky trackers xenón 7,000W", included: true },
+              { text: "Visible a 7+ km de distancia", included: true },
+              { text: "Movimiento sincronizado programado", included: true },
+              { text: "Filtros de color intercambiables", included: true },
+              { text: "2 operadores técnicos", included: true },
+              { text: "Generadores de energía incluidos", included: true },
+              { text: "Ideal para: corporativos, lanzamientos", included: true },
+              { text: "Coordinación con otros servicios", included: true },
+            ],
+            ctaLabel: "Cotizar producción premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 6+ Sky Trackers",
+            price: "$25,000",
+            priceNote: "+ IVA",
+            description: "Espectáculo aéreo completo para festivales, conciertos y eventos masivos. Coreografía de luz programada.",
+            features: [
+              { text: "6+ sky trackers de alta potencia", included: true },
+              { text: "Coreografía de luz programada", included: true },
+              { text: "Sincronización con música", included: true },
+              { text: "Filtros de color + efectos", included: true },
+              { text: "Equipo de operadores", included: true },
+              { text: "Generadores y logística completa", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: festivales, conciertos, mega eventos", included: true },
+            ],
+            ctaLabel: "Cotizar producción completa",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Sky Tracker"
+          subtitle="Lo que nuestros clientes preguntan antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada venue es diferente — verificamos que tu espacio sea apto antes de confirmar la renta."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿A qué distancia se ven los haces de luz?", answer: "Nuestros sky trackers xenón de 7,000W son visibles a 5-7 kilómetros en noches despejadas. Incluso con contaminación lumínica de la CDMX, el efecto es impresionante. Son las mismas luminarias que se usan en estrenos de películas." },
+        { question: "¿Necesito permiso especial para usar sky trackers?", answer: "Depende de la ubicación. En zonas a menos de 10 km de un aeropuerto se requiere autorización de SENEAM (Servicios a la Navegación en el Espacio Aéreo Mexicano). Nosotros verificamos tu venue y tramitamos el permiso si es necesario — sin costo adicional." },
+        { question: "¿Funciona si llueve?", answer: "Con lluvia ligera sí — nuestros equipos tienen protección IP54. En lluvia fuerte se cubre el equipo temporalmente. En noches nubladas, el efecto cambia: los haces iluminan las nubes y crean un efecto de techo de luz muy espectacular." },
+        { question: "¿Necesita mucho espacio para la instalación?", answer: "Cada sky tracker ocupa aproximadamente 1×1 metro en el piso y necesita acceso a cielo abierto. En haciendas, jardines y terrazas sin techo el efecto es máximo. Si hay techado parcial, ubicamos los equipos fuera de la zona cubierta." },
+        { question: "¿Se puede combinar con otros servicios de iluminación?", answer: "Absolutamente — es lo más recomendable. La combinación más popular es sky tracker + guirnaldas Edison para bodas al aire libre. También se ven espectaculares con humo escénico y cabezas móviles. Armamos paquetes combinados con precio especial." },
+        { question: "¿Cuánto tiempo puede estar encendido?", answer: "Los sky trackers pueden operar 4-6 horas continuas sin problema. Para eventos más largos, rotamos equipos. Recomendamos encenderlos después del atardecer — el efecto más impactante es en oscuridad completa." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El sky tracker se potencia cuando lo complementas con otros efectos."
+          paragraph1="Los eventos más recordados combinan el impacto aéreo del sky tracker con iluminación a nivel del piso — guirnaldas, uplighting, humo escénico. El resultado: una experiencia visual completa que va del suelo al cielo."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu evento se vea a kilómetros?</h2>
+          <p>Mándanos la ubicación de tu venue por WhatsApp. Verificamos que sea apto para sky tracker y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

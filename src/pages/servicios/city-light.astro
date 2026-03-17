@@ -1,68 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de City Lights para Eventos | REDEIL CDMX";
-const description = "Renta de city lights e iluminación ambiental para eventos en CDMX. Luces decorativas para bodas, fiestas y eventos corporativos. Ambiente profesional. REDEIL.";
+const title = "Renta de Luces LED PAR para Eventos y Bodas CDMX | REDEIL";
+const description = "Luminarias PAR LED RGBW para ambientar salones, bodas y eventos corporativos en CDMX. Cualquier color, control DMX. Instalación incluida. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/city-light/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de City Lights para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Luces LED PAR para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de luces LED PAR RGBW y luminarias ambientales para bodas, XV años y eventos corporativos en CDMX. Control DMX incluido.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Luces LED PAR",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de city lights e iluminación ambiental decorativa para eventos en Ciudad de México. Luces profesionales para bodas, fiestas y corporativos.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de City Lights"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es un PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "Un PAR LED es una luminaria compacta y versátil con múltiples LEDs RGBW (rojo, verde, azul, blanco) que puede producir cualquier color. Se usa para ambientar salones, iluminar mesas, crear zonas de color y complementar otros servicios de iluminación." }},
+      { "@type": "Question", "name": "¿Los PAR LED cambian de color?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada unidad puede producir millones de colores mezclando RGBW. Se controlan vía DMX para cambiar colores durante el evento — rosa en el vals, dorado en la cena, multicolor en la fiesta." }},
+      { "@type": "Question", "name": "¿Cuántas luces necesito para mi salón?", "acceptedAnswer": { "@type": "Answer", "text": "Para un salón estándar de 200m², 16 PAR LED distribuidos en el perímetro son suficientes para un ambiente completo. Para zonas específicas (mesa de novios, entrada), 4-8 unidades." }},
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta?", "acceptedAnswer": { "@type": "Answer", "text": "Un paquete básico de 8 PAR LED arranca desde $3,500 + IVA con instalación incluida. Los paquetes completos para salones van desde $6,000 + IVA." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color iluminando hacienda para boda", description: "Cañones de alto impacto para fachadas grandes. Complementa los PAR LED interiores con color exterior.", link: "/servicios/city-color/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams en boda elegante", description: "Los PAR LED ambientan, las cabezas móviles hacen el show. La combinación perfecta para bodas y XV años.", link: "/servicios/cabezas-moviles/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop brillante detrás de la mesa de novios + ambiente de color en todo el salón con PAR LED.", link: "/servicios/cascadas-led/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "PAR LED en el salón + guirnaldas cálidas en el jardín. Dentro y fuera, todo iluminado.", link: "/servicios/guirnaldas/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "City Lights" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Light" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de City Lights para Eventos en CDMX"
-      subtitle="Iluminación ambiental decorativa que transforma la atmósfera de tu evento"
-      introParagraph1="En REDEIL ofrecemos renta de city lights e iluminación ambiental profesional para eventos en la Ciudad de México. Estas luces decorativas son ideales para crear ambientes elegantes y sofisticados en bodas, fiestas, eventos corporativos y celebraciones especiales, bañando salones y espacios con colores vibrantes y cálidos."
-      introParagraph2="Nuestros city lights son luminarias LED de bajo consumo con capacidad de proyectar una amplia gama de colores. Los instalamos en paredes, columnas, techos, fachadas y jardines para crear efectos de iluminación ambiental que complementan perfectamente la decoración de cualquier evento."
+
+    <Hero
+      title="Renta de Luces LED PAR para Eventos en CDMX"
+      subtitle="Luminarias RGBW versátiles para ambientar salones, mesas y zonas de tu evento. Control DMX. Desde $3,500 + IVA."
+      introParagraph1='Las luces PAR LED son las más versátiles del catálogo de iluminación profesional — compactas, potentes y capaces de producir cualquier color imaginable. En <strong>REDEIL</strong> las usamos para ambientar salones completos, crear zonas de color diferenciadas, iluminar mesas principales, bañar centros de mesa y complementar cualquier otro servicio de iluminación. Trabajamos con equipos <strong>Chauvet SlimPAR</strong>, <strong>Elation SixPar</strong> y <strong>ADJ Mega Par Profile</strong> — luminarias profesionales con mezcla RGBW de alta fidelidad.'
+      introParagraph2='La ventaja del PAR LED es su flexibilidad: se coloca en el piso, en truss, en totems, sobre mesas o en cualquier superficie. Cada unidad se controla de forma independiente vía DMX512 — un mismo salón puede tener la zona de cena en dorado cálido, la pista de baile en azul intenso y la entrada en rosa. El operador cambia colores en tiempo real según los momentos del evento. Bodas, XV años, galas corporativas y cenas de gala en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Ambientación lumínica que eleva cualquier espacio"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Los city lights son la herramienta perfecta para transformar un espacio ordinario en un ambiente extraordinario. A diferencia de la iluminación general, estas luces permiten personalizar el color del ambiente para que combine con la temática de tu evento: rosa para una boda romántica, azul para un evento corporativo elegante, dorado para una gala o magenta para una fiesta vibrante."
-          paragraph2="En REDEIL utilizamos city lights LED de alta potencia que pueden cubrir grandes superficies con color uniforme. Los colocamos estratégicamente en paredes, columnas, arcos, fachadas y jardines para resaltar la arquitectura del venue y crear profundidad visual. El resultado es un ambiente envolvente que impresiona a los invitados desde que llegan."
+
+    <CtaBar
+      headline="¿Qué zona de tu evento quieres iluminar?"
+      items={[
+        { label: "Salón completo", href: "#paquetes", icon: "iluminacion" },
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Ambientes de color en eventos reales"
+          subtitle="Cada luminaria produce millones de colores — tú eliges la paleta."
+          paragraph1="Desde un ambiente romántico en tonos cálidos para la cena de boda hasta una explosión de color para la fiesta de XV años — las luces PAR LED se adaptan a cualquier estilo. Cada foto es de un evento real donde nuestro equipo diseñó la iluminación según la temática del cliente."
+          paragraph2="El cambio de color es instantáneo. Durante la cena el salón puede estar en dorado suave, y cuando empieza la fiesta, transformarse en rosa, azul o multicolor con un solo cue del operador."
         />
-        <p>Cada instalación es diseñada por nuestro equipo de iluminación, considerando las dimensiones del espacio, el color de la decoración y el efecto deseado. Cubrimos eventos en salones, haciendas, jardines, terrazas y cualquier venue en la CDMX y zona metropolitana.</p>
+        <Gallery4x4 images={[
+          { src: "/img/city-light/iluminacion-profesional-bodas-cdmx.avif", alt: "Iluminación profesional para bodas en CDMX" },
+          { src: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "Iluminación ambiental para fiestas en CDMX" },
+          { src: "/img/city-light/iluminacion-salon-bodas.avif", alt: "Salón de bodas iluminado con PAR LED" },
+          { src: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "Hacienda iluminada con luces LED para boda" },
+          { src: "/img/city-light/iluminacion-eventos-corporativos.avif", alt: "Iluminación LED para evento corporativo" },
+          { src: "/img/city-light/luces-para-bodas-baile-romantico.avif", alt: "Baile romántico con luces LED en boda" },
+          { src: "/img/city-light/iluminacion-ambientar-vals-boda-magenta.avif", alt: "Vals de boda ambientado con luces magenta" },
+          { src: "/img/city-light/luces-eventos-primer-baile-novios.avif", alt: "Primer baile de novios con iluminación profesional" },
+          { src: "/img/city-light/renta-de-luces-para-bodas-cdmx.avif", alt: "Renta de luces profesionales para bodas CDMX" },
+          { src: "/img/city-light/renta-iluminacion-entrada-novios-rosa.avif", alt: "Entrada de novios con iluminación rosa" },
+          { src: "/img/city-light/luces-ambientar-jardin-boda-calido.avif", alt: "Jardín de boda iluminado con tono cálido" },
+          { src: "/img/city-light/renta-luces-boda-recepcion-elegante.avif", alt: "Recepción elegante de boda con iluminación LED" },
+          { src: "/img/city-light/luces-boda-brindis-ambar-elegante.avif", alt: "Brindis de boda con ambiente ámbar elegante" },
+          { src: "/img/city-light/iluminacion-fiestas-salon-gala-rosa.avif", alt: "Salón de gala iluminado en rosa para fiesta" },
+          { src: "/img/city-light/iluminacion-profesional-eventos.avif", alt: "Iluminación LED profesional para eventos" },
+          { src: "/img/city-light/renta-de-luces-para-eventos-cdmx.avif", alt: "Renta de luces LED para eventos en CDMX" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de City Lights" subtitle="Ambientación lumínica profesional en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-profesional-bodas-cdmx.avif" alt="Iluminación profesional con city lights en tono rosa para boda en CDMX" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-salon-bodas.avif" alt="Salón de bodas ambientado con city lights en tonos elegantes" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/luces-arquitectonicas-edificio-evento-azul.avif" alt="Fachada de edificio iluminada en azul con luces arquitectónicas para evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-eventos-recepcion-magenta.avif" alt="Recepción de evento iluminada en magenta con city lights profesionales" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/luces-para-bodas-baile-romantico.avif" alt="Primer baile romántico de novios con city lights en tonos suaves" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/renta-luces-ceremonia-exterior-ambar.avif" alt="Ceremonia exterior iluminada en tono ámbar con luces profesionales" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Luces PAR LED"
+          subtitle="4 opciones según el tamaño de tu venue. Operador DMX incluido."
+          paragraph1="Cada paquete incluye las luminarias PAR LED RGBW, soportes, cableado DMX, operador técnico y desmontaje. El operador programa los cambios de color según tu playlist de momentos — ceremonia, cena, brindis, fiesta."
+          paragraph2="¿Tu evento necesita algo específico? Armamos configuraciones a la medida con la cantidad exacta de luces para tu espacio."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — 8 PAR LED",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Ambiente de color para una zona específica: mesa de novios, entrada, zona lounge o pista de baile.",
+            features: [
+              { text: "8 PAR LED RGBW profesionales", included: true },
+              { text: "Cobertura para 1 zona del salón", included: true },
+              { text: "Control DMX con operador", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: mesa de novios, zona lounge", included: true },
+              { text: "Cambios de color programados", included: true },
+              { text: "Múltiples zonas independientes", included: false },
+              { text: "Sincronización con música", included: false },
+            ],
+            ctaLabel: "Cotizar paquete básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 16 PAR LED",
+            price: "$6,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Salón completo ambientado en color. El más pedido para bodas — cena en dorado, fiesta en color.",
+            features: [
+              { text: "16 PAR LED RGBW profesionales", included: true },
+              { text: "Cobertura salón completo hasta 200m²", included: true },
+              { text: "2 zonas de color independientes", included: true },
+              { text: "Operador DMX profesional", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas, XV años, galas", included: true },
+              { text: "Cambios por momento del evento", included: true },
+              { text: "Sincronización con música", included: false },
+            ],
+            ctaLabel: "Cotizar salón completo",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — 24 PAR LED",
+            price: "$9,000",
+            priceNote: "+ IVA",
+            description: "Hacienda completa: salón + jardín + áreas de transición. Múltiples zonas con paletas independientes.",
+            features: [
+              { text: "24 PAR LED RGBW de alta potencia", included: true },
+              { text: "4+ zonas de color independientes", included: true },
+              { text: "Salón + jardín + áreas exteriores", included: true },
+              { text: "Operador DMX + asistente", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Diseño de iluminación personalizado", included: true },
+              { text: "Sincronización con DJ/música", included: true },
+              { text: "Ideal para: haciendas, fincas, venues grandes", included: true },
+            ],
+            ctaLabel: "Cotizar premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 40+ PAR LED",
+            price: "$14,000",
+            priceNote: "+ IVA",
+            description: "Producción completa para eventos masivos. Carpas, escenarios, múltiples zonas sincronizadas.",
+            features: [
+              { text: "40+ PAR LED profesionales", included: true },
+              { text: "Cobertura ilimitada de zonas", included: true },
+              { text: "Coreografía de color programada", included: true },
+              { text: "Sincronización con audio/video", included: true },
+              { text: "Equipo completo de técnicos", included: true },
+              { text: "Logística + generadores si requerido", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: eventos masivos, carpas grandes", included: true },
+            ],
+            ctaLabel: "Cotizar producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Luces PAR LED"
+          subtitle="Todo lo que necesitas saber sobre la iluminación ambiental."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada salón tiene su configuración ideal — te asesoramos según las dimensiones y estilo de tu evento."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué es un PAR LED y para qué sirve?", answer: "Un PAR LED es una luminaria compacta con múltiples LEDs de colores (rojo, verde, azul y blanco) que mezclados producen cualquier color imaginable. Se usa para ambientar salones, crear zonas de color, iluminar mesas principales, bañar paredes y complementar shows de luces. Es la luminaria más versátil y usada en eventos profesionales." },
+        { question: "¿Puedo elegir los colores para mi evento?", answer: "Sí, puedes elegir cualquier color o combinación. Los más populares para bodas: dorado/ámbar para la cena, rosa para el vals, azul para la fiesta. Para XV años: magenta, morado, rosa. Para corporativos: los colores de la marca. El operador cambia los colores según cada momento del evento." },
+        { question: "¿Se pueden poner en el piso sin cables a la vista?", answer: "Sí. Usamos canaletas y cubrecables para que la instalación se vea limpia. También tenemos modelos inalámbricos con batería que se colocan en cualquier punto sin cables — ideales para centros de mesa e islas de color en zonas donde no hay acceso a corriente eléctrica." },
+        { question: "¿Cuántas luces necesito para mi salón?", answer: "Para un salón estándar de bodas (150-200m²), 16 PAR LED distribuidos en el perímetro son suficientes para un ambiente de color completo. Para zonas específicas como la mesa de novios o entrada, 4-8 unidades. Te asesoramos según las fotos de tu venue." },
+        { question: "¿Generan mucho calor?", answer: "No. Los PAR LED generan muy poco calor comparados con las luminarias halógenas antiguas. Puedes tenerlos cerca de arreglos florales, telas decorativas y centros de mesa sin riesgo. Por eso son la opción preferida en salones de eventos." },
+        { question: "¿Se notan durante el día?", answer: "El efecto de color es más notorio en espacios con poca luz natural. En salones cerrados, el efecto es visible desde que oscurece. Para eventos de día con ventanales abiertos, recomendamos complementar con cortinas o iniciar el programa de color conforme oscurece." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="Las luces PAR LED son la base — agrégales el wow factor."
+          paragraph1="La iluminación ambiental con PAR LED es la base sobre la que construyes una producción completa. Agrega cabezas móviles para el show de luces, cascadas LED para la mesa de novios y guirnaldas para el jardín — y tienes un evento de revista."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la iluminación de principio a fin."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para transformar tu salón con color?</h2>
+          <p>Mándanos fotos de tu salón y dinos los colores que te gustan. Te diseñamos la iluminación ambiental perfecta para tu evento.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Diseña tu Iluminación</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
