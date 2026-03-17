@@ -5,7 +5,7 @@ import Hero from '../../components/Hero.astro';
 import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
-import GallerySection from '../../components/GallerySection.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
@@ -89,24 +89,24 @@ const serviciosRelacionados = [
           paragraph1="Las bombillas Edison LED tienen la misma estética vintage con luz cálida y tono ámbar, pero consumen menos energía — ideales para montajes largos en carpas o pérgolas. Los focos vintage de filamento dan un brillo más natural y orgánico."
           paragraph2="Ambas opciones son resistentes y profesionales con certificación IP65 para uso en exteriores. Nuestro equipo te recomienda la mejor opción según tu espacio y tipo de evento."
         />
-        <div class="gallery-4x4">
-          <figure><img src="/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" alt="Guirnaldas Edison iluminando hacienda para boda" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas vintage en jardín exterior para boda" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-focos-edison-eventos.avif" alt="Focos Edison vintage para eventos nocturnos" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif" alt="Guirnaldas con luz cálida ámbar para fiestas" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif" alt="Pérgola con focos Edison para ceremonia de boda rústica" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-exterior-guirnaldas-arco-floral-07.avif" alt="Arco floral con guirnaldas de luces para boda al aire libre" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-guirnaldas-edison-06.avif" alt="Ceremonia de boda iluminada con guirnaldas Edison cálidas" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif" alt="Jardín de ceremonia decorado con guirnaldas vintage" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif" alt="Baile de novios en hacienda bajo guirnaldas de luces" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif" alt="Patio colonial iluminado con guirnaldas para recepción" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-brindis-boda-guirnaldas-exterior-14.avif" alt="Brindis de boda al aire libre con guirnaldas cálidas" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/luces-decorativas-eventos-cdmx.avif" alt="Luces decorativas vintage para eventos en CDMX" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-led-fiestas-cdmx.avif" alt="Guirnaldas LED para fiestas y eventos en CDMX" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-ceremonia-atardecer-jardin-12.avif" alt="Guirnaldas Edison al atardecer en jardín para ceremonia" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-decoracion-xv-anos.avif" alt="Guirnaldas decorativas para fiesta de XV años" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-bodas-cdmx.avif" alt="Renta de guirnaldas para bodas en CDMX" width="400" height="300" loading="lazy"></figure>
-        </div>
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", alt: "Guirnaldas Edison iluminando hacienda para boda" },
+          { src: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif", alt: "Guirnaldas vintage en jardín exterior para boda" },
+          { src: "/img/guirnaldas/guirnaldas-focos-edison-eventos.avif", alt: "Focos Edison vintage para eventos nocturnos" },
+          { src: "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif", alt: "Guirnaldas con luz cálida ámbar para fiestas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif", alt: "Pérgola con focos Edison para ceremonia rústica" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-exterior-guirnaldas-arco-floral-07.avif", alt: "Arco floral con guirnaldas para boda al aire libre" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-boda-guirnaldas-edison-06.avif", alt: "Ceremonia iluminada con guirnaldas Edison" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif", alt: "Jardín decorado con guirnaldas vintage" },
+          { src: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif", alt: "Baile de novios en hacienda bajo guirnaldas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif", alt: "Patio colonial con guirnaldas para recepción" },
+          { src: "/img/guirnaldas/renta-guirnaldas-brindis-boda-guirnaldas-exterior-14.avif", alt: "Brindis de boda con guirnaldas cálidas" },
+          { src: "/img/guirnaldas/luces-decorativas-eventos-cdmx.avif", alt: "Luces decorativas vintage para eventos CDMX" },
+          { src: "/img/guirnaldas/guirnaldas-led-fiestas-cdmx.avif", alt: "Guirnaldas LED para fiestas en CDMX" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-atardecer-jardin-12.avif", alt: "Guirnaldas Edison al atardecer en jardín" },
+          { src: "/img/guirnaldas/guirnaldas-decoracion-xv-anos.avif", alt: "Guirnaldas decorativas para XV años" },
+          { src: "/img/guirnaldas/renta-guirnaldas-bodas-cdmx.avif", alt: "Renta de guirnaldas para bodas CDMX" },
+        ]} />
       </div>
     </section>
 
@@ -242,24 +242,24 @@ const serviciosRelacionados = [
           paragraph1="Cada foto es de un evento real donde montamos nuestras guirnaldas vintage. Jardines, terrazas, pérgolas, rooftops — cada lugar tiene su propia magia cuando le pones la luz correcta."
           paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos del espacio por WhatsApp y te decimos cuántos metros necesitas y cómo quedarían."
         />
-        <div class="gallery-4x4">
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif" alt="Guirnaldas vintage iluminando evento nocturno al aire libre en jardín" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" alt="Guirnaldas Edison iluminando hacienda para boda elegante" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas de luces cálidas en jardín exterior para boda" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif" alt="Guirnaldas tipo Edison en rooftop con vista nocturna a la ciudad" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif" alt="Pérgola decorada con focos Edison para ceremonia de boda rústica" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif" alt="Baile de novios bajo guirnaldas de luces en boda al aire libre" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif" alt="Boda en hacienda mexicana iluminada con guirnaldas vintage" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-ceremonia-atardecer-jardin-12.avif" alt="Ceremonia de boda al atardecer en jardín con guirnaldas Edison" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-arco-floral-pergola-13.avif" alt="Arco floral con guirnaldas de luces para boda romántica" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif" alt="Patio colonial iluminado con guirnaldas vintage para recepción" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-brindis-boda-guirnaldas-hacienda-43.avif" alt="Brindis de boda en hacienda bajo guirnaldas de luces cálidas" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-pareja-novios-guirnaldas-boda-32.avif" alt="Pareja de novios bajo guirnaldas de luces durante fiesta de boda" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-focos-edison-eventos.avif" alt="Focos Edison en guirnaldas para eventos especiales nocturnos" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/guirnaldas-led-fiestas-cdmx.avif" alt="Guirnaldas LED iluminando fiesta en CDMX" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif" alt="Jardín de ceremonia de boda decorado con guirnaldas vintage" width="400" height="300" loading="lazy"></figure>
-          <figure><img src="/img/guirnaldas/renta-guirnaldas-renta-luces-colgantes-fiestas-18.avif" alt="Series de luces colgantes vintage iluminando fiesta en terraza" width="400" height="300" loading="lazy"></figure>
-        </div>
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif", alt: "Guirnaldas vintage en evento nocturno al aire libre" },
+          { src: "/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif", alt: "Guirnaldas Edison en rooftop con vista a la ciudad" },
+          { src: "/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif", alt: "Baile de novios bajo guirnaldas al aire libre" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "Boda en hacienda mexicana con guirnaldas vintage" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-arco-floral-pergola-13.avif", alt: "Arco floral con guirnaldas para boda romántica" },
+          { src: "/img/guirnaldas/renta-guirnaldas-brindis-boda-guirnaldas-hacienda-43.avif", alt: "Brindis en hacienda bajo guirnaldas cálidas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-pareja-novios-guirnaldas-boda-32.avif", alt: "Novios bajo guirnaldas en fiesta de boda" },
+          { src: "/img/guirnaldas/renta-guirnaldas-renta-luces-colgantes-fiestas-18.avif", alt: "Luces colgantes vintage para fiesta en terraza" },
+          { src: "/img/guirnaldas/renta-guirnaldas-baile-novios-recepcion-08.avif", alt: "Recepción de boda con guirnaldas de luces" },
+          { src: "/img/guirnaldas/renta-guirnaldas-brindis-boda-novios-guirnaldas-emocion-42.avif", alt: "Momento emotivo de brindis bajo guirnaldas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-vintage-ceremonia-boda-03.avif", alt: "Ceremonia de boda con guirnaldas vintage" },
+          { src: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Terraza de recepción con guirnaldas Edison" },
+          { src: "/img/guirnaldas/renta-guirnaldas-guirnaldas-focos-edison-jardin-exterior-01-300w.avif", alt: "Focos Edison en jardín exterior" },
+          { src: "/img/guirnaldas/renta-guirnaldas-focos-edison-arco-boda-04-300w.avif", alt: "Arco de boda con focos Edison" },
+          { src: "/img/guirnaldas/renta-guirnaldas-focos-edison-pergola-evento-01-300w.avif", alt: "Pérgola de evento con focos Edison" },
+          { src: "/img/guirnaldas/renta-guirnaldas-luces-edison-eventos-especiales-38-300w.avif", alt: "Luces Edison para eventos especiales" },
+        ]} />
       </div>
     </section>
 
