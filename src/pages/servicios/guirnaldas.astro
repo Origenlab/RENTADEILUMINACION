@@ -198,23 +198,6 @@ const serviciosRelacionados = [
       </div>
     </section>
 
-    <!-- Servicios relacionados -->
-    <section class="services-section services-alt">
-      <div class="container">
-        <SectionHeader
-          title="Combina con Otros Servicios"
-          subtitle="Las guirnaldas se ven aún mejor cuando las complementas."
-          paragraph1="La mayoría de nuestros clientes de bodas combinan las guirnaldas con 2-3 servicios más para crear una experiencia completa. El resultado: un evento con iluminación profesional que se ve y se siente de otro nivel."
-          paragraph2="Armamos paquetes personalizados con precio especial cuando combinas servicios. Cuéntanos tu evento y te hacemos una propuesta integral."
-        />
-        <div class="services-grid">
-          {serviciosRelacionados.map((s) => (
-            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq-section">
       <div class="container">
@@ -233,6 +216,23 @@ const serviciosRelacionados = [
         { question: "¿Se pueden combinar con otros servicios de iluminación?", answer: "Claro, es lo más recomendable para bodas y fiestas de XV años. Las guirnaldas combinan perfectamente con uplighting arquitectónico, seguidor para el vals, gobos con nombres o logos, y humo bajo. Armamos paquetes con precio especial." },
         { question: "¿También rentan series navideñas y cortinas de luces?", answer: "Sí. Además de las guirnaldas tipo Edison, ofrecemos series navideñas LED, cortinas de luces, y cascadas LED para decoración de eventos. Todos con la misma calidad de instalación profesional." },
       ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="Las guirnaldas se ven aún mejor cuando las complementas."
+          paragraph1="La mayoría de nuestros clientes de bodas combinan las guirnaldas con 2-3 servicios más para crear una experiencia completa. El resultado: un evento con iluminación profesional que se ve y se siente de otro nivel."
+          paragraph2="Armamos paquetes personalizados con precio especial cuando combinas servicios. Cuéntanos tu evento y te hacemos una propuesta integral."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
     </section>
 
     <!-- CTA Final -->
