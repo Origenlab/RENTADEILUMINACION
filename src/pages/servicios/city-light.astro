@@ -10,7 +10,7 @@ import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
 const title = "Renta de Luces LED PAR para Eventos y Bodas CDMX | REDEIL";
-const description = "Luminarias PAR LED RGBW para ambientar salones, bodas y eventos corporativos en CDMX. Cualquier color, control DMX. Instalación incluida. Desde $3,500 + IVA.";
+const description = "Luminarias PAR LED RGBW para ambientar salones, bodas y eventos corporativos en CDMX. Control DMX. Instalación incluida. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/city-light/";
 
 const schemaMarkup = JSON.stringify([
@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué es un PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "Un PAR LED es una luminaria compacta y versátil con múltiples LEDs RGBW (rojo, verde, azul, blanco) que puede producir cualquier color. Se usa para ambientar salones, iluminar mesas, crear zonas de color y complementar otros servicios de iluminación." }},
       { "@type": "Question", "name": "¿Los PAR LED cambian de color?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada unidad puede producir millones de colores mezclando RGBW. Se controlan vía DMX para cambiar colores durante el evento — rosa en el vals, dorado en la cena, multicolor en la fiesta." }},
       { "@type": "Question", "name": "¿Cuántas luces necesito para mi salón?", "acceptedAnswer": { "@type": "Answer", "text": "Para un salón estándar de 200m², 16 PAR LED distribuidos en el perímetro son suficientes para un ambiente completo. Para zonas específicas (mesa de novios, entrada), 4-8 unidades." }},
-      { "@type": "Question", "name": "¿Cuánto cuesta la renta?", "acceptedAnswer": { "@type": "Answer", "text": "Un paquete básico de 8 PAR LED arranca desde $3,500 + IVA con instalación incluida. Los paquetes completos para salones van desde $6,000 + IVA." }}
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta?", "acceptedAnswer": { "@type": "Answer", "text": "Un paquete básico de 8 PAR LED arranca desde $3,500 + IVA con instalación incluida. Los paquetes completos para salones van desde $6,000 + IVA." }},
+      { "@type": "Question", "name": "¿Los PAR LED tienen opciones inalámbricas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Contamos con modelos de PAR LED inalámbricos con batería recargable de hasta 12 horas — ideales para centros de mesa, zonas sin acceso a corriente y colocaciones creativas sin cables visibles." }},
+      { "@type": "Question", "name": "¿Se pueden combinar con otros servicios de iluminación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, y es lo más recomendable. Los PAR LED son la base del ambiente — agrega cabezas móviles para el show de luces, cascadas LED para la mesa de novios y guirnaldas para el jardín. Armamos paquetes con precio especial." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color iluminando hacienda para boda", description: "Cañones de alto impacto para fachadas grandes. Complementa los PAR LED interiores con color exterior.", link: "/servicios/city-color/" },
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams en boda elegante", description: "Los PAR LED ambientan, las cabezas móviles hacen el show. La combinación perfecta para bodas y XV años.", link: "/servicios/cabezas-moviles/" },
-  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop brillante detrás de la mesa de novios + ambiente de color en todo el salón con PAR LED.", link: "/servicios/cascadas-led/" },
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "PAR LED en el salón + guirnaldas cálidas en el jardín. Dentro y fuera, todo iluminado.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "PAR LED para el interior + city color para las fachadas. Iluminación completa dentro y fuera.", link: "/servicios/city-color/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams", description: "PAR LED crean el ambiente, las cabezas móviles hacen el show. La combinación perfecta para bodas.", link: "/servicios/cabezas-moviles/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "PAR LED en el salón + cascadas LED detrás de la mesa de novios. Backdrop brillante + ambiente completo.", link: "/servicios/cascadas-led/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza", description: "PAR LED dentro del salón + guirnaldas cálidas en el jardín. Adentro y afuera, todo iluminado.", link: "/servicios/guirnaldas/" },
 ];
 ---
 
@@ -73,9 +75,9 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Qué zona de tu evento quieres iluminar?"
       items={[
-        { label: "Salón completo", href: "#paquetes", icon: "iluminacion" },
+        { label: "Ambiente de Salón", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

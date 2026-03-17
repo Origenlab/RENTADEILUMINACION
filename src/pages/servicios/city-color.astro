@@ -9,8 +9,8 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de City Color y Cañones de Luz LED para Eventos CDMX | REDEIL";
-const description = "Cañones de luz LED RGBW para bañar de color fachadas, salones y escenarios. Bodas, corporativos y festivales en CDMX. Instalación incluida. Desde $4,000 + IVA.";
+const title = "Renta de City Color LED para Bodas y Eventos CDMX | REDEIL";
+const description = "Cañones de luz LED RGBW para bañar de color fachadas, salones y escenarios. Bodas, corporativos y festivales en CDMX. Desde $4,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/city-color/";
 
 const schemaMarkup = JSON.stringify([
@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué es un city color?", "acceptedAnswer": { "@type": "Answer", "text": "Un city color es un cañón de luz LED RGBW de alto impacto diseñado para bañar grandes superficies con color — fachadas de haciendas, muros de salones, columnas, escenarios. Proyecta un haz ancho y potente que cubre de 10 a 30 metros cuadrados por unidad." }},
       { "@type": "Question", "name": "¿Cuántos city colors necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una fachada de hacienda estándar, 4-6 cañones son suficientes. Para un salón de eventos mediano, 8 unidades. Para venues grandes con múltiples zonas, 16 o más. Te asesoramos según las dimensiones de tu espacio." }},
       { "@type": "Question", "name": "¿Se puede cambiar el color durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los city colors se controlan vía DMX512 y pueden cambiar de color en tiempo real — rosa para el vals, dorado para la cena, multicolor para la fiesta. Nuestro operador programa los cambios según los momentos de tu evento." }},
-      { "@type": "Question", "name": "¿Funcionan en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros cañones de luz tienen protección IP65 para uso en exteriores. Son ideales para fachadas, jardines, fuentes y espacios al aire libre." }}
+      { "@type": "Question", "name": "¿Funcionan en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros cañones de luz tienen protección IP65 para uso en exteriores. Son ideales para fachadas, jardines, fuentes y espacios al aire libre." }},
+      { "@type": "Question", "name": "¿Qué diferencia hay entre city color y uplighting arquitectónico?", "acceptedAnswer": { "@type": "Answer", "text": "El city color usa cañones de alta potencia para cubrir superficies grandes (fachadas completas, escenarios). El uplighting arquitectónico usa reflectores más pequeños para iluminar puntos específicos (columnas, árboles, arcos). Lo ideal es combinar ambos." }},
+      { "@type": "Question", "name": "¿Se puede combinar el city color con otros servicios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí — es lo más recomendable. La fachada bañada de color es solo el primer nivel. Agrega uplighting en columnas, cascadas LED dentro del salón y sky tracker para una producción completa." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales de hacienda", description: "Uplighting puntual para columnas y árboles. El complemento perfecto para los cañones de color en fachadas.", link: "/servicios/iluminacion-arquitectonica/" },
-  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz de luz al cielo nocturno", description: "Fachada bañada de color + haces de luz al cielo = la producción nocturna más espectacular.", link: "/servicios/sky-tracker/" },
-  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios romántica", description: "Color en las paredes + cascadas brillantes detrás de la mesa de novios. Dentro y fuera, todo iluminado.", link: "/servicios/cascadas-led/" },
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams blancos en boda", description: "City color para ambientar + cabezas móviles para el show. La combinación que usan en conciertos.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "City color para las fachadas grandes + uplighting para los detalles. Cobertura total del venue.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker al cielo", description: "Fachadas bañadas de color + haces de luz al cielo. La producción nocturna más impresionante.", link: "/servicios/sky-tracker/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Color en las paredes exteriores + cascadas brillantes dentro del salón. Adentro y afuera, transformado.", link: "/servicios/cascadas-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams", description: "City color para el ambiente + cabezas móviles para el show. La combinación que usan en conciertos.", link: "/servicios/cabezas-moviles/" },
 ];
 ---
 
@@ -73,9 +75,9 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Qué quieres bañar de color?"
       items={[
-        { label: "Fachadas", href: "#paquetes", icon: "iluminacion" },
+        { label: "Fachadas de Hacienda", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

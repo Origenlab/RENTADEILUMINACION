@@ -9,8 +9,8 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Luz Negra UV para Fiestas Neón y Eventos CDMX | REDEIL";
-const description = "Luz negra UV profesional para fiestas neón, XV años y eventos temáticos en CDMX. Efecto blacklight que hace brillar todo lo fluorescente. Desde $3,500 + IVA.";
+const title = "Renta de Luz Negra UV para Fiestas Neón en CDMX | REDEIL";
+const description = "Luz negra UV profesional para fiestas neón, glow parties y XV años en CDMX. Efecto blacklight espectacular. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/";
 
 const schemaMarkup = JSON.stringify([
@@ -31,16 +31,19 @@ const schemaMarkup = JSON.stringify([
     "mainEntity": [
       { "@type": "Question", "name": "¿Qué es una glow party?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Incluye pintura corporal neón, accesorios luminosos y decoración fluorescente." }},
       { "@type": "Question", "name": "¿Las luces UV son seguras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son las mismas que las lámparas UV industriales. Son las mismas que se usan en parques de diversiones y discotecas." }},
-      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }}
+      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }},
+      { "@type": "Question", "name": "¿Qué es una glow party y cómo funciona?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta donde la luz UV hace brillar todo lo blanco y fluorescente. Se complementa con pintura corporal neón, accesorios luminosos y decoración fluorescente. El efecto es espectacular y muy fotogénico." }},
+      { "@type": "Question", "name": "¿La luz negra sirve para XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Es uno de los usos más populares. Los XV años con temática neón son tendencia — la festejada con maquillaje fluorescente, pista iluminada con UV, fotos espectaculares. El paquete Glow Party es el más pedido para XV años." }},
+      { "@type": "Question", "name": "¿Cuántas barras UV necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una pista de baile de 80m², 4-6 barras son suficientes. Para cobertura de salón completo hasta 150m², 8-12 barras. Para venues grandes, 20 o más. Te asesoramos según las dimensiones de tu espacio." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón LED para fiesta", description: "Letreros neón personalizados y efectos UV decorativos. Complemento visual para tu fiesta.", link: "/servicios/luces-neon/" },
-  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para fiesta neón", description: "DJ con repertorio de música electrónica y reggaetón. El soundtrack perfecto para tu glow party.", link: "/servicios/bocinas-djs/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo con luces neón", description: "El humo escénico con luces UV crea un efecto espectacular. Perfecto para la pista de baile.", link: "/servicios/humo-bajo/" },
-  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco para fiesta neón", description: "Combina bola disco con luces neón para una pista de baile inolvidable.", link: "/servicios/bola-disco/" },
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón en glow party", description: "Luz negra UV para el ambiente + letreros neón LED personalizados. La glow party completa.", link: "/servicios/luces-neon/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de luces de colores", description: "Luz negra UV + beams de colores de cabezas móviles. El show de luces más impactante para fiestas.", link: "/servicios/cabezas-moviles/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "Iluminación para fiestas", description: "PAR LED de colores vibrantes + UV. Capas de iluminación que crean un ambiente de otro mundo.", link: "/servicios/city-light/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo monograma en pista", description: "Pista iluminada con UV + nombres o logo proyectados. Personalización completa del espacio.", link: "/servicios/gobos/" },
 ];
 ---
 
@@ -64,9 +67,9 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Para qué evento necesitas luz negra?"
       items={[
-        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
-        { label: "XV Años UV", href: "/eventos/xv-anos/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Ver paquetes UV", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

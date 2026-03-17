@@ -9,8 +9,8 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Sky Tracker y Luces Antiaéreas para Eventos CDMX | REDEIL";
-const description = "Sky trackers xenón de 7,000W visibles a 5 km. Haces de luz al cielo para bodas, inauguraciones y festivales en CDMX. Instalación incluida. Desde $5,500 + IVA.";
+const title = "Renta de Sky Tracker para Eventos Nocturnos CDMX | REDEIL";
+const description = "Sky trackers xenón 7,000W visibles a 5 km para bodas, inauguraciones y festivales en CDMX. Instalación profesional incluida. Desde $5,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/";
 
 const schemaMarkup = JSON.stringify([
@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿A qué distancia se ven los haces de luz del sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestros sky trackers xenón de 7,000W son visibles a 5-7 kilómetros de distancia en noches despejadas. Son las mismas luminarias que usan en estrenos de cine y apertura de centros comerciales." }},
       { "@type": "Question", "name": "¿Necesito permiso para usar sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de la ubicación. En zonas cercanas a aeropuertos se requiere autorización de SENEAM. Nosotros tramitamos el permiso si es necesario y verificamos que tu venue sea apto antes del evento." }},
       { "@type": "Question", "name": "¿El sky tracker funciona con lluvia?", "acceptedAnswer": { "@type": "Answer", "text": "Con lluvia ligera sí. Nuestros equipos tienen protección IP54. En lluvia fuerte se recomienda cubrir los equipos o pausar la operación temporalmente." }},
-      { "@type": "Question", "name": "¿Cuánto cuesta la renta de sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Un sky tracker individual arranca desde $5,500 + IVA con instalación incluida. Los paquetes de 2 unidades (efecto cruzado) van desde $9,500 + IVA. Cotiza gratis por WhatsApp." }}
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta de sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Un sky tracker individual arranca desde $5,500 + IVA con instalación incluida. Los paquetes de 2 unidades (efecto cruzado) van desde $9,500 + IVA. Cotiza gratis por WhatsApp." }},
+      { "@type": "Question", "name": "¿Se puede combinar el sky tracker con otros servicios de iluminación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí — es lo más recomendable. La combinación más popular es sky tracker + guirnaldas Edison para bodas al aire libre. También funciona perfecto con humo escénico y cabezas móviles. Armamos paquetes con precio especial." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo puede estar encendido el sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Los sky trackers pueden operar 4-6 horas continuas sin problema. Recomendamos encenderlos después del atardecer para máximo impacto visual en oscuridad completa." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams blancos en boda elegante", description: "Show de luces DMX complementario. Beams y spots que se combinan perfecto con los haces del sky tracker.", link: "/servicios/cabezas-moviles/" },
-  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting arquitectónico en arcos coloniales de hacienda", description: "Uplighting para fachadas y jardines. Mientras el sky tracker marca el cielo, el uplighting transforma el venue.", link: "/servicios/iluminacion-arquitectonica/" },
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "La combinación favorita para bodas al aire libre: guirnaldas cálidas abajo y haces de luz al cielo.", link: "/servicios/guirnaldas/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Efecto de humo bajo en jardín para boda", description: "Humo escénico en el piso con haces de luz cruzando el cielo. El efecto visual más impactante para bodas nocturnas.", link: "/servicios/humo-bajo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams en boda", description: "Show de luces DMX complementario. Los beams en el suelo + haces al cielo = producción completa.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Uplighting para fachadas y jardines. Mientras el sky tracker marca el cielo, el uplighting transforma el venue.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para boda", description: "Guirnaldas cálidas a nivel humano + haces de luz al cielo. La combinación más solicitada para bodas nocturnas.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "Cañones de color en las fachadas + haces al cielo. Producción visual de arriba a abajo.", link: "/servicios/city-color/" },
 ];
 ---
 
@@ -73,8 +75,8 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Para qué evento necesitas sky tracker?"
       items={[
-        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Bodas al Aire Libre", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}

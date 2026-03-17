@@ -9,7 +9,7 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Gobos y Proyección Personalizada para Eventos CDMX | REDEIL";
+const title = "Renta de Gobos Personalizados para Eventos CDMX | REDEIL";
 const description = "Gobos personalizados: nombres, logos y monogramas proyectados en pisos y paredes. Bodas, corporativos y XV años en CDMX. Desde $2,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/gobos/";
 
@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué es un gobo?", "acceptedAnswer": { "@type": "Answer", "text": "Un gobo es una plantilla de metal o vidrio que se coloca dentro de un proyector profesional para proyectar un diseño — nombres de novios, logos de empresa, monogramas, patrones decorativos — en pisos, paredes y techos." }},
       { "@type": "Question", "name": "¿El gobo se fabrica con mi diseño?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los gobos metálicos se fabrican con tu diseño en silueta (1 color). Los gobos de vidrio permiten diseños full color con fotos y logotipos a color. Necesitamos tu diseño con 5-7 días de anticipación para fabricarlo." }},
       { "@type": "Question", "name": "¿Cuánto cuesta un gobo personalizado?", "acceptedAnswer": { "@type": "Answer", "text": "Un gobo metálico personalizado con proyector arranca desde $2,500 + IVA incluyendo la fabricación, el equipo y la instalación. Los gobos de vidrio full color desde $4,500 + IVA." }},
-      { "@type": "Question", "name": "¿Me puedo quedar con el gobo después del evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los gobos personalizados son tuyos — te los entregamos después del evento. Es un recuerdo único de tu boda o evento." }}
+      { "@type": "Question", "name": "¿Me puedo quedar con el gobo después del evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los gobos personalizados son tuyos — te los entregamos después del evento. Es un recuerdo único de tu boda o evento." }},
+      { "@type": "Question", "name": "¿Con cuánto tiempo de anticipación debo pedir mi diseño de gobo?", "acceptedAnswer": { "@type": "Answer", "text": "Para gobos metálicos necesitamos el diseño final con 5-7 días hábiles de anticipación. Para gobos de vidrio full color, 7-10 días. Si necesitas ayuda con el diseño, nuestro equipo puede crearlo." }},
+      { "@type": "Question", "name": "¿En qué superficies se puede proyectar?", "acceptedAnswer": { "@type": "Answer", "text": "La proyección funciona mejor en superficies claras y lisas — paredes blancas, pisos de mármol, techos lisos. También se proyecta en superficies irregulares como fachadas de piedra para efectos más artísticos." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams en boda elegante", description: "Las cabezas móviles tienen gobos giratorios integrados. Combina proyección fija + gobos en movimiento para un show visual.", link: "/servicios/cabezas-moviles/" },
-  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Uplighting en las paredes como lienzo + los nombres proyectados encima. Dos capas de luz que se complementan.", link: "/servicios/iluminacion-arquitectonica/" },
-  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile", description: "Los nombres en la pista + un spotlight siguiendo a los novios en el vals. El momento más fotografiado de la boda.", link: "/servicios/seguidor/" },
-  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop brillante detrás de la mesa + monograma proyectado en la pista. Personalización total.", link: "/servicios/cascadas-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams", description: "Las cabezas Spot ya tienen gobos giratorios integrados. Combina proyección fija + dinámica.", link: "/servicios/cabezas-moviles/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals", description: "Los nombres proyectados en la pista + spotlight siguiendo a los novios. El momento más cinematográfico.", link: "/servicios/seguidor/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Uplighting en las columnas + nombre proyectado en la pista. Personalización en toda la arquitectura.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop de cascadas LED detrás de la mesa de novios + monograma en la pista. El duo perfecto para bodas.", link: "/servicios/cascadas-led/" },
 ];
 ---
 
@@ -73,9 +75,9 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Qué quieres proyectar?"
       items={[
-        { label: "Nombres de Novios", href: "#paquetes", icon: "iluminacion" },
-        { label: "Logo Corporativo", href: "#paquetes", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Nombres en la Pista", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

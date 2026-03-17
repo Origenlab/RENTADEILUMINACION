@@ -1,74 +1,251 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bola de Disco para Eventos | REDEIL CDMX";
-const description = "Renta de bola de disco y esfera de espejos para fiestas y eventos en CDMX. REDEIL instala bolas de disco profesionales para bodas, cumpleaños y fiestas temáticas.";
+const title = "Renta de Bola Disco para Fiestas y Bodas en CDMX | REDEIL";
+const description = "Bolas de espejos de 30cm a 1.2m para pistas de baile. Efecto retro y elegante para bodas, fiestas 70s/80s y XV años. Instalación incluida en CDMX. Desde $2,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bola-disco/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bola de Disco para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Bola Disco para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de bolas de espejos (bola disco) de 30cm a 1.2m para bodas, fiestas retro y eventos en CDMX. Instalación con motor y focos PAR incluidos.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Bola Disco",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de bolas de disco y esferas de espejos para fiestas, bodas, cumpleaños y eventos temáticos en Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bola de Disco"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿En qué tamaños viene la bola disco?", "acceptedAnswer": { "@type": "Answer", "text": "Contamos con bolas de espejos de 30cm (íntima), 50cm (estándar para salones), 80cm (grande para venues amplios) y 1.2m (gigante para producción). El tamaño ideal depende de la altura del techo y el tamaño de la pista de baile." }},
+      { "@type": "Question", "name": "¿La instalación requiere estructura especial?", "acceptedAnswer": { "@type": "Answer", "text": "Necesitamos un punto de anclaje en el techo sobre la pista de baile — una viga, una argolla o un gancho de resistencia suficiente. Llevamos todo el cableado, el motor giratorio y los focos PAR para iluminar la bola. Inspeccionamos el punto de anclaje antes de instalar." }},
+      { "@type": "Question", "name": "¿La bola disco viene con motor y focos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos nuestros paquetes incluyen la bola, el motor giratorio de velocidad variable y los focos PAR de color que apuntan a la bola para crear el efecto de miles de destellos. Sin los focos PAR, la bola no produce el efecto visual completo." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Máquina de Humo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo en pista de baile", description: "Los reflejos de la bola disco en el humo crean miles de puntos de luz flotantes. El combo más instagrameable.", link: "/servicios/maquina-humo/" },
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional en cabina", description: "DJ + bola disco = fiesta completa. Música perfecta con el efecto visual clásico que nunca falla.", link: "/servicios/bocinas-djs/" },
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón en fiesta", description: "Bola disco dorada + luces UV = fiesta temática de otro nivel. Combinación perfecta para XV años.", link: "/servicios/luces-neon/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams", description: "Show de luces DMX + bola disco. Los beams + los destellos crean un espectáculo visual completo.", link: "/servicios/cabezas-moviles/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bola de Disco" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Bola Disco" }
+  ]} />
 </Fragment>
-<Hero
-      title="Bola de Disco para Eventos en CDMX"
-      subtitle="La esfera de espejos clásica que llena de brillo cualquier celebración"
-      introParagraph1="REDEIL ofrece renta de bolas de disco profesionales para todo tipo de eventos en la Ciudad de México. Nuestras esferas de espejos, combinadas con iluminación adecuada, crean un espectáculo de reflejos que transforma la pista de baile y el ambiente general de tu fiesta."
-      introParagraph2="Con experiencia en bodas, cumpleaños, fiestas retro, eventos corporativos y celebraciones temáticas, instalamos bolas de disco de distintos tamaños según las necesidades de cada espacio. Nuestro equipo técnico se encarga de todo el proceso de montaje y desmontaje."
+
+    <Hero
+      title="Renta de Bola Disco para Bodas y Fiestas en CDMX"
+      subtitle="Bolas de espejos de 30cm hasta 1.2m. Con motor, focos PAR y instalación profesional. Desde $2,000 + IVA."
+      introParagraph1='Hay algo atemporal en la bola disco. Desde las discotecas de los 70s hasta las bodas más elegantes de hoy, la bola de espejos tiene el poder de transformar cualquier pista de baile con miles de destellos que se mueven al ritmo de la música. En <strong>REDEIL</strong> rentamos bolas de espejos en cuatro tamaños — desde 30cm para eventos íntimos hasta 1.2 metros para producciones de gran escala — con motor giratorio de velocidad variable y focos PAR de color que producen el efecto visual completo.'
+      introParagraph2='La bola disco funciona en bodas rústicas con guirnaldas (el efecto vintage es increíble), en fiestas temáticas de los 70s y 80s, en XV años, en galas corporativas con coctel y en cualquier evento donde haya pista de baile. El servicio incluye transporte, instalación profesional con sistema de anclaje seguro revisado por nuestro equipo técnico, motor giratorio, focos PAR y desmontaje. Atendemos toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Esferas de espejos que transforman la pista de baile"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="La bola de disco es un elemento icónico que nunca pasa de moda. Sus cientos de pequeños espejos reflejan la luz en todas direcciones, creando un manto de destellos que envuelve a los invitados y convierte cualquier espacio en una pista de baile vibrante y festiva."
-          paragraph2="En REDEIL contamos con esferas de espejos de diferentes dimensiones, adecuadas tanto para salones amplios como para espacios más íntimos. Cada bola de disco se instala con un motor de rotación y se complementa con luminarias tipo pinspot o LED para maximizar el efecto de reflejos."
+
+    <CtaBar
+      headline="¿Para qué tipo de fiesta?"
+      items={[
+        { label: "Fiestas Retro", href: "#paquetes", icon: "efectos" },
+        { label: "Bodas", href: "/eventos/bodas/", icon: "efectos" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Bola disco en eventos reales — todos los tamaños"
+          subtitle="De salones íntimos a producciones grandes, la bola de espejos siempre funciona."
+          paragraph1="La bola disco es uno de los elementos visuales más versátiles que existen. En una boda rústica en hacienda, colgada entre guirnaldas cálidas, es vintage y romántica. En una fiesta temática de los 80s, es el centro del universo. En una gala corporativa con coctel, es sofisticada y elegante."
+          paragraph2="El secreto está en los focos PAR que la iluminan. Cambia el color de los PAR y la bola cambia completamente de carácter — dorado para bodas, multicolor para fiestas, azul para eventos de noche."
         />
-        <p>Ya sea para una fiesta temática de los 70s, un cumpleaños retro o una boda con toque divertido, la bola de disco aporta un elemento visual y emocional que eleva la energía de la celebración. Cubrimos eventos en toda la CDMX y zona metropolitana con servicio profesional completo.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bola-disco/bola-disco-gigante-fiesta-nocturna.avif", alt: "Bola disco gigante en fiesta nocturna" },
+          { src: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco con DJ en pista de baile" },
+          { src: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco dorada en boda romántica en hacienda" },
+          { src: "/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif", alt: "Bola disco dorada con destellos de colores en pista" },
+          { src: "/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif", alt: "Renta de bola disco para fiestas en CDMX" },
+          { src: "/img/bola-disco/bola-disco-para-fiestas-tematicas-70s.avif", alt: "Bola disco para fiesta temática de los 70s" },
+          { src: "/img/bola-disco/renta-bola-disco-fiesta-80s-90s.avif", alt: "Bola disco para fiesta de los 80s y 90s" },
+          { src: "/img/bola-disco/bola-espejos-para-bodas-elegantes.avif", alt: "Bola de espejos para bodas elegantes" },
+          { src: "/img/bola-disco/renta-bola-disco-salon-eventos.avif", alt: "Bola disco en salón de eventos" },
+          { src: "/img/bola-disco/bola-disco-gigante-para-eventos.avif", alt: "Bola disco gigante para eventos especiales" },
+          { src: "/img/bola-disco/bola-disco-moderna-coctel-corporativo.avif", alt: "Bola disco en coctel corporativo moderno" },
+          { src: "/img/bola-disco/renta-bola-espejos-primer-baile-novios.avif", alt: "Bola de espejos para primer baile de novios" },
+          { src: "/img/bola-disco/renta-de-bola-disco-pista-iluminada.avif", alt: "Pista de baile iluminada con bola disco" },
+          { src: "/img/bola-disco/renta-de-bola-disco-xv-anos.avif", alt: "Bola disco para XV años" },
+          { src: "/img/bola-disco/bola-disco-boda-rustica-guirnaldas.avif", alt: "Bola disco en boda rústica con guirnaldas" },
+          { src: "/img/bola-disco/renta-bola-espejos-evento-premium.avif", alt: "Bola de espejos premium para evento especial" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Bola de Disco" subtitle="Instalaciones de esferas de espejos en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/bola-disco-para-fiestas-tematicas-70s.avif" alt="Bola de disco brillando en fiesta temática de los años 70" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/detalle-espejos-bola-disco-profesional.avif" alt="Detalle de los espejos de una bola de disco profesional reflejando luces" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/renta-bola-espejos-gala-empresarial.avif" alt="Esfera de espejos instalada en gala empresarial con iluminación elegante" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/bola-disco-grande-para-salones.avif" alt="Bola de disco de gran tamaño iluminando salón de eventos" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/bola-disco-fiesta-salon-clasico.avif" alt="Bola de disco proyectando reflejos en salón clásico durante fiesta" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/bola-disco-para-eventos-corporativos.avif" alt="Bola de disco como elemento decorativo en evento corporativo nocturno" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/renta-bola-disco-fiesta-tematica.avif" alt="Esfera de espejos girando durante fiesta temática con luces de colores" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bola-disco/bola-disco-para-cumpleanos-retro.avif" alt="Bola de disco iluminando pista de baile en cumpleaños retro" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Bola Disco"
+          subtitle="4 tamaños según tu pista de baile. Motor y focos PAR incluidos."
+          paragraph1="Cada paquete incluye la bola de espejos, motor giratorio de velocidad variable, 2 focos PAR de color, sistema de anclaje, instalación profesional y desmontaje. El tamaño correcto depende de la altura del techo y el diámetro de la pista."
+          paragraph2="¿No sabes qué tamaño necesitas? Mándanos fotos de tu venue y te recomendamos el ideal."
+        />
+        <PricingCards packages={[
+          {
+            name: "Compacta — 30-40cm",
+            price: "$2,000",
+            priceNote: "+ IVA",
+            description: "La opción íntima para salones bajos y espacios pequeños. Destellos suaves para bodas vintage y fiestas privadas.",
+            features: [
+              { text: "Bola de espejos 30-40cm de diámetro", included: true },
+              { text: "Motor giratorio con velocidad variable", included: true },
+              { text: "2 focos PAR de color incluidos", included: true },
+              { text: "Traslado + instalación + desmontaje", included: true },
+              { text: "Ideal para: salones bajos, eventos íntimos", included: true },
+              { text: "Instalación: techo hasta 3.5m de altura", included: true },
+              { text: "Focos PAR adicionales", included: false },
+              { text: "Motor de alta velocidad", included: false },
+            ],
+            ctaLabel: "Cotizar bola compacta",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — 50-60cm",
+            price: "$3,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El tamaño más versátil — funciona en cualquier salón estándar de bodas y eventos. Destellos que cubren toda la pista.",
+            features: [
+              { text: "Bola de espejos 50-60cm de diámetro", included: true },
+              { text: "Motor giratorio de velocidad variable", included: true },
+              { text: "2 focos PAR de color incluidos", included: true },
+              { text: "Traslado + instalación + desmontaje", included: true },
+              { text: "Ideal para: salones estándar, bodas, XV años", included: true },
+              { text: "Instalación: techo de 3m a 5m de altura", included: true },
+              { text: "Cobertura completa de la pista", included: true },
+              { text: "Focos PAR adicionales", included: false },
+            ],
+            ctaLabel: "Cotizar bola estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Grande — 80cm",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            description: "Para venues amplios y techos altos. Destellos de mayor alcance que cubren un salón completo de 300m².",
+            features: [
+              { text: "Bola de espejos 80cm de diámetro", included: true },
+              { text: "Motor de alta potencia con velocidad variable", included: true },
+              { text: "4 focos PAR de color incluidos", included: true },
+              { text: "Traslado + instalación + desmontaje", included: true },
+              { text: "Ideal para: salones grandes, haciendas", included: true },
+              { text: "Instalación: techo de 4m a 8m de altura", included: true },
+              { text: "Cobertura 300m² de pista", included: true },
+              { text: "Instalación con andamio si requerido", included: true },
+            ],
+            ctaLabel: "Cotizar bola grande",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Gigante — 1.2m",
+            price: "$8,000",
+            priceNote: "+ IVA",
+            description: "La bola disco de producción. 1.2 metros de puro espectáculo para eventos masivos, festivales y venues de gran escala.",
+            features: [
+              { text: "Bola de espejos 1.2m de diámetro", included: true },
+              { text: "Motor industrial de alta potencia", included: true },
+              { text: "6 focos PAR de alta potencia", included: true },
+              { text: "Traslado + instalación especializada", included: true },
+              { text: "Andamio + equipo técnico completo", included: true },
+              { text: "Inspección estructural del punto de anclaje", included: true },
+              { text: "Ideal para: festivales, clubs, mega eventos", included: true },
+              { text: "Visita previa obligatoria", included: true },
+            ],
+            ctaLabel: "Cotizar bola gigante",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre la Bola Disco"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Mándanos fotos de tu venue y te recomendamos el tamaño exacto que necesitas."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tamaño de bola disco necesito para mi salón?", answer: "Como regla general: bola de 30-40cm para salones con techo de hasta 3.5m; 50-60cm para techos de 3 a 5m; 80cm para techos de 4 a 8m; 1.2m para venues de producción con techos de 8m+. Mándanos fotos de tu pista de baile y el techo y te recomendamos el tamaño exacto." },
+        { question: "¿La bola de espejos viene con motor y focos?", answer: "Sí, siempre. Sin el motor, la bola no gira y sin los focos PAR apuntando a ella, no produce el efecto de destellos. Todos nuestros paquetes incluyen los tres elementos. Si quieres cambiar los colores durante la noche, usamos focos PAR con geles intercambiables." },
+        { question: "¿Se puede instalar en el techo de cualquier salón?", answer: "En la mayoría de los salones, sí. Necesitamos un punto de anclaje resistente en el techo sobre la pista de baile — una viga, una argolla instalada o un punto de rigging. Nuestro equipo revisa el punto antes de instalar. Si no hay punto de anclaje, usamos una estructura de truss portátil (costo adicional)." },
+        { question: "¿La bola disco es buena para bodas?", answer: "Absolutamente — especialmente para bodas con temática vintage, rústica o retro. Una bola de espejos de 50-60cm colgada entre guirnaldas Edison crea un ambiente único y muy fotogénico. Los reflejos sobre la pista de baile se ven increíbles en las fotos y videos." },
+        { question: "¿Se puede combinar con máquina de humo?", answer: "Sí, y es uno de los combos más populares. Cuando el humo llena la pista y los focos PAR iluminan la bola disco, los reflejos se hacen visibles en el humo — miles de puntos de luz flotando en la neblina. El efecto es espectacular y muy fotogénico." },
+        { question: "¿Cuánto tiempo toma la instalación?", answer: "Entre 30 y 60 minutos dependiendo del tamaño y la accesibilidad del punto de anclaje. Para bolas gigantes (1.2m) con andamio, 2-3 horas. Llegamos con tiempo suficiente para que todo esté listo antes del evento." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="La bola disco es el centro — ponle el show alrededor."
+          paragraph1="La bola disco por sí sola ya es un efecto poderoso. Pero cuando le agregas humo (los reflejos se hacen visibles en la neblina), un DJ y las luces correctas, la pista de baile se convierte en algo que la gente no va a olvidar."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la pista perfecta."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para llenar tu pista de destellos?</h2>
+          <p>Mándanos fotos de tu salón y el tipo de evento. Te decimos qué tamaño de bola es el ideal y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

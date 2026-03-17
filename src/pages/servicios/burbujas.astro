@@ -1,71 +1,251 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Máquina de Burbujas para Eventos | REDEIL CDMX";
-const description = "Renta de máquina de burbujas para bodas y eventos en CDMX. Efecto de burbujas profesional para fiestas, baby showers y celebraciones. Servicio REDEIL.";
+const title = "Renta de Máquina de Burbujas para Fiestas y Bodas CDMX | REDEIL";
+const description = "Máquinas de burbujas profesionales para bodas, XV años, fiestas infantiles y eventos en CDMX. Burbujas gigantes o lluvia continua. Desde $1,800 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/burbujas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Máquina de Burbujas para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Máquina de Burbujas para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de máquinas de burbujas para bodas, XV años, fiestas infantiles y eventos en CDMX. Burbujas continuas o gigantes.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Máquina de Burbujas",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de máquinas de burbujas para bodas, fiestas infantiles, baby showers y eventos en la Ciudad de México. Efecto mágico y divertido.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Máquina de Burbujas"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La máquina de burbujas moja el piso?", "acceptedAnswer": { "@type": "Answer", "text": "Las burbujas dejan una capa muy ligera de jabón en el piso al reventarse, especialmente si el volumen es alto. En pistas de baile, recomendamos tener personal que revise el área periódicamente. El fluido profesional que usamos es mínimamente resbaladizo comparado con soluciones caseras." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo produce burbujas una carga de fluido?", "acceptedAnswer": { "@type": "Answer", "text": "Un litro de fluido concentrado produce burbujas continuas durante 60-90 minutos en uso normal. Para eventos de 4-6 horas llevamos fluido adicional para recargas." }},
+      { "@type": "Question", "name": "¿Sirve para la entrada de la quinceañera o los novios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí — es uno de los usos más populares. La entrada de la quinceañera o los novios entre una lluvia de burbujas es una imagen espectacular para las fotos y el video. El operador activa la máquina exactamente cuando la persona hace su entrada." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Niebla baja en boda en jardín", description: "Burbujas + niebla baja = entrada de los novios como en una película. El combo más mágico para bodas.", link: "/servicios/humo-bajo/" },
+  { title: "Confeti y Papelitos", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en primer baile de novios", description: "Burbujas durante la ceremonia + confeti en el brindis. Dos momentos visuales que la gente no olvida.", link: "/servicios/confeti/" },
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón UV en fiesta", description: "Las burbujas con iluminación UV se vuelven fluorescentes — el efecto más sorprendente para glow parties.", link: "/servicios/luces-neon/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz al cielo", description: "Para eventos al aire libre: burbujas + sky tracker crean un momento visual único e irrepetible.", link: "/servicios/sky-tracker/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Burbujas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Burbujas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Máquina de Burbujas para Eventos en CDMX"
-      subtitle="Un efecto mágico y divertido que encanta a invitados de todas las edades"
-      introParagraph1="REDEIL ofrece el servicio de renta de máquinas de burbujas para eventos en la Ciudad de México y zona metropolitana. Las burbujas aportan un toque de fantasía y alegría que complementa a la perfección bodas, fiestas infantiles, baby showers y eventos corporativos."
-      introParagraph2="Contamos con equipos profesionales capaces de generar grandes volúmenes de burbujas de distintos tamaños. Nuestro equipo técnico se encarga de la instalación y operación, adaptando la intensidad del efecto a cada momento de tu celebración."
+
+    <Hero
+      title="Renta de Máquina de Burbujas para Fiestas y Eventos en CDMX"
+      subtitle="Lluvia continua de burbujas para entradas, vals, pistas de baile y fiestas infantiles. Fluido profesional. Desde $1,800 + IVA."
+      introParagraph1='Las burbujas tienen algo mágico: le gustan a los niños, le gustan a los adultos, y se ven perfectas en fotos y video. En bodas, la entrada de los novios entre una lluvia de burbujas es una imagen que los fotógrafos aman — la luz rebota en cada esfera de jabón creando destellos pequeños por toda la escena. En fiestas infantiles, el momento en que la máquina empieza a producir crea un caos de alegría que vale más que cualquier decoración. En <strong>REDEIL</strong> contamos con máquinas de burbujas profesionales de producción continua y de burbujas gigantes para todos los tipos de evento.'
+      introParagraph2='El fluido profesional que usamos produce burbujas más resistentes que las caseras — duran más antes de reventarse y crean un efecto visual más denso. Ofrecemos dos tipos: <strong>máquinas de lluvia</strong> (cientos de burbujas pequeñas continuas, ideal para pistas de baile y entradas) y <strong>máquinas de burbujas gigantes</strong> (burbujas grandes que flotan y se llenan de color con las luces UV). Ambas incluyen fluido, operador y traslado. Atendemos bodas, XV años, baby showers, posadas, fiestas infantiles y eventos corporativos en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Burbujas profesionales para momentos inolvidables"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las burbujas son un efecto versátil que funciona tanto en eventos formales como en celebraciones informales. En una boda, las burbujas envolviendo a los novios durante su primer baile crean una atmósfera de cuento de hadas. En una fiesta infantil, llenan el espacio de diversión y asombro para los más pequeños."
-          paragraph2="En REDEIL utilizamos máquinas de burbujas de grado profesional con líquido especial que produce burbujas resistentes y de larga duración. Esto permite que las burbujas floten por más tiempo, generando un efecto visual más impactante y mejores oportunidades fotográficas."
+
+    <CtaBar
+      headline="¿Para qué tipo de evento necesitas burbujas?"
+      items={[
+        { label: "Bodas", href: "/eventos/bodas/", icon: "efectos" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "efectos" },
+        { label: "Más efectos", href: "/servicios/efectos-especiales/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Burbujas en bodas, XV años y fiestas"
+          subtitle="El efecto más fotogénico que existe — y funciona en cualquier tipo de evento."
+          paragraph1="Desde la entrada romántica de los novios hasta el show infantil más animado, las burbujas se adaptan a todo. El operador calibra la intensidad y el momento exacto para que el efecto sea perfecto cuando el fotógrafo y el videógrafo están listos."
+          paragraph2="Con iluminación UV, las burbujas se vuelven fluorescentes — un efecto de ciencia ficción que funciona perfecto para glow parties y XV años temáticos."
         />
-        <p>Nuestro servicio de renta de burbujas en CDMX es ideal para bodas, aniversarios, baby showers, fiestas de cumpleaños, eventos corporativos y lanzamientos de productos. Nos adaptamos a las dimensiones de tu espacio y a la dinámica de tu evento para ofrecer el mejor resultado.</p>
+        <Gallery4x4 images={[
+          { src: "/img/burbujas/maquina-burbujas-boda-entrada-novios.avif", alt: "Máquina de burbujas en entrada de novios a boda" },
+          { src: "/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif", alt: "Máquina de burbujas profesional en jardín de boda" },
+          { src: "/img/burbujas/maquina-burbujas-vals-quinceanos-pista.avif", alt: "Burbujas en vals de quinceañera en pista" },
+          { src: "/img/burbujas/renta-burbujas-evento-xv-anos-salon.avif", alt: "Renta de burbujas para evento de XV años en salón" },
+          { src: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos.avif", alt: "Burbujas gigantes en fiesta de cumpleaños de niños" },
+          { src: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Show infantil con burbujas gigantes y animación" },
+          { src: "/img/burbujas/maquina-burbujas-fiesta-jardin-terraza.avif", alt: "Máquina de burbujas en fiesta de jardín y terraza" },
+          { src: "/img/burbujas/maquina-burbujas-boda-romantica-exterior.avif", alt: "Burbujas en boda romántica en exterior" },
+          { src: "/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif", alt: "Burbujas en fiesta temática mágica con luces" },
+          { src: "/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif", alt: "Máquina de burbujas para fiesta infantil" },
+          { src: "/img/burbujas/renta-burbujas-baby-shower-decoracion.avif", alt: "Burbujas en decoración de baby shower" },
+          { src: "/img/burbujas/renta-burbujas-evento-corporativo-lanzamiento.avif", alt: "Burbujas en lanzamiento de evento corporativo" },
+          { src: "/img/burbujas/burbujas-fiesta-pool-party-alberca.avif", alt: "Burbujas en fiesta pool party junto a alberca" },
+          { src: "/img/burbujas/renta-burbujas-festival-kermesse-feria.avif", alt: "Máquina de burbujas en festival y kermesse" },
+          { src: "/img/burbujas/maquina-burbujas-despedida-soltera-diversion.avif", alt: "Burbujas en despedida de soltera divertida" },
+          { src: "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif", alt: "Efecto especial de burbujas para fotografía y video" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Burbujas" subtitle="Eventos reales con efecto de burbujas profesional">
-      <figure class="gallery-item">
-        <img src="/img/burbujas/renta-burbujas-aniversario-celebracion.avif" alt="Burbujas envolviendo la celebración de aniversario en evento al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/maquina-burbujas-boda-entrada-novios.avif" alt="Máquina de burbujas activada durante la entrada de los novios a la recepción" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos.avif" alt="Burbujas gigantes en fiesta de cumpleaños con niños jugando" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/renta-burbujas-evento-corporativo-lanzamiento.avif" alt="Efecto de burbujas en evento corporativo de lanzamiento de producto" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif" alt="Máquina de burbujas profesional operando en boda celebrada en jardín" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/renta-burbujas-baby-shower-decoracion.avif" alt="Burbujas como parte de la decoración en baby shower al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif" alt="Burbujas flotando en fiesta temática con iluminación mágica de colores" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Burbujas"
+          subtitle="Para un momento específico o para toda la fiesta. Operador incluido."
+          paragraph1="Cada paquete incluye la máquina, fluido profesional, operador técnico y traslado. El operador coordina el momento exacto de activación con el DJ o maestro de ceremonias."
+          paragraph2="¿Quieres burbujas gigantes con UV para glow party? ¿O lluvia continua para la pista de baile de toda la noche? Cotiza tu combinación ideal."
+        />
+        <PricingCards packages={[
+          {
+            name: "Momento Estelar",
+            price: "$1,800",
+            priceNote: "+ IVA",
+            description: "Burbujas para un momento específico: entrada, vals, brindis. El efecto perfecto para la foto que todos quieren.",
+            features: [
+              { text: "1 máquina de burbujas profesional", included: true },
+              { text: "Fluido profesional (1 hora)", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Coordinación con DJ/fotógrafo", included: true },
+              { text: "Ideal para: entrada, vals, momentos especiales", included: true },
+              { text: "Uso toda la noche", included: false },
+              { text: "Burbujas gigantes UV", included: false },
+            ],
+            ctaLabel: "Cotizar momento estelar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Fiesta Completa",
+            price: "$3,200",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Burbujas disponibles toda la noche para múltiples momentos. El operador activa en los picos del evento.",
+            features: [
+              { text: "1 máquina de burbujas de alta producción", included: true },
+              { text: "Fluido ilimitado (toda la noche)", included: true },
+              { text: "Operador técnico 4-6 horas", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Activaciones múltiples a demanda", included: true },
+              { text: "Ideal para: bodas, XV años, fiestas", included: true },
+              { text: "Coordinación completa con DJ/MC", included: true },
+              { text: "Burbujas gigantes UV", included: false },
+            ],
+            ctaLabel: "Cotizar fiesta completa",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Show Infantil",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            description: "Burbujas gigantes + lluvia continua para el show más memorable. Ideal para eventos infantiles y cumpleaños.",
+            features: [
+              { text: "1 máquina de lluvia + 1 de burbujas gigantes", included: true },
+              { text: "Fluido ilimitado", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Burbujas de 30-50cm de diámetro", included: true },
+              { text: "Ideal para: cumpleaños infantiles, colegios", included: true },
+              { text: "Coordinación con animador del evento", included: true },
+              { text: "Show de burbujas de 20 minutos", included: true },
+            ],
+            ctaLabel: "Cotizar show infantil",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Glow Party UV",
+            price: "$6,500",
+            priceNote: "+ IVA",
+            description: "Burbujas + luz UV + fluido fluorescente. Las burbujas se iluminan en colores neón bajo la luz negra.",
+            features: [
+              { text: "2 máquinas de burbujas profesionales", included: true },
+              { text: "Fluido fluorescente UV especial", included: true },
+              { text: "4 barras UV LED para iluminar las burbujas", included: true },
+              { text: "Fluido ilimitado toda la noche", included: true },
+              { text: "Operadores técnicos incluidos", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: glow parties, XV años neón", included: true },
+              { text: "Coordinación con DJ y luces", included: true },
+            ],
+            ctaLabel: "Cotizar glow party",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Máquina de Burbujas"
+          subtitle="Todo lo que necesitas saber antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Te asesoramos sobre qué tipo de máquina y fluido es mejor para tu tipo de evento."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Las burbujas mojan el piso y pueden causar resbalones?", answer: "El fluido profesional deja una película muy fina y mínimamente resbaladiza al evaporarse — mucho menos que una solución casera. Para pistas de baile con uso intensivo, recomendamos que el personal del venue revise periódicamente. En eventos donde la gente está descalza (pool parties) es especialmente importante. Usamos fluido formulado para uso en eventos con certificación de seguridad." },
+        { question: "¿Funciona en exteriores?", answer: "Sí. En jardines y terrazas las burbujas flotan más alto y duran más antes de reventarse — especialmente en días con poco viento. Con viento fuerte, las burbujas se dispersan rápidamente pero el efecto sigue siendo bonito. Para la foto perfecta, los momentos sin viento son ideales." },
+        { question: "¿Las burbujas se pueden ver en fotos y video?", answer: "Sí, y quedan espectaculares. Los fotógrafos profesionales de bodas saben exactamente cómo capturarlas — la luz rebota en cada burbuja creando pequeños puntos de luz. La clave es tener buena iluminación de fondo para que las burbujas sean visibles en la foto. Con luz UV, las burbujas fluorescentes quedan increíbles." },
+        { question: "¿Cuántas burbujas produce la máquina por minuto?", answer: "Las máquinas profesionales de lluvia producen entre 500 y 2,000 burbujas por minuto dependiendo del modelo y la configuración. Las de burbujas gigantes producen 5-20 burbujas grandes por minuto. Para la entrada de los novios, usamos la máquina de lluvia al máximo para un efecto denso y espectacular." },
+        { question: "¿Se puede usar para niños pequeños?", answer: "Sí. El fluido profesional que usamos es no tóxico, sin irritantes y seguro para niños — está formulado específicamente para entretenimiento infantil. Si un niño toca o se mete una burbuja en la boca, no representa ningún riesgo. Solo evitamos que el fluido directo entre en contacto con los ojos." },
+        { question: "¿Cuánto anticipación necesito para reservar?", answer: "Idealmente 1-2 semanas antes. Para eventos en temporada alta (diciembre, mayo-junio), mejor reservar con un mes de anticipación para garantizar disponibilidad. Para fiestas de último minuto, contáctanos por WhatsApp — hacemos lo posible por atenderte." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="Las burbujas se ven mejor con el contexto correcto."
+          paragraph1="Las burbujas son el efecto que complementa perfectamente a otros — con niebla baja para entradas de novios, con UV para glow parties, con confeti para el brindis y la pista de baile."
+          paragraph2="Armamos paquetes combinados con precio especial para cualquier tipo de evento."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista la lluvia de burbujas para tu evento?</h2>
+          <p>Cuéntanos qué tipo de evento es, cuántas personas esperan y qué momento quieres que sea especial. Te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

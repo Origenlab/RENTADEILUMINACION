@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Para qué momentos se usa el seguidor?", "acceptedAnswer": { "@type": "Answer", "text": "Los momentos más comunes: el vals de los novios, la entrada triunfal, el brindis, el corte de pastel, el baile de la quinceañera con sus chambelanes, y discursos en galas corporativas. Cualquier momento donde quieras que una persona sea el centro de atención." }},
       { "@type": "Question", "name": "¿Viene con operador?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El seguidor requiere un operador profesional que lo maneje en tiempo real — siguiendo los movimientos de la persona focal con precisión. Todos nuestros paquetes incluyen operador técnico." }},
       { "@type": "Question", "name": "¿Se puede cambiar el color de la luz?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros seguidores tienen geles de color intercambiables e iris para ajustar el tamaño del haz. El operador puede cambiar de blanco cálido a rosa, azul o cualquier color según el momento." }},
-      { "@type": "Question", "name": "¿Cuánto cuesta la renta del seguidor?", "acceptedAnswer": { "@type": "Answer", "text": "Un seguidor con operador para un momento específico (vals, brindis) arranca desde $3,000 + IVA. Para cobertura de toda la recepción (4 horas), desde $5,000 + IVA." }}
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta del seguidor?", "acceptedAnswer": { "@type": "Answer", "text": "Un seguidor con operador para un momento específico (vals, brindis) arranca desde $3,000 + IVA. Para cobertura de toda la recepción (4 horas), desde $5,000 + IVA." }},
+      { "@type": "Question", "name": "¿El seguidor sirve para teatro y conferencias?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El follow spot es el equipo estándar para teatro, conferencias de gala, presentaciones ejecutivas y graduaciones. Ilumina al orador o conferencista manteniéndolo siempre visible para toda la audiencia." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo antes llega el operador?", "acceptedAnswer": { "@type": "Answer", "text": "El operador llega 1-2 horas antes del evento para montar el equipo, hacer la prueba de enfoque y coordinar con el DJ y el maestro de ceremonias. Necesita saber exactamente qué canción es el vals y recibir una señal 30 segundos antes para activar el efecto en el momento perfecto." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "Guirnaldas cálidas ambientando el jardín + un spotlight siguiendo a los novios en el vals. La boda perfecta.", link: "/servicios/guirnaldas/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en boda con efecto de nubes", description: "Humo en el piso + spotlight del seguidor = el vals más mágico. Los novios bailando sobre nubes, iluminados desde arriba.", link: "/servicios/humo-bajo/" },
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams blancos en boda", description: "Show de luces DMX + seguidor para los momentos clave. Las cabezas crean el ambiente, el seguidor crea el protagonista.", link: "/servicios/cabezas-moviles/" },
-  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Nombres proyectados en la pista + seguidor iluminando a los novios bailando sobre su monograma. Épico.", link: "/servicios/gobos/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza", description: "Guirnaldas cálidas ambientando el jardín + spotlight siguiendo a los novios en el vals. La boda soñada.", link: "/servicios/guirnaldas/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista", description: "Los nombres proyectados en la pista + el spotlight que sigue a los novios bailando sobre su monograma. Épico.", link: "/servicios/gobos/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED mesa de novios", description: "El seguidor ilumina a los novios mientras bailan con las cascadas LED de fondo. La foto de boda perfecta.", link: "/servicios/cascadas-led/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en hacienda", description: "Columnas iluminadas como escenario + spotlight siguiendo a los protagonistas. Teatro en tu boda.", link: "/servicios/iluminacion-arquitectonica/" },
 ];
 ---
 
@@ -74,8 +76,8 @@ const serviciosRelacionados = [
       headline="¿Para qué momento necesitas el seguidor?"
       items={[
         { label: "Vals de Novios", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

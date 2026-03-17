@@ -1,71 +1,251 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Máquina de Humo para Eventos | REDEIL CDMX";
-const description = "Renta de máquina de humo para eventos en CDMX. Efectos de niebla profesional para bodas, fiestas, conciertos y producciones. Servicio completo por REDEIL.";
+const title = "Renta de Máquina de Humo para Fiestas y Eventos CDMX | REDEIL";
+const description = "Máquinas de humo profesionales para pistas de baile, DJ sets, fiestas neón y eventos temáticos en CDMX. Humo atmosférico denso. Sin olor. Desde $2,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/maquina-humo/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Máquina de Humo para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Máquina de Humo para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de máquinas de humo atmosférico para fiestas, eventos temáticos y DJ sets en CDMX. Equipo Antari y Chauvet.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Máquina de Humo",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de máquinas de humo y niebla para bodas, conciertos, fiestas y producciones en la Ciudad de México. Operación profesional incluida.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Máquina de Humo"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuál es la diferencia entre humo y humo bajo?", "acceptedAnswer": { "@type": "Answer", "text": "La máquina de humo convencional crea humo que asciende y llena el salón — ideal para pistas de baile y DJ sets. El humo bajo (niebla fría) permanece pegado al piso creando el efecto de nubes — ideal para bodas y vals. Para fiestas de noche con DJ, se usa la máquina convencional." }},
+      { "@type": "Question", "name": "¿El humo daña el equipo de audio o iluminación?", "acceptedAnswer": { "@type": "Answer", "text": "El fluido de humo de calidad profesional no daña el equipo electrónico. Es el mismo tipo que se usa en conciertos de estadio donde hay millones en equipos expuestos. Usamos fluidos certificados Antari y Chauvet." }},
+      { "@type": "Question", "name": "¿Cuánto dura el fluido de humo?", "acceptedAnswer": { "@type": "Answer", "text": "Un litro de fluido genera entre 60-90 minutos de humo intermitente en uso normal. Para eventos de 4-6 horas llevamos 2-3 litros de fluido extra." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de beams con humo en pista de baile", description: "Los beams de las cabezas móviles se ven espectaculares cortando el humo. El efecto de concierto que todos quieren.", link: "/servicios/cabezas-moviles/" },
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón UV en glow party", description: "Humo atmosférico + luces UV = pista de baile de otro planeta. El combo estrella para fiestas temáticas.", link: "/servicios/luces-neon/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco en pista de baile", description: "Los reflejos de la bola disco en el humo crean miles de puntos de luz. El efecto más fotogénico para fiestas.", link: "/servicios/bola-disco/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para bodas", description: "Para bodas, el humo bajo es la opción: niebla que permanece en el piso sin llenar el salón. Ideal para el vals.", link: "/servicios/humo-bajo/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Máquina de Humo" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Máquina de Humo" }
+  ]} />
 </Fragment>
-<Hero
-      title="Máquina de Humo para Eventos en CDMX"
-      subtitle="Efectos de humo y niebla profesional que elevan la atmósfera de tu evento"
-      introParagraph1="REDEIL pone a tu disposición el servicio de renta de máquinas de humo para eventos en la Ciudad de México y área metropolitana. Nuestros equipos generan efectos de niebla que realzan la iluminación, crean ambientes envolventes y aportan dramatismo a cualquier celebración."
-      introParagraph2="Desde bodas y fiestas de XV años hasta conciertos, obras de teatro y producciones audiovisuales, nuestro equipo técnico opera las máquinas de humo de forma profesional para lograr el efecto exacto que tu evento necesita."
+
+    <Hero
+      title="Renta de Máquina de Humo para Fiestas y Eventos en CDMX"
+      subtitle="Humo atmosférico profesional para pistas de baile, DJ sets y fiestas temáticas. Antari y Chauvet. Desde $2,500 + IVA."
+      introParagraph1='El humo atmosférico es lo que convierte una pista de baile en un escenario de concierto. Cuando los beams de las cabezas móviles cortan el humo o los láseres dibujan líneas en la neblina, el efecto visual es espectacular — los invitados lo fotografían, los videos se ven como producción profesional. En <strong>REDEIL</strong> operamos máquinas de humo <strong>Antari Z-1500</strong> y <strong>Chauvet Hurricane 1302</strong> de 1,200W a 1,500W, las mismas que se usan en conciertos y clubes de CDMX.'
+      introParagraph2='El fluido que usamos es de glicol farmacéutico certificado — inodoro, sin residuo y compatible con todo tipo de equipo de iluminación y audio. A diferencia del humo bajo (que permanece en el piso), la máquina de humo convencional crea una neblina que asciende lentamente y llena el espacio con un efecto atmosférico continuo. Es el efecto favorito para fiestas con DJ, shows de luces, eventos de Halloween, lanzamientos corporativos y fiestas neón en la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Efectos de humo profesional para cada tipo de evento"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="El humo es un recurso escénico fundamental que potencia cualquier sistema de iluminación. Al dispersarse en el ambiente, las partículas de niebla hacen visibles los haces de luz, creando efectos volumétricos que transforman por completo la percepción del espacio."
-          paragraph2="En REDEIL utilizamos máquinas de humo profesionales con líquidos certificados y seguros para espacios cerrados. Controlamos la densidad y la dispersión del humo según las necesidades de cada momento, ya sea un efecto sutil para una sesión fotográfica o una niebla densa para una fiesta electrónica."
+
+    <CtaBar
+      headline="¿Para qué tipo de evento?"
+      items={[
+        { label: "Fiesta con DJ", href: "#paquetes", icon: "efectos" },
+        { label: "Fiesta Neón", href: "/servicios/luces-neon/", icon: "efectos" },
+        { label: "Más efectos", href: "/servicios/efectos-especiales/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Humo atmosférico en fiestas y eventos reales"
+          subtitle="Pistas de baile, shows de DJ, eventos temáticos y producciones."
+          paragraph1="El humo es uno de esos efectos que en foto se ve bien, pero en vivo lo cambia todo. Cuando el DJ sube el volumen, las cabezas móviles empiezan a moverse y la máquina libera la neblina, la pista se transforma — la gente siente que está en algo especial."
+          paragraph2="Cada activación se controla por el operador para mantener el nivel justo: suficiente para crear ambiente sin que el salón se llene hasta el punto de no verse. El arte está en el balance."
         />
-        <p>Nuestro servicio incluye la operación del equipo por parte de un técnico especializado durante todo tu evento en CDMX. Esto garantiza que los efectos de humo se activen en los momentos precisos y con la intensidad adecuada para cada situación.</p>
+        <Gallery4x4 images={[
+          { src: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Máquina de humo profesional en pista de baile de boda" },
+          { src: "/img/humo/humo-profesional-evento-nocturno-iluminacion.avif", alt: "Humo profesional con iluminación en evento nocturno" },
+          { src: "/img/humo/maquina-humo-concierto-festival-luces.avif", alt: "Máquina de humo en concierto con luces" },
+          { src: "/img/humo/niebla-densa-fiesta-electronica-rave.avif", alt: "Niebla densa en fiesta electrónica rave" },
+          { src: "/img/humo/maquina-humo-fiesta-neon-discoteca.avif", alt: "Humo en fiesta neón discoteca" },
+          { src: "/img/humo/efecto-humo-evento-corporativo-escenario.avif", alt: "Efecto de humo en escenario corporativo" },
+          { src: "/img/humo/renta-humo-atmosferico-fiesta-tematica.avif", alt: "Humo atmosférico en fiesta temática" },
+          { src: "/img/humo/renta-maquina-humo-eventos-fiesta-noche.avif", alt: "Máquina de humo en evento de noche" },
+          { src: "/img/humo/renta-humo-fiestas-xv-anos-salon.avif", alt: "Humo en salon para fiesta de XV años" },
+          { src: "/img/humo/maquina-niebla-boda-romantica-jardin.avif", alt: "Niebla en boda romántica en jardín" },
+          { src: "/img/humo/renta-humo-escenario-presentacion-dj.avif", alt: "Humo en presentación de DJ en escenario" },
+          { src: "/img/humo/renta-humo-evento-empresarial-lanzamiento.avif", alt: "Humo en lanzamiento de evento empresarial" },
+          { src: "/img/humo/renta-humo-espectaculo-magia-show.avif", alt: "Humo en espectáculo de magia y show" },
+          { src: "/img/humo/humo-teatral-obra-teatro-escenario.avif", alt: "Humo teatral en obra de teatro" },
+          { src: "/img/humo/efecto-humo-sesion-fotos-profesional.avif", alt: "Efecto de humo en sesión de fotos profesional" },
+          { src: "/img/humo/efecto-niebla-fiesta-cumpleanos-luces.avif", alt: "Niebla con luces en fiesta de cumpleaños" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Máquina de Humo" subtitle="Efectos de humo y niebla en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/humo/maquina-humo-concierto-festival-luces.avif" alt="Máquina de humo generando niebla durante concierto con luces de colores" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/efecto-humo-sesion-fotos-profesional.avif" alt="Efecto de humo utilizado en sesión fotográfica profesional" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/maquina-niebla-boda-romantica-jardin.avif" alt="Niebla suave en boda romántica celebrada en jardín" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/humo-teatral-obra-teatro-escenario.avif" alt="Humo teatral sobre escenario durante obra de teatro" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/niebla-densa-fiesta-electronica-rave.avif" alt="Niebla densa en fiesta electrónica con luces láser atravesando el humo" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/maquina-humo-profesional-boda-pista-baile.avif" alt="Máquina de humo profesional en pista de baile durante boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo/efecto-niebla-fiesta-cumpleanos-luces.avif" alt="Efecto de niebla en fiesta de cumpleaños con iluminación de colores" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Máquina de Humo"
+          subtitle="Desde una activación hasta cobertura de toda la noche. Operador incluido."
+          paragraph1="Cada paquete incluye la máquina de humo profesional, fluido certificado, operador técnico y traslado. El operador coordina con el DJ para activar el humo en los momentos de mayor impacto — drops, momentos especiales, presentaciones."
+          paragraph2="¿Quieres combinar con cabezas móviles o luces neón? Armamos el paquete con precio especial."
+        />
+        <PricingCards packages={[
+          {
+            name: "Fiesta Básica",
+            price: "$2,500",
+            priceNote: "+ IVA",
+            description: "Máquina de humo para la pista de baile. Ideal para fiestas privadas, cumpleaños y eventos hasta 100 personas.",
+            features: [
+              { text: "1 máquina de humo 1,200W", included: true },
+              { text: "1L fluido certificado (60-90 min)", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: pista de baile, fiestas", included: true },
+              { text: "Coordinación con DJ", included: true },
+              { text: "Fluido adicional", included: false },
+              { text: "Segunda máquina", included: false },
+            ],
+            ctaLabel: "Cotizar fiesta básica",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Noche Completa",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Humo durante toda la noche con fluido ilimitado. El operador activa en los mejores momentos del evento.",
+            features: [
+              { text: "1 máquina de humo 1,500W", included: true },
+              { text: "Fluido ilimitado (toda la noche)", included: true },
+              { text: "Operador técnico 4-6 horas", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Activaciones coordinadas con DJ", included: true },
+              { text: "Ideal para: XV años, bodas, fiestas grandes", included: true },
+              { text: "Control de intensidad variable", included: true },
+              { text: "Segunda máquina", included: false },
+            ],
+            ctaLabel: "Cotizar noche completa",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Doble Potencia",
+            price: "$7,000",
+            priceNote: "+ IVA",
+            description: "2 máquinas para cobertura total en salones grandes o para crear un efecto más denso y espectacular.",
+            features: [
+              { text: "2 máquinas de humo 1,500W cada una", included: true },
+              { text: "Fluido ilimitado toda la noche", included: true },
+              { text: "2 operadores técnicos", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Cobertura total del venue", included: true },
+              { text: "Ideal para: salones grandes, haciendas", included: true },
+              { text: "Sincronización entre máquinas", included: true },
+              { text: "Combinable con cabezas móviles", included: true },
+            ],
+            ctaLabel: "Cotizar doble potencia",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción Completa",
+            price: "$11,000",
+            priceNote: "+ IVA",
+            description: "Humo + cabezas móviles + DJ. El paquete completo para una pista de baile de nivel concierto.",
+            features: [
+              { text: "2 máquinas de humo profesionales", included: true },
+              { text: "8 cabezas móviles (beam + wash)", included: true },
+              { text: "DJ profesional incluido", included: true },
+              { text: "Fluido ilimitado toda la noche", included: true },
+              { text: "Equipo técnico completo", included: true },
+              { text: "Coordinación total integrada", included: true },
+              { text: "Ideal para: XV años, corporativos, fiestas VIP", included: true },
+              { text: "Visita previa al venue", included: true },
+            ],
+            ctaLabel: "Cotizar producción completa",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Máquina de Humo"
+          subtitle="Todo lo que necesitas saber antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y respondemos en minutos."
+          paragraph2="Cada venue tiene consideraciones diferentes — te asesoramos para que el efecto sea perfecto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuál es la diferencia entre máquina de humo y humo bajo?", answer: "La máquina de humo convencional crea una neblina que asciende lentamente y llena el espacio con humo atmosférico — ideal para pistas de baile, DJ sets y shows de luces donde quieres que los beams sean visibles. El humo bajo (niebla fría) permanece pegado al piso creando el efecto de nubes — ideal para el vals de bodas. Para fiestas con DJ y noche completa de baile, se usa la máquina de humo convencional." },
+        { question: "¿El fluido tiene olor?", answer: "Los fluidos profesionales que usamos (Antari y Chauvet) son prácticamente inodoros. No dejan olor en la ropa ni en el salón. Algunas personas perciben un ligero olor dulce en el momento de la activación que se disipa en segundos." },
+        { question: "¿La máquina activa las alarmas de humo?", answer: "Puede activarlas en algunos tipos de detectores (especialmente los más sensibles). Es importante que nos comuniques el tipo de detectores del venue antes del evento. En la mayoría de los salones de eventos ya están acostumbrados a este equipo y saben cómo manejarlo — algunos apagan los detectores temporalmente durante el show." },
+        { question: "¿Daña el equipo de sonido o iluminación?", answer: "No. El fluido de glicol se usa en conciertos de estadio donde hay millones en equipos electrónicos expuestos. No es corrosivo ni conductor. Es el estándar de la industria del entretenimiento en vivo a nivel mundial." },
+        { question: "¿Cuánto tiempo tarda en llenar el salón?", answer: "Una máquina de 1,500W crea un efecto visible en 30-60 segundos y llena una pista de baile de 100m² en 2-3 minutos. El operador controla la activación para mantener el nivel justo — suficiente humo para el efecto visual sin que el salón se llene en exceso." },
+        { question: "¿Se puede combinar con láseres?", answer: "Sí — y es una de las combinaciones más espectaculares. Los láseres dibuja líneas perfectas en el humo. Si quieres agregar láseres a tu evento, tenemos ese servicio también. Cotiza el combo por WhatsApp." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El humo potencia cualquier efecto de iluminación."
+          paragraph1="El humo es un amplificador — por sí solo crea ambiente, pero cuando lo combinas con cabezas móviles, láseres o luces neón, el resultado se multiplica. Los beams se vuelven tangibles, los láseres dibujan en el espacio, las luces UV crean colores en la niebla."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos el show completo."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista tu pista de baile para el show?</h2>
+          <p>Cuéntanos el tipo de evento y el tamaño del venue. Te decimos qué equipo es el ideal y te cotizamos todo.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

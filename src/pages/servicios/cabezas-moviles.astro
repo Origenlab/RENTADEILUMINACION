@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué diferencia hay entre Beam, Spot y Wash?", "acceptedAnswer": { "@type": "Answer", "text": "Beam proyecta un haz concentrado y delgado — ideal para shows aéreos y efectos con humo. Spot proyecta patrones, gobos y colores con bordes definidos. Wash baña grandes áreas con color suave y uniforme. La mayoría de los eventos usan una combinación de los tres." }},
       { "@type": "Question", "name": "¿Las cabezas móviles necesitan operador?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos nuestros paquetes incluyen operador con consola DMX512. El operador programa las secuencias antes del evento y las controla en vivo para sincronizar con la música y los momentos clave." }},
       { "@type": "Question", "name": "¿Cuántas cabezas móviles necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una pista de baile estándar, 4-8 cabezas son suficientes. Para bodas completas con show de luces, recomendamos 8-12. Para conciertos y eventos masivos, 20 o más. Te asesoramos según tu espacio." }},
-      { "@type": "Question", "name": "¿Se pueden sincronizar con la música?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras cabezas móviles se operan vía DMX512 y pueden sincronizarse con el audio del DJ o la banda en vivo. El operador programa cues específicos para momentos clave como el vals, brindis o entrada de los novios." }}
+      { "@type": "Question", "name": "¿Se pueden sincronizar con la música?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras cabezas móviles se operan vía DMX512 y pueden sincronizarse con el audio del DJ o la banda en vivo. El operador programa cues específicos para momentos clave como el vals, brindis o entrada de los novios." }},
+      { "@type": "Question", "name": "¿Las cabezas móviles hacen ruido?", "acceptedAnswer": { "@type": "Answer", "text": "Las cabezas móviles modernas son prácticamente silenciosas — el motor de movimiento genera un mínimo ruido que es imperceptible con la música. Las instalamos a distancia del área de conversación para evitar cualquier distracción." }},
+      { "@type": "Question", "name": "¿Se pueden combinar cabezas móviles con humo escénico?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es la combinación más solicitada. Los beams de las cabezas móviles se hacen visibles al cortar el humo — el efecto de concierto más espectacular que puedes tener en un evento." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz de luz al cielo nocturno", description: "Mientras las cabezas móviles iluminan la pista, el sky tracker marca el cielo. Producción aérea completa.", link: "/servicios/sky-tracker/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en boda con efecto de nubes en el piso", description: "Los beams de las cabezas móviles se ven espectaculares cortando el humo. El combo favorito para el vals.", link: "/servicios/humo-bajo/" },
-  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyecta nombres o logos mientras las cabezas móviles hacen el show de luces. Dos efectos que se complementan.", link: "/servicios/gobos/" },
-  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional con cabina para eventos CDMX", description: "DJ + show de luces sincronizado. La combinación que transforma cualquier pista de baile en una experiencia.", link: "/servicios/bocinas-djs/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker al cielo nocturno", description: "Sky tracker en el cielo + cabezas móviles en la pista. Producción visual completa de arriba a abajo.", link: "/servicios/sky-tracker/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma", description: "Las cabezas móviles tipo Spot ya incluyen gobos giratorios. Complementa con proyección fija personalizada.", link: "/servicios/gobos/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "Wash de color en paredes + cabezas móviles en la pista. Ambiente y show en el mismo evento.", link: "/servicios/city-color/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Backdrop brillante detrás de la mesa + show de luces en la pista. Dos zonas visuales perfectas.", link: "/servicios/cascadas-led/" },
 ];
 ---
 
@@ -74,7 +76,7 @@ const serviciosRelacionados = [
       headline="¿Para qué tipo de evento necesitas el show de luces?"
       items={[
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}

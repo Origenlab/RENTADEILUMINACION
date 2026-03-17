@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué tamaño tienen las cortinas LED?", "acceptedAnswer": { "@type": "Answer", "text": "Cada cortina mide 3×3 metros (ancho × alto). Se pueden unir varias para crear backdrops más amplios. Para una mesa de novios estándar, una cortina es suficiente. Para un backdrop completo, recomendamos 2-3 cortinas." }},
       { "@type": "Question", "name": "¿Las cascadas LED se pueden usar en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras cortinas LED tienen protección para uso semi-exterior (bajo techo o carpa). Para uso a la intemperie directa, las protegemos con estructuras adicionales. La mayoría de los montajes son en salones y carpas." }},
       { "@type": "Question", "name": "¿Qué colores están disponibles?", "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos cascadas en blanco cálido (la más popular para bodas), blanco frío, multicolor y con efecto twinkle (parpadeo estrellado). Las versiones DMX permiten cambiar de color durante el evento." }},
-      { "@type": "Question", "name": "¿La instalación daña las paredes?", "acceptedAnswer": { "@type": "Answer", "text": "No. Montamos las cortinas en estructuras de truss portátiles independientes de las paredes del salón. No se perfora, pega ni daña ninguna superficie del venue." }}
+      { "@type": "Question", "name": "¿La instalación daña las paredes?", "acceptedAnswer": { "@type": "Answer", "text": "No. Montamos las cortinas en estructuras de truss portátiles independientes de las paredes del salón. No se perfora, pega ni daña ninguna superficie del venue." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo toma la instalación de las cascadas LED?", "acceptedAnswer": { "@type": "Answer", "text": "El montaje de 1-2 cortinas toma aproximadamente 1 hora. Para 4+ cortinas, entre 2-3 horas. Llegamos con tiempo suficiente para que todo esté listo y probado antes de tu evento." }},
+      { "@type": "Question", "name": "¿Se pueden combinar con otros servicios de iluminación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, y es lo más recomendable para bodas. La combinación más popular: cascadas LED detrás de la mesa de novios + guirnaldas Edison en el techo + seguidor para el vals. Armamos un paquete con precio especial." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza de boda", description: "La combinación clásica para bodas: cascadas LED detrás de la mesa de novios y guirnaldas cálidas en el techo.", link: "/servicios/guirnaldas/" },
-  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales de hacienda", description: "Uplighting en fachadas y columnas complementa el efecto brillante de las cascadas dentro del salón.", link: "/servicios/iluminacion-arquitectonica/" },
-  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight seguidor en primer baile de novios", description: "Spotlight para el vals y momentos especiales. Con las cascadas LED de fondo, el efecto visual es espectacular.", link: "/servicios/seguidor/" },
-  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyecta los nombres de los novios en la pista mientras las cascadas brillan detrás de la mesa principal.", link: "/servicios/gobos/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza de boda", description: "Cascadas LED detrás de la mesa + guirnaldas cálidas en el techo. La combinación clásica para bodas.", link: "/servicios/guirnaldas/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals", description: "Las cascadas brillantes de fondo + spotlight siguiendo a los novios. El momento más fotografiado de la boda.", link: "/servicios/seguidor/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista", description: "Backdrop de cascadas LED + los nombres proyectados en la pista. Personalización total del evento.", link: "/servicios/gobos/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Cascadas dentro + uplighting en las columnas afuera. Iluminación completa del venue.", link: "/servicios/iluminacion-arquitectonica/" },
 ];
 ---
 
@@ -74,8 +76,8 @@ const serviciosRelacionados = [
       headline="¿Dónde vas a colocar las cascadas LED?"
       items={[
         { label: "Mesa de Novios", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

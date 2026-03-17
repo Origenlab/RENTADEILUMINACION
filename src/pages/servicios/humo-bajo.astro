@@ -1,74 +1,252 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Humo Bajo para Eventos | REDEIL CDMX";
-const description = "Renta de humo bajo para bodas y eventos en CDMX. Efecto de nubes en el piso para primer baile y vals. Montaje profesional por REDEIL en Ciudad de México.";
+const title = "Renta de Humo Bajo para Bodas y XV Años en CDMX | REDEIL";
+const description = "Efecto de niebla baja que crea nubes en el piso para el vals de bodas y XV años. Equipo CO₂ profesional. Sin olor, sin residuo. Desde $3,500 + IVA en CDMX.";
 const canonical = "https://rentadeiluminacion.com/servicios/humo-bajo/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Humo Bajo para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Humo Bajo para Bodas y Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de niebla baja (humo bajo) para el vals de bodas y XV años en CDMX. Efecto de nubes en el piso con equipo CO₂ profesional, sin olor ni residuo.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Humo Bajo",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de humo bajo para bodas, XV años y eventos en la Ciudad de México. Efecto de nubes en el piso ideal para primer baile y vals.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Humo Bajo"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El humo bajo es peligroso para los invitados?", "acceptedAnswer": { "@type": "Answer", "text": "No. Usamos máquinas de niebla baja con glicol farmacéutico certificado — el mismo fluido que usan los teatros y producciones de televisión. No contiene sustancias tóxicas, no mancha la ropa y se disipa en segundos sin dejar residuo en el piso." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo dura el efecto de niebla baja?", "acceptedAnswer": { "@type": "Answer", "text": "Cada carga de fluido dura entre 3 y 8 minutos de efecto continuo. Para el vals de una boda (3-4 minutos), una carga es más que suficiente. Llevamos fluido extra para repetir el efecto si lo necesitas." }},
+      { "@type": "Question", "name": "¿La niebla baja activa las alarmas de humo?", "acceptedAnswer": { "@type": "Answer", "text": "Las máquinas de niebla baja de CO₂ generalmente no activan detectores de humo porque el efecto permanece pegado al piso. Sin embargo, coordinamos con el venue antes del evento para verificar el tipo de detectores instalados." }},
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta de humo bajo?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete para el vals de bodas arranca desde $3,500 + IVA con equipo, fluido, operador y traslado incluidos. Para cobertura de varios momentos (vals + entrada + otros), desde $5,500 + IVA." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals de novios", description: "La combinación más solicitada en bodas: niebla baja en el piso + spotlight siguiendo a los novios. El vals que todos recuerdan.", link: "/servicios/seguidor/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison cálidas para boda", description: "Guirnaldas cálidas sobre la pista + niebla baja en el piso. Romántico y espectacular para bodas al aire libre.", link: "/servicios/guirnaldas/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams en boda", description: "Los beams de las cabezas móviles se ven espectaculares cortando la niebla. El efecto de concierto en tu boda.", link: "/servicios/cabezas-moviles/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz al cielo", description: "Niebla en el piso + haces de luz al cielo. Una producción completa de arriba a abajo para eventos al aire libre.", link: "/servicios/sky-tracker/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Humo Bajo" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Humo Bajo" }
+  ]} />
 </Fragment>
-<Hero
-      title="Humo Bajo para Eventos en CDMX"
-      subtitle="El efecto de nubes en el piso que hace inolvidable tu primer baile"
-      introParagraph1="REDEIL ofrece el servicio de renta de humo bajo para bodas y eventos en la Ciudad de México. Este efecto especial cubre el piso con una capa densa de niebla que simula caminar sobre las nubes, creando momentos verdaderamente memorables."
-      introParagraph2="Nuestro equipo cuenta con amplia experiencia en bodas, XV años, graduaciones y eventos especiales. Utilizamos equipos profesionales que generan humo pesado de forma controlada, garantizando un resultado espectacular sin afectar la visibilidad ni la comodidad de los asistentes."
+
+    <Hero
+      title="Renta de Humo Bajo para Bodas y XV Años en CDMX"
+      subtitle="Niebla baja que crea nubes en el piso para el vals. Equipo CO₂ profesional. Sin olor, sin residuo. Desde $3,500 + IVA."
+      introParagraph1='Hay un momento en las bodas que nadie olvida: cuando las luces bajan, la música cambia y los novios caminan hacia la pista cubierta de nubes blancas a nivel del piso. Ese efecto — que parece sacado de una película — se llama humo bajo o niebla baja, y en <strong>REDEIL</strong> lo hemos montado en más de 800 bodas en la CDMX y Estado de México. Usamos equipos <strong>JEM ZR33</strong> y <strong>Antari ICE-101</strong> con fluido de glicol farmacéutico certificado: sin olor, sin residuo, sin manchar vestidos ni pisos.'
+      introParagraph2='A diferencia de la máquina de humo convencional (que llena el salón), la niebla baja permanece pegada al piso durante 3-5 minutos — exactamente lo que dura un vals. El efecto es más elegante, más fotogénico y más seguro para los invitados. Trabajamos con venues de todo tipo: salones de eventos, haciendas, jardines al aire libre, hoteles y terrazas. El operador controla el caudal y el momento exacto de activación para que el efecto sea perfecto cuando la música empieza. Traslado, operador y fluido incluidos.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="El efecto más solicitado para bodas y celebraciones"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="El humo bajo es uno de los efectos especiales más populares para bodas y XV años. A diferencia del humo convencional que se eleva, el humo bajo permanece a nivel del suelo, creando una alfombra de niebla que transforma la pista de baile en un escenario de ensueño."
-          paragraph2="Este efecto es especialmente impactante durante el primer baile de los novios, el vals de XV años o la entrada triunfal al salón. La combinación de humo bajo con iluminación profesional genera fotografías y videos espectaculares que capturan la magia del momento."
+
+    <CtaBar
+      headline="¿Para qué momento necesitas la niebla baja?"
+      items={[
+        { label: "Vals de Boda", href: "#paquetes", icon: "efectos" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "efectos" },
+        { label: "Más efectos", href: "/servicios/efectos-especiales/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="El vals más recordado de tu boda"
+          subtitle="Niebla baja en bodas, XV años y galas — el efecto que todos fotografían."
+          paragraph1="No existe foto de vals más poética que los novios bailando sobre nubes blancas. La niebla baja crea ese escenario en segundos: el piso desaparece, los vestidos flotan, los destellos del seguidor rebotan en la bruma. Es el momento que los invitados comparten en redes antes de que termine la noche."
+          paragraph2="Cada montaje se ejecuta con precisión: el operador espera la señal del DJ o del maestro de ceremonias, activa el equipo 30 segundos antes de que los novios salgan a la pista, y el efecto está en su punto máximo cuando la música empieza."
         />
-        <p>En REDEIL nos encargamos de todo: llevamos el equipo, lo instalamos y lo operamos durante tu evento en CDMX. Nuestros técnicos coordinan la activación del humo bajo con los momentos clave de tu celebración para lograr el máximo impacto visual.</p>
+        <Gallery4x4 images={[
+          { src: "/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif", alt: "Primer baile de novios sobre niebla baja con seguidor de luz" },
+          { src: "/img/humo-bajo/vals-boda-humo-bajo-iluminacion-romantica.avif", alt: "Vals de boda con humo bajo e iluminación romántica" },
+          { src: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Primer baile romántico de boda con niebla baja en el piso" },
+          { src: "/img/humo-bajo/renta-humo-bajo-primer-baile-boda.avif", alt: "Renta de humo bajo para primer baile de boda" },
+          { src: "/img/humo-bajo/efecto-nubes-piso-boda-jardin.avif", alt: "Efecto de nubes en el piso de jardín para boda" },
+          { src: "/img/humo-bajo/humo-bajo-primer-vals-romantico.avif", alt: "Primer vals romántico con niebla baja" },
+          { src: "/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif", alt: "Pista de baile con humo bajo y luces para vals" },
+          { src: "/img/humo-bajo/humo-bajo-vals-xv-anos-quinceanos.avif", alt: "Vals de XV años con efecto de humo bajo" },
+          { src: "/img/humo-bajo/niebla-baja-vals-quinceanos-elegante.avif", alt: "Niebla baja elegante en vals de quinceañera" },
+          { src: "/img/humo-bajo/humo-bajo-entrada-quinceanos-salon.avif", alt: "Entrada de quinceañera al salón con humo bajo" },
+          { src: "/img/humo-bajo/humo-bajo-boda-salon-iluminacion.avif", alt: "Salón de boda con humo bajo e iluminación profesional" },
+          { src: "/img/humo-bajo/niebla-baja-boda-hacienda-mexicana.avif", alt: "Niebla baja en boda de hacienda mexicana" },
+          { src: "/img/humo-bajo/niebla-baja-boda-terraza-romantica.avif", alt: "Terraza romántica de boda con niebla baja" },
+          { src: "/img/humo-bajo/renta-humo-bajo-evento-hacienda.avif", alt: "Humo bajo en evento de hacienda" },
+          { src: "/img/humo-bajo/renta-niebla-baja-pista-baile-boda.avif", alt: "Pista de baile con niebla baja para boda" },
+          { src: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Efecto de humo bajo durante baile de novios" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Humo Bajo" subtitle="Momentos reales con efecto de humo bajo en bodas y eventos">
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/humo-bajo-pista-baile-luces-led.avif" alt="Humo bajo cubriendo la pista de baile iluminada con luces LED" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/efecto-nubes-piso-boda-jardin.avif" alt="Efecto de nubes en el piso durante boda celebrada en jardín" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/maquina-humo-bajo-entrada-novios.avif" alt="Máquina de humo bajo activada durante la entrada de los novios al salón" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/renta-humo-bajo-primer-baile-boda.avif" alt="Primer baile de boda con humo bajo cubriendo la pista" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif" alt="Vals de boda con humo bajo y pista iluminada" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/maquina-humo-bajo-graduacion-baile.avif" alt="Humo bajo en baile de graduación con iluminación festiva" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/primer-baile-boda-humo-bajo-elegante.avif" alt="Primer baile de boda con elegante efecto de humo bajo en el piso" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/humo-bajo/humo-bajo-profesional-evento-nocturno.avif" alt="Humo bajo profesional en evento nocturno con iluminación ambiental" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Humo Bajo"
+          subtitle="Para el vals, para toda la recepción, o para producción completa."
+          paragraph1="Cada paquete incluye la máquina de niebla baja profesional, fluido de glicol certificado, operador técnico, traslado y la coordinación con el DJ o maestro de ceremonias para el timing perfecto."
+          paragraph2="¿Quieres combinar humo bajo con seguidor de luz o cabezas móviles? Armamos el paquete completo con precio especial — es la combinación más contratada en bodas."
+        />
+        <PricingCards packages={[
+          {
+            name: "Val o Momento Único",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Niebla baja para un solo momento estelar: el vals, la entrada, el corte de pastel. El efecto más fotografiado de la noche.",
+            features: [
+              { text: "1 máquina de niebla baja profesional", included: true },
+              { text: "Fluido glicol certificado (1 carga)", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Coordinación con DJ/MC", included: true },
+              { text: "Ideal para: vals, entrada, corte pastel", included: true },
+              { text: "Múltiples activaciones", included: false },
+              { text: "Segunda máquina para mayor cobertura", included: false },
+            ],
+            ctaLabel: "Cotizar vals o momento único",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Recepción Completa",
+            price: "$5,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Niebla baja para todos los momentos especiales de la recepción. Vals, entrada, brindis — el operador está listo para cada uno.",
+            features: [
+              { text: "1 máquina de niebla baja profesional", included: true },
+              { text: "Fluido glicol ilimitado (toda la noche)", included: true },
+              { text: "Operador técnico 4-6 horas", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Activaciones múltiples a demanda", included: true },
+              { text: "Coordinación completa con DJ/MC", included: true },
+              { text: "Ideal para: bodas, XV años completos", included: true },
+              { text: "Segunda máquina", included: false },
+            ],
+            ctaLabel: "Cotizar recepción completa",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Doble Cobertura",
+            price: "$8,500",
+            priceNote: "+ IVA",
+            description: "2 máquinas para mayor caudal de niebla y cobertura uniforme en pistas de baile grandes o venues amplios.",
+            features: [
+              { text: "2 máquinas de niebla baja", included: true },
+              { text: "Doble caudal — pista completamente cubierta", included: true },
+              { text: "Fluido ilimitado toda la noche", included: true },
+              { text: "2 operadores técnicos", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Activaciones múltiples sincronizadas", included: true },
+              { text: "Ideal para: haciendas, salones grandes", included: true },
+              { text: "Combinable con seguidor y cabezas móviles", included: true },
+            ],
+            ctaLabel: "Cotizar doble cobertura",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción Premium",
+            price: "$13,000",
+            priceNote: "+ IVA",
+            description: "Humo bajo + seguidor de luz + cabezas móviles. El paquete de iluminación más solicitado para bodas de alto impacto.",
+            features: [
+              { text: "2 máquinas de niebla baja", included: true },
+              { text: "1 seguidor de luz profesional con operador", included: true },
+              { text: "4 cabezas móviles para show de luces", included: true },
+              { text: "Fluido ilimitado + fluido de larga duración", included: true },
+              { text: "Equipo técnico completo", included: true },
+              { text: "Coordinación con DJ, MC y wedding planner", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: bodas premium, producciones", included: true },
+            ],
+            ctaLabel: "Cotizar producción premium",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Humo Bajo"
+          subtitle="Resolvemos todas las dudas antes de contratar."
+          paragraph1="La niebla baja genera muchas preguntas — especialmente si el venue tiene reglas específicas. Aquí respondemos todo."
+          paragraph2="Si tu duda no está aquí, escríbenos por WhatsApp. Respondemos en minutos."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El humo bajo es seguro para los invitados?", answer: "Completamente. Usamos máquinas de niebla baja con fluido de glicol farmacéutico grado alimenticio — el mismo que se usa en teatros, cines y producciones de TV. No contiene toxinas, no irrita los ojos ni la garganta, no mancha la ropa y no deja residuo en el piso. Los invitados pueden caminar sobre la niebla sin ningún problema." },
+        { question: "¿La niebla baja activa las alarmas de humo del salón?", answer: "Las máquinas de niebla baja de efecto frío (CO₂ + fluido) generalmente no activan detectores de humo porque la niebla permanece pegada al piso y no asciende. Sin embargo, cada venue es diferente. Coordinamos con el salón antes del evento para verificar el tipo de detectores y, si es necesario, tomamos precauciones adicionales." },
+        { question: "¿Cuánto tiempo dura el efecto?", answer: "Cada activación dura entre 3 y 5 minutos — exactamente lo que dura un vals. El operador controla el caudal para que la niebla sea densa al principio y se vaya disipando naturalmente conforme avanza la canción. Para el paquete de Recepción Completa, el fluido dura toda la noche con múltiples activaciones." },
+        { question: "¿Funciona en exteriores?", answer: "Sí, pero el viento es un factor. En jardines y haciendas al aire libre, la niebla baja se disipa más rápido si hay brisa. En esas condiciones, usamos dos máquinas para compensar y el efecto sigue siendo espectacular. En espacios cerrados el efecto es más denso y duradero." },
+        { question: "¿Cuánto tiempo antes llega el equipo?", answer: "Llegamos 1-2 horas antes del evento para montar, probar el equipo y coordinar con el DJ y el maestro de ceremonias. El operador necesita saber exactamente qué canción es el vals y recibir una señal acordada 30 segundos antes para activar el efecto en el momento perfecto." },
+        { question: "¿Se puede combinar con otros servicios?", answer: "Sí — y es muy recomendable. La combinación más popular: humo bajo + seguidor de luz. Los novios bailan sobre nubes con un spotlight enfocado en ellos — el efecto es cinematográfico. También funciona perfecto con cabezas móviles (los beams se ven espectaculares cortando la niebla) y con sky tracker. Armamos paquetes con precio especial." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="La niebla baja es el escenario — agrega los protagonistas."
+          paragraph1="La niebla baja crea el suelo. Un seguidor crea el spotlight. Las guirnaldas crean el techo. Cuando los tres elementos se juntan en el vals, el resultado es una foto que los novios van a enmarcar."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Quieres que los novios bailen sobre nubes?</h2>
+          <p>Cuéntanos la fecha, el venue y qué momentos quieres iluminar. Te cotizamos en minutos y te decimos si el salón es compatible con el equipo.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

@@ -9,7 +9,7 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Iluminación Arquitectónica y Uplighting para Eventos CDMX | REDEIL";
+const title = "Renta de Uplighting para Haciendas y Eventos CDMX | REDEIL";
 const description = "Uplighting LED inalámbrico para fachadas, columnas, árboles y arcos de haciendas en CDMX. Sin cables. Instalación incluida. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/iluminacion-arquitectonica/";
 
@@ -40,16 +40,18 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Qué es el uplighting?", "acceptedAnswer": { "@type": "Answer", "text": "El uplighting consiste en colocar reflectores LED en el piso apuntando hacia arriba para bañar de luz y color fachadas, columnas, árboles, arcos y muros. Transforma la arquitectura del venue en un elemento decorativo espectacular." }},
       { "@type": "Question", "name": "¿Los reflectores son inalámbricos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos uplighters LED con batería recargable que duran hasta 12 horas. Sin cables en el piso — se colocan al pie de columnas, árboles y fachadas sin instalación eléctrica." }},
       { "@type": "Question", "name": "¿Funciona en haciendas y patios coloniales?", "acceptedAnswer": { "@type": "Answer", "text": "Es donde mejor se ve. Las haciendas con arcos de cantera, columnas coloniales y árboles centenarios son el escenario perfecto para uplighting. La luz resalta la textura de la piedra y crea sombras dramáticas que transforman el espacio." }},
-      { "@type": "Question", "name": "¿Cuántos reflectores necesito?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de lo que quieras iluminar. Para una fachada frontal con arcos, 6 uplighters. Para fachada + jardín con árboles, 12. Para una hacienda completa, 20 o más. Te asesoramos según fotos de tu venue." }}
+      { "@type": "Question", "name": "¿Cuántos reflectores necesito?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de lo que quieras iluminar. Para una fachada frontal con arcos, 6 uplighters. Para fachada + jardín con árboles, 12. Para una hacienda completa, 20 o más. Te asesoramos según fotos de tu venue." }},
+      { "@type": "Question", "name": "¿Se puede cambiar el color del uplighting durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Premium y Producción con control DMX, sí. Los uplighters cambian de color en tiempo real — ámbar durante la cena, rosa durante el vals, multicolor en la fiesta. En los paquetes básicos, el color se fija al inicio del evento." }},
+      { "@type": "Question", "name": "¿El uplighting se puede combinar con otros servicios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es el complemento perfecto para cualquier otro servicio. Con guirnaldas Edison en el techo y uplighting en las columnas, la hacienda queda completamente transformada. También combina con city color para fachadas grandes y gobos para personalización." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "Guirnaldas cálidas arriba + uplighting en las columnas abajo. La combinación más romántica para bodas en hacienda.", link: "/servicios/guirnaldas/" },
-  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en ceremonia de boda en hacienda", description: "City color para las fachadas grandes + uplighting para los detalles. Cobertura total del venue.", link: "/servicios/city-color/" },
-  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma en pista de baile", description: "Uplighting en las paredes + nombres de los novios proyectados. Dos capas de personalización visual.", link: "/servicios/gobos/" },
-  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile de novios", description: "Las columnas iluminadas como escenario + un spotlight que sigue a los novios en el vals. Perfecto.", link: "/servicios/seguidor/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza", description: "Uplighting en las columnas + guirnaldas cálidas en el techo. La combinación más romántica para bodas en hacienda.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "Uplighting para los detalles + city color para las fachadas grandes. Cobertura total del venue.", link: "/servicios/city-color/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker al cielo", description: "Uplighting en el suelo + haces al cielo. Una producción completa de arriba abajo para eventos nocturnos.", link: "/servicios/sky-tracker/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para boda", description: "Columnas iluminadas afuera + cascadas brillantes dentro. El venue completamente transformado.", link: "/servicios/cascadas-led/" },
 ];
 ---
 
@@ -73,9 +75,9 @@ const serviciosRelacionados = [
     <CtaBar
       headline="¿Qué quieres iluminar de tu venue?"
       items={[
-        { label: "Fachadas", href: "#paquetes", icon: "iluminacion" },
+        { label: "Haciendas y Jardines", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />

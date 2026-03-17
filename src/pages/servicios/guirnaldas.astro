@@ -10,7 +10,7 @@ import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
 const title = "Renta de Guirnaldas de Luces para Bodas y Eventos CDMX | REDEIL";
-const description = "Guirnaldas con focos Edison para bodas, XV años y eventos al aire libre en CDMX. Luces vintage LED con instalación profesional. Desde $3,500. Cotiza gratis.";
+const description = "Guirnaldas con focos Edison para bodas, XV años y eventos al aire libre en CDMX. IP65. Instalación incluida. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/";
 
 const schemaMarkup = JSON.stringify([
@@ -39,17 +39,19 @@ const schemaMarkup = JSON.stringify([
     "mainEntity": [
       { "@type": "Question", "name": "¿Cuántos metros de guirnaldas necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del espacio. Para un jardín de 100m² recomendamos entre 50 y 80 metros lineales. Para una terraza o pérgola, 30-50 metros. Para una carpa completa, 80-150 metros según el tamaño." }},
       { "@type": "Question", "name": "¿Cuánto cuesta la renta de guirnaldas?", "acceptedAnswer": { "@type": "Answer", "text": "El precio depende de los metros lineales y el tipo de foco. Un paquete básico para jardín arranca desde $3,500 MXN. Para bodas completas con 100+ metros, cotiza por WhatsApp para un precio personalizado." }},
-      { "@type": "Question", "name": "¿Las guirnaldas funcionan bajo lluvia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras guirnaldas cuentan con certificación IP65 — resistentes a lluvia y humedad. El cableado y las conexiones están protegidos para uso en exteriores." }},
-      { "@type": "Question", "name": "¿La instalación está incluida?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El servicio incluye transporte, montaje profesional, operación durante el evento y desmontaje al finalizar." }}
+      { "@type": "Question", "name": "¿La instalación está incluida?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El servicio incluye transporte, montaje profesional, operación durante el evento y desmontaje al finalizar." }},
+      { "@type": "Question", "name": "¿Las guirnaldas funcionan bajo lluvia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras guirnaldas cuentan con certificación IP65 — resistentes a lluvia y humedad. El cableado y las conexiones están protegidos para uso en exteriores. Hemos montado en temporada de lluvias sin ningún problema." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar?", "acceptedAnswer": { "@type": "Answer", "text": "Idealmente 2-3 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido. Para garantizar disponibilidad, entre antes reserves mejor." }},
+      { "@type": "Question", "name": "¿Puedo elegir entre focos Edison LED y vintage?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las bombillas Edison LED tienen la misma estética vintage con luz cálida y tono ámbar, pero consumen menos energía — ideales para montajes largos. Los focos vintage de filamento dan un brillo más natural y orgánico. Mismo precio en ambas opciones." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif", alt: "Uplighting arquitectónico en fachada de hacienda para boda", description: "Complemento perfecto para guirnaldas. Uplighting que transforma fachadas y jardines con color.", link: "/servicios/iluminacion-arquitectonica/" },
-  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight seguidor iluminando primer baile de novios", description: "Spotlight profesional para el vals y momentos especiales. El complemento ideal para tu boda.", link: "/servicios/seguidor/" },
-  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Proyecta los nombres de los novios o tu logo en paredes y pisos. El detalle que todos recuerdan.", link: "/servicios/gobos/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en vals de boda en jardín", description: "La nube mágica para el vals. Combínalo con guirnaldas para un efecto espectacular.", link: "/servicios/humo-bajo/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif", alt: "Uplighting en hacienda con string lights", description: "Guirnaldas en el techo + uplighting en las columnas. La combinación más solicitada para bodas en hacienda.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile", description: "Guirnaldas creando el ambiente cálido + spotlight siguiendo a los novios en el vals. La boda perfecta.", link: "/servicios/seguidor/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Guirnaldas en el techo + cascadas LED detrás de la mesa de novios. El backdrop que todos fotografían.", link: "/servicios/cascadas-led/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista", description: "Guirnaldas ambientando el jardín + nombres de los novios proyectados en la pista. Detalles que marcan la diferencia.", link: "/servicios/gobos/" },
 ];
 ---
 
@@ -74,8 +76,8 @@ const serviciosRelacionados = [
       headline="¿Para qué tipo de evento necesitas guirnaldas?"
       items={[
         { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
       ]}
     />

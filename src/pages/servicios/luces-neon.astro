@@ -31,16 +31,19 @@ const schemaMarkup = JSON.stringify([
     "mainEntity": [
       { "@type": "Question", "name": "¿Qué es una glow party?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Incluye pintura corporal neón, accesorios luminosos y decoración fluorescente." }},
       { "@type": "Question", "name": "¿Las luces UV son seguras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son las mismas que las lámparas UV industriales. Son las mismas que se usan en parques de diversiones y discotecas." }},
-      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }}
+      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }},
+      { "@type": "Question", "name": "¿Qué es una glow party y cómo funciona?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta temática donde se usa iluminación UV para que todo lo blanco y fluorescente brille en la oscuridad. Se complementa con pintura corporal neón, pulseras, collares y decoración fluorescente." }},
+      { "@type": "Question", "name": "¿Las luces UV son seguras para los invitados?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. La pintura facial incluida también es dermatológicamente segura y no tóxica." }},
+      { "@type": "Question", "name": "¿Los letreros neón personalizados están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Neón Premium y Producción, sí. Incluyen letreros LED neón con el mensaje que quieras — nombres, frases, hashtags, logos. Se fabrican a medida y los montamos el día del evento." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Luz Negra", image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Luz negra UV para fiesta neón", description: "Complemento perfecto. La luz negra UV hace brillar todo lo fluorescente en tu fiesta neón.", link: "/servicios/luz-negra/" },
-  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para fiesta neón", description: "DJ con repertorio de música electrónica y reggaetón. El soundtrack perfecto para tu glow party.", link: "/servicios/bocinas-djs/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo con luces neón", description: "El humo escénico con luces UV crea un efecto espectacular. Perfecto para la pista de baile.", link: "/servicios/humo-bajo/" },
-  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco para fiesta neón", description: "Combina bola disco con luces neón para una pista de baile inolvidable.", link: "/servicios/bola-disco/" },
+  { title: "Luz Negra UV", image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Luz negra UV para fiesta neón", description: "Complemento esencial. La luz negra UV hace brillar todo lo fluorescente — el motor de cualquier glow party.", link: "/servicios/luz-negra/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma", description: "Letreros neón personalizados + nombres proyectados con gobo. Personalización total del evento.", link: "/servicios/gobos/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de beams de colores", description: "Luces neón decorativas + cabezas móviles en modo show. El combo que convierte la pista en un concierto.", link: "/servicios/cabezas-moviles/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "Iluminación para fiestas CDMX", description: "PAR LED de color para ambientar el salón + luces neón como decoración focal. Capas de iluminación perfectas.", link: "/servicios/city-light/" },
 ];
 ---
 
@@ -65,8 +68,8 @@ const serviciosRelacionados = [
       headline="¿Qué tipo de fiesta neón buscas?"
       items={[
         { label: "Glow Party", href: "#paquetes", icon: "iluminacion" },
+        { label: "Toda la iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "XV Años Neón", href: "/eventos/xv-anos/", icon: "iluminacion" },
-        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />
