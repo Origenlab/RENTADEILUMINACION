@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete 50 Metros Guirnaldas Edison — Desde $3,500 + IVA | REDEIL";
+const description = "Renta de 50 metros de guirnaldas con focos Edison para terrazas, pérgolas y ceremonias íntimas en CDMX. Instalación profesional IP65 incluida. Cotiza gratis.";
+const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/paquete-50-metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 50 Metros — Guirnaldas Edison",
+    "description": "Renta de 50 metros lineales de guirnaldas con focos Edison LED o vintage para terrazas, pérgolas y ceremonias íntimas. Incluye transporte, instalación profesional IP65 y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/guirnaldas/paquete-50-metros/",
+      "priceCurrency": "MXN",
+      "price": "3500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "47",
+      "reviewCount": "47"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "María González" },
+        "datePublished": "2026-02-14",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos las guirnaldas para nuestra boda en un jardín de Coyoacán. La instalación fue impecable — llegaron 3 horas antes y dejaron todo perfecto. La luz cálida de los focos Edison hizo que las fotos quedaran increíbles. 100% recomendados."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Mendoza" },
+        "datePublished": "2026-01-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el paquete de 50 metros para la ceremonia de nuestra boda en una pérgola en Santa Fe. El equipo de REDEIL fue muy profesional y el resultado superó nuestras expectativas. El precio es muy justo por el servicio completo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ana Martínez" },
+        "datePublished": "2025-12-05",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Renté las guirnaldas para una cena de cumpleaños en mi terraza. Transformaron completamente el espacio — parecía un restaurante europeo. El montaje y desmontaje fue rápido y limpio."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿50 metros de guirnaldas son suficientes para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "50 metros son ideales para terrazas de hasta 60m², pérgolas, arcos de ceremonia y espacios íntimos de hasta 50 invitados. Si tu evento es más grande, te recomendamos el paquete de 100 metros." }},
+      { "@type": "Question", "name": "¿Puedo elegir entre focos LED y vintage?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, el paquete incluye tu elección de bombillas Edison LED (bajo consumo, menos calor) o vintage de filamento (brillo orgánico, estética clásica). Ambas con certificación IP65." }},
+      { "@type": "Question", "name": "¿El precio incluye instalación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $3,500 + IVA incluyen transporte del equipo, instalación profesional, operación durante el evento y desmontaje al finalizar. Sin costos ocultos." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Estándar — 100m", image: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "100 metros de guirnaldas para boda en hacienda", description: "El más pedido para bodas en jardín. Ceremonia + recepción para hasta 120 invitados. $6,500 + IVA.", link: "/servicios/guirnaldas/" },
+  { title: "Premium — 200m", image: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif", alt: "200 metros de guirnaldas para evento grande", description: "Para bodas grandes y corporativos. Áreas amplias con iluminación completa. $11,500 + IVA.", link: "/servicios/guirnaldas/" },
+  { title: "Producción — 500m", image: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif", alt: "500 metros de guirnaldas para festival", description: "Festivales, ferias y venues de gran escala. Producción completa con visita previa. $24,000 + IVA.", link: "/servicios/guirnaldas/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif", alt: "Uplighting complemento para guirnaldas", description: "Complemento perfecto. Uplighting que transforma fachadas y jardines con color para tu evento.", link: "/servicios/iluminacion-arquitectonica/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Guirnaldas", href: "/servicios/guirnaldas/" },
+    { label: "Paquete 50 metros" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete 50 Metros — Guirnaldas Edison para Eventos Íntimos"
+      subtitle="Desde $3,500 + IVA. Focos Edison LED o vintage. IP65. Instalación profesional incluida."
+      introParagraph1='El paquete de 50 metros de guirnaldas es perfecto para crear un ambiente cálido y romántico en espacios íntimos. Ideal para terrazas pequeñas, pérgolas de ceremonia, arcos florales y cenas al aire libre con hasta 50 invitados. La luz ámbar de los focos tipo Edison transforma cualquier rincón en un escenario elegante y fotogénico.'
+      introParagraph2='Incluye todo: transporte del equipo a tu venue, instalación profesional con cableado certificado IP65 (resistente a lluvia), operación durante tu evento y desmontaje al finalizar. Tú eliges entre bombillas Edison LED de bajo consumo o focos vintage de filamento — ambos con la misma estética cálida que tanto gusta en bodas y celebraciones al aire libre en CDMX y Estado de México.'
+    />
+
+    <CtaBar
+      headline="¿Necesitas más metros?"
+      items={[
+        { label: "100 metros — $6,500", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "200 metros — $11,500", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "500 metros — $24,000", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "Cotiza Personalizado", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20guirnaldas%20a%20la%20medida", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido + Sidebar -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="¿Qué incluye el paquete de 50 metros?"
+          subtitle="Todo incluido. Sin costos ocultos. Solo disfruta tu evento."
+          paragraph1="Este paquete está diseñado para espacios de hasta 60m² — terrazas, pérgolas, jardines pequeños y áreas de ceremonia. 50 metros lineales dan para cubrir el perímetro completo de una terraza mediana o crear un dosel sobre una mesa larga."
+          paragraph2="Nuestro equipo llega 2-3 horas antes de tu evento para montar todo. Al finalizar, recogemos cada metro de cable sin que tú tengas que mover un dedo."
+        />
+      </div>
+      <ContentWithSidebar
+        sidebarTitle="Paquete Básico"
+        price="$3,500"
+        priceNote="+ IVA · Instalación incluida"
+        features={[
+          { text: "50 metros lineales" },
+          { text: "Focos Edison LED o vintage" },
+          { text: "Certificación IP65 exteriores" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Instalación profesional" },
+          { text: "Operación durante el evento" },
+          { text: "Desmontaje al finalizar" },
+          { text: "Diseño de distribución" },
+          { text: "Tonos: cálido, ámbar, blanco" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el paquete de 50 metros de guirnaldas para mi evento."
+      >
+        <h3>Perfecto para estos espacios</h3>
+        <p>Con 50 metros de guirnaldas puedes ambientar perfectamente:</p>
+        <ul>
+          <li><strong>Terrazas de hasta 60m²</strong> — tendido perimetral o en zigzag sobre el área del evento</li>
+          <li><strong>Pérgolas y arcos de ceremonia</strong> — entrelazado decorativo que enmarca el momento</li>
+          <li><strong>Mesas largas imperiales</strong> — dosel colgante sobre la mesa para cenas íntimas</li>
+          <li><strong>Jardines pequeños</strong> — entre árboles, postes o soportes temporales</li>
+          <li><strong>Rooftops compactos</strong> — montaje en barandales y estructuras del lugar</li>
+        </ul>
+
+        <h3>Focos Edison: tú eliges el estilo</h3>
+        <p>El paquete incluye tu elección de bombillas. Los <strong>focos Edison LED</strong> consumen menos energía y generan menos calor — perfectos si tu terraza tiene techo bajo o si el espacio no tiene mucha capacidad eléctrica. Los <strong>focos vintage de filamento</strong> dan esa luz orgánica y cálida que tanto gusta en bodas rústicas.</p>
+        <p>Ambas opciones vienen con certificación <strong>IP65</strong> para uso en exteriores — resistentes a lluvia, humedad y polvo. Disponibles en tono <strong>cálido</strong> (2700K), <strong>ámbar</strong> (2200K) y <strong>blanco neutro</strong> (3000K).</p>
+
+        <h3>El montaje profesional</h3>
+        <p>Nuestro equipo llega al venue 2-3 horas antes de tu evento. Revisamos las estructuras disponibles — pérgolas, árboles, postes, vigas — y montamos las guirnaldas según el diseño acordado. Probamos todo antes de que lleguen tus invitados.</p>
+        <p>Al finalizar tu celebración, desmontamos cada metro de cable y nos llevamos todo. No tienes que preocuparte por devolver nada ni limpiar cables.</p>
+
+        <h3>¿Necesitas más metros?</h3>
+        <p>Si tu espacio es más grande, tenemos paquetes de <strong>100 metros</strong> ($6,500 + IVA), <strong>200 metros</strong> ($11,500 + IVA) y <strong>500 metros</strong> ($24,000 + IVA). También armamos paquetes a la medida — mándanos fotos de tu venue por WhatsApp y te decimos exactamente cuántos metros necesitas.</p>
+
+        <h3>Reseñas de clientes</h3>
+        <p><strong>⭐⭐⭐⭐⭐ María González</strong> — "Contratamos las guirnaldas para nuestra boda en un jardín de Coyoacán. La instalación fue impecable — llegaron 3 horas antes y dejaron todo perfecto. La luz cálida hizo que las fotos quedaran increíbles."</p>
+        <p><strong>⭐⭐⭐⭐⭐ Carlos Mendoza</strong> — "Usamos el paquete de 50 metros para la ceremonia en una pérgola en Santa Fe. El equipo fue muy profesional y el resultado superó nuestras expectativas."</p>
+        <p><strong>⭐⭐⭐⭐⭐ Ana Martínez</strong> — "Renté las guirnaldas para una cena de cumpleaños en mi terraza. Transformaron completamente el espacio — parecía un restaurante europeo."</p>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Así se ven 50 metros de guirnaldas"
+          subtitle="Eventos reales en terrazas, pérgolas y jardines íntimos."
+          paragraph1="Cada foto es de un montaje real con nuestro paquete de 50 metros. Terrazas, pérgolas, ceremonias al aire libre — la luz cálida Edison transforma cualquier espacio pequeño en algo especial."
+          paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos por WhatsApp y te decimos cómo quedarían las guirnaldas."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "50 metros de guirnaldas Edison en terraza para recepción" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif", alt: "Guirnaldas en pérgola para ceremonia íntima de boda" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-arco-floral-pergola-13.avif", alt: "Arco floral con guirnaldas Edison para ceremonia" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-boda-guirnaldas-edison-06.avif", alt: "Ceremonia al aire libre iluminada con guirnaldas cálidas" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-atardecer-jardin-12.avif", alt: "Guirnaldas Edison al atardecer en jardín pequeño" },
+          { src: "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif", alt: "Luz cálida ámbar de guirnaldas para fiesta íntima" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-exterior-guirnaldas-arco-floral-07.avif", alt: "Arco decorativo con guirnaldas para boda al aire libre" },
+          { src: "/img/guirnaldas/renta-guirnaldas-focos-edison-pergola-evento-01-300w.avif", alt: "Pérgola de evento decorada con focos Edison vintage" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 50 Metros"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Cada espacio es diferente — te asesoramos gratis sobre si 50 metros son suficientes para tu venue."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿50 metros de guirnaldas son suficientes para mi evento?", answer: "50 metros son ideales para terrazas de hasta 60m², pérgolas, arcos de ceremonia y espacios íntimos de hasta 50 invitados. Si tu evento es más grande o tiene varias áreas, te recomendamos el paquete de 100 metros ($6,500 + IVA)." },
+        { question: "¿El precio de $3,500 incluye la instalación?", answer: "Sí. Los $3,500 + IVA incluyen todo: transporte del equipo, instalación profesional con cableado IP65, operación durante el evento y desmontaje al finalizar. Sin costos adicionales." },
+        { question: "¿Puedo elegir entre focos LED y focos vintage?", answer: "Sí. El paquete incluye tu elección de bombillas Edison LED (bajo consumo, menos calor, ideal para techos bajos) o focos vintage de filamento (brillo orgánico, estética clásica). Mismo precio en ambas opciones." },
+        { question: "¿Funcionan bajo lluvia?", answer: "Sí. Todo nuestro equipo tiene certificación IP65 — resistente a lluvia, humedad y polvo. Hemos montado en temporada de lluvias sin problema. El cableado y las conexiones están completamente protegidos." },
+        { question: "¿Con cuánta anticipación debo reservar?", answer: "Idealmente 2-3 semanas antes. En temporada alta (noviembre-enero y mayo-junio) las fechas se llenan rápido. Para garantizar disponibilidad, entre antes reserves, mejor." },
+        { question: "¿Puedo agregar más metros el día del evento?", answer: "Si hay disponibilidad, sí. Pero te recomendamos definir los metros desde antes para que el diseño de la instalación sea óptimo. Mejor cotizar bien desde el inicio que improvisar el día del evento." },
+      ]} />
+    </section>
+
+    <!-- Otros paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Otros Paquetes y Servicios"
+          subtitle="¿Necesitas más metros o complementar con otro servicio?"
+          paragraph1="Si tu evento es más grande, tenemos paquetes desde 100 hasta 500 metros. Y si quieres una producción completa, combinamos guirnaldas con uplighting, seguidor y humo bajo."
+          paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para reservar tus 50 metros de guirnaldas?</h2>
+          <p>Mándanos la fecha y el venue por WhatsApp. Te confirmamos disponibilidad y te enviamos el presupuesto completo en minutos.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20reservar%20el%20paquete%20de%2050%20metros%20de%20guirnaldas.%20Mi%20evento%20es%20el%20[fecha]%20en%20[lugar]" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>
