@@ -1,13 +1,20 @@
 ---
 /**
  * BlogLayout — REDEIL
- * Usa los mismos componentes que las páginas de servicio:
- * BaseLayout + Hero + ContentWithSidebar + SectionHeader + ServiceCard
- * Sin CSS custom. Sin animaciones. Sin fechas.
+ * ────────────────────
+ * Usa SOLO los componentes existentes del sitio:
+ * BaseLayout, Hero, CtaBar, ContentWithSidebar, SectionHeader, ServiceCard
+ *
+ * Estructura idéntica a páginas de servicio:
+ * Hero → CtaBar → ContentWithSidebar (artículo + sidebar) → Servicios relacionados → CTA Final
+ *
+ * Sin componentes custom. Sin CSS de layout custom.
+ * Solo CSS para tipografía del contenido markdown.
  */
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hero from '../components/Hero.astro';
+import CtaBar from '../components/CtaBar.astro';
 import ContentWithSidebar from '../components/ContentWithSidebar.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
@@ -55,49 +62,71 @@ const serviciosRelacionados = [
     ]} />
   </Fragment>
 
-  <!-- Hero del artículo — mismo componente Hero del sitio -->
+  <!-- Hero — mismas 2 columnas que todo el sitio -->
   <Hero
     title={title}
     subtitle={description}
-    introParagraph1={`Categoría: <strong>${category}</strong> · Publicado por el equipo técnico de <strong>REDEIL</strong> — más de 30 años de experiencia en iluminación profesional para eventos en CDMX y Estado de México.`}
-    introParagraph2={`<img src="${image}" alt="${imageAlt}" style="width:100%; border-radius:8px; margin-top:0.5rem;" />`}
+    introParagraph1={`<strong>${category}</strong> · Escrito por el equipo técnico de <strong>REDEIL</strong> con más de 30 años de experiencia en iluminación profesional para eventos en la Ciudad de México y Estado de México. Cada artículo está basado en proyectos reales y asesoría directa a nuestros clientes.`}
+    introParagraph2={`En este blog compartimos conocimiento práctico sobre cómo elegir la iluminación correcta para cada tipo de evento — bodas en hacienda, XV años temáticos, galas corporativas y fiestas privadas. Todo lo que aprendemos en campo, lo documentamos aquí para ti.`}
   />
 
-  <!-- Contenido del artículo con sidebar -->
+  <!-- CtaBar — misma barra naranja -->
+  <CtaBar
+    headline="Explora nuestros servicios"
+    items={[
+      { label: "Iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+      { label: "Sonido y DJ", href: "/servicios/sonido/", icon: "sonido" },
+      { label: "Efectos Especiales", href: "/servicios/efectos-especiales/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido del artículo con sidebar — ContentWithSidebar existente -->
   <section class="services-section">
     <ContentWithSidebar
       sidebarTitle="Cotiza tu Evento"
       features={[
         { text: "30 años de experiencia" },
-        { text: "Equipo profesional" },
+        { text: "Equipo profesional certificado" },
         { text: "Instalación incluida" },
         { text: "CDMX y Estado de México" },
         { text: "Sin costos ocultos" },
-        { text: "Asesoría gratuita" },
+        { text: "Asesoría gratuita por WhatsApp" },
       ]}
       waMessage={`Hola REDEIL, leí el artículo "${title}" y quiero cotizar iluminación para mi evento.`}
       packages={[
         { label: "Iluminación", price: "", href: "/servicios/iluminacion/" },
-        { label: "Sonido", price: "", href: "/servicios/sonido/" },
-        { label: "Efectos", price: "", href: "/servicios/efectos-especiales/" },
-        { label: "Cotizar", price: "", href: "/contacto/" },
+        { label: "Sonido y DJ", price: "", href: "/servicios/sonido/" },
+        { label: "Efectos Especiales", price: "", href: "/servicios/efectos-especiales/" },
+        { label: "Ver todos", price: "", href: "/servicios/" },
       ]}
     >
+      <!-- Imagen destacada del artículo -->
       <div class="container">
-        <div class="blog-content">
-          <slot />
-        </div>
+        <img
+          src={image}
+          alt={imageAlt}
+          style="width:100%; height:auto; border-radius:8px; margin-bottom:2rem;"
+          loading="eager"
+          width="1200"
+          height="630"
+        />
+      </div>
+
+      <!-- Contenido markdown renderizado -->
+      <div class="container blog-content">
+        <slot />
       </div>
     </ContentWithSidebar>
   </section>
 
-  <!-- Servicios relacionados -->
+  <!-- Servicios relacionados — SectionHeader + ServiceCard como en todo el sitio -->
   <section class="services-section services-alt">
     <div class="container">
       <SectionHeader
         title="Servicios Relacionados"
-        subtitle="Conoce nuestros servicios más solicitados."
-        paragraph1="Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje. Cotiza sin compromiso."
+        subtitle="Conoce nuestros servicios más solicitados para eventos."
+        paragraph1="Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje. Cotiza sin compromiso por WhatsApp."
         paragraph2="Combinamos servicios con precio especial. Cuéntanos tu evento y te armamos la propuesta perfecta."
       />
       <div class="services-grid">
@@ -108,7 +137,7 @@ const serviciosRelacionados = [
     </div>
   </section>
 
-  <!-- CTA Final — mismo estilo que las páginas de servicio -->
+  <!-- CTA Final — mismo estilo naranja de todo el sitio -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
@@ -125,7 +154,7 @@ const serviciosRelacionados = [
 </BaseLayout>
 
 <style>
-/* Estilos del contenido markdown del artículo — usa las variables y fuentes del sitio */
+/* Tipografía para contenido markdown dentro del artículo */
 .blog-content :global(h2) {
   font-family: var(--font-primary, 'Montserrat', sans-serif);
   font-size: clamp(1.4rem, 2.5vw, 1.9rem);
@@ -168,9 +197,6 @@ const serviciosRelacionados = [
   color: var(--color-primary, #E05800);
   text-decoration: underline;
 }
-.blog-content :global(a:hover) {
-  color: #c44d00;
-}
 .blog-content :global(blockquote) {
   border-left: 4px solid var(--color-primary, #E05800);
   background: rgba(224,88,0,0.05);
@@ -196,7 +222,6 @@ const serviciosRelacionados = [
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 0.9375rem;
-  font-family: var(--font-body, 'Open Sans', sans-serif);
 }
 .blog-content :global(th) {
   background: var(--color-secondary, #1C2B4A);
