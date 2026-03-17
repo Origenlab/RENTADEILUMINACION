@@ -181,23 +181,6 @@ const serviciosRelacionados = [
       </div>
     </section>
 
-    <!-- Servicios relacionados -->
-    <section class="services-section">
-      <div class="container">
-        <SectionHeader
-          title="Combina con Otros Efectos"
-          subtitle="Las luces neón se potencian cuando las mezclas con estos servicios."
-          paragraph1="Una fiesta neón completa no es solo UV — es la combinación de luz, sonido y efectos especiales lo que crea la experiencia. Nuestros clientes más satisfechos combinan 2-3 servicios para un resultado espectacular."
-          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te hacemos una propuesta integral."
-        />
-        <div class="services-grid">
-          {serviciosRelacionados.map((s) => (
-            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
-          ))}
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq-section">
       <div class="container">
@@ -216,6 +199,23 @@ const serviciosRelacionados = [
         { question: "¿Puedo personalizar los letreros neón?", answer: "Sí. Los paquetes Neón Premium y Producción incluyen letreros LED neón personalizados con el mensaje que quieras — nombres, frases, hashtags, logos. Se fabrican a medida y los montamos el día del evento." },
         { question: "¿Funciona en espacios abiertos?", answer: "Las luces neón y UV funcionan mejor en espacios con poca luz natural. En eventos al aire libre, recomendamos usarlas después del atardecer. Para eventos nocturnos de noche completa, el efecto es espectacular en cualquier espacio." },
       ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Efectos"
+          subtitle="Las luces neón se potencian cuando las mezclas con estos servicios."
+          paragraph1="Una fiesta neón completa no es solo UV — es la combinación de luz, sonido y efectos especiales lo que crea la experiencia. Nuestros clientes más satisfechos combinan 2-3 servicios para un resultado espectacular."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te hacemos una propuesta integral."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
     </section>
 
     <!-- CTA Final -->
