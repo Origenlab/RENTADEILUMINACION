@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "40+ PAR LED — Producción Carpas y Eventos Masivos CDMX | REDEIL";
+const description = "Producción completa con 40+ PAR LED para carpas, festivales y eventos masivos en CDMX. Coreografía de color. $14,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-light/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Producción PAR LED 40+ — Carpas y Eventos Masivos",
+    "description": "Producción completa de iluminación con 40+ luminarias PAR LED RGBW para carpas de gran formato, festivales y eventos masivos. Coreografía de color programada. Equipo de técnicos. CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-light/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "14000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "19",
+      "reviewCount": "19"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Festival empresarial de 800 personas en el Foro Sol zona de carpas. REDEIL montó 52 PAR LED en las estructuras de la carpa y la coreografía de color durante el show principal fue espectacular. Técnicamente impecable y el equipo fue extraordinariamente profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Claudia Nava" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda masiva de 600 invitados en carpa instalada en Xochimilco. Necesitábamos cubrir 1,500m² y lo lograron con 48 luminarias distribuidas en zonas. El show de luces durante el vals fue el momento más comentado de la noche."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Héctor Ramírez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Feria corporativa en el World Trade Center con 1,200 asistentes. La coreografía de color programada para la apertura y el cierre del evento fue exactamente lo que necesitábamos para impresionar a nuestros clientes internacionales. Repetiré sin duda."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-light/luces-para-eventos-sociales.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete de producción con 40+ PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de producción incluye 40 o más luminarias PAR LED RGBW, equipo completo de técnicos, visita previa al venue, diseño de coreografía de color, operación profesional durante el evento y logística de transporte. La cantidad exacta de luminarias se determina según el espacio y necesidades específicas del evento." }},
+      { "@type": "Question", "name": "¿Para qué escala de evento es el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Es el paquete correcto para carpas de más de 400m², eventos con 400+ asistentes, festivales empresariales, ferias y convenciones, y bodas masivas que requieren cobertura de iluminación en múltiples zonas a gran escala." }},
+      { "@type": "Question", "name": "¿Qué es una coreografía de color?", "acceptedAnswer": { "@type": "Answer", "text": "Una coreografía de color es una secuencia programada de cambios de luz sincronizados con la música, los momentos del evento o el timeline de la producción. Las luminarias cambian de color, intensidad y patrón de forma coordinada para crear un espectáculo visual. Se diseña y prueba antes del evento." }},
+      { "@type": "Question", "name": "¿Pueden instalar las luces en estructuras de carpa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Tenemos experiencia instalando PAR LED en estructuras de aluminio de carpas de cualquier tamaño. Usamos monturas y accesorios específicos para instalación en truss y estructuras de carpa. Evaluamos la estructura en la visita previa para garantizar la seguridad." }},
+      { "@type": "Question", "name": "¿El paquete de producción incluye generador?", "acceptedAnswer": { "@type": "Answer", "text": "Si el venue no cuenta con suficiente capacidad eléctrica, sí podemos coordinar el suministro de generadores. Se cotiza según la necesidad eléctrica del evento. En la visita previa evaluamos los requerimientos de energía y te informamos si es necesario." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo antes debo contratar el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Para eventos de producción, recomendamos contactarnos con mínimo 4-6 semanas de anticipación. El diseño de la coreografía, la visita previa y la logística requieren más tiempo de preparación que los paquetes estándar. En temporada alta (noviembre-enero), con 8 semanas de anticipación." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "24 PAR LED — Hacienda Premium", image: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "24 PAR LED para hacienda y eventos premium", description: "4 zonas independientes para haciendas y eventos corporativos medianos. $9,000 + IVA.", link: "/servicios/city-light/paquete-24-par-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para show de luces", description: "Producción PAR LED más cabezas móviles — el combo para shows de luz espectaculares.", link: "/servicios/cabezas-moviles/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para backdrop", description: "Backdrop con cascadas LED para el escenario o mesa principal del evento masivo.", link: "/servicios/cascadas-led/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas para carpas", description: "PAR LED de producción más guirnaldas Edison en el techo de la carpa. El combo definitivo.", link: "/servicios/guirnaldas/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Light", href: "/servicios/city-light/" },
+    { label: "Producción 40+ PAR LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Producción 40+ PAR LED — Carpas y Eventos Masivos CDMX"
+    subtitle="$14,000 + IVA. Cobertura ilimitada de zonas. Coreografía de color programada. Equipo técnico completo."
+    introParagraph1='Cuando el evento rebasa la escala de un salón o hacienda — carpas de gran formato, festivales empresariales, ferias, convenciones y bodas masivas — el paquete de producción con <strong>40 o más luminarias PAR LED RGBW</strong> es la única opción que garantiza cobertura total sin compromisos. La cantidad exacta de luminarias se determina en la visita previa según las dimensiones reales del espacio y la arquitectura del montaje.'
+    introParagraph2='El verdadero diferencial de este paquete es la <strong>coreografía de color</strong>: una secuencia programada de cambios de luz sincronizados con la música, el timeline y los momentos clave del evento. Un equipo de técnicos profesionales diseña, prueba y opera la producción completa. Sin improvisación, sin sorpresas. La iluminación como protagonista del espectáculo. Para <strong>eventos de 400+ asistentes</strong> en toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Tu evento necesita producción completa?"
+    items={[
+      { label: "24 PAR — Hacienda $9,000", href: "/servicios/city-light/paquete-24-par-led/", icon: "iluminacion" },
+      { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+      { label: "Sky Tracker", href: "/servicios/sky-tracker/", icon: "iluminacion" },
+      { label: "Cotiza Producción", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Total"
+      price="$14,000"
+      priceNote="+ IVA · Precio base — cotización personalizada"
+      features={[
+        { text: "40+ PAR LED RGBW (cantidad según venue)" },
+        { text: "Zonas ilimitadas de color" },
+        { text: "Coreografía de color programada" },
+        { text: "Equipo completo de técnicos" },
+        { text: "Visita previa al venue incluida" },
+        { text: "Diseño de producción personalizado" },
+        { text: "Instalación en estructuras de carpa" },
+        { text: "Coordinación con audio y video" },
+        { text: "Transporte, montaje y desmontaje" },
+        { text: "Generador disponible si requerido" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar producción de iluminación con 40+ PAR LED para un evento masivo."
+      packages={[
+        { label: "8 PAR LED", price: "$3,500", href: "/servicios/city-light/paquete-8-par-led/" },
+        { label: "16 PAR LED", price: "$6,000", href: "/servicios/city-light/paquete-16-par-led/" },
+        { label: "24 PAR LED", price: "$9,000", href: "/servicios/city-light/paquete-24-par-led/" },
+        { label: "Producción 40+", price: "$14,000", href: "/servicios/city-light/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Para qué tipo de eventos es este paquete?"
+          subtitle="Cuando el espacio supera los 400m² o los 400 asistentes."
+          paragraph1="El paquete de producción no tiene un tope de luminarias — la cantidad se ajusta al espacio real. Hemos instalado desde 40 unidades en carpas medianas hasta 80+ en festivales de gran escala. El precio de $14,000 es la base; la cotización final depende de las necesidades específicas."
+          paragraph2="Si estás evaluando si tu evento califica para producción, pregúntanos. El criterio principal es la escala del espacio y la complejidad de las zonas."
+        />
+        <FeatureGrid features={[
+          { title: "Carpas de Gran Formato", description: "Instalación en truss y estructura de aluminio. Cubrimos carpas de 500m² a 3,000m²." },
+          { title: "Festivales Empresariales", description: "Múltiples escenarios y zonas con iluminación coordinada y coreografías." },
+          { title: "Convenciones y Ferias", description: "Pabellones y salones de convenciones con zonas de exposición diferenciadas." },
+          { title: "Bodas Masivas 400+", description: "Cuando la lista de invitados supera lo que un salón estándar puede contener." },
+          { title: "Eventos Deportivos", description: "Ceremonias de apertura y premiaciones con producción de luz espectacular." },
+          { title: "Lanzamientos de Producto", description: "El reveal de producto con una coreografía de luz diseñada para el momento." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="La coreografía de color: qué es y cómo funciona"
+          subtitle="La iluminación como parte del espectáculo — no solo como ambientación."
+          paragraph1="Una coreografía de color es una secuencia de cambios de luz programada al microsegundo. El sistema DMX controla cada una de las 40+ luminarias de forma individual: intensidad, color, velocidad de transición y patrón."
+          paragraph2="El resultado es un espectáculo visual donde la luz cuenta la historia del evento — desde la apertura solemne hasta el clímax de la fiesta. Se diseña antes del evento y se prueba en venue."
+        />
+        <FeatureGrid features={[
+          { title: "Diseño Previo al Evento", description: "La coreografía se diseña con base en el timeline y los momentos clave." },
+          { title: "Prueba en Venue", description: "Corremos la coreografía completa antes de que lleguen los invitados." },
+          { title: "Operación en Tiempo Real", description: "Un técnico DMX opera en vivo con la capacidad de adaptar según el evento." },
+          { title: "Sincronización Musical", description: "Los cambios se sincronizan con la música o el sistema de audio del evento." },
+          { title: "Efectos Especiales de Luz", description: "Strobes suaves, fades, chases y barridos programados para momentos clave." },
+          { title: "Backup Automático", description: "Programación de respaldo en caso de cualquier contingencia técnica." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 19 reseñas de eventos masivos."
+          paragraph1="Producciones para festivales empresariales, bodas masivas y convenciones — los eventos más exigentes del mercado."
+          paragraph2="Contacta directamente para referencias de eventos similares al tuyo."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Eduardo Villanueva", event: "Festival empresarial — Foro Sol Carpas", rating: 5, text: "REDEIL montó 52 PAR LED en las estructuras de la carpa y la coreografía de color durante el show principal fue espectacular. Técnicamente impecable." },
+          { name: "Claudia Nava", event: "Boda masiva — Carpa en Xochimilco", rating: 5, text: "Necesitábamos cubrir 1,500m² y lo lograron con 48 luminarias. El show de luces durante el vals fue el momento más comentado de la noche." },
+          { name: "Héctor Ramírez", event: "Feria corporativa — World Trade Center", rating: 5, text: "La coreografía de color para la apertura y cierre del evento fue exactamente lo que necesitábamos para impresionar a nuestros clientes internacionales." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producciones de iluminación a gran escala"
+        subtitle="Carpas, festivales y venues masivos iluminados con 40+ PAR LED."
+        paragraph1="Estas fotos son de producciones reales de REDEIL en eventos masivos de CDMX. La diferencia con instalaciones estándar está en la densidad de luminarias — cada metro cuadrado de la carpa o venue recibe su cobertura de color sin zonas apagadas."
+        paragraph2="¿Tienes un evento de gran escala? Contáctanos con el mayor detalle posible para diseñar la propuesta técnica completa."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-light/luces-para-eventos-sociales.avif", alt: "Luces PAR LED para eventos sociales masivos" },
+        { src: "/img/city-light/luces-para-bodas-jardin.avif", alt: "Producción de luces PAR LED para bodas en jardín" },
+        { src: "/img/city-light/luces-decorativas-eventos.avif", alt: "Luces decorativas PAR LED para eventos de gran escala" },
+        { src: "/img/city-light/renta-iluminacion-pastel-boda-rosa.avif", alt: "Iluminación PAR LED rosa para boda de gran escala" },
+        { src: "/img/city-light/renta-luces-eventos-sociales.avif", alt: "Renta de luces PAR LED para eventos sociales masivos" },
+        { src: "/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif", alt: "Entrada de novios con producción de iluminación magenta" },
+        { src: "/img/city-light/iluminacion-evento-baile-novios-magenta.avif", alt: "Show de luces PAR LED en evento masivo" },
+        { src: "/img/city-light/renta-iluminacion-evento-social-rosa.avif", alt: "Producción de iluminación rosa para evento social masivo" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Producción de Iluminación"
+        subtitle="Todo lo que necesitas saber para contratar una producción de gran escala."
+        paragraph1="Si tienes otra duda, llámanos al 55 3068 2988. Para producciones, preferimos una llamada para entender bien el alcance."
+        paragraph2="Entre más detalles del evento nos des, más precisa será la propuesta técnica."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete de producción con 40+ PAR LED?", answer: "El paquete incluye 40 o más luminarias PAR LED RGBW, equipo completo de técnicos, visita previa al venue, diseño de coreografía de color, operación profesional durante el evento y logística de transporte. La cantidad exacta de luminarias se determina en la visita previa según el espacio." },
+      { question: "¿Para qué escala de evento es el paquete de producción?", answer: "Es el paquete correcto para carpas de más de 400m², eventos con 400+ asistentes, festivales empresariales, ferias, convenciones y bodas masivas que requieren cobertura de iluminación a gran escala con múltiples zonas." },
+      { question: "¿Qué es una coreografía de color?", answer: "Es una secuencia programada de cambios de luz sincronizados con la música, los momentos del evento o el timeline de la producción. Las luminarias cambian de color, intensidad y patrón de forma coordinada. Se diseña y prueba antes del evento para garantizar que funcione perfectamente." },
+      { question: "¿Pueden instalar las luces en estructuras de carpa?", answer: "Sí. Tenemos experiencia instalando PAR LED en estructuras de aluminio de carpas de cualquier tamaño. Usamos monturas certificadas para instalación en truss. Evaluamos la estructura en la visita previa para garantizar la seguridad del montaje." },
+      { question: "¿El paquete de producción incluye generador?", answer: "Si el venue no cuenta con suficiente capacidad eléctrica, podemos coordinar el suministro de generadores. Se cotiza según la necesidad eléctrica del evento. En la visita previa evaluamos los requerimientos y te informamos si es necesario incluirlo." },
+      { question: "¿Cuánto tiempo antes debo contratar el paquete de producción?", answer: "Para eventos de producción, recomendamos contactarnos con mínimo 4-6 semanas de anticipación. El diseño de la coreografía, la visita previa y la logística requieren más tiempo que los paquetes estándar. En temporada alta, con 8 semanas de anticipación." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Servicios para tu Producción"
+        subtitle="Combina PAR LED con cabezas móviles, cascadas y guirnaldas."
+        paragraph1="Las producciones más impactantes combinan múltiples servicios. PAR LED para el ambiente general + cabezas móviles para el show de beams + cascadas LED para el escenario. Armamos el paquete completo."
+        paragraph2="Precio especial cuando combinas 3 o más servicios de REDEIL para un mismo evento."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu evento necesita producción completa de iluminación?</h2>
+        <p>Llámanos o escríbenos por WhatsApp con los detalles: tipo de evento, número de asistentes, tipo de venue y fecha. Diseñamos la propuesta técnica sin costo.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotizar Producción — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "16 PAR LED para Salón Completo de Bodas CDMX | REDEIL";
+const description = "Salón completo en color con 16 PAR LED RGBW. Dorado para cena, rosa para vals, multicolor para fiesta. Bodas CDMX. $6,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-light/paquete-16-par-led/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 16 PAR LED — Salón Completo de Bodas",
+    "description": "16 luminarias PAR LED RGBW para ambientar el salón completo. Dorado para la cena, rosa para el vals, multicolor para la fiesta. Operador DMX. Transporte, montaje y desmontaje incluidos.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-light/paquete-16-par-led/",
+      "priceCurrency": "MXN",
+      "price": "6000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "71",
+      "reviewCount": "71"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valentina Cruz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra boda en el Salón Versalles fue mágica gracias a REDEIL. Durante la cena todo estaba en dorado suave, en el vals cambiaron a rosa y cuando empezó la fiesta fue una explosión de colores. Los 200 invitados quedaron encantados. Vale completamente cada peso."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda en el Hotel Galería Plaza Reforma. Los 16 PAR LED cubrieron todo el salón sin ningún punto frío. El operador fue muy atento y cambió los colores en cada momento clave. Fotografías espectaculares."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana López" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para nuestros XV años en el Salón Imperio Pedregal contratamos las 16 luces y fue la decisión perfecta. El salón se transformó completamente — de un espacio normal a algo digno de revista. El servicio fue impecable de principio a fin."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-light/renta-de-luces-para-bodas-cdmx.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿16 PAR LED cubren un salón completo de bodas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 16 PAR LED distribuidos en el perímetro de un salón estándar de hasta 200m² crean un ambiente de color uniforme sin puntos fríos. Para bodas con 100-200 invitados, es el paquete ideal." }},
+      { "@type": "Question", "name": "¿Se puede cambiar el color durante la boda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, esa es la mayor ventaja. El operador DMX cambia los colores en tiempo real según los momentos del evento: dorado cálido durante la cena, rosa suave para el vals, multicolor en la fiesta. Los cambios son instantáneos y programados." }},
+      { "@type": "Question", "name": "¿Cuántos invitados caben con este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 16 PAR está pensado para bodas de 100 a 250 invitados en un salón estándar. Si tu salón tiene varias salas o supera los 250 invitados, te recomendamos el paquete de 24 PAR LED." }},
+      { "@type": "Question", "name": "¿Incluye operador durante todo el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El precio incluye un operador DMX profesional que permanece en el evento para ejecutar los cambios de color en cada momento clave: entrada, cena, vals, fiesta. Coordinamos con el DJ o maestro de ceremonias." }},
+      { "@type": "Question", "name": "¿El precio de $6,000 incluye todo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $6,000 + IVA incluyen transporte, montaje, operador durante el evento y desmontaje. Sin cargos extra por viáticos en CDMX y zona metropolitana. El precio es todo incluido." }},
+      { "@type": "Question", "name": "¿Se puede dividir el salón en 2 zonas de color diferentes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Con 16 PAR LED y control DMX podemos tener hasta 2 zonas independientes: por ejemplo, la zona de mesas en dorado y la pista de baile en azul. Cada zona se controla y cambia de forma independiente." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "8 PAR LED — Zona Específica", image: "/img/city-light/iluminacion-profesional-bodas-cdmx.avif", alt: "8 PAR LED para zona específica", description: "Ideal para mesa de novios, lounge o entrada. Cuando quieres destacar una zona puntual. $3,500 + IVA.", link: "/servicios/city-light/paquete-8-par-led/" },
+  { title: "24 PAR LED — Hacienda Premium", image: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "24 PAR LED para hacienda y eventos premium", description: "Múltiples zonas independientes para haciendas y eventos corporativos de gran formato. $9,000 + IVA.", link: "/servicios/city-light/paquete-24-par-led/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para show de luces", description: "16 PAR crean el ambiente del salón y las cabezas móviles hacen el show. La combinación perfecta.", link: "/servicios/cabezas-moviles/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para jardín", description: "PAR LED dentro del salón más guirnaldas cálidas en el jardín. Adentro y afuera completamente iluminados.", link: "/servicios/guirnaldas/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Light", href: "/servicios/city-light/" },
+    { label: "Paquete 16 PAR LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 16 PAR LED — Salón Completo para Bodas"
+    subtitle="$6,000 + IVA. El salón entero en tu color. Dorado para cena, rosa para vals, multicolor para fiesta."
+    introParagraph1='El paquete de 16 PAR LED es el más solicitado para bodas en CDMX — y por razones muy concretas. Con 16 luminarias distribuidas en el perímetro del salón, cubres un espacio de hasta 200m² con un <strong>color uniforme sin puntos fríos</strong>. El mismo salón que durante la cena brilla en un dorado elegante, se transforma en rosa pálido para el vals y explota en multicolor cuando empieza la fiesta. Todo con el mismo paquete, mismo precio.'
+    introParagraph2='El operador DMX es parte del servicio. Durante todo el evento maneja los colores en coordinación con el DJ o maestro de ceremonias — los cambios son instantáneos y están programados por momentos. Para bodas con <strong>100 a 250 invitados</strong> en un salón estándar, este paquete es la respuesta correcta. Transporte, montaje, operación y desmontaje incluidos en toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes City Light"
+    items={[
+      { label: "8 PAR — Zona específica $3,500", href: "/servicios/city-light/paquete-8-par-led/", icon: "iluminacion" },
+      { label: "24 PAR — Hacienda $9,000", href: "/servicios/city-light/paquete-24-par-led/", icon: "iluminacion" },
+      { label: "40+ PAR — Producción $14,000", href: "/servicios/city-light/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Personalizado", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Más Popular"
+      price="$6,000"
+      priceNote="+ IVA · Todo incluido"
+      features={[
+        { text: "16 PAR LED RGBW profesionales" },
+        { text: "Salón completo hasta 200m²" },
+        { text: "2 zonas de color independientes" },
+        { text: "Cambios de color por momento" },
+        { text: "Operador DMX profesional" },
+        { text: "Coordinación con DJ/ceremonias" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Ideal: bodas 100-250 invitados" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 16 PAR LED para salón completo en mi boda."
+      packages={[
+        { label: "8 PAR LED", price: "$3,500", href: "/servicios/city-light/paquete-8-par-led/" },
+        { label: "16 PAR LED", price: "$6,000", href: "/servicios/city-light/paquete-16-par-led/", active: true },
+        { label: "24 PAR LED", price: "$9,000", href: "/servicios/city-light/paquete-24-par-led/" },
+        { label: "Producción 40+", price: "$14,000", href: "/servicios/city-light/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="El color correcto para cada momento de tu boda"
+          subtitle="Un operador cambia el ambiente en segundos — tú solo disfrutas."
+          paragraph1="La magia del paquete de 16 PAR LED está en la programación de momentos. Antes del evento, coordinamos contigo qué colores quieres para cada parte: la cena, las entradas especiales, el vals, el brindis y la fiesta."
+          paragraph2="El día del evento, el operador ejecuta los cambios según el timeline. Sin interrupciones, sin delay — el salón cambia de ambiente en un segundo."
+        />
+        <FeatureGrid features={[
+          { title: "Cena — Dorado Cálido", description: "El tono más elegante para la cena. Hace brillar los arreglos florales y los vestidos." },
+          { title: "Entrada de Novios — Rosa o Blanco", description: "La entrada que todos esperan con el color de la boda. Memorable y fotogénica." },
+          { title: "Vals — Rosa Suave", description: "El momento más romántico con la luz perfecta para las fotos del primer baile." },
+          { title: "Brindis — Ámbar Intenso", description: "Cálido y sofisticado. El tono perfecto para el momento del brindis y los discursos." },
+          { title: "Hora Loca — Multicolor", description: "Cuando empieza la fiesta, el salón se transforma. Colores que cambian con la música." },
+          { title: "Cierre — Blanco Brillante", description: "La despedida de los novios con toda la potencia de las 16 luminarias en blanco puro." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Para qué salones funciona mejor?"
+          subtitle="Salones estándar de hasta 200m² — la mayoría de los venues de CDMX."
+          paragraph1="Los salones de banquetes más comunes en CDMX miden entre 100 y 200m² de sala principal. Para esa escala, 16 PAR LED distribuidos en el perímetro crean una cobertura de color uniforme que alcanza de pared a pared."
+          paragraph2="Si tu salón tiene áreas separadas (jardín, terraza, salón secundario), considera el paquete de 24 PAR para cubrir múltiples zonas de forma independiente."
+        />
+        <FeatureGrid features={[
+          { title: "Salones de Banquetes", description: "El 90% de los salones de CDMX funcionan perfectamente con 16 PAR LED." },
+          { title: "Salones de Hotel", description: "Hoteles boutique y de cadena — cobertura completa del área de eventos." },
+          { title: "Jardines con Carpa", description: "Carpas de hasta 15x15m con instalación en la estructura de la carpa." },
+          { title: "Centros de Convenciones", description: "Salas medianas de hasta 200 invitados sentados en mesas redondas." },
+          { title: "Lofts y Espacios Industriales", description: "Techos altos y paredes de ladrillo que hacen brillar cualquier color." },
+          { title: "Salones de Hacienda", description: "La sala principal. Para cubrir la hacienda completa, ver paquete 24 PAR." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 71 reseñas verificadas."
+          paragraph1="El paquete más popular de REDEIL — 71 bodas y eventos con calificación perfecta."
+          paragraph2="Pregunta por referencias de salones similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Valentina Cruz", event: "Boda — Salón Versalles, CDMX", rating: 5, text: "Durante la cena todo estaba en dorado suave, en el vals cambiaron a rosa y cuando empezó la fiesta fue una explosión de colores. Los 200 invitados quedaron encantados." },
+          { name: "Roberto Sánchez", event: "Boda — Hotel Galería Plaza Reforma", rating: 5, text: "Los 16 PAR LED cubrieron todo el salón sin ningún punto frío. El operador fue muy atento y cambió los colores en cada momento clave. Fotografías espectaculares." },
+          { name: "Mariana López", event: "XV Años — Salón Imperio Pedregal", rating: 5, text: "El salón se transformó completamente — de un espacio normal a algo digno de revista. El servicio fue impecable de principio a fin." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Salones transformados con 16 PAR LED"
+        subtitle="El antes y después más notorio de cualquier servicio de iluminación."
+        paragraph1="Un salón sin color es un salón genérico. Un salón con 16 PAR LED en el tono de tu boda es un escenario único. Estas fotos son de eventos reales en salones de CDMX con nuestro paquete estándar de 16 luminarias."
+        paragraph2="¿Tienes fotos de tu salón? Mándanoslas por WhatsApp y te mostramos cómo quedaría con el paquete de 16 PAR."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-light/renta-de-luces-para-bodas-cdmx.avif", alt: "Renta de luces PAR LED para bodas en CDMX" },
+        { src: "/img/city-light/renta-iluminacion-entrada-novios-rosa.avif", alt: "Entrada de novios con iluminación rosa PAR LED" },
+        { src: "/img/city-light/luces-ambientar-jardin-boda-calido.avif", alt: "Luces PAR LED cálidas para ambientar boda en jardín" },
+        { src: "/img/city-light/renta-luces-boda-recepcion-elegante.avif", alt: "Recepción de boda elegante con luces PAR LED" },
+        { src: "/img/city-light/luces-boda-brindis-ambar-elegante.avif", alt: "Brindis de boda con iluminación ámbar elegante" },
+        { src: "/img/city-light/iluminacion-fiestas-salon-gala-rosa.avif", alt: "Salón de gala con iluminación rosa para fiesta" },
+        { src: "/img/city-light/iluminacion-profesional-eventos.avif", alt: "Iluminación profesional con PAR LED para eventos" },
+        { src: "/img/city-light/renta-de-luces-para-eventos-cdmx.avif", alt: "Renta de luces PAR LED para eventos en CDMX" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 16 PAR LED"
+        subtitle="Todo lo que necesitas saber sobre el paquete más popular de REDEIL."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tamaño de tu salón y el número de invitados — te confirmamos si este paquete es el correcto."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿16 PAR LED cubren un salón completo de bodas?", answer: "Sí. 16 PAR LED distribuidos en el perímetro de un salón estándar de hasta 200m² crean un ambiente de color uniforme sin puntos fríos. Para bodas con 100-250 invitados, es el paquete ideal." },
+      { question: "¿Se puede cambiar el color durante la boda?", answer: "Sí, esa es la mayor ventaja. El operador DMX cambia los colores en tiempo real: dorado cálido durante la cena, rosa suave para el vals, multicolor en la fiesta. Los cambios son instantáneos y están programados por momentos con el timeline de tu evento." },
+      { question: "¿Cuántos invitados caben con este paquete?", answer: "El paquete de 16 PAR está pensado para bodas de 100 a 250 invitados en un salón estándar. Si tu salón tiene varias salas o supera los 250 invitados, te recomendamos el paquete de 24 PAR LED ($9,000)." },
+      { question: "¿Incluye operador durante todo el evento?", answer: "Sí. El precio incluye un operador DMX profesional que permanece en el evento para ejecutar los cambios de color en cada momento clave. Coordinamos con el DJ o maestro de ceremonias con anticipación." },
+      { question: "¿El precio de $6,000 incluye todo?", answer: "Sí. Los $6,000 + IVA incluyen transporte, montaje, operador profesional durante el evento completo y desmontaje. Sin cargos extra por viáticos en CDMX y zona metropolitana." },
+      { question: "¿Se puede dividir el salón en zonas de color diferentes?", answer: "Sí. Con 16 PAR LED y control DMX podemos crear 2 zonas independientes: por ejemplo, la zona de mesas en dorado y la pista de baile en azul. Si necesitas 4 zonas independientes, el paquete de 24 PAR ($9,000) es la opción correcta." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más zonas o complementar con un show de luces?"
+        paragraph1="Si tu evento requiere cubrir múltiples espacios o quieres agregar un show de luces con cabezas móviles, tenemos opciones para cada escala y presupuesto."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu salón con 16 PAR LED?</h2>
+        <p>Mándanos la fecha, el nombre del salón y el número de invitados por WhatsApp. Te confirmamos disponibilidad y te enviamos el presupuesto completo en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

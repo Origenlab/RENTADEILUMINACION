@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Uplighting Producción — Venues Premium CDMX | REDEIL";
+const description = "Venue completo: fachada, jardín, salón, pasillos con 30+ uplighters de alta potencia. Producción completa para edificios históricos y mega venues en hacienda CDMX. $14,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/iluminacion-arquitectonica/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción Uplighting — Bodas en Hacienda CDMX",
+    "description": "30+ reflectores LED uplighting inalámbricos para cubrir fachada completa más jardín con árboles en bodas de hacienda. El paquete más solicitado para venues coloniales en CDMX. $14,000 + IVA.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/iluminacion-arquitectonica/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "14000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "20",
+      "reviewCount": "20"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carmen Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra boda en la Hacienda de Cortés en Tlayacapan fue un sueño. Los 30+ uplighters cubrieron toda la fachada en ámbar dorado y los árboles del jardín en verde esmeralda. Cada foto del exterior parecía de revista. El equipo de REDEIL fue extraordinariamente profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrés Mendez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda en la Hacienda San Gabriel de Barrera en la CDMX. Fachada en rosa para los novios y jardín en violeta para el área de coctel. Dos ambientes completamente diferentes en el mismo evento. Los invitados quedaron impresionados. 100% lo recomiendo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Laura Vázquez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para nuestra boda en la Finca Santa Lucía en Milpa Alta contratamos las 12 luces y fue la mejor decisión del evento. Los árboles iluminados en morado con la fachada en rosa fue la combinación perfecta. Sin un solo cable visible. Pura magia."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/iluminacion-arquitectonica/iluminacion-boda-jardin-arboles-violeta-mesa-imperial-hacienda.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Por qué el paquete de 30+ uplighters es el más popular?", "acceptedAnswer": { "@type": "Answer", "text": "Porque cubre exactamente lo que una boda en hacienda necesita: la fachada completa más el jardín con los árboles. 6 reflectores en la fachada y 6 en el jardín crean dos atmósferas distintas sin dejar ningún área sin iluminar. Es el equilibrio perfecto entre cobertura y precio." }},
+      { "@type": "Question", "name": "¿Se pueden tener dos colores diferentes en la misma instalación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Con 30+ uplighters podemos crear 2 zonas de color independientes. Por ejemplo, fachada en ámbar dorado y jardín en violeta. O fachada en rosa y árboles en verde. Cada zona se programa de forma independiente y puede cambiar de color durante el evento si lo deseas." }},
+      { "@type": "Question", "name": "¿Los 30+ uplighters cubren toda una hacienda mediana?", "acceptedAnswer": { "@type": "Answer", "text": "Para haciendas medianas con fachada de hasta 25 metros y jardín con hasta 6 árboles o columnas, sí. Si la hacienda tiene múltiples patios, capilla separada o más de 6 zonas a iluminar, el paquete de 20 uplighters es más adecuado." }},
+      { "@type": "Question", "name": "¿Los reflectores aguantan una noche completa al exterior?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los Chauvet Freedom Par tienen batería de hasta 12 horas y clasificación IP65 — funcionan bajo llovizna y humedad nocturna sin ningún problema. Hemos operado en temporada de lluvias en haciendas del Estado de México sin incidentes." }},
+      { "@type": "Question", "name": "¿El precio incluye el montaje en jardín?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $14,000 + IVA incluyen todo: transporte de los 30+ reflectores, instalación en fachada y jardín (sin cables, sin perforaciones), operación durante el evento y retiro al finalizar. Sin costos extra en CDMX y zona metropolitana." }},
+      { "@type": "Question", "name": "¿Se puede cambiar el color durante la boda?", "acceptedAnswer": { "@type": "Answer", "text": "En el paquete de 30+ uplighters el color se programa antes del evento. Si quieres cambios de color en tiempo real durante la boda (por ejemplo, cambiar de ámbar a rosa para el vals), te recomendamos el paquete de 20 uplighters con control DMX incluido." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "6 Uplighters — Fachada Frontal", image: "/img/iluminacion-arquitectonica/iluminacion-arcos-coloniales-columnas-piedra-luz-calida-boda.avif", alt: "6 uplighters para fachada frontal de hacienda", description: "Solo la fachada principal o el arco de ceremonia. Ideal como complemento o para presupuestos ajustados. $3,500 + IVA.", link: "/servicios/iluminacion-arquitectonica/paquete-6-uplighters/" },
+  { title: "20 Uplighters — Hacienda + DMX", image: "/img/iluminacion-arquitectonica/iluminacion-arcada-hacienda-plantas-luz-ambar-evento-social.avif", alt: "20 uplighters para hacienda completa con DMX", description: "Hacienda completa con 4 zonas y cambios de color en vivo. Para bodas grandes. $9,500 + IVA.", link: "/servicios/iluminacion-arquitectonica/paquete-20-uplighters/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City Color para fachadas", description: "Uplighters para los detalles arquitectónicos + city color para las fachadas más grandes.", link: "/servicios/city-color/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky Tracker al cielo nocturno", description: "Uplighting en el suelo + haces de luz al cielo. La producción completa para eventos nocturnos.", link: "/servicios/sky-tracker/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Iluminación Arquitectónica", href: "/servicios/iluminacion-arquitectonica/" },
+    { label: "Paquete Producción Uplighting" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Producción Uplighting — Fachada + Jardín para Bodas"
+    subtitle="$14,000 + IVA. El paquete más popular para bodas en hacienda. Fachada completa y jardín iluminados."
+    introParagraph1='El paquete de 30+ uplighters es el más pedido para bodas en hacienda en CDMX — y tiene una razón muy específica: cubre exactamente las dos zonas que hacen la diferencia en las fotos y en la experiencia de los invitados. <strong>6 reflectores para la fachada completa</strong> y <strong>6 para el jardín</strong> con árboles, columnas y arcos laterales. Dos zonas. Dos colores. Una hacienda completamente transformada.'
+    introParagraph2='Sin cables visibles en ningún punto del venue — todos los reflectores son inalámbricos con batería de 12 horas. La fachada puede estar en ámbar dorado mientras el jardín del coctel brilla en violeta. O la entrada en rosa y los árboles en verde esmeralda. El color se programa según tu paleta antes del evento y los reflectores funcionan solos durante toda la noche. Transporte, montaje y desmontaje incluidos en <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes de uplighting"
+    items={[
+      { label: "6 uplighters — Fachada frontal $3,500", href: "/servicios/iluminacion-arquitectonica/paquete-6-uplighters/", icon: "iluminacion" },
+      { label: "20 uplighters — Hacienda completa $9,500", href: "/servicios/iluminacion-arquitectonica/paquete-20-uplighters/", icon: "iluminacion" },
+      { label: "30+ uplighters — Producción $14,000", href: "/servicios/iluminacion-arquitectonica/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Más Popular"
+      price="$14,000"
+      priceNote="+ IVA · Sin cables · 2 zonas de color"
+      features={[
+        { text: "30+ uplighters LED RGBW inalámbricos" },
+        { text: "Venue completo: fachada, jardín, salón, pasillos" },
+        { text: "2 zonas de color independientes" },
+        { text: "Batería hasta 12 horas por unidad" },
+        { text: "Sin cables en el piso" },
+        { text: "Color programado según tu paleta" },
+        { text: "Resistencia IP65 para exteriores" },
+        { text: "Transporte, montaje y desmontaje" },
+        { text: "Ideal: bodas en hacienda CDMX" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 30+ uplighters para bodas en hacienda — fachada y jardín."
+      packages={[
+        { label: "6 Uplighters", price: "$3,500", href: "/servicios/iluminacion-arquitectonica/paquete-6-uplighters/" },
+        { label: "12 Uplighters", price: "$14,000", href: "/servicios/iluminacion-arquitectonica/paquete-produccion/", active: true },
+        { label: "20 Uplighters", price: "$9,500", href: "/servicios/iluminacion-arquitectonica/paquete-20-uplighters/" },
+        { label: "Producción 30+", price: "$14,000", href: "/servicios/iluminacion-arquitectonica/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Venue completo: fachada, jardín, salón, pasillos: la cobertura perfecta"
+          subtitle="6 uplighters por zona — cobertura sin puntos apagados."
+          paragraph1="La distribución de los 30+ reflectores se diseña según la arquitectura específica de tu hacienda. Enviamos fotos del venue para planear la colocación antes del evento."
+          paragraph2="El resultado: cuando cae la noche, la hacienda se transforma en algo que no parece el mismo lugar que durante el día. Los invitados llegan a un escenario completamente diferente."
+        />
+        <FeatureGrid features={[
+          { title: "Fachada Principal Completa", description: "Toda la fachada frontal — arcos, columnas, muros — bañada en el color de tu boda." },
+          { title: "Jardín y Árboles", description: "Los árboles del jardín como esculturas de luz. Verde profundo, malva intenso o ámbar cálido." },
+          { title: "Arcos Laterales", description: "Los corredores de arcos coloniales que conectan las zonas del evento, todos iluminados." },
+          { title: "Columnas del Patio", description: "Cada columna con su reflector al pie. Un pasillo de color hacia la recepción." },
+          { title: "Zona de Coctel", description: "El área de coctel con su propio color — diferente al de la fachada principal." },
+          { title: "Entrada del Jardín", description: "El acceso desde el estacionamiento hasta la hacienda, iluminado todo el camino." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Dos colores, dos atmósferas, un mismo evento"
+          subtitle="Fachada y jardín con paletas independientes."
+          paragraph1="La ventaja de 2 zonas independientes es que puedes crear atmósferas distintas en un mismo evento. La fachada en el color de boda y el jardín de coctel en un tono complementario — o contrastante si prefieres algo más dramático."
+          paragraph2="El fotógrafo y el videógrafo lo agradecen: tienen múltiples escenarios con paletas diferentes, lo que da variedad visual a las fotos del evento sin cambiar de venue."
+        />
+        <FeatureGrid features={[
+          { title: "Rosa + Verde", description: "La combinación más pedida para bodas románticas en hacienda con jardín." },
+          { title: "Ámbar + Violeta", description: "Calidez en la fachada y drama en el jardín. Contraste elegante." },
+          { title: "Blanco + Azul", description: "Clásico y moderno. Fachada de bodas formales con jardín fresco." },
+          { title: "Dorado + Turquesa", description: "Para bodas con paleta tropical o de destino en venues coloniales." },
+          { title: "Rojo + Naranja", description: "Energía y calidez para XV años y celebraciones vibrantes." },
+          { title: "Color Único", description: "También puedes usar el mismo color en ambas zonas para máxima coherencia visual." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 78 reseñas verificadas — el más calificado de REDEIL."
+          paragraph1="El paquete más popular de toda la línea de uplighting — 78 bodas y eventos con calificación perfecta."
+          paragraph2="Pregunta por referencias de haciendas específicas cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Carmen Ríos", event: "Boda — Hacienda de Cortés, Tlayacapan", rating: 5, text: "Los 30+ uplighters cubrieron toda la fachada en ámbar dorado y los árboles del jardín en verde esmeralda. Cada foto del exterior parecía de revista." },
+          { name: "Andrés Mendez", event: "Boda — Hacienda San Gabriel de Barrera", rating: 5, text: "Fachada en rosa y jardín en violeta. Dos ambientes completamente diferentes en el mismo evento. Los invitados quedaron impresionados." },
+          { name: "Laura Vázquez", event: "Boda — Finca Santa Lucía, Milpa Alta", rating: 5, text: "Los árboles iluminados en morado con la fachada en rosa fue la combinación perfecta. Sin un solo cable visible. Pura magia." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Haciendas transformadas con 30+ uplighters"
+        subtitle="Fachada y jardín — la combinación que hace las mejores fotos."
+        paragraph1="Estas fotos son de bodas reales con nuestro paquete de 30+ uplighters en haciendas de CDMX y Estado de México. La transformación que logran 30+ reflectores bien distribuidos en una hacienda colonial no tiene comparación en ningún otro servicio de iluminación."
+        paragraph2="¿Tienes fotos de tu hacienda? Mándanoslas por WhatsApp y te hacemos una propuesta de colores para cada zona."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/iluminacion-arquitectonica/iluminacion-boda-jardin-arboles-violeta-mesa-imperial-hacienda.avif", alt: "Jardín de hacienda con árboles iluminados en violeta para boda" },
+        { src: "/img/iluminacion-arquitectonica/iluminacion-arcos-coloniales-luces-cadena-cielo-nocturno-hacienda.avif", alt: "Arcos coloniales iluminados con luces de cadena en cielo nocturno" },
+        { src: "/img/iluminacion-arquitectonica/boda-exterior-hacienda-luces-string-fachada-ambar-parejas-bailando.avif", alt: "Exterior de hacienda con fachada ámbar y parejas bailando" },
+        { src: "/img/iluminacion-arquitectonica/iluminacion-camino-hacienda-mexicana-agaves-palmeras-entrada.avif", alt: "Camino de hacienda mexicana con agaves y palmeras iluminados" },
+        { src: "/img/iluminacion-arquitectonica/iluminacion-boda-hacienda-dosel-luces-fachada-rosa-flores.avif", alt: "Fachada de hacienda con dosel y luces rosa para boda" },
+        { src: "/img/iluminacion-arquitectonica/iluminacion-boda-lujo-rosa-columnas-pista-baile-pastel.avif", alt: "Columnas iluminadas en rosa pastel para boda de lujo" },
+        { src: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-moderna-azul-turquesa-terraza-lounge.avif", alt: "Terraza lounge con uplighting azul turquesa moderno" },
+        { src: "/img/iluminacion-arquitectonica/equipo-reflectores-led-wash-calido-instalacion-profesional.avif", alt: "Equipo de reflectores LED wash en instalación profesional para evento" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Producción Uplighting"
+        subtitle="Todo lo que necesitas saber sobre el paquete más popular para bodas en hacienda."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Mándanos fotos de tu hacienda y te decimos exactamente cuántos y dónde van los reflectores."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Por qué el paquete de 30+ uplighters es el más popular?", answer: "Porque cubre exactamente lo que una boda en hacienda necesita: la fachada completa más el jardín con árboles. 6 reflectores en cada zona crean dos atmósferas distintas sin dejar ningún área sin iluminar. Es el equilibrio perfecto entre cobertura y precio." },
+      { question: "¿Se pueden tener dos colores diferentes en la misma instalación?", answer: "Sí. Con 30+ uplighters creamos 2 zonas de color independientes. Por ejemplo, fachada en ámbar dorado y jardín en violeta. O fachada en rosa y árboles en verde. Cada zona se programa de forma independiente." },
+      { question: "¿Los 30+ uplighters cubren toda una hacienda mediana?", answer: "Para haciendas medianas con fachada de hasta 25 metros y jardín con hasta 6 árboles o columnas, sí. Si la hacienda tiene múltiples patios, capilla separada o más de 6 zonas a iluminar, el paquete de 20 uplighters es más adecuado." },
+      { question: "¿Los reflectores aguantan una noche completa al exterior?", answer: "Sí. Los Chauvet Freedom Par tienen batería de hasta 12 horas y clasificación IP65 — funcionan bajo llovizna y humedad nocturna. Hemos operado en temporada de lluvias en haciendas del Estado de México sin ningún incidente." },
+      { question: "¿El precio incluye el montaje en jardín?", answer: "Sí. Los $14,000 + IVA incluyen transporte de los 30+ reflectores, instalación en fachada y jardín, operación durante el evento y retiro al finalizar. Sin costos extra en CDMX y zona metropolitana." },
+      { question: "¿Se puede cambiar el color durante la boda?", answer: "En el paquete de 30+ uplighters el color se programa antes del evento y se mantiene fijo. Si quieres cambios de color en tiempo real durante la boda, te recomendamos el paquete de 20 uplighters con control DMX incluido ($9,500)." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu hacienda necesita más cobertura o quieres agregar sky trackers?"
+        paragraph1="Si tu hacienda tiene capilla, múltiples patios y jardines, el paquete de 20 uplighters con DMX te da control total en tiempo real. Y con sky trackers, la producción nocturna sube a otro nivel."
+        paragraph2="Propuestas integrales con precio especial cuando combinas 2 o más servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu hacienda con 30+ uplighters?</h2>
+        <p>Mándanos la fecha y fotos de tu hacienda por WhatsApp. Te confirmamos disponibilidad y te enviamos la propuesta de colores con el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

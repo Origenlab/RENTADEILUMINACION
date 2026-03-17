@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "8 PAR LED para Mesa de Novios y Zona Lounge CDMX | REDEIL";
+const description = "Iluminación con 8 luminarias PAR LED RGBW para zona específica: mesa de novios, lounge o entrada. Bodas CDMX. $3,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-light/paquete-8-par-led/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 8 PAR LED — Mesa de Novios y Zona Lounge",
+    "description": "8 luminarias PAR LED RGBW para iluminar una zona específica del evento: mesa de novios, lounge, entrada o altar. Control DMX. Transporte, instalación y desmontaje incluidos.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-light/paquete-8-par-led/",
+      "priceCurrency": "MXN",
+      "price": "3500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "48",
+      "reviewCount": "48"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Ramírez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos las 8 luces para iluminar la mesa de novios en el Salón Los Ángeles en Tepito. El foco rosa sobre la mesa se veía espectacular en todas las fotos. El equipo llegó puntual y el montaje fue rapidísimo. Totalmente recomendados."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Javier Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Las usamos para la zona lounge de nuestra boda en el Centro Cultural Tlatelolco. El ambiente quedó increíble — luz azul suave que separaba visualmente el área de descanso. Muy profesionales."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Fuentes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la entrada del salón Camino Real Polanco usamos 8 PAR LED en dorado. La primera impresión de los invitados fue wow. Vale cada peso y el precio es muy accesible para lo que ofrecen."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-light/iluminacion-profesional-bodas-cdmx.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Para qué sirve el paquete de 8 PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 8 PAR LED está diseñado para iluminar una zona específica de tu evento: la mesa de novios, la zona lounge, la entrada del salón o el altar de la ceremonia. No cubre el salón completo — es ideal cuando quieres destacar un espacio puntual con color." }},
+      { "@type": "Question", "name": "¿8 luces son suficientes para mi mesa de novios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para una mesa de novios estándar de hasta 5 metros de largo, 4-6 PAR LED son suficientes. Las 8 unidades te permiten iluminar la mesa más un pequeño backdrop o un área adicional como el bar o la zona de pastel." }},
+      { "@type": "Question", "name": "¿Puedo elegir el color de las luces?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, cada PAR LED RGBW puede producir cualquier color. El operador programa los colores según tu paleta de boda — rosa, dorado, azul, violeta, blanco cálido — y puede cambiarlos durante el evento si lo deseas." }},
+      { "@type": "Question", "name": "¿El precio de $3,500 incluye instalación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $3,500 + IVA incluyen transporte del equipo, montaje, operación durante todo el evento y desmontaje al finalizar. Sin cargos extra por viáticos dentro de la CDMX y zona metropolitana." }},
+      { "@type": "Question", "name": "¿Puedo ampliar el paquete el mismo día?", "acceptedAnswer": { "@type": "Answer", "text": "Si hay disponibilidad de equipo, sí. Pero te recomendamos definir la cantidad desde la cotización para garantizar la disponibilidad y diseñar el montaje óptimo desde el inicio." }},
+      { "@type": "Question", "name": "¿Se puede combinar con otros servicios de REDEIL?", "acceptedAnswer": { "@type": "Answer", "text": "Sí y es lo más común. Las 8 luces para la mesa de novios se combinan frecuentemente con cascadas LED de fondo, guirnaldas en el jardín o cabezas móviles para el show de baile. Cotiza el paquete combinado para precio especial." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "16 PAR LED — Salón Completo", image: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "16 PAR LED para salón completo de bodas", description: "El salón entero en el color de tu boda. Dorado para cena, rosa para vals, multicolor para fiesta. $6,000 + IVA.", link: "/servicios/city-light/paquete-16-par-led/" },
+  { title: "24 PAR LED — Hacienda Premium", image: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "24 PAR LED para hacienda y eventos premium", description: "4 zonas independientes para haciendas completas y eventos corporativos de gran formato. $9,000 + IVA.", link: "/servicios/city-light/paquete-24-par-led/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City Color para iluminación de fachadas", description: "Complementa el PAR LED interior con city color para fachadas. Iluminación completa dentro y fuera.", link: "/servicios/city-color/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "PAR LED en el salón más cascadas LED detrás de la mesa de novios. El backdrop más fotogénico.", link: "/servicios/cascadas-led/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Light", href: "/servicios/city-light/" },
+    { label: "Paquete 8 PAR LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 8 PAR LED — Mesa de Novios y Zona Lounge"
+    subtitle="Desde $3,500 + IVA. 8 luminarias RGBW para una zona específica de tu evento. Operador DMX incluido."
+    introParagraph1='El paquete de 8 PAR LED es la solución precisa para destacar un espacio concreto dentro de tu evento. No necesitas cubrir todo el salón — a veces lo que quieres es que la <strong>mesa de novios brille</strong> en el color de tu boda, que la <strong>zona lounge</strong> tenga un ambiente diferente al resto del salón, o que la <strong>entrada</strong> reciba a tus invitados con una luz que deje boca abierta. Para eso están estas 8 luminarias profesionales PAR LED RGBW.'
+    introParagraph2='Cada unidad produce cualquier color del espectro — desde un dorado cálido para la cena hasta un rosa intenso para el vals o un azul profundo para el lounge. El operador controla cada luminaria vía DMX de forma individual, lo que significa que puedes tener el mismo color en las 8 o colores diferentes por zonas. Transporte, montaje, operación y desmontaje incluidos. Servicio en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas cubrir más zonas?"
+    items={[
+      { label: "16 PAR — Salón completo $6,000", href: "/servicios/city-light/paquete-16-par-led/", icon: "iluminacion" },
+      { label: "24 PAR — Hacienda $9,000", href: "/servicios/city-light/paquete-24-par-led/", icon: "iluminacion" },
+      { label: "40+ PAR — Producción $14,000", href: "/servicios/city-light/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Personalizado", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete Básico"
+      price="$3,500"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "8 PAR LED RGBW profesionales" },
+        { text: "1 zona específica del evento" },
+        { text: "Control DMX individual por unidad" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Operador profesional todo el evento" },
+        { text: "Cualquier color personalizado" },
+        { text: "Ideal: mesa novios, lounge, entrada" },
+        { text: "Cobertura CDMX y Edomex" },
+        { text: "Sin cables visibles (modelos batería)" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 8 PAR LED para mesa de novios o zona lounge en mi evento."
+      packages={[
+        { label: "8 PAR LED", price: "$3,500", href: "/servicios/city-light/paquete-8-par-led/", active: true },
+        { label: "16 PAR LED", price: "$6,000", href: "/servicios/city-light/paquete-16-par-led/" },
+        { label: "24 PAR LED", price: "$9,000", href: "/servicios/city-light/paquete-24-par-led/" },
+        { label: "Producción 40+", price: "$14,000", href: "/servicios/city-light/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Qué puedes iluminar con 8 PAR LED?"
+          subtitle="Una zona específica, perfectamente iluminada y en tu color."
+          paragraph1="8 luminarias distribuidas estratégicamente crean un foco de atención visual que separa la zona especial del resto del salón. No compiten con la iluminación general — la complementan con color y protagonismo."
+          paragraph2="El resultado: los invitados saben exactamente dónde mirar cuando los novios entran, cuando llega el pastel o cuando empieza el baile."
+        />
+        <FeatureGrid features={[
+          { title: "Mesa de Novios", description: "4-6 unidades bañan la mesa en el color de boda. El punto focal de toda la recepción." },
+          { title: "Zona Lounge", description: "Ambiente íntimo y diferenciado para el área de descanso. Azul suave, malva o ámbar." },
+          { title: "Entrada del Salón", description: "Primera impresión memorable. Dorado, rosa o el color de tu paleta de bodas." },
+          { title: "Altar de Ceremonia", description: "Iluminación puntual sobre el arco o altar. Crea una atmósfera sagrada y fotogénica." },
+          { title: "Barra de Cócteles", description: "Bar iluminado que invita. Cambia de color entre coctel y cena." },
+          { title: "Zona de Pastel", description: "El momento del pastel merece su propia luz. Spot perfecto para las fotos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="El equipo que usamos"
+          subtitle="Luminarias profesionales Chauvet y ADJ — no equipos de renta genérica."
+          paragraph1="Trabajamos con Chauvet SlimPAR Pro y ADJ Mega Par Profile — luminarias RGBW de alto rendimiento usadas en producciones profesionales. La diferencia con equipos de segunda línea es visible: colores más puros, mezcla más uniforme y sin parpadeos."
+          paragraph2="Los modelos con batería integrada no necesitan cable de corriente — los colocamos exactamente donde queremos sin restricciones. Hasta 12 horas de autonomía."
+        />
+        <FeatureGrid features={[
+          { title: "RGBW de Alta Fidelidad", description: "Rojo, verde, azul y blanco independientes. Colores puros sin mezclas sucias." },
+          { title: "Control DMX512", description: "Cada unidad controlada individualmente. Colores diferentes por zona." },
+          { title: "Modelos con Batería", description: "Sin cables. Colocación libre en cualquier punto del venue." },
+          { title: "Ángulo de Apertura Ajustable", description: "Haz estrecho para mesa de novios o amplio para zona lounge." },
+          { title: "Silenciosos", description: "Sin ventiladores ruidosos. No interrumpen la ceremonia ni los discursos." },
+          { title: "Temperatura de Color Ajustable", description: "Blanco frío, blanco cálido o cualquier tono de color." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 48 reseñas verificadas."
+          paragraph1="Clientes reales que contrataron las 8 luces para su mesa de novios, lounge o entrada."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes por WhatsApp."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Sofía Ramírez", event: "Boda — Salón Los Ángeles, Tepito", rating: 5, text: "El foco rosa sobre la mesa se veía espectacular en todas las fotos. El equipo llegó puntual y el montaje fue rapidísimo. Totalmente recomendados." },
+          { name: "Javier Torres", event: "Boda — Centro Cultural Tlatelolco", rating: 5, text: "La zona lounge quedó increíble — luz azul suave que separaba visualmente el área de descanso del salón principal. Muy profesionales." },
+          { name: "Daniela Fuentes", event: "Boda — Camino Real Polanco", rating: 5, text: "Para la entrada del salón usamos 8 PAR LED en dorado. La primera impresión de los invitados fue wow. Vale cada peso." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="8 PAR LED en eventos reales"
+        subtitle="Mesa de novios, lounge y entradas iluminadas con nuestra tecnología."
+        paragraph1="Cada foto es de un montaje real con 8 luminarias PAR LED en zonas específicas de bodas y eventos en CDMX. El foco de color sobre una zona puntual cambia completamente la fotografía del evento."
+        paragraph2="¿Quieres saber cómo quedarían en tu venue? Mándanos fotos por WhatsApp y te mostramos una simulación."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-light/iluminacion-profesional-bodas-cdmx.avif", alt: "Iluminación profesional PAR LED para bodas en CDMX" },
+        { src: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "PAR LED para zona de fiesta en CDMX" },
+        { src: "/img/city-light/iluminacion-salon-bodas.avif", alt: "Mesa de novios iluminada con PAR LED en salón de bodas" },
+        { src: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "Iluminación PAR LED en boda de hacienda" },
+        { src: "/img/city-light/iluminacion-eventos-corporativos.avif", alt: "PAR LED para eventos corporativos" },
+        { src: "/img/city-light/luces-para-bodas-baile-romantico.avif", alt: "Luces PAR LED para baile romántico en boda" },
+        { src: "/img/city-light/iluminacion-ambientar-vals-boda-magenta.avif", alt: "Iluminación magenta para vals en boda" },
+        { src: "/img/city-light/luces-eventos-primer-baile-novios.avif", alt: "Luces para primer baile de novios en evento" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 8 PAR LED"
+        subtitle="Todo lo que necesitas saber antes de reservar tu zona iluminada."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cada zona es diferente — te asesoramos gratis sobre el mejor posicionamiento de las 8 luminarias."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Para qué sirve el paquete de 8 PAR LED?", answer: "El paquete de 8 PAR LED está diseñado para iluminar una zona específica de tu evento: la mesa de novios, la zona lounge, la entrada del salón o el altar de la ceremonia. No cubre el salón completo — es ideal cuando quieres destacar un espacio puntual con color y protagonismo." },
+      { question: "¿8 luces son suficientes para mi mesa de novios?", answer: "Sí. Para una mesa de novios estándar de hasta 5 metros de largo, 4-6 PAR LED son suficientes. Las 8 unidades te permiten iluminar la mesa más un backdrop adicional, la zona del pastel o el área del DJ." },
+      { question: "¿Puedo elegir el color de las luces?", answer: "Sí, cada PAR LED RGBW produce cualquier color. El operador programa los colores según tu paleta de boda — rosa, dorado, azul, violeta, blanco cálido — y puede cambiarlos durante el evento según los momentos." },
+      { question: "¿El precio de $3,500 incluye instalación?", answer: "Sí. Los $3,500 + IVA incluyen transporte del equipo, montaje, operación durante todo el evento y desmontaje al finalizar. Sin cargos extra por viáticos dentro de la CDMX y zona metropolitana." },
+      { question: "¿Puedo agregar más luces después de contratar?", answer: "Si hay disponibilidad, sí. Pero te recomendamos definir la cantidad desde la cotización para garantizar la disponibilidad y diseñar el montaje óptimo. Si necesitas cubrir el salón completo, el paquete de 16 PAR ($6,000) es la mejor opción." },
+      { question: "¿Se puede combinar con cascadas LED o cabezas móviles?", answer: "Sí, es la combinación más popular. 8 PAR LED en la mesa de novios + cascadas LED de fondo crea el backdrop perfecto. O 8 PAR para el lounge + cabezas móviles para el show de baile. Cotiza el paquete combinado para precio especial." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más cobertura o combinar con otro servicio?"
+        paragraph1="Si tu evento requiere iluminar el salón completo o múltiples zonas, tenemos paquetes de 16, 24 y 40+ PAR LED. Y si quieres un backdrop espectacular, las cascadas LED son el complemento perfecto."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para reservar tus 8 PAR LED?</h2>
+        <p>Mándanos la fecha, el venue y la zona que quieres iluminar por WhatsApp. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

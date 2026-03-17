@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "24 PAR LED — Hacienda Completa y Eventos Premium CDMX | REDEIL";
+const description = "Hacienda completa con 24 PAR LED RGBW. 4 zonas independientes, cambios de color sincronizados. Bodas grandes CDMX. $9,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/city-light/paquete-24-par-led/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 24 PAR LED — Hacienda Completa y Eventos Premium",
+    "description": "24 luminarias PAR LED RGBW para cubrir haciendas completas con 4 zonas de color independientes. Sincronización DMX. Ideal para bodas grandes y eventos corporativos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/city-light/paquete-24-par-led/",
+      "priceCurrency": "MXN",
+      "price": "9000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "33",
+      "reviewCount": "33"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Moreno" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda en la Hacienda San Antonio Xala. Cubrieron el salón principal, el jardín del coctel, la capilla y la zona de baile con 24 luces en colores completamente diferentes. Parecía una producción de película. Increíble el trabajo de REDEIL."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Luis Herrera" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento corporativo de fin de año en el Centro Banamex. Necesitábamos 4 zonas independientes con los colores de la empresa y fue exactamente lo que entregaron. Profesionalismo de primer nivel." },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Patricia Gutiérrez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda grande en la Hacienda de los Morales con 350 invitados. Las 24 luces cubrieron todas las áreas del evento sin ningún problema. Los cambios sincronizados durante la ceremonia fueron perfectos. Contrataremos para los próximos eventos."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/city-light/iluminacion-evento-baile-novios-magenta.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Para qué tipo de eventos es el paquete de 24 PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 24 PAR LED es ideal para haciendas completas con múltiples zonas, bodas de 250+ invitados en venues grandes, y eventos corporativos que requieren 4 zonas de color independientes. Es el paquete correcto cuando el salón de 16 PAR se queda corto." }},
+      { "@type": "Question", "name": "¿Cuántas zonas independientes crea el paquete de 24 PAR?", "acceptedAnswer": { "@type": "Answer", "text": "Con 24 PAR LED y control DMX profesional, creamos hasta 4 zonas completamente independientes: por ejemplo, salón principal en dorado, jardín de coctel en verde, área de baile en azul y zona lounge en ámbar. Cada zona tiene su paleta y sus propios cambios de color programados." }},
+      { "@type": "Question", "name": "¿Funciona para haciendas con espacios al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Contamos con modelos de PAR LED inalámbricos con batería de hasta 12 horas que no requieren conexión eléctrica. Se colocan en jardines, patios y áreas exteriores sin cables visibles. Perfectos para haciendas con múltiples espacios abiertos." }},
+      { "@type": "Question", "name": "¿Los 24 PAR LED se sincronizan entre sí?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. A través del protocolo DMX512, todas las luminarias se sincronizan y cambian de color de forma coordinada. En una hacienda, todas las zonas pueden transicionar al mismo tiempo o hacerlo de forma escalonada según la coreografía diseñada para tu evento." }},
+      { "@type": "Question", "name": "¿El paquete de 24 PAR incluye visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Para venues complejos como haciendas con múltiples zonas, sí ofrecemos visita previa sin costo adicional. La visita nos permite diseñar la distribución óptima de las 24 luminarias y definir la coreografía de color con anticipación." }},
+      { "@type": "Question", "name": "¿Cuál es la diferencia entre el paquete de 16 y 24 PAR LED?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 16 PAR es para un salón único de hasta 200m² con 2 zonas de color. El paquete de 24 PAR cubre haciendas completas con múltiples espacios y hasta 4 zonas independientes. Si tu venue tiene jardín, salón, capilla o múltiples salas, el de 24 es el correcto." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "16 PAR LED — Salón Completo", image: "/img/city-light/iluminacion-para-fiestas-cdmx.avif", alt: "16 PAR LED para salón completo de bodas", description: "El más popular para bodas en salón único. Dorado para cena, rosa para vals, fiesta en color. $6,000 + IVA.", link: "/servicios/city-light/paquete-16-par-led/" },
+  { title: "40+ PAR — Producción Masiva", image: "/img/city-light/luces-para-eventos-sociales.avif", alt: "Producción con 40+ PAR LED para eventos masivos", description: "Para carpas, festivales y eventos de gran escala con coreografía de color total. $14,000 + IVA.", link: "/servicios/city-light/paquete-produccion/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles para show de luces", description: "24 PAR para el ambiente de la hacienda más cabezas móviles para un show espectacular.", link: "/servicios/cabezas-moviles/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City Color para fachadas de hacienda", description: "PAR LED dentro más city color para las fachadas y exteriores. Hacienda completamente transformada.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "City Light", href: "/servicios/city-light/" },
+    { label: "Paquete 24 PAR LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete 24 PAR LED — Hacienda Completa con 4 Zonas"
+    subtitle="$9,000 + IVA. Salón + jardín + capilla + baile. 4 zonas independientes con cambios sincronizados."
+    introParagraph1='Cuando el evento ocupa más de un espacio — y en las haciendas de CDMX y Estado de México casi siempre es así — el paquete de 24 PAR LED es la respuesta correcta. Con 24 luminarias RGBW distribuidas estratégicamente, cubrimos <strong>cuatro zonas completamente independientes</strong>: salón principal, jardín de coctel, área de baile y zona de transición. Cada zona tiene su propio color, su propia paleta y sus propios cambios programados.'
+    introParagraph2='La sincronización DMX512 hace que todas las zonas trabajen en coordinación: cuando arranca el vals, el salón completo transiciona a rosa en un segundo. Cuando empieza la fiesta, la pista explota en color mientras el jardín mantiene un ambiente más tranquilo para los que toman aire. Un operador profesional maneja todo en tiempo real, coordinando con el DJ y el maestro de ceremonias. Para bodas de <strong>250+ invitados</strong> y <strong>eventos corporativos premium</strong> en CDMX.'
+  />
+
+  <CtaBar
+    headline="Compara todos los paquetes City Light"
+    items={[
+      { label: "8 PAR — Zona específica $3,500", href: "/servicios/city-light/paquete-8-par-led/", icon: "iluminacion" },
+      { label: "16 PAR — Salón completo $6,000", href: "/servicios/city-light/paquete-16-par-led/", icon: "iluminacion" },
+      { label: "40+ PAR — Producción $14,000", href: "/servicios/city-light/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Personalizado", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Paquete Premium"
+      price="$9,000"
+      priceNote="+ IVA · Visita previa incluida"
+      features={[
+        { text: "24 PAR LED RGBW de alta potencia" },
+        { text: "Hasta 4 zonas independientes" },
+        { text: "Sincronización DMX entre zonas" },
+        { text: "Operador + asistente técnico" },
+        { text: "Visita previa al venue" },
+        { text: "Diseño de iluminación personalizado" },
+        { text: "Modelos inalámbricos disponibles" },
+        { text: "Transporte, montaje y desmontaje" },
+        { text: "Ideal: haciendas y corporativos" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 24 PAR LED para hacienda completa o evento premium."
+      packages={[
+        { label: "8 PAR LED", price: "$3,500", href: "/servicios/city-light/paquete-8-par-led/" },
+        { label: "16 PAR LED", price: "$6,000", href: "/servicios/city-light/paquete-16-par-led/" },
+        { label: "24 PAR LED", price: "$9,000", href: "/servicios/city-light/paquete-24-par-led/", active: true },
+        { label: "Producción 40+", price: "$14,000", href: "/servicios/city-light/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="4 zonas — 4 atmósferas distintas en un mismo evento"
+          subtitle="Cada espacio tiene su identidad lumínica. Sin interferir entre zonas."
+          paragraph1="La gran diferencia del paquete de 24 PAR LED está en la independencia de zonas. En una hacienda, el jardín puede estar en verde ámbar cálido mientras el salón está en dorado intenso. La capilla en blanco cálido mientras el área de coctel es azul suave."
+          paragraph2="Cada zona tiene su propia asignación de luminarias y su propia programación de colores. El operador puede cambiarlas de forma independiente o de forma sincronizada según el momento del evento."
+        />
+        <FeatureGrid features={[
+          { title: "Salón Principal", description: "6-8 PAR LED para cobertura completa del área de mesas. El color de tu boda de pared a pared." },
+          { title: "Jardín o Patio", description: "6 unidades inalámbricas para el área al aire libre. Sin cables, sin limitaciones." },
+          { title: "Capilla o Ceremonia", description: "4 luminarias en blanco cálido o el color del altar. Atmósfera sagrada y fotogénica." },
+          { title: "Pista de Baile", description: "4-6 PAR LED que se desatan cuando empieza la fiesta. Multicolor sincronizado con la música." },
+          { title: "Área de Coctel", description: "Zona de bienvenida con color propio. Ámbar dorado mientras los invitados llegan." },
+          { title: "Cambios Sincronizados", description: "Todas las zonas transicionan al mismo tiempo en los momentos clave del evento." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="También para eventos corporativos"
+          subtitle="Los colores de tu empresa en cada zona del evento."
+          paragraph1="Los eventos corporativos tienen una necesidad que las bodas no: los colores de marca. Con 24 PAR LED y 4 zonas independientes, podemos tener el azul corporativo en el área de registro, el verde de la empresa en el salón y el blanco en el escenario."
+          paragraph2="El cambio de colores durante la presentación del producto, el lanzamiento de campaña o la premiación anual se maneja con el mismo control DMX. Profesionalismo técnico que representa a la marca."
+        />
+        <FeatureGrid features={[
+          { title: "Colores de Marca", description: "Pantone exacto reproducido en RGBW. Los colores de tu empresa en todo el venue." },
+          { title: "Área de Escenario", description: "Iluminación de apoyo para el escenario. Complemento para presentaciones y premiaciones." },
+          { title: "Zona de Registro", description: "Primera impresión de marca. Colores corporativos desde la entrada." },
+          { title: "Área de Networking", description: "Ambiente diferenciado para la zona de socialización. Luz que invita a conversar." },
+          { title: "Coordinación con AV", description: "Sincronizamos con el equipo de audio y video del evento corporativo." },
+          { title: "Visita Previa Incluida", description: "Conocemos el venue antes del evento para garantizar la distribución óptima." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 33 reseñas verificadas."
+          paragraph1="Bodas en haciendas y eventos corporativos premium — los que más exigen y los que mejor califican."
+          paragraph2="Mándanos las fotos de tu venue para diseñar la propuesta específica."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandra Moreno", event: "Boda — Hacienda San Antonio Xala", rating: 5, text: "Cubrieron el salón principal, el jardín del coctel, la capilla y la zona de baile con 24 luces en colores completamente diferentes. Parecía una producción de película." },
+          { name: "Luis Herrera", event: "Corporativo — Centro Banamex", rating: 5, text: "Necesitábamos 4 zonas independientes con los colores de la empresa y fue exactamente lo que entregaron. Profesionalismo de primer nivel." },
+          { name: "Patricia Gutiérrez", event: "Boda — Hacienda de los Morales", rating: 5, text: "Las 24 luces cubrieron todas las áreas del evento con 350 invitados sin ningún problema. Los cambios sincronizados durante la ceremonia fueron perfectos." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Haciendas transformadas con 24 PAR LED"
+        subtitle="Múltiples zonas, múltiples atmósferas — un mismo evento impecable."
+        paragraph1="Estas fotos son de eventos reales en haciendas y venues de gran formato en CDMX con nuestro paquete de 24 PAR LED. La diferencia con paquetes menores está en la cobertura sin compromisos — cada rincón del venue tiene su luz."
+        paragraph2="¿Tu hacienda tiene 3 o 4 zonas? Mándanos el plano o fotos y diseñamos la propuesta sin costo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-light/iluminacion-evento-baile-novios-magenta.avif", alt: "Baile de novios con iluminación magenta PAR LED" },
+        { src: "/img/city-light/renta-iluminacion-evento-social-rosa.avif", alt: "Evento social con iluminación rosa PAR LED" },
+        { src: "/img/city-light/luces-para-eventos-sociales.avif", alt: "Luces PAR LED para eventos sociales CDMX" },
+        { src: "/img/city-light/luces-para-bodas-jardin.avif", alt: "Luces PAR LED para bodas en jardín" },
+        { src: "/img/city-light/luces-decorativas-eventos.avif", alt: "Luces decorativas PAR LED para eventos" },
+        { src: "/img/city-light/renta-iluminacion-pastel-boda-rosa.avif", alt: "Iluminación pastel rosa PAR LED para boda" },
+        { src: "/img/city-light/renta-luces-eventos-sociales.avif", alt: "Renta de luces PAR LED para eventos sociales" },
+        { src: "/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif", alt: "Entrada de novios con iluminación magenta PAR LED" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 24 PAR LED"
+        subtitle="Todo lo que necesitas saber para eventos en haciendas y venues grandes."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos las zonas de tu venue y el número de invitados — diseñamos la propuesta sin costo."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Para qué tipo de eventos es el paquete de 24 PAR LED?", answer: "Es ideal para haciendas completas con múltiples zonas, bodas de 250+ invitados en venues grandes, y eventos corporativos que requieren 4 zonas de color independientes. Es el paquete correcto cuando el salón de 16 PAR se queda corto." },
+      { question: "¿Cuántas zonas independientes crea el paquete de 24 PAR?", answer: "Con 24 PAR LED y control DMX profesional, creamos hasta 4 zonas completamente independientes: salón principal, jardín de coctel, área de baile y capilla, por ejemplo. Cada zona tiene su paleta y sus propios cambios de color programados." },
+      { question: "¿Funciona para haciendas con espacios al aire libre?", answer: "Sí. Contamos con modelos de PAR LED inalámbricos con batería de hasta 12 horas. Se colocan en jardines, patios y áreas exteriores sin cables visibles. Perfectos para haciendas con múltiples espacios abiertos." },
+      { question: "¿Los 24 PAR LED se sincronizan entre sí?", answer: "Sí. A través del protocolo DMX512, todas las luminarias se sincronizan y cambian de color de forma coordinada o independiente según la coreografía diseñada. En momentos clave como el vals, todas las zonas pueden transicionar simultáneamente." },
+      { question: "¿El paquete incluye visita previa al venue?", answer: "Para venues complejos como haciendas con múltiples zonas, sí ofrecemos visita previa sin costo adicional. La visita nos permite diseñar la distribución óptima de las 24 luminarias y programar la coreografía de color con anticipación." },
+      { question: "¿Cuál es la diferencia entre el paquete de 16 y 24 PAR LED?", answer: "El paquete de 16 PAR es para un salón único de hasta 200m² con 2 zonas de color. El paquete de 24 PAR cubre haciendas completas con múltiples espacios y hasta 4 zonas independientes. Si tu venue tiene jardín, salón, capilla o múltiples salas, el de 24 es el correcto." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu evento necesita más escala o un servicio complementario?"
+        paragraph1="Si tu evento supera las 4 zonas o requiere una producción de gran escala con carpas o múltiples venues, el paquete de producción con 40+ PAR es la siguiente escala."
+        paragraph2="Combinamos con cabezas móviles, city color y uplighting para haciendas con precio especial."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu hacienda tiene múltiples zonas? Este paquete es para ti.</h2>
+        <p>Mándanos las fotos o el plano de tu venue por WhatsApp. Te diseñamos la propuesta de 4 zonas sin costo y te confirmamos disponibilidad para tu fecha.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Diseñar mi Propuesta — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
