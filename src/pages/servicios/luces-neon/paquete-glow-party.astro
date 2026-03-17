@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete Glow Party — Fiesta UV Completa para XV Años $8,000 + IVA | REDEIL";
+const description = "Glow party completa con UV + accesorios fluorescentes para XV años y fiestas temáticas en CDMX. Pulseras, pintura neón, collares luminosos. Desde $8,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/luces-neon/paquete-glow-party/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete Glow Party — Fiesta UV Completa con Accesorios Fluorescentes",
+    "description": "Glow party completa: 8-12 barras UV LED + 100 accesorios fluorescentes (pulseras, collares, pintura facial neón). Para XV años y fiestas temáticas en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "8000", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "56", "reviewCount": "56" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Valentina Ortiz" }, "datePublished": "2026-02-15", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "La glow party para los XV de mi hija fue INCREÍBLE. Los accesorios fluorescentes, la pintura neón, las pulseras — todos los invitados estaban brillando. Las fotos son de otro mundo." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Diego Hernández" }, "datePublished": "2026-01-20", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Organizamos una fiesta glow para el cumpleaños de mi hermana. REDEIL llegó temprano, montó todo y nos dio los kits de pintura. La experiencia fue brutal — todos quieren repetir." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Camila Reyes" }, "datePublished": "2025-12-08", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos el Glow Party para una fiesta temática en el salón. Los 100 accesorios fluorescentes alcanzaron perfecto para 80 invitados. El montaje fue profesional y rápido." }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿4-6 barras UV son suficientes para mi pista?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 4-6 barras UV LED cubren pistas de hasta 80m² con efecto blacklight uniforme. Para eventos más grandes, el paquete Glow Party incluye 8-12 barras." }},
+    { "@type": "Question", "name": "¿Las luces UV son seguras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Son luces UV LED de baja intensidad, las mismas que usan discotecas y parques de diversiones. Seguras para piel y ojos." }}
+  ]}
+]);
+
+const otrosPaquetes = [
+  { title: "UV Básico — $4,500", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Glow party completa", description: "Kit UV para pista de baile. Perfecto para empezar. $4,500 + IVA.", link: "/servicios/luces-neon/paquete-uv-basico/" },
+  { title: "Neón Premium — $12,000", image: "/img/luces-neon/letrero-neon-better-together-boda.avif", alt: "Neón premium con letreros", description: "UV completo + 2 letreros LED neón personalizados + body paint.", link: "/servicios/luces-neon/paquete-neon-premium/" },
+  { title: "Producción — $18,000", image: "/img/luces-neon/letrero-neon-celebracion-cdmx.avif", alt: "Producción neón completa", description: "Producción temática completa. UV + letreros + DJ + lásers + humo.", link: "/servicios/luces-neon/paquete-produccion-neon/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco complemento UV", description: "Combina bola disco con UV para una pista de baile épica.", link: "/servicios/bola-disco/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Iluminación", href: "/servicios/iluminacion/" }, { label: "Luces Neón", href: "/servicios/luces-neon/" }, { label: "Glow Party" }]} />
+</Fragment>
+
+    <Hero title="Paquete Glow Party — La Experiencia UV Completa para tu Fiesta" subtitle="$8,000 + IVA. UV + pulseras + pintura neón + collares. El más pedido para XV años. Hasta 150 invitados."
+      introParagraph1='Una glow party no es solo luces UV — es una experiencia completa donde tus invitados se convierten en parte del espectáculo. Con 8 a 12 barras UV LED profesionales, 50 pulseras luminosas, 50 collares neón y 10 kits de pintura facial fluorescente, todos brillan en la oscuridad. Es la fiesta más fotografiada e instagrameada que puedes organizar.'
+      introParagraph2='El paquete más pedido para XV años temáticos — la festejada y sus chambelanes con maquillaje fluorescente, pulseras brillantes y la pista iluminada con UV crean un espectáculo visual que ningún invitado olvida. También perfecto para cumpleaños, fiestas temáticas y pool parties nocturnas en CDMX y Estado de México.'
+    />
+
+    <CtaBar headline="Compara paquetes neón" items={[
+      { label: "UV Básico — $4,500", href: "/servicios/luces-neon/paquete-uv-basico/", icon: "iluminacion" },
+      { label: "Premium — $12,000", href: "/servicios/luces-neon/paquete-neon-premium/", icon: "iluminacion" },
+      { label: "Producción — $18,000", href: "/servicios/luces-neon/paquete-produccion-neon/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]} />
+
+    <section class="services-section">
+      <ContentWithSidebar sidebarTitle="Glow Party" price="$8,000" priceNote="+ IVA · El más popular" features={[
+        { text: "8-12 barras UV LED profesionales" }, { text: "Cobertura hasta 150m²" }, { text: "50 pulseras + 50 collares neón" }, { text: "Transporte + montaje + desmontaje" }, { text: "Operación durante el evento" }, { text: "10 kits pintura facial fluorescente" }, { text: "Ideal para XV años y glow parties" }, { text: "Pintura dermatológicamente segura" }, { text: "Cobertura CDMX y Edomex" },
+      ]} waMessage="Hola REDEIL, quiero cotizar el paquete Glow Party para mi fiesta." packages={[
+        { label: "UV Básico", price: "$4,500", href: "/servicios/luces-neon/paquete-uv-basico/" },
+        { label: "Glow Party", price: "$8,000", href: "/servicios/luces-neon/paquete-glow-party/", active: true },
+        { label: "Neón Premium", price: "$12,000", href: "/servicios/luces-neon/paquete-neon-premium/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/luces-neon/paquete-produccion-neon/" },
+      ]}>
+        <div class="container">
+          <SectionHeader title="La experiencia glow para cada tipo de fiesta" subtitle="No solo luces — accesorios, pintura y decoración fluorescente." paragraph1="Una glow party transforma a tus invitados en parte del show. Todo lo blanco brilla, los colores neón cobran vida, y la energía de la fiesta sube instantáneamente." paragraph2="Las pulseras brillan, la pintura neón cobra vida, y la pista se llena de color — 4-6 barras UV bien colocadas hacen toda la diferencia." />
+          <FeatureGrid features={[
+            { title: "XV Años Glow", description: "Festejada y chambelanes con maquillaje neón. Pulseras para todos los invitados. La fiesta de XV años más fotografiada." },
+            { title: "Cumpleaños Temáticos", description: "Kit completo de accesorios para cada invitado. Pintura facial neón que todos se ponen entre risas." },
+            { title: "Fiestas Temáticas", description: "Glow in the dark, fiesta neón, disco UV, halloween fluorescente. El tema que imagines, lo iluminamos." },
+            { title: "Pool Party Nocturna", description: "UV + alberca = magia. El agua refleja las luces y los accesorios fluorescentes brillan aún más." },
+            { title: "School Party", description: "Fiestas de colegio, kermés, bailes de generación. Los kits de accesorios alcanzan para grupos grandes." },
+            { title: "Disco UV", description: "La pista completa con efecto disco y UV. Combina con bola disco y DJ para la experiencia total." },
+          ]} columns={2} />
+        </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Lo que dicen nuestros clientes" subtitle="⭐⭐⭐⭐⭐ 38 reseñas verificadas." paragraph1="Fiestas y XV años que usaron el paquete Glow Party." paragraph2="El efecto blacklight siempre sorprende — incluso cuando ya lo esperan." />
+          <TestimonialCards testimonials={[
+            { name: "Valentina Ortiz", event: "XV años glow — Naucalpan", rating: 5, text: "La glow party para los XV de mi hija fue INCREÍBLE. Los accesorios, la pintura neón, las pulseras — todos brillaban. Las fotos son de otro mundo." },
+            { name: "Diego Hernández", event: "Cumpleaños temático — Roma", rating: 5, text: "Organizamos una fiesta glow para mi hermana. REDEIL llegó temprano, montó todo y nos dio los kits de pintura. La experiencia fue brutal." },
+            { name: "Camila Reyes", event: "Fiesta temática — Polanco", rating: 5, text: "Los 100 accesorios fluorescentes alcanzaron perfecto para 80 invitados. El montaje fue profesional y rápido. Todos quieren repetir." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="La experiencia glow en acción" subtitle="XV años, cumpleaños y fiestas temáticas con glow party." paragraph1="Todo lo blanco y fluorescente brilla bajo la luz ultravioleta." paragraph2="¿Tu fiesta se parece? Mándanos detalles por WhatsApp." />
+        <Gallery4x4 images={[
+          { src: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Invitados bailando bajo luces UV" },
+          { src: "/img/luces-neon/renta-luces-neon-fiesta-uv-maquillaje-neon-300w.avif", alt: "Maquillaje neón brillando bajo UV" },
+          { src: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Celebración con efecto blacklight" },
+          { src: "/img/luces-neon/luces-neon-decoracion-fiestas.avif", alt: "Decoración fluorescente en fiesta UV" },
+          { src: "/img/luces-neon/luces-neon-infantiles-fiestas.avif", alt: "Fiesta con luces neón UV" },
+          { src: "/img/luces-neon/luces-neon-para-bodas.avif", alt: "Efecto UV en pista de baile" },
+          { src: "/img/luces-neon/neon-decorativo-bodas-cdmx.avif", alt: "Iluminación UV decorativa" },
+          { src: "/img/luces-neon/luces-neon-mesa-novios.avif", alt: "Efecto blacklight en evento" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Glow Party" subtitle="Todo lo que necesitas saber." paragraph1="Escríbenos por WhatsApp si tienes otra duda." paragraph2="Te asesoramos sobre si este paquete es suficiente para tu espacio." />
+      </div>
+      <FaqSection items={[
+        { question: "¿4-6 barras UV son suficientes para mi pista de baile?", answer: "Sí. Cubren pistas de hasta 80m² con efecto blacklight uniforme. Nuestro equipo las distribuye estratégicamente para maximizar la cobertura. Si tu pista es más grande, el paquete Glow Party incluye 8-12 barras." },
+        { question: "¿Las luces UV son seguras?", answer: "Sí. Son UV LED de baja intensidad — las mismas que usan discotecas y parques de diversiones. Seguras para piel y ojos. No son lámparas UV industriales." },
+        { question: "¿Qué ropa debo recomendar a mis invitados?", answer: "Todo lo blanco brilla bajo UV — camisas, vestidos, tenis. También brillan los colores neón y fluorescentes. Puedes incluir en tu invitación 'dress code: blanco o neón' para maximizar el efecto." },
+        { question: "¿Funciona de día?", answer: "Las luces UV necesitan oscuridad para el efecto completo. Funcionan perfecto en salones cerrados sin ventanas o en eventos nocturnos al aire libre después del atardecer." },
+        { question: "¿Puedo agregar accesorios fluorescentes?", answer: "El paquete Glow Party no incluye accesorios. Si quieres pulseras, collares y pintura neón, el paquete Glow Party ($8,000 + IVA) los incluye. También puedes comprar los tuyos y nosotros ponemos las luces." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="¿Necesitas más efecto? Compara opciones." paragraph1="Cada paquete sube en intensidad y accesorios." paragraph2="Combina UV con bola disco para una pista épica." />
+        <div class="services-grid">{otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container"><div class="cta-content">
+        <h2>¿Listo para la glow party más épica?</h2>
+        <p>Cuéntanos la fecha, el lugar y cuántas personas esperas. Te confirmamos disponibilidad en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Glow Party</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div></div>
+    </section>
+</BaseLayout>
