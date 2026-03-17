@@ -1,68 +1,235 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Luces Neón para Eventos | REDEIL CDMX";
-const description = "Renta de letreros y luces neón para fiestas y eventos en CDMX. REDEIL ofrece letreros neón personalizados, glow parties y ambientación UV para bodas y cumpleaños.";
+const title = "Renta de Luces Neón y UV para Fiestas y Eventos CDMX | REDEIL";
+const description = "Luces neón LED, UV blacklight y glow party para XV años, fiestas y eventos temáticos en CDMX. Accesorios fluorescentes incluidos. Desde $4,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/luces-neon/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Luces Neón para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Luces Neón y UV para Fiestas",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de iluminación neón, UV y glow para XV años, fiestas temáticas y eventos nocturnos en CDMX. Incluye accesorios fluorescentes e instalación.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Renta de Luces Neón y UV",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de luces neón, letreros personalizados y ambientación UV para fiestas, bodas y eventos en Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Luces Neón"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es una glow party?", "acceptedAnswer": { "@type": "Answer", "text": "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Incluye pintura corporal neón, accesorios luminosos y decoración fluorescente." }},
+      { "@type": "Question", "name": "¿Las luces UV son seguras?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son las mismas que las lámparas UV industriales. Son las mismas que se usan en parques de diversiones y discotecas." }},
+      { "@type": "Question", "name": "¿Los accesorios fluorescentes están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "En los paquetes Glow Party y superiores, sí. Incluimos pulseras, collares, pintura facial neón y accesorios luminosos según el tamaño del evento." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Luz Negra", image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Luz negra UV para fiesta neón", description: "Complemento perfecto. La luz negra UV hace brillar todo lo fluorescente en tu fiesta neón.", link: "/servicios/luz-negra/" },
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para fiesta neón", description: "DJ con repertorio de música electrónica y reggaetón. El soundtrack perfecto para tu glow party.", link: "/servicios/bocinas-djs/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo con luces neón", description: "El humo escénico con luces UV crea un efecto espectacular. Perfecto para la pista de baile.", link: "/servicios/humo-bajo/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco para fiesta neón", description: "Combina bola disco con luces neón para una pista de baile inolvidable.", link: "/servicios/bola-disco/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Luces Neón" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luces Neón y UV" }
+  ]} />
 </Fragment>
-<Hero
-      title="Luces Neón para Eventos en CDMX"
-      subtitle="Letreros neón y ambientación luminosa que hacen brillar tu evento"
-      introParagraph1="REDEIL ofrece un servicio completo de renta de luces neón para eventos en la Ciudad de México. Desde letreros personalizados hasta ambientación completa con iluminación UV, creamos experiencias visuales únicas para bodas, cumpleaños, fiestas temáticas y eventos corporativos."
-      introParagraph2="Nuestro catálogo incluye letreros neón con frases populares, hashtags personalizados y diseños a medida. Además, ofrecemos paquetes de glow party con iluminación ultravioleta que transforman por completo la atmósfera de cualquier celebración."
+
+    <Hero
+      title="Renta de Luces Neón y UV para Fiestas en CDMX"
+      subtitle="Glow parties, XV años temáticos, eventos nocturnos. Accesorios fluorescentes incluidos. Desde $4,500 + IVA."
+      introParagraph1='Las luces neón y UV transforman cualquier espacio en una experiencia visual que tus invitados nunca van a olvidar. En <strong>REDEIL</strong> diseñamos fiestas temáticas con iluminación ultravioleta, letreros LED neón personalizados y accesorios fluorescentes que hacen brillar a todos en la oscuridad — pulseras, pintura corporal, collares luminosos.'
+      introParagraph2='Desde una pista de baile iluminada con blacklight hasta una glow party completa con decoración fluorescente, nuestro equipo técnico se encarga de la instalación, operación y desmontaje. Trabajamos con equipos <strong>Chauvet</strong> y <strong>Elation</strong> de grado profesional. Atendemos XV años, cumpleaños, fiestas corporativas y eventos nocturnos en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Letreros neón y experiencias luminosas para cada ocasión"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las luces neón se han posicionado como un elemento imprescindible en la decoración de eventos modernos. Un letrero neón no solo aporta un punto focal visualmente atractivo, sino que también se convierte en el escenario perfecto para fotografías memorables de tus invitados."
-          paragraph2="En REDEIL contamos con una amplia variedad de letreros neón disponibles para renta, así como la posibilidad de crear diseños personalizados con nombres, fechas o mensajes especiales. Cada pieza es instalada profesionalmente por nuestro equipo técnico, garantizando un resultado impecable."
+
+    <CtaBar
+      headline="¿Qué tipo de fiesta neón buscas?"
+      items={[
+        { label: "Glow Party", href: "#paquetes", icon: "iluminacion" },
+        { label: "XV Años Neón", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Más iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería de impacto -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve una fiesta con luces neón"
+          subtitle="UV, fluorescente, glow — cada efecto crea una experiencia diferente."
+          paragraph1="Las fotos no le hacen justicia a lo que se siente estar en un espacio iluminado con UV. Todo lo blanco brilla, la pintura neón cobra vida, y la pista de baile se convierte en un show visual que tus invitados van a fotografiar toda la noche."
+          paragraph2="Cada montaje es diseñado según tu espacio y tipo de evento — XV años, cumpleaños, fiestas corporativas temáticas o eventos nocturnos de gran formato."
         />
-        <p>También somos expertos en la organización de glow parties y fiestas neón, donde combinamos iluminación UV, luces neón y efectos especiales para crear una experiencia inmersiva. Cubrimos eventos en toda la CDMX y zona metropolitana con servicio integral de montaje y operación.</p>
+        <Gallery4x4 images={[
+          { src: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Glow party con luces neón y UV en celebración" },
+          { src: "/img/luces-neon/renta-luces-neon-fiesta-uv-maquillaje-neon-300w.avif", alt: "Fiesta UV con maquillaje neón fluorescente" },
+          { src: "/img/luces-neon/renta-luces-neon-glow-party-invitados-baile-300w.avif", alt: "Invitados bailando en glow party con luces UV" },
+          { src: "/img/luces-neon/letrero-led-neon-fiestas.avif", alt: "Letrero LED neón personalizado para fiesta" },
+          { src: "/img/luces-neon/letrero-led-personalizado-fiestas.avif", alt: "Letrero neón personalizado con mensaje para evento" },
+          { src: "/img/luces-neon/letrero-luminoso-boda-romantica.avif", alt: "Letrero luminoso neón para boda y evento romántico" },
+          { src: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Celebración glow con efectos fluorescentes UV" },
+          { src: "/img/luces-neon/renta-luces-neon-fiesta-uv-maquillaje-neon-300w.avif", alt: "Maquillaje neón brillando bajo luz ultravioleta" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Luces Neón" subtitle="Letreros y ambientación neón en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/renta-luces-neon-cabezas-moviles-escenario.avif" alt="Escenario de evento iluminado con luces neón y cabezas móviles" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/letrero-neon-hashtag-boda.avif" alt="Letrero neón con hashtag personalizado en recepción de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/renta-luces-neon-cumpleanos-happy-birthday-neon.avif" alt="Letrero neón de happy birthday iluminando fiesta de cumpleaños" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/renta-luces-neon-glow-party-salon-eventos.avif" alt="Glow party en salón de eventos con iluminación neón y UV" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/luces-neon-mesa-novios.avif" alt="Mesa de novios decorada con luces neón como fondo luminoso" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/luces-neon/renta-luces-neon-fiesta-neon-experiencia-uv.avif" alt="Fiesta neón con experiencia UV e invitados disfrutando la iluminación" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Luces Neón y UV"
+          subtitle="4 experiencias según el tipo de fiesta. Instalación incluida en todos."
+          paragraph1="A diferencia de otros servicios, los paquetes de luces neón se arman por tipo de experiencia — no por metros. Cada paquete incluye los equipos, accesorios y el montaje necesario para crear el efecto que buscas."
+          paragraph2="¿Tu evento necesita algo único? Armamos propuestas a la medida. Cotiza por WhatsApp y te diseñamos la experiencia neón perfecta."
+        />
+        <PricingCards packages={[
+          {
+            name: "UV Básico",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            description: "Kit de luz ultravioleta para la pista de baile. Transforma cualquier espacio oscuro en una experiencia fluorescente.",
+            features: [
+              { text: "4-6 barras UV LED profesionales", included: true },
+              { text: "Cobertura pista de hasta 80m²", included: true },
+              { text: "Certificación DMX", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: pista de baile, XV años", included: true },
+              { text: "Accesorios fluorescentes", included: false },
+              { text: "Letreros neón personalizados", included: false },
+              { text: "Decoración temática UV", included: false },
+            ],
+            ctaLabel: "Ver paquete UV Básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Glow Party",
+            price: "$8,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "La experiencia glow completa. UV + accesorios fluorescentes para que todos brillen. El más pedido para XV años.",
+            features: [
+              { text: "8-12 barras UV LED profesionales", included: true },
+              { text: "Cobertura hasta 150m²", included: true },
+              { text: "50 pulseras + 50 collares neón", included: true },
+              { text: "Pintura facial fluorescente (10 kits)", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: glow party, XV años, cumpleaños", included: true },
+              { text: "Letreros neón personalizados", included: false },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Ver paquete Glow Party",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Neón Premium",
+            price: "$12,000",
+            priceNote: "+ IVA",
+            description: "UV completo + letreros LED neón personalizados con tu mensaje. Para eventos que quieren ser únicos e irrepetibles.",
+            features: [
+              { text: "12+ barras UV LED profesionales", included: true },
+              { text: "Cobertura hasta 200m²", included: true },
+              { text: "100 accesorios fluorescentes", included: true },
+              { text: "2 letreros LED neón personalizados", included: true },
+              { text: "Pintura facial + body paint UV", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: fiestas premium, corporativos temáticos", included: true },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Ver paquete Neón Premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción Neón",
+            price: "$18,000",
+            priceNote: "+ IVA",
+            description: "Producción completa temática UV/neón para eventos masivos. Todo incluido: luces, decoración, accesorios, DJ y efectos.",
+            features: [
+              { text: "20+ barras UV + cañones de luz", included: true },
+              { text: "Cobertura 300m²+", included: true },
+              { text: "200+ accesorios fluorescentes", included: true },
+              { text: "3 letreros LED neón personalizados", included: true },
+              { text: "Decoración temática completa", included: true },
+              { text: "Lásers + humo escénico", included: true },
+              { text: "DJ para fiestas incluido", included: true },
+              { text: "Ideal para: eventos masivos, festivales, corporativos", included: true },
+            ],
+            ctaLabel: "Ver producción Neón",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Efectos"
+          subtitle="Las luces neón se potencian cuando las mezclas con estos servicios."
+          paragraph1="Una fiesta neón completa no es solo UV — es la combinación de luz, sonido y efectos especiales lo que crea la experiencia. Nuestros clientes más satisfechos combinan 2-3 servicios para un resultado espectacular."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te hacemos una propuesta integral."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Luces Neón y UV"
+          subtitle="Todo lo que necesitas saber antes de tu fiesta neón."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada fiesta neón es diferente — te asesoramos sobre qué paquete va mejor con tu evento."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué es una glow party y cómo funciona?", answer: "Una glow party es una fiesta temática donde se usa iluminación UV (luz negra) para que todo lo blanco y fluorescente brille en la oscuridad. Se complementa con pintura corporal neón, pulseras luminosas, collares y decoración fluorescente. El efecto visual es espectacular y muy fotogénico." },
+        { question: "¿Las luces UV son seguras para los invitados?", answer: "Sí. Usamos luces UV LED de baja intensidad, seguras para la piel y los ojos. No son lámparas UV industriales. Son las mismas que se usan en parques de diversiones, discotecas y eventos temáticos. La pintura facial que incluimos también es dermatológicamente segura." },
+        { question: "¿Qué accesorios fluorescentes incluyen?", answer: "Depende del paquete. El Glow Party incluye 50 pulseras + 50 collares neón + 10 kits de pintura facial. El Neón Premium sube a 100 accesorios + body paint UV. La Producción incluye 200+ accesorios + decoración temática completa." },
+        { question: "¿Sirve para XV años?", answer: "Es uno de los usos más populares. Los XV años con temática neón son tendencia — la festejada y sus chambelanes con maquillaje fluorescente, pista iluminada con UV, fotos espectaculares. El paquete Glow Party es el más pedido para XV años." },
+        { question: "¿Puedo personalizar los letreros neón?", answer: "Sí. Los paquetes Neón Premium y Producción incluyen letreros LED neón personalizados con el mensaje que quieras — nombres, frases, hashtags, logos. Se fabrican a medida y los montamos el día del evento." },
+        { question: "¿Funciona en espacios abiertos?", answer: "Las luces neón y UV funcionan mejor en espacios con poca luz natural. En eventos al aire libre, recomendamos usarlas después del atardecer. Para eventos nocturnos de noche completa, el efecto es espectacular en cualquier espacio." },
+      ]} />
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu fiesta brille en la oscuridad?</h2>
+          <p>Cuéntanos el tipo de evento, cuántos invitados esperas y si quieres temática glow completa. Te diseñamos la experiencia neón perfecta.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Diseña tu Fiesta Neón</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
