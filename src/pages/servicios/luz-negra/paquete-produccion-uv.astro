@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete Producción UV — Show Completo Neón para Festivales y Eventos CDMX | REDEIL";
+const description = "Producción completa UV/neón: 20+ barras, 200+ accesorios, 3 letreros, DJ y efectos para eventos masivos en CDMX. $15,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/paquete-produccion-uv/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción UV — Show Completo Neón",
+    "description": "Producción completa UV/neón para eventos masivos: 20+ barras UV LED profesionales, 200+ accesorios fluorescentes, 3 letreros neón personalizados, decoración temática completa, DJ y efectos escénicos. Cobertura 300m²+.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/luz-negra/paquete-produccion-uv/",
+      "priceCurrency": "MXN",
+      "price": "15000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "29",
+      "reviewCount": "29"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Núñez" },
+        "datePublished": "2026-02-18",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Festival universitario con 400 asistentes en el Foro Sol. REDEIL montó 22 barras UV en múltiples zonas, 3 letreros neón y los 200 accesorios para el staff y artistas. La producción fue impecable — llegaron 4 horas antes y coordinaron perfectamente con el resto de los proveedores."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Fuentes" },
+        "datePublished": "2025-12-08",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento corporativo masivo para 350 personas con temática neón. El DJ de REDEIL fue exactamente lo que el cliente necesitaba — música que encajó perfectamente con la atmósfera UV. Los 3 letreros personalizados con el logo y slogan de la empresa quedaron espectaculares."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marcos Álvarez" },
+        "datePublished": "2025-10-03",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Fiesta de lanzamiento de marca con múltiples zonas UV — área de networking, pista de baile y zona de fotografía. REDEIL diseñó cada zona con una intensidad diferente. El resultado fue una experiencia visual única que todos los asistentes comentaron en redes."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/luz-negra/ambiente-glow-party-neon.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La Producción UV requiere visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Para eventos de más de 250 personas o venues con múltiples zonas, sí recomendamos una visita previa. Es sin costo adicional y nos permite diseñar la distribución del equipo, identificar puntos de conexión eléctrica y coordinar con el equipo técnico del venue. Para venues estándar, el levantamiento se hace con fotos y planos." }},
+      { "@type": "Question", "name": "¿Cuántas personas cubre la Producción UV?", "acceptedAnswer": { "@type": "Answer", "text": "La Producción UV está diseñada para eventos de 200 a 500+ personas en espacios de 300m² o más. Para eventos de más de 500 personas o venues de mayor escala, elaboramos una propuesta personalizada con equipo adicional. Contáctanos con las dimensiones exactas del espacio." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Blacklight Básico", description: "Kit UV para pista de baile de hasta 80m². Perfecto para fiestas íntimas. $3,500 + IVA.", image: "/img/luz-negra/ambiente-blacklight-fiesta.avif", alt: "Paquete blacklight básico para pista de baile", link: "/servicios/luz-negra/paquete-blacklight-basico/" },
+  { title: "Blacklight Party", description: "Glow party completa con 8-12 barras UV + 50 accesorios para XV años. $6,500 + IVA.", image: "/img/luz-negra/ambiente-glow-xv-anos.avif", alt: "Glow party UV para XV años", link: "/servicios/luz-negra/paquete-blacklight-party/" },
+  { title: "UV Premium", description: "UV completo + 2 letreros neón personalizados para bodas y eventos premium. $10,000 + IVA.", image: "/img/luz-negra/ambiente-neon-boda.avif", alt: "UV premium para boda neón", link: "/servicios/luz-negra/paquete-uv-premium/" },
+  { title: "DJ para Eventos", description: "DJ profesional con cabina completa para eventos en CDMX. Se integra perfectamente con la producción UV.", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para eventos en CDMX", link: "/servicios/bocinas-djs/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luz Negra", href: "/servicios/luz-negra/" },
+    { label: "Producción UV" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete Producción UV — Show Completo Neón para Festivales y Eventos Masivos"
+      subtitle="Desde $15,000 + IVA · 20+ barras UV · 200+ accesorios · 3 letreros neón · DJ incluido"
+      introParagraph1='La Producción UV es el paquete completo para eventos masivos donde la experiencia neón es el concepto central. No es solo iluminación — es una producción temática completa: 20+ barras UV LED profesionales que cubren 300m² o más, 200+ accesorios fluorescentes para todos los asistentes, 3 letreros neón personalizados como puntos focales del espacio, decoración temática UV completa, efectos de humo y láser, y DJ incluido para llevar la atmósfera al siguiente nivel. Para festivales universitarios, lanzamientos de marca, convenciones corporativas temáticas y eventos de 200 a 500+ personas, la Producción UV es la única opción que hace justicia a la escala del evento.'
+      introParagraph2='<strong>REDEIL</strong> tiene la experiencia y el equipo para producciones de esta escala. Con más de 30 años trabajando en eventos en CDMX y Estado de México, hemos producido festivales universitarios, lanzamientos de marca y eventos corporativos masivos donde la precisión en la ejecución no es opcional — es la diferencia entre un evento memorable y uno olvidable. El paquete incluye visita previa al venue para eventos complejos, coordinación con otros proveedores y un equipo técnico dedicado el día del evento. El resultado es una producción temática UV que los asistentes hablan por semanas.'
+    />
+
+    <CtaBar
+      headline="¿Comparar opciones de producción UV?"
+      items={[
+        { label: "Blacklight Básico — $3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/", icon: "iluminacion" },
+        { label: "Blacklight Party — $6,500", href: "/servicios/luz-negra/paquete-blacklight-party/", icon: "iluminacion" },
+        { label: "UV Premium — $10,000", href: "/servicios/luz-negra/paquete-uv-premium/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete Producción UV"
+        price="$15,000"
+        priceNote="+ IVA · Producción completa"
+        features={[
+          { text: "20+ barras UV LED profesionales" },
+          { text: "Cobertura 300m² o más" },
+          { text: "3 letreros neón personalizados" },
+          { text: "200+ accesorios fluorescentes" },
+          { text: "Decoración temática UV completa" },
+          { text: "Lásers + humo escénico" },
+          { text: "DJ para eventos incluido" },
+          { text: "Equipo técnico dedicado" },
+          { text: "Visita previa al venue (si aplica)" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el Paquete Producción UV para mi evento masivo."
+        packages={[
+          { label: "Blacklight Básico", price: "$3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/" },
+          { label: "Blacklight Party", price: "$6,500", href: "/servicios/luz-negra/paquete-blacklight-party/" },
+          { label: "UV Premium", price: "$10,000", href: "/servicios/luz-negra/paquete-uv-premium/" },
+          { label: "Producción UV", price: "$15,000", href: "/servicios/luz-negra/paquete-produccion-uv/", active: true },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="La producción UV más completa del mercado"
+            subtitle="Todo lo que necesitas para un evento masivo con temática neón."
+            paragraph1="La Producción UV no es un paquete más grande — es una categoría diferente. Cuando tienes 300+ asistentes y múltiples zonas del espacio que necesitan cobertura UV uniforme, la distribución estratégica del equipo marca la diferencia entre un efecto visualmente poderoso y una producción amateur."
+            paragraph2="Los 3 letreros neón personalizados actúan como puntos focales de diferentes zonas — entrada, pista de baile, zona de fotografía — creando una experiencia visual coherente en todo el espacio. El DJ incluido asegura que la música potencie la atmósfera UV en lugar de entrar en conflicto."
+          />
+          <FeatureGrid features={[
+            { title: "Festivales y eventos de 300+ personas", description: "La Producción UV está dimensionada para eventos masivos donde el UV necesita cubrir múltiples zonas simultáneamente." },
+            { title: "Múltiples zonas UV diferenciadas", description: "Diseñamos cada zona con una intensidad y distribución específica — pista, coctel, fotografía, entrada — para crear una experiencia visual con capas." },
+            { title: "Producción temática completa", description: "No es solo iluminación — es decoración, accesorios, letreros, efectos y DJ todo integrado en una producción coherente." },
+            { title: "Corporativos masivos y lanzamientos", description: "La temática neón es perfecta para lanzamientos de marca, convenciones y eventos corporativos que quieren impacto visual máximo." },
+            { title: "DJ profesional incluido", description: "El DJ de REDEIL conoce el set adecuado para eventos UV — música que potencia la energía de la pista y el ambiente neón." },
+            { title: "Coordinación con otros proveedores", description: "Coordinamos con fotógrafos, catering y staff del venue para una producción sin contratiempos el día del evento." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="El proceso para eventos de producción"
+            subtitle="Visita previa + diseño + ejecución impecable el día del evento."
+            paragraph1="Para eventos masivos, la improvisación no es una opción. Por eso la Producción UV incluye un proceso estructurado: recibimos el brief del evento, visitamos el venue si la escala lo requiere, diseñamos la distribución del equipo en plano y coordinamos con el equipo técnico del venue antes del día del evento."
+            paragraph2="El día del evento llegamos con 3-4 horas de anticipación con un equipo técnico dedicado para la producción UV. Montaje, pruebas, ajustes — todo queda listo antes de que llegue el primer invitado. Al finalizar, el desmontaje completo está incluido."
+          />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 29 reseñas de eventos masivos."
+            paragraph1="Festivales, corporativos masivos y lanzamientos de marca — la Producción UV es elegida por quienes no pueden permitirse errores."
+            paragraph2="Pregúntanos por referencias de eventos de escala similar al tuyo antes de cotizar."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Roberto Núñez", event: "Festival universitario — 400 asistentes", rating: 5, text: "22 barras UV en múltiples zonas, 3 letreros y 200 accesorios para el staff. La producción fue impecable — llegaron 4 horas antes y coordinaron perfectamente con el resto de los proveedores." },
+            { name: "Daniela Fuentes", event: "Evento corporativo masivo — 350 personas", rating: 5, text: "El DJ de REDEIL fue exactamente lo que el cliente necesitaba. Los 3 letreros personalizados con el logo y slogan de la empresa quedaron espectaculares. Producción de nivel profesional." },
+            { name: "Marcos Álvarez", event: "Lanzamiento de marca — múltiples zonas UV", rating: 5, text: "REDEIL diseñó cada zona con una intensidad diferente. El resultado fue una experiencia visual única que todos los asistentes comentaron en redes. Superaron todas las expectativas." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve la Producción UV en acción"
+          subtitle="Festivales, eventos masivos y múltiples zonas UV coordinadas."
+          paragraph1="La diferencia entre un paquete UV básico y una Producción UV se ve en las fotos. La cobertura total del espacio, los letreros como puntos focales y la coherencia visual de todo el espacio es lo que distingue una producción profesional."
+          paragraph2="Cuéntanos el tipo de evento y el tamaño del espacio. Te hacemos una propuesta con distribución preliminar del equipo antes de que confirmes."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/luz-negra/ambiente-glow-party-neon.avif", alt: "Glow party neón para evento masivo" },
+          { src: "/img/luz-negra/ambiente-neon-evento-social.avif", alt: "Evento social masivo con producción UV neón" },
+          { src: "/img/luz-negra/ambiente-ultravioleta-club.avif", alt: "Producción ultravioleta en evento de escala" },
+          { src: "/img/luz-negra/luz-uv-fiesta-glow-accesorios.avif", alt: "Accesorios fluorescentes en producción UV masiva" },
+          { src: "/img/luz-negra/ambiente-neon-discoteca.avif", alt: "Show neón completo para festival" },
+          { src: "/img/luz-negra/luz-ultravioleta-profesional.avif", alt: "Iluminación ultravioleta profesional para evento" },
+          { src: "/img/luz-negra/decoracion-neon-fiestas-tematicas.avif", alt: "Decoración neón para fiesta temática masiva" },
+          { src: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif", alt: "Producción luz negra para fiesta neón de festival" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre la Producción UV"
+          subtitle="Todo sobre eventos masivos, generadores y coordinación de producción."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Para eventos de esta escala, recomendamos contactarnos con al menos 4-6 semanas de anticipación."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿La Producción UV requiere visita previa al venue?", answer: "Para eventos de más de 250 personas o venues con múltiples zonas, recomendamos visita previa sin costo adicional. Nos permite diseñar la distribución del equipo, identificar puntos de conexión eléctrica y coordinar con el equipo técnico del venue. Para venues estándar, el levantamiento se hace con fotos y planos." },
+        { question: "¿Cuántas personas cubre la Producción UV?", answer: "Está diseñada para eventos de 200 a 500+ personas en espacios de 300m² o más. Para eventos de más de 500 personas o venues de mayor escala, elaboramos una propuesta personalizada con equipo adicional. Contáctanos con las dimensiones exactas del espacio y número estimado de asistentes." },
+        { question: "¿Necesito un generador para la Producción UV?", answer: "Depende de la instalación eléctrica del venue. 20+ barras UV + DJ + efectos tienen un consumo considerable. Para venues con buena infraestructura eléctrica, no es necesario. Para carpas o espacios sin instalación fija, recomendamos coordinar un generador. Lo evaluamos en la visita previa." },
+        { question: "¿El DJ incluido puede tocar el tipo de música que necesito?", answer: "Sí. El DJ de REDEIL tiene experiencia en eventos corporativos, festivales y fiestas privadas con temática neón. Hacemos un brief musical antes del evento para asegurar que el set se ajuste al tipo de público y la atmósfera que buscas. Para eventos con requerimientos musicales muy específicos, también coordinamos con tu DJ externo." },
+        { question: "¿Cómo coordina REDEIL con otros proveedores del evento?", answer: "Coordinamos directamente con el productor del evento o con los otros proveedores (catering, fotógrafo, sonido). Compartimos nuestro rider técnico y horario de montaje con anticipación para evitar conflictos el día del evento. Para eventos grandes, recomendamos una llamada de coordinación con todos los proveedores 1-2 semanas antes." },
+        { question: "¿Con cuánta anticipación debo reservar la Producción UV?", answer: "Mínimo 4-6 semanas para eventos masivos. La fabricación de los 3 letreros personalizados requiere 3-4 semanas. Además, para eventos de esta escala necesitamos apartar el equipo y el equipo técnico con anticipación. En temporada alta (noviembre-enero), las fechas se agotan antes — reserva lo antes posible." },
+      ]} />
+    </section>
+
+    <!-- Otros paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Otros Paquetes y Servicios"
+          subtitle="¿Buscas algo más acotado o complementar la producción?"
+          paragraph1="Si tu evento es más pequeño, el UV Premium o el Blacklight Party son opciones más acotadas. Si ya tienes DJ pero quieres sumar la producción UV, podemos armar un paquete sin DJ a precio ajustado."
+          paragraph2="La Producción UV combina muy bien con servicio de DJ externo si ya tienes uno contratado — solo coordínanos con ellos."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para producir el evento neón del año?</h2>
+          <p>Cuéntanos el tipo de evento, la fecha, el venue y el número estimado de asistentes. Te enviamos una propuesta de producción con distribución preliminar del equipo y cotización detallada.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Producción UV</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

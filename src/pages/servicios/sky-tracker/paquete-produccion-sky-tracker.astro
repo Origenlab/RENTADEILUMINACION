@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Sky Tracker Producción Festivales y Conciertos CDMX | REDEIL";
+const description = "6+ sky trackers con coreografía de luz para festivales y conciertos en CDMX. Sincronización musical. $25,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-produccion-sky-tracker/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción Sky Tracker — Festival y Concierto",
+    "description": "Renta de 6 o más sky trackers para festivales, conciertos y eventos masivos en CDMX. Coreografía de luz programada, sincronización musical, equipo de operadores y logística completa incluida.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-produccion-sky-tracker/",
+      "priceCurrency": "MXN",
+      "price": "25000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "17",
+      "reviewCount": "17"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mtro. Héctor Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos a REDEIL para el Festival Cultural de Xochimilco. Los 6 sky trackers en coreografía sincronizada con la música en vivo fueron el elemento que convirtió el evento en algo verdaderamente espectacular. Cobertura en todos los medios locales."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Carmen Treviño" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El concierto en el Parque Lineal de Iztapalapa fue un evento histórico y REDEIL fue parte de eso. Los haces sincronizados con la música crearon momentos que la gente capturó en miles de videos. Profesionales en todo sentido."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Fernanda Rojas" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los 8 sky trackers para nuestra Expo Masiva en el Centro Citibanamex fueron perfectos. La coordinación logística fue impecable — llegaron con horas de anticipación, hicieron todas las pruebas y durante el evento no hubo un solo contratiempo."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/sky-tracker/sky-tracker-concierto-haces-luz.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete de producción de sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de producción incluye 6 o más sky trackers de alta potencia, coreografía de luz programada y personalizada para tu evento, sincronización con música en vivo o grabada, equipo completo de operadores técnicos, logística de transporte e instalación para venues de gran escala, generadores de energía, y una visita previa al venue para planificación detallada." }},
+      { "@type": "Question", "name": "¿Qué es la coreografía de luz y cómo funciona?", "acceptedAnswer": { "@type": "Answer", "text": "La coreografía de luz es una secuencia programada de movimientos y cambios de color en los 6+ sky trackers que se sincroniza con momentos específicos de la música o del evento. A diferencia del control manual, la coreografía es precisa, repetible y puede responder a cues musicales en tiempo real. Es el estándar para festivales y conciertos de escala profesional." }},
+      { "@type": "Question", "name": "¿Cuántos operadores incluye el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de producción incluye un equipo de operadores adaptado a la cantidad de trackers y la complejidad de la coreografía. Para 6 trackers el equipo mínimo es de 3 operadores — uno por cada 2 equipos — más un director técnico que coordina toda la producción aérea." }},
+      { "@type": "Question", "name": "¿El precio de $25,000 es fijo o varía según el número de trackers?", "acceptedAnswer": { "@type": "Answer", "text": "$25,000 + IVA es el precio base para 6 sky trackers con coreografía y equipo completo. Para eventos que requieren 8, 10 o más trackers, el precio se ajusta según la configuración. Cotizamos a la medida de tu festival o concierto — mándanos los detalles por WhatsApp." }},
+      { "@type": "Question", "name": "¿Requiere permiso especial para festivales con 6+ sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Para eventos masivos en espacios abiertos de CDMX, el permiso de SENEAM (Servicios a la Navegación en el Espacio Aéreo Mexicano) es prácticamente obligatorio. Nosotros tramitamos el permiso como parte del servicio de producción — es parte de nuestra experiencia en este tipo de eventos." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Para festivales y conciertos recomendamos reservar con mínimo 4-6 semanas de anticipación. Esto permite hacer la visita previa al venue, tramitar permisos si son necesarios, planificar la coreografía de luz personalizada y coordinar con la producción del evento. Los fines de semana de temporada alta (octubre-diciembre) se llenan con más anticipación." }}
+    ]
+  }
+]);
+
+const otrosServicios = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams en festival", description: "Show DMX en el escenario + coreografía de sky trackers al cielo. Producción de nivel internacional.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en evento masivo", description: "Uplighting de venue + coreografía aérea. Producción visual completa para festivales.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para festival", description: "Áreas de descanso y food trucks iluminados con guirnaldas mientras el cielo arde con los trackers.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en festival masivo", description: "Cañones de color en el escenario y las estructuras del festival complementan la producción aérea.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Sky Tracker", href: "/servicios/sky-tracker/" },
+    { label: "Producción Sky Tracker" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Sky Tracker de Producción — Coreografía Aérea para Festivales"
+      subtitle="Desde $25,000 + IVA. 6+ sky trackers, coreografía de luz, sincronización musical."
+      introParagraph1='Cuando el evento supera las 500 personas y el espacio es un parque, un recinto al aire libre o una explanada, un solo haz al cielo ya no alcanza — necesitas una coreografía. Seis o más sky trackers posicionados estratégicamente en el perímetro del festival, programados en secuencias sincronizadas con la música y operados por un equipo técnico coordinado convierten el cielo nocturno en parte del show. En <strong>REDEIL</strong> hemos producido este servicio para festivales culturales en Xochimilco, conciertos en el Parque Lineal de Iztapalapa y expos masivas en el Centro Citibanamex.'
+      introParagraph2='El paquete de producción incluye todo lo que un festival necesita para que la coreografía aérea funcione sin contratiempos: equipo completo de operadores y un director técnico que coordina la producción, visita previa al venue para mapeo de posiciones y logística de energía, tramitación del permiso SENEAM si se requiere, generadores de energía para todos los equipos, y la coreografía personalizada diseñada específicamente para tu lineup de artistas y momentos clave del evento. No es solo arrendar trackers — es producción completa.'
+    />
+
+    <CtaBar
+      headline="¿Menos trackers para tu evento?"
+      items={[
+        { label: "1 Sky Tracker — $5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/", icon: "iluminacion" },
+        { label: "2 Sky Trackers — $9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/", icon: "iluminacion" },
+        { label: "4 Sky Trackers — $16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Producción Festival"
+        price="$25,000"
+        priceNote="+ IVA · Desde 6 sky trackers"
+        features={[
+          { text: "6+ sky trackers de alta potencia" },
+          { text: "Coreografía de luz programada" },
+          { text: "Sincronización con música" },
+          { text: "Filtros de color + efectos" },
+          { text: "Equipo completo de operadores" },
+          { text: "Director técnico incluido" },
+          { text: "Generadores y logística" },
+          { text: "Visita previa al venue" },
+          { text: "Tramitación de permiso SENEAM" },
+          { text: "Cobertura área metropolitana" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar sky trackers de producción para un festival."
+        packages={[
+          { label: "1 sky tracker", price: "$5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/" },
+          { label: "2 sky trackers", price: "$9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/" },
+          { label: "4 sky trackers", price: "$16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/" },
+          { label: "Producción 6+", price: "$25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/", active: true },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="Producción de escala festival — no solo renta de equipos"
+            subtitle="Coreografía, logística, operadores y dirección técnica incluidos."
+            paragraph1="La diferencia entre el paquete de producción y los paquetes menores no es solo la cantidad de trackers — es el nivel de planificación y coordinación. Una coreografía de 6+ equipos requiere mapeo de posiciones, programación de secuencias, coordinación con el director musical y pruebas completas antes de que abra el festival."
+            paragraph2="El director técnico de REDEIL es el enlace entre la producción del evento y los operadores de sky tracker — garantiza que cada encendido, movimiento y cambio de color ocurra exactamente cuando lo planeamos."
+          />
+          <FeatureGrid features={[
+            { title: "Festivales culturales", description: "Coreografía que responde al estilo de cada artista del lineup. El cielo como extensión del escenario." },
+            { title: "Conciertos al aire libre", description: "Sincronización precisa con los momentos más intensos de la música. Los haces suben y bajan con la energía del show." },
+            { title: "Expos y ferias masivas", description: "Marca la ubicación del evento masivo desde kilómetros. Guía a decenas de miles de visitantes." },
+            { title: "Festivales gastronómicos", description: "Producción aérea que eleva un festival de comida al nivel de un evento de entretenimiento." },
+            { title: "Eventos deportivos nocturnos", description: "Haces de luz que marcan el venue del gran partido o la carrera nocturna desde toda la ciudad." },
+            { title: "Mega inauguraciones", description: "El estándar de producción para aperturas que necesitan atraer a toda la ciudad." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Cómo funciona la coreografía de luz"
+            subtitle="Secuencias programadas que responden a la música del festival."
+            paragraph1="La coreografía se diseña en pre-producción: definimos los momentos clave del evento (entrada principal, acto más esperado, cierre), diseñamos las secuencias de movimiento para cada momento y programamos las transiciones entre ellas. El resultado es una actuación aérea que se siente parte del show."
+            paragraph2="Durante el evento, el director técnico da los cues a los operadores en tiempo real. Pueden seguir la coreografía programada o improvisar si el artista extiende una canción o el evento cambia de ritmo inesperadamente."
+          />
+          <FeatureGrid features={[
+            { title: "Secuencias en abanico", description: "Los 6 haces se abren y cierran en sincronía creando un efecto de abanico gigante en el cielo." },
+            { title: "Caza y fuga", description: "Los haces se persiguen entre sí por el cielo. Dinámico y espectacular durante el clímax musical." },
+            { title: "Posición de marca", description: "Todos apuntan al mismo punto del cielo formando un haz concentrado. El momento más fotografiado." },
+            { title: "Cruce múltiple", description: "Los haces se cruzan en diferentes puntos creando una red de luz sobre el venue." },
+            { title: "Olas sincronizadas", description: "Los haces oscilan en ola de izquierda a derecha siguiendo el ritmo de la música." },
+            { title: "Apagado dramático", description: "Todos los haces se apagan simultáneamente en el momento de silencio más intenso del show." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Festivales y eventos masivos que recuerdan"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 17 reseñas de producción festival."
+            paragraph1="Cada reseña es de un productor o coordinador que contrató el paquete de producción para un evento masivo."
+            paragraph2="Pregunta por referencias de festivales similares al tuyo cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Mtro. Héctor Villanueva", event: "Festival Cultural — Xochimilco", rating: 5, text: "Los 6 sky trackers en coreografía sincronizada con la música en vivo fueron el elemento que convirtió el evento en algo verdaderamente espectacular. El director técnico coordinó perfecto con nuestro equipo de producción. Cobertura en todos los medios." },
+            { name: "Ing. Carmen Treviño", event: "Concierto — Parque Lineal Iztapalapa", rating: 5, text: "El concierto fue un evento histórico y REDEIL fue parte de eso. Los haces sincronizados con la música crearon momentos que la gente capturó en miles de videos. El equipo llegó 4 horas antes y no hubo ningún imprevisto durante el show." },
+            { name: "Lic. Fernanda Rojas", event: "Expo Masiva — Centro Citibanamex", rating: 5, text: "Los 8 sky trackers para la expo fueron perfectos. La coordinación logística fue impecable — llegaron con anticipación, hicieron todas las pruebas y durante los 3 días del evento no hubo un solo contratiempo. Profesionales al 100%." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Coreografía aérea en festivales y conciertos reales"
+          subtitle="6+ sky trackers sincronizados en eventos masivos de CDMX."
+          paragraph1="Cada foto muestra una producción real de múltiples sky trackers en festivales, conciertos y eventos masivos. La coreografía de luz eleva el espectáculo a un nivel que los asistentes publican espontáneamente en redes sociales."
+          paragraph2="¿Cuántos asistentes esperas? ¿Cuál es el aforo del venue? Mándanos los detalles y te diseñamos la configuración óptima."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/sky-tracker/sky-tracker-concierto-haces-luz.avif", alt: "Sky trackers en concierto con haces de luz cruzados" },
+          { src: "/img/sky-tracker/luces-antiaereas-espectaculo-cielo-noche.avif", alt: "Espectáculo de luces antiaéreas en cielo nocturno" },
+          { src: "/img/sky-tracker/luces-antiaereas-multiple-haz-evento.avif", alt: "Múltiples haces de luz antiaérea en festival masivo" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-nocturno-haz-potente.avif", alt: "Haz potente de sky tracker en evento nocturno masivo" },
+          { src: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente.avif", alt: "Múltiples haces potentes cortando el cielo nocturno en festival" },
+          { src: "/img/sky-tracker/luces-antiaereas-evento-exterior-crew.avif", alt: "Crew de operadores controlando sky trackers en evento exterior" },
+          { src: "/img/sky-tracker/luces-antiaereas-boda-alberca-reflejo.avif", alt: "Haces de sky tracker reflejados en alberca de venue" },
+          { src: "/img/sky-tracker/renta-sky-tracker-evento-masivo-cdmx.avif", alt: "Evento masivo en CDMX con múltiples sky trackers al cielo" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete de Producción"
+          subtitle="Todo lo que necesita saber el director de producción del festival."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Para producciones de festival podemos emitir cotización formal con rider técnico completo."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué incluye el paquete de producción de sky tracker?", answer: "El paquete incluye 6 o más sky trackers de alta potencia, coreografía de luz programada y personalizada para tu evento, sincronización con música en vivo o grabada, equipo completo de operadores técnicos, director técnico de producción, logística de transporte e instalación, generadores de energía, visita previa al venue y tramitación de permiso SENEAM si se requiere." },
+        { question: "¿Qué es la coreografía de luz y cómo funciona?", answer: "La coreografía de luz es una secuencia programada de movimientos y cambios de color en los 6+ sky trackers que se sincroniza con momentos específicos de la música o del evento. Es el estándar para festivales y conciertos de escala profesional. Se diseña en pre-producción con base en el lineup y los momentos clave del evento." },
+        { question: "¿Cuántos operadores incluye el paquete de producción?", answer: "El paquete incluye un equipo de operadores adaptado a la cantidad de trackers y la complejidad de la coreografía. Para 6 trackers el equipo mínimo es de 3 operadores más un director técnico que coordina toda la producción aérea. Para más equipos, el team crece proporcionalmente." },
+        { question: "¿El precio de $25,000 es fijo o varía según el número de trackers?", answer: "$25,000 + IVA es el precio base para 6 sky trackers con coreografía y equipo completo. Para eventos que requieren 8, 10 o más trackers, el precio se ajusta según la configuración específica. Cotizamos a la medida de tu festival — mándanos los detalles del evento por WhatsApp." },
+        { question: "¿Requiere permiso especial para festivales con 6+ sky trackers?", answer: "Para eventos masivos en espacios abiertos de CDMX, el permiso de SENEAM es prácticamente obligatorio. Nosotros tramitamos el permiso como parte del servicio de producción — es parte de nuestra experiencia en este tipo de eventos y no tiene costo adicional." },
+        { question: "¿Con cuánta anticipación debo reservar el paquete de producción?", answer: "Para festivales y conciertos recomendamos reservar con mínimo 4-6 semanas de anticipación. Esto permite hacer la visita previa al venue, tramitar permisos, planificar la coreografía personalizada y coordinar con la producción del evento. Los fines de semana de temporada alta se llenan con más anticipación." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Completa la Producción del Festival"
+          subtitle="Coreografía aérea + iluminación escénica y de ambiente."
+          paragraph1="Los festivales más recordados combinan la coreografía aérea de sky trackers con cabezas móviles en el escenario, city color en las estructuras y guirnaldas Edison en las áreas de descanso."
+          paragraph2="Armamos propuestas de producción completa para festivales y conciertos. Podemos emitir rider técnico y cotización formal."
+        />
+        <div class="services-grid">
+          {otrosServicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Tu festival merece una coreografía en el cielo de CDMX?</h2>
+          <p>Mándanos los detalles del evento por WhatsApp — aforo, venue, fechas y lineup. Te cotizamos la producción completa y coordinamos la visita previa.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Producción — WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

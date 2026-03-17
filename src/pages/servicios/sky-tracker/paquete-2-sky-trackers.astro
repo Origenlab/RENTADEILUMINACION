@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "2 Sky Trackers para Bodas en Hacienda CDMX | REDEIL";
+const description = "Efecto cruzado con 2 haces xenón visibles a 7 km. El más popular para bodas en hacienda en CDMX. $9,500 + IVA instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-2-sky-trackers/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 2 Sky Trackers — Boda en Hacienda",
+    "description": "Renta de 2 sky trackers xenón para efecto cruzado en bodas grandes de hacienda. Visible a 5-7 km. Incluye transporte, instalación, operador y desmontaje. El paquete más popular de REDEIL.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-2-sky-trackers/",
+      "priceCurrency": "MXN",
+      "price": "9500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "52",
+      "reviewCount": "52"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valeria Moreno" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Tuvimos 200 invitados en la Hacienda San Miguel en Tepotzotlán y los 2 sky trackers cruzados fueron el elemento que todos recuerdan. Los haces se veían desde la autopista. El equipo de REDEIL coordinó perfecto con el fotógrafo para los mejores momentos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandro Vega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los contratamos para la inauguración de un centro comercial en Naucalpan. Los 2 haces cruzados se convirtieron en un ícono esa noche — la gente hacía fila para tomarse fotos con ellos de fondo. Totalmente recomendados."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana Castro" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los XV años de mi hija en la Finca Los Sabinos fueron un sueño. Los 2 sky trackers formaron un arco de luz sobre la entrada. Mis invitados llegaron siguiendo la luz y quedaron impresionados desde que entraron al venue."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuál es la diferencia entre 1 y 2 sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Con 1 sky tracker tienes un haz singular al cielo — impactante y efectivo para eventos íntimos. Con 2 sky trackers obtienes el efecto cruzado: dos haces que se encuentran en el cielo formando una X o un arco de luz. Este efecto es dramáticamente más impresionante, visible a 7 km y crea más oportunidades fotográficas. Para bodas en hacienda con más de 100 invitados, el paquete de 2 es la elección natural." }},
+      { "@type": "Question", "name": "¿Por qué es el paquete más popular para bodas en hacienda?", "acceptedAnswer": { "@type": "Answer", "text": "Las haciendas tienen jardines amplios con cielo abierto en varias direcciones — el espacio ideal para colocar 2 equipos y crear el efecto cruzado. Además, el tamaño típico de una boda en hacienda (100-200 invitados) justifica el doble impacto visual. Es el paquete que más contratamos en Tepotzotlán, Valle de Bravo y haciendas del sur de CDMX." }},
+      { "@type": "Question", "name": "¿Los 2 sky trackers se mueven de forma independiente?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada equipo tiene su propio operador que puede moverlo de forma independiente o coordinada. Pueden estar fijos en posiciones opuestas, hacer barridos sincronizados o crear el efecto de cruce cuando los haces se encuentran en el cielo." }},
+      { "@type": "Question", "name": "¿El paquete de $9,500 incluye los 2 operadores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $9,500 + IVA incluyen los 2 sky trackers, 2 operadores técnicos, transporte de ambos equipos, instalación profesional, generadores de energía si se requieren y desmontaje al finalizar. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿Funciona bien en haciendas fuera de CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Sí — atendemos haciendas en todo el Estado de México, Morelos y zonas cercanas. Tepotzotlán, Toluca, Cuernavaca y Valle de Bravo están dentro de nuestra cobertura habitual. Confirma tu ubicación para verificar disponibilidad de transporte." }},
+      { "@type": "Question", "name": "¿Puedo agregar filtros de color a los 2 sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, con cargo adicional. Los filtros de color permiten que cada haz tenga un tono diferente — muy popular en bodas donde los colores de la boda son un elemento importante. El paquete de 4 sky trackers ya incluye filtros de color en el precio base." }}
+    ]
+  }
+]);
+
+const otrosServicios = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams en boda", description: "Beams en el piso de hacienda + 2 haces al cielo. La producción más completa para bodas grandes.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Uplighting que ilumina la fachada de la hacienda mientras los sky trackers cortan el cielo.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para boda", description: "Guirnaldas Edison en el jardín + efecto cruzado en el cielo. La combinación más pedida en REDEIL.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "Cañones de color en las fachadas de la hacienda completan la producción con los sky trackers.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Sky Tracker", href: "/servicios/sky-tracker/" },
+    { label: "2 Sky Trackers" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="2 Sky Trackers — Efecto Cruzado para Bodas en Hacienda"
+      subtitle="Desde $9,500 + IVA. Haces xenón visibles a 7 km. El paquete más popular de REDEIL."
+      introParagraph1='Dos sky trackers xenón colocados estratégicamente en el jardín de la hacienda crean el efecto más fotografiado de cualquier boda nocturna: dos haces de luz que se cruzan en el cielo formando un arco luminoso visible a 7 kilómetros de distancia. No es solo un efecto de iluminación — es una señal que todo CDMX puede ver, que marca tu boda como un evento que merece la pena recordar. En <strong>REDEIL</strong> este es el paquete que más contratamos para bodas grandes en haciendas de Tepotzotlán, Tlalpan y el sur del Estado de México.'
+      introParagraph2='El efecto cruzado se puede programar de varias formas según el momento del evento: barridos lentos y coordinados durante la recepción, cruce dramático para el primer baile, posición fija en espejo para las fotos oficiales. Cada tracker tiene su propio operador que trabaja en coordinación para que el resultado sea preciso y espectacular. El paquete incluye todo — transporte de ambos equipos, instalación, 2 operadores, generadores si el venue los requiere y desmontaje al finalizar.'
+    />
+
+    <CtaBar
+      headline="¿Más o menos trackers?"
+      items={[
+        { label: "1 Sky Tracker — $5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/", icon: "iluminacion" },
+        { label: "4 Sky Trackers — $16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/", icon: "iluminacion" },
+        { label: "Producción — $25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Más Popular"
+        price="$9,500"
+        priceNote="+ IVA · 2 operadores incluidos"
+        features={[
+          { text: "2 sky trackers xenón 4,000-7,000W" },
+          { text: "Efecto cruzado programable" },
+          { text: "Visible a 5-7 km de distancia" },
+          { text: "2 operadores técnicos incluidos" },
+          { text: "Transporte de ambos equipos" },
+          { text: "Instalación profesional" },
+          { text: "Desmontaje al finalizar" },
+          { text: "Generadores de energía incluidos" },
+          { text: "Ideal para 100-200 invitados" },
+          { text: "Cobertura CDMX, Edomex y Morelos" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar 2 sky trackers para mi boda en hacienda."
+        packages={[
+          { label: "1 sky tracker", price: "$5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/" },
+          { label: "2 sky trackers", price: "$9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/", active: true },
+          { label: "4 sky trackers", price: "$16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/" },
+          { label: "Producción 6+", price: "$25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="Por qué el efecto cruzado es el más solicitado"
+            subtitle="Dos haces crean algo que un solo tracker no puede lograr."
+            paragraph1="El efecto cruzado ocurre cuando los dos haces de luz se encuentran en el cielo — un momento que las cámaras capturan de forma espectacular y que los invitados recuerdan semanas después. Las haciendas con cielo abierto son el escenario perfecto para este efecto."
+            paragraph2="Para bodas de 100 a 200 invitados en espacios amplios, dos sky trackers en extremos opuestos del jardín maximizan la visibilidad del evento desde todas las direcciones."
+          />
+          <FeatureGrid features={[
+            { title: "Bodas en hacienda grande", description: "El efecto cruzado sobre el jardín de recepción. Visible desde la carretera y las habitaciones del venue." },
+            { title: "Inauguraciones comerciales", description: "Dos haces atraen más atención que uno solo. Perfecto para centros comerciales y plazas." },
+            { title: "XV años en finca", description: "El momento de entrada con dos haces cruzados sobre la quinceañera es la foto más impactante del álbum." },
+            { title: "Bodas 100-200 invitados", description: "A mayor número de invitados, mayor el impacto de un doble efecto. Todos tienen ángulo de visión." },
+            { title: "Eventos nocturnos al aire libre", description: "Dos haces crean un efecto de dosel de luz sobre el jardín que complementa cualquier decoración." },
+            { title: "Recepciones de lujo", description: "El estándar para bodas de alto presupuesto que buscan un elemento aéreo diferenciador." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Coordinación de los 2 operadores"
+            subtitle="Cada haz controlado en tiempo real para el máximo efecto."
+            paragraph1="Los 2 operadores se comunican entre sí y con el coordinador del evento para sincronizar los movimientos del haz con los momentos clave: entrada de novios, primer baile, brindis, corte de pastel."
+            paragraph2="Antes del evento hacemos una prueba completa de posicionamiento y movimientos con los operadores para garantizar que el resultado sea exactamente el que visualizaste."
+          />
+          <FeatureGrid features={[
+            { title: "Cruce dramático", description: "Los dos haces se encuentran en un punto del cielo. El momento más fotografiado." },
+            { title: "Barridos sincronizados", description: "Movimiento en espejo: uno va hacia la izquierda mientras el otro va a la derecha." },
+            { title: "Posición fija en V", description: "Dos haces en ángulo abierto hacia el cielo. Elegante y simétrico para fotos." },
+            { title: "Alternancia", description: "Uno está encendido mientras el otro se mueve. Crea dinamismo sin perder elegancia." },
+            { title: "Encendido simultáneo", description: "Los dos se encienden al mismo tiempo para un momento de impacto máximo." },
+            { title: "Coordinación con DJ/música", description: "Los operadores responden a momentos clave de la música para sincronizar efectos." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen las parejas de hacienda"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 52 reseñas."
+            paragraph1="El paquete de 2 sky trackers es el más reseñado de REDEIL — y el que más recomendaciones genera entre los invitados."
+            paragraph2="Pregunta por referencias de bodas en hacienda similares a la tuya cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Valeria Moreno", event: "Boda 200 invitados — Hacienda San Miguel, Tepotzotlán", rating: 5, text: "Los 2 sky trackers cruzados fueron el elemento que todos recuerdan. Los haces se veían desde la autopista. El equipo de REDEIL coordinó perfecto con el fotógrafo para los mejores momentos." },
+            { name: "Alejandro Vega", event: "Inauguración — Centro Comercial Naucalpan", rating: 5, text: "Los 2 haces cruzados se convirtieron en un ícono esa noche. La gente hacía fila para tomarse fotos con ellos de fondo. El retorno en redes sociales fue inmediato — cientos de posts." },
+            { name: "Mariana Castro", event: "XV Años — Finca Los Sabinos, Tlalpan", rating: 5, text: "Los sky trackers formaron un arco de luz sobre la entrada. Mis invitados llegaron siguiendo la luz y quedaron impresionados desde que entraron. El momento en que se cruzaron fue mágico." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="El efecto cruzado en bodas y eventos reales"
+          subtitle="Haciendas, fincas y eventos grandes de CDMX y alrededores."
+          paragraph1="Cada foto muestra el efecto cruzado de 2 sky trackers en venues reales. El doble haz es visualmente más impactante desde todos los ángulos y crea más oportunidades fotográficas durante el evento."
+          paragraph2="¿Tu hacienda se parece a alguno de estos venues? Mándanos fotos por WhatsApp y te diseñamos el posicionamiento óptimo."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif", alt: "Sky tracker proyectando haz de luz desde hacienda en boda nocturna" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-noche-cielo.avif", alt: "Hacienda de noche con haces de sky tracker al cielo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-banquete.avif", alt: "Banquete de boda en hacienda con sky trackers iluminando el cielo" },
+          { src: "/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif", alt: "Luces antiaéreas iluminando hacienda colonial para boda" },
+          { src: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente.avif", alt: "Haces potentes de sky tracker cruzándose en el cielo nocturno" },
+          { src: "/img/sky-tracker/luces-antiaereas-multiple-haz-evento.avif", alt: "Múltiples haces de luz antiaérea en evento de hacienda" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-nocturno-haz-potente.avif", alt: "Haz potente de sky tracker en evento nocturno de hacienda" },
+          { src: "/img/sky-tracker/luces-antiaereas-boda-terraza-alberca.avif", alt: "Luces antiaéreas en boda con terraza y alberca" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 2 Sky Trackers"
+          subtitle="El paquete más popular de REDEIL — y el que más preguntas genera."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Cada hacienda es diferente — verificamos el espacio y te recomendamos el posicionamiento óptimo."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuál es la diferencia entre 1 y 2 sky trackers?", answer: "Con 1 sky tracker tienes un haz singular al cielo — efectivo para eventos íntimos. Con 2 obtienes el efecto cruzado: dos haces que se encuentran en el cielo formando una X o un arco de luz visible a 7 km. Este efecto es dramáticamente más impresionante y crea más oportunidades fotográficas. Para bodas en hacienda con más de 100 invitados, el paquete de 2 es la elección natural." },
+        { question: "¿Por qué es el paquete más popular para bodas en hacienda?", answer: "Las haciendas tienen jardines amplios con cielo abierto en varias direcciones — el espacio ideal para colocar 2 equipos y crear el efecto cruzado. Además, el tamaño típico de una boda en hacienda justifica el doble impacto visual. Es el paquete que más contratamos en Tepotzotlán, Tlalpan y haciendas del Estado de México." },
+        { question: "¿Los 2 sky trackers se mueven de forma independiente?", answer: "Sí. Cada equipo tiene su propio operador que puede moverlo de forma independiente o coordinada. Pueden hacer barridos sincronizados, cruce dramático cuando los haces se encuentran en el cielo, o posición fija en espejo para las fotos oficiales." },
+        { question: "¿El paquete de $9,500 incluye los 2 operadores?", answer: "Sí. Los $9,500 + IVA incluyen los 2 sky trackers, 2 operadores técnicos, transporte de ambos equipos, instalación profesional, generadores de energía si se requieren y desmontaje al finalizar. Sin costos ocultos." },
+        { question: "¿Funciona en haciendas fuera de CDMX?", answer: "Sí — atendemos haciendas en Estado de México, Morelos y zonas cercanas. Tepotzotlán, Toluca, Cuernavaca y Valle de Bravo están dentro de nuestra cobertura habitual. Confirma tu ubicación para verificar disponibilidad y posible cargo por distancia." },
+        { question: "¿Puedo agregar filtros de color a los 2 sky trackers?", answer: "Sí, con cargo adicional. Los filtros de color permiten que cada haz tenga un tono diferente — muy popular en bodas donde el color es un elemento importante de la decoración. El paquete de 4 sky trackers ya incluye filtros de color en el precio base." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Boda en Hacienda"
+          subtitle="Efecto cruzado en el cielo + iluminación a nivel del jardín."
+          paragraph1="Las bodas más recordadas en hacienda combinan el impacto aéreo del efecto cruzado con guirnaldas Edison, uplighting en fachada y cabezas móviles. El resultado es una producción visual completa que va del suelo al cielo."
+          paragraph2="Armamos paquetes integrales con precio especial para bodas en hacienda. Cuéntanos tu evento y te diseñamos la propuesta completa."
+        />
+        <div class="services-grid">
+          {otrosServicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para que tu boda en hacienda llegue al cielo?</h2>
+          <p>Mándanos el nombre del venue y la fecha por WhatsApp. Verificamos disponibilidad y te cotizamos el efecto cruzado en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis — WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

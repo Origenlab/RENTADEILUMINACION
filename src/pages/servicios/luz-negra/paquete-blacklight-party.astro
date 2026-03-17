@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete Blacklight Party — Glow Party para XV Años en CDMX | REDEIL";
+const description = "Glow party completa: 8-12 barras UV LED + 50 accesorios fluorescentes para XV años y fiestas en CDMX. Pista hasta 150m². $6,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/paquete-blacklight-party/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Blacklight Party — Glow Party UV",
+    "description": "Glow party completa: 8-12 barras UV LED + 50 accesorios fluorescentes para XV años, cumpleaños y fiestas en CDMX. Cobertura hasta 150m². Incluye transporte, instalación y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/luz-negra/paquete-blacklight-party/",
+      "priceCurrency": "MXN",
+      "price": "6500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "63",
+      "reviewCount": "63"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valeria Soto" },
+        "datePublished": "2026-02-05",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Mis XV años con temática glow en Tlalpan quedaron de película. Los chambelanes con sus camisas blancas brillando, yo con el maquillaje UV, las pulseras fluorescentes de todos los invitados... Las fotos quedaron increíbles. REDEIL lo hizo perfecto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Diego Ramírez" },
+        "datePublished": "2025-12-20",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Cumpleaños 30 en La Condesa con glow party completa. Las 10 barras UV cubrieron todo el salón sin zonas oscuras. Los accesorios fluorescentes que incluían fueron el detalle que hizo la diferencia — todos mis amigos llegaron con ropa blanca y el efecto fue brutal."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernanda Castro" },
+        "datePublished": "2025-09-10",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Fiesta privada en San Ángel con temática neón. El Paquete Blacklight Party fue exactamente lo que necesitaba — suficientes barras UV para todo el salón y los accesorios para mis 90 invitados. REDEIL llegó puntual y el montaje fue impecable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/luz-negra/ambiente-glow-xv-anos.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El Paquete Blacklight Party es suficiente para mis XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es el paquete más popular para XV años. 8-12 barras UV cubren salones de hasta 150m² y los 50 accesorios fluorescentes (pulseras, collares, pintura facial) hacen que todos los invitados brillen. Perfecto para 80-150 invitados." }},
+      { "@type": "Question", "name": "¿Cuándo se enciende la luz UV durante los XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Lo más común es encender el UV durante el vals o al inicio de la hora loca. Algunos clientes lo tienen toda la noche. Te recomendamos combinarlo con luces de color para la ceremonia y activar el UV cuando arranque la fiesta para maximizar el impacto." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Blacklight Básico", description: "Kit UV para pista de baile de hasta 80m². Perfecto para fiestas íntimas y cumpleaños. $3,500 + IVA.", image: "/img/luz-negra/ambiente-blacklight-fiesta.avif", alt: "Paquete blacklight básico para pista de baile", link: "/servicios/luz-negra/paquete-blacklight-basico/" },
+  { title: "UV Premium", description: "UV completo + letreros neón personalizados. Bodas neón y eventos premium. $10,000 + IVA.", image: "/img/luz-negra/ambiente-neon-boda.avif", alt: "UV premium para boda neón", link: "/servicios/luz-negra/paquete-uv-premium/" },
+  { title: "Producción UV", description: "Producción completa para eventos masivos. 20+ barras UV + decoración + DJ. $15,000 + IVA.", image: "/img/luz-negra/ambiente-glow-party-neon.avif", alt: "Producción UV para evento masivo", link: "/servicios/luz-negra/paquete-produccion-uv/" },
+  { title: "Luces Neón LED", description: "Letreros neón personalizados y efectos decorativos. El complemento perfecto para la glow party.", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón para glow party", link: "/servicios/luces-neon/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luz Negra", href: "/servicios/luz-negra/" },
+    { label: "Blacklight Party" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete Blacklight Party — Glow Party Completa para XV Años"
+      subtitle="Desde $6,500 + IVA · 8-12 barras UV · 50 accesorios fluorescentes · Pista hasta 150m²"
+      introParagraph1='El Paquete Blacklight Party es la glow party completa. No solo luz negra para la pista — son 8 a 12 barras UV LED profesionales que cubren el salón completo hasta 150m², más 50 accesorios fluorescentes (pulseras neón, collares y pintura facial UV) para que cada uno de tus invitados brille. Cuando encienden el UV y los chambelanes entran con sus camisas blancas resplandeciendo, cuando la quinceañera hace su primera aparición con el maquillaje UV iluminado... ese es el momento que todos recuerdan. Es la temática de XV años más fotogénica de los últimos años y el paquete más pedido de nuestra línea UV.'
+      introParagraph2='Con <strong>REDEIL</strong> obtienes equipo profesional de marcas como <strong>Chauvet</strong> y <strong>Elation</strong>, con más de 30 años instalando iluminación para eventos en CDMX y Estado de México. El servicio es completo: llegamos con anticipación, montamos las barras UV estratégicamente para cobertura uniforme, entregamos los accesorios fluorescentes, y al finalizar recogemos todo. Tu única preocupación es disfrutar el evento — nosotros nos encargamos de que la pista brille toda la noche.'
+    />
+
+    <CtaBar
+      headline="¿Quieres comparar paquetes?"
+      items={[
+        { label: "Blacklight Básico — $3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/", icon: "iluminacion" },
+        { label: "UV Premium — $10,000", href: "/servicios/luz-negra/paquete-uv-premium/", icon: "iluminacion" },
+        { label: "Producción UV — $15,000", href: "/servicios/luz-negra/paquete-produccion-uv/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete Blacklight Party"
+        price="$6,500"
+        priceNote="+ IVA · El más popular para XV años"
+        badge="Más popular"
+        features={[
+          { text: "8-12 barras UV LED profesionales" },
+          { text: "Cobertura salón hasta 150m²" },
+          { text: "50 pulseras neón fluorescentes" },
+          { text: "50 collares fluorescentes" },
+          { text: "10 kits de pintura facial UV" },
+          { text: "Equipo Chauvet / Elation" },
+          { text: "Transporte + montaje + desmontaje" },
+          { text: "Operador durante el evento" },
+          { text: "Control DMX incluido" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el Paquete Blacklight Party para mis XV años."
+        packages={[
+          { label: "Blacklight Básico", price: "$3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/" },
+          { label: "Blacklight Party", price: "$6,500", href: "/servicios/luz-negra/paquete-blacklight-party/", active: true },
+          { label: "UV Premium", price: "$10,000", href: "/servicios/luz-negra/paquete-uv-premium/" },
+          { label: "Producción UV", price: "$15,000", href: "/servicios/luz-negra/paquete-produccion-uv/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="La glow party perfecta para estos eventos"
+            subtitle="8-12 barras UV cubren el salón completo hasta 150m²."
+            paragraph1="El Blacklight Party está diseñado para eventos medianos donde no quieres solo la pista iluminada — quieres que TODO el salón brille. Con 8-12 barras distribuidas estratégicamente, logramos cobertura uniforme sin zonas oscuras en espacios de hasta 150m²."
+            paragraph2="Los 50 accesorios fluorescentes incluidos aseguran que todos tus invitados sean parte del show, no solo espectadores. Es la diferencia entre un evento con luz negra y una glow party de verdad."
+          />
+          <FeatureGrid features={[
+            { title: "XV años con temática glow", description: "La temática neón más popular. Quinceañera y chambelanes brillando intensamente para fotos que duran toda la vida." },
+            { title: "Pista completa hasta 150m²", description: "Cobertura total del salón sin zonas oscuras. Todos los invitados dentro del efecto UV." },
+            { title: "Cumpleaños con chambelanes", description: "Sorpresas, entrada de chambelanes con UV activo, shows de baile — el UV los hace lucir espectaculares." },
+            { title: "Fiestas universitarias y graduaciones", description: "El favorito de generaciones. Ropa blanca, pintura fluorescente y una pista que no para." },
+            { title: "Pool parties nocturnas con UV", description: "La combinación de agua y luz UV es visual y fotogénicamente explosiva para eventos nocturnos al aire libre." },
+            { title: "Fiestas de 80-150 invitados", description: "El rango perfecto para el Blacklight Party. Suficientes barras para cobertura completa sin sobredimensionar." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Los accesorios que hacen la diferencia"
+            subtitle="50 pulseras + 50 collares + 10 kits de pintura facial UV."
+            paragraph1="Una glow party sin accesorios es solo una fiesta oscura con luz morada. Los accesorios fluorescentes son lo que convierte el ambiente en una experiencia visual completa donde cada invitado es parte del show."
+            paragraph2="Los 50 accesorios incluidos son suficientes para los invitados más cercanos a la pista. Si quieres accesorios para todos tus invitados (más de 50), podemos añadir kits adicionales. Pregúntanos cuando cotices."
+          />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 63 reseñas verificadas."
+            paragraph1="El Blacklight Party es nuestro paquete más pedido — y el que genera más reseñas entusiastas."
+            paragraph2="Pregúntanos por referencias de XV años o eventos similares al tuyo cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Valeria Soto", event: "XV años glow party — Tlalpan", rating: 5, text: "Mis XV quedaron de película. Los chambelanes con sus camisas blancas brillando, yo con el maquillaje UV, las pulseras fluorescentes de todos... Las fotos quedaron increíbles. REDEIL lo hizo perfecto." },
+            { name: "Diego Ramírez", event: "Cumpleaños 30 años — Condesa", rating: 5, text: "Las 10 barras UV cubrieron todo el salón sin zonas oscuras. Los accesorios fluorescentes que incluían fueron el detalle que hizo la diferencia. Todos llegaron con ropa blanca y el efecto fue brutal." },
+            { name: "Fernanda Castro", event: "Fiesta privada — San Ángel, 90 invitados", rating: 5, text: "El Blacklight Party fue exactamente lo que necesitaba — cobertura para todo el salón y accesorios para mis invitados. REDEIL llegó puntual y el montaje fue impecable." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve una glow party con el Blacklight Party"
+          subtitle="XV años, fiestas neón y eventos con accesorios fluorescentes."
+          paragraph1="Cada imagen muestra lo que consigues cuando combinas 8-12 barras UV con accesorios fluorescentes para todos tus invitados. El efecto es completamente diferente al de solo tener la pista iluminada."
+          paragraph2="Mándanos fotos de tu salón por WhatsApp y te decimos exactamente cuántas barras UV necesitas para cobertura completa."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/luz-negra/ambiente-glow-xv-anos.avif", alt: "Glow party UV para XV años en salón" },
+          { src: "/img/luz-negra/luz-ultravioleta-xv-anos.avif", alt: "Luz ultravioleta para XV años temática neón" },
+          { src: "/img/luz-negra/luz-uv-xv-anos-elegante.avif", alt: "UV elegante para XV años en CDMX" },
+          { src: "/img/luz-negra/luz-uv-fiesta-glow-accesorios.avif", alt: "Fiesta glow con accesorios fluorescentes UV" },
+          { src: "/img/luz-negra/ambiente-neon-fiesta-privada.avif", alt: "Fiesta privada con efecto neón UV" },
+          { src: "/img/luz-negra/luz-ultravioleta-fiesta-neon.avif", alt: "Fiesta neón con luz ultravioleta profesional" },
+          { src: "/img/luz-negra/decoracion-glow-boda.avif", alt: "Decoración glow para evento con UV" },
+          { src: "/img/luz-negra/renta-lamparas-uv-fiestas.avif", alt: "Renta de lámparas UV para fiestas en CDMX" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete Blacklight Party"
+          subtitle="Todo lo que necesitas saber para tu glow party o XV años."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Te asesoramos gratis sobre el código vestimenta UV y cómo organizar la glow party perfecta."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El Blacklight Party es suficiente para mis XV años?", answer: "Sí, es el paquete más popular para XV años en CDMX. 8-12 barras UV cubren salones de hasta 150m² y los 50 accesorios fluorescentes aseguran que los chambelanes y los invitados más cercanos a la pista brillen. Para más de 150 invitados o salones de más de 150m², considera el Paquete UV Premium." },
+        { question: "¿Qué accesorios fluorescentes incluye?", answer: "El paquete incluye 50 pulseras neón, 50 collares fluorescentes y 10 kits de pintura facial UV. Son suficientes para el núcleo de la fiesta. Si quieres accesorios para todos tus invitados, podemos añadir kits adicionales — pregúntanos al cotizar." },
+        { question: "¿Qué código de vestimenta debo pedir para la glow party?", answer: "Lo ideal: ropa blanca o colores neón (amarillo, verde, naranja, rosa fluorescente). Todo lo blanco brilla intensamente con el UV. Pide a tus invitados que usen algo blanco y el efecto es garantizado. El maquillaje luminoso y los accesorios fluorescentes potencian todo." },
+        { question: "¿Cuándo se enciende el UV durante los XV años?", answer: "Lo más común es encender el UV durante el vals de presentación de chambelanes o al inicio de la hora loca. Algunos clientes lo mantienen toda la noche desde que entra la festejada. Recomendamos combinarlo con luces de colores para la ceremonia y activar el UV cuando arranque el baile." },
+        { question: "¿Se puede hacer el vals con la luz UV encendida?", answer: "Sí, y queda espectacular. Las camisas blancas de los chambelanes y el vestido de la quinceañera brillan de forma espectacular durante el vals. Las fotos y videos con UV activo son de las más impactantes de la noche. Solo asegúrate de coordinarlo con el fotógrafo para que ajuste la exposición." },
+        { question: "¿8-12 barras UV cubren todo mi salón o solo la pista?", answer: "Con 8-12 barras distribuidas correctamente, cubrimos todo el salón de hasta 150m² — no solo la pista. Nuestro equipo diseña la distribución según las dimensiones del venue para lograr cobertura uniforme sin zonas oscuras. Si tu salón es más grande, el UV Premium con 12+ barras puede ser mejor opción." },
+      ]} />
+    </section>
+
+    <!-- Otros paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Otros Paquetes de Luz Negra"
+          subtitle="¿Buscas algo más básico o una producción más completa?"
+          paragraph1="Si tu evento es más íntimo, el Blacklight Básico cubre la pista por $3,500. Si quieres letreros neón personalizados o producción completa con DJ, tenemos el UV Premium y la Producción UV."
+          paragraph2="También puedes combinar el Blacklight Party con letreros neón decorativos para el fondo de foto perfecto."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para la glow party de tus XV años?</h2>
+          <p>Dinos la fecha, el salón y cuántos invitados esperas. Te confirmamos disponibilidad y cotizamos en minutos. Las fechas de XV años se reservan con semanas de anticipación — no esperes.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu Glow Party</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

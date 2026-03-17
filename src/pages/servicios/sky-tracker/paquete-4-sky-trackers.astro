@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "4 Sky Trackers para Eventos Corporativos CDMX | REDEIL";
+const description = "Producción completa con 4 haces 7,000W, filtros de color y 2 operadores. Corporativos y galas en CDMX. $16,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-4-sky-trackers/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 4 Sky Trackers — Corporativo y Gala Nocturna",
+    "description": "Renta de 4 sky trackers xenón 7,000W con filtros de color y movimiento sincronizado para eventos corporativos, galas nocturnas y lanzamientos de producto en CDMX. Incluye 2 operadores, transporte y generadores.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-4-sky-trackers/",
+      "priceCurrency": "MXN",
+      "price": "16000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "23",
+      "reviewCount": "23"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Jorge Salinas" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos los 4 sky trackers para el lanzamiento de nuestra nueva línea de producto en el Parque Bicentenario. Los 4 haces en los colores corporativos de la empresa crearon una imagen que quedó en todos los medios. Totalmente profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Patricia Guerrero" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La gala anual de nuestra empresa en el Club de Golf Bellavista fue un evento diferente este año gracias a los 4 sky trackers con filtros en los colores de nuestra marca. Los socios quedaron impresionados desde que llegaron al venue." },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Eduardo Montes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos REDEIL para la apertura de nuestro hotel boutique en la Colonia Roma. Los 4 sky trackers en la azotea marcaron la ubicación del hotel desde Insurgentes. El primer fin de semana tuvimos cobertura en varios medios digitales."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/sky-tracker/luces-antiaereas-gala-nocturna-elegante.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tipo de eventos son ideales para 4 sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 4 sky trackers está diseñado para eventos corporativos de gala (lanzamientos de producto, aniversarios de empresa, cenas de premiación), aperturas de hoteles o desarrollos inmobiliarios, y galas privadas de alto perfil. Es la producción mínima para eventos donde la presencia de marca en el skyline de CDMX es parte del objetivo." }},
+      { "@type": "Question", "name": "¿Los filtros de color se pueden personalizar con colores corporativos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Contamos con una amplia gama de filtros de gel que pueden replicar los colores Pantone de tu marca con buena aproximación. Cada uno de los 4 trackers puede tener un color diferente o todos pueden estar en el mismo tono corporativo. Coordinamos los colores en la visita previa al venue." }},
+      { "@type": "Question", "name": "¿Cuántos operadores incluye el paquete de 4 sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete incluye 2 operadores técnicos especializados que controlan los 4 equipos en coordinación. Un operador supervisa 2 trackers cada uno, con comunicación constante para sincronizar movimientos. Para coreografías más complejas, se puede cotizar un operador adicional." }},
+      { "@type": "Question", "name": "¿El paquete de $16,000 incluye generadores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $16,000 + IVA incluyen los 4 sky trackers xenón 7,000W, filtros de color intercambiables, 2 operadores técnicos, transporte de todos los equipos, generadores de energía (si el venue no tiene la capacidad necesaria) y desmontaje al finalizar." }},
+      { "@type": "Question", "name": "¿Se puede sincronizar el movimiento de los 4 trackers con música?", "acceptedAnswer": { "@type": "Answer", "text": "Con 4 trackers y 2 operadores experimentados se puede lograr una sincronización básica con momentos clave de la música — encendidos, cambios de color y movimientos coordinados. Para coreografías DMX automatizadas y sincronización precisa con audio, te recomendamos el paquete de producción (6+ trackers)." }},
+      { "@type": "Question", "name": "¿Requiere visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Para el paquete de 4 sky trackers recomendamos una visita previa al venue (sin costo adicional) para definir el posicionamiento óptimo de los 4 equipos, identificar las fuentes de energía disponibles y planificar la logística de instalación. Esto garantiza que el día del evento todo funcione sin contratiempos." }}
+    ]
+  }
+]);
+
+const otrosServicios = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams en evento corporativo", description: "Show de luces DMX en el piso + 4 haces al cielo. Producción profesional de nivel corporativo.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Fachada iluminada en colores corporativos + 4 haces al cielo. Presencia de marca total.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para gala corporativa", description: "Ambientación cálida a nivel humano complementa la producción aérea de los sky trackers.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en evento corporativo", description: "Cañones de color en colores de marca + 4 haces al cielo. La producción más completa.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Sky Tracker", href: "/servicios/sky-tracker/" },
+    { label: "4 Sky Trackers" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="4 Sky Trackers — Producción Profesional para Corporativos y Galas"
+      subtitle="Desde $16,000 + IVA. Xenón 7,000W, filtros de color, 2 operadores."
+      introParagraph1='Cuatro sky trackers xenón de 7,000W colocados en las esquinas estratégicas de tu venue corporativo crean algo que ningún otro servicio de iluminación puede lograr: una presencia en el skyline de CDMX que establece tu evento como un punto de referencia en el mapa nocturno de la ciudad. Cada haz tiene su propio filtro de color intercambiable — así los colores corporativos de tu marca iluminan el cielo de la capital al mismo tiempo que la gala se lleva a cabo en el piso. En <strong>REDEIL</strong> lo hemos ejecutado para lanzamientos de producto en el Parque Bicentenario, aperturas de hotel en la Roma y galas anuales en clubs de golf de la ciudad.'
+      introParagraph2='El paquete incluye 4 sky trackers xenón de alta potencia, filtros de color intercambiables para cada equipo, 2 operadores técnicos que coordinan los movimientos en tiempo real, transporte de todos los equipos, generadores de energía si el venue los requiere, y desmontaje al finalizar. Recomendamos una visita previa al venue (sin costo) para planificar el posicionamiento óptimo y la logística de energía. Para eventos corporativos donde los detalles hacen la diferencia, la planificación previa es parte del servicio.'
+    />
+
+    <CtaBar
+      headline="¿Más o menos trackers?"
+      items={[
+        { label: "1 Sky Tracker — $5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/", icon: "iluminacion" },
+        { label: "2 Sky Trackers — $9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/", icon: "iluminacion" },
+        { label: "Producción — $25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Premium Corporativo"
+        price="$16,000"
+        priceNote="+ IVA · 2 operadores incluidos"
+        features={[
+          { text: "4 sky trackers xenón 7,000W" },
+          { text: "Filtros de color intercambiables" },
+          { text: "Visible a 7+ km de distancia" },
+          { text: "2 operadores técnicos" },
+          { text: "Movimiento sincronizado" },
+          { text: "Transporte de todos los equipos" },
+          { text: "Instalación profesional" },
+          { text: "Generadores de energía incluidos" },
+          { text: "Visita previa al venue" },
+          { text: "Cobertura CDMX y área metropolitana" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar 4 sky trackers para un evento corporativo."
+        packages={[
+          { label: "1 sky tracker", price: "$5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/" },
+          { label: "2 sky trackers", price: "$9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/" },
+          { label: "4 sky trackers", price: "$16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/", active: true },
+          { label: "Producción 6+", price: "$25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="La producción estándar para eventos corporativos de gala"
+            subtitle="4 haces, filtros de color, coordinación profesional."
+            paragraph1="En el mundo corporativo, los detalles comunican. Cuatro sky trackers en los colores de tu marca proyectando al cielo de CDMX dicen más sobre la escala de tu empresa que cualquier otro elemento de producción. Es la diferencia entre un evento y un hito."
+            paragraph2="Lo hemos ejecutado para marcas que necesitan que su evento sea visible no solo para los invitados, sino para toda la ciudad. El impacto en redes sociales de un venue con 4 haces al cielo multiplica el alcance del evento de forma orgánica."
+          />
+          <FeatureGrid features={[
+            { title: "Lanzamientos de producto", description: "4 haces en los colores de la nueva marca iluminando el cielo durante el reveal. Cobertura de medios garantizada." },
+            { title: "Galas corporativas anuales", description: "El venue iluminado con los colores de la empresa desde el exterior. Impacto inmediato en la llegada de invitados." },
+            { title: "Aperturas de hotel o desarrollo", description: "Los 4 trackers marcan la ubicación del nuevo inmueble desde kilómetros. Marketing exterior espectacular." },
+            { title: "Cenas de premiación", description: "Producción aérea que da el nivel de la noche antes de que los invitados entren al salón." },
+            { title: "Eventos de relaciones públicas", description: "Un venue con 4 sky trackers al cielo genera contenido en redes sociales de forma orgánica. " },
+            { title: "Congresos y convenciones al aire libre", description: "Marca la ubicación del venue de congreso para asistentes y periodistas desde fuera de la CDMX." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Filtros de color: tu marca en el cielo"
+            subtitle="Los colores Pantone de tu empresa proyectados a 7+ km."
+            paragraph1="El kit de filtros incluye una gama completa de colores que nos permite aproximar los tonos Pantone de tu marca. Cada uno de los 4 trackers puede tener un color diferente o todos pueden estar en el mismo tono. También podemos cambiar los colores durante el evento — inicio en azul corporativo, cambio a dorado durante el momento del reveal."
+            paragraph2="La coordinación de colores se define en la visita previa al venue. Llevamos los filtros correspondientes y hacemos pruebas de color antes del evento."
+          />
+          <FeatureGrid features={[
+            { title: "Azul corporativo", description: "El color más solicitado en eventos de banca, seguros y tecnología." },
+            { title: "Rojo y naranja", description: "Energía y dinamismo para lanzamientos de producto y eventos de retail." },
+            { title: "Verde", description: "Sostenibilidad y responsabilidad. Popular en eventos de empresas del sector energía." },
+            { title: "Morado y violeta", description: "Lujo y sofisticación para galas de alta gama y eventos de moda." },
+            { title: "Dorado / ámbar", description: "Elegancia y calidez. El favorito para premios y galas anuales." },
+            { title: "Blanco xenón puro", description: "El clásico. Potencia máxima, visibilidad máxima. Sin filtros." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Eventos corporativos que recuerdan"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 23 reseñas de clientes corporativos."
+            paragraph1="Cada reseña es de un profesional que contrató el paquete de 4 sky trackers para un evento corporativo."
+            paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Ing. Jorge Salinas", event: "Lanzamiento de producto — Parque Bicentenario", rating: 5, text: "Los 4 haces en los colores corporativos de la empresa crearon una imagen que quedó en todos los medios. La producción de REDEIL fue totalmente profesional y coordinada. El equipo llegó a tiempo, no hubo ningún contratiempo." },
+            { name: "Lic. Patricia Guerrero", event: "Gala anual — Club de Golf Bellavista", rating: 5, text: "La gala fue un evento diferente este año gracias a los 4 sky trackers con filtros en los colores de nuestra marca. Los socios quedaron impresionados desde que llegaron al venue. El nivel de producción fue exactamente el que necesitábamos." },
+            { name: "Lic. Eduardo Montes", event: "Apertura de hotel boutique — Colonia Roma", rating: 5, text: "Los 4 sky trackers en la azotea marcaron la ubicación del hotel desde Insurgentes. El primer fin de semana tuvimos cobertura en varios medios digitales que vieron la luz y preguntaron qué era. Retorno inmediato en prensa y redes." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="4 Sky Trackers en galas y corporativos reales"
+          subtitle="Lanzamientos, aperturas y cenas de gala en CDMX."
+          paragraph1="Cada foto muestra una producción real con 4 sky trackers en venues corporativos y de gala. Los filtros de color y el movimiento sincronizado elevan el nivel visual del evento a un estándar internacional."
+          paragraph2="¿Tu venue tiene espacio para 4 trackers? Mándanos las dimensiones y te diseñamos el posicionamiento óptimo."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/sky-tracker/luces-antiaereas-gala-nocturna-elegante.avif", alt: "Gala nocturna elegante con luces antiaéreas en CDMX" },
+          { src: "/img/sky-tracker/luces-antiaereas-multiple-haz-evento.avif", alt: "Múltiples haces de luz antiaérea en evento corporativo" },
+          { src: "/img/sky-tracker/luces-antiaereas-espectaculo-cielo-noche.avif", alt: "Espectáculo de luces antiaéreas en cielo nocturno de CDMX" },
+          { src: "/img/sky-tracker/luces-antiaereas-evento-mansion-elegante.avif", alt: "Luces antiaéreas en mansión para evento corporativo elegante" },
+          { src: "/img/sky-tracker/luces-antiaereas-evento-hacienda-arcos.avif", alt: "Luces antiaéreas en hacienda con arcos para gala" },
+          { src: "/img/sky-tracker/luces-antiaereas-evento-exterior-crew.avif", alt: "Crew de operadores de sky tracker en evento exterior corporativo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-noche-cielo.avif", alt: "Múltiples haces de sky tracker al cielo nocturno desde venue" },
+          { src: "/img/sky-tracker/sky-tracker-concierto-haces-luz.avif", alt: "Cuatro haces de sky tracker en evento masivo nocturno" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 4 Sky Trackers"
+          subtitle="Todo lo que necesita saber el responsable del evento corporativo."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Para eventos corporativos podemos emitir cotización formal con desglose de costos."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tipo de eventos son ideales para 4 sky trackers?", answer: "El paquete de 4 sky trackers está diseñado para eventos corporativos de gala — lanzamientos de producto, aniversarios de empresa, cenas de premiación, aperturas de hoteles y galas privadas de alto perfil. Es la producción mínima para eventos donde la presencia de marca en el skyline de CDMX es parte del objetivo." },
+        { question: "¿Los filtros de color se pueden personalizar con colores corporativos?", answer: "Sí. Contamos con una gama de filtros que pueden replicar los colores Pantone de tu marca con buena aproximación. Cada uno de los 4 trackers puede tener un color diferente o todos en el mismo tono corporativo. Coordinamos los colores en la visita previa al venue." },
+        { question: "¿Cuántos operadores incluye el paquete de 4 sky trackers?", answer: "El paquete incluye 2 operadores técnicos que controlan los 4 equipos en coordinación. Un operador supervisa 2 trackers cada uno con comunicación constante para sincronizar movimientos. Para coreografías más complejas se puede cotizar un operador adicional." },
+        { question: "¿El paquete de $16,000 incluye generadores?", answer: "Sí. Los $16,000 + IVA incluyen los 4 sky trackers xenón 7,000W, filtros de color intercambiables, 2 operadores técnicos, transporte de todos los equipos, generadores de energía si el venue no tiene la capacidad necesaria, y desmontaje al finalizar." },
+        { question: "¿Se puede sincronizar el movimiento de los 4 trackers con la música del evento?", answer: "Con 4 trackers y 2 operadores experimentados se puede lograr sincronización básica con momentos clave de la música — encendidos, cambios de color y movimientos coordinados. Para coreografías DMX automatizadas y sincronización precisa con audio, te recomendamos el paquete de producción de 6+ trackers." },
+        { question: "¿El paquete incluye visita previa al venue?", answer: "Para el paquete de 4 sky trackers incluimos una visita previa al venue (sin costo adicional) para definir el posicionamiento óptimo, identificar las fuentes de energía disponibles y planificar la logística de instalación. Esta visita es parte del proceso profesional — los eventos corporativos no admiten improvisaciones." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Completa la Producción Corporativa"
+          subtitle="4 haces al cielo + iluminación arquitectónica y de ambiente."
+          paragraph1="Los eventos corporativos más impactantes combinan el poder aéreo de 4 sky trackers con uplighting en colores de marca, cabezas móviles para el interior y city color en las fachadas."
+          paragraph2="Armamos propuestas de producción completa para eventos corporativos. Podemos emitir cotización formal con desglose de costos."
+        />
+        <div class="services-grid">
+          {otrosServicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Tu evento corporativo merece estar en el skyline de CDMX?</h2>
+          <p>Mándanos los detalles de tu evento por WhatsApp. Te cotizamos con desglose completo y coordinamos la visita previa al venue.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis — WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

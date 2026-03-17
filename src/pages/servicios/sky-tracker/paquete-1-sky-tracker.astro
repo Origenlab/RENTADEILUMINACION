@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "1 Sky Tracker para Bodas al Aire Libre en CDMX | REDEIL";
+const description = "Un haz de luz xenón 4,000W que marca tu boda desde kilómetros. Ideal para jardines y haciendas en CDMX. $5,500 + IVA instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-1-sky-tracker/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete 1 Sky Tracker — Boda Íntima en Jardín",
+    "description": "Renta de 1 sky tracker xenón 4,000W para bodas íntimas, inauguraciones y fiestas privadas en jardín. Visible a 3-5 km. Incluye transporte, instalación profesional, operador y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/sky-tracker/paquete-1-sky-tracker/",
+      "priceCurrency": "MXN",
+      "price": "5500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "31",
+      "reviewCount": "31"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos un sky tracker para nuestra boda en un jardín de Coyoacán. El haz de luz se veía desde la avenida principal y nuestros invitados llegaron sin perderse. El operador fue muy profesional y el efecto al encenderlo fue espectacular."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Fuentes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para la inauguración de nuestro restaurante en Polanco. El sky tracker llamó la atención de toda la calle desde horas antes de la apertura. Fue la mejor decisión de marketing que pudimos tomar esa noche."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Herrera" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Rentamos el sky tracker para una fiesta privada en una hacienda. La instalación fue rápida y discreta. Cuando encendieron el haz al anochecer, todos los invitados salieron corriendo al jardín a verlo. Vale cada peso."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/sky-tracker/renta-skytracker-evento-jardin-guirnaldas.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Un solo sky tracker es suficiente para ver desde lejos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Un sky tracker xenón de 4,000W es visible a 3-5 km en una noche despejada. Para eventos íntimos de jardín o inauguraciones de negocios, un solo haz tiene un impacto visual enorme y marca perfectamente la ubicación del evento." }},
+      { "@type": "Question", "name": "¿Para qué tipo de eventos es ideal el paquete de 1 sky tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Es perfecto para bodas íntimas en jardín (hasta 80 invitados), inauguraciones de restaurantes o negocios, fiestas de XV años en hacienda, y cualquier evento nocturno al aire libre donde quieras marcar la ubicación de forma espectacular." }},
+      { "@type": "Question", "name": "¿El precio de $5,500 incluye todo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $5,500 + IVA incluyen transporte del equipo, instalación profesional, operador técnico durante el evento y desmontaje. Si el venue no tiene electricidad suficiente, incluimos generador sin costo adicional." }},
+      { "@type": "Question", "name": "¿Necesito permiso para usar un sky tracker en mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de la distancia a aeropuertos. En jardines y haciendas de CDMX alejados de la zona aeroportuaria no se requiere permiso. Nosotros verificamos tu venue antes de confirmar el servicio y tramitamos el permiso si fuera necesario." }},
+      { "@type": "Question", "name": "¿Cuánto espacio necesita el sky tracker en el jardín?", "acceptedAnswer": { "@type": "Answer", "text": "El equipo ocupa aproximadamente 1×1 metro en el piso y necesita acceso a cielo abierto arriba. En jardines, se coloca discretamente en una esquina o junto a una barda sin obstruir la vista ni el paso de los invitados." }},
+      { "@type": "Question", "name": "¿Puedo combinar el sky tracker con guirnaldas o iluminación de jardín?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutamente — es la combinación más solicitada para bodas en jardín. Las guirnaldas Edison a nivel humano + el haz al cielo crean una experiencia visual completa. Armamos paquetes combinados con precio especial." }}
+    ]
+  }
+]);
+
+const otrosServicios = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED con beams en boda", description: "Beams en el jardín + sky tracker al cielo. La combinación más impactante para bodas nocturnas.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales", description: "Uplighting que transforma la fachada y el jardín mientras el sky tracker corta el cielo.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para boda", description: "Luz cálida a nivel humano + haz al cielo. La combo favorita para bodas íntimas en jardín.", link: "/servicios/guirnaldas/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color en hacienda", description: "Cañones de color en fachadas complementan perfecto el efecto del sky tracker.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Sky Tracker", href: "/servicios/sky-tracker/" },
+    { label: "1 Sky Tracker" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="1 Sky Tracker para Bodas Íntimas y Fiestas en Jardín"
+      subtitle="Desde $5,500 + IVA. Xenón 4,000W visible a 3-5 km. Operador incluido."
+      introParagraph1='Un solo sky tracker xenón de 4,000W tiene el poder de convertir cualquier boda en jardín en algo que se ve desde kilómetros a la redonda. El haz de luz corta el cielo con una precisión que deja a todos los invitados mirando hacia arriba — y ese momento de asombro es lo que diferencia un evento ordinario de uno que nadie olvidará. En <strong>REDEIL</strong> lo hemos instalado en bodas íntimas de Coyoacán a Tlalpan, en inauguraciones de Polanco y en fiestas privadas en haciendas del sur de la ciudad.'
+      introParagraph2='El paquete básico incluye todo lo necesario para que el efecto sea perfecto desde el primer encendido: transporte del equipo, instalación profesional en tu venue, operador técnico que controla el movimiento del haz durante toda la noche y desmontaje al finalizar. Si tu jardín o hacienda no cuenta con la alimentación eléctrica necesaria, incluimos el generador sin costo adicional. Tú te enfocas en disfrutar tu boda — nosotros nos ocupamos de que el cielo sea parte del espectáculo.'
+    />
+
+    <CtaBar
+      headline="¿Necesitas más trackers?"
+      items={[
+        { label: "2 Sky Trackers — $9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/", icon: "iluminacion" },
+        { label: "4 Sky Trackers — $16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/", icon: "iluminacion" },
+        { label: "Producción — $25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete Básico"
+        price="$5,500"
+        priceNote="+ IVA · Instalación incluida"
+        features={[
+          { text: "1 sky tracker xenón 4,000W" },
+          { text: "Visible a 3-5 km de distancia" },
+          { text: "Operador técnico incluido" },
+          { text: "Transporte ida y vuelta" },
+          { text: "Instalación profesional" },
+          { text: "Desmontaje al finalizar" },
+          { text: "Generador de energía incluido" },
+          { text: "Movimiento: estático o barrido suave" },
+          { text: "Ideal para hasta 80 invitados" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar 1 sky tracker para mi evento en jardín."
+        packages={[
+          { label: "1 sky tracker", price: "$5,500", href: "/servicios/sky-tracker/paquete-1-sky-tracker/", active: true },
+          { label: "2 sky trackers", price: "$9,500", href: "/servicios/sky-tracker/paquete-2-sky-trackers/" },
+          { label: "4 sky trackers", price: "$16,000", href: "/servicios/sky-tracker/paquete-4-sky-trackers/" },
+          { label: "Producción 6+", price: "$25,000", href: "/servicios/sky-tracker/paquete-produccion-sky-tracker/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="El paquete ideal para bodas íntimas en jardín"
+            subtitle="Un haz que marca tu evento desde kilómetros."
+            paragraph1="Para bodas de hasta 80 invitados en jardín, hacienda pequeña o terraza privada, un solo sky tracker es todo lo que necesitas para generar ese momento de impacto. El haz de luz xenón se distingue del cielo oscuro de CDMX incluso con la contaminación lumínica de la ciudad."
+            paragraph2="Lo instalamos donde más impacto tenga — esquina del jardín, junto a la entrada del venue o en el área de recepción — para que sea lo primero que vean tus invitados al llegar."
+          />
+          <FeatureGrid features={[
+            { title: "Bodas en jardín privado", description: "El haz marca la ubicación del evento. Tus invitados llegan guiados por la luz desde la calle." },
+            { title: "Inauguraciones de negocios", description: "La forma más efectiva de llamar la atención en una apertura. Se ve desde avenidas principales." },
+            { title: "Fiestas de XV años", description: "Momento de entrada espectacular cuando el haz se enciende al anochecer. Fotos y videos únicos." },
+            { title: "Ceremonias al aire libre", description: "El sky tracker crea un halo de luz sobre el altar o el jardín de ceremonia." },
+            { title: "Cenas privadas en hacienda", description: "Transforma una hacienda pequeña en un venue de ensueño con un solo efecto aéreo." },
+            { title: "Eventos de marca pequeños", description: "Presentaciones de producto y lanzamientos privados que necesitan un elemento visual diferenciador." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Cómo funciona el operador"
+            subtitle="Alguien que sabe lo que hace, durante toda la noche."
+            paragraph1="El operador controla el movimiento del haz en tiempo real — barrido lento, posición fija o pequeños movimientos circulares según el momento del evento. Cuando empieza la recepción, suaviza el movimiento. Para el primer baile, pone el haz fijo al cielo."
+            paragraph2="No tienes que preocuparte por nada técnico. El operador llega con el equipo, hace las pruebas antes de que lleguen tus invitados y al terminar lo recoge todo."
+          />
+          <FeatureGrid features={[
+            { title: "Haz estático", description: "Posición fija al cielo. Clásico y elegante para bodas y ceremonias." },
+            { title: "Barrido lento", description: "Movimiento suave que recorre el cielo. Visible desde más ángulos." },
+            { title: "Encendido dramático", description: "El operador sincroniza el encendido con un momento clave del evento." },
+            { title: "Filtros opcionales", description: "Color personalizado según la paleta de tu evento. Consultar disponibilidad." },
+            { title: "Posicionamiento estratégico", description: "Ubicamos el equipo para máximo impacto visual sin estorbar al evento." },
+            { title: "Apagado coordinado", description: "El operador apaga y recoge al finalizar sin interrumpir la fiesta." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen quienes lo han vivido"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 31 reseñas."
+            paragraph1="Cada reseña es de un cliente real que contrató el paquete de 1 sky tracker para su evento íntimo."
+            paragraph2="Pregunta por referencias de bodas o inauguraciones similares a la tuya cuando nos contactes."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Daniela Ríos", event: "Boda en jardín — Coyoacán", rating: 5, text: "El haz de luz se veía desde la avenida principal y nuestros invitados llegaron sin perderse. El operador fue muy profesional y el efecto al encenderlo fue espectacular. Todos mis invitados preguntaron cómo lo conseguimos." },
+            { name: "Roberto Fuentes", event: "Inauguración restaurante — Polanco", rating: 5, text: "El sky tracker llamó la atención de toda la calle desde horas antes de la apertura. Fue la mejor decisión de marketing que pudimos tomar esa noche. El retorno fue inmediato — gente que no estaba invitada entró por curiosidad." },
+            { name: "Sofía Herrera", event: "Fiesta privada — Hacienda Pedregal", rating: 5, text: "Cuando encendieron el haz al anochecer, todos los invitados salieron corriendo al jardín a verlo. Fue el momento más memorable de la noche. Vale cada peso. Volvería a contratarlo sin pensarlo." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="1 Sky Tracker en eventos reales de jardín"
+          subtitle="Bodas íntimas, inauguraciones y celebraciones privadas."
+          paragraph1="Cada foto muestra un montaje real con sky tracker en jardines, haciendas y espacios íntimos de CDMX. El haz de xenón transforma cualquier espacio pequeño en algo que se ve a kilómetros de distancia."
+          paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos por WhatsApp y te decimos cómo quedaría el sky tracker."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/sky-tracker/renta-skytracker-evento-jardin-guirnaldas.avif", alt: "Sky tracker en evento de jardín decorado con guirnaldas Edison" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-jardin-arco-floral.avif", alt: "Boda en jardín con arco floral y sky tracker al cielo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-exterior-guirnaldas.avif", alt: "Boda exterior con sky tracker y guirnaldas de fondo" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-jardin-filtros-color.avif", alt: "Sky tracker con filtros de color en boda de jardín" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-banquete.avif", alt: "Banquete de boda en hacienda con sky tracker iluminando el cielo" },
+          { src: "/img/sky-tracker/renta-skytracker-evento-cielo-estrellado.avif", alt: "Sky tracker iluminando cielo estrellado en evento al aire libre" },
+          { src: "/img/sky-tracker/renta-skytracker-boda-hacienda-haz-luz.avif", alt: "Sky tracker proyectando haz de luz desde hacienda en boda nocturna" },
+          { src: "/img/sky-tracker/renta-skytracker-pista-baile-operador.avif", alt: "Operador de sky tracker junto a pista de baile en boda" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete 1 Sky Tracker"
+          subtitle="Todo lo que necesitas saber antes de reservar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Cada venue es diferente — verificamos que tu espacio sea apto antes de confirmar el servicio."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Un solo sky tracker es suficiente para ver desde lejos?", answer: "Sí. Un sky tracker xenón de 4,000W es visible a 3-5 km en una noche despejada. Para eventos íntimos de jardín o inauguraciones de negocios, un solo haz tiene un impacto visual enorme y marca perfectamente la ubicación del evento." },
+        { question: "¿Para qué tipo de eventos es ideal el paquete de 1 sky tracker?", answer: "Es perfecto para bodas íntimas en jardín (hasta 80 invitados), inauguraciones de restaurantes o negocios, fiestas de XV años en hacienda, y cualquier evento nocturno al aire libre donde quieras marcar tu ubicación de forma espectacular." },
+        { question: "¿El precio de $5,500 incluye todo?", answer: "Sí. Los $5,500 + IVA incluyen transporte del equipo, instalación profesional, operador técnico durante todo el evento y desmontaje al finalizar. Si el venue no tiene la alimentación eléctrica necesaria, incluimos generador sin costo adicional." },
+        { question: "¿Necesito permiso para usar un sky tracker en mi boda en jardín?", answer: "Depende de la distancia a aeropuertos. En la mayoría de jardines y haciendas de CDMX no se requiere permiso. Nosotros verificamos tu venue antes de confirmar el servicio y tramitamos el permiso si fuera necesario, sin costo adicional." },
+        { question: "¿Cuánto espacio necesita el sky tracker en el jardín?", answer: "El equipo ocupa aproximadamente 1×1 metro en el piso y necesita acceso a cielo abierto arriba. En jardines, se coloca discretamente en una esquina sin obstruir el paso ni la vista de los invitados. Lo posicionamos para máximo impacto." },
+        { question: "¿Puedo combinar el sky tracker con guirnaldas o iluminación de jardín?", answer: "Absolutamente — es la combinación más solicitada para bodas en jardín. Las guirnaldas Edison a nivel humano + el haz al cielo crean una experiencia visual completa de arriba a abajo. Armamos paquetes combinados con precio especial." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Sky Tracker"
+          subtitle="Un haz al cielo más iluminación a nivel humano. Producción completa."
+          paragraph1="El sky tracker es impactante solo, pero combinado con guirnaldas Edison, uplighting o cabezas móviles crea una experiencia visual de arriba a abajo que ningún invitado puede ignorar."
+          paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios. Cuéntanos tu evento y te diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {otrosServicios.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu boda se vea desde kilómetros?</h2>
+          <p>Mándanos la fecha y el venue por WhatsApp. Verificamos disponibilidad y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis — WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>

@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Paquete UV Premium — Luz Negra con Letreros Neón para Bodas y Eventos CDMX | REDEIL";
+const description = "UV completo + 2 letreros LED neón personalizados para bodas neón y eventos premium en CDMX. 12+ barras UV + 100 accesorios. $10,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/luz-negra/paquete-uv-premium/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete UV Premium — Luz Negra con Letreros Neón",
+    "description": "UV completo con 12+ barras LED profesionales + 2 letreros neón personalizados + 100 accesorios fluorescentes. Para bodas neón y eventos premium en CDMX. Cobertura hasta 200m².",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/luz-negra/paquete-uv-premium/",
+      "priceCurrency": "MXN",
+      "price": "10000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "41",
+      "reviewCount": "41"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Morales" },
+        "datePublished": "2026-01-30",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra boda neón en Pedregal quedó exactamente como la imaginamos. El letrero 'Forever & Always' que encargamos brilló toda la noche y fue el punto focal de todas las fotos. Las 12 barras UV cubrieron el salón de 180m² sin un solo rincón oscuro. REDEIL es los mejores."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Javier Castillo" },
+        "datePublished": "2025-11-12",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento corporativo con temática neón para lanzamiento de producto. El letrero con el nombre de la marca más el UV de fondo fue exactamente lo que el cliente pidió. Profesionales, puntuales, y el resultado fue impecable para las fotos del evento."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Vega" },
+        "datePublished": "2025-08-22",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Mi cumpleaños de lujo en un salón de Interlomas con temática neón. Los letreros personalizados con mi nombre y los 100 accesorios fluorescentes para los invitados convirtieron la fiesta en algo de revista. REDEIL coordinó todo a la perfección."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/luz-negra/ambiente-neon-boda.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo pedir el diseño del letrero neón?", "acceptedAnswer": { "@type": "Answer", "text": "Idealmente 3-4 semanas antes del evento para tener tiempo de fabricación y revisión del diseño. Los letreros se fabrican a medida con tu texto, tipografía y color preferido. Puedes elegir neón LED flexible o letrero de acrílico retroiluminado." }},
+      { "@type": "Question", "name": "¿Los letreros neón son LED o de gas?", "acceptedAnswer": { "@type": "Answer", "text": "Son LED neón flexible — más duraderos, menos frágiles y con mayor variedad de colores que el neón de gas tradicional. El resultado visual es idéntico pero con mayor seguridad para transporte y montaje en tu evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Blacklight Básico", description: "Kit UV para pista de baile de hasta 80m². Perfecto para fiestas íntimas y cumpleaños. $3,500 + IVA.", image: "/img/luz-negra/ambiente-blacklight-fiesta.avif", alt: "Paquete blacklight básico para pista de baile", link: "/servicios/luz-negra/paquete-blacklight-basico/" },
+  { title: "Blacklight Party", description: "Glow party completa con 8-12 barras UV + 50 accesorios fluorescentes para XV años. $6,500 + IVA.", image: "/img/luz-negra/ambiente-glow-xv-anos.avif", alt: "Glow party con UV para XV años", link: "/servicios/luz-negra/paquete-blacklight-party/" },
+  { title: "Producción UV", description: "Producción completa para eventos masivos. 20+ barras UV + decoración + DJ. $15,000 + IVA.", image: "/img/luz-negra/ambiente-glow-party-neon.avif", alt: "Producción UV para evento masivo", link: "/servicios/luz-negra/paquete-produccion-uv/" },
+  { title: "Humo Bajo", description: "Efecto niebla baja para pista de baile. El complemento que potencia la atmósfera neón premium.", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para eventos premium", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luz Negra", href: "/servicios/luz-negra/" },
+    { label: "UV Premium" }
+  ]} />
+</Fragment>
+
+    <Hero
+      title="Paquete UV Premium — Luz Negra con Letreros Neón Personalizados"
+      subtitle="Desde $10,000 + IVA · 12+ barras UV · 2 letreros neón personalizados · Cobertura hasta 200m²"
+      introParagraph1='El Paquete UV Premium es para los eventos que quieren ir más allá de la glow party estándar. No solo luz negra en toda la sala — también 2 letreros LED neón personalizados con tu mensaje, nombre, fecha o frase especial. Para una boda neón, el letrero con los apellidos de los novios o una frase romántica iluminada se convierte en el elemento más fotografiado de la noche. Para un evento corporativo temático, el letrero con el nombre de la marca frente al UV es la declaración visual perfecta. Las 12+ barras UV cubren espacios de hasta 200m² con cobertura total y los 100 accesorios fluorescentes incluidos aseguran que todos tus invitados sean parte del ambiente.'
+      introParagraph2='En <strong>REDEIL</strong> llevamos 30 años creando producciones de iluminación para eventos premium en CDMX y Estado de México. Nuestro equipo de marcas <strong>Chauvet</strong> y <strong>Elation</strong> garantiza resultados consistentes y profesionales. Los letreros neón se fabrican a medida — elige el texto, la tipografía y el color. El servicio incluye transporte, instalación, operador durante el evento y desmontaje. Sin costos ocultos. Sin improvisaciones. Solo resultados que superan las expectativas.'
+    />
+
+    <CtaBar
+      headline="¿Comparar opciones UV?"
+      items={[
+        { label: "Blacklight Básico — $3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/", icon: "iluminacion" },
+        { label: "Blacklight Party — $6,500", href: "/servicios/luz-negra/paquete-blacklight-party/", icon: "iluminacion" },
+        { label: "Producción UV — $15,000", href: "/servicios/luz-negra/paquete-produccion-uv/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal + Sidebar sticky -->
+    <section class="services-section">
+      <ContentWithSidebar
+        sidebarTitle="Paquete UV Premium"
+        price="$10,000"
+        priceNote="+ IVA · Letreros neón incluidos"
+        features={[
+          { text: "12+ barras UV LED profesionales" },
+          { text: "Cobertura completa hasta 200m²" },
+          { text: "2 letreros LED neón personalizados" },
+          { text: "100 accesorios fluorescentes" },
+          { text: "Pintura facial + body paint UV" },
+          { text: "Equipo Chauvet / Elation" },
+          { text: "Transporte + montaje + desmontaje" },
+          { text: "Operador durante el evento" },
+          { text: "Control DMX incluido" },
+          { text: "Cobertura CDMX y Edomex" },
+        ]}
+        waMessage="Hola REDEIL, quiero cotizar el Paquete UV Premium con letreros neón para mi evento."
+        packages={[
+          { label: "Blacklight Básico", price: "$3,500", href: "/servicios/luz-negra/paquete-blacklight-basico/" },
+          { label: "Blacklight Party", price: "$6,500", href: "/servicios/luz-negra/paquete-blacklight-party/" },
+          { label: "UV Premium", price: "$10,000", href: "/servicios/luz-negra/paquete-uv-premium/", active: true },
+          { label: "Producción UV", price: "$15,000", href: "/servicios/luz-negra/paquete-produccion-uv/" },
+        ]}
+      >
+        <div class="container">
+          <SectionHeader
+            title="El paquete UV para eventos que merecen ser únicos"
+            subtitle="12+ barras UV + letreros neón = la experiencia premium completa."
+            paragraph1="La diferencia entre el UV Premium y los paquetes anteriores no es solo de escala — es la presencia de los letreros neón personalizados que transforman el espacio en algo irrepetible. Cualquier salón puede tener luz negra. No cualquier evento tiene un letrero neón con tu nombre brillando de fondo."
+            paragraph2="Los letreros LED neón se fabrican a tu medida: el texto que quieras, la tipografía que prefieras, el color que mejor combine con tu paleta de colores. El resultado es una pieza de decoración y fotografía que además sirve como punto focal de todo el espacio."
+          />
+          <FeatureGrid features={[
+            { title: "Bodas neón en CDMX", description: "Los apellidos de los novios, una frase romántica o la fecha de boda en neón. El accesorio fotográfico más impactante de la noche." },
+            { title: "Eventos corporativos temáticos", description: "El nombre de la marca o producto en letrero neón frente al UV. Fotografías de producto que nadie olvida." },
+            { title: "Fiestas de lujo y cumpleaños premium", description: "Para los que no quieren una fiesta más — quieren LA fiesta. El UV Premium garantiza ese nivel." },
+            { title: "Salones grandes hasta 200m²", description: "12+ barras cubren espacios premium sin comprometer la intensidad del efecto UV en ningún rincón." },
+            { title: "Letreros neón personalizados", description: "Texto, tipografía y color a tu medida. Se fabrican en 2-3 semanas. Pídelos con anticipación." },
+            { title: "Fotografía profesional de eventos", description: "El UV + letreros neón crean las condiciones de luz perfectas para fotos memorables. Los fotógrafos lo aman." },
+          ]} columns={2} />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Los letreros neón: personalizados para tu evento"
+            subtitle="LED flexible o acrílico retroiluminado. Tú decides el texto y el color."
+            paragraph1="Los letreros incluidos en el UV Premium son LED neón flexible — más duraderos y seguros que el neón de gas tradicional, con el mismo impacto visual. Los fabricamos a medida con el texto y color que elijas: blanco cálido, rosa, azul, verde, naranja o multicolor."
+            paragraph2="Para bodas recomendamos frases cortas o los apellidos. Para corporativos, el nombre de la marca o el slogan del evento. Para cumpleaños, el nombre del festejado o una frase característica. El letrero se puede usar después del evento — es tuyo para siempre."
+          />
+        </div>
+
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader
+            title="Lo que dicen nuestros clientes"
+            subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 41 reseñas verificadas."
+            paragraph1="Bodas neón, eventos corporativos y fiestas premium — el UV Premium es elegido por quienes buscan resultados excepcionales."
+            paragraph2="Pregúntanos por referencias de bodas neón o eventos similares cuando cotices."
+          />
+          <TestimonialCards testimonials={[
+            { name: "Gabriela Morales", event: "Boda neón — Pedregal, salón 180m²", rating: 5, text: "El letrero 'Forever & Always' brilló toda la noche y fue el punto focal de todas las fotos. Las 12 barras UV cubrieron el salón sin un solo rincón oscuro. REDEIL es los mejores." },
+            { name: "Javier Castillo", event: "Evento corporativo — lanzamiento de producto", rating: 5, text: "El letrero con el nombre de la marca más el UV de fondo fue exactamente lo que el cliente pidió. Profesionales, puntuales, y el resultado fue impecable para las fotos del evento." },
+            { name: "Carolina Vega", event: "Cumpleaños premium — Interlomas", rating: 5, text: "Los letreros personalizados con mi nombre y los 100 accesorios fluorescentes convirtieron la fiesta en algo de revista. REDEIL coordinó todo a la perfección." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Así se ve el Paquete UV Premium"
+          subtitle="Bodas neón, eventos premium y letreros personalizados con luz negra."
+          paragraph1="El UV Premium crea ambientes donde la fotografía es automáticamente espectacular. La combinación de cobertura UV total + letreros neón personalizados es la fórmula que usan los eventos premium en CDMX."
+          paragraph2="Mándanos fotos de tu venue y el texto que quieres en el letrero. Te mostramos cómo puede quedar antes de confirmar el pedido."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/luz-negra/ambiente-neon-boda.avif", alt: "Boda neón con luz UV y letreros personalizados" },
+          { src: "/img/luz-negra/decoracion-uv-boda.avif", alt: "Decoración UV para boda neón en CDMX" },
+          { src: "/img/luz-negra/renta-luz-uv-bodas-cdmx.avif", alt: "Renta de luz UV para bodas en CDMX" },
+          { src: "/img/luz-negra/decoracion-glow-boda.avif", alt: "Decoración glow para boda con luz negra" },
+          { src: "/img/luz-negra/luz-ultravioleta-profesional.avif", alt: "Luz ultravioleta profesional para evento premium" },
+          { src: "/img/luz-negra/ambiente-fluorescente-club.avif", alt: "Ambiente fluorescente en evento de lujo" },
+          { src: "/img/luz-negra/decoracion-neon-fiestas-tematicas.avif", alt: "Decoración neón para fiestas temáticas premium" },
+          { src: "/img/luz-negra/ambiente-neon-discoteca.avif", alt: "Efecto neón UV en evento nocturno premium" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el Paquete UV Premium"
+          subtitle="Todo sobre los letreros neón y la producción UV premium."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Te asesoramos sobre el diseño del letrero neón y cómo integrarlo con el resto de tu producción."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Con cuánta anticipación debo pedir el diseño del letrero neón?", answer: "Idealmente 3-4 semanas antes del evento para tener tiempo de fabricación, revisión del diseño y envío. Los letreros se fabrican a medida con tu texto, tipografía y color preferido. Si tu evento es urgente, escríbenos — a veces podemos agilizar el proceso." },
+        { question: "¿Los letreros neón son LED o de gas neón tradicional?", answer: "Son LED neón flexible — más duraderos, menos frágiles y con mayor variedad de colores que el neón de gas. El resultado visual es idéntico pero con mayor seguridad para transporte y montaje. Consumen menos electricidad y no se rompen con el transporte." },
+        { question: "¿Puedo elegir el color del letrero neón?", answer: "Sí. Disponibles en blanco cálido, rosa, azul, verde, naranja, amarillo y rojo. También opciones multicolor con un color por letra o sección. Para bodas recomendamos blanco cálido o rosa — combinan naturalmente con la luz UV." },
+        { question: "¿El letrero neón es mío o lo devuelvo?", answer: "El letrero es tuyo. Lo fabricamos específicamente para tu evento con tu texto personalizado, por lo que después del evento te lo quedas como recuerdo o decoración permanente. Muchos clientes los usan en casa después." },
+        { question: "¿Cómo combino el UV Premium con el fotógrafo de mi boda?", answer: "El UV + letreros neón crea condiciones de luz ideales para fotografía artística. Recomendamos comunicarle a tu fotógrafo con anticipación para que ajuste su equipo. La mayoría de fotógrafos profesionales aman trabajar con UV — las fotos resultan espectaculares sin edición extra." },
+        { question: "¿El UV Premium funciona para bodas al aire libre?", answer: "Para exteriores nocturnos sí funciona excelente. Para exteriores con luz natural (atardeceres, bodas diurnas), el efecto UV es mínimo — la luz del sol anula la luz negra. Te recomendamos para la recepción nocturna y la hora de la pista, no para la ceremonia si es de día." },
+      ]} />
+    </section>
+
+    <!-- Otros paquetes -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Otros Paquetes y Servicios"
+          subtitle="¿Necesitas algo más básico o una producción masiva?"
+          paragraph1="Si tu evento es más íntimo, el Blacklight Básico o el Party cubren perfectamente. Si buscas una producción completa con DJ, efectos y decoración total, el Paquete Producción UV es lo que necesitas."
+          paragraph2="El UV Premium combina especialmente bien con humo bajo — el efecto de neblina en el suelo bajo luz UV es uno de los momentos más fotogénicos de cualquier boda."
+        />
+        <div class="services-grid">
+          {otrosPaquetes.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para crear tu boda neón o evento premium?</h2>
+          <p>Cuéntanos el tipo de evento, la fecha y el texto que quieres en tu letrero neón. Te cotizamos en minutos y te mostramos opciones de diseño antes de confirmar.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza tu UV Premium</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</BaseLayout>
