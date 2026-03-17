@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "2 Cortinas Cascada LED — Backdrop de Boda CDMX | REDEIL";
+const description = "Backdrop completo de 6m con 2 cortinas LED para bodas. Mesa de novios + arco de ceremonia. $5,500 + IVA instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-2-cortinas/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "2 Cortinas Cascada LED — Backdrop Completo de Boda",
+    "description": "Backdrop continuo de 6 metros con 2 cortinas de cascada LED de 3×3m. El más pedido para bodas en CDMX. Cubre toda la pared detrás de la mesa principal. Incluye estructura, transporte, instalación y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-2-cortinas/",
+      "priceCurrency": "MXN",
+      "price": "5500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "84",
+      "reviewCount": "84"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valeria Castillo" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Las 2 cortinas para nuestra boda en el salón de Santa Fe fueron un éxito total. El backdrop de 6 metros cubrió toda la pared detrás de nosotros y las fotos quedaron perfectas. Muchos invitados nos preguntaron dónde lo rentamos. El equipo de REDEIL llegó puntual y la instalación fue muy limpia."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Moreno" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la gala de XV años elegimos el paquete de 2 cortinas y fue la mejor decisión. Las pusieron en la mesa de honor y el efecto fue impresionante — el salón se transformó por completo. El brillo del twinkle en las fotos es precioso."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda en hotel de Polanco — contratamos las 2 cortinas para el arco de ceremonia y la mesa de novios. El efecto en ambos espacios fue espectacular. Muy profesionales en todo el proceso, desde la cotización hasta el desmontaje."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/cascadas-led/cascadas-led-backdrop-boda-espectacular.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuánto mide el backdrop con 2 cortinas LED?", "acceptedAnswer": { "@type": "Answer", "text": "Con 2 cortinas de 3×3m obtienes un backdrop continuo de 6 metros de ancho por 3 metros de alto. Es la medida perfecta para cubrir la pared completa detrás de la mesa de novios en la mayoría de los salones de eventos en CDMX." }},
+      { "@type": "Question", "name": "¿Se pueden poner las 2 cortinas en lugares diferentes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Una opción muy popular es poner una cortina detrás de la mesa de novios y la segunda detrás del arco de ceremonia. Así tienes iluminación brillante en los dos momentos más fotografiados: la ceremonia y la recepción." }},
+      { "@type": "Question", "name": "¿El paquete de 2 cortinas incluye control DMX?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de 2 cortinas incluye las cortinas con efecto twinkle y luz fija. El control DMX para cambios de color en vivo está disponible a partir del paquete de 4 cortinas ($9,000 + IVA)." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Cortina — Mesa de Novios", image: "/img/cascadas-led/cascadas-led-cortina-luz-mesa-novios.avif", alt: "1 cortina LED para mesa de novios", description: "Backdrop enfocado para la mesa de novios o photo booth. Ideal para eventos más íntimos. $3,000 + IVA.", link: "/servicios/cascadas-led/paquete-1-cortina/" },
+  { title: "4 Cortinas — Salón Completo", image: "/img/cascadas-led/cascadas-led-iluminacion-completa-boda.avif", alt: "4 cortinas LED cubriendo lateral completo de salón", description: "12 metros con control DMX. Cambia colores en vivo. Para haciendas y salones grandes. $9,000 + IVA.", link: "/servicios/cascadas-led/paquete-4-cortinas/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile de boda", description: "Backdrop brillante de fondo + spotlight siguiendo a los novios en el vals. El momento más fotografiado.", link: "/servicios/seguidor/" },
+  { title: "Gobos", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma de novios en pista de baile", description: "Backdrop de cascadas LED + los nombres de los novios proyectados en la pista. Personalización total.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cascadas LED", href: "/servicios/cascadas-led/" },
+    { label: "2 Cortinas — Backdrop de Boda" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="2 Cortinas Cascada LED — Backdrop Completo para Boda"
+    subtitle="$5,500 + IVA. Backdrop continuo de 6 metros. Mesa de novios y arco de ceremonia. Instalación incluida."
+    introParagraph1='El paquete de 2 cortinas es el más contratado para bodas en CDMX — y con razón. Dos cortinas de <strong>3×3 metros</strong> unidas crean un backdrop continuo de <strong>6 metros de ancho</strong> que cubre toda la pared detrás de la mesa de novios. El resultado es un fondo brillante y espectacular que hace que cada foto de la recepción se vea de producción profesional.'
+    introParagraph2='La versatilidad es otra ventaja: puedes usar las dos cortinas juntas como un backdrop corrido de 6 metros, o separarlas para cubrir dos zonas distintas — una detrás de la mesa de novios y otra detrás del arco de ceremonia. Así tienes iluminación brillante en los dos momentos más fotografiados de tu boda. Incluye estructura de truss, transporte, instalación, operación y desmontaje. Todo por $5,500 + IVA.'
+  />
+
+  <CtaBar
+    headline="¿Cuántas cortinas necesitas?"
+    items={[
+      { label: "1 Cortina — $3,000", href: "/servicios/cascadas-led/paquete-1-cortina/", icon: "iluminacion" },
+      { label: "4 Cortinas — $9,000", href: "/servicios/cascadas-led/paquete-4-cortinas/", icon: "iluminacion" },
+      { label: "Producción — $15,000", href: "/servicios/cascadas-led/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="2 Cortinas — Más Popular"
+      price="$5,500"
+      priceNote="+ IVA · Instalación incluida"
+      badge="Más popular"
+      features={[
+        { text: "2 cortinas LED de 3×3 metros c/u" },
+        { text: "Backdrop continuo de 6m de ancho" },
+        { text: "Efecto twinkle estrellado" },
+        { text: "Blanco cálido, frío o multicolor" },
+        { text: "2 estructuras de truss portátiles" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Instalación profesional" },
+        { text: "Operación durante el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar 2 cortinas cascada LED para mi boda."
+      packages={[
+        { label: "1 cortina", price: "$3,000", href: "/servicios/cascadas-led/paquete-1-cortina/" },
+        { label: "2 cortinas", price: "$5,500", href: "/servicios/cascadas-led/paquete-2-cortinas/", active: true },
+        { label: "4 cortinas", price: "$9,000", href: "/servicios/cascadas-led/paquete-4-cortinas/" },
+        { label: "Producción", price: "$15,000", href: "/servicios/cascadas-led/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Dos configuraciones en un solo paquete"
+          subtitle="Juntas o separadas — la elección es tuya según el venue."
+          paragraph1="La flexibilidad del paquete de 2 cortinas es su mayor ventaja. Puedes configurarlas de dos formas según cómo esté diseñado tu evento: un backdrop corrido de 6 metros en un solo punto, o dos backdrops independientes de 3 metros en dos zonas diferentes del venue."
+          paragraph2="La segunda opción — ceremonia + recepción — es especialmente popular para bodas donde la ceremonia y la recepción ocurren en el mismo salón. Montas las cortinas antes del evento y cada espacio tiene su propio fondo brillante durante toda la noche."
+        />
+        <FeatureGrid features={[
+          { title: "Backdrop Corrido 6m", description: "Las dos cortinas unidas cubren toda la pared detrás de la mesa principal. Ideal cuando el salón tiene pared larga." },
+          { title: "Ceremonia + Recepción", description: "Una cortina detrás del arco y otra en la mesa de novios. Los dos momentos más fotografiados con backdrop brillante." },
+          { title: "Mesa de Novios Amplia", description: "Para mesas de novios de más de 3 metros de ancho o mesas con invitados laterales. 6m asegura cobertura total." },
+          { title: "Arco de Ceremonia + Photo Booth", description: "Una cortina en el arco para la ceremonia, la segunda como fondo del photo booth en la recepción." },
+          { title: "Boda Todo en Uno", description: "Salones donde la misma pared sirve para ceremonia y recepción. Dos cortinas = backdrop listo para ambos momentos." },
+          { title: "XV Años con Dos Zonas", description: "Mesa de honor + zona de vals. Las dos cortinas marcan los espacios protagonistas de la fiesta." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Por qué es el paquete más pedido para bodas"
+          subtitle="6 metros de cobertura cumplen lo que pide la mayoría de los venues."
+          paragraph1="En los salones de eventos más comunes en CDMX y Estado de México, la pared detrás de la mesa de novios mide entre 4 y 7 metros de ancho. El backdrop de 6 metros cubre ese rango perfectamente — sin quedar corto ni sobrar demasiado."
+          paragraph2="Además, el precio de $5,500 + IVA da un costo por metro lineal muy eficiente. Comparado con el paquete de 1 cortina, duplicas la cobertura por un 83% más de inversión. Para bodas con presupuesto ajustado, 2 cortinas dan el mayor impacto visual por peso gastado."
+        />
+        <FeatureGrid features={[
+          { title: "Relación Cobertura-Precio", description: "6 metros de backdrop por $5,500 — el mejor costo por metro del catálogo de cascadas LED." },
+          { title: "Cubre Venues Estándar", description: "El 80% de los salones en CDMX tienen paredes de 5-7m. Dos cortinas llenan ese espacio a la perfección." },
+          { title: "Instalación en 1 Hora", description: "El montaje de 2 cortinas juntas toma aproximadamente 60-90 minutos. Todo listo mucho antes del evento." },
+          { title: "Más de 80 Reseñas", description: "El paquete más contratado de nuestro catálogo de cascadas. La experiencia habla por sí sola." },
+          { title: "Efecto Twinkle Doble", description: "Con 6 metros de twinkle sincronizado, el efecto visual es aún más impactante que con una sola cortina." },
+          { title: "Fotografía Profesional", description: "Los fotógrafos de boda prefieren el backdrop de 6m — da más libertad de encuadre para tomas amplias." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que opinan nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 84 reseñas."
+          paragraph1="El paquete de 2 cortinas es el más reseñado de nuestro catálogo. Estas son experiencias reales."
+          paragraph2="Pregunta por referencias de bodas similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Valeria Castillo", event: "Boda en Salón — Santa Fe", rating: 5, text: "El backdrop de 6 metros cubrió toda la pared detrás de nosotros y las fotos quedaron perfectas. Muchos invitados nos preguntaron dónde lo rentamos. El equipo llegó puntual y la instalación fue muy limpia." },
+          { name: "Gabriela Moreno", event: "XV Años Gala — CDMX", rating: 5, text: "Para la gala de XV años elegimos el paquete de 2 cortinas y fue la mejor decisión. El salón se transformó por completo. El brillo del twinkle en las fotos es precioso." },
+          { name: "Mariana Torres", event: "Boda en Hotel — Polanco", rating: 5, text: "Contratamos las 2 cortinas para el arco de ceremonia y la mesa de novios. El efecto en ambos espacios fue espectacular. Muy profesionales en todo el proceso." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Backdrops reales con 2 cortinas LED"
+        subtitle="6 metros de luz brillante en bodas, galas y XV años en CDMX."
+        paragraph1="Cada imagen es de un evento real con nuestro paquete de 2 cortinas. El backdrop de 6 metros da escala y presencia visual que una sola cortina no logra — cubre todo el fondo sin dejar paredes vacías a los lados."
+        paragraph2="¿Quieres ver cómo quedaría en tu salón específico? Mándanos fotos por WhatsApp y te hacemos una simulación visual antes de confirmar."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular.avif", alt: "Backdrop espectacular de 6m con 2 cortinas LED en boda" },
+        { src: "/img/cascadas-led/cascadas-led-backdrop-mesa-principal-boda.avif", alt: "Mesa principal de boda con backdrop de 2 cortinas LED" },
+        { src: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas.avif", alt: "Arco de ceremonia con cascadas LED moradas" },
+        { src: "/img/cascadas-led/cascadas-led-cortina-luz-calida-boda.avif", alt: "Cortina de luz cálida para boda romántica" },
+        { src: "/img/cascadas-led/renta-cascadas-led-mesa-novios-romantico.avif", alt: "Mesa de novios romántica con backdrop de cascadas LED" },
+        { src: "/img/cascadas-led/renta-cascadas-led-cortina-luz-dorada.avif", alt: "Cortina de luz dorada cascada LED para boda" },
+        { src: "/img/cascadas-led/luces-para-bodas-cascada-fondo-elegante.avif", alt: "Fondo elegante con 2 cascadas LED para boda" },
+        { src: "/img/cascadas-led/renta-luces-led-cascada-ambiente-magico.avif", alt: "Ambiente mágico creado por 2 cortinas de cascada LED" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 2 Cortinas"
+        subtitle="Todo lo que necesitas saber antes de reservar tu backdrop de boda."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Si necesitas más cobertura — 12 metros o más — tenemos el paquete de 4 cortinas y producción completa disponibles."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuánto mide el backdrop con 2 cortinas LED?", answer: "Con 2 cortinas de 3×3m obtienes un backdrop continuo de 6 metros de ancho por 3 metros de alto. Es la medida perfecta para cubrir la pared completa detrás de la mesa de novios en la mayoría de los salones de CDMX." },
+      { question: "¿Se pueden poner las 2 cortinas en lugares diferentes del venue?", answer: "Sí. Una opción muy popular es poner una cortina detrás de la mesa de novios y la segunda detrás del arco de ceremonia. Así tienes iluminación brillante en los dos momentos más fotografiados de la boda — sin costo adicional." },
+      { question: "¿El precio de $5,500 incluye todo?", answer: "Sí. Los $5,500 + IVA incluyen las 2 cortinas LED, 2 estructuras de truss portátiles, transporte, instalación profesional, operación durante el evento y desmontaje. Sin costos ocultos." },
+      { question: "¿El paquete de 2 cortinas incluye control DMX?", answer: "El paquete estándar incluye efecto twinkle y luz fija. El control DMX para cambios de color en vivo está disponible a partir del paquete de 4 cortinas ($9,000 + IVA)." },
+      { question: "¿La instalación daña las paredes del salón?", answer: "No. Todas las cortinas se montan en estructuras de truss metálicas portátiles que se apoyan en el piso. No perforamos, pegamos ni atornillamos nada en las paredes o techo del venue." },
+      { question: "¿Con cuánta anticipación debo reservar?", answer: "Idealmente 2-3 semanas antes del evento. En temporada alta (noviembre-enero y mayo-junio) las fechas se ocupan rápido. Entre antes confirmes, mayor seguridad de tener la fecha disponible." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más cortinas o un servicio complementario?"
+        paragraph1="Si tu salón necesita más de 6 metros de cobertura, el paquete de 4 cortinas cubre hasta 12 metros con control DMX incluido. Y si buscas la producción total del venue, el paquete de producción es la solución."
+        paragraph2="Combinamos las cascadas LED con seguidor para el vals y gobos con monograma para propuestas integrales con precio especial."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu boda merece 6 metros de luz brillante?</h2>
+        <p>Mándanos fotos de tu salón por WhatsApp. Te cotizamos en minutos y confirmamos disponibilidad para tu fecha.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Tu Backdrop — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "1 Cortina Cascada LED para Mesa de Novios CDMX | REDEIL";
+const description = "Una cortina LED 3×3m como backdrop perfecto para la mesa de novios. Efecto estrellado twinkle. Instalación incluida en CDMX. Desde $3,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-1-cortina/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "1 Cortina Cascada LED — Mesa de Novios y Photo Booth",
+    "description": "Una cortina de cascada LED de 3×3 metros ideal para la mesa de novios, fondo fotográfico y photo booth. Efecto twinkle estrellado en blanco cálido. Incluye estructura, transporte, instalación profesional y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-1-cortina/",
+      "priceCurrency": "MXN",
+      "price": "3000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "58",
+      "reviewCount": "58"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Reyes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la cortina para nuestra boda en el salón del Benito Juárez. La colocaron detrás de la mesa de novios y quedó increíble — la luz blanca con el efecto twinkle hacía que todas las fotos se vieran de revista. El equipo de REDEIL fue muy puntual y rápido al montar."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Fuentes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La usé para los XV años de mi hija en una hacienda de Tlalpan. Pusimos la cortina como fondo para las fotos formales y quedó espectacular. Todas las invitadas querían tomarse fotos ahí. Vale cada peso del precio."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Karla Ortega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para el baby shower en Naucalpan la verdad no esperaba que fuera tan impresionante. La cortina transformó el salón completamente. El montaje tomó menos de una hora y al final recogieron todo sin dejar rastro. Superó mis expectativas."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/cascadas-led/cascadas-led-cortina-luz-mesa-novios.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Una cortina LED es suficiente para la mesa de novios?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Una cortina de 3×3 metros cubre perfectamente la mesa de novios estándar (hasta 3 metros de ancho). Es el tamaño ideal para el backdrop fotográfico que sale en todas las fotos de la recepción." }},
+      { "@type": "Question", "name": "¿Qué efecto tiene la cortina LED?", "acceptedAnswer": { "@type": "Answer", "text": "La cortina tiene efecto twinkle — un parpadeo suave y constante que simula estrellas brillando. También se puede configurar en luz fija sin parpadeo. El color más popular para bodas es blanco cálido (dorado suave)." }},
+      { "@type": "Question", "name": "¿El precio de $3,000 incluye la instalación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $3,000 + IVA incluyen la cortina LED, estructura de truss portátil, transporte a tu venue, instalación profesional, operación durante el evento y desmontaje al finalizar. Sin costos ocultos." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "2 Cortinas — Backdrop Completo", image: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular.avif", alt: "Backdrop completo de 6m con 2 cortinas LED para boda", description: "6 metros de cortinas LED. Mesa de novios + arco de ceremonia. El más pedido para bodas. $5,500 + IVA.", link: "/servicios/cascadas-led/paquete-2-cortinas/" },
+  { title: "4 Cortinas — Salón Completo", image: "/img/cascadas-led/cascadas-led-iluminacion-completa-boda.avif", alt: "4 cortinas LED cubriendo lateral completo de salón", description: "12 metros con control DMX. Cambia colores en vivo. Para haciendas y salones grandes. $9,000 + IVA.", link: "/servicios/cascadas-led/paquete-4-cortinas/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison en terraza para boda", description: "Combina la cortina LED de fondo con guirnaldas cálidas en el techo. El look más romántico.", link: "/servicios/guirnaldas/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada-300w.avif", alt: "Uplighting en arcos coloniales para evento", description: "Cortina LED adentro + uplighting en columnas y fachada. Iluminación integral del venue.", link: "/servicios/iluminacion-arquitectonica/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cascadas LED", href: "/servicios/cascadas-led/" },
+    { label: "1 Cortina — Mesa de Novios" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="1 Cortina Cascada LED — Backdrop para Mesa de Novios"
+    subtitle="Desde $3,000 + IVA. Cortina LED 3×3m con efecto twinkle. Estructura, instalación y desmontaje incluidos."
+    introParagraph1='Una sola cortina de cascada LED transforma por completo el espacio más fotografiado de tu boda: la mesa de novios. Con <strong>3×3 metros</strong> de miles de luces LED parpadeando en efecto twinkle estrellado, crea un backdrop brillante y elegante que convierte cada foto en imagen de revista. Es el elemento decorativo que más diferencia hace con el menor presupuesto.'
+    introParagraph2='El paquete incluye todo lo que necesitas: la cortina LED, estructura de truss portátil (no toca las paredes del venue), transporte a tu salón en CDMX o Estado de México, instalación profesional por nuestro equipo, operación durante el evento y desmontaje al finalizar. Perfecto para la mesa de novios, como fondo fotográfico, photo booth o para delimitar un espacio íntimo. Sin costos ocultos — precio final desde $3,000 + IVA.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más cobertura?"
+    items={[
+      { label: "2 Cortinas — $5,500", href: "/servicios/cascadas-led/paquete-2-cortinas/", icon: "iluminacion" },
+      { label: "4 Cortinas — $9,000", href: "/servicios/cascadas-led/paquete-4-cortinas/", icon: "iluminacion" },
+      { label: "Producción — $15,000", href: "/servicios/cascadas-led/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="1 Cortina — Básico"
+      price="$3,000"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "1 cortina LED de 3×3 metros" },
+        { text: "Efecto twinkle (parpadeo estrellado)" },
+        { text: "Blanco cálido, frío o multicolor" },
+        { text: "Estructura de truss portátil" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Instalación profesional" },
+        { text: "Operación durante el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Sin daño al venue" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar 1 cortina cascada LED para mi evento."
+      packages={[
+        { label: "1 cortina", price: "$3,000", href: "/servicios/cascadas-led/paquete-1-cortina/", active: true },
+        { label: "2 cortinas", price: "$5,500", href: "/servicios/cascadas-led/paquete-2-cortinas/" },
+        { label: "4 cortinas", price: "$9,000", href: "/servicios/cascadas-led/paquete-4-cortinas/" },
+        { label: "Producción", price: "$15,000", href: "/servicios/cascadas-led/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Espacios perfectos para una cortina"
+          subtitle="3×3 metros cubren la mesa de novios estándar y más."
+          paragraph1="Una cortina de 3×3 metros es la medida exacta para la mayoría de las mesas de novios en salones de CDMX. El backdrop queda centrado detrás de los novios, visible desde toda la pista y perfecto para las fotos del fotógrafo oficial y de los invitados."
+          paragraph2="También funciona como fondo para photo booths, esquinas lounge, arcos de ceremonia y como divisor decorativo entre zonas del evento. Un elemento versátil que rinde mucho."
+        />
+        <FeatureGrid features={[
+          { title: "Mesa de Novios", description: "El uso clásico. La cortina centrada detrás de los novios es el backdrop más fotografiado de la recepción." },
+          { title: "Photo Booth", description: "Fondo brillante para la zona de fotos. Tus invitados se van a querer tomar fotos toda la noche." },
+          { title: "Arco de Ceremonia", description: "La cortina detrás del arco crea un halo luminoso precioso para la ceremonia y las fotos oficiales." },
+          { title: "Fondo Fotográfico", description: "Zona dedicada para retratos formales. La luz LED diffusa favorece a todos en las fotos." },
+          { title: "Espacio Íntimo", description: "Delimita la mesa de honor o una zona VIP con un fondo brillante que la distingue del resto del salón." },
+          { title: "Baby Shower o XV Años", description: "No solo para bodas. Una cortina transforma cualquier salón de fiestas en un espacio especial." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="El efecto twinkle: por qué es tan popular"
+          subtitle="Miles de luces parpadeando suavemente — como estrellas en el fondo."
+          paragraph1="El efecto twinkle es el secreto del éxito fotográfico de las cascadas LED. Cada punto de luz parpadea de forma independiente y aleatoria, creando una sensación de profundidad y movimiento que en fotos y video se ve espectacular."
+          paragraph2="A diferencia de la luz fija, el twinkle da vida al backdrop — hay movimiento sin distracción. En video, se ve como un fondo de estrellas brillando. Disponible en blanco cálido (el favorito para bodas románticas), blanco frío y multicolor para XV años."
+        />
+        <FeatureGrid features={[
+          { title: "Parpadeo Independiente", description: "Cada LED parpadea en su propio ciclo. El resultado es un efecto orgánico que nunca se ve artificial." },
+          { title: "Blanco Cálido — El Favorito", description: "Tono dorado suave, 2700-3000K. Favorece los tonos de piel y combina con cualquier paleta de boda." },
+          { title: "Blanco Frío", description: "Más limpio y moderno. Ideal para bodas contemporáneas y eventos corporativos." },
+          { title: "Multicolor", description: "Para XV años temáticos y fiestas con color. El controlador permite ajustar tonos." },
+          { title: "Luz Fija", description: "Si prefieres sin parpadeo, también se puede configurar en luz constante. Misma cortina, diferente efecto." },
+          { title: "Fotografía y Video", description: "El twinkle captura bien en cámara — no produce flickering en fotos ni en video profesional." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Instalación sin daño al venue"
+          subtitle="Llegamos 1 hora antes. Estructura portátil que no toca las paredes."
+          paragraph1="Todo el sistema se monta en una estructura de truss metálica portátil que se apoya en el piso. No perforamos, pegamos ni atornillamos nada en las paredes o techo del salón. Al terminar, desmontamos todo y el venue queda exactamente como lo encontramos."
+          paragraph2="El montaje de una cortina toma aproximadamente 45-60 minutos. Llegamos con suficiente anticipación para que todo esté probado y listo antes de que lleguen tus invitados. Más de 500 eventos montados en CDMX y Estado de México."
+        />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes nos contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 58 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete de 1 cortina LED."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Sofía Reyes", event: "Boda en Salón — Benito Juárez", rating: 5, text: "La colocaron detrás de la mesa de novios y quedó increíble — la luz blanca con efecto twinkle hacía que todas las fotos se vieran de revista. El equipo fue muy puntual y rápido al montar." },
+          { name: "Daniela Fuentes", event: "XV Años en Hacienda — Tlalpan", rating: 5, text: "La pusimos como fondo para las fotos formales y quedó espectacular. Todas las invitadas querían tomarse fotos ahí. Vale cada peso del precio." },
+          { name: "Karla Ortega", event: "Baby Shower — Naucalpan", rating: 5, text: "La cortina transformó el salón completamente. El montaje tomó menos de una hora y al final recogieron todo sin dejar rastro. Superó mis expectativas." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Así se ve una cortina en tu evento"
+        subtitle="Backdrops reales en bodas, XV años y eventos en CDMX."
+        paragraph1="Cada imagen es de un montaje real con nuestras cortinas de cascada LED. La diferencia entre un salón con y sin cascadas es inmediata — el fondo brillante convierte cualquier mesa en una escena digna de publicación."
+        paragraph2="¿Tienes fotos de tu venue? Mándanoslas por WhatsApp y te mostramos cómo quedaría la cortina en tu espacio específico."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/cascadas-led/cascadas-led-cortina-luz-mesa-novios.avif", alt: "Cascada LED detrás de mesa de novios en salón CDMX" },
+        { src: "/img/cascadas-led/cascadas-led-cortina-luz-calida-boda.avif", alt: "Cortina de luz cálida para boda romántica" },
+        { src: "/img/cascadas-led/cascadas-led-decoracion-mesa-novios-flores.avif", alt: "Mesa de novios con cascada LED y decoración floral" },
+        { src: "/img/cascadas-led/renta-cascadas-led-fondo-fotografico-novios.avif", alt: "Fondo fotográfico de cascada LED para novios" },
+        { src: "/img/cascadas-led/renta-cascadas-led-mesa-novios-romantico.avif", alt: "Mesa de novios romántica con cascada LED twinkle" },
+        { src: "/img/cascadas-led/luces-para-bodas-cascada-efecto-estrellado.avif", alt: "Efecto estrellado twinkle en cascada LED para boda" },
+        { src: "/img/cascadas-led/luces-para-bodas-cascada-led-sweetheart.avif", alt: "Sweetheart table iluminada con cascada LED" },
+        { src: "/img/cascadas-led/cascadas-led-iluminacion-ambiente-romantico.avif", alt: "Ambiente romántico creado por cascada LED en salón" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 1 Cortina"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Si tu venue es más grande o necesitas cubrir más espacio, tenemos paquetes de 2 y 4 cortinas disponibles."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Una cortina LED es suficiente para la mesa de novios?", answer: "Sí. Una cortina de 3×3 metros cubre perfectamente la mesa de novios estándar (hasta 3 metros de ancho). Si tu mesa es más larga o quieres un backdrop que cubra toda la pared del salón, te recomendamos el paquete de 2 cortinas ($5,500 + IVA)." },
+      { question: "¿El precio de $3,000 incluye la instalación?", answer: "Sí. Los $3,000 + IVA incluyen la cortina LED, estructura de truss portátil, transporte a tu venue, instalación profesional, operación durante el evento y desmontaje al finalizar. Sin costos ocultos." },
+      { question: "¿Qué efecto tiene la cortina LED?", answer: "La cortina tiene efecto twinkle — un parpadeo suave y constante que simula estrellas brillando. También se puede configurar en luz fija sin parpadeo. El color más popular para bodas es blanco cálido (tono dorado suave que favorece en fotos)." },
+      { question: "¿La instalación daña las paredes del salón?", answer: "No. Montamos la cortina en una estructura de truss metálica portátil que se apoya en el piso. No perforamos, pegamos ni atornillamos nada en las paredes o techo del venue. Al finalizar, retiramos todo sin dejar rastro." },
+      { question: "¿Cuánto tiempo toma la instalación?", answer: "El montaje de una cortina toma aproximadamente 45-60 minutos. Llegamos 1-2 horas antes del evento para que todo esté listo y probado antes de que lleguen tus invitados." },
+      { question: "¿Funciona en salones pequeños o solo en lugares grandes?", answer: "Funciona perfectamente en salones pequeños — de hecho, en espacios íntimos el efecto visual es aún más impactante. La cortina de 3×3m se adapta a cualquier tamaño de venue, desde salones de 50 hasta de 300 invitados." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más cobertura o complementar la iluminación?"
+        paragraph1="Si quieres un backdrop más amplio o cubrir más zonas del salón, tenemos paquetes de 2 y 4 cortinas. Y si buscas la producción completa del venue, el paquete de producción incluye 8+ cortinas con control DMX total."
+        paragraph2="Combinamos cascadas LED con guirnaldas, seguidor y gobos para propuestas integrales con precio especial."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista tu mesa de novios para brillar?</h2>
+        <p>Mándanos fotos de tu salón por WhatsApp. Te cotizamos en minutos y confirmamos disponibilidad para tu fecha.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

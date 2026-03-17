@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Show Premium 12 Cabezas Móviles para Galas CDMX | REDEIL";
+const description = "Producción de luces con 12 cabezas móviles en truss aéreo para galas corporativas y eventos premium en CDMX. $16,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/cabezas-moviles/paquete-show-premium/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Show Premium — 12 Cabezas Móviles",
+    "description": "Producción de luces con 12 cabezas móviles de alta potencia en truss aéreo profesional para galas corporativas y eventos premium en CDMX. Incluye 2 operadores DMX, gobos personalizados, visita previa y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/cabezas-moviles/paquete-show-premium/",
+      "priceCurrency": "MXN",
+      "price": "16000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "31",
+      "reviewCount": "31"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrés Castellanos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el Show Premium para la gala anual de nuestra empresa de tecnología. Las 12 cabezas en truss aéreo crearon un ambiente de producción profesional que impresionó a nuestros 250 invitados. Los gobos con el logo de la empresa en las paredes fueron el detalle que más comentaron."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lucía Sandoval" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para el evento corporativo de fin de año en el Hotel Camino Real. El equipo de REDEIL hizo una visita previa semanas antes y llegó el día con todo planificado. Los 2 operadores DMX trabajaron en perfecta sincronía — el show de luces fue de nivel internacional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el Show Premium para el lanzamiento de nuestro producto en un venue de Polanco. Las 12 cabezas móviles con los gobos del logo de la marca en las paredes crearon el ambiente perfecto para la presentación. Muy profesionales desde la visita previa hasta el desmontaje."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/cabezas-moviles/renta-cabezas-moviles-gala-corporativa-salon-rosa.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Los gobos personalizados están incluidos en el Show Premium?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El Show Premium incluye gobos personalizados — podemos proyectar el logo de tu empresa, el nombre de los novios, o cualquier diseño que nos proporciones. Los gobos se fabrican a medida y se programan en las cabezas Spot del truss aéreo." }},
+      { "@type": "Question", "name": "¿Por qué el Show Premium incluye 2 operadores?", "acceptedAnswer": { "@type": "Answer", "text": "Con 12 cabezas móviles en truss aéreo, la complejidad de la producción requiere dos personas: uno programando y ejecutando los cues en la consola principal, y otro gestionando la lógica técnica del truss y los equipos. Esto garantiza que el show funcione sin interrupciones durante todo el evento." }},
+      { "@type": "Question", "name": "¿En qué consiste la visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Antes del evento, nuestro equipo técnico visita el venue para evaluar puntos de anclaje del truss, altura del techo, distribución eléctrica y posicionamiento óptimo de las cabezas. Esto nos permite llegar el día del evento con todo el montaje planificado y ejecutarlo en menos tiempo." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Show Estándar — 8 Cabezas", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif", alt: "8 cabezas móviles en truss para boda estándar", description: "Beam+Spot+Wash para bodas y XV años de 150+ invitados. $10,000 + IVA.", link: "/servicios/cabezas-moviles/paquete-show-estandar/" },
+  { title: "Producción — 20+ Cabezas", image: "/img/cabezas-moviles/renta-cabezas-moviles-evento-masivo-luces-show.avif", alt: "Más de 20 cabezas móviles en producción masiva", description: "Conciertos, festivales y producciones de gran escala. $28,000 + IVA.", link: "/servicios/cabezas-moviles/paquete-produccion/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker proyectando luz al cielo nocturno", description: "Potencia visual exterior que complementa la producción interior de cabezas móviles.", link: "/servicios/sky-tracker/" },
+  { title: "Gobos Personalizados", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo con monograma proyectado en pista de baile", description: "Logo de tu empresa o monograma de los novios. Incluido en el Show Premium.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/" },
+    { label: "Show Premium" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Show Premium — 12 Cabezas Móviles para Galas y Eventos Corporativos"
+    subtitle="$16,000 + IVA. Truss aéreo profesional. Gobos personalizados. 2 operadores DMX."
+    introParagraph1='El Show Premium lleva la producción de luces a un nivel diferente. 12 cabezas móviles de alta potencia montadas en truss aéreo profesional crean un show de luces que cubre todo el salón — no solo la pista de baile. Diseñado para galas corporativas, eventos de lanzamiento, bodas en venues premium y cualquier producción donde la iluminación es parte del mensaje visual de la marca o del evento.'
+    introParagraph2='A diferencia de los paquetes anteriores, el Show Premium incluye gobos personalizados — podemos proyectar el logo de tu empresa, el nombre de los novios o cualquier diseño en las paredes y el piso del venue. El montaje en truss aéreo crea el efecto de producción profesional que ves en eventos de Televisa, conciertos en formato boutique y lanzamientos de grandes marcas. Dos operadores DMX garantizan que cada momento del show esté perfectamente controlado, con visita previa al venue para planificar cada detalle antes del evento.'
+  />
+
+  <CtaBar
+    headline="Elige el nivel de producción que necesitas"
+    items={[
+      { label: "Show Básico — $6,000", href: "/servicios/cabezas-moviles/paquete-show-basico/", icon: "iluminacion" },
+      { label: "Show Estándar — $10,000", href: "/servicios/cabezas-moviles/paquete-show-estandar/", icon: "iluminacion" },
+      { label: "Producción — $28,000", href: "/servicios/cabezas-moviles/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Show Premium"
+      price="$16,000"
+      priceNote="+ IVA · Galas y corporativos"
+      features={[
+        { text: "12 cabezas móviles de alta potencia" },
+        { text: "Truss aéreo profesional" },
+        { text: "Tipo Beam + Spot + Wash" },
+        { text: "2 operadores DMX" },
+        { text: "Gobos personalizados incluidos" },
+        { text: "Visita previa al venue" },
+        { text: "Programación completa sincronizada" },
+        { text: "Transporte, montaje y desmontaje" },
+        { text: "Ideal para galas y corporativos" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el Show Premium de 12 cabezas móviles para mi evento corporativo."
+      packages={[
+        { label: "Show Básico — 4", price: "$6,000", href: "/servicios/cabezas-moviles/paquete-show-basico/" },
+        { label: "Show Estándar — 8", price: "$10,000", href: "/servicios/cabezas-moviles/paquete-show-estandar/" },
+        { label: "Show Premium — 12", price: "$16,000", href: "/servicios/cabezas-moviles/paquete-show-premium/", active: true },
+        { label: "Producción — 20+", price: "$28,000", href: "/servicios/cabezas-moviles/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Producción de nivel corporativo"
+          subtitle="12 cabezas en truss aéreo para galas, lanzamientos y venues premium."
+          paragraph1="Este paquete está diseñado para eventos donde la producción visual es parte de la experiencia de la marca. No es solo iluminación — es la identidad visual del evento proyectada en luz."
+          paragraph2="La visita previa al venue permite planificar el posicionamiento exacto de cada cabeza, los ángulos de los gobos y los colores de marca. El día del evento, el equipo llega con todo calculado."
+        />
+        <FeatureGrid features={[
+          { title: "Galas Corporativas", description: "Venues de hotel 5 estrellas. El show de luces que espera la dirección ejecutiva." },
+          { title: "Lanzamientos de Producto", description: "La iluminación como parte del storytelling de la marca. Gobos con logo incluidos." },
+          { title: "Bodas en Venues Premium", description: "Para las bodas donde cada detalle importa y la producción es el estándar." },
+          { title: "Truss Aéreo Profesional", description: "Las 12 cabezas cuelgan sobre el área del evento. Efecto de producción televisiva." },
+          { title: "Gobos de Marca", description: "Proyectamos el logo de tu empresa o cualquier diseño personalizado en las superficies." },
+          { title: "2 Operadores en Paralelo", description: "Un operador en consola, otro gestionando el truss. Cero fallos durante el show." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que incluye el truss aéreo profesional"
+          subtitle="Montaje certificado con ingeniería de carga y cables de seguridad."
+          paragraph1="El truss no es solo una estructura — es un sistema certificado de aluminio con capacidad de carga calculada según el peso de las 12 cabezas. Cada equipo tiene su propio cable de seguridad independiente del soporte principal."
+          paragraph2="Nuestro equipo técnico evalúa los puntos de anclaje del techo en la visita previa. Si el venue no permite truss colgante, configuramos el ground support para el mismo efecto visual desde el piso."
+        />
+        <FeatureGrid features={[
+          { title: "Truss de Aluminio Certificado", description: "Capacidad de carga calculada. Verificación de puntos de anclaje en visita previa." },
+          { title: "Cables de Seguridad", description: "Cada cabeza móvil tiene un cable de seguridad independiente — norma de producción." },
+          { title: "Altura Profesional", description: "El truss se eleva a la altura óptima para que los beams lleguen a toda la pista." },
+          { title: "Ground Support Disponible", description: "Si el techo no permite colgar, armamos el truss desde el piso. Mismo efecto." },
+          { title: "Visita Previa Incluida", description: "Evaluamos el venue antes del evento para planificar el montaje exacto." },
+          { title: "Desmontaje Completo", description: "Al finalizar, retiramos todo. El venue queda exactamente como lo encontramos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 31 reseñas de eventos corporativos y premium."
+          paragraph1="El Show Premium es el favorito de empresas y coordinadores de eventos de alto nivel en CDMX."
+          paragraph2="Pregunta por referencias de eventos corporativos similares cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Andrés Castellanos", event: "Gala anual empresa tecnología — CDMX", rating: 5, text: "Las 12 cabezas en truss aéreo crearon un ambiente de producción profesional que impresionó a nuestros 250 invitados. Los gobos con el logo en las paredes fueron el detalle que más comentaron." },
+          { name: "Lucía Sandoval", event: "Evento corporativo — Hotel Camino Real", rating: 5, text: "El equipo hizo una visita previa semanas antes y llegó el día con todo planificado. Los 2 operadores DMX trabajaron en perfecta sincronía — el show fue de nivel internacional." },
+          { name: "Gabriela Torres", event: "Lanzamiento de producto — Polanco", rating: 5, text: "Las 12 cabezas móviles con los gobos del logo de la marca en las paredes crearon el ambiente perfecto para la presentación. Muy profesionales desde la visita previa hasta el desmontaje." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Show Premium en eventos reales"
+        subtitle="12 cabezas móviles en galas corporativas, lanzamientos y bodas premium."
+        paragraph1="Cada foto es de un montaje real con el paquete Show Premium. Galas en hoteles 5 estrellas, lanzamientos de marca, eventos corporativos — 12 cabezas en truss crean un show que habla por sí solo."
+        paragraph2="¿Tienes un evento corporativo o gala próxima? Contáctanos y te preparamos una propuesta técnica con visualización del montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-gala-corporativa-salon-rosa.avif", alt: "Gala corporativa con 12 cabezas móviles en salón premium" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif", alt: "Evento corporativo con show de beams profesional" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif", alt: "Truss profesional con 12 cabezas móviles" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-masivo-luces-show.avif", alt: "Show de luces masivo con cabezas móviles premium" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-pista-baile-gobos-espiral.avif", alt: "Gobos personalizados en pista de baile de gala" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-pista-gobos-colores.avif", alt: "Show de luces con gobos de colores en pista premium" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-corporativa-beams-patron.avif", alt: "Fiesta corporativa con beams y patrones de cabezas premium" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-operador-consola-dmx-boda.avif", alt: "Operador DMX profesional controlando show de 12 cabezas" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Show Premium"
+        subtitle="Todo lo que necesitas saber antes de reservar tu producción."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Para eventos corporativos, podemos preparar una propuesta técnica con plano de montaje y especificaciones de los equipos."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Los gobos personalizados están incluidos en el precio?", answer: "Sí. El Show Premium incluye gobos personalizados sin costo adicional. Solo necesitamos el logo o diseño en formato vectorial (AI, EPS o PDF) con al menos 2 semanas de anticipación para fabricarlos. Podemos proyectar el logo de tu empresa, el nombre de los novios o cualquier diseño aprobado." },
+      { question: "¿En qué consiste la visita previa al venue?", answer: "Nuestro técnico visita el venue antes del evento para evaluar los puntos de anclaje del truss, la altura del techo, la distribución eléctrica disponible y el posicionamiento óptimo de las 12 cabezas. Esto nos permite preparar el montaje exacto y ejecutarlo sin improvisar el día del evento." },
+      { question: "¿Por qué se incluyen 2 operadores en lugar de 1?", answer: "Con 12 cabezas en truss aéreo, la producción requiere dos personas: un operador en la consola principal que ejecuta los cues en vivo, y un técnico que supervisa la integridad del truss y los equipos durante el show. Es el estándar de producción profesional para eventos de esta categoría." },
+      { question: "¿Pueden incluir video mapping además del show de luces?", answer: "El Show Premium se centra en cabezas móviles. Si quieres integrar video mapping o pantallas LED, podemos cotizarlo como servicio adicional. Varios de nuestros clientes combinan el show de cabezas con pantallas LED de fondo para una producción visual completa." },
+      { question: "¿Cuánto tiempo ocupa el montaje de 12 cabezas en truss?", answer: "El montaje completo del truss aéreo con 12 cabezas toma entre 4 y 6 horas. Por eso hacemos la visita previa — llegamos el día del evento sabiendo exactamente lo que vamos a hacer, sin tiempo perdido. Coordínanos acceso al venue desde temprano." },
+      { question: "¿Este paquete aplica para eventos en Estado de México?", answer: "Sí. Cubrimos CDMX y toda el área metropolitana incluyendo Estado de México. Para eventos fuera del área metropolitana, cotizamos el costo de logística adicional. Cuéntanos dónde es tu evento al contactarnos." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas ajustar la producción o agregar más elementos visuales?"
+        paragraph1="Si tu evento es una boda o XV años sin requerimientos corporativos, el Show Estándar de 8 cabezas es suficiente. Si es un concierto o festival, la Producción de 20+ cabezas es el nivel adecuado."
+        paragraph2="También combinamos con sky tracker exterior para impacto visual desde el cielo."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para producir tu gala o evento corporativo?</h2>
+        <p>Cuéntanos el evento, el venue y la cantidad de invitados. Te preparamos una propuesta técnica completa con especificaciones de montaje.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Solicitar Propuesta — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

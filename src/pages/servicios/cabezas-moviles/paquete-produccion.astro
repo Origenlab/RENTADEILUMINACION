@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción 20+ Cabezas Móviles para Conciertos CDMX | REDEIL";
+const description = "Producción completa con 20+ cabezas móviles, truss ground support y coreografía para festivales y conciertos CDMX. $28,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/cabezas-moviles/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Producción — 20+ Cabezas Móviles",
+    "description": "Producción completa de iluminación con 20 o más cabezas móviles profesionales, truss ground support, equipo de operadores DMX y coreografía de luces programada para conciertos, festivales y producciones de televisión en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/cabezas-moviles/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "28000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "19",
+      "reviewCount": "19"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marco Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos a REDEIL para el festival de música en Iztapalapa con 3,000 asistentes. Instalaron 24 cabezas móviles en el ground support del escenario principal. La coreografía de luces sincronizada con los artistas fue impresionante — varios productores del medio me preguntaron quién hizo la iluminación."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Isabel Ramírez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el paquete de producción para un concierto privado en un auditorio de 800 personas en la Ciudad de México. El equipo de REDEIL llegó con todo el truss, las 20 cabezas y su equipo técnico completo. Profesionalismo total desde la reunión de producción hasta el desmontaje."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernando Acosta" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los contratamos para una producción de TV con escenografía en vivo. REDEIL entendió perfectamente los requerimientos técnicos del director de fotografía y la coordinación con la cámara. Sus 22 cabezas móviles hicieron un trabajo impecable que se vio perfecto en pantalla."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/cabezas-moviles/renta-cabezas-moviles-evento-masivo-luces-show.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántas cabezas móviles exactamente incluye la Producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete Producción parte desde 20 cabezas móviles. La cantidad exacta se define según las dimensiones del escenario, el tipo de evento y los efectos requeridos. Para festivales con escenario grande, podemos llegar a 30-40 cabezas. Hacemos una reunión técnica previa para definir la configuración exacta." }},
+      { "@type": "Question", "name": "¿Qué es el truss ground support?", "acceptedAnswer": { "@type": "Answer", "text": "El ground support es una estructura de truss que se monta desde el piso sin necesidad de puntos de anclaje en el techo. Es la solución estándar para escenarios de concierto en espacios abiertos, festivales al aire libre y venues donde no hay techo disponible. Las cabezas móviles se montan en la parte superior y apuntan hacia el escenario y el público." }},
+      { "@type": "Question", "name": "¿La coreografía de luces se programa antes del evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Antes del evento hacemos al menos una reunión de producción donde revisamos el setlist, los momentos clave y los efectos requeridos. Nuestro programador DMX construye la coreografía en la consola y la prueba en un ensayo técnico. El día del evento, el operador ejecuta la coreografía en vivo con ajustes en tiempo real." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Show Premium — 12 Cabezas", image: "/img/cabezas-moviles/renta-cabezas-moviles-gala-corporativa-salon-rosa.avif", alt: "12 cabezas móviles en truss para gala premium", description: "Truss aéreo con gobos personalizados para galas y eventos corporativos. $16,000 + IVA.", link: "/servicios/cabezas-moviles/paquete-show-premium/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker proyectando luz al cielo nocturno", description: "Complemento exterior para festivales. El sky tracker marca el venue desde kilómetros.", link: "/servicios/sky-tracker/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Efecto nubes en piso para evento", description: "Humo bajo que hace visibles los beams desde el primer segundo del show.", link: "/servicios/humo-bajo/" },
+  { title: "City Color", image: "/img/city-color/iluminacion-ceremonia-boda-hacienda-300w.avif", alt: "City color iluminando fachada de venue", description: "Iluminación de fachada y estructuras del venue para la producción exterior.", link: "/servicios/city-color/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/" },
+    { label: "Producción" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Producción Completa — 20+ Cabezas Móviles para Conciertos y Festivales"
+    subtitle="Desde $28,000 + IVA. Truss ground support. Coreografía de luces. Equipo técnico completo."
+    introParagraph1='La Producción de 20+ cabezas móviles es el nivel máximo de show de luces que ofrecemos. Diseñada para conciertos, festivales, producciones de televisión y mega eventos donde la iluminación no es solo decoración — es parte integral del espectáculo. Con 20 o más luminarias robóticas de alta potencia montadas en truss ground support profesional, cubrimos escenarios de cualquier tamaño con beams, spots y wash coordinados por un equipo de operadores DMX.'
+    introParagraph2='A diferencia de los shows para eventos sociales, la Producción incluye una coreografía de luces programada específicamente para tu evento — secuencias sincronizadas con el setlist de los artistas o el guión del programa. Incluye reunión técnica previa con el director de producción, ensayo técnico para validar la coreografía y equipo completo de operadores y técnicos de soporte durante el evento. El mismo nivel que se usa en producciones de Televisa, conciertos en Foro Sol y festivales de música en CDMX.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas un nivel de producción diferente?"
+    items={[
+      { label: "Show Básico — $6,000", href: "/servicios/cabezas-moviles/paquete-show-basico/", icon: "iluminacion" },
+      { label: "Show Estándar — $10,000", href: "/servicios/cabezas-moviles/paquete-show-estandar/", icon: "iluminacion" },
+      { label: "Show Premium — $16,000", href: "/servicios/cabezas-moviles/paquete-show-premium/", icon: "iluminacion" },
+      { label: "Cotiza tu Producción", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción"
+      price="$28,000"
+      priceNote="+ IVA · Desde 20 cabezas"
+      features={[
+        { text: "20+ cabezas móviles profesionales" },
+        { text: "Truss ground support completo" },
+        { text: "Equipo de operadores DMX" },
+        { text: "Coreografía de luces programada" },
+        { text: "Sincronización con audio y video" },
+        { text: "Gobos y efectos especiales" },
+        { text: "Reunión técnica previa" },
+        { text: "Ensayo técnico incluido" },
+        { text: "Logística completa" },
+        { text: "Cobertura CDMX y nacional" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar una producción de 20+ cabezas móviles para mi concierto/festival."
+      packages={[
+        { label: "Show Básico — 4", price: "$6,000", href: "/servicios/cabezas-moviles/paquete-show-basico/" },
+        { label: "Show Estándar — 8", price: "$10,000", href: "/servicios/cabezas-moviles/paquete-show-estandar/" },
+        { label: "Show Premium — 12", price: "$16,000", href: "/servicios/cabezas-moviles/paquete-show-premium/" },
+        { label: "Producción — 20+", price: "$28,000", href: "/servicios/cabezas-moviles/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Para estos tipos de producción"
+          subtitle="El nivel de show que espera el público de conciertos y festivales."
+          paragraph1="Este paquete está diseñado para productores de eventos que entienden que la iluminación no es un gasto — es una inversión en la experiencia del público. Las 20+ cabezas crean un show que el asistente no olvida."
+          paragraph2="Trabajamos con el director técnico de cada producción para integrar la iluminación al concepto visual completo del evento."
+        />
+        <FeatureGrid features={[
+          { title: "Conciertos", description: "Escenarios con 500 a 5,000 asistentes. Ground support completo con beams apuntando al escenario y al público." },
+          { title: "Festivales de Música", description: "Múltiples escenarios o escenario principal con producción completa. Coordinación con sonido y video." },
+          { title: "Producciones de TV", description: "Sincronización con director de fotografía para que cada plano luzca perfecto en cámara." },
+          { title: "Shows en Vivo", description: "Artistas, bandas y performances que requieren iluminación dinámica sincronizada con la actuación." },
+          { title: "Mega Eventos Corporativos", description: "Convenciones, asambleas y lanzamientos con producción de escenario profesional." },
+          { title: "Eventos al Aire Libre", description: "Ground support sin necesidad de techo. Instalación en cualquier espacio abierto." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Coreografía de luces: el show dentro del show"
+          subtitle="No es operación manual — es un programa sincronizado con tu setlist."
+          paragraph1="La diferencia entre un show de luces y una producción de luces está en la coreografía. Nuestro programador DMX construye secuencias específicas para cada canción o momento del guión — los beams explotan exactamente en el primer acorde, el wash cambia de color en el estribillo, los spots giran en los solos."
+          paragraph2="El día del evento, el operador ejecuta la coreografía en tiempo real con capacidad de improvisar cuando el artista cambia el setlist. No es una grabación — es un profesional que conoce el show y lo controla en vivo."
+        />
+        <FeatureGrid features={[
+          { title: "Programación por Canción", description: "Secuencias específicas para cada track del setlist. El show está compuesto como música." },
+          { title: "Sincronización con Audio", description: "Las luces pueden reaccionar a parámetros del audio en tiempo real — el beat, la frecuencia." },
+          { title: "Sincronización con Video", description: "Coordinación con operador de video para que luces y pantallas cuenten la misma historia." },
+          { title: "Ensayo Técnico Previo", description: "Probamos la coreografía completa con el artista o director antes del evento." },
+          { title: "Operación en Vivo", description: "No es reproducción automática. Un operador experto controla el show en tiempo real." },
+          { title: "Flexibilidad de Última Hora", description: "Cambios de setlist, momentos imprevistos — nuestro equipo está preparado para improvisar." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 19 producciones de gran escala."
+          paragraph1="Festivales, conciertos y producciones de TV — estos son tres proyectos reales de REDEIL."
+          paragraph2="¿Tienes una producción próxima? Contáctanos para una reunión técnica sin compromiso."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Marco Villanueva", event: "Festival de música — Iztapalapa", rating: 5, text: "Instalaron 24 cabezas móviles en el ground support del escenario principal para 3,000 asistentes. La coreografía sincronizada con los artistas fue impresionante — varios productores del medio me preguntaron quién hizo la iluminación." },
+          { name: "Isabel Ramírez", event: "Concierto en auditorio privado — CDMX", rating: 5, text: "Producción para 800 personas. REDEIL llegó con todo el truss, las 20 cabezas y su equipo técnico completo. Profesionalismo total desde la reunión de producción hasta el desmontaje." },
+          { name: "Fernando Acosta", event: "Producción televisiva — Ciudad de México", rating: 5, text: "Sus 22 cabezas móviles entendieron perfectamente los requerimientos del director de fotografía y la coordinación con cámara. El resultado se vio perfecto en pantalla." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción en eventos reales"
+        subtitle="20+ cabezas móviles en conciertos, festivales y producciones de gran escala."
+        paragraph1="Cada foto es de una producción real con el paquete de 20+ cabezas. Festivales al aire libre, conciertos en auditorio, producciones con pantallas LED — el show de luces que espera el público profesional."
+        paragraph2="¿Tienes una producción próxima? Contáctanos para una reunión técnica. Evaluamos el venue y te preparamos una propuesta con plano de montaje incluido."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-masivo-luces-show.avif", alt: "Producción masiva con 20+ cabezas móviles en show" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-profesional-truss-beams.avif", alt: "Truss profesional con múltiples cabezas móviles en concierto" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores.avif", alt: "Show de luces con beams de colores en festival" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-social-iluminacion-dinamica.avif", alt: "Iluminación dinámica de producción en evento masivo" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-pista-gobos-colores.avif", alt: "Show de luces con gobos coloridos en producción" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-corporativa-beams-patron.avif", alt: "Producción corporativa con beams y patrones de 20+ cabezas" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-beams-cruzados-fiesta.avif", alt: "Beams cruzados de producción completa en evento" },
+        { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-graduacion-luces-colores.avif", alt: "Producción de luces con colores en evento de gran escala" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre la Producción"
+        subtitle="Todo lo que necesitas saber para contratar tu producción de luces."
+        paragraph1="Para producciones de esta escala, recomendamos contactarnos con al menos 4-6 semanas de anticipación."
+        paragraph2="Hacemos reuniones técnicas sin compromiso para evaluar el proyecto y preparar una propuesta detallada."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántas cabezas móviles exactamente incluye la Producción?", answer: "Partimos desde 20 cabezas móviles. La cantidad exacta se define según las dimensiones del escenario, el número de asistentes y los efectos requeridos. Para festivales con escenario grande, podemos llegar a 30-40 cabezas. En la reunión técnica previa definimos la configuración exacta con el director de producción." },
+      { question: "¿Qué es el truss ground support y por qué lo usan?", answer: "El ground support es una estructura de truss que se monta desde el piso sin necesidad de anclaje en el techo. Es el estándar para conciertos al aire libre y venues sin techo disponible. Las torres del ground support se elevan hidráulicamente hasta la altura requerida y las cabezas móviles se montan en la parte superior." },
+      { question: "¿La producción incluye ensayo técnico con el artista?", answer: "Sí. El paquete Producción incluye ensayo técnico donde el programador DMX carga la coreografía con el artista o director de escena presente. Esto permite ajustar cues, intensidades y colores antes del show real. Para festivales con múltiples artistas, coordinamos ensayos de soundcheck." },
+      { question: "¿Pueden trabajar junto con el equipo de iluminación del venue?", answer: "Sí, y es algo que hacemos con frecuencia. Coordinamos con el director técnico del venue o con otros proveedores de iluminación para integrar el show en un sistema DMX unificado, o trabajamos en paralelo con un universo DMX independiente. La coordinación técnica previa es clave." },
+      { question: "¿Tienen experiencia en producciones de televisión?", answer: "Sí. Hemos trabajado en producciones con equipos de cámara profesional, coordinando con el director de fotografía para que la iluminación luzca correctamente en pantalla. Las temperaturas de color, las intensidades y la dirección de los beams se ajustan según las especificaciones del DF." },
+      { question: "¿Cubren eventos fuera de CDMX?", answer: "Sí. Para conciertos y festivales en otras ciudades, cotizamos el costo de logística y hospedaje del equipo técnico. Hemos trabajado en producciones en Guadalajara, Monterrey, Puebla y Estado de México. Contáctanos con la ubicación y fecha para preparar la propuesta completa." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Servicios para tu Producción"
+        subtitle="Complementa la producción de cabezas móviles con estos elementos."
+        paragraph1="Un show de luces completo combina cabezas móviles con sky tracker exterior, humo bajo que hace los beams visibles y city color para las estructuras del venue."
+        paragraph2="Cotiza todos los servicios juntos y te hacemos precio especial de producción integral."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para producir tu concierto o festival?</h2>
+        <p>Cuéntanos el tipo de evento, el venue, la fecha y la cantidad estimada de asistentes. Te agendamos una reunión técnica sin compromiso y te preparamos la propuesta completa.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Solicitar Reunión Técnica — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

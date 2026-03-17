@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "4 Cortinas Cascada LED — Salón Completo CDMX | REDEIL";
+const description = "12 metros de cortinas LED con control DMX para salones completos y haciendas. Cambios de color en vivo. $9,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-4-cortinas/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "4 Cortinas Cascada LED — Salón Completo con Control DMX",
+    "description": "12 metros de cortinas de cascada LED con control DMX para cambios de color en vivo. Ideal para cubrir el lateral completo de salones de eventos, haciendas y XV años grandes en CDMX. Incluye operador técnico, estructuras, transporte, instalación y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/cascadas-led/paquete-4-cortinas/",
+      "priceCurrency": "MXN",
+      "price": "9000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "37",
+      "reviewCount": "37"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandro Ruiz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la boda en la hacienda colonial las 4 cortinas cubrieron todo el lateral del patio de eventos. El control DMX nos permitió cambiar los colores durante las diferentes etapas de la noche. Primero en blanco cálido para la recepción, luego en azul para el vals. Un efecto impresionante que todos comentaron."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Gala corporativa de 200 personas. Las 4 cortinas transformaron completamente el salón — el ambiente pasó de un salón estándar a un espacio de producción de alto nivel. El operador técnico de REDEIL manejó los cambios de color en los momentos clave del evento. Muy profesionales."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Patricia Vega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "XV años temático — necesitábamos que el salón tuviera los colores del tema (dorado y negro). Con el control DMX pudimos configurar exactamente los tonos que queríamos. Las 4 cortinas cubrieron toda la pared del fondo y los laterales. El resultado fue espectacular y muy profesional."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/cascadas-led/cascadas-led-iluminacion-completa-boda.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es el control DMX en las cortinas LED?", "acceptedAnswer": { "@type": "Answer", "text": "El control DMX es un sistema profesional de iluminación que permite cambiar el color, la intensidad y los efectos de las cortinas LED en tiempo real durante el evento. El operador técnico de REDEIL maneja el controlador — puedes cambiar de blanco cálido a azul para el vals, o programar efectos para momentos específicos como la entrada de los novios." }},
+      { "@type": "Question", "name": "¿12 metros son suficientes para cubrir un salón completo?", "acceptedAnswer": { "@type": "Answer", "text": "12 metros cubren el lateral completo de la mayoría de los salones de eventos estándar en CDMX. Para haciendas con paredes más largas o salones de más de 400 invitados, recomendamos el paquete de producción con 8+ cortinas." }},
+      { "@type": "Question", "name": "¿El operador técnico está incluido en el precio?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete de 4 cortinas incluye un operador técnico dedicado que maneja el control DMX durante todo el evento. Él programa los cambios de color y efectos según los momentos clave que definas con nuestro equipo antes del evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Cortina — Mesa de Novios", image: "/img/cascadas-led/cascadas-led-cortina-luz-mesa-novios.avif", alt: "1 cortina LED para mesa de novios", description: "Backdrop enfocado para la mesa de novios o photo booth. La opción más compacta. $3,000 + IVA.", link: "/servicios/cascadas-led/paquete-1-cortina/" },
+  { title: "2 Cortinas — Backdrop Boda", image: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular.avif", alt: "Backdrop de 6m con 2 cortinas LED para boda", description: "Backdrop completo de 6m. El más popular para bodas estándar. $5,500 + IVA.", link: "/servicios/cascadas-led/paquete-2-cortinas/" },
+  { title: "Producción — 8+ Cortinas", image: "/img/cascadas-led/renta-cascadas-led-instalacion-backdrop-evento.avif", alt: "Producción total con 8+ cortinas LED en evento masivo", description: "Decoración total del venue. Múltiples zonas. Producción completa. $15,000 + IVA.", link: "/servicios/cascadas-led/paquete-produccion/" },
+  { title: "Seguidor", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en primer baile de boda", description: "12 metros de cascadas brillantes + spotlight en el vals. Combinación perfecta para bodas grandes.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Cascadas LED", href: "/servicios/cascadas-led/" },
+    { label: "4 Cortinas — Salón Completo" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="4 Cortinas Cascada LED — Iluminación de Salón Completo"
+    subtitle="$9,000 + IVA. 12 metros de cascadas LED con control DMX. Cambios de color en vivo. Operador técnico incluido."
+    introParagraph1='Cuando quieres que todo el salón brille — no solo la mesa de novios — el paquete de 4 cortinas es la respuesta. Con <strong>12 metros lineales</strong> de cascadas LED distribuidos en el lateral completo del salón, el efecto es envolvente: los invitados entran y sienten que están en un espacio completamente diferente. Perfecto para bodas grandes en haciendas, XV años de gala y corporativos de alto nivel en CDMX.'
+    introParagraph2='El diferenciador clave de este paquete es el <strong>control DMX</strong>: un sistema de iluminación profesional que permite cambiar el color y los efectos de las cortinas en tiempo real durante el evento. El operador técnico de REDEIL incluido en el paquete programa los cambios según los momentos clave — blanco cálido para la recepción, azul para el vals, multicolor para la fiesta. Incluye 4 estructuras de truss independientes, transporte, instalación y desmontaje completo.'
+  />
+
+  <CtaBar
+    headline="¿Cuántas cortinas necesitas?"
+    items={[
+      { label: "1 Cortina — $3,000", href: "/servicios/cascadas-led/paquete-1-cortina/", icon: "iluminacion" },
+      { label: "2 Cortinas — $5,500", href: "/servicios/cascadas-led/paquete-2-cortinas/", icon: "iluminacion" },
+      { label: "Producción — $15,000", href: "/servicios/cascadas-led/paquete-produccion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="4 Cortinas — Premium"
+      price="$9,000"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "4 cortinas LED de 3×3 metros c/u" },
+        { text: "12 metros de cobertura total" },
+        { text: "Control DMX para cambios de color" },
+        { text: "Efecto twinkle + cascada programada" },
+        { text: "Operador técnico incluido" },
+        { text: "4 estructuras de truss independientes" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Instalación profesional" },
+        { text: "Diseño de distribución personalizado" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar 4 cortinas cascada LED con control DMX para mi evento."
+      packages={[
+        { label: "1 cortina", price: "$3,000", href: "/servicios/cascadas-led/paquete-1-cortina/" },
+        { label: "2 cortinas", price: "$5,500", href: "/servicios/cascadas-led/paquete-2-cortinas/" },
+        { label: "4 cortinas", price: "$9,000", href: "/servicios/cascadas-led/paquete-4-cortinas/", active: true },
+        { label: "Producción", price: "$15,000", href: "/servicios/cascadas-led/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="12 metros que transforman un salón completo"
+          subtitle="Para haciendas, bodas grandes y eventos de gala en CDMX."
+          paragraph1="12 metros de cascadas LED cubren el lateral completo de la mayoría de los salones estándar en CDMX. La diferencia con los paquetes menores es de concepto: pasas de tener un backdrop en un punto específico a tener una pared entera iluminada que define la atmósfera de todo el espacio."
+          paragraph2="Las 4 cortinas se pueden distribuir de múltiples formas: todo el lateral corrido, dos laterales de 6 metros, una pared larga + el arco de ceremonia, o una distribución en L para eventos en patios de hacienda. Nuestro equipo diseña la distribución según tu venue específico."
+        />
+        <FeatureGrid features={[
+          { title: "Lateral Completo de Salón", description: "12 metros corridos en la pared más larga del salón. El efecto envolvente más impactante." },
+          { title: "Dos Laterales de 6m", description: "6 metros a cada lado del salón. El espacio queda enmarcado en luz brillante desde ambos lados." },
+          { title: "Boda en Hacienda", description: "Patios coloniales y jardines. Las 4 cortinas crean un espacio de lujo bajo las estrellas." },
+          { title: "Ceremonia + Recepción Grande", description: "Arco + pared de honor + backdrop de recepción. Tres zonas cubiertas con un solo paquete." },
+          { title: "XV Años Gala", description: "La mesa de honor, la zona del vals y la zona de fotos — todo iluminado con 12 metros de cascadas." },
+          { title: "Corporativo de Alto Nivel", description: "Galas, premiaciones y cenas de empresa donde la producción visual es parte del mensaje de marca." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Control DMX: cambia el ambiente en tiempo real"
+          subtitle="Un operador técnico programa cada momento de tu evento."
+          paragraph1="El control DMX es la diferencia entre una instalación estática y una producción dinámica. Con este sistema, las cortinas LED pueden cambiar de color, intensidad y efecto en cualquier momento del evento — sincronizados con la música o con los momentos clave que definas con nuestro equipo."
+          paragraph2="El operador técnico de REDEIL incluido en el paquete maneja el controlador durante toda la noche. Juntos definimos antes del evento el 'guión de luces': qué color en cada momento, qué efectos durante el vals, qué intensidad en la cena. El resultado es una iluminación que cuenta la historia de tu evento."
+        />
+        <FeatureGrid features={[
+          { title: "Cambios de Color en Vivo", description: "De blanco cálido a azul para el vals, a multicolor para la fiesta — el operador lo ejecuta en segundos." },
+          { title: "Efectos Programados", description: "Twinkle, cascada, pulso, fade — el DMX controla todos los efectos disponibles en las cortinas." },
+          { title: "Sincronización con Momentos", description: "Entrada de los novios, vals, sorpresas — cada momento del evento tiene su propia configuración de luz." },
+          { title: "Guión de Luces Previo", description: "Coordinamos el guión de luces contigo antes del evento. Nada se improvisa en el día." },
+          { title: "Operador Técnico Incluido", description: "Un profesional dedicado al control de luces durante todo el evento. Tú solo disfruta." },
+          { title: "Colores Personalizables", description: "Blanco cálido, azul, verde, rojo, morado, dorado — los colores del tema de tu evento." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes vivieron el efecto DMX"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 37 reseñas."
+          paragraph1="El paquete de 4 cortinas es el elegido para bodas y eventos donde la producción visual es prioridad."
+          paragraph2="Pregunta por referencias de haciendas, galas y XV años cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandro Ruiz", event: "Boda en Hacienda Colonial", rating: 5, text: "Las 4 cortinas cubrieron todo el lateral del patio. El control DMX nos permitió cambiar los colores durante las diferentes etapas de la noche — blanco para la recepción, azul para el vals. Un efecto impresionante que todos comentaron." },
+          { name: "Roberto Sánchez", event: "Gala Corporativa — 200 personas", rating: 5, text: "El salón pasó de ser un espacio estándar a un espacio de producción de alto nivel. El operador técnico manejó los cambios de color en los momentos clave. Muy profesionales." },
+          { name: "Patricia Vega", event: "XV Años Temático — CDMX", rating: 5, text: "Con el control DMX configuramos exactamente los colores del tema (dorado y negro). Las 4 cortinas cubrieron toda la pared del fondo y los laterales. El resultado fue espectacular." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="12 metros de cascadas en eventos reales"
+        subtitle="Haciendas, salones completos y galas iluminadas en CDMX."
+        paragraph1="Cuando las 4 cortinas se encienden en un salón completo, el cambio es total. Estas imágenes muestran el efecto real — no renders, no simulaciones. Cada foto es de un evento montado por REDEIL."
+        paragraph2="¿Tienes fotos de tu hacienda o salón? Mándanoslas por WhatsApp y te diseñamos la distribución de las 4 cortinas en tu espacio específico."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/cascadas-led/cascadas-led-iluminacion-completa-boda.avif", alt: "Iluminación completa de salón con 4 cortinas LED" },
+        { src: "/img/cascadas-led/cascadas-led-carpa-exterior-iluminacion.avif", alt: "4 cortinas LED en carpa exterior para evento" },
+        { src: "/img/cascadas-led/renta-luces-led-cascada-salon-eventos.avif", alt: "Salón de eventos iluminado con 4 cascadas LED" },
+        { src: "/img/cascadas-led/renta-luces-led-cascada-estructura-moderna.avif", alt: "Estructura moderna con 4 cortinas de cascada LED" },
+        { src: "/img/cascadas-led/luces-para-bodas-cascada-instalacion-salon.avif", alt: "Instalación de 4 cortinas LED en salón de bodas" },
+        { src: "/img/cascadas-led/cascadas-led-instalacion-equipo-profesional.avif", alt: "Equipo profesional instalando 4 cortinas LED" },
+        { src: "/img/cascadas-led/renta-luces-led-cortina-brillante-evento.avif", alt: "Cortina brillante de LED en evento de gala" },
+        { src: "/img/cascadas-led/renta-cascadas-led-instalacion-backdrop-evento.avif", alt: "Instalación de backdrop con 4 cascadas LED" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete 4 Cortinas"
+        subtitle="Todo sobre el control DMX y la instalación en salones grandes."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Para eventos con más de 12 metros de cobertura o múltiples zonas simultáneas, tenemos el paquete de producción con 8+ cortinas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué es el control DMX y por qué lo necesito?", answer: "El control DMX es un sistema profesional de iluminación que permite cambiar el color, intensidad y efectos de las cortinas LED en tiempo real. Ideal si quieres que tu evento tenga diferentes 'momentos': blanco para la cena, azul para el vals, multicolor para la fiesta. El operador técnico de REDEIL lo maneja durante todo el evento." },
+      { question: "¿12 metros son suficientes para mi salón?", answer: "12 metros cubren el lateral completo de la mayoría de los salones de eventos estándar en CDMX (capacidad 100-300 invitados). Para haciendas con patios más largos o salones grandes, te recomendamos el paquete de producción con 8+ cortinas." },
+      { question: "¿El operador técnico está incluido en los $9,000?", answer: "Sí. El paquete de 4 cortinas incluye un operador técnico dedicado que maneja el control DMX durante todo el evento. El precio de $9,000 + IVA incluye también las 4 cortinas, 4 estructuras de truss, transporte, instalación y desmontaje." },
+      { question: "¿Puedo elegir los colores del control DMX?", answer: "Sí. Antes del evento coordinamos contigo el 'guión de luces': qué colores en cada momento, qué efectos usar y cuándo. El DMX tiene acceso a toda la gama de colores — blanco cálido, azul, verde, morado, dorado y más." },
+      { question: "¿Las 4 cortinas tienen que ir juntas o se pueden separar?", answer: "Se pueden distribuir de varias formas: todas juntas en 12 metros corridos, divididas en dos grupos de 6 metros en lados opuestos, o en cualquier configuración que se adapte a tu venue. Nuestro equipo diseña la distribución óptima para tu espacio." },
+      { question: "¿Cuánto tiempo toma la instalación de 4 cortinas?", answer: "El montaje de 4 cortinas con sus estructuras toma entre 2 y 3 horas. Llegamos con suficiente anticipación para que todo esté instalado, probado y configurado antes de que lleguen tus invitados." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más cobertura o un servicio complementario?"
+        paragraph1="Si tu venue necesita más de 12 metros de cobertura o quieres iluminar múltiples zonas simultáneamente, el paquete de producción con 8+ cortinas es la solución. También puedes complementar las 4 cortinas con seguidor para el vals."
+        paragraph2="Armamos propuestas integrales combinando cascadas, guirnaldas, seguidor y gobos con precio especial por paquete combinado."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu salón listo para 12 metros de luz con DMX?</h2>
+        <p>Mándanos las dimensiones de tu venue por WhatsApp. Te diseñamos la distribución de las 4 cortinas y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza con DMX — Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
