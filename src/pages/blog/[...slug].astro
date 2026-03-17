@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+const canonical = `https://rentadeiluminacion.com/blog/${post.slug}/`;
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": `https://rentadeiluminacion.com${post.data.image}`,
+  "author": {
+    "@type": "Organization",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "REDEIL",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://rentadeiluminacion.com/img/logo-redeil.avif"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonical
+  }
+});
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={canonical}
+  image={post.data.image}
+  imageAlt={post.data.imageAlt}
+  category={post.data.category}
+  schemaMarkup={schemaMarkup}
+  headings={headings}
+>
+  <Content />
+</BlogLayout>
