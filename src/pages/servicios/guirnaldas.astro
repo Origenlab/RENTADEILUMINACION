@@ -1,71 +1,167 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import GallerySection from '../../components/GallerySection.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Guirnaldas de Luces para Eventos | REDEIL CDMX";
-const description = "Renta de guirnaldas de luces y focos Edison para bodas y eventos en CDMX. REDEIL ofrece instalación profesional de luces decorativas vintage en jardines y salones.";
+const title = "Renta de Guirnaldas de Luces para Bodas y Eventos CDMX | REDEIL";
+const description = "Guirnaldas con focos Edison para bodas, XV años y eventos al aire libre en CDMX. Luz cálida vintage con instalación profesional IP65. Cotiza por WhatsApp.";
 const canonical = "https://rentadeiluminacion.com/servicios/guirnaldas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Guirnaldas de Luces para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Guirnaldas de Luces para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta e instalación de guirnaldas de luces y focos Edison para bodas, fiestas y eventos en Ciudad de México y Estado de México.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Guirnaldas de Luces"
   },
-  "description": "Servicio profesional de renta e instalación de guirnaldas de luces y focos Edison para bodas, fiestas y eventos en Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Guirnaldas de Luces"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántos metros de guirnaldas necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del espacio. Para un jardín de 100m² recomendamos entre 50 y 80 metros lineales. Para una terraza o pérgola, 30-50 metros suelen ser suficientes. Hacemos una propuesta a medida según tu venue." }},
+      { "@type": "Question", "name": "¿Las guirnaldas funcionan al aire libre bajo lluvia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras guirnaldas cuentan con certificación IP65 — resistentes a lluvia y humedad. El cableado y las conexiones están protegidos para uso en exteriores." }},
+      { "@type": "Question", "name": "¿Puedo elegir entre focos LED y focos Edison tradicionales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, ofrecemos ambas opciones. Los focos Edison LED tienen la misma estética vintage con luz cálida pero consumen menos energía y generan menos calor. Los tradicionales dan un brillo ligeramente más orgánico." }},
+      { "@type": "Question", "name": "¿La instalación está incluida en el precio?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje al finalizar. Nuestro equipo llega horas antes para que todo esté listo." }}
+    ]
+  }
+]);
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Guirnaldas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Guirnaldas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Guirnaldas de Luces para Eventos en CDMX"
-      subtitle="Luces decorativas vintage que crean ambientes cálidos e inolvidables"
-      introParagraph1="REDEIL es especialista en la renta e instalación de guirnaldas de luces para eventos en toda la Ciudad de México. Nuestras guirnaldas con focos Edison aportan un toque cálido y elegante a bodas, fiestas y celebraciones al aire libre o en interiores."
-      introParagraph2="Contamos con amplia experiencia en montajes de guirnaldas en jardines, terrazas, pérgolas, salones y rooftops. Nuestro equipo técnico realiza la instalación completa, asegurando que cada detalle luminoso complemente la decoración de tu evento."
+
+    <Hero
+      title="Renta de Guirnaldas de Luces para Bodas y Eventos en CDMX"
+      subtitle="Focos Edison con luz cálida vintage. Certificación IP65 para exteriores. Instalación profesional incluida."
+      introParagraph1='Las guirnaldas con focos tipo Edison son el elemento más pedido para bodas al aire libre en la Ciudad de México. Su luz cálida transforma jardines, terrazas, pérgolas y haciendas en espacios acogedores y fotogénicos — ese ambiente que todos quieren para sus fotos. En <strong>REDEIL</strong> llevamos más de 500 eventos instalando luces vintage en toda la CDMX y Estado de México.'
+      introParagraph2='Nuestro servicio de renta de guirnaldas incluye asesoría sobre la cantidad de metros lineales según tu espacio, diseño personalizado de la instalación, montaje profesional con cableado certificado IP65 (resistente a lluvia), operación durante tu evento y desmontaje al finalizar. Trabajamos con focos Edison LED de bajo consumo y focos vintage tradicionales — tú eliges la estética que prefieres.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Guirnaldas de focos Edison: el toque perfecto para tu celebración"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las guirnaldas de luces se han convertido en uno de los elementos decorativos más solicitados para eventos. Su luz cálida y envolvente transforma cualquier espacio en un ambiente acogedor y fotogénico, ideal para bodas, cenas íntimas, fiestas de cumpleaños y eventos corporativos al aire libre."
-          paragraph2="En REDEIL ofrecemos guirnaldas con focos estilo Edison que combinan un diseño vintage con tecnología confiable. Cada instalación es planeada a la medida del espacio, cuidando la distribución, altura y densidad de las luces para lograr el efecto visual deseado."
+
+    <CtaBar
+      headline="¿Para qué evento necesitas guirnaldas?"
+      items={[
+        { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+        { label: "Otros servicios", href: "/servicios/iluminacion/", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20guirnaldas%20para%20mi%20evento", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Contenido principal -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Guirnaldas Edison: el toque que transforma cualquier espacio"
+          subtitle="Disponibles en LED y vintage tradicional. Hasta 1,000 metros lineales."
+          paragraph1="No es lo mismo prender focos que diseñar un ambiente. Nuestras guirnaldas vintage crean esa atmósfera cálida y envolvente que convierte una terraza en un escenario de película. Cada instalación se planifica según el tamaño del espacio, la altura disponible y el efecto visual que quieres lograr."
+          paragraph2="Trabajamos con wedding planners, decoradores y organizadores de eventos para integrar las luces al concepto general de tu celebración. Desde una boda rústica en hacienda hasta un evento corporativo en rooftop — las guirnaldas se adaptan a cualquier tipo de evento."
         />
-        <p>Nuestro servicio incluye traslado, montaje profesional y desmontaje. Trabajamos en coordinación con wedding planners, decoradores y organizadores de eventos para garantizar una integración perfecta con el concepto general de tu celebración en CDMX.</p>
+        <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem 3rem;">
+          <h3 style="font-size: 1.25rem; color: #1a1a2e; margin-bottom: 1rem;">¿Qué incluye el servicio?</h3>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Guirnaldas con focos Edison LED o vintage</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Certificación IP65 para exteriores</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Diseño personalizado de la instalación</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Transporte, montaje y desmontaje incluidos</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Hasta 1,000 metros lineales disponibles</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Asesoría de cantidades según tu espacio</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Opción de ajustar intensidad luminosa</li>
+            <li style="padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #495057; font-size: 0.9375rem;"><span style="position: absolute; left: 0; color: #ff5722;">✓</span> Cobertura CDMX y Estado de México</li>
+          </ul>
+        </div>
       </div>
     </section>
-    <GallerySection title="Galería de Guirnaldas" subtitle="Instalaciones reales en bodas y eventos en CDMX">
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif" alt="Guirnaldas de luces decorativas iluminando un evento nocturno al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-vintage-ceremonia-boda-03.avif" alt="Guirnaldas vintage iluminando ceremonia de boda con ambiente cálido" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-focos-edison-jardin-exterior-01.avif" alt="Focos Edison en guirnaldas instaladas sobre jardín exterior para evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif" alt="Guirnaldas vintage decorando rooftop con vista a la ciudad de noche" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-pareja-novios-guirnaldas-boda-32.avif" alt="Pareja de novios bajo guirnaldas de luces durante su boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif" alt="Ceremonia de boda en pérgola decorada con focos Edison" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-colgantes-fiestas-18.avif" alt="Luces colgantes en guirnaldas iluminando fiesta nocturna" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Galería -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Galería de Guirnaldas"
+          subtitle="Instalaciones reales en bodas y eventos en CDMX."
+          paragraph1="Cada foto es de un evento real donde montamos las guirnaldas. Jardines, terrazas, pérgolas, rooftops, haciendas — cada espacio tiene su propia personalidad."
+          paragraph2="¿Tienes un venue parecido? Cuéntanos y te mostramos cómo quedarían las luces en tu espacio."
+        />
+      </div>
+      <GallerySection title="" subtitle="">
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-decorativas-eventos-43.avif" alt="Guirnaldas de luces vintage iluminando evento nocturno al aire libre en jardín" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-vintage-ceremonia-boda-03.avif" alt="Ceremonia de boda iluminada con guirnaldas vintage y luz cálida" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-focos-edison-jardin-exterior-01.avif" alt="Focos Edison en guirnaldas instaladas sobre jardín exterior para boda" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-guirnaldas-vintage-rooftop-ciudad-07.avif" alt="Guirnaldas vintage decorando rooftop con vista nocturna a la ciudad" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-pareja-novios-guirnaldas-boda-32.avif" alt="Pareja de novios bajo guirnaldas de luces durante su boda al aire libre" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-ceremonia-boda-pergola-focos-edison-15.avif" alt="Pérgola decorada con focos Edison para ceremonia de boda rústica" width="800" height="533" loading="lazy">
+        </figure>
+        <figure class="gallery-item">
+          <img src="/img/guirnaldas/renta-guirnaldas-renta-luces-colgantes-fiestas-18.avif" alt="Series de luces colgantes iluminando fiesta nocturna en terraza" width="800" height="533" loading="lazy">
+        </figure>
+      </GallerySection>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Guirnaldas"
+          subtitle="Lo que nuestros clientes preguntan antes de reservar."
+          paragraph1="Si tienes otra duda sobre la renta de guirnaldas, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada evento es diferente — por eso hacemos propuestas personalizadas según tu espacio y presupuesto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuántos metros de guirnaldas necesito para mi evento?", answer: "Depende del espacio. Para un jardín de 100m² recomendamos entre 50 y 80 metros lineales. Para una terraza o pérgola, 30-50 metros suelen ser suficientes. Te asesoramos según las dimensiones de tu venue para lograr el efecto ideal sin desperdiciar." },
+        { question: "¿Las guirnaldas funcionan al aire libre bajo lluvia?", answer: "Sí. Nuestras guirnaldas cuentan con certificación IP65 — resistentes a lluvia y humedad. El cableado y las conexiones están protegidos para uso en exteriores. Hemos montado en temporada de lluvias sin problema." },
+        { question: "¿Puedo elegir entre focos LED y focos Edison tradicionales?", answer: "Sí, ofrecemos ambas opciones. Los focos Edison LED tienen la misma estética vintage con luz cálida pero consumen menos energía y generan menos calor — ideales para espacios con techo bajo. Los tradicionales dan un brillo ligeramente más orgánico." },
+        { question: "¿La instalación está incluida en el precio?", answer: "Sí, siempre. El servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje al finalizar. Nuestro equipo llega horas antes para que todo esté listo cuando lleguen tus invitados." },
+        { question: "¿Se pueden combinar guirnaldas con otros tipos de iluminación?", answer: "Claro, es lo más recomendable para bodas completas. Las guirnaldas se combinan perfectamente con uplighting arquitectónico en fachadas, seguidor para el vals, y gobos con los nombres de los novios. Armamos paquetes con precio especial." },
+        { question: "¿Cuánto cuesta la renta de guirnaldas para una boda?", answer: "El precio depende de los metros lineales y el tipo de foco. Un paquete básico para jardín arranca desde $3,500. Para una producción completa de boda con 100+ metros, cotiza por WhatsApp y te armamos algo a tu presupuesto." },
+      ]} />
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para iluminar tu evento con guirnaldas?</h2>
+          <p>Cuéntanos la fecha, el lugar y cuántos invitados esperas. Te armamos una propuesta con los metros exactos que necesitas.</p>
+          <div class="cta-buttons">
+            <a href="https://wa.me/5530682988?text=Hola%20REDEIL,%20quiero%20cotizar%20guirnaldas%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">WhatsApp — 55 3068 2988</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
