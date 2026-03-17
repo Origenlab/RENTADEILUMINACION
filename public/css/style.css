@@ -262,13 +262,13 @@ address {
    ========================================================================== */
 
 .hero {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: calc(36px + 70px + 1rem); /* topbar + header + spacing */
   padding-bottom: 3rem;
   overflow: hidden;
+  background: var(--color-secondary, #1a1a2e);
 }
 
 .hero-two-columns .hero-grid {
@@ -305,12 +305,7 @@ address {
 }
 
 .hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  display: none;
 }
 
 .hero-content {
