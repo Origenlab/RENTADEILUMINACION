@@ -79,6 +79,9 @@ nav:
       - label: "Podium"
         href: "/servicios/podiums/"
 
+  - label: "Directorio"
+    href: "/directorio/"
+
   - label: "Nosotros"
     href: "/nosotros/"
 

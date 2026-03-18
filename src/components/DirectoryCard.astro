@@ -2,9 +2,8 @@
 /**
  * DirectoryCard — Origenlab Standard (REDEIL Directorio)
  * ───────────────────────────────────────────────────────
- * Card para empresas del directorio de proveedores.
- * Muestra nombre, rating, categoría, zona, teléfono y botón.
- * Sin animaciones. CSS scoped.
+ * Card para empresas del directorio con imagen, rating, categoría.
+ * Diseño consistente con ServiceCard. Sin animaciones. CSS scoped.
  */
 
 interface Props {
@@ -30,10 +29,10 @@ const {
 } = Astro.props;
 
 const categoriaLabel: Record<string, string> = {
-  audio: 'Audio',
+  audio: 'Audio Profesional',
   iluminacion: 'Iluminación',
   'audio-video': 'Audio & Video',
-  dj: 'DJ',
+  dj: 'Equipo DJ',
   efectos: 'Efectos',
 };
 
@@ -42,139 +41,141 @@ const zonaLabel: Record<string, string> = {
   'estado-de-mexico': 'Edomex',
 };
 
-const categoriaBadgeClass: Record<string, string> = {
-  audio: 'badge--audio',
-  iluminacion: 'badge--iluminacion',
-  'audio-video': 'badge--av',
-  dj: 'badge--dj',
-  efectos: 'badge--efectos',
+// Default images per category
+const categoriaImg: Record<string, string> = {
+  audio: '/img/bocinas/renta-bocinas-line-array-concierto-400w.avif',
+  iluminacion: '/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif',
+  'audio-video': '/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif',
+  dj: '/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif',
+  efectos: '/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif',
 };
 
-const stars = rating ? Math.round(rating) : 0;
+const image = categoriaImg[categoria] || categoriaImg.audio;
 const fullStars = Math.floor(rating ?? 0);
-const hasHalf = (rating ?? 0) - fullStars >= 0.5;
+const hasHalf = (rating ?? 0) - fullStars >= 0.3;
 ---
 
 <article class="dc">
-  <div class="dc__header">
-    <span class={`dc__badge ${categoriaBadgeClass[categoria] ?? ''}`}>
-      {categoriaLabel[categoria] ?? categoria}
-    </span>
-    <span class="dc__zona">{zonaLabel[zona] ?? zona}</span>
-  </div>
-
-  <h3 class="dc__name">{nombre}</h3>
-
-  {alcaldia_municipio && (
-    <p class="dc__location">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      {alcaldia_municipio}
-    </p>
-  )}
-
-  {rating !== undefined && (
-    <div class="dc__rating">
-      <span class="dc__stars" aria-label={`${rating} estrellas`}>
-        {Array.from({ length: 5 }, (_, i) => (
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            class={i < fullStars ? 'star star--full' : (i === fullStars && hasHalf ? 'star star--half' : 'star star--empty')}
-          >
-            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" stroke="currentColor" stroke-width="1"/>
-          </svg>
-        ))}
-      </span>
-      <span class="dc__rating-val">{rating.toFixed(1)}</span>
-      {resenas !== undefined && (
-        <span class="dc__resenas">({resenas.toLocaleString('es-MX')} reseñas)</span>
-      )}
+  <a href={`/directorio/${slug}/`} class="dc__img-link">
+    <div class="dc__img">
+      <img src={image} alt={`${nombre} — ${categoriaLabel[categoria] || categoria}`} loading="lazy" width="400" height="225" />
+      <span class="dc__cat">{categoriaLabel[categoria] || categoria}</span>
+      <span class="dc__zona">{zonaLabel[zona] || zona}</span>
     </div>
-  )}
-
-  {telefono && (
-    <a href={`tel:${telefono.replace(/\s/g, '')}`} class="dc__phone">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.13 12.72 19.79 19.79 0 012.06 4.11 2 2 0 014 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      {telefono}
-    </a>
-  )}
-
-  <a href={`/directorio/${slug}/`} class="dc__btn">Ver detalles →</a>
+  </a>
+  <div class="dc__body">
+    <h3 class="dc__title">
+      <a href={`/directorio/${slug}/`}>{nombre}</a>
+    </h3>
+    {rating && (
+      <div class="dc__rating">
+        <span class="dc__stars">
+          {Array.from({length: 5}, (_, i) => (
+            <svg class={`dc__star ${i < fullStars ? 'dc__star--full' : (i === fullStars && hasHalf) ? 'dc__star--half' : ''}`} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ))}
+        </span>
+        <span class="dc__rating-text">{rating} ({resenas} reseñas)</span>
+      </div>
+    )}
+    <p class="dc__location">📍 {alcaldia_municipio}, {zonaLabel[zona] || zona}</p>
+    {telefono && (
+      <p class="dc__phone">
+        <a href={`tel:+52${telefono.replace(/\s/g, '')}`}>📞 {telefono}</a>
+      </p>
+    )}
+    <a href={`/directorio/${slug}/`} class="dc__btn">Ver detalles →</a>
+  </div>
 </article>
 
 <style>
   .dc {
     background: #fff;
-    border: 1px solid var(--c-border, #E7E0D8);
+    border: 1px solid var(--color-gray-200, #e9ecef);
     border-radius: 12px;
-    padding: 1.5rem;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
   }
 
-  .dc__header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  .dc__img-link {
+    display: block;
   }
 
-  .dc__badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.2rem 0.625rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+  .dc__img {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .dc__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .dc__cat {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
   }
-
-  .badge--audio     { background: #EEF2FF; color: #3730A3; }
-  .badge--iluminacion { background: #FEF9C3; color: #854D0E; }
-  .badge--av        { background: #F0FDF4; color: #166534; }
-  .badge--dj        { background: #FDF4FF; color: #7E22CE; }
-  .badge--efectos   { background: #FFF7ED; color: #9A3412; }
 
   .dc__zona {
-    font-size: 0.75rem;
-    color: var(--c-text-muted, #78716C);
-    background: var(--c-bg-alt, #F7F4F0);
-    padding: 0.2rem 0.5rem;
-    border-radius: 20px;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--color-secondary, #1a1a2e);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
   }
 
-  .dc__name {
+  .dc__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .dc__title {
     font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 1.0625rem;
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--c-text, #1C1917);
-    margin: 0;
+    color: var(--color-secondary, #1a1a2e);
+    margin: 0 0 0.5rem;
     line-height: 1.3;
   }
 
-  .dc__location {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.8125rem;
-    color: var(--c-text-muted, #78716C);
-    margin: 0;
+  .dc__title a {
+    text-decoration: none;
+    color: inherit;
   }
 
-  .dc__location svg {
-    flex-shrink: 0;
-    color: var(--c-primary, #2C5530);
+  .dc__title a:hover {
+    color: var(--color-primary, #ff5722);
   }
 
   .dc__rating {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
   }
 
   .dc__stars {
@@ -182,60 +183,63 @@ const hasHalf = (rating ?? 0) - fullStars >= 0.5;
     gap: 1px;
   }
 
-  .star--full   { color: #F59E0B; }
-  .star--half   { color: #F59E0B; opacity: 0.6; }
-  .star--empty  { color: #D1D5DB; }
-
-  .dc__rating-val {
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--c-text, #1C1917);
+  .dc__star {
+    color: #dee2e6;
   }
 
-  .dc__resenas {
+  .dc__star--full {
+    color: #f5a623;
+  }
+
+  .dc__star--half {
+    color: #f5a623;
+    opacity: 0.6;
+  }
+
+  .dc__rating-text {
     font-size: 0.8125rem;
-    color: var(--c-text-muted, #78716C);
+    color: #6c757d;
+  }
+
+  .dc__location {
+    font-size: 0.875rem;
+    color: #495057;
+    margin: 0 0 0.35rem;
   }
 
   .dc__phone {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
     font-size: 0.875rem;
-    color: var(--c-primary, #2C5530);
+    margin: 0 0 0.75rem;
+  }
+
+  .dc__phone a {
+    color: var(--color-secondary, #1a1a2e);
     text-decoration: none;
     font-weight: 600;
   }
 
-  .dc__phone:hover {
-    text-decoration: underline;
+  .dc__phone a:hover {
+    color: var(--color-primary, #ff5722);
   }
 
   .dc__btn {
     display: block;
     width: 100%;
     padding: 0.75rem 1rem;
-    background: var(--color-primary, #2C5530);
+    background: var(--color-primary, #ff5722);
     color: #fff;
     font-family: var(--font-primary, 'Montserrat', sans-serif);
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
     margin-top: auto;
+    transition: background 0.2s;
   }
 
   .dc__btn:hover {
-    background: var(--color-primary-dark, #1E3D22);
-  }
-
-  @media (max-width: 480px) {
-    .dc {
-      padding: 1.25rem;
-    }
-    .dc__name {
-      font-size: 1rem;
-    }
+    background: var(--color-primary-dark, #e64a19);
+    color: #fff;
   }
 </style>

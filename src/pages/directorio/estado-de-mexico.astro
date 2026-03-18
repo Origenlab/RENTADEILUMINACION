@@ -47,7 +47,7 @@ empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
       </div>
 
       {empresas.length > 0 ? (
-        <div class="dir-grid">
+        <div class="services-grid">
           {empresas.map(empresa => (
             <DirectoryCard
               nombre={empresa.data.nombre}
