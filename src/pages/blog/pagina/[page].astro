@@ -1,24 +1,43 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Hero from '../../components/Hero.astro';
-import CtaBar from '../../components/CtaBar.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import BlogSidebar from '../../components/BlogSidebar.astro';
-import { blogArticles, buildCategories, getPopularArticles, ARTICLES_PER_PAGE, getTotalPages } from '../../data/blog-articles';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import BlogSidebar from '../../../components/BlogSidebar.astro';
+import {
+  blogArticles,
+  buildCategories,
+  getPopularArticles,
+  getPageArticles,
+  getTotalPages,
+  ARTICLES_PER_PAGE,
+} from '../../../data/blog-articles';
 
-const title = "Blog de Iluminación para Eventos | REDEIL CDMX";
-const description = "Guías, consejos y tendencias de iluminación profesional para bodas, XV años, corporativos y fiestas en CDMX. 30+ años de experiencia.";
-const canonical = "https://rentadeiluminacion.com/blog/";
+export async function getStaticPaths() {
+  const totalPages = getTotalPages();
+  // Pages 2..N (page 1 is /blog/)
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+  }));
+}
 
-const categories = buildCategories();
-const popularArticles = getPopularArticles();
+const { page: pageParam } = Astro.params;
+const currentPage = Number(pageParam);
 const totalPages = getTotalPages();
 
-// Página 1: primer artículo destacado + 11 artículos
-const featured = blogArticles[0];
-const pageArticles = blogArticles.slice(1, ARTICLES_PER_PAGE);
+// Redirect to /blog/ if page 1 is requested
+if (currentPage === 1) {
+  return Astro.redirect('/blog/', 301);
+}
 
-// Category map for pills
+if (currentPage < 1 || currentPage > totalPages || isNaN(currentPage)) {
+  return Astro.redirect('/blog/', 301);
+}
+
+const pageArticles = getPageArticles(currentPage);
+const categories = buildCategories();
+const popularArticles = getPopularArticles();
+
 const catMap = new Map<string, number>();
 blogArticles.forEach(a => {
   catMap.set(a.category, (catMap.get(a.category) || 0) + 1);
@@ -30,6 +49,10 @@ const ctaBarItems = categories.map(cat => ({
   label: cat.name,
   href: `/blog/?cat=${cat.slug}`,
 }));
+
+const title = `Blog de Iluminación — Página ${currentPage} | REDEIL CDMX`;
+const description = `Artículos de iluminación para eventos: guías, precios y consejos. Página ${currentPage} de ${totalPages}.`;
+const canonical = `https://rentadeiluminacion.com/blog/pagina/${currentPage}/`;
 
 const schemaMarkup = JSON.stringify({
   "@context": "https://schema.org",
@@ -47,7 +70,11 @@ const schemaMarkup = JSON.stringify({
 
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
   <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Blog", href: "/blog/" },
+      { label: `Página ${currentPage}` }
+    ]} />
   </Fragment>
 
   <Hero
@@ -62,31 +89,13 @@ const schemaMarkup = JSON.stringify({
     items={ctaBarItems}
   />
 
-  {/* ──── ARTÍCULO DESTACADO ──── */}
-  <section class="blog-featured">
-    <div class="container">
-      <a href={`/blog/${featured.slug}/`} class="bf">
-        <div class="bf__img">
-          <img src={featured.img} alt={featured.title} loading="eager" width="800" height="450" />
-          <span class="bf__badge">Destacado</span>
-          <span class="bf__cat">{featured.category}</span>
-        </div>
-        <div class="bf__body">
-          <h2 class="bf__title">{featured.title}</h2>
-          <p class="bf__excerpt">{featured.excerpt}</p>
-          <span class="bf__cta">Leer artículo completo →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
   {/* ──── PILLS DE CATEGORÍAS ──── */}
   <section class="blog-filters">
     <div class="container">
-      <div class="bf-pills" id="categoryPills">
-        <button class="bf-pill bf-pill--active" data-cat="all">Todos</button>
+      <div class="bf-pills">
+        <a href="/blog/" class="bf-pill">Todos</a>
         {categoryOrder.filter(c => catMap.has(c)).map(cat => (
-          <button class="bf-pill" data-cat={cat}>{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></button>
+          <a href={`/blog/`} class="bf-pill">{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></a>
         ))}
       </div>
     </div>
@@ -96,9 +105,9 @@ const schemaMarkup = JSON.stringify({
   <section class="blog-main">
     <div class="container blog-main__layout">
       <div class="blog-main__content">
-        <div class="blog-grid" id="blogGrid">
+        <div class="blog-grid">
           {pageArticles.map(article => (
-            <article class="bc" data-category={article.category}>
+            <article class="bc">
               <a href={`/blog/${article.slug}/`} class="bc__img-link">
                 <div class="bc__img">
                   <img src={article.img} alt={article.title} loading="lazy" width="600" height="338" />
@@ -120,15 +129,26 @@ const schemaMarkup = JSON.stringify({
 
         {/* ──── PAGINACIÓN ──── */}
         <nav class="pagination" aria-label="Páginas del blog">
-          <span class="pagination__prev pagination__prev--disabled" aria-disabled="true">« Anterior</span>
+          {currentPage > 1 && (
+            <a
+              href={currentPage === 2 ? '/blog/' : `/blog/pagina/${currentPage - 1}/`}
+              class="pagination__prev"
+            >« Anterior</a>
+          )}
+
           <div class="pagination__pages">
-            <span class="pagination__page pagination__page--active" aria-current="page">1</span>
+            <a href="/blog/" class="pagination__page">1</a>
             {Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map(p => (
-              <a href={`/blog/pagina/${p}/`} class="pagination__page">{p}</a>
+              <a
+                href={`/blog/pagina/${p}/`}
+                class={`pagination__page${p === currentPage ? ' pagination__page--active' : ''}`}
+                aria-current={p === currentPage ? 'page' : undefined}
+              >{p}</a>
             ))}
           </div>
-          {totalPages > 1 && (
-            <a href="/blog/pagina/2/" class="pagination__next">Siguiente »</a>
+
+          {currentPage < totalPages && (
+            <a href={`/blog/pagina/${currentPage + 1}/`} class="pagination__next">Siguiente »</a>
           )}
         </nav>
       </div>
@@ -155,131 +175,7 @@ const schemaMarkup = JSON.stringify({
   </section>
 </BaseLayout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const pills = document.querySelectorAll('.bf-pill');
-    const cards = document.querySelectorAll('#blogGrid .bc');
-
-    let activeCat = 'all';
-
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('bf-pill--active'));
-        pill.classList.add('bf-pill--active');
-        activeCat = (pill as HTMLElement).dataset.cat || 'all';
-        filterCards();
-      });
-    });
-
-    function filterCards() {
-      cards.forEach(card => {
-        const el = card as HTMLElement;
-        const cat = el.dataset.category || '';
-        const matchesCat = activeCat === 'all' || cat === activeCat;
-        el.style.display = matchesCat ? '' : 'none';
-      });
-    }
-  });
-</script>
-
 <style>
-  /* ──────────────────────────────────────────
-     FEATURED ARTICLE
-     ────────────────────────────────────────── */
-  .blog-featured {
-    background: #f8f9fa;
-    padding: 2.5rem 0;
-  }
-
-  .bf {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 0;
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e9ecef;
-  }
-
-  .bf__img {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-  }
-
-  .bf__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .bf__badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--color-secondary, #1a1a2e);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-  }
-
-  .bf__cat {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    background: var(--color-primary, #ff5722);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-  }
-
-  .bf__body {
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .bf__title {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 700;
-    color: var(--color-secondary, #1a1a2e);
-    line-height: 1.25;
-    margin: 0 0 1rem;
-  }
-
-  .bf__excerpt {
-    font-size: 0.9375rem;
-    color: #6c757d;
-    line-height: 1.7;
-    margin: 0 0 1.5rem;
-  }
-
-  .bf__cta {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary, #ff5722);
-  }
-
-  .bf:hover .bf__cta {
-    color: #c44d00;
-  }
-
   /* ──────────────────────────────────────────
      CATEGORY PILLS
      ────────────────────────────────────────── */
@@ -318,7 +214,7 @@ const schemaMarkup = JSON.stringify({
     font-size: 0.8125rem;
     font-weight: 500;
     color: #495057;
-    cursor: pointer;
+    text-decoration: none;
     white-space: nowrap;
   }
 
@@ -327,27 +223,13 @@ const schemaMarkup = JSON.stringify({
     color: var(--color-primary, #ff5722);
   }
 
-  .bf-pill--active {
-    background: var(--color-primary, #ff5722);
-    border-color: var(--color-primary, #ff5722);
-    color: #fff;
-  }
-
-  .bf-pill--active:hover {
-    color: #fff;
-  }
-
   .bf-pill__count {
     font-size: 0.7rem;
     opacity: 0.7;
   }
 
-  .bf-pill--active .bf-pill__count {
-    opacity: 0.9;
-  }
-
   /* ──────────────────────────────────────────
-     MAIN LAYOUT: GRID + SIDEBAR
+     MAIN LAYOUT
      ────────────────────────────────────────── */
   .blog-main {
     padding: 3rem 0;
@@ -493,14 +375,7 @@ const schemaMarkup = JSON.stringify({
     border-radius: 6px;
   }
 
-  .pagination__prev--disabled {
-    color: #adb5bd;
-    border-color: #dee2e6;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .pagination__prev:not(.pagination__prev--disabled):hover,
+  .pagination__prev:hover,
   .pagination__next:hover {
     background: var(--color-primary, #ff5722);
     color: #fff;
@@ -610,20 +485,6 @@ const schemaMarkup = JSON.stringify({
     }
   }
 
-  @media (max-width: 1024px) {
-    .bf {
-      grid-template-columns: 1fr;
-    }
-
-    .bf__img {
-      aspect-ratio: 16 / 9;
-    }
-
-    .bf__body {
-      padding: 1.75rem;
-    }
-  }
-
   @media (max-width: 960px) {
     .blog-main__layout {
       grid-template-columns: 1fr;
@@ -639,18 +500,6 @@ const schemaMarkup = JSON.stringify({
   }
 
   @media (max-width: 640px) {
-    .blog-featured {
-      padding: 1.5rem 0;
-    }
-
-    .bf__body {
-      padding: 1.25rem;
-    }
-
-    .bf__title {
-      font-size: 1.125rem;
-    }
-
     .blog-grid {
       grid-template-columns: 1fr;
     }
