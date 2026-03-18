@@ -7,9 +7,11 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import TestimonialCards from '../../components/TestimonialCards.astro';
 
-const title = "Iluminación y Sonido para Bodas | REDEIL CDMX";
-const description = "Renta de iluminación y sonido profesional para bodas en CDMX. REDEIL ofrece guirnaldas, city color, cabezas móviles, humo bajo, seguidor y bocinas para tu boda.";
+const title = "Iluminación para Bodas en CDMX | +800 Bodas Iluminadas | REDEIL";
+const description = "Renta de iluminación y sonido profesional para bodas en CDMX. +800 bodas iluminadas. Guirnaldas, humo bajo, cabezas móviles, seguidor. Desde $5,000 + IVA. Cotiza gratis.";
 const canonical = "https://rentadeiluminacion.com/eventos/bodas/";
 
 const schemaMarkup = JSON.stringify([
@@ -42,6 +44,104 @@ const schemaMarkup = JSON.stringify([
   }
 ]);
 
+const paquetesBoda = [
+  {
+    name: "Boda Íntima",
+    price: "$5,000–$12,000",
+    priceNote: "más IVA · hasta 80 personas",
+    description: "Ideal para bodas pequeñas en jardín o salón boutique. Ambiente cálido y romántico sin producción compleja.",
+    features: [
+      { text: "Guirnaldas Edison (hasta 30 m)", included: true },
+      { text: "City Color o Par LED (4 piezas)", included: true },
+      { text: "Técnico de iluminación incluido", included: true },
+      { text: "Transporte e instalación CDMX", included: true },
+      { text: "Humo bajo para el vals", included: false },
+      { text: "Seguidor de luz", included: false },
+      { text: "Cabezas móviles", included: false },
+      { text: "Sistema de audio", included: false },
+    ],
+    ctaLabel: "Cotizar Boda Íntima",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20el%20paquete%20Boda%20%C3%8Dntima",
+  },
+  {
+    name: "Boda Estándar",
+    badge: "Más pedido",
+    highlight: true,
+    price: "$12,000–$25,000",
+    priceNote: "más IVA · 80–150 personas",
+    description: "El paquete más completo para bodas en salón o hacienda. Iluminación de ambiente + pista de baile + efectos.",
+    features: [
+      { text: "Guirnaldas Edison (hasta 60 m)", included: true },
+      { text: "City Color (6–8 piezas)", included: true },
+      { text: "Cabezas móviles (4 piezas)", included: true },
+      { text: "Humo bajo para el vals", included: true },
+      { text: "Seguidor de luz", included: true },
+      { text: "Técnico de iluminación incluido", included: true },
+      { text: "Transporte e instalación CDMX", included: true },
+      { text: "Sistema de audio (bocinas)", included: false },
+    ],
+    ctaLabel: "Cotizar Boda Estándar",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20el%20paquete%20Boda%20Est%C3%A1ndar",
+  },
+  {
+    name: "Boda Premium",
+    price: "$25,000–$50,000",
+    priceNote: "más IVA · 150–300 personas",
+    description: "Producción completa de iluminación y audio. Para bodas en hacienda o salón de gran formato.",
+    features: [
+      { text: "Guirnaldas Edison (hasta 120 m)", included: true },
+      { text: "City Color + Par LED (12+ piezas)", included: true },
+      { text: "Cabezas móviles (8 piezas)", included: true },
+      { text: "Humo bajo para el vals", included: true },
+      { text: "Seguidor de luz", included: true },
+      { text: "Confeti para el brindis", included: true },
+      { text: "Sistema de audio profesional", included: true },
+      { text: "2 técnicos de iluminación + audio", included: true },
+    ],
+    ctaLabel: "Cotizar Boda Premium",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20el%20paquete%20Boda%20Premium",
+  },
+  {
+    name: "Producción Total",
+    price: "$50,000+",
+    priceNote: "más IVA · 300+ personas",
+    description: "Para bodas de gran producción: haciendas grandes, venues de lujo, múltiples espacios. Diseño técnico personalizado.",
+    features: [
+      { text: "Diseño de iluminación personalizado", included: true },
+      { text: "Equipo ilimitado según venue", included: true },
+      { text: "Visita técnica previa incluida", included: true },
+      { text: "Efectos especiales completos", included: true },
+      { text: "Audio profesional múltiple zona", included: true },
+      { text: "Coordinación con planner y DJ", included: true },
+      { text: "Operación técnica todo el evento", included: true },
+      { text: "Presupuesto a medida", included: true },
+    ],
+    ctaLabel: "Cotizar Producción",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20producci%C3%B3n%20completa%20para%20mi%20boda",
+  },
+];
+
+const testimoniosBoda = [
+  {
+    name: "Daniela & Carlos Montes",
+    rating: 5,
+    event: "Boda · Hacienda San Gabriel, Tlalpan · Nov 2024",
+    text: "REDEIL transformó la hacienda completamente. Las guirnaldas Edison sobre la mesa imperial quedaron exactamente como lo imaginé, y el humo bajo durante el vals fue simplemente mágico. Todos los invitados nos preguntaron quién era el proveedor de iluminación.",
+  },
+  {
+    name: "Valeria Ríos",
+    rating: 5,
+    event: "Boda · Jardín Villa Montaña, Coyoacán · Feb 2025",
+    text: "Reservamos con 4 meses de anticipación y valió la pena. El técnico que operó el seguidor durante el vals conocía perfectamente los tiempos — ni siquiera tuvimos que pedirle que nos siguiera, lo hacía instintivamente. El servicio fue impecable de principio a fin.",
+  },
+  {
+    name: "Fernando & Alejandra Vega",
+    rating: 5,
+    event: "Boda · Salón Cristal, Polanco · Dic 2024",
+    text: "Contratamos el paquete completo: guirnaldas, city color, cabezas móviles, humo bajo y audio. El resultado superó nuestras expectativas. Un solo equipo para todo el evento significó cero fricción con coordinadores distintos. Totalmente recomendados.",
+  },
+];
+
 const serviciosBoda = [
   { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas con focos Edison para boda al aire libre", description: "Focos tipo Edison con luz cálida vintage. Las más pedidas para jardines, terrazas y haciendas. Cableado IP65 certificado.", link: "/servicios/guirnaldas/" },
   { title: "Humo Bajo para el Vals", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo creando nube mágica en primer vals de boda", description: "La nube mágica a nivel de piso para el primer vals. El efecto más solicitado en bodas. Activación a control remoto por nuestro técnico.", link: "/servicios/humo-bajo/" },
@@ -65,10 +165,10 @@ const serviciosBoda = [
 
   <Hero
     title="Iluminación y Sonido para Bodas en CDMX"
-    subtitle="Todo lo que tu boda necesita en iluminación y audio profesional. Guirnaldas, humo bajo, cabezas móviles y bocinas. Instalación incluida."
+    subtitle="+800 bodas iluminadas. Guirnaldas Edison, humo bajo, cabezas móviles, seguidor y audio profesional. Desde $5,000 + IVA. Instalación incluida."
     whatsappText="Hola,%20quiero%20cotizar%20iluminaci%C3%B3n%20y%20sonido%20para%20mi%20boda"
-    introParagraph1='<strong>REDEIL</strong> es especialista en iluminación y sonido profesional para bodas en toda la Ciudad de México y Estado de México. Con más de 30 años iluminando bodas y más de 3,000 eventos realizados, conocemos cada momento de una boda que necesita iluminación especial: la ceremonia con luz cálida y seguidor para el vals, la recepción con guirnaldas Edison y uplighting de color, y la pista de baile con cabezas móviles y efectos especiales que hacen que nadie quiera irse.'
-    introParagraph2='Ofrecemos un servicio integral que incluye guirnaldas de luces, city color, cabezas móviles, humo bajo, seguidor de luz, bocinas profesionales y cualquier efecto especial que imagines para tu boda. Nuestro equipo técnico trabaja en coordinación con wedding planners, decoradores y DJs para crear la atmósfera perfecta en cada momento de tu celebración. Cubrimos haciendas, jardines, salones y terrazas de CDMX y Estado de México.'
+    introParagraph1='<strong>REDEIL</strong> lleva más de 30 años iluminando bodas en CDMX y Estado de México. Con <strong>+800 bodas realizadas</strong> y equipo profesional de marcas como <strong>Martin, Chauvet y Elation</strong>, conocemos cada momento que necesita iluminación especial: la ceremonia con luz cálida y seguidor para el vals, la recepción con guirnaldas Edison y city color, y la pista de baile con cabezas móviles que hacen que nadie quiera irse.'
+    introParagraph2='Cubrimos todo el evento con un solo equipo técnico: montaje 4–6 horas antes, operación durante toda la boda y desmontaje al terminar. Coordinamos con wedding planners, decoradores y DJs para que cada efecto ocurra exactamente en el momento que defines. Atendemos haciendas, jardines, salones y terrazas en toda la zona metropolitana.'
   />
 
   <CtaBar
@@ -128,6 +228,30 @@ const serviciosBoda = [
           <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Iluminación para Bodas"
+        subtitle="Precios referenciales + IVA. Cada boda es diferente — te cotizamos a medida."
+        paragraph1="Estos rangos de precio te dan una idea de la inversión según el tamaño de tu boda. El precio final depende del venue, el número de metros de guirnaldas, la cantidad de equipo y los efectos especiales que elijas."
+        paragraph2="La cotización es gratuita y sin compromiso. Cuéntanos tu venue, fecha y número de invitados y te respondemos en menos de 24 horas."
+      />
+      <PricingCards packages={paquetesBoda} />
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Parejas que confiaron en REDEIL"
+        subtitle="Lo que dicen las parejas que iluminamos."
+        paragraph1="Más de 800 bodas en CDMX y Estado de México. Cada una diferente, cada una especial."
+        paragraph2=""
+      />
+      <TestimonialCards testimonials={testimoniosBoda} />
     </div>
   </section>
 

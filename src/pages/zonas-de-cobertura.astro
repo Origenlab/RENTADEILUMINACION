@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ZoneCards from '../components/ZoneCards.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 
-const title = "Zonas de Cobertura | Iluminación CDMX | REDEIL";
-const description = "Renta de iluminación en CDMX y Estado de México. Polanco, Santa Fe, Coyoacán, Naucalpan, Interlomas. Instalación incluida.";
+const title = "Zonas de Cobertura | Iluminación CDMX y Estado de México | REDEIL";
+const description = "REDEIL cubre las 16 alcaldías de CDMX y 10+ municipios del Estado de México. Renta de iluminación profesional con instalación incluida en Polanco, Coyoacán, Naucalpan, Toluca y más.";
 const canonical = "https://rentadeiluminacion.com/zonas-de-cobertura/";
 ---
 
@@ -28,8 +30,8 @@ const canonical = "https://rentadeiluminacion.com/zonas-de-cobertura/";
             </div>
           </div>
           <div class="hero-intro">
-            <p>Con <strong>4 sucursales estratégicamente ubicadas</strong> en Benito Juárez, Polanco, Naucalpan y Tlalnepantla, garantizamos cobertura completa en toda la zona metropolitana. Nuestro equipo de logística asegura que tu iluminación llegue puntualmente a cualquier ubicación.</p>
-            <p>Cada servicio incluye <strong>transporte e instalación sin costo adicional</strong> en nuestras zonas de cobertura principales. Para ubicaciones especiales o fuera de zona, contáctanos para una cotización personalizada. <strong>Tiempo de respuesta promedio: 2 horas</strong>.</p>
+            <p>Con más de 30 años operando en la zona metropolitana, REDEIL garantiza cobertura completa en <strong>todas las alcaldías de CDMX</strong> y los principales municipios del Estado de México. Logística propia, sin subcontrataciones.</p>
+            <p>Cada servicio incluye <strong>transporte e instalación incluidos</strong> en la zona metropolitana. El equipo llega al venue 4–6 horas antes del evento para montaje y pruebas. ¿Tienes dudas sobre tu zona? Escríbenos y te confirmamos en minutos.</p>
           </div>
         </div>
       </div>
@@ -48,12 +50,12 @@ const canonical = "https://rentadeiluminacion.com/zonas-de-cobertura/";
             <span class="stat-label-enhanced">Municipios Edomex</span>
           </div>
           <div class="stat-card-enhanced">
-            <span class="stat-number-enhanced">4</span>
-            <span class="stat-label-enhanced">Sucursales</span>
+            <span class="stat-number-enhanced">3,000+</span>
+            <span class="stat-label-enhanced">Eventos Realizados</span>
           </div>
           <div class="stat-card-enhanced">
-            <span class="stat-number-enhanced">2hrs</span>
-            <span class="stat-label-enhanced">Tiempo de Respuesta</span>
+            <span class="stat-number-enhanced">30+</span>
+            <span class="stat-label-enhanced">Años de Experiencia</span>
           </div>
         </div>
       </div>
@@ -124,73 +126,101 @@ const canonical = "https://rentadeiluminacion.com/zonas-de-cobertura/";
       </div>
     </section>
 
-    <!-- Coverage Grid -->
+    <!-- ZoneCards Component -->
+    <section class="section">
+      <div class="container">
+        <SectionHeader
+          title="Cobertura Completa CDMX y Estado de México"
+          subtitle="Las 16 alcaldías de CDMX y los principales municipios del Edomex. Instalación incluida en toda la zona metropolitana."
+          paragraph1="Operamos desde la Ciudad de México con logística propia. El equipo llega al venue 4–6 horas antes del evento, sin cargos adicionales por traslado en la zona metropolitana."
+          paragraph2="¿Tu venue está fuera de la zona? Contáctanos de todas formas — atendemos eventos en todo el Estado de México y podemos cotizar traslado para otros estados."
+        />
+        <ZoneCards />
+      </div>
+    </section>
+
+    <!-- Coverage Grid — 16 Alcaldías CDMX -->
     <section class="section coverage-section" style="background-color: var(--color-gray-100);">
       <div class="container">
         <div class="section-header">
-          <h2>Cobertura Completa</h2>
-          <p>Atendemos todas las alcaldías de CDMX y los principales municipios del Estado de México</p>
+          <h2>Las 16 Alcaldías de CDMX</h2>
+          <p>Cubrimos toda la Ciudad de México — de Xochimilco a Gustavo A. Madero</p>
         </div>
         <div class="coverage-grid">
 
           <div class="coverage-column">
-            <h3>CDMX Poniente</h3>
+            <h3>Alcaldías Poniente y Centro</h3>
             <div class="coverage-lists">
               <ul class="coverage-list">
-                <li>Polanco</li>
-                <li>Santa Fe</li>
-                <li>Condesa y Roma</li>
                 <li>Miguel Hidalgo</li>
-                <li>Lomas de Chapultepec</li>
-                <li>Bosques de las Lomas</li>
+                <li>Cuauhtémoc</li>
+                <li>Benito Juárez</li>
+                <li>Álvaro Obregón</li>
               </ul>
             </div>
           </div>
 
           <div class="coverage-column">
-            <h3>CDMX Sur</h3>
+            <h3>Alcaldías Sur</h3>
             <div class="coverage-lists">
               <ul class="coverage-list">
                 <li>Coyoacán</li>
-                <li>San Ángel</li>
-                <li>Pedregal</li>
-                <li>Del Valle</li>
                 <li>Tlalpan</li>
                 <li>Xochimilco</li>
+                <li>Milpa Alta</li>
+                <li>Magdalena Contreras</li>
+                <li>Tláhuac</li>
               </ul>
             </div>
           </div>
 
           <div class="coverage-column">
-            <h3>CDMX Centro y Norte</h3>
+            <h3>Alcaldías Norte y Oriente</h3>
             <div class="coverage-lists">
               <ul class="coverage-list">
-                <li>Cuauhtémoc</li>
-                <li>Benito Juárez</li>
                 <li>Azcapotzalco</li>
                 <li>Gustavo A. Madero</li>
-                <li>Iztapalapa</li>
                 <li>Venustiano Carranza</li>
+                <li>Iztapalapa</li>
+                <li>Iztacalco</li>
+                <li>Cuajimalpa</li>
               </ul>
             </div>
           </div>
 
           <div class="coverage-column">
-            <h3>Estado de México</h3>
+            <h3>Municipios Estado de México</h3>
             <div class="coverage-lists">
               <ul class="coverage-list">
                 <li>Naucalpan</li>
-                <li>Huixquilucan</li>
-                <li>Interlomas</li>
+                <li>Huixquilucan (Interlomas)</li>
                 <li>Tlalnepantla</li>
-                <li>Atizapán</li>
+                <li>Atizapán de Zaragoza</li>
                 <li>Ecatepec</li>
+                <li>Coacalco</li>
+                <li>Cuautitlán Izcalli</li>
+                <li>Tecámac</li>
+                <li>Texcoco</li>
                 <li>Toluca</li>
                 <li>Metepec</li>
               </ul>
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Tu evento está en CDMX o Estado de México?</h2>
+          <p>Con más de 3,000 eventos realizados en la zona metropolitana, sabemos cómo llegar, cuándo llegar y cómo instalar en cualquier venue.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
         </div>
       </div>
     </section>

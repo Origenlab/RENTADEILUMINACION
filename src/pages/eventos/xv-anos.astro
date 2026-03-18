@@ -7,9 +7,11 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import TestimonialCards from '../../components/TestimonialCards.astro';
 
-const title = "Iluminación y Sonido para XV Años | REDEIL CDMX";
-const description = "Renta de iluminación y sonido profesional para fiestas de XV años en CDMX. Seguidor, cabezas móviles, confeti, humo bajo y bocinas. Cotiza gratis por WhatsApp.";
+const title = "Iluminación para XV Años en CDMX | +500 Fiestas | REDEIL";
+const description = "Renta de iluminación y sonido para XV años en CDMX. +500 quinceañeras iluminadas. Seguidor para el vals, cabezas móviles, confeti, humo bajo. Desde $4,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/eventos/xv-anos/";
 
 const schemaMarkup = JSON.stringify([
@@ -37,10 +39,108 @@ const schemaMarkup = JSON.stringify([
       { "@type": "Question", "name": "¿Cuándo se activan los efectos especiales durante la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestro técnico coordina los efectos con el DJ y el MC de la fiesta. El humo bajo se activa al inicio del vals, el confeti durante el brindis o la mordida del pastel, y las bengalas frías para la entrada de la quinceañera. Hacemos un rundown de tiempos antes del evento." } },
       { "@type": "Question", "name": "¿Pueden iluminar en el color de la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Programamos la iluminación LED en los colores exactos de tu fiesta: el color de las flores, el vestido o la decoración. Los par LED RGBW permiten replicar cualquier color con precisión. Para la pista de baile, usamos cambios de color dinámicos que se adaptan al ritmo de la música." } },
       { "@type": "Question", "name": "¿Cuántas personas cubren los paquetes de audio?", "acceptedAnswer": { "@type": "Answer", "text": "Tenemos paquetes desde 50 hasta 500+ personas. Para XV años típicos en salón (100-300 personas), el paquete estándar de 4 bocinas + 2 subwoofers + micrófonos es ideal. Para jardines al aire libre necesitamos más potencia. Cuéntanos el venue y calculamos." } },
-      { "@type": "Question", "name": "¿Coordinan con el DJ y el planner de la fiesta?", answer: "Sí. Trabajamos en coordinación con el DJ, el planner y el fotógrafo de la quinceañera. Compartimos el rundown técnico y nos coordinamos para que cada efecto ocurra en el momento exacto que defines. La coordinación es parte de nuestro servicio, sin costo extra.", acceptedAnswer: { "@type": "Answer", "text": "Sí. Trabajamos en coordinación con el DJ, el planner y el fotógrafo de la quinceañera. Compartimos el rundown técnico y nos coordinamos para que cada efecto ocurra en el momento exacto que defines. La coordinación es parte de nuestro servicio, sin costo extra." } }
+      { "@type": "Question", "name": "¿Coordinan con el DJ y el planner de la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajamos en coordinación con el DJ, el planner y el fotógrafo de la quinceañera. Compartimos el rundown técnico y nos coordinamos para que cada efecto ocurra en el momento exacto que defines. La coordinación es parte de nuestro servicio, sin costo extra." } }
     ]
   }
 ]);
+
+const paquetesXV = [
+  {
+    name: "XV Clásica",
+    price: "$4,000–$10,000",
+    priceNote: "más IVA · hasta 80 personas",
+    description: "Para quinceañeras íntimas en salón o jardín. Lo esencial: seguidor para el vals y ambiente en el salón.",
+    features: [
+      { text: "Seguidor de luz para el vals", included: true },
+      { text: "Par LED de color (4 piezas)", included: true },
+      { text: "Técnico de iluminación incluido", included: true },
+      { text: "Transporte e instalación CDMX", included: true },
+      { text: "Humo bajo", included: false },
+      { text: "Cabezas móviles", included: false },
+      { text: "Confeti o efectos especiales", included: false },
+      { text: "Sistema de audio", included: false },
+    ],
+    ctaLabel: "Cotizar XV Clásica",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20paquete%20XV%20Cl%C3%A1sica",
+  },
+  {
+    name: "XV Moderna",
+    badge: "Más pedido",
+    highlight: true,
+    price: "$10,000–$20,000",
+    priceNote: "más IVA · 80–150 personas",
+    description: "El paquete favorito para XV años: seguidor, humo bajo en el vals, cabezas móviles y confeti.",
+    features: [
+      { text: "Seguidor de luz para el vals", included: true },
+      { text: "Humo bajo para el vals", included: true },
+      { text: "Cabezas móviles (4 piezas)", included: true },
+      { text: "Confeti para el brindis", included: true },
+      { text: "Par LED de color (6 piezas)", included: true },
+      { text: "Técnico de iluminación incluido", included: true },
+      { text: "Transporte e instalación CDMX", included: true },
+      { text: "Sistema de audio (bocinas)", included: false },
+    ],
+    ctaLabel: "Cotizar XV Moderna",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20paquete%20XV%20Moderna",
+  },
+  {
+    name: "XV Premium",
+    price: "$20,000–$35,000",
+    priceNote: "más IVA · 150–300 personas",
+    description: "Producción completa: iluminación completa del salón + efectos especiales + audio profesional.",
+    features: [
+      { text: "Seguidor de luz para el vals", included: true },
+      { text: "Humo bajo + bengalas frías", included: true },
+      { text: "Cabezas móviles (8 piezas)", included: true },
+      { text: "Confeti + cascadas LED", included: true },
+      { text: "Guirnaldas Edison o neón", included: true },
+      { text: "Sistema de audio profesional", included: true },
+      { text: "2 técnicos de iluminación + audio", included: true },
+      { text: "Coordinación con DJ y planner", included: true },
+    ],
+    ctaLabel: "Cotizar XV Premium",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20paquete%20XV%20Premium",
+  },
+  {
+    name: "Producción Total",
+    price: "$35,000+",
+    priceNote: "más IVA · 300+ personas",
+    description: "Para quinceañeras de gran formato. Diseño técnico personalizado, múltiples espacios, equipo completo.",
+    features: [
+      { text: "Diseño de iluminación personalizado", included: true },
+      { text: "Equipo completo según venue", included: true },
+      { text: "Visita técnica previa incluida", included: true },
+      { text: "Efectos especiales completos", included: true },
+      { text: "Audio profesional múltiple zona", included: true },
+      { text: "Coordinación total del show técnico", included: true },
+      { text: "Operación técnica todo el evento", included: true },
+      { text: "Presupuesto a medida", included: true },
+    ],
+    ctaLabel: "Cotizar Producción",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20producci%C3%B3n%20completa%20para%20XV%20a%C3%B1os",
+  },
+];
+
+const testimoniosXV = [
+  {
+    name: "Sra. Patricia Herrera (mamá de Fernanda)",
+    rating: 5,
+    event: "XV Años · Salón Esmeralda, Naucalpan · Mar 2025",
+    text: "Fernanda quedó con la boca abierta cuando salió a la pista y vio el humo bajo cubrir todo el salón. El seguidor la iluminó durante todo el vals con su papá y las fotos quedaron perfectas. Hasta el fotógrafo nos dijo que fue la mejor iluminación que había visto en una quinceañera.",
+  },
+  {
+    name: "Mariana Soto (la quinceañera)",
+    rating: 5,
+    event: "XV Años · Jardín Las Palmas, Tlalpan · Ene 2025",
+    text: "Fue exactamente lo que siempre soñé. Los colores de la iluminación eran exactamente los del vestido (rosa y dorado) y cuando entré con las bengalas frías todos gritaron. REDEIL coordinó todo con el DJ y cada efecto pasó en el momento exacto.",
+  },
+  {
+    name: "Sra. Lorena Castillo",
+    rating: 5,
+    event: "XV Años · Hacienda La Esperanza, Ecatepec · Oct 2024",
+    text: "Contratamos el paquete completo porque la quinceañera llevaba tres años planeando su fiesta. Valió cada peso. La coordinación con el planner y el DJ fue perfecta, y el equipo llegó a tiempo, montó sin problemas y operó sin que yo tuviera que estar pendiente de nada.",
+  },
+];
 
 const serviciosXV = [
   { title: "Seguidor de Luz para el Vals", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals de XV años CDMX", description: "Spotlight que sigue a la quinceañera en el vals con su papá y chambelanes. El momento más emotivo, perfectamente iluminado.", link: "/servicios/seguidor/" },
@@ -65,10 +165,10 @@ const serviciosXV = [
 
   <Hero
     title="Iluminación y Sonido para XV Años en CDMX"
-    subtitle="Haz que su fiesta de quince años sea verdaderamente inolvidable. Seguidor para el vals, efectos especiales, audio profesional y más."
+    subtitle="+500 quinceañeras iluminadas. Seguidor para el vals, humo bajo, cabezas móviles y confeti. Desde $4,000 + IVA. Coordinamos con tu DJ y planner."
     whatsappText="Hola,%20quiero%20cotizar%20iluminaci%C3%B3n%20y%20sonido%20para%20XV%20a%C3%B1os"
-    introParagraph1='<strong>REDEIL</strong> ofrece servicios profesionales de iluminación y sonido para fiestas de XV años en toda la Ciudad de México y Estado de México. Desde el seguidor de luz para el vals hasta cabezas móviles para la pista de baile, confeti, humo bajo, bengalas frías y bocinas de alta potencia — cubrimos cada momento de la celebración con equipo profesional de primera calidad.'
-    introParagraph2='Nuestro equipo tiene amplia experiencia en fiestas de quinceañeras, conociendo los momentos clave que requieren iluminación especial: la entrada, el vals con papá y chambelanes, el brindis, el cambio de zapatilla, la hora loca y el baile del chambelán de honor. Trabajamos en salones, jardines y haciendas de CDMX para crear la atmósfera perfecta que la quinceañera siempre soñó.'
+    introParagraph1='<strong>REDEIL</strong> lleva más de 30 años iluminando fiestas de XV años en CDMX y Estado de México. Con <strong>+500 quinceañeras</strong> y equipo profesional <strong>Martin, Chauvet y Elation</strong>, conocemos cada momento de la fiesta: la entrada con bengalas frías, el vals con seguidor y humo bajo, el brindis con confeti y la hora loca con cabezas móviles que transforman el salón.'
+    introParagraph2='Un solo equipo técnico coordina toda la producción — iluminación, efectos y audio — con tu DJ, planner y fotógrafo. Cubrimos salones, jardines y haciendas en toda la zona metropolitana. El equipo llega 4–6 horas antes, opera durante toda la fiesta y desmonta al terminar.'
   />
 
   <CtaBar
@@ -128,6 +228,30 @@ const serviciosXV = [
           <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Iluminación para XV Años"
+        subtitle="Precios referenciales + IVA. Cotizamos a medida según tu venue y número de invitados."
+        paragraph1="El precio final depende del venue, los metros de guirnaldas, la cantidad de cabezas móviles y los efectos que elijas. Estos rangos te orientan para presupuestar tu evento."
+        paragraph2="La cotización es gratuita. Escríbenos por WhatsApp con la fecha, el venue y el número de invitados y te respondemos en menos de 24 horas."
+      />
+      <PricingCards packages={paquetesXV} />
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Mamás y Quinceañeras que Confían en REDEIL"
+        subtitle="Lo que dicen nuestros clientes de XV años."
+        paragraph1="+500 quinceañeras iluminadas en CDMX y Estado de México. Cada fiesta, única."
+        paragraph2=""
+      />
+      <TestimonialCards testimonials={testimoniosXV} />
     </div>
   </section>
 
