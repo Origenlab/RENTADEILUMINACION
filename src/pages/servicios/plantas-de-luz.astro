@@ -1,43 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Hero from "../../components/Hero.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
-const schemaMarkup = JSON.stringify([{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Plantas de Luz para Eventos CDMX",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+const title = "Renta de Plantas de Luz CDMX | REDEIL — Generadores para Eventos";
+const description = "Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para eventos en jardines, haciendas y exteriores. Instalación incluida. Cotiza.";
+const canonical = "https://rentadeiluminacion.com/servicios/plantas-de-luz/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Plantas de Luz para Eventos CDMX",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para cualquier evento en exteriores sin toma de corriente disponible.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Plantas de Luz",
+    "priceRange": "$$"
   },
-  "description": "Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para cualquier evento en exteriores sin toma de corriente disponible.",
-  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
-  "serviceType": "Renta de Plantas de Luz",
-  "priceRange": "$$"
-}]);
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántos kVA necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del equipo que vayas a conectar. Un sistema básico de iluminación + audio para 100 personas requiere unos 10-15 kVA. Para un evento completo con iluminación profesional, audio, efectos especiales y pantallas para 300 personas, se necesitan entre 30 y 50 kVA. Te hacemos el cálculo de carga exacto cuando nos dices qué equipos vas a usar." } },
+      { "@type": "Question", "name": "¿El generador hace mucho ruido?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestros generadores son insonorizados con niveles de ruido de 60-70 dB a 7 metros de distancia, equivalente a una conversación normal. Se colocan a distancia del área de eventos para minimizar el ruido. Para eventos donde el silencio es crítico (ceremonias, conferencias), usamos generadores de ultra-bajo ruido a 52 dB." } },
+      { "@type": "Question", "name": "¿El servicio incluye al operador del generador?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Un técnico especializado acompaña el generador durante todo el evento. Se encarga de monitorear los niveles de carga, el combustible y la temperatura del equipo para garantizar que nunca haya un corte de energía durante la noche." } },
+      { "@type": "Question", "name": "¿Las plantas de luz funcionan para eventos al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, exactamente para eso están diseñadas. Jardines privados, haciendas sin corriente suficiente, carpas en campos de golf, quintas rurales, eventos en la playa — cualquier espacio donde la corriente municipal sea insuficiente o inexistente. También para respaldo eléctrico en venues donde la corriente del inmueble no es suficiente para el equipo profesional." } },
+      { "@type": "Question", "name": "¿El generador lleva combustible incluido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El combustible para un evento estándar de 8 horas está incluido en el precio del paquete. Para eventos de más larga duración, hacemos el cálculo del consumo y lo incluimos en la cotización. El técnico monitorea el nivel durante el evento." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar una planta de luz en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes comienzan desde $4,500 + IVA para generadores de 10 kVA con técnico incluido. El precio depende de la capacidad del generador (kVA), la duración del evento y el consumo de combustible estimado. Te cotizamos con exactitud cuando nos dices el equipo que necesitas alimentar." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de bocinas para evento profesional", description: "El audio profesional es uno de los equipos que más energía consume. Con la planta de luz adecuada, sin preocupaciones de voltaje.", link: "/servicios/bocinas/" },
+  { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker en cielo nocturno", description: "Los sky trackers consumen 7,000W cada uno. Para eventos con varios sky trackers al aire libre, la planta de luz es indispensable.", link: "/servicios/sky-tracker/" },
+  { title: "Iluminación para Eventos", image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif", alt: "Iluminación profesional para boda en hacienda", description: "La iluminación arquitectónica y profesional requiere potencia estable. La planta de luz garantiza voltaje constante durante toda la noche.", link: "/servicios/iluminacion/" },
+  { title: "Pantallas LED", image: "/img/galeria/pantalla-01.avif", alt: "Pantalla LED en evento corporativo", description: "Videowalls y pantallas LED requieren corriente estable. Para eventos en exteriores, siempre recomendamos generador propio.", link: "/servicios/pantallas-led/" },
+];
 ---
-<BaseLayout
-  title="Renta de Plantas de Luz CDMX | REDEIL — Generadores para Eventos"
-  description="Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para eventos en jardines, haciendas y exteriores. Instalación incluida."
-  canonical="https://rentadeiluminacion.com/servicios/plantas-de-luz/"
-  schemaMarkup={schemaMarkup}
->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__col1">
-        <h1>Renta de Plantas de Luz en CDMX</h1>
-        <p>Generadores eléctricos silenciosos para eventos en jardines, haciendas y espacios sin toma de corriente disponible.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero__col2">
-        <p class="hero__seo">REDEIL renta plantas de luz y generadores eléctricos industriales en la Ciudad de México y Zona Metropolitana. Contamos con generadores desde 5 kVA para pequeñas instalaciones de iluminación hasta 100 kVA para eventos masivos con sonido, pantallas e iluminación profesional completa. Todos los equipos son insonorizados para no interferir con el audio del evento.</p>
-        <p class="hero__seo">El servicio incluye transporte del generador, conexión a los equipos de iluminación y sonido REDEIL, operación durante el evento y retiro. Ideal para bodas en haciendas, jardines privados, carpas en campos de golf y cualquier espacio donde el suministro eléctrico municipal sea insuficiente o inexistente en CDMX y Edomex.</p>
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios/" },
+    { label: "Plantas de Luz" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Plantas de Luz en CDMX"
+    subtitle="Generadores eléctricos silenciosos para eventos en jardines, haciendas y espacios sin corriente suficiente. Técnico incluido."
+    whatsappText="Hola,%20quiero%20cotizar%20planta%20de%20luz%20para%20mi%20evento"
+    introParagraph1='Nada arruina un evento más rápido que un corte de luz. En <strong>REDEIL</strong> rentamos plantas de luz industriales e insonorizadas — desde 5 kVA para instalaciones pequeñas hasta 100 kVA para producciones masivas — que garantizan energía eléctrica estable durante todo tu evento, sin importar dónde sea. Jardines privados, haciendas coloniales, carpas en campos de golf, quintas rurales, playas — si no hay corriente, llevamos la corriente.'
+    introParagraph2='Todos nuestros generadores son insonorizados con niveles de ruido de 60-70 dB a 7 metros, equivalente a una conversación. Se colocan estratégicamente lejos del área de eventos para minimizar la molestia auditiva. El servicio incluye transporte, instalación, combustible para el evento, técnico de planta durante toda la noche y retiro. Más de 30 años y 3,000 eventos en CDMX nos respaldan.'
+  />
+
+  <CtaBar
+    headline="¿Qué equipo necesitas alimentar?"
+    items={[
+      { label: "Audio Profesional", href: "/servicios/bocinas/", icon: "sonido" },
+      { label: "Iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+      { label: "Sky Tracker", href: "/servicios/sky-tracker/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Generadores industriales para cualquier escala de evento"
+        subtitle="Desde 5 kVA hasta 100 kVA. Insonorizados. Combustible incluido."
+        paragraph1="Un generador mal dimensionado puede causar fluctuaciones de voltaje que dañen el equipo de audio o iluminación. Por eso hacemos el cálculo de carga exacto: sumamos el consumo de cada equipo que vas a conectar y dimensionamos el generador al 70-80% de su capacidad máxima para operar con margen de seguridad."
+        paragraph2="Para eventos donde el venue tiene corriente pero es insuficiente para el equipo profesional (muchas haciendas y casas antiguas tienen instalaciones de 60 o 100 amperes que no soportan un sistema de audio + iluminación profesional), el generador funciona como respaldo o complemento de la red existente."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/general/placeholder-cobertura.avif", alt: "Generador eléctrico industrial para evento al aire libre" },
+        { src: "/img/general/placeholder-equipo.avif", alt: "Planta de luz insonorizada para boda en jardín" },
+        { src: "/img/general/placeholder-eventos.avif", alt: "Generador 50 kVA para evento masivo en CDMX" },
+        { src: "/img/general/placeholder-instalacion.avif", alt: "Instalación de planta de luz en hacienda para boda" },
+        { src: "/img/galeria/arquitectonica-01.avif", alt: "Iluminación arquitectónica alimentada por generador" },
+        { src: "/img/galeria/arquitectonica-02.avif", alt: "Evento exterior en jardín con generador REDEIL" },
+        { src: "/img/galeria/arquitectonica-03.avif", alt: "Sistema de audio y luces en hacienda con planta de luz" },
+        { src: "/img/galeria/arquitectonica-04.avif", alt: "Bodas en hacienda colonial con generador eléctrico" },
+        { src: "/img/galeria/arquitectonica-05.avif", alt: "Planta de luz para evento corporativo en exterior" },
+        { src: "/img/galeria/arquitectonica-06.avif", alt: "Generador insonorizado para cena de gala" },
+        { src: "/img/galeria/arquitectonica-07.avif", alt: "Suministro eléctrico garantizado boda jardín CDMX" },
+        { src: "/img/galeria/arquitectonica-08.avif", alt: "Técnico operando planta de luz en evento" },
+        { src: "/img/general/renta-iluminacion-profesional-eventos-cdmx.avif", alt: "Evento nocturno en exterior con planta de luz REDEIL" },
+        { src: "/img/general/sky-tracker-eventos.avif", alt: "Sky trackers y planta de luz en evento masivo" },
+        { src: "/img/general/iluminacion-bodas-cdmx.avif", alt: "Iluminación de boda en jardín con generador" },
+        { src: "/img/general/servicios-iluminacion-eventos-collage.avif", alt: "Múltiples eventos al exterior con generadores REDEIL" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Plantas de Luz para Eventos"
+        subtitle="4 capacidades desde 10 kVA hasta 100 kVA. Técnico y combustible incluidos."
+        paragraph1="Todos los paquetes incluyen el generador, técnico de planta durante el evento, combustible estimado para la duración estándar, transporte, instalación y retiro."
+        paragraph2="¿No sabes cuántos kVA necesitas? Dinos qué equipos vas a conectar (bocinas, luces, pantallas, aire acondicionado) y te hacemos el cálculo exacto."
+      />
+      <PricingCards packages={[
+        {
+          name: "10 kVA — Eventos Pequeños",
+          price: "$4,500",
+          priceNote: "+ IVA",
+          description: "Para iluminación básica + audio de hasta 100 personas. Ideal para bodas íntimas en jardines o eventos pequeños en exterior.",
+          features: [
+            { text: "Generador 10 kVA insonorizado", included: true },
+            { text: "Combustible incluido (8 horas)", included: true },
+            { text: "Técnico de planta durante el evento", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal para audio + iluminación básica", included: true },
+            { text: "Monitoreo de carga incluido", included: true },
+            { text: "Para 300+ personas", included: false },
+            { text: "Sky trackers (requiere más kVA)", included: false },
+          ],
+          ctaLabel: "Cotizar 10 kVA",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "25 kVA — Eventos Medianos",
+          price: "$7,500",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "Para audio profesional + iluminación completa de 150–300 personas. El paquete más solicitado para bodas en hacienda.",
+          features: [
+            { text: "Generador 25 kVA insonorizado", included: true },
+            { text: "Combustible incluido (8 horas)", included: true },
+            { text: "Técnico de planta durante el evento", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Audio + iluminación + efectos", included: true },
+            { text: "Sistema anti-corte activo", included: true },
+            { text: "Ideal: bodas en hacienda, jardines", included: true },
+            { text: "Monitoreo de carga y temperatura", included: true },
+          ],
+          ctaLabel: "Cotizar 25 kVA",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "50 kVA — Eventos Grandes",
+          price: "$12,000",
+          priceNote: "+ IVA",
+          description: "Para producciones grandes con audio line array, iluminación profesional completa, pantallas y efectos especiales.",
+          features: [
+            { text: "Generador 50 kVA insonorizado", included: true },
+            { text: "Combustible incluido (10 horas)", included: true },
+            { text: "Técnico de planta + asistente", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Audio + luces + pantallas + efectos", included: true },
+            { text: "Sistema de protección eléctrica", included: true },
+            { text: "Ideal: bodas de lujo, corporativos", included: true },
+            { text: "Sky trackers compatibles", included: true },
+          ],
+          ctaLabel: "Cotizar 50 kVA",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "100 kVA — Producciones Masivas",
+          price: "Consultar",
+          priceNote: "+ IVA",
+          description: "Para conciertos, festivales y eventos masivos de 500+ personas con producción completa.",
+          features: [
+            { text: "Generador 100 kVA insonorizado", included: true },
+            { text: "Combustible estimado incluido", included: true },
+            { text: "Equipo técnico dedicado", included: true },
+            { text: "Visita previa de cálculo de carga", included: true },
+            { text: "Sistema de respaldo incluido", included: true },
+            { text: "Distribución eléctrica profesional", included: true },
+            { text: "Ideal: festivales, conciertos", included: true },
+            { text: "Certificación eléctrica disponible", included: true },
+          ],
+          ctaLabel: "Cotizar producción masiva",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Renta de Plantas de Luz"
+        subtitle="Todo lo que necesitas saber antes de contratar un generador para tu evento."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="La planta de luz es el seguro de tu evento. Más de 1,000 eventos alimentados con generadores REDEIL sin un solo corte."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántos kVA necesito para mi evento?", answer: "Depende del equipo que vayas a conectar. Un sistema básico de iluminación + audio para 100 personas requiere unos 10-15 kVA. Para un evento completo con iluminación profesional, audio, efectos especiales y pantallas para 300 personas, se necesitan entre 30 y 50 kVA. Te hacemos el cálculo de carga exacto cuando nos dices qué equipos vas a usar." },
+      { question: "¿El generador hace mucho ruido?", answer: "Nuestros generadores son insonorizados con niveles de ruido de 60-70 dB a 7 metros de distancia, equivalente a una conversación normal. Se colocan a distancia del área de eventos para minimizar el ruido. Para eventos donde el silencio es crítico (ceremonias, conferencias), usamos generadores de ultra-bajo ruido a 52 dB." },
+      { question: "¿El servicio incluye al operador del generador?", answer: "Sí. Un técnico especializado acompaña el generador durante todo el evento. Se encarga de monitorear los niveles de carga, el combustible y la temperatura del equipo para garantizar que nunca haya un corte de energía durante la noche." },
+      { question: "¿Las plantas de luz funcionan para eventos al aire libre?", answer: "Sí, exactamente para eso están diseñadas. Jardines privados, haciendas sin corriente suficiente, carpas en campos de golf, quintas rurales, eventos en la playa — cualquier espacio donde la corriente municipal sea insuficiente o inexistente. También para respaldo eléctrico en venues donde la corriente del inmueble no es suficiente para el equipo profesional." },
+      { question: "¿El generador lleva combustible incluido?", answer: "Sí. El combustible para un evento estándar de 8 horas está incluido en el precio del paquete. Para eventos de más larga duración, hacemos el cálculo del consumo y lo incluimos en la cotización. El técnico monitorea el nivel durante el evento." },
+      { question: "¿Cuánto cuesta rentar una planta de luz en CDMX?", answer: "Los paquetes comienzan desde $4,500 + IVA para generadores de 10 kVA con técnico incluido. El precio depende de la capacidad del generador (kVA), la duración del evento y el consumo de combustible estimado. Te cotizamos con exactitud cuando nos dices el equipo que necesitas alimentar." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="La planta de luz es el respaldo de todo tu equipo"
+        subtitle="Sin corriente, ningún servicio funciona. La planta lo garantiza todo."
+        paragraph1="Audio, iluminación, efectos, pantallas — todo requiere corriente eléctrica estable. En venues sin toma de corriente suficiente, la planta de luz no es un opcional, es la base del evento."
+        paragraph2="Cotiza la planta de luz junto con el equipo que vas a conectar y te armamos un paquete completo."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Evento en exterior o hacienda sin corriente suficiente?</h2>
+        <p>Cuéntanos el venue, el equipo que vas a usar y la duración del evento. Te calculamos los kVA exactos y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

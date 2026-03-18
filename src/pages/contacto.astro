@@ -1,10 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqSection from '../components/FaqSection.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 
-const title = "Contacto | REDEIL - Renta de Iluminación Profesional CDMX";
-const description = "Contacta a REDEIL para cotizar iluminación para tu evento. Atención por WhatsApp. 30 años de experiencia.";
+const title = "Contacto | REDEIL - Cotiza Iluminación para tu Evento en CDMX";
+const description = "Contacta a REDEIL para cotizar iluminación y audio para tu evento. Respuesta por WhatsApp en minutos. 30 años de experiencia en CDMX.";
 const canonical = "https://rentadeiluminacion.com/contacto/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto REDEIL",
+  "description": "Formulario de contacto y datos de REDEIL para cotizar iluminación y audio para eventos en CDMX.",
+  "url": "https://rentadeiluminacion.com/contacto/",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "email": "hola@rentadeiluminacion.com",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  }
+});
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>

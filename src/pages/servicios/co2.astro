@@ -1,43 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Hero from "../../components/Hero.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
-const schemaMarkup = JSON.stringify([{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Máquina CO2 para Eventos CDMX",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+const title = "Renta de Máquina CO2 CDMX | REDEIL — Efectos Especiales para Eventos";
+const description = "Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para pistas de baile en bodas, XV años y fiestas. Instalación incluida. Cotiza gratis.";
+const canonical = "https://rentadeiluminacion.com/servicios/co2/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Máquina CO2 para Eventos CDMX",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para efectos especiales en pistas de baile de bodas, XV años y fiestas.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Máquina CO2",
+    "priceRange": "$$"
   },
-  "description": "Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para efectos especiales en pistas de baile de bodas, XV años y fiestas.",
-  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
-  "serviceType": "Renta de Máquina CO2",
-  "priceRange": "$$"
-}]);
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La máquina de CO2 es segura en interiores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El CO2 que utilizamos se dispersa rápidamente y no es tóxico a las concentraciones que manejamos. Las máquinas son de uso profesional certificadas para eventos en salones, hoteles y haciendas cerradas. No generan humo real, solo vapor frío que desaparece en segundos." } },
+      { "@type": "Question", "name": "¿Cuánto dura el efecto del CO2?", "acceptedAnswer": { "@type": "Answer", "text": "Cada ráfaga dura entre 10 y 30 segundos dependiendo de la presión y el cilindro utilizado. Un cilindro estándar permite 15–20 disparos de 20 segundos, suficiente para el primer baile, la entrada de novios y momentos especiales adicionales." } },
+      { "@type": "Question", "name": "¿El CO2 activa alarmas de incendio?", "acceptedAnswer": { "@type": "Answer", "text": "No. A diferencia del humo escénico, el CO2 no activa detectores de humo. Por eso es ideal para salones con sistemas de alarma activos donde el humo convencional está prohibido." } },
+      { "@type": "Question", "name": "¿Cuándo se activa el efecto durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestro técnico opera la máquina a control remoto y la activa exactamente en el momento que defines: la entrada de los novios, el inicio del vals, el brindis o cualquier momento especial. Coordinamos con el DJ y el fotógrafo para el timing perfecto." } },
+      { "@type": "Question", "name": "¿El CO2 se puede combinar con otros efectos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es el efecto que mejor se combina con otros. Con humo bajo crea una niebla densa a nivel de piso. Con confeti en el mismo momento produce una explosión visual espectacular. Con seguidor de luz el efecto es cinematográfico. Armamos paquetes combinados con descuento." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta la renta de máquina CO2 en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes de CO2 comienzan desde $3,500 + IVA para 2 cañones con CO2 ilimitado durante el evento. El precio varía según la cantidad de cañones, la duración del evento y si se combina con otros efectos. Cotiza por WhatsApp y te respondemos en minutos." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo creando nube a nivel de piso en vals de boda", description: "La nube mágica a nivel de piso que todo mundo quiere para el vals. Se combina perfectamente con CO2 para un efecto de doble impacto.", link: "/servicios/humo-bajo/" },
+  { title: "Confeti", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Cañón de confeti dorado en celebración de boda", description: "Combinado con CO2 en el mismo instante, el resultado es espectacular. Confeti que sale disparado en una nube de vapor frío.", link: "/servicios/confeti/" },
+  { title: "Bengalas Frías", image: "/img/galeria/confeti-01.avif", alt: "Bengalas frías sparklers en evento", description: "Chispas frías que duran más que el CO2. Los dos efectos juntos para la entrada de novios más impactante del año.", link: "/servicios/sparklers/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED en boda elegante", description: "Show de luces que se sincroniza con el CO2. Cuando el vapor sube, las cabezas crean columnas de luz que lo atraviesan.", link: "/servicios/cabezas-moviles/" },
+];
 ---
-<BaseLayout
-  title="Renta de Máquina CO2 CDMX | REDEIL — Efectos Especiales para Eventos"
-  description="Renta de máquinas de CO2 en CDMX. Chorros de vapor frío para pistas de baile en bodas, XV años y fiestas. Instalación incluida. Cotiza gratis."
-  canonical="https://rentadeiluminacion.com/servicios/co2/"
-  schemaMarkup={schemaMarkup}
->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__col1">
-        <h1>Renta de Máquina CO2 en CDMX</h1>
-        <p>Chorros de vapor frío que crean efectos espectaculares en la pista de baile. Sin humo real, sin calor, sin residuos.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero__col2">
-        <p class="hero__seo">REDEIL renta máquinas de CO2 profesionales en la Ciudad de México y Zona Metropolitana. Los cañones de CO2 proyectan vapor frío a presión creando columnas de niebla que se dispersan rápidamente sin manchar ni mojar el piso. Perfectos para el primer baile en bodas, la entrada de quinceañera y los momentos especiales de cualquier evento.</p>
-        <p class="hero__seo">Con más de 20 años de experiencia y más de 3,000 eventos en CDMX, garantizamos operación segura durante todo el evento. El servicio incluye transporte, instalación, CO2 ilimitado durante el evento y retiro. Disponible para toda la zona metropolitana del Valle de México.</p>
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Máquina CO2" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Máquina CO2 en CDMX"
+    subtitle="Chorros de vapor frío para pistas de baile. Sin humo real, sin calor, sin residuos. Operación profesional incluida."
+    whatsappText="Hola,%20quiero%20cotizar%20m%C3%A1quina%20CO2%20para%20mi%20evento"
+    introParagraph1='Los cañones de CO2 son el efecto especial que transforma la entrada de novios en un momento de película. En <strong>REDEIL</strong> rentamos máquinas de CO2 profesionales que proyectan columnas de vapor frío a presión, creando una niebla espectacular que se dispersa rápidamente sin dejar residuo, sin mojar el piso y sin activar alarmas de incendio. Perfectas para cualquier espacio cerrado o abierto.'
+    introParagraph2='Con más de 30 años de experiencia y más de 3,000 eventos en CDMX y Estado de México, nuestro equipo técnico opera las máquinas a control remoto en el momento exacto que defines: entrada de novios, primer vals, brindis o cualquier instante especial. El servicio incluye transporte, instalación, CO2 ilimitado durante el evento y retiro del equipo.'
+  />
+
+  <CtaBar
+    headline="¿Para qué momento de tu evento?"
+    items={[
+      { label: "Humo Bajo", href: "/servicios/humo-bajo/", icon: "efectos" },
+      { label: "Confeti", href: "/servicios/confeti/", icon: "efectos" },
+      { label: "Efectos Especiales", href: "/servicios/efectos-especiales/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="CO2 profesional para el momento más impactante de tu evento"
+        subtitle="Control remoto, operador incluido, CO2 ilimitado durante el evento."
+        paragraph1="A diferencia del humo escénico convencional, el CO2 crea una columna de vapor frío y limpio que sube verticalmente y se disipa en segundos. El efecto visual es impactante: un chorro blanco que ilumina perfectamente con cualquier luz de colores. Por eso es el favorito de fotógrafos y videógrafos."
+        paragraph2="Rentamos desde 2 hasta 8 cañones simultáneos para crear una cortina completa detrás de los novios o en ambos lados del pasillo de entrada. El número de cañones depende del ancho del espacio y la intensidad del efecto que quieras lograr. Te asesoramos sin costo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/galeria/humo-bajo-01.avif", alt: "Efecto de vapor CO2 en pista de baile de boda" },
+        { src: "/img/galeria/humo-bajo-02.avif", alt: "Cañón de CO2 en entrada de novios con vapor frío" },
+        { src: "/img/galeria/humo-bajo-03.avif", alt: "Máquina CO2 creando efecto espectacular en salón" },
+        { src: "/img/galeria/humo-bajo-04.avif", alt: "Vapor CO2 iluminado con luces de color en fiesta" },
+        { src: "/img/galeria/humo-bajo-05.avif", alt: "Efecto CO2 en primer vals de boda en hacienda" },
+        { src: "/img/galeria/humo-bajo-06.avif", alt: "Columna de CO2 en XV años entrada de quinceañera" },
+        { src: "/img/galeria/humo-bajo-07.avif", alt: "Cañones CO2 en ambos lados del pasillo nupcial" },
+        { src: "/img/galeria/humo-bajo-08.avif", alt: "Efecto vapor frío CO2 con iluminación de colores" },
+        { src: "/img/galeria/humo-01.avif", alt: "Show de efectos especiales con CO2 en evento" },
+        { src: "/img/galeria/humo-02.avif", alt: "CO2 profesional operado a control remoto en boda" },
+        { src: "/img/galeria/humo-03.avif", alt: "Efecto especial CO2 en salón de eventos CDMX" },
+        { src: "/img/galeria/humo-04.avif", alt: "Vapor CO2 en pista de baile de fiesta de XV años" },
+        { src: "/img/galeria/humo-05.avif", alt: "Columna de CO2 captada por fotógrafo de boda" },
+        { src: "/img/galeria/humo-06.avif", alt: "CO2 combinado con luces LED en evento especial" },
+        { src: "/img/galeria/humo-07.avif", alt: "Efecto CO2 en brindis de aniversario en CDMX" },
+        { src: "/img/galeria/humo-08.avif", alt: "Máquina CO2 profesional en hacienda de evento" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de CO2 para Eventos"
+        subtitle="4 configuraciones desde 2 hasta 8 cañones. CO2 ilimitado en todos."
+        paragraph1="Todos los paquetes incluyen el equipo, CO2 ilimitado durante el evento, técnico operador a control remoto, transporte, instalación y retiro. Sin costos ocultos."
+        paragraph2="¿Quieres combinarlo con humo bajo, confeti o bengalas frías? Te armamos un paquete de efectos especiales con precio especial."
+      />
+      <PricingCards packages={[
+        {
+          name: "Básico — 2 Cañones",
+          price: "$3,500",
+          priceNote: "+ IVA",
+          description: "2 cañones CO2 para momentos específicos: entrada de novios o primer vals. Ideal para salones de hasta 150 personas.",
+          features: [
+            { text: "2 cañones de CO2 profesionales", included: true },
+            { text: "CO2 ilimitado durante el evento", included: true },
+            { text: "Técnico operador incluido", included: true },
+            { text: "Control remoto inalámbrico", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "3–5 disparos disponibles", included: true },
+            { text: "4+ cañones simultáneos", included: false },
+            { text: "Cortina completa 360°", included: false },
+          ],
+          ctaLabel: "Cotizar paquete básico",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Estándar — 4 Cañones",
+          price: "$5,500",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "4 cañones para el efecto completo en el primer baile y la entrada. Cubre el ancho estándar de la pista de baile.",
+          features: [
+            { text: "4 cañones de CO2 profesionales", included: true },
+            { text: "CO2 ilimitado durante el evento", included: true },
+            { text: "Técnico operador + asistente", included: true },
+            { text: "Control remoto inalámbrico", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "8–10 disparos disponibles", included: true },
+            { text: "Ideal: bodas, XV años, haciendas", included: true },
+            { text: "Cortina completa 360°", included: false },
+          ],
+          ctaLabel: "Cotizar paquete estándar",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Premium — 6 Cañones",
+          price: "$7,500",
+          priceNote: "+ IVA",
+          description: "6 cañones para venues grandes y efectos múltiples. Cobertura total de la pista de baile con impacto visual máximo.",
+          features: [
+            { text: "6 cañones de CO2 profesionales", included: true },
+            { text: "CO2 ilimitado durante el evento", included: true },
+            { text: "2 técnicos operadores", included: true },
+            { text: "Control remoto inalámbrico doble", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "15+ disparos disponibles", included: true },
+            { text: "Ideal: jardines y salones grandes", included: true },
+            { text: "Coordinación con DJ incluida", included: true },
+          ],
+          ctaLabel: "Cotizar paquete premium",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Total — 8 Cañones",
+          price: "$10,000",
+          priceNote: "+ IVA",
+          description: "8 cañones para efectos de producción completa. La opción más espectacular para eventos de alto impacto.",
+          features: [
+            { text: "8 cañones de CO2 profesionales", included: true },
+            { text: "CO2 ilimitado durante el evento", included: true },
+            { text: "Equipo técnico completo", included: true },
+            { text: "Control remoto inalámbrico", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Disparos ilimitados coordinados", included: true },
+            { text: "Sincronización con música en vivo", included: true },
+            { text: "Ideal: bodas de lujo, galas, TV", included: true },
+          ],
+          ctaLabel: "Cotizar paquete total",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Renta de Máquina CO2"
+        subtitle="Todo lo que necesitas saber antes de contratar."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="Más de 3,000 eventos nos avalan. El CO2 es uno de los efectos más solicitados para bodas y XV años en CDMX."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La máquina de CO2 es segura en interiores?", answer: "Sí. El CO2 que utilizamos se dispersa rápidamente y no es tóxico a las concentraciones que manejamos. Las máquinas son de uso profesional certificadas para eventos en salones, hoteles y haciendas cerradas. No generan humo real, solo vapor frío que desaparece en segundos." },
+      { question: "¿Cuánto dura el efecto del CO2?", answer: "Cada ráfaga dura entre 10 y 30 segundos dependiendo de la presión y el cilindro utilizado. Un cilindro estándar permite 15–20 disparos de 20 segundos, suficiente para el primer baile, la entrada de novios y momentos especiales adicionales." },
+      { question: "¿El CO2 activa alarmas de incendio?", answer: "No. A diferencia del humo escénico, el CO2 no activa detectores de humo. Por eso es ideal para salones con sistemas de alarma activos donde el humo convencional está prohibido." },
+      { question: "¿Cuándo se activa el efecto durante el evento?", answer: "Nuestro técnico opera la máquina a control remoto y la activa exactamente en el momento que defines: la entrada de los novios, el inicio del vals, el brindis o cualquier momento especial. Coordinamos con el DJ y el fotógrafo para el timing perfecto." },
+      { question: "¿El CO2 se puede combinar con otros efectos?", answer: "Sí, es el efecto que mejor se combina con otros. Con humo bajo crea una niebla densa a nivel de piso. Con confeti en el mismo momento produce una explosión visual espectacular. Con seguidor de luz el efecto es cinematográfico. Armamos paquetes combinados con descuento." },
+      { question: "¿Cuánto cuesta la renta de máquina CO2 en CDMX?", answer: "Los paquetes de CO2 comienzan desde $3,500 + IVA para 2 cañones con CO2 ilimitado durante el evento. El precio varía según la cantidad de cañones, la duración del evento y si se combina con otros efectos. Cotiza por WhatsApp y te respondemos en minutos." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Combina CO2 con Otros Efectos"
+        subtitle="El CO2 solo es impresionante. Combinado es memorable."
+        paragraph1="El CO2 funciona mejor cuando forma parte de un paquete de efectos coordinados. Humo bajo + CO2 para el vals, confeti + CO2 para el brindis, bengalas + CO2 para la entrada. Armamos la combinación perfecta para cada momento de tu evento."
+        paragraph2="Todos nuestros efectos especiales se operan de forma coordinada por un equipo técnico que trabaja en sincronía con el DJ."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para el efecto más impactante de tu evento?</h2>
+        <p>Cuéntanos la fecha, el venue y qué momentos quieres destacar con CO2. Te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

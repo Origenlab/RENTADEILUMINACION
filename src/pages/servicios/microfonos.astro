@@ -1,43 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Hero from "../../components/Hero.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
-const schemaMarkup = JSON.stringify([{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Micrófonos para Eventos CDMX",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+const title = "Renta de Micrófonos Inalámbricos CDMX | REDEIL — Bodas y Eventos";
+const description = "Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Lavalier, de mano y diadema. Instalación incluida. Cotiza gratis.";
+const canonical = "https://rentadeiluminacion.com/servicios/microfonos/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Micrófonos para Eventos CDMX",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Sonido profesional garantizado.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Micrófonos",
+    "priceRange": "$$"
   },
-  "description": "Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Sonido profesional garantizado.",
-  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
-  "serviceType": "Renta de Micrófonos",
-  "priceRange": "$$"
-}]);
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tipo de micrófonos incluyen en la renta?", "acceptedAnswer": { "@type": "Answer", "text": "Contamos con tres tipos: micrófonos de mano inalámbricos Shure para brindis, discursos y cantos; micrófonos lavalier (de solapa) para celebrantes, sacerdotes y presentadores; y diademas para animadores, actores y oradores que necesitan manos libres. Todos son de marca Shure o Sennheiser." } },
+      { "@type": "Question", "name": "¿Los micrófonos tienen riesgo de interferencias?", "acceptedAnswer": { "@type": "Answer", "text": "No. Usamos micrófonos de sistemas de frecuencia profesional UHF y Digital que operan en frecuencias libres de interferencia. El técnico de REDEIL hace un escaneo del espectro antes del evento para garantizar señal limpia sin ruido durante toda la celebración." } },
+      { "@type": "Question", "name": "¿Cuántos micrófonos necesito para mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "Para una boda estándar recomendamos mínimo 2 micrófonos de mano (uno para los votos, uno para el DJ/animador) y un lavalier para el sacerdote o juez en la ceremonia. Para bodas con brindis múltiples, presentaciones de padrinos y colocación de arras, 4 micrófonos son más cómodos." } },
+      { "@type": "Question", "name": "¿El técnico de audio viene incluido con la renta de micrófonos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La renta de micrófonos siempre incluye un técnico de audio que configura el sistema, realiza pruebas de sonido previas al evento y opera los niveles durante la ceremonia o presentación. No se renta el micrófono solo sin soporte técnico." } },
+      { "@type": "Question", "name": "¿Los micrófonos funcionan con cualquier sistema de bocinas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los micrófonos inalámbricos se conectan a la mezcladora, que a su vez va a cualquier sistema de bocinas. Funcionan con nuestro equipo REDEIL o con el sistema de audio que ya tenga el venue. Si tienes bocinas propias o del venue, llevamos solo el sistema inalámbrico." } },
+      { "@type": "Question", "name": "¿Puedo rentar micrófonos sin contratar el sistema de bocinas completo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Rentamos micrófonos como servicio independiente o como complemento al sistema de audio del venue. Llevamos el sistema inalámbrico completo (transmisor + receptor + mezcladora) para conectar a cualquier bocina existente. El técnico se encarga de la integración." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de bocinas para evento profesional", description: "Completa el sistema de micrófonos con bocinas profesionales JBL y QSC. Sonido completo para toda la sala.", link: "/servicios/bocinas/" },
+  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio profesional para primer baile de boda", description: "El paquete completo de audio para boda: bocinas, micrófonos, mezcladora y técnico. Todo coordinado para cada momento.", link: "/servicios/bocinas-bodas/" },
+  { title: "DJ Profesional", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ con consola profesional en evento CDMX", description: "El DJ maneja los micrófonos durante la fiesta. Combinado con DJ profesional tienes audio completo de ceremonia y fiesta.", link: "/servicios/bocinas-djs/" },
+  { title: "Audio para Conferencias", image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif", alt: "Audio para conferencia en salón ejecutivo", description: "Para presentaciones corporativas, micrófonos inalámbricos + bocinas de línea + procesador de audio para conferencias.", link: "/servicios/bocinas-conferencias/" },
+];
 ---
-<BaseLayout
-  title="Renta de Micrófonos Inalámbricos CDMX | REDEIL — Bodas y Eventos"
-  description="Renta de micrófonos inalámbricos en CDMX para bodas, XV años, conferencias y presentaciones. Lavalier, de mano y diadema. Instalación incluida."
-  canonical="https://rentadeiluminacion.com/servicios/microfonos/"
-  schemaMarkup={schemaMarkup}
->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__col1">
-        <h1>Renta de Micrófonos Inalámbricos en CDMX</h1>
-        <p>Micrófonos de mano, lavalier y diadema para bodas, XV años, conferencias y presentaciones. Sonido cristalino sin cables.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero__col2">
-        <p class="hero__seo">REDEIL renta micrófonos inalámbricos profesionales en la Ciudad de México y Zona Metropolitana. Contamos con micrófonos de mano Shure y Sennheiser, lavalier para presentadores y celebrantes, y diademas para actores y animadores. Frecuencias profesionales sin interferencias garantizadas para espacios de hasta 1,000 personas.</p>
-        <p class="hero__seo">El servicio incluye configuración y prueba de sonido antes del evento, técnico de audio durante la ceremonia o presentación, y retiro del equipo al finalizar. Disponible en paquete solo micrófono o combinado con sistema de bocinas REDEIL para eventos en cualquier punto del Valle de México.</p>
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Micrófonos" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Micrófonos Inalámbricos en CDMX"
+    subtitle="Micrófonos de mano, lavalier y diadema para bodas, XV años, conferencias y presentaciones. Técnico de audio incluido."
+    whatsappText="Hola,%20quiero%20cotizar%20micr%C3%B3fonos%20para%20mi%20evento"
+    introParagraph1='Un buen micrófono puede hacer que los votos de boda lleguen con claridad hasta el último invitado, o que la presentación corporativa de un director general se escuche con autoridad en todo el salón. En <strong>REDEIL</strong> rentamos micrófonos inalámbricos profesionales <strong>Shure</strong> y <strong>Sennheiser</strong> — los mismos que se usan en conciertos y producciones televisivas — para eventos de todos los tamaños en CDMX y Estado de México.'
+    introParagraph2='Contamos con micrófonos de mano para brindis y discursos, lavaliers para sacerdotes y presentadores que necesitan manos libres, y diademas para animadores y actores. Todos operan en frecuencias UHF profesionales sin interferencias, con alcance de hasta 100 metros. El servicio incluye configuración previa, prueba de sonido, técnico de audio durante el evento y retiro del equipo.'
+  />
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas micrófonos?"
+    items={[
+      { label: "Bodas", href: "/servicios/bocinas-bodas/", icon: "sonido" },
+      { label: "Conferencias", href: "/servicios/bocinas-conferencias/", icon: "sonido" },
+      { label: "Todo el Sonido", href: "/servicios/sonido/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Micrófonos profesionales para cada rol en tu evento"
+        subtitle="Shure, Sennheiser y sistemas UHF sin interferencias. Rango de hasta 100 metros."
+        paragraph1="No todos los micrófonos son para lo mismo. Un micrófono de mano cardioide es ideal para el brindis porque rechaza el ruido ambiente y captura solo la voz de quien habla. Un lavalier omnidireccional es perfecto para el sacerdote porque captura su voz sin importar cómo mueva la cabeza. Una diadema es la elección del animador que necesita manos libres para gesticular."
+        paragraph2="En REDEIL llevamos el sistema completo: transmisor de cinturo, receptor, antena remota y mezcladora. El técnico configura el sistema al espacio, prueba la señal en cada rincón del venue y ajusta los niveles para que el sonido sea cristalino sin importar dónde estén los invitados."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/galeria/conferencia-audio-01.avif", alt: "Micrófono inalámbrico de mano en brindis de boda CDMX" },
+        { src: "/img/galeria/conferencia-audio-02.avif", alt: "Lavalier en sacerdote durante ceremonia de boda" },
+        { src: "/img/galeria/conferencia-audio-03.avif", alt: "Técnico de audio revisando micrófonos antes del evento" },
+        { src: "/img/galeria/conferencia-audio-04.avif", alt: "Micrófonos inalámbricos Shure para conferencia ejecutiva" },
+        { src: "/img/galeria/conferencia-audio-05.avif", alt: "Diadema inalámbrica para animador de fiesta XV años" },
+        { src: "/img/galeria/conferencia-audio-06.avif", alt: "Sistema de micrófonos profesionales en salón de eventos" },
+        { src: "/img/galeria/conferencia-audio-07.avif", alt: "Micrófonos de mano y lavalier para boda en hacienda" },
+        { src: "/img/galeria/conferencia-audio-08.avif", alt: "Configuración de micrófonos inalámbricos con mezcladora" },
+        { src: "/img/galeria/boda-audio-01.avif", alt: "Audio para boda con micrófonos y bocinas profesionales" },
+        { src: "/img/galeria/boda-audio-02.avif", alt: "Micrófono inalámbrico en votos de matrimonio CDMX" },
+        { src: "/img/galeria/boda-audio-03.avif", alt: "Brindis con micrófono de mano profesional en boda" },
+        { src: "/img/galeria/boda-audio-04.avif", alt: "Técnico de audio operando micrófonos en ceremonia" },
+        { src: "/img/galeria/conferencias-01.avif", alt: "Ponente con micrófono de mano en presentación corporativa" },
+        { src: "/img/galeria/conferencias-02.avif", alt: "Diadema inalámbrica Shure para presentación en escenario" },
+        { src: "/img/galeria/conferencias-03.avif", alt: "Micrófono lavalier en director general durante conferencia" },
+        { src: "/img/galeria/conferencias-04.avif", alt: "Sistema inalámbrico multi-micrófono para panel de expertos" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Micrófonos Inalámbricos"
+        subtitle="4 configuraciones desde 1 hasta 6 micrófonos. Técnico de audio incluido en todos."
+        paragraph1="Todos los paquetes incluyen el sistema inalámbrico completo, técnico de audio, prueba de sonido previa, operación durante el evento y retiro. Sin costos ocultos."
+        paragraph2="¿Necesitas micrófonos + bocinas + DJ? Armamos el paquete completo de audio con precio especial."
+      />
+      <PricingCards packages={[
+        {
+          name: "Básico — 2 Micrófonos",
+          price: "$2,500",
+          priceNote: "+ IVA",
+          description: "2 micrófonos de mano inalámbricos. Para brindis, discursos o celebrante + novios en la ceremonia.",
+          features: [
+            { text: "2 micrófonos Shure inalámbricos", included: true },
+            { text: "Sistema UHF sin interferencias", included: true },
+            { text: "Técnico de audio incluido", included: true },
+            { text: "Prueba de sonido previa", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Alcance hasta 50 metros", included: true },
+            { text: "Lavalier o diadema incluida", included: false },
+            { text: "6 micrófonos simultáneos", included: false },
+          ],
+          ctaLabel: "Cotizar paquete básico",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Estándar — 4 Micrófonos",
+          price: "$4,000",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "4 micrófonos con combinación de tipos. Ideal para bodas con ceremonia + recepción o presentaciones con panel.",
+          features: [
+            { text: "2 micrófonos de mano Shure", included: true },
+            { text: "1 lavalier (solapa) Shure", included: true },
+            { text: "1 diadema inalámbrica", included: true },
+            { text: "Sistema UHF sin interferencias", included: true },
+            { text: "Técnico de audio incluido", included: true },
+            { text: "Prueba de sonido + ajuste al venue", included: true },
+            { text: "Alcance hasta 80 metros", included: true },
+            { text: "Ideal: bodas, XV años, corporativos", included: true },
+          ],
+          ctaLabel: "Cotizar paquete estándar",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Premium — 6 Micrófonos",
+          price: "$6,500",
+          priceNote: "+ IVA",
+          description: "6 micrófonos para eventos con múltiples ponentes, paneles, obras o ceremonias completas.",
+          features: [
+            { text: "4 micrófonos de mano Shure", included: true },
+            { text: "2 lavalier Shure profesionales", included: true },
+            { text: "Sistema UHF multi-canal", included: true },
+            { text: "Técnico de audio + asistente", included: true },
+            { text: "Mezcladora dedicada", included: true },
+            { text: "Alcance hasta 100 metros", included: true },
+            { text: "Ideal: conferencias, bodas grandes", included: true },
+            { text: "Integración con sistema de bocinas", included: true },
+          ],
+          ctaLabel: "Cotizar paquete premium",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Producción — 8+ Micrófonos",
+          price: "Consultar",
+          priceNote: "+ IVA",
+          description: "Para producciones con múltiples canales simultáneos: conciertos, obras de teatro, ceremonias masivas.",
+          features: [
+            { text: "8+ micrófonos multicanal", included: true },
+            { text: "Tipos según necesidad del evento", included: true },
+            { text: "Rack de sistemas inalámbricos pro", included: true },
+            { text: "Ingeniero de audio FOH dedicado", included: true },
+            { text: "Visita técnica previa incluida", included: true },
+            { text: "Mezcla en vivo multicanal", included: true },
+            { text: "Ideal: conciertos, producciones TV", included: true },
+            { text: "Transmisión en vivo compatible", included: true },
+          ],
+          ctaLabel: "Cotizar producción",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Renta de Micrófonos"
+        subtitle="Todo lo que necesitas saber antes de contratar micrófonos para tu evento."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="Más de 3,000 eventos y +30 años de experiencia en audio profesional nos respaldan."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué tipo de micrófonos incluyen en la renta?", answer: "Contamos con tres tipos: micrófonos de mano inalámbricos Shure para brindis, discursos y cantos; micrófonos lavalier (de solapa) para celebrantes, sacerdotes y presentadores; y diademas para animadores, actores y oradores que necesitan manos libres. Todos son de marca Shure o Sennheiser." },
+      { question: "¿Los micrófonos tienen riesgo de interferencias?", answer: "No. Usamos micrófonos de sistemas de frecuencia profesional UHF y Digital que operan en frecuencias libres de interferencia. El técnico de REDEIL hace un escaneo del espectro antes del evento para garantizar señal limpia sin ruido durante toda la celebración." },
+      { question: "¿Cuántos micrófonos necesito para mi boda?", answer: "Para una boda estándar recomendamos mínimo 2 micrófonos de mano (uno para los votos, uno para el DJ/animador) y un lavalier para el sacerdote o juez en la ceremonia. Para bodas con brindis múltiples, presentaciones de padrinos y colocación de arras, 4 micrófonos son más cómodos." },
+      { question: "¿El técnico de audio viene incluido con la renta de micrófonos?", answer: "Sí. La renta de micrófonos siempre incluye un técnico de audio que configura el sistema, realiza pruebas de sonido previas al evento y opera los niveles durante la ceremonia o presentación. No se renta el micrófono solo sin soporte técnico." },
+      { question: "¿Los micrófonos funcionan con cualquier sistema de bocinas?", answer: "Sí. Los micrófonos inalámbricos se conectan a la mezcladora, que a su vez va a cualquier sistema de bocinas. Funcionan con nuestro equipo REDEIL o con el sistema de audio que ya tenga el venue. Si tienes bocinas propias o del venue, llevamos solo el sistema inalámbrico." },
+      { question: "¿Puedo rentar micrófonos sin contratar el sistema de bocinas completo?", answer: "Sí. Rentamos micrófonos como servicio independiente o como complemento al sistema de audio del venue. Llevamos el sistema inalámbrico completo (transmisor + receptor + mezcladora) para conectar a cualquier bocina existente. El técnico se encarga de la integración." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Completa tu Sistema de Audio"
+        subtitle="Los micrófonos son parte del sistema. El audio completo lo hace perfecto."
+        paragraph1="Un micrófono profesional sin bocinas profesionales no da el resultado esperado. Y al revés también. En REDEIL rentamos el sistema de audio completo o cada componente por separado según lo que necesites."
+        paragraph2="Cuéntanos tu evento completo y te cotizamos todo el audio de una vez, con precio especial por paquete."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu evento se escuche como debe?</h2>
+        <p>Cuéntanos el tipo de evento, el número de micrófonos que necesitas y el venue. Te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

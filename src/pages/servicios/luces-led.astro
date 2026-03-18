@@ -1,68 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
 const title = "Renta de Luces LED para Eventos | REDEIL CDMX";
-const description = "Renta de luces LED para bodas, fiestas y eventos en CDMX. Iluminación LED profesional en colores personalizados. REDEIL instala y opera tu iluminación.";
+const description = "Renta de luces LED para bodas, fiestas y eventos en CDMX. Iluminación LED profesional en colores personalizados. Instalación y operación incluidas. Cotiza.";
 const canonical = "https://rentadeiluminacion.com/servicios/luces-led/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Luces LED para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Luces LED para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de luces LED para eventos en Ciudad de México. Iluminación LED en colores personalizados para bodas, fiestas y corporativos.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Luces LED",
+    "priceRange": "$$"
   },
-  "description": "Servicio profesional de renta de luces LED para eventos en Ciudad de México. Iluminación LED en colores personalizados para bodas, fiestas y corporativos.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Luces LED"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántas luces LED necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del espacio. Para uplighting en un salón estándar de 300 m², se necesitan entre 16 y 24 par LED (uno cada 2 metros de pared). Para un jardín o hacienda, el cálculo se hace por área cubierta. Te asesoramos gratis con fotos o medidas del venue." } },
+      { "@type": "Question", "name": "¿Puedo elegir los colores para mi boda o evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los par LED RGBW permiten programar cualquier color con precisión. Puedes darnos el código HEX de tu paleta de colores o los colores de tus flores y los replicamos exactamente. Para bodas, lo más común es tonos dorados, blancos cálidos o el color de la decoración." } },
+      { "@type": "Question", "name": "¿Las luces LED se pueden cambiar de color durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Programamos cambios de color para diferentes momentos del evento: blanco cálido para la ceremonia, dorado para la recepción, colores dinámicos para la pista de baile. Nuestro técnico opera el sistema DMX y hace los cambios en el momento exacto." } },
+      { "@type": "Question", "name": "¿Las luces LED funcionan en interiores y exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Tenemos equipos para ambos ambientes. Las luminarias de interior son par LED RGBW estándar para salones, haciendas y carpas. Para exteriores usamos equipos con certificación IP65 o IP67 resistentes a humedad y polvo. Los colores son igual de intensos en ambos casos." } },
+      { "@type": "Question", "name": "¿El servicio incluye instalación y retiro?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos los paquetes de luces LED incluyen transporte del equipo, instalación profesional (cableado, colocación y configuración), operación durante el evento y desmontaje al finalizar. Llegamos al menos 2 horas antes para tener todo listo y probado." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar luces LED en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes de luces LED comienzan desde $4,500 + IVA para 12 par LED con uplighting básico. El precio varía según el número de luminarias, el tipo de efecto y la duración del evento. Cotiza por WhatsApp con fotos del venue y te damos una propuesta en minutos." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "City Color", image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif", alt: "City Color iluminando hacienda para boda", description: "City Color: cañones LED de alta potencia para bañar de color fachadas, árboles y espacios grandes. El complemento perfecto de los par LED.", link: "/servicios/city-color/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED en boda elegante", description: "Mientras las luces LED crean el ambiente, las cabezas móviles animan la pista. La combinación más solicitada para bodas.", link: "/servicios/cabezas-moviles/" },
+  { title: "Iluminación Arquitectónica", image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif", alt: "Uplighting en hacienda para boda", description: "Uplighting especializado para fachadas, columnas y elementos arquitectónicos. LED posicionado para realzar la belleza del espacio.", link: "/servicios/iluminacion-arquitectonica/" },
+  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas-400w.avif", alt: "Cascadas LED en arco de ceremonia", description: "Las cascadas LED son otro tipo de iluminación LED: cortinas de luces que caen en cascada para fondos espectaculares.", link: "/servicios/cascadas-led/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <nav class="breadcrumb-section" aria-label="Breadcrumb">
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Luces LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Luces LED para Eventos en CDMX"
+    subtitle="Iluminación LED profesional que transforma espacios con color. Millones de combinaciones. Técnico de iluminación incluido."
+    whatsappText="Hola,%20quiero%20cotizar%20luces%20LED%20para%20mi%20evento"
+    introParagraph1='En <strong>REDEIL</strong> ofrecemos renta de luces LED profesionales para todo tipo de eventos en la Ciudad de México y Estado de México. Nuestros equipos LED permiten crear ambientes personalizados con millones de colores, adaptando la iluminación al estilo y temática de tu boda, fiesta, evento corporativo o celebración especial. Par LED RGBW, barras LED, wash LED y uplights para crear el ambiente exacto que imaginas.'
+    introParagraph2='Diseñamos esquemas de iluminación LED personalizados para cada evento. Ya sea que necesites bañar la fachada de una hacienda en tonos dorados para tu boda, crear un ambiente corporativo con los colores de tu marca, o transformar un salón con cambios de color dinámicos durante la pista de baile, nuestro equipo técnico tiene la experiencia para lograrlo. Más de 30 años y 3,000 eventos en CDMX nos respaldan.'
+  />
+
+  <CtaBar
+    headline="¿Qué tipo de iluminación LED necesitas?"
+    items={[
+      { label: "City Color", href: "/servicios/city-color/", icon: "iluminacion" },
+      { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+      { label: "Toda la Iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
     <div class="container">
-      <div class="breadcrumb"><ol><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Luces LED</li></ol></div>
+      <SectionHeader
+        title="Iluminación LED profesional para cada tipo de evento"
+        subtitle="Par LED RGBW, barras LED y wash para ambientes de color en cualquier espacio."
+        paragraph1="Las luces LED son la solución más versátil para iluminar eventos. Ofrecen una gama infinita de colores, consumen poca energía, no generan calor y permiten crear desde ambientes románticos hasta pistas de baile vibrantes. En REDEIL utilizamos equipos LED de grado profesional que garantizan brillo uniforme y colores intensos en cualquier espacio."
+        paragraph2="El servicio incluye visita previa al venue cuando se requiere, diseño del plan de iluminación, traslado de equipo, montaje, operación técnica durante el evento y desmontaje. Cubrimos toda la CDMX y zona metropolitana con la garantía y profesionalismo de más de 30 años en el sector."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/city-color/city-color-fachada-hacienda-boda.avif", alt: "Fachada de hacienda iluminada con luces LED de color para boda" },
+        { src: "/img/city-color/city-color-fachadas-monumentos.avif", alt: "Fachada monumental iluminada con luces LED profesionales" },
+        { src: "/img/city-color/city-color-hacienda-evento-especial.avif", alt: "Hacienda iluminada con luces LED para evento especial" },
+        { src: "/img/city-light/iluminacion-bodas-hacienda.avif", alt: "Iluminación LED para boda en hacienda con tonos cálidos" },
+        { src: "/img/city-light/iluminacion-eventos-corporativos.avif", alt: "Luces LED para evento corporativo con colores de marca" },
+        { src: "/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif", alt: "Entrada de novios iluminada con luces LED magenta" },
+        { src: "/img/galeria/arquitectonica-01.avif", alt: "Uplighting LED en columnas de hacienda para boda" },
+        { src: "/img/galeria/arquitectonica-02.avif", alt: "Par LED RGBW iluminando pared de salón en azul" },
+        { src: "/img/galeria/arquitectonica-03.avif", alt: "Barras LED de color en escenario de evento corporativo" },
+        { src: "/img/galeria/arquitectonica-04.avif", alt: "Wash LED iluminando jardín para boda al aire libre" },
+        { src: "/img/galeria/arquitectonica-05.avif", alt: "Luces LED doradas en recepción de boda CDMX" },
+        { src: "/img/galeria/arquitectonica-06.avif", alt: "Par LED en pista de baile con colores dinámicos" },
+        { src: "/img/galeria/arquitectonica-07.avif", alt: "Iluminación LED morada en XV años salón" },
+        { src: "/img/galeria/arquitectonica-08.avif", alt: "Luces LED blancas cálidas para ceremonia íntima" },
+        { src: "/img/galeria/cascadas-01.avif", alt: "Luces LED y cascadas LED en salón de bodas CDMX" },
+        { src: "/img/galeria/cascadas-02.avif", alt: "Combinación de LED de color y cascadas para boda" },
+      ]} />
     </div>
-  </nav>
-  <main id="main-content">
-    <Hero
-      title="Renta de Luces LED para Eventos en CDMX"
-      subtitle="Iluminación LED profesional que transforma tus espacios con color"
-      introParagraph1="En REDEIL ofrecemos renta de luces LED para todo tipo de eventos en la Ciudad de México. Nuestros equipos LED permiten crear ambientes personalizados con millones de colores, adaptando la iluminación al estilo y temática de tu boda, fiesta, evento corporativo o celebración especial."
-      introParagraph2="Contamos con una amplia variedad de luminarias LED: barras, wash, par LED, uplights y paneles que bañan muros, fachadas, techos y jardines con luz de color uniforme. Nuestro equipo técnico se encarga de la instalación, programación y operación durante todo tu evento."
-    />
-    <section class="service-detail">
-      <div class="container">
-        <h2>Iluminación LED profesional para cada tipo de evento</h2>
-        <p>Las luces LED son la solución más versátil para iluminar eventos. Ofrecen una gama infinita de colores, consumen poca energía, no generan calor y permiten crear desde ambientes románticos hasta pistas de baile vibrantes. En REDEIL utilizamos equipos LED de grado profesional que garantizan brillo uniforme y colores intensos.</p>
-        <p>Diseñamos esquemas de iluminación LED personalizados para cada evento. Ya sea que necesites bañar la fachada de una hacienda en tonos dorados para tu boda, crear un ambiente corporativo con los colores de tu marca o transformar un salón con cambios de color dinámicos, nuestro equipo tiene la experiencia para lograrlo.</p>
-        <p>El servicio incluye visita previa al venue (cuando se requiere), diseño del plan de iluminación, traslado de equipo, montaje, operación técnica durante el evento y desmontaje. Cubrimos toda la CDMX y zona metropolitana con la garantía y profesionalismo de REDEIL.</p>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Luces LED para Eventos"
+        subtitle="4 configuraciones desde uplighting básico hasta producción completa. Técnico incluido."
+        paragraph1="Todos los paquetes incluyen las luminarias LED, técnico de iluminación, programación de colores, transporte, instalación y retiro. Sin costos ocultos."
+        paragraph2="¿Quieres colores específicos de tu paleta de bodas o marca? Programamos el color exacto que necesitas — danos el código HEX o las referencias."
+      />
+      <PricingCards packages={[
+        {
+          name: "Básico — Uplighting",
+          price: "$4,500",
+          priceNote: "+ IVA",
+          description: "12 par LED RGBW para uplighting perimetral en salones de hasta 200 m². Un color base fijo durante el evento.",
+          features: [
+            { text: "12 par LED RGBW profesionales", included: true },
+            { text: "1 color programado para el evento", included: true },
+            { text: "Técnico de iluminación incluido", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: salones hasta 200 m²", included: true },
+            { text: "Colores cambiantes durante evento", included: false },
+            { text: "City Color / wash de alta potencia", included: false },
+            { text: "Show de luces programado", included: false },
+          ],
+          ctaLabel: "Cotizar uplighting básico",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Estándar — Color Dinámico",
+          price: "$7,000",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "20 par LED con cambios de color programados para momentos clave: ceremonia, cena, baile. Cobertura completa.",
+          features: [
+            { text: "20 par LED RGBW profesionales", included: true },
+            { text: "Cambios de color por momentos", included: true },
+            { text: "Control DMX para el técnico", included: true },
+            { text: "Técnico de iluminación incluido", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: bodas, XV años, galas", included: true },
+            { text: "Coordinación con DJ incluida", included: true },
+            { text: "Programación de color personalizada", included: true },
+          ],
+          ctaLabel: "Cotizar color dinámico",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Premium — Ambiente Completo",
+          price: "$10,000",
+          priceNote: "+ IVA",
+          description: "30 par LED + barras LED + wash para cobertura total del espacio. Múltiples zonas de color con transiciones suaves.",
+          features: [
+            { text: "30+ luminarias LED profesionales", included: true },
+            { text: "Par LED + barras + wash", included: true },
+            { text: "Control DMX multizona", included: true },
+            { text: "Técnico de iluminación + asistente", included: true },
+            { text: "Diseño de iluminación personalizado", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: haciendas, salones grandes", included: true },
+            { text: "Visita previa al venue incluida", included: true },
+          ],
+          ctaLabel: "Cotizar ambiente completo",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Producción — Show Completo",
+          price: "Consultar",
+          priceNote: "+ IVA",
+          description: "Producción de iluminación completa con diseño de lighting, show programado y equipo profesional para eventos de gran formato.",
+          features: [
+            { text: "50+ luminarias LED profesionales", included: true },
+            { text: "Consola DMX dedicada", included: true },
+            { text: "Diseñador de iluminación profesional", included: true },
+            { text: "Show de luces completamente programado", included: true },
+            { text: "Visita técnica previa incluida", included: true },
+            { text: "Integración con audio y efectos", included: true },
+            { text: "Ideal: bodas de lujo, galas, festivales", included: true },
+            { text: "Render 3D previo disponible", included: true },
+          ],
+          ctaLabel: "Cotizar producción de luces",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Renta de Luces LED"
+        subtitle="Todo lo que necesitas saber antes de contratar iluminación LED para tu evento."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="Las luces LED son el tipo de iluminación más solicitado para bodas y eventos corporativos en CDMX."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántas luces LED necesito para mi evento?", answer: "Depende del espacio. Para uplighting en un salón estándar de 300 m², se necesitan entre 16 y 24 par LED (uno cada 2 metros de pared). Para un jardín o hacienda, el cálculo se hace por área cubierta. Te asesoramos gratis con fotos o medidas del venue." },
+      { question: "¿Puedo elegir los colores para mi boda o evento?", answer: "Sí. Los par LED RGBW permiten programar cualquier color con precisión. Puedes darnos el código HEX de tu paleta de colores o los colores de tus flores y los replicamos exactamente. Para bodas, lo más común es tonos dorados, blancos cálidos o el color de la decoración." },
+      { question: "¿Las luces LED se pueden cambiar de color durante el evento?", answer: "Sí. Programamos cambios de color para diferentes momentos del evento: blanco cálido para la ceremonia, dorado para la recepción, colores dinámicos para la pista de baile. Nuestro técnico opera el sistema DMX y hace los cambios en el momento exacto." },
+      { question: "¿Las luces LED funcionan en interiores y exteriores?", answer: "Tenemos equipos para ambos ambientes. Las luminarias de interior son par LED RGBW estándar para salones, haciendas y carpas. Para exteriores usamos equipos con certificación IP65 o IP67 resistentes a humedad y polvo. Los colores son igual de intensos en ambos casos." },
+      { question: "¿El servicio incluye instalación y retiro?", answer: "Sí. Todos los paquetes de luces LED incluyen transporte del equipo, instalación profesional (cableado, colocación y configuración), operación durante el evento y desmontaje al finalizar. Llegamos al menos 2 horas antes para tener todo listo y probado." },
+      { question: "¿Cuánto cuesta rentar luces LED en CDMX?", answer: "Los paquetes de luces LED comienzan desde $4,500 + IVA para 12 par LED con uplighting básico. El precio varía según el número de luminarias, el tipo de efecto y la duración del evento. Cotiza por WhatsApp con fotos del venue y te damos una propuesta en minutos." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Tipos de Iluminación LED de REDEIL"
+        subtitle="Las luces LED básicas son el punto de partida. Hay opciones más especializadas."
+        paragraph1="Par LED genérico es la base. Pero para efectos más impactantes, REDEIL ofrece city color para grandes superficies, iluminación arquitectónica para venues históricos, cascadas LED para fondos de escenario y cabezas móviles para shows dinámicos."
+        paragraph2="Cuéntanos tu venue y tu visión. Te recomendamos la combinación exacta de equipos LED."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
-    </section>
-    <GallerySection title="Galería de Luces LED" subtitle="Iluminación LED profesional en eventos reales en CDMX">
-      <figure class="gallery-item">
-        <img src="/img/city-color/city-color-fachada-hacienda-boda.avif" alt="Fachada de hacienda iluminada con luces LED de color para boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/city-color-fachadas-monumentos.avif" alt="Fachada monumental iluminada con luces LED profesionales" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-color/city-color-hacienda-evento-especial.avif" alt="Hacienda iluminada con luces LED para evento especial" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-bodas-hacienda.avif" alt="Iluminación LED para boda en hacienda con tonos cálidos" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-eventos-corporativos.avif" alt="Luces LED para evento corporativo con colores de marca" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/city-light/iluminacion-ambientar-entrada-novios-magenta.avif" alt="Entrada de novios iluminada con luces LED magenta" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
-  </main>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu espacio con iluminación LED?</h2>
+        <p>Mándanos fotos del venue, el color de tu paleta y el tipo de evento. Te cotizamos la iluminación perfecta en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

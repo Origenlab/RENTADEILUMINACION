@@ -1,43 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Hero from "../../components/Hero.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
-const schemaMarkup = JSON.stringify([{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Pantallas LED para Eventos CDMX",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+const title = "Renta de Pantallas LED CDMX | REDEIL — Videowall para Eventos";
+const description = "Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales. Instalación incluida.";
+const canonical = "https://rentadeiluminacion.com/servicios/pantallas-led/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Pantallas LED para Eventos CDMX",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Pantallas LED",
+    "priceRange": "$$"
   },
-  "description": "Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales.",
-  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
-  "serviceType": "Renta de Pantallas LED",
-  "priceRange": "$$"
-}]);
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tamaños de pantalla LED tienen disponibles?", "acceptedAnswer": { "@type": "Answer", "text": "Contamos con pantallas de 55\", 65\", 75\" y 85\" para espacios pequeños y medianos. Para escenarios grandes ofrecemos videowall modular P3.9 y P2.6 desde 2x2 metros hasta configuraciones de más de 10 metros de ancho. También tenemos pantallas LED para exteriores con mayor brillo." } },
+      { "@type": "Question", "name": "¿Qué tipo de contenido puedo proyectar en las pantallas?", "acceptedAnswer": { "@type": "Answer", "text": "Video en tiempo real, fotografías, presentaciones PowerPoint o Keynote, streaming en vivo, galería de fotos del evento en tiempo real, logotipos y gráficos animados. Conectamos desde laptop, tablet, HDMI, USB o transmisión por cable de red. El operador de contenido gestiona todo durante el evento." } },
+      { "@type": "Question", "name": "¿La pantalla LED funciona de día o solo de noche?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del tipo de pantalla. Las pantallas de interior funcionan mejor en espacios con luz controlada. Las pantallas de exterior tienen entre 4,000 y 6,000 nits de brillo para verse perfectamente de día. Para eventos al aire libre de día, recomendamos pantallas outdoor. Las de interior funcionan muy bien de noche o en espacios cerrados." } },
+      { "@type": "Question", "name": "¿El servicio incluye un operador de contenido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El operador de contenido está incluido en todos los paquetes. Se encarga de cargar el contenido, hacer las transiciones en el momento exacto del evento y manejar cualquier cambio de última hora. Tú nos envías el material y nosotros lo configuramos." } },
+      { "@type": "Question", "name": "¿Se puede hacer una galería de fotos en tiempo real durante el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Conectamos la pantalla con un sistema de foto en vivo donde las fotos tomadas por los invitados o el fotógrafo oficial aparecen en la pantalla en segundos. También hacemos integración con hashtag de Instagram para que las fotos del evento aparezcan automáticamente." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar pantallas LED en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Las pantallas simples comienzan desde $4,000 + IVA por pantalla de 55\" con operador incluido. Los videowalls modulares desde $12,000 + IVA para configuraciones 2x2. El precio depende del tamaño, resolución, duración del evento y si necesitas operador de contenido. Cotiza por WhatsApp." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED en evento", description: "Pantallas + cabezas móviles para el escenario completo. La pantalla muestra el contenido, las luces crean el ambiente.", link: "/servicios/cabezas-moviles/" },
+  { title: "Pantalla Inflable", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para cine al aire libre", description: "Para eventos al aire libre de noche, la pantalla inflable con proyector 4K es la opción más espectacular.", link: "/servicios/pantalla-inflable/" },
+  { title: "Bocinas para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de audio profesional para evento", description: "La pantalla transmite el video, las bocinas el audio. Sistema audiovisual completo con técnico incluido.", link: "/servicios/bocinas/" },
+  { title: "Gobos Personalizados", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Gobo proyectando monograma en pista de baile", description: "Para bodas, el gobo proyecta el monograma de los novios mientras la pantalla muestra el álbum fotográfico en vivo.", link: "/servicios/gobos/" },
+];
 ---
-<BaseLayout
-  title="Renta de Pantallas LED CDMX | REDEIL — Videowall para Eventos"
-  description="Renta de pantallas LED y videowall en CDMX. Desde 55 pulgadas hasta configuraciones gigantes para bodas, corporativos y festivales. Instalación incluida."
-  canonical="https://rentadeiluminacion.com/servicios/pantallas-led/"
-  schemaMarkup={schemaMarkup}
->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__col1">
-        <h1>Renta de Pantallas LED en CDMX</h1>
-        <p>Pantallas individuales o videowall para proyección de video, fotos y transmisiones en vivo durante tu evento.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero__col2">
-        <p class="hero__seo">REDEIL renta pantallas LED profesionales en la Ciudad de México y Zona Metropolitana. Disponemos de pantallas de 55", 65" y 75" para ambientes pequeños, y configuraciones de videowall modular de 3×3, 4×4 y personalizadas para escenarios grandes. Resolución 4K disponible para presentaciones corporativas de alto impacto.</p>
-        <p class="hero__seo">El servicio incluye transporte, montaje en estructura o trípode, calibración de imagen, operador de contenido durante el evento y retiro. Compatibles con laptop, tablet, USB, HDMI y transmisión en vivo por streaming. Ideales para bodas con galería de fotos en tiempo real, eventos corporativos y lanzamientos de productos en CDMX y Edomex.</p>
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios/" },
+    { label: "Pantallas LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Pantallas LED en CDMX"
+    subtitle="Pantallas individuales y videowalls para bodas, corporativos y festivales. Operador de contenido incluido en todos los paquetes."
+    whatsappText="Hola,%20quiero%20cotizar%20pantallas%20LED%20para%20mi%20evento"
+    introParagraph1='Una pantalla LED bien colocada en un evento puede mostrar la galería de fotos en tiempo real, el streaming de la ceremonia para quienes están en la recepción, o los datos del ponente en una conferencia. En <strong>REDEIL</strong> rentamos desde pantallas de 55" para salones pequeños hasta videowalls modulares P3.9 de más de 10 metros de ancho para escenarios de gran formato en CDMX y Estado de México.'
+    introParagraph2='Nuestro equipo incluye instalación en estructura, trípode o pared, calibración de imagen para el espacio, operador de contenido durante el evento y retiro. Compatible con laptop, tablet, HDMI, USB y streaming en vivo. Para bodas, ofrecemos galería fotográfica en tiempo real — las fotos del evento aparecen en la pantalla en segundos. Más de 30 años y 3,000 eventos respaldan nuestra experiencia técnica.'
+  />
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas la pantalla?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/servicios/bocinas-conferencias/", icon: "iluminacion" },
+      { label: "Pantalla Inflable", href: "/servicios/pantalla-inflable/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Pantallas LED para todos los tipos de evento"
+        subtitle="Desde 55 pulgadas hasta videowalls de más de 10 metros. Resolución 4K disponible."
+        paragraph1="Para eventos corporativos, la pantalla es el canal de comunicación visual principal: presentaciones de directivos, videos institucionales, estadísticas en tiempo real. Usamos pantallas con resolución 4K y hasta 700 nits de brillo para verse perfectamente en espacios con luz artificial."
+        paragraph2="Para bodas, el uso más popular es la galería de fotos en vivo: un fotógrafo dedicado toma fotos durante la recepción y aparecen en la pantalla en menos de un minuto. También proyectamos el video de amor de los novios, el slideshow de infancia y el streaming en tiempo real para invitados remotos. Armamos el contenido completo si así lo requieres."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/galeria/pantalla-01.avif", alt: "Pantalla LED videowall en evento corporativo CDMX" },
+        { src: "/img/galeria/pantalla-02.avif", alt: "Pantalla LED 75 pulgadas en boda salón" },
+        { src: "/img/galeria/pantalla-03.avif", alt: "Videowall modular para escenario de conferencia" },
+        { src: "/img/galeria/pantalla-04.avif", alt: "Pantalla LED galería fotos en tiempo real boda" },
+        { src: "/img/galeria/pantalla-05.avif", alt: "Pantalla gigante LED para festival o concierto" },
+        { src: "/img/galeria/pantalla-06.avif", alt: "Videowall corporativo en lanzamiento de producto" },
+        { src: "/img/galeria/pantalla-07.avif", alt: "Pantalla LED exterior para evento al aire libre" },
+        { src: "/img/galeria/pantalla-08.avif", alt: "Pantalla LED instalada en trípode para salón" },
+        { src: "/img/galeria/pantalla-inflable-01.avif", alt: "Pantalla en venue de evento especial CDMX" },
+        { src: "/img/galeria/pantalla-inflable-02.avif", alt: "Videowall de gran formato en boda hacienda" },
+        { src: "/img/galeria/pantalla-inflable-03.avif", alt: "Pantalla LED para streaming en vivo boda" },
+        { src: "/img/galeria/pantalla-inflable-04.avif", alt: "Pantalla corporativa para presentación ejecutiva" },
+        { src: "/img/galeria/conferencias-05.avif", alt: "Pantalla LED en conferencia empresarial CDMX" },
+        { src: "/img/galeria/conferencias-06.avif", alt: "Videowall con presentación en salón corporativo" },
+        { src: "/img/galeria/conferencias-07.avif", alt: "Pantalla 4K para evento de lanzamiento de marca" },
+        { src: "/img/galeria/conferencias-08.avif", alt: "Pantallas múltiples en auditorio corporativo CDMX" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Pantallas LED para Eventos"
+        subtitle="4 configuraciones desde pantalla individual hasta videowall gigante. Operador incluido."
+        paragraph1="Todos los paquetes incluyen la pantalla o videowall, operador de contenido, instalación en estructura o trípode, calibración de imagen, transporte y retiro. Sin costos adicionales."
+        paragraph2="¿Necesitas contenido diseñado para la pantalla? También producimos gráficos animados, slideshows y elementos visuales para tu evento."
+      />
+      <PricingCards packages={[
+        {
+          name: "Simple — 1 Pantalla",
+          price: "$4,000",
+          priceNote: "+ IVA",
+          description: "Una pantalla de 65\" o 75\" en trípode. Ideal para ceremonias, brindis o presentaciones en salones pequeños.",
+          features: [
+            { text: "1 pantalla LED 65\" o 75\"", included: true },
+            { text: "Resolución Full HD / 4K", included: true },
+            { text: "Operador de contenido incluido", included: true },
+            { text: "Instalación en trípode o pared", included: true },
+            { text: "Compatible: HDMI, USB, laptop", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Galería fotos en tiempo real", included: false },
+            { text: "Videowall modular", included: false },
+          ],
+          ctaLabel: "Cotizar pantalla simple",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Doble — 2 Pantallas",
+          price: "$7,000",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "2 pantallas de 75\" en ambos lados del escenario. El estándar para bodas y eventos corporativos medianos.",
+          features: [
+            { text: "2 pantallas LED 75\" 4K", included: true },
+            { text: "Instalación en estructura metálica", included: true },
+            { text: "Operador de contenido incluido", included: true },
+            { text: "Galería fotos en tiempo real", included: true },
+            { text: "Compatible con streaming en vivo", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: bodas, corporativos, galas", included: true },
+            { text: "Slideshow personalizado incluido", included: true },
+          ],
+          ctaLabel: "Cotizar paquete doble",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Videowall 3×2 m",
+          price: "$15,000",
+          priceNote: "+ IVA",
+          description: "Videowall modular P3.9 de 3×2 metros para escenarios grandes. Alta resolución y brillo máximo.",
+          features: [
+            { text: "Videowall LED P3.9 — 3×2 metros", included: true },
+            { text: "Brillo 4,500 nits", included: true },
+            { text: "Técnico + operador de contenido", included: true },
+            { text: "Estructura de montaje incluida", included: true },
+            { text: "Compatible con software profesional", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: haciendas, salones grandes", included: true },
+            { text: "Galería fotos + streaming incluidos", included: true },
+          ],
+          ctaLabel: "Cotizar videowall 3×2",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Gran Formato — 6×3 m+",
+          price: "Consultar",
+          priceNote: "+ IVA",
+          description: "Videowalls de gran formato para escenarios principales, festivales y producciones de alto impacto.",
+          features: [
+            { text: "Videowall P3.9 o P2.6 gran formato", included: true },
+            { text: "Desde 6×3 m hasta medidas custom", included: true },
+            { text: "Equipo técnico completo", included: true },
+            { text: "Ingeniería de instalación incluida", included: true },
+            { text: "Operador de contenido profesional", included: true },
+            { text: "Visita técnica previa al venue", included: true },
+            { text: "Ideal: festivales, conciertos, TV", included: true },
+            { text: "Integración con sistema AV completo", included: true },
+          ],
+          ctaLabel: "Cotizar gran formato",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Renta de Pantallas LED"
+        subtitle="Todo lo que necesitas saber antes de contratar."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="Instalamos pantallas LED en más de 500 eventos en CDMX. Bodas, corporativos, festivales y presentaciones de marca."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué tamaños de pantalla LED tienen disponibles?", answer: "Contamos con pantallas de 55\", 65\", 75\" y 85\" para espacios pequeños y medianos. Para escenarios grandes ofrecemos videowall modular P3.9 y P2.6 desde 2x2 metros hasta configuraciones de más de 10 metros de ancho. También tenemos pantallas LED para exteriores con mayor brillo." },
+      { question: "¿Qué tipo de contenido puedo proyectar en las pantallas?", answer: "Video en tiempo real, fotografías, presentaciones PowerPoint o Keynote, streaming en vivo, galería de fotos del evento en tiempo real, logotipos y gráficos animados. Conectamos desde laptop, tablet, HDMI, USB o transmisión por cable de red. El operador de contenido gestiona todo durante el evento." },
+      { question: "¿La pantalla LED funciona de día o solo de noche?", answer: "Depende del tipo de pantalla. Las pantallas de interior funcionan mejor en espacios con luz controlada. Las pantallas de exterior tienen entre 4,000 y 6,000 nits de brillo para verse perfectamente de día. Para eventos al aire libre de día, recomendamos pantallas outdoor. Las de interior funcionan muy bien de noche o en espacios cerrados." },
+      { question: "¿El servicio incluye un operador de contenido?", answer: "Sí. El operador de contenido está incluido en todos los paquetes. Se encarga de cargar el contenido, hacer las transiciones en el momento exacto del evento y manejar cualquier cambio de última hora. Tú nos envías el material y nosotros lo configuramos." },
+      { question: "¿Se puede hacer una galería de fotos en tiempo real durante el evento?", answer: "Sí. Conectamos la pantalla con un sistema de foto en vivo donde las fotos tomadas por los invitados o el fotógrafo oficial aparecen en la pantalla en segundos. También hacemos integración con hashtag de Instagram para que las fotos del evento aparezcan automáticamente." },
+      { question: "¿Cuánto cuesta rentar pantallas LED en CDMX?", answer: "Las pantallas simples comienzan desde $4,000 + IVA por pantalla de 55\" con operador incluido. Los videowalls modulares desde $12,000 + IVA para configuraciones 2x2. El precio depende del tamaño, resolución, duración del evento y si necesitas operador de contenido. Cotiza por WhatsApp." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Completa tu Producción Audiovisual"
+        subtitle="La pantalla es el componente visual. Agrega audio y luces para una producción completa."
+        paragraph1="Una pantalla LED de alto impacto visual funciona mejor cuando va acompañada del audio adecuado y la iluminación correcta. En REDEIL armamos producciones audiovisuales completas con precio especial por paquete."
+        paragraph2="Cuéntanos tu evento completo: venue, cantidad de personas, tipo de contenido y lo que imaginas para el escenario. Te cotizamos todo."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para impactar visualmente en tu evento?</h2>
+        <p>Cuéntanos el venue, el tamaño del escenario y el tipo de contenido que necesitas proyectar. Te cotizamos la pantalla ideal en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

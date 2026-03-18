@@ -1,43 +1,250 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Hero from "../../components/Hero.astro";
+import CtaBar from "../../components/CtaBar.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Gallery4x4 from "../../components/Gallery4x4.astro";
+import PricingCards from "../../components/PricingCards.astro";
+import FaqSection from "../../components/FaqSection.astro";
 
-const schemaMarkup = JSON.stringify([{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Robot LED para Eventos CDMX",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+const title = "Renta de Robot LED CDMX | REDEIL — Efectos Automáticos para Pista";
+const description = "Renta de robot LED en CDMX. Efectos robóticos automáticos para pistas de baile de bodas, XV años y fiestas. Mueve, cambia de color y crea shows de luz.";
+const canonical = "https://rentadeiluminacion.com/servicios/robot-led/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Robot LED para Eventos CDMX",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de robot LED en CDMX. Efectos de luces robóticas automáticas para pistas de baile, entradas espectaculares y momentos especiales en eventos.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Robot LED",
+    "priceRange": "$$"
   },
-  "description": "Renta de robot LED en CDMX. Efectos de luces robóticas automáticas para pistas de baile, entradas espectaculares y momentos especiales en eventos.",
-  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
-  "serviceType": "Renta de Robot LED",
-  "priceRange": "$$"
-}]);
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es un robot LED para eventos?", "acceptedAnswer": { "@type": "Answer", "text": "Un robot LED es un efecto automatizado que combina movimiento motorizado con iluminación LED multicolor. Se programa para crear shows de luces sincronizados con la música: gira, cambia de color, proyecta patrones y responde al beat. Es diferente a las cabezas móviles porque es un sistema autónomo con coreografía preprogramada." } },
+      { "@type": "Question", "name": "¿El robot LED necesita operador?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del modo de operación. Puede funcionar en modo automático sin operador (reacciona a la música con sus sensores de sonido) o en modo manual DMX controlado por nuestro técnico para coreografías específicas. Lo más común para eventos es el modo automático con supervisión técnica." } },
+      { "@type": "Question", "name": "¿Cuántos robots LED necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para una pista de baile estándar, 2-4 robots son suficientes para crear un show visual completo. Para venues grandes o eventos con escenario, 6-8 unidades crean un efecto de producción profesional. Te asesoramos según las dimensiones de tu espacio." } },
+      { "@type": "Question", "name": "¿El robot LED se puede sincronizar con el DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El robot LED se puede programar para sincronizarse con el sistema DMX del DJ o funcionar en modo sound-active que reacciona automáticamente al volumen y ritmo de la música. El técnico de REDEIL configura el equipo según el set del DJ." } },
+      { "@type": "Question", "name": "¿El robot LED funciona en interiores y exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "El robot LED está diseñado principalmente para interiores. Para eventos en exteriores, recomendamos cabezas móviles o sky trackers que tienen mayor potencia de iluminación. En terrazas cerradas o carpas con techo, el robot LED funciona perfectamente." } },
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar un robot LED en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes de robot LED comienzan desde $4,500 + IVA para 2 unidades con técnico incluido. El precio varía según el número de robots y la duración del evento. Cotiza por WhatsApp con la información de tu evento." } }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles LED en boda elegante", description: "Combinadas con el robot LED, las cabezas móviles crean un show de luces completo con mayor potencia y alcance.", link: "/servicios/cabezas-moviles/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco gigante en pista de baile", description: "Bola disco + robot LED = pista de baile con dos dimensiones de efecto. Los reflejos de la bola combinados con el movimiento del robot.", link: "/servicios/bola-disco/" },
+  { title: "Luces LED", image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif", alt: "Iluminación LED en evento", description: "Las luces LED de ambiente complementan el show del robot. Mientras el robot mueve la pista, el LED baña el resto del espacio.", link: "/servicios/luces-led/" },
+  { title: "DJ Profesional", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional en cabina para eventos CDMX", description: "El robot LED funciona en sincronía con el DJ. Juntos crean la experiencia de pista de baile más completa.", link: "/servicios/bocinas-djs/" },
+];
 ---
-<BaseLayout
-  title="Renta de Robot LED CDMX | REDEIL — Efectos Automáticos para Pista"
-  description="Renta de robot LED en CDMX. Efectos robóticos automáticos para pistas de baile de bodas, XV años y fiestas. Mueve, cambia de color y crea shows de luz."
-  canonical="https://rentadeiluminacion.com/servicios/robot-led/"
-  schemaMarkup={schemaMarkup}
->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__col1">
-        <h1>Renta de Robot LED en CDMX</h1>
-        <p>Robots de luz automatizados que se mueven, cambian de color y crean shows de iluminación sincronizados con la música.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero__col2">
-        <p class="hero__seo">REDEIL renta robots LED profesionales en la Ciudad de México y Zona Metropolitana. Los robots de luz son efectos automatizados que se programan para crear shows de iluminación sincronizados con la música de tu evento. Se mueven, giran, enfocan y cambian de color siguiendo una coreografía predefinida por nuestro técnico de iluminación, transformando cualquier pista de baile en un show profesional.</p>
-        <p class="hero__seo">Ideales para el primer vals en bodas, la entrada de quinceañera, fiesta principal y despedida. El robot LED trabaja en conjunto con cabezas móviles, par LED y confeti para crear ambientes únicos. Con más de 20 años de experiencia en eventos CDMX, REDEIL programa el show de luz perfecto para tu celebración.</p>
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Iluminación", href: "/servicios/iluminacion/" },
+    { label: "Robot LED" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Renta de Robot LED en CDMX"
+    subtitle="Robots de luz automatizados que se mueven, cambian de color y crean shows sincronizados con la música. Operación incluida."
+    whatsappText="Hola,%20quiero%20cotizar%20robot%20LED%20para%20mi%20evento"
+    introParagraph1='El robot LED transforma cualquier pista de baile en un show de iluminación profesional. En <strong>REDEIL</strong> rentamos robots LED que combinan movimiento motorizado, iluminación multicolor y efectos programables para crear coreografías de luces automáticas sincronizadas con la música. Se mueven, giran, proyectan patrones de colores y reaccionan al ritmo del DJ — sin operador constante, de forma autónoma.'
+    introParagraph2='Son ideales para el primer vals en bodas, la entrada de quinceañera, la hora loca y la pista de baile principal. El robot LED trabaja perfectamente en conjunto con cabezas móviles, par LED y bola disco para crear ambientes únicos en cualquier tipo de venue. Con más de 30 años en el sector, <strong>REDEIL</strong> programa el show de luces perfecto para tu celebración en CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Qué tipo de show de luces necesitas?"
+    items={[
+      { label: "Cabezas Móviles", href: "/servicios/cabezas-moviles/", icon: "iluminacion" },
+      { label: "Bola Disco", href: "/servicios/bola-disco/", icon: "iluminacion" },
+      { label: "Toda la Iluminación", href: "/servicios/iluminacion/", icon: "iluminacion" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Shows de luz automáticos con tecnología robótica"
+        subtitle="Sincronización automática con la música. Coreografías preprogramadas. Sin necesidad de operador constante."
+        paragraph1="Los robots LED que usamos en REDEIL son equipos de grado profesional con motores de paso precisos, LEDs RGBW de alta potencia y sensores de audio que les permiten reaccionar al ritmo de la música. En modo automático, el robot crea shows de luz completamente autónomos que se adaptan a cada canción."
+        paragraph2="En modo DMX, nuestro técnico puede programar coreografías específicas para momentos clave del evento: una secuencia especial para el vals, un modo agresivo para la hora loca, una paleta de colores que coincide con la decoración del salón. La versatilidad del robot LED lo hace útil en cualquier momento de la noche."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/galeria/cabezas-moviles-01.avif", alt: "Robot LED en pista de baile de boda CDMX" },
+        { src: "/img/galeria/cabezas-moviles-02.avif", alt: "Show de luces robótico en XV años salón" },
+        { src: "/img/galeria/cabezas-moviles-03.avif", alt: "Robot LED multicolor en evento corporativo" },
+        { src: "/img/galeria/cabezas-moviles-04.avif", alt: "Efectos automáticos robot LED fiesta privada" },
+        { src: "/img/galeria/cabezas-moviles-05.avif", alt: "Robot LED sincronizado con DJ en boda" },
+        { src: "/img/galeria/cabezas-moviles-06.avif", alt: "Show luz robótico entrada de novios hacienda" },
+        { src: "/img/galeria/cabezas-moviles-07.avif", alt: "Robot LED beams de colores en pista de baile" },
+        { src: "/img/galeria/cabezas-moviles-08.avif", alt: "Iluminación automática robótica en salón de eventos" },
+        { src: "/img/galeria/bola-disco-01.avif", alt: "Robot LED con bola disco en fiesta de XV años" },
+        { src: "/img/galeria/bola-disco-02.avif", alt: "Show de luces completo robot LED bola disco" },
+        { src: "/img/galeria/bola-disco-03.avif", alt: "Robot LED efectos en pista de baile bodas" },
+        { src: "/img/galeria/bola-disco-04.avif", alt: "Luces robóticas LED para eventos especiales CDMX" },
+        { src: "/img/galeria/fiestas-01.avif", alt: "Robot LED en fiesta privada CDMX" },
+        { src: "/img/galeria/fiestas-02.avif", alt: "Show robótico LED en hora loca de boda" },
+        { src: "/img/galeria/fiestas-03.avif", alt: "Efectos LED automáticos en fiesta de cumpleaños" },
+        { src: "/img/galeria/fiestas-04.avif", alt: "Robot LED profesional en evento social CDMX" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Robot LED para Eventos"
+        subtitle="4 configuraciones desde 2 hasta 8 robots. Técnico de iluminación incluido."
+        paragraph1="Todos los paquetes incluyen los robots LED, programación del show, técnico de iluminación, transporte, instalación y retiro. Sin costos adicionales."
+        paragraph2="¿Quieres combinar con cabezas móviles o par LED para un show completo? Te armamos una propuesta integral."
+      />
+      <PricingCards packages={[
+        {
+          name: "Básico — 2 Robots",
+          price: "$4,500",
+          priceNote: "+ IVA",
+          description: "2 robots LED para una pista de baile pequeña o un efecto puntual en el primer vals o hora loca.",
+          features: [
+            { text: "2 robots LED RGBW profesionales", included: true },
+            { text: "Modo sound-active automático", included: true },
+            { text: "Técnico de iluminación incluido", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Ideal: fiestas hasta 80 personas", included: true },
+            { text: "Programación básica incluida", included: true },
+            { text: "Control DMX personalizado", included: false },
+            { text: "Coreografías para momentos clave", included: false },
+          ],
+          ctaLabel: "Cotizar paquete básico",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Estándar — 4 Robots",
+          price: "$7,000",
+          priceNote: "+ IVA",
+          badge: "Más popular",
+          highlight: true,
+          description: "4 robots para cobertura completa de la pista. Shows automáticos + coreografías para vals y hora loca.",
+          features: [
+            { text: "4 robots LED RGBW profesionales", included: true },
+            { text: "Modo sound-active + control DMX", included: true },
+            { text: "Técnico de iluminación incluido", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Coreografías para vals y hora loca", included: true },
+            { text: "Sincronización con DJ incluida", included: true },
+            { text: "Ideal: bodas, XV años, salones", included: true },
+            { text: "Coordinación con fotógrafo", included: true },
+          ],
+          ctaLabel: "Cotizar paquete estándar",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Premium — 6 Robots",
+          price: "$10,000",
+          priceNote: "+ IVA",
+          description: "6 robots para venues grandes. Show de luces profesional con coreografías múltiples durante todo el evento.",
+          features: [
+            { text: "6 robots LED RGBW profesionales", included: true },
+            { text: "Control DMX completo", included: true },
+            { text: "Técnico de iluminación + asistente", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Coreografías para cada momento", included: true },
+            { text: "Sincronización avanzada con DJ", included: true },
+            { text: "Ideal: haciendas, jardines, galas", included: true },
+            { text: "Integración con rest del sistema LED", included: true },
+          ],
+          ctaLabel: "Cotizar paquete premium",
+          ctaHref: "/contacto/",
+        },
+        {
+          name: "Show — 8 Robots",
+          price: "$14,000",
+          priceNote: "+ IVA",
+          description: "8 robots para producción completa. El máximo impacto visual con show de luces de nivel profesional.",
+          features: [
+            { text: "8 robots LED RGBW profesionales", included: true },
+            { text: "Consola DMX dedicada", included: true },
+            { text: "Iluminador profesional en cabina", included: true },
+            { text: "Transporte + instalación + retiro", included: true },
+            { text: "Show completo programado", included: true },
+            { text: "Visita previa de diseño incluida", included: true },
+            { text: "Ideal: bodas de lujo, producciones", included: true },
+            { text: "Integración completa con DJ y audio", included: true },
+          ],
+          ctaLabel: "Cotizar show completo",
+          ctaHref: "/contacto/",
+        },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Robot LED para Eventos"
+        subtitle="Todo lo que necesitas saber antes de contratar."
+        paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en minutos."
+        paragraph2="El robot LED es uno de los efectos más solicitados para pistas de baile en bodas y XV años en CDMX."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué es un robot LED para eventos?", answer: "Un robot LED es un efecto automatizado que combina movimiento motorizado con iluminación LED multicolor. Se programa para crear shows de luces sincronizados con la música: gira, cambia de color, proyecta patrones y responde al beat. Es diferente a las cabezas móviles porque es un sistema autónomo con coreografía preprogramada." },
+      { question: "¿El robot LED necesita operador?", answer: "Depende del modo de operación. Puede funcionar en modo automático sin operador (reacciona a la música con sus sensores de sonido) o en modo manual DMX controlado por nuestro técnico para coreografías específicas. Lo más común para eventos es el modo automático con supervisión técnica." },
+      { question: "¿Cuántos robots LED necesito para mi evento?", answer: "Para una pista de baile estándar, 2-4 robots son suficientes para crear un show visual completo. Para venues grandes o eventos con escenario, 6-8 unidades crean un efecto de producción profesional. Te asesoramos según las dimensiones de tu espacio." },
+      { question: "¿El robot LED se puede sincronizar con el DJ?", answer: "Sí. El robot LED se puede programar para sincronizarse con el sistema DMX del DJ o funcionar en modo sound-active que reacciona automáticamente al volumen y ritmo de la música. El técnico de REDEIL configura el equipo según el set del DJ." },
+      { question: "¿El robot LED funciona en interiores y exteriores?", answer: "El robot LED está diseñado principalmente para interiores. Para eventos en exteriores, recomendamos cabezas móviles o sky trackers que tienen mayor potencia de iluminación. En terrazas cerradas o carpas con techo, el robot LED funciona perfectamente." },
+      { question: "¿Cuánto cuesta rentar un robot LED en CDMX?", answer: "Los paquetes de robot LED comienzan desde $4,500 + IVA para 2 unidades con técnico incluido. El precio varía según el número de robots y la duración del evento. Cotiza por WhatsApp con la información de tu evento." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Combina con Otros Servicios de Iluminación"
+        subtitle="El robot LED es más poderoso cuando forma parte de un sistema completo."
+        paragraph1="El mayor impacto se logra cuando el robot LED trabaja en conjunto con otros equipos. Cabezas móviles para beams de largo alcance, par LED para ambiente, bola disco para destellos — cada elemento suma al show general."
+        paragraph2="Armamos paquetes de iluminación completa para el evento entero con precio especial."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
       </div>
     </div>
   </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para transformar tu pista de baile?</h2>
+        <p>Cuéntanos el tipo de evento, el venue y la cantidad de personas. Te cotizamos el show de luces perfecto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
