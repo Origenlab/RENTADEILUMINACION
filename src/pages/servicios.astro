@@ -5,9 +5,10 @@ import Hero from '../components/Hero.astro';
 import CtaBar from '../components/CtaBar.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import FaqSection from '../components/FaqSection.astro';
 
 const title = "Servicios de Iluminación, Sonido y Efectos | REDEIL CDMX";
-const description = "Renta de iluminación, sonido profesional y efectos especiales para bodas, XV años y eventos en CDMX. 24 servicios con instalación incluida. Cotiza gratis.";
+const description = "Renta de iluminación, sonido y efectos especiales para bodas, XV años y eventos en CDMX. +30 servicios profesionales con instalación incluida. Cotiza gratis.";
 const canonical = "https://rentadeiluminacion.com/servicios/";
 
 const schemaMarkup = JSON.stringify({
@@ -41,21 +42,31 @@ const iluminacion = [
 
 const sonido = [
   { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Bocinas line array JBL", description: "Bocinas JBL y QSC desde 50 hasta 2,000+ personas. Sonido cristalino y potente.", link: "/servicios/bocinas/" },
-  { title: "DJ para Fiestas y Bodas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional en cabina", description: "DJ con consola profesional y repertorio adaptado. Solo o con paquete de audio completo.", link: "/servicios/bocinas-djs/" },
-  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio profesional para boda", description: "Audio dimensionado para ceremonia, coctel, vals y fiesta.", link: "/servicios/bocinas-bodas/" },
-  { title: "Bocinas para XV Años", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Audio para XV años", description: "Vals con sonido cristalino, hora loca con potencia, DJ que sabe cuándo subir.", link: "/servicios/bocinas-xv/" },
-  { title: "Bocinas para Fiestas", image: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales-300w.avif", alt: "Bocinas para fiesta privada", description: "Audio profesional que se adapta al tamaño de tu fiesta.", link: "/servicios/bocinas-fiestas/" },
-  { title: "Bocinas para Conferencias", image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif", alt: "Audio para conferencia ejecutiva", description: "Audio cristalino para presentaciones. Micrófonos inalámbricos y mezcladoras profesionales.", link: "/servicios/bocinas-conferencias/" },
+  { title: "DJ para Fiestas y Bodas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional en cabina", description: "DJ con consola Pioneer y repertorio adaptado. Solo o con paquete de audio completo.", link: "/servicios/bocinas-djs/" },
+  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio profesional para boda", description: "Audio dimensionado para ceremonia, coctel, vals y fiesta. Técnico incluido todo el evento.", link: "/servicios/bocinas-bodas/" },
+  { title: "Bocinas para XV Años", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Audio para XV años", description: "Vals con sonido cristalino, hora loca con potencia, DJ que conoce el protocolo de memoria.", link: "/servicios/bocinas-xv/" },
+  { title: "Bocinas para Fiestas", image: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales-300w.avif", alt: "Bocinas para fiesta privada", description: "Audio profesional que se adapta al tamaño de tu fiesta — de 30 a 500 personas.", link: "/servicios/bocinas-fiestas/" },
+  { title: "Bocinas para Conferencias", image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif", alt: "Audio para conferencia ejecutiva", description: "Cada palabra del ponente llega clara a la última fila. Micrófonos Shure incluidos.", link: "/servicios/bocinas-conferencias/" },
+  { title: "Micrófonos Inalámbricos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Micrófonos inalámbricos profesionales para eventos", description: "Shure y Sennheiser UHF para brindis, ceremonias y conferencias. Técnico de audio incluido.", link: "/servicios/microfonos/" },
 ];
 
 const efectos = [
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en vals de boda", description: "Nube mágica a nivel de piso para el vals. El efecto más solicitado en bodas y XV años.", link: "/servicios/humo-bajo/" },
-  { title: "Máquina de Humo", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Humo escénico en pista de baile", description: "Humo escénico para crear atmósferas en pistas de baile y shows de luces.", link: "/servicios/maquina-humo/" },
-  { title: "Confeti", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Confeti dorado en boda", description: "Cañones de confeti dorado, plateado o multicolor para momentos especiales.", link: "/servicios/confeti/" },
-  { title: "Burbujas", image: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos-400w.avif", alt: "Burbujas en fiesta infantil", description: "Máquinas de burbujas para fiestas infantiles y recepciones al aire libre.", link: "/servicios/burbujas/" },
-  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco en pista de baile", description: "Bola disco gigante con luces LED para pistas que invitan a bailar.", link: "/servicios/bola-disco/" },
-  { title: "Pantalla Inflable", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para cine al aire libre", description: "Cine al aire libre con pantalla gigante y proyector HD incluido.", link: "/servicios/pantalla-inflable/" },
-  { title: "Podium", image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules-300w.avif", alt: "Podium profesional en auditorio", description: "Tarimas y podiums para DJ, músicos o presentaciones corporativas.", link: "/servicios/podiums/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo en vals de boda", description: "Nube mágica a nivel de piso para el vals. JEM ZR33 y Antari ICE-101. El efecto más solicitado en bodas.", link: "/servicios/humo-bajo/" },
+  { title: "Máquina de Humo", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Humo escénico en pista de baile", description: "Humo atmosférico para crear neblina en pistas de baile y shows de luces con cabezas móviles.", link: "/servicios/maquina-humo/" },
+  { title: "Confeti", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Confeti dorado en boda", description: "Cañones de confeti dorado, plateado o multicolor disparados con CO₂ para momentos especiales.", link: "/servicios/confeti/" },
+  { title: "Confeti para Bodas", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Confeti y papelitos para boda", description: "Lluvia de pétalos y confeti biodegradable para salida de iglesia y primer vals. Coordinado con fotógrafo.", link: "/servicios/confeti-papelitos/" },
+  { title: "Bengalas Frías (CO₂)", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Cañones CO2 para entrada de novios", description: "Chorros de vapor frío que no queman, no activan alarmas y crean el efecto más cinematográfico de la noche.", link: "/servicios/co2/" },
+  { title: "Sparklers — Bengalas Frías", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Bengalas frías sparklers para boda", description: "Chispas de titanio sin calor real. Columnas de 1 a 3 metros aprobadas para interiores. Sparkular y Showven.", link: "/servicios/sparklers/" },
+  { title: "Burbujas", image: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos-400w.avif", alt: "Burbujas en fiesta infantil", description: "Lluvia de burbujas continua y burbujas gigantes para fiestas infantiles y entradas de novios fotogénicas.", link: "/servicios/burbujas/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco en pista de baile", description: "Bola de espejos de 30cm a 1.2m con motor giratorio y focos PAR. Atemporal y siempre efectiva.", link: "/servicios/bola-disco/" },
+  { title: "Robot LED", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Robot LED automatizado para pista de baile", description: "Robots de luz con movimiento motorizado que reaccionan a la música. Show autónomo sin operador constante.", link: "/servicios/robot-led/" },
+  { title: "Pantalla Inflable", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para cine al aire libre", description: "Cine al aire libre con pantalla de 3 a 10+ metros, proyector HD y audio. Listo en 15 minutos.", link: "/servicios/pantalla-inflable/" },
+  { title: "Podium de Acrílico", image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules-300w.avif", alt: "Podium profesional en auditorio", description: "Atriles de acrílico cristalino 10mm para conferencias, bodas y congresos. Con opción LED base.", link: "/servicios/podiums/" },
+];
+
+const produccion = [
+  { title: "Pantallas LED y Videowall", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Pantallas LED para eventos corporativos", description: "Desde 55\" hasta videowalls P3.9 de más de 10 metros. Operador de contenido y galería en tiempo real incluidos.", link: "/servicios/pantallas-led/" },
+  { title: "Plantas de Luz", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Generadores de energía para eventos exteriores", description: "Generadores insonorizados de 10 a 100 kVA para jardines, haciendas y eventos sin corriente suficiente.", link: "/servicios/plantas-de-luz/" },
 ];
 ---
 
@@ -67,9 +78,9 @@ const efectos = [
 
     <Hero
       title="Servicios de Iluminación, Sonido y Efectos Especiales"
-      subtitle="24 servicios profesionales con instalación incluida para tu evento en CDMX y Estado de México."
-      introParagraph1='En <strong>REDEIL</strong> ofrecemos todo lo que necesitas para que tu evento se vea y se escuche increíble. Iluminación con equipo <strong>Martin Professional</strong>, <strong>Chauvet</strong> y <strong>Elation</strong>. Audio <strong>JBL</strong> y <strong>QSC</strong>. Efectos especiales que transforman cualquier celebración.'
-      introParagraph2='Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje. Atendemos toda la CDMX y zona metropolitana. <strong>Cotiza sin compromiso</strong> — te armamos una propuesta a tu medida.'
+      subtitle="+30 servicios profesionales con instalación incluida. +30 años iluminando bodas, XV años y eventos en CDMX."
+      introParagraph1='En <strong>REDEIL</strong> ofrecemos todo lo que necesitas para que tu evento se vea y se escuche increíble. Iluminación con equipo <strong>Martin Professional</strong>, <strong>Chauvet</strong> y <strong>Elation</strong>. Audio <strong>JBL</strong> y <strong>QSC</strong>. Efectos especiales desde humo bajo y confeti hasta bengalas frías y sky trackers que se ven a kilómetros. Más de 3,000 eventos en CDMX y Estado de México nos respaldan.'
+      introParagraph2='Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje al terminar. Sin costo por montaje adicional. Nuestro técnico llega horas antes para que todo esté listo y probado cuando lleguen tus invitados. Atendemos toda la CDMX y zona metropolitana. <strong>Cotiza sin compromiso</strong> — te armamos una propuesta a tu medida en menos de 24 horas.'
     />
 
     <CtaBar
@@ -87,9 +98,9 @@ const efectos = [
       <div class="container">
         <SectionHeader
           title="Iluminación Profesional"
-          subtitle="11 servicios con equipo Martin Professional, Chauvet y Elation."
-          paragraph1="Desde guirnaldas vintage para bodas íntimas hasta sky trackers que se ven a kilómetros. Cada equipo incluye instalación profesional y operación durante tu evento."
-          paragraph2="Nuestros técnicos diseñan la iluminación a la medida de tu espacio — jardín, hacienda, salón o terraza. El resultado: un ambiente que tus invitados van a recordar."
+          subtitle="13 servicios con equipo Martin Professional, Chauvet y Elation."
+          paragraph1="Desde guirnaldas vintage para bodas íntimas hasta sky trackers que se ven a kilómetros. Cada tipo de luz crea una atmósfera distinta — y nuestros técnicos te ayudan a elegir la combinación correcta para tu espacio."
+          paragraph2="Haciendas coloniales, jardines al aire libre, salones de hotel, rooftops urbanos — llevamos el equipo y el técnico que hace que cada venue luzca increíble. Instalación anticipada y prueba de luces antes de que lleguen tus invitados."
         />
         <div class="services-grid">
           {iluminacion.map((s) => (
@@ -104,9 +115,9 @@ const efectos = [
       <div class="container">
         <SectionHeader
           title="Sonido y DJ"
-          subtitle="6 servicios de audio profesional JBL y QSC."
-          paragraph1="No hay fiesta sin buen sonido. Sistemas dimensionados para tu espacio, desde reuniones de 50 personas hasta eventos de 2,000+."
-          paragraph2="DJ con consola y repertorio adaptado, micrófonos inalámbricos, pantallas LED. Todo con técnico de audio incluido."
+          subtitle="7 servicios de audio profesional JBL, QSC y Shure."
+          paragraph1="No hay fiesta sin buen sonido. La diferencia entre 'se oye' y 'se siente' es el equipo correcto dimensionado al espacio. Bocinas JBL y QSC para 50 hasta 2,000+ personas, con técnico de audio incluido en todos los paquetes."
+          paragraph2="DJ con consola Pioneer y repertorio adaptado al tipo de evento, micrófonos inalámbricos Shure para brindis y ceremonias, pantallas LED y podiums para congresos. Todo coordinado por un equipo que conoce los tiempos de cada celebración."
         />
         <div class="services-grid">
           {sonido.map((s) => (
@@ -121,14 +132,65 @@ const efectos = [
       <div class="container">
         <SectionHeader
           title="Efectos Especiales"
-          subtitle="7 efectos que convierten un buen evento en uno inolvidable."
-          paragraph1="Humo bajo para el vals, confeti para el brindis, burbujas para los niños — cada efecto tiene su momento perfecto."
-          paragraph2="Nuestro equipo técnico opera cada efecto en el momento exacto. Tú solo disfrutas."
+          subtitle="11 efectos que convierten un buen evento en algo que nadie olvida."
+          paragraph1="Humo bajo para el vals, confeti para el brindis, bengalas frías para la entrada de novios, burbujas para los niños — cada efecto tiene su momento perfecto en el protocolo del evento. Nuestro equipo técnico los opera en el instante exacto que tú defines."
+          paragraph2="Todos los efectos se pueden combinar entre sí y con iluminación para crear paquetes completos. La mayoría de nuestros clientes eligen 2-3 efectos coordinados para las escenas más importantes de la noche."
         />
         <div class="services-grid">
           {efectos.map((s) => (
             <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCCIÓN Y SOPORTE -->
+    <section class="services-section services-alt" id="produccion">
+      <div class="container">
+        <SectionHeader
+          title="Producción y Soporte Técnico"
+          subtitle="Pantallas, generadores y todo lo que necesita tu evento para funcionar sin fallas."
+          paragraph1="Pantallas LED y videowalls para bodas y corporativos, plantas de luz para eventos en jardines sin corriente suficiente. Los servicios que hacen posible que todo lo demás funcione perfectamente."
+          paragraph2="Para eventos en haciendas, quintas o jardines privados donde la corriente del inmueble no alcanza para el equipo profesional, el generador es la garantía de que nada falla en la noche más importante."
+        />
+        <div class="services-grid">
+          {produccion.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas Frecuentes"
+          subtitle="Lo que más nos preguntan antes de cotizar."
+          paragraph1="Si tienes una duda que no está aquí, escríbenos por WhatsApp al 55 3068 2988 y te respondemos en minutos."
+          paragraph2="Cada evento es diferente — te armamos una propuesta personalizada con exactamente lo que necesitas, sin servicios de más ni de menos."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Todos los servicios incluyen instalación y retiro?", answer: "Sí, siempre. Cada servicio de REDEIL incluye transporte del equipo, instalación profesional, operación durante el evento y desmontaje al finalizar. Nuestro staff llega con anticipación para que todo esté listo y probado cuando lleguen tus invitados. Sin costos ocultos de montaje." },
+        { question: "¿Cuánto cuesta un paquete completo de iluminación para boda?", answer: "Depende de los servicios que combines. Un paquete básico de bodas con guirnaldas + uplighting arranca desde $8,000 + IVA. Un paquete completo con guirnaldas + seguidor + cabezas móviles + humo bajo va desde $18,000 + IVA. Cotiza por WhatsApp y te armamos la propuesta exacta según tu venue." },
+        { question: "¿Cuánto tiempo antes del evento llega el equipo?", answer: "Normalmente 2-4 horas antes de que inicien los invitados, dependiendo de la complejidad del montaje. Para bodas grandes con múltiples servicios de iluminación, llegamos desde la tarde aunque el evento sea por la noche. Todo queda probado antes de que llegue el primer invitado." },
+        { question: "¿Cubren eventos en toda la CDMX y Estado de México?", answer: "Sí. Atendemos toda la Ciudad de México y el Estado de México — desde haciendas en Tlalnepantla y Texcoco hasta venues en Polanco, Santa Fe, Coyoacán, Xochimilco y Centro Histórico. Para eventos fuera del área metropolitana, cotizamos con costo de traslado adicional." },
+        { question: "¿Puedo combinar servicios de diferentes categorías?", answer: "Absolutamente, y es lo más recomendable. Una boda completa típicamente combina iluminación (guirnaldas + seguidor + city color) con efectos (humo bajo + confeti) y audio (bocinas + DJ). Armamos paquetes combinados con precio especial — siempre sale más económico que contratar cada servicio por separado." },
+        { question: "¿Con cuánta anticipación debo reservar?", answer: "Lo antes posible, especialmente en temporada alta (noviembre-enero y mayo-junio). Para bodas, te recomendamos reservar con 2-3 meses de anticipación. Para fiestas y eventos corporativos, 2-4 semanas suele ser suficiente. Confirma disponibilidad de fecha por WhatsApp sin compromiso." },
+      ]} />
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para cotizar tu evento?</h2>
+          <p>Cuéntanos la fecha, el tipo de evento y el venue. Te armamos una propuesta completa con todos los servicios que necesitas — sin servicios de más.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
         </div>
       </div>
     </section>
