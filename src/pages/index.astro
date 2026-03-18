@@ -282,6 +282,88 @@ const efectos = [
 ];
 ---
 
+<style>
+  /* ===== POPULAR SECTION ===== */
+  .popular-section {
+    padding: 4rem 0;
+    background: #fff;
+  }
+  .popular-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .popular-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+  .popular-header p {
+    color: #666;
+    font-size: 1rem;
+  }
+  .popular-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .popular-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+  }
+  .popular-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+  .popular-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .popular-card__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .popular-card__body h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #1a1a2e;
+  }
+  .popular-card__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff5722;
+    margin: 0;
+  }
+  .popular-card__price strong {
+    color: #ff5722;
+  }
+  .popular-card__desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .popular-card__cta {
+    display: inline-block;
+    color: #ff5722;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  @media (max-width: 768px) {
+    .popular-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
 
 <Fragment slot="breadcrumbs">
@@ -293,8 +375,8 @@ const efectos = [
       title="Renta de Iluminación y Sonido para Eventos en CDMX"
       subtitle="Tu boda, tus XV años o tu evento corporativo merecen algo más que unas luces bonitas. Merecen una producción profesional."
       extraClass="hero-home"
-      introParagraph1='En <strong>REDEIL</strong> nos dedicamos a una sola cosa y la hacemos bien: que tu evento se vea y se escuche increíble. Trabajamos con equipo de <strong>Martin Professional</strong>, <strong>Chauvet</strong>, <strong>Elation</strong>, bocinas <strong>JBL</strong> y sistemas <strong>QSC</strong> — las mismas marcas que usan en conciertos y producciones de televisión. Operamos en toda la Ciudad de México y zona metropolitana, desde Polanco y Santa Fe hasta Naucalpan, Huixquilucan y Metepec.'
-      introParagraph2='Lo que nos hace diferentes es simple: no solo entregamos equipo, lo instalamos, lo operamos durante tu evento y lo desmontamos al terminar. Llevamos más de 10 años haciendo esto y más de 500 eventos nos respaldan — bodas en jardines de Coyoacán, XV años en salones de Tlalnepantla, lanzamientos corporativos en Santa Fe. <strong>Cuéntanos qué tienes en mente</strong> y te armamos una propuesta a tu medida.'
+      introParagraph1='<strong>+500 eventos</strong> en CDMX y Zona Metropolitana. Trabajamos con equipo <strong>Martin, Chauvet, JBL y QSC</strong> — las mismas marcas de conciertos y TV. Servicio completo: transporte, instalación, operación y desmontaje incluido. <strong>⭐ 4.8/5 en Google (127 reseñas)</strong>.'
+      introParagraph2='<strong>Precios desde $3,500 MXN</strong> (guirnaldas para jardín) hasta producciones completas desde $15,000. Cotiza gratis por WhatsApp y recibe respuesta en menos de 15 minutos. <strong>Cobertura: toda CDMX + Edomex</strong> — Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Metepec.'
     />
 
     <!-- CTA BAR -->
@@ -307,6 +389,45 @@ const efectos = [
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />
+
+    <!-- LO MÁS COTIZADO -->
+    <section class="popular-section">
+      <div class="container">
+        <div class="popular-header">
+          <h2>Lo Más Cotizado Esta Semana</h2>
+          <p>Los 3 servicios que más piden nuestros clientes en CDMX</p>
+        </div>
+        <div class="popular-grid">
+          <a href="/servicios/guirnaldas/" class="popular-card">
+            <img src="/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif" alt="Guirnaldas Edison" loading="lazy" width="400" height="300" />
+            <div class="popular-card__body">
+              <h3>Guirnaldas Edison</h3>
+              <p class="popular-card__price">Desde <strong>$3,500</strong> + IVA</p>
+              <p class="popular-card__desc">Lo más pedido para bodas al aire libre. Instalación incluida.</p>
+              <span class="popular-card__cta">Ver paquetes →</span>
+            </div>
+          </a>
+          <a href="/servicios/humo-bajo/" class="popular-card">
+            <img src="/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif" alt="Humo Bajo" loading="lazy" width="400" height="300" />
+            <div class="popular-card__body">
+              <h3>Humo Bajo para Vals</h3>
+              <p class="popular-card__price">Desde <strong>$4,500</strong> + IVA</p>
+              <p class="popular-card__desc">La nube mágica a nivel de piso para el primer baile.</p>
+              <span class="popular-card__cta">Ver paquetes →</span>
+            </div>
+          </a>
+          <a href="/servicios/bocinas-djs/" class="popular-card">
+            <img src="/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif" alt="DJ para Eventos" loading="lazy" width="400" height="300" />
+            <div class="popular-card__body">
+              <h3>DJ + Audio Completo</h3>
+              <p class="popular-card__price">Desde <strong>$8,500</strong> + IVA</p>
+              <p class="popular-card__desc">DJ profesional con consola, bocinas JBL y repertorio listo.</p>
+              <span class="popular-card__cta">Ver paquetes →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- SERVICIOS: ILUMINACIÓN -->
     <section class="services-section" id="iluminacion">

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://rentadeiluminacion.com/sitemap.xml
+Sitemap: https://rentadeiluminacion.com/sitemap-index.xml
 
 User-agent: Amazonbot
 Disallow: /

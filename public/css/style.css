@@ -2223,3 +2223,46 @@ section {
     gap: 0.5rem;
   }
 }
+
+/* ===== STICKY CTA MOBILE ===== */
+.sticky-cta-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
+  height: 56px;
+}
+.sticky-cta__wa,
+.sticky-cta__cotizar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 50%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+.sticky-cta__wa:hover,
+.sticky-cta__cotizar:hover {
+  opacity: 0.9;
+}
+.sticky-cta__wa {
+  background: #25d366;
+}
+.sticky-cta__cotizar {
+  background: #ff5722;
+}
+@media (max-width: 768px) {
+  .sticky-cta-mobile {
+    display: flex;
+  }
+  body {
+    padding-bottom: 56px;
+  }
+}
