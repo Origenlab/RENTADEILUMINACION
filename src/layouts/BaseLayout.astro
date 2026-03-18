@@ -153,6 +153,28 @@ import Footer from '../components/Footer.astro';
   {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup} />}
   {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
+  <!-- ExactDN CDN — rewrite image paths to CDN in production -->
+  <script is:inline>
+    (function(){
+      var cdn = 'https://ek8wn5x6rqg.exactdn.com';
+      if (window.location.hostname === 'localhost') return;
+      document.addEventListener('DOMContentLoaded', function(){
+        var imgs = document.querySelectorAll('img[src^="/img/"]');
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].src = cdn + imgs[i].getAttribute('src');
+          if (imgs[i].srcset) {
+            imgs[i].srcset = imgs[i].srcset.replace(/(\/img\/)/g, cdn + '/img/');
+          }
+        }
+        // Also rewrite CSS background-images with /img/ paths
+        var els = document.querySelectorAll('[style*="/img/"]');
+        for (var j = 0; j < els.length; j++) {
+          els[j].style.cssText = els[j].style.cssText.replace(/(\/img\/)/g, cdn + '/img/');
+        }
+      });
+    })();
+  </script>
+
   <!-- TruConversion -->
   <script is:inline>
     var _tip = _tip || [];
