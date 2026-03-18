@@ -1,6 +1,15 @@
 /*! REDEIL - Renta de Iluminación | Custom Styles */
 
 /* ==========================================================================
+   Global overflow fix
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ==========================================================================
    CSS Variables / Design Tokens
    ========================================================================== */
 
@@ -292,6 +301,8 @@ address {
 .hero-intro p {
   color: var(--color-gray-300);
   font-size: var(--text-base);
+  word-break: break-word;
+  overflow-wrap: break-word;
   line-height: 1.8;
   margin-bottom: var(--space-4);
 }
@@ -1882,6 +1893,13 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* ===== SECCIÓN BOTTOM ===== */

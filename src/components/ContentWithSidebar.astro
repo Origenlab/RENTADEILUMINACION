@@ -155,6 +155,10 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
   }
 
   /* ── Sidebar ── */
+  .cws__sidebar {
+    min-width: 0;
+  }
+
   .cws__card {
     background: #fff;
     border: 1px solid #e0e0e0;
@@ -329,16 +333,19 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
   /* ── Responsive ── */
   @media (max-width: 1024px) {
     .cws {
-      grid-template-columns: 1fr 300px;
-      gap: 2rem;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .cws {
       grid-template-columns: 1fr;
     }
-
+    .cws__sidebar {
+      max-width: 480px;
+      margin: 0 auto;
+    }
     .cws__card {
       position: static;
     }

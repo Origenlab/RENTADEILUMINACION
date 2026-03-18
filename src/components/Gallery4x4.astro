@@ -56,4 +56,13 @@ const { images } = Astro.props;
       gap: 0.5rem !important;
     }
   }
+
+  @media (max-width: 380px) {
+    .g4 {
+      gap: 0.375rem !important;
+    }
+    .g4__item img {
+      min-height: 80px;
+    }
+  }
 </style>

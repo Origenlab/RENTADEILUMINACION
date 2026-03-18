@@ -270,18 +270,20 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
   /* ── Responsive ── */
   @media (max-width: 1024px) {
     .faq-layout {
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 300px;
       gap: 2rem;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .faq-layout {
       grid-template-columns: 1fr;
     }
 
     .faq-contact {
       position: static;
+      max-width: 480px;
+      margin: 0 auto;
     }
   }
 </style>
