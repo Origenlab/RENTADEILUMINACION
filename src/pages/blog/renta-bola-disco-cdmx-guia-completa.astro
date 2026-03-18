@@ -1,0 +1,200 @@
+---
+// MEJORA vs anterior: Tabla comparativa de 4 tamaños con venue ideal y personas + explicación técnica de motor/focos/rigging + casos de uso específicos por tipo de evento
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const title = "Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas | REDEIL";
+const description = "Guía completa de bola disco: tamaños de 30cm a 1.2m, precios desde $1,500 + IVA, qué necesitas para que funcione y cuándo usarla. Renta en CDMX.";
+const canonical = "https://rentadeiluminacion.com/blog/renta-bola-disco-cdmx-guia-completa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas",
+    "description": description,    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+    "image": "https://rentadeiluminacion.com/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar una bola disco en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "La renta de bola disco va desde $1,500 + IVA (30cm, ideal para fiestas pequeñas) hasta $6,500 + IVA (1.2 metros, para salones grandes y producciones). El precio incluye motor de giro, montaje y focos PIN spot o PAR LED para iluminarla." } },
+      { "@type": "Question", "name": "¿Qué tamaño de bola disco necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para fiestas de hasta 50 personas, 30cm es suficiente. Para bodas y XV años de 100-200 personas, recomendamos 60cm. Para salones grandes de 200-400 personas, 90cm. La de 1.2 metros es para producciones y eventos masivos." } },
+      { "@type": "Question", "name": "¿La bola disco funciona sola o necesita otros equipos?", "acceptedAnswer": { "@type": "Answer", "text": "La bola disco por sí sola no hace nada visible. Necesita mínimo dos cosas: un motor de giro (incluido en la renta) y focos que la iluminen (PIN spot o PAR LED). Sin focos apuntándole, los espejos no reflejan nada." } },
+      { "@type": "Question", "name": "¿Se puede colgar una bola disco en cualquier techo?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del peso y la estructura. Una bola de 30cm pesa 3-4 kg y se puede colgar de casi cualquier punto. Una de 90cm pesa 15-20 kg y necesita un punto de anclaje resistente o un truss. Siempre verificamos la estructura del venue antes del montaje." } }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Bola Disco: Guía Completa"}]} />
+  </Fragment>
+
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas</h1>
+      <img src="/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif" alt="Bola disco dorada reflejando luces de colores sobre pista de baile en evento" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
+
+      <p>Es un objeto de los años 70 que sigue siendo el rey absoluto de las pistas de baile. Pasan las décadas, cambian las modas, aparecen LEDs y láser y pantallas holográficas — y la bola disco sigue ahí, girando, llenando el salón de puntos de luz que se mueven por paredes, techo, piso y rostros. No existe un solo efecto de iluminación que genere tanta magia con tan poco.</p>
+
+      <p>Pero no todas las bolas disco son iguales. El tamaño importa, lo que la ilumina importa, y cómo se instala importa. Aquí te explico todo lo que necesitas saber para elegir la correcta para tu evento.</p>
+
+      <h2>Tamaños disponibles y cuál necesitas</h2>
+
+      <p>En REDEIL manejamos cuatro tamaños de bola disco. Cada uno tiene su venue ideal y su rango de cobertura:</p>
+
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="width:100%; border-collapse: collapse; min-width: 650px;">
+          <thead>
+            <tr style="background: #1a1a1a; color: #fff;">
+              <th style="padding: 12px; text-align: left;">Tamaño</th>
+              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+              <th style="padding: 12px; text-align: left;">Peso</th>
+              <th style="padding: 12px; text-align: left;">Personas</th>
+              <th style="padding: 12px; text-align: left;">Venue ideal</th>
+              <th style="padding: 12px; text-align: left;">Efecto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>30 cm</strong></td>
+              <td style="padding: 12px;">$1,500</td>
+              <td style="padding: 12px;">3-4 kg</td>
+              <td style="padding: 12px;">Hasta 50</td>
+              <td style="padding: 12px;">Terraza, sala, fiesta privada</td>
+              <td style="padding: 12px;">Puntos sutiles, decorativo</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>60 cm</strong></td>
+              <td style="padding: 12px;">$2,800</td>
+              <td style="padding: 12px;">8-10 kg</td>
+              <td style="padding: 12px;">50-200</td>
+              <td style="padding: 12px;">Salón de bodas, XV años</td>
+              <td style="padding: 12px;">Cobertura completa de pista</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>90 cm</strong></td>
+              <td style="padding: 12px;">$4,200</td>
+              <td style="padding: 12px;">15-20 kg</td>
+              <td style="padding: 12px;">200-400</td>
+              <td style="padding: 12px;">Salón grande, explanada</td>
+              <td style="padding: 12px;">Impacto visual fuerte, llena el espacio</td>
+            </tr>
+            <tr style="background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>1.2 m</strong></td>
+              <td style="padding: 12px;">$6,500</td>
+              <td style="padding: 12px;">30-35 kg</td>
+              <td style="padding: 12px;">400+</td>
+              <td style="padding: 12px;">Producción, festival, antro</td>
+              <td style="padding: 12px;">Espectáculo, pieza central</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>La regla general: si el techo del venue está a menos de 4 metros, una bola de 60cm es perfecta. Si el techo está a más de 5 metros, necesitas 90cm o más para que el efecto se note. Una bola de 30cm en un salón de techo de 7 metros se pierde completamente.</p>
+
+      <h2>Qué necesita una bola disco para funcionar</h2>
+
+      <p>Mucha gente cree que con colgar la bola disco ya está. No. La bola por sí sola es un objeto inerte — un montón de espejos pegados a una esfera. Para que funcione necesita tres cosas:</p>
+
+      <h3>1. Motor de giro</h3>
+      <p>El motor va entre el punto de anclaje y la bola. Gira a una velocidad constante de 2-4 RPM (revoluciones por minuto). Demasiado rápido y los puntos de luz se mueven tan rápido que marean. Demasiado lento y el efecto es estático. En REDEIL usamos motores con velocidad ajustable para calibrar según el espacio.</p>
+
+      <p>El motor también debe soportar el peso de la bola. Un motor para bola de 30cm no aguanta una de 90cm — se quema o se cae. Siempre verificamos que el motor sea el adecuado para el tamaño.</p>
+
+      <h3>2. Focos que la iluminen</h3>
+      <p>Esto es lo más importante y lo que más gente ignora. Sin focos apuntando directamente a la bola, los espejos no reflejan nada. Es como tener un espejo en un cuarto oscuro — no sirve de nada.</p>
+
+      <p>Hay dos opciones de focos:</p>
+      <ul>
+        <li><strong>PIN spot LED:</strong> focos pequeños de haz concentrado que apuntan directamente a la bola. Cada uno crea un patrón diferente de reflejos. Se usan 2-4 PIN spots por bola disco. Son la opción clásica y más elegante.</li>
+        <li><strong>PAR LED de colores:</strong> si quieres que los reflejos sean de colores (azul, rojo, verde, multicolor), usamos PAR LED RGBW apuntando a la bola. Los reflejos adquieren el color del foco. Funciona espectacular para hora loca y fiestas temáticas.</li>
+      </ul>
+
+      <h3>3. Rigging (punto de anclaje)</h3>
+      <p>La bola necesita colgarse de un punto que soporte su peso más el del motor. Las opciones son:</p>
+      <ul>
+        <li><strong>Gancho de techo:</strong> muchos salones de eventos ya tienen ganchos en el centro de la pista. Verificamos la capacidad de carga antes de colgar.</li>
+        <li><strong>Truss:</strong> si no hay punto de anclaje, montamos una estructura de truss (aluminio estructural) de la que colgamos la bola. El truss se puede montar sobre bases con contrapeso o anclado a los muros.</li>
+        <li><strong>Cable de seguridad:</strong> siempre, sin excepción, ponemos un cable de seguridad independiente del motor. Si el motor falla, la bola queda sostenida por el cable y no cae sobre los invitados.</li>
+      </ul>
+
+      <h2>Cuándo usar bola disco — y cuándo no</h2>
+
+      <h3>Funciona perfecto para:</h3>
+      <ul>
+        <li><strong>Bodas:</strong> durante la hora loca y el baile libre. La combinación bola disco + PAR LED multicolor es la más solicitada en bodas. La bola dorada (mirror gold) es tendencia en bodas elegantes.</li>
+        <li><strong>XV años:</strong> en el momento del baile con chambelanes y durante la fiesta. Las quinceañeras la piden mucho en dorado o clásica plateada.</li>
+        <li><strong>Fiestas retro/disco:</strong> obvio — es el elemento central de cualquier fiesta temática de los 70s u 80s.</li>
+        <li><strong>Cumpleaños y fiestas privadas:</strong> la de 30cm funciona perfecto para departamentos y terrazas.</li>
+        <li><strong>Eventos corporativos informales:</strong> afterparties, cenas de fin de año, celebraciones de equipo.</li>
+      </ul>
+
+      <h3>No funciona bien para:</h3>
+      <ul>
+        <li><strong>Ceremonias de boda:</strong> el efecto es festivo, no solemne. Para la ceremonia usa uplighting o guirnaldas.</li>
+        <li><strong>Conferencias y presentaciones:</strong> los puntos de luz en las paredes distraen. Aquí necesitas <a href="/blog/audiovisual-conferencias-cdmx/">equipo audiovisual profesional</a>.</li>
+        <li><strong>Espacios muy iluminados:</strong> en un jardín a plena luz del día no se nota el efecto. Necesitas oscuridad parcial o total.</li>
+        <li><strong>Techos abiertos o exteriores sin estructura:</strong> necesitas algo de dónde colgarla y paredes/techo donde se reflejen los puntos.</li>
+      </ul>
+
+      <h2>Combinaciones que multiplican el efecto</h2>
+
+      <p>La bola disco funciona bien sola, pero combinada con otros elementos el resultado se potencia:</p>
+
+      <h3>Bola disco + DJ + city color</h3>
+      <p>La combinación más popular. El <a href="/servicios/bocinas-djs/">DJ</a> pone la música, los PAR LED (city color) pintan las paredes del color de la bola disco, y los reflejos de la bola se mueven sobre esos colores. El efecto es inmersivo — todo el salón se convierte en la pista de baile.</p>
+
+      <h3>Bola disco + cabezas móviles</h3>
+      <p>Para producción de nivel alto. Las <a href="/servicios/cabezas-moviles/">cabezas móviles</a> beam apuntando a la bola disco crean patrones geométricos que se mueven por todo el espacio. Es el efecto que se ve en antros y conciertos — pero controlado para un evento social.</p>
+
+      <h3>Bola disco + máquina de humo</h3>
+      <p>El humo hace visibles los haces de luz que refleja la bola. En lugar de ver solo puntos en las paredes, ves los rayos de luz cruzando el aire. El efecto es espectacular, especialmente con luces de colores.</p>
+
+      <h3>Bola disco dorada + guirnaldas Edison</h3>
+      <p>La combinación de moda en bodas 2025-2026. La bola dorada refleja la luz cálida de las <a href="/servicios/guirnaldas/">guirnaldas Edison</a>, creando un ambiente íntimo y sofisticado. Funciona perfecto en haciendas y jardines techados.</p>
+
+      <h2>Bola disco dorada vs plateada</h2>
+
+      <p>Las bolas disco clásicas son plateadas (espejos de vidrio). Pero en los últimos 3 años ha explotado la demanda de bolas disco doradas (espejos con tinte dorado). La diferencia:</p>
+
+      <ul>
+        <li><strong>Plateada:</strong> reflejos blancos y brillantes. Efecto más "discoteca", más energético. Funciona mejor con luces de colores.</li>
+        <li><strong>Dorada:</strong> reflejos cálidos y elegantes. Efecto más "luxe", más sofisticado. La favorita para bodas y eventos elegantes. Combina con decoración en tonos cálidos, crema y champagne.</li>
+      </ul>
+
+      <p>En REDEIL tenemos ambas versiones en todos los tamaños.</p>
+
+      <h2>Preguntas frecuentes</h2>
+
+      <h3>¿Cuánto cuesta rentar una bola disco en CDMX?</h3>
+      <p>La renta de bola disco va desde $1,500 + IVA (30cm, ideal para fiestas pequeñas) hasta $6,500 + IVA (1.2 metros, para salones grandes y producciones). El precio incluye motor de giro, montaje y focos PIN spot o PAR LED para iluminarla.</p>
+
+      <h3>¿Qué tamaño de bola disco necesito para mi evento?</h3>
+      <p>Para fiestas de hasta 50 personas, 30cm es suficiente. Para bodas y XV años de 100-200 personas, recomendamos 60cm. Para salones grandes de 200-400 personas, 90cm. La de 1.2 metros es para producciones y eventos masivos.</p>
+
+      <h3>¿La bola disco funciona sola o necesita otros equipos?</h3>
+      <p>La bola disco por sí sola no hace nada visible. Necesita mínimo dos cosas: un motor de giro (incluido en la renta) y focos que la iluminen (PIN spot o PAR LED). Sin focos apuntándole, los espejos no reflejan nada.</p>
+
+      <h3>¿Se puede colgar una bola disco en cualquier techo?</h3>
+      <p>Depende del peso y la estructura. Una bola de 30cm pesa 3-4 kg y se puede colgar de casi cualquier punto. Una de 90cm pesa 15-20 kg y necesita un punto de anclaje resistente o un truss. Siempre verificamos la estructura del venue antes del montaje.</p>
+
+      <h2>Renta tu bola disco</h2>
+
+      <p>En REDEIL tenemos bolas disco de 30cm a 1.2 metros, en plateado y dorado, con todo lo necesario para que funcione: motor, focos, rigging y montaje profesional. Conoce nuestros <a href="/servicios/bola-disco/">paquetes de bola disco</a> con precios por tamaño.</p>
+
+      <p>¿No sabes qué tamaño necesitas? Mándanos una foto de tu venue por WhatsApp — te decimos el tamaño exacto en 5 minutos.</p>
+
+      <div style="text-align:center; margin: var(--space-8) 0;">
+        <a href="/servicios/bola-disco/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Bola Disco</a>
+        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20bola%20disco%20para%20mi%20evento" class="btn btn-secondary btn-lg">WhatsApp</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,221 @@
+---
+// MEJORA vs anterior: Tabla de precios con 4 niveles detallados + comparativa DJ fiesta vs DJ boda + preguntas concretas antes de contratar + datos de equipos reales Pioneer/DJM
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const title = "¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios | REDEIL";
+const description = "Precios reales de DJ para boda en CDMX: desde $4,500 hasta $22,000 + IVA. Comparativa de paquetes, qué incluye cada nivel y qué preguntar antes de contratar.";
+const canonical = "https://rentadeiluminacion.com/blog/cuanto-cuesta-dj-para-boda-cdmx/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios",
+    "description": description,    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+    "image": "https://rentadeiluminacion.com/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuánto cobra un DJ para boda en CDMX ?", "acceptedAnswer": { "@type": "Answer", "text": "Los precios van desde $4,500 + IVA (paquete básico con equipo estándar y 4 horas) hasta $22,000 + IVA (producción completa con equipo Pioneer profesional, técnico de audio, iluminación y 8 horas de servicio)." } },
+      { "@type": "Question", "name": "¿Qué incluye el precio de un DJ para boda?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del paquete. Un servicio básico incluye DJ, controlador, 2 bocinas y micrófono por 4 horas. Un paquete premium incluye DJ con equipo Pioneer CDJ-2000NXS2, subwoofer, técnico de audio, iluminación básica y 6 horas de servicio." } },
+      { "@type": "Question", "name": "¿Cuál es la diferencia entre un DJ de fiesta y un DJ de boda?", "acceptedAnswer": { "@type": "Answer", "text": "Un DJ de boda maneja protocolos específicos: coordina con el MC, sabe cuándo bajar la música para brindis, controla la emotividad del vals, hace transiciones suaves entre momentos formales y fiesta. Un DJ de fiesta solo mezcla música." } },
+      { "@type": "Question", "name": "¿Se paga por adelantado o se puede apartar con anticipo?", "acceptedAnswer": { "@type": "Answer", "text": "En REDEIL se aparta con un anticipo del 50% para reservar la fecha. El resto se liquida 3 días antes del evento o el día del montaje." } }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"¿Cuánto Cuesta un DJ para Boda?"}]} />
+  </Fragment>
+
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios</h1>
+      <img src="/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif" alt="DJ profesional mezclando música en boda en CDMX con equipo Pioneer" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
+
+      <p>Es la pregunta que todo novio y toda novia hacen — y que la mayoría de proveedores evitan responder directamente. "Depende", te dicen. Y sí, depende. Pero aquí te voy a dar los números reales, desglosados, para que sepas exactamente en qué rango te mueves y qué estás pagando en cada nivel.</p>
+
+      <p>Después de más de 30 años montando sonido en bodas en toda la Ciudad de México y zona metropolitana, puedo decir que los precios que vas a ver aquí reflejan lo que realmente se cobra en el mercado profesional — no en el informal.</p>
+
+      <h2>Rangos de precio reales para DJ de boda en CDMX</h2>
+
+      <p>Estos son los cuatro niveles de servicio que manejamos en REDEIL, con lo que incluye cada uno:</p>
+
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="width:100%; border-collapse: collapse; min-width: 600px;">
+          <thead>
+            <tr style="background: #1a1a1a; color: #fff;">
+              <th style="padding: 12px; text-align: left;">Paquete</th>
+              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+              <th style="padding: 12px; text-align: left;">Horas</th>
+              <th style="padding: 12px; text-align: left;">Personas</th>
+              <th style="padding: 12px; text-align: left;">Equipo principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>Básico</strong></td>
+              <td style="padding: 12px;">$4,500</td>
+              <td style="padding: 12px;">4 hrs</td>
+              <td style="padding: 12px;">Hasta 80</td>
+              <td style="padding: 12px;">Controlador DDJ-400, 2 bocinas 15"</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>Estándar</strong></td>
+              <td style="padding: 12px;">$8,500</td>
+              <td style="padding: 12px;">5 hrs</td>
+              <td style="padding: 12px;">Hasta 150</td>
+              <td style="padding: 12px;">DDJ-1000, 2 bocinas JBL EON 15", 1 sub 18"</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>Premium</strong></td>
+              <td style="padding: 12px;">$12,000</td>
+              <td style="padding: 12px;">6 hrs</td>
+              <td style="padding: 12px;">Hasta 250</td>
+              <td style="padding: 12px;">CDJ-2000NXS2 + DJM-750MK2, 4 bocinas, 2 subs</td>
+            </tr>
+            <tr style="background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>Producción</strong></td>
+              <td style="padding: 12px;">$22,000</td>
+              <td style="padding: 12px;">8 hrs</td>
+              <td style="padding: 12px;">Hasta 500</td>
+              <td style="padding: 12px;">CDJ-2000NXS2 + DJM-900NXS2, line array, 4 subs, técnico</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Todos los paquetes incluyen DJ profesional, micrófono inalámbrico para brindis, montaje y desmontaje. Los paquetes Estándar en adelante incluyen iluminación básica (4-8 PAR LED). El paquete Producción incluye técnico de audio independiente.</p>
+
+      <h2>Qué incluye cada precio — y qué NO incluye</h2>
+
+      <p>Aquí es donde muchos novios se llevan sorpresas. Hay proveedores que te cotizan "$3,000 por el DJ" y luego te cobran aparte las bocinas, el micrófono, el traslado, las horas extra y la iluminación. Al final terminas pagando $9,000 por algo que parecía costar $3,000.</p>
+
+      <h3>Lo que SÍ incluyen nuestros paquetes:</h3>
+      <ul>
+        <li><strong>DJ con experiencia en bodas</strong> — no un DJ que normalmente toca en antros y le "echa ganas" en tu boda</li>
+        <li><strong>Equipo de sonido completo</strong> — bocinas, subwoofer (según paquete), cables, bases, mixer</li>
+        <li><strong>Micrófono inalámbrico</strong> — para brindis, discursos y MC</li>
+        <li><strong>Montaje y desmontaje</strong> — llegamos 2-3 horas antes del evento</li>
+        <li><strong>Playlist personalizada</strong> — coordinamos la música contigo antes del evento</li>
+        <li><strong>Traslado</strong> — dentro de la zona metropolitana de CDMX</li>
+      </ul>
+
+      <h3>Lo que se cotiza aparte:</h3>
+      <ul>
+        <li>Horas extra (cada hora adicional: $800-$1,500 según paquete)</li>
+        <li>Iluminación profesional avanzada (cabezas móviles, city color)</li>
+        <li>Efectos especiales (humo bajo, confeti, CO2)</li>
+        <li>Traslados fuera de la zona metropolitana (Cuernavaca, Puebla, Valle de Bravo)</li>
+      </ul>
+
+      <h2>Por qué los precios varían tanto entre proveedores</h2>
+
+      <p>Si buscas "DJ para boda CDMX" vas a encontrar precios desde $2,000 hasta $30,000. La diferencia no es capricho — son tres factores concretos:</p>
+
+      <h3>1. El equipo</h3>
+      <p>No suena igual un controlador de $5,000 pesos conectado a unas bocinas de plástico que un par de CDJ-2000NXS2 (el estándar de la industria, cuesta más de $60,000 pesos cada uno) con mixer DJM-900NXS2 y bocinas JBL profesionales. La diferencia se escucha — literalmente. En un salón de 200 personas, un equipo básico distorsiona a partir de cierto volumen. Un equipo profesional mantiene la claridad a cualquier nivel.</p>
+
+      <h3>2. La experiencia del DJ en bodas</h3>
+      <p>Un DJ de boda no solo mezcla música. Coordina con el MC los tiempos de cada momento: vals, ramo, liga, brindis, hora loca. Sabe que durante la cena la música va a un volumen que permite conversar. Sabe que el vals necesita empezar suave y construir. Sabe cuándo meter las cumbias y cuándo los éxitos en inglés. Eso se aprende con bodas, no con fiestas de cumpleaños.</p>
+
+      <h3>3. El día de la semana</h3>
+      <p>Los sábados de temporada alta (mayo, junio, octubre, noviembre, diciembre) se reservan con 3-6 meses de anticipación. Un viernes o domingo el precio puede ser 10-15% menor que un sábado.</p>
+
+      <h2>Diferencia entre DJ de fiesta y DJ de boda</h2>
+
+      <p>Esto es algo que mucha gente no distingue — y es fundamental. Un DJ que es buenísimo en un antro o en una fiesta de cumpleaños puede ser un desastre en tu boda. ¿Por qué?</p>
+
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="width:100%; border-collapse: collapse; min-width: 500px;">
+          <thead>
+            <tr style="background: #1a1a1a; color: #fff;">
+              <th style="padding: 12px; text-align: left;">Aspecto</th>
+              <th style="padding: 12px; text-align: left;">DJ de fiesta</th>
+              <th style="padding: 12px; text-align: left;">DJ de boda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>Protocolo</strong></td>
+              <td style="padding: 12px;">Pone música y la gente baila</td>
+              <td style="padding: 12px;">Coordina con MC, fotógrafo, wedding planner</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>Momentos</strong></td>
+              <td style="padding: 12px;">Un solo bloque de música continua</td>
+              <td style="padding: 12px;">Vals, ramo, liga, brindis, hora loca — cada uno con su timing</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>Volumen</strong></td>
+              <td style="padding: 12px;">Alto toda la noche</td>
+              <td style="padding: 12px;">Se adapta: bajo en cena, medio en coctel, alto en pista</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>Playlist</strong></td>
+              <td style="padding: 12px;">Lo que está de moda</td>
+              <td style="padding: 12px;">Personalizada: mezcla generaciones, géneros, peticiones de los novios</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px;"><strong>Vestimenta</strong></td>
+              <td style="padding: 12px;">Casual</td>
+              <td style="padding: 12px;">Formal o según el dress code del evento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>En 30 años hemos visto bodas donde el DJ puso reggaetón a todo volumen durante la cena (los papás y abuelos se salieron del salón), bodas donde el DJ no sabía cuándo cortar para el brindis, y bodas donde el DJ desapareció 20 minutos porque "fue al baño". Un DJ de boda profesional sabe que su trabajo es hacer que la fiesta fluya sin que nadie se dé cuenta de que hay alguien controlándola.</p>
+
+      <h2>Preguntas que debes hacer antes de contratar un DJ</h2>
+
+      <p>Antes de firmar cualquier contrato, estas son las preguntas que todo novio debería hacer. Si el proveedor no puede responderlas con claridad, busca otro:</p>
+
+      <ol>
+        <li><strong>¿El equipo que me muestras en la cotización es el mismo que llevas al evento?</strong> — Muchos proveedores muestran fotos de equipo Pioneer profesional y llevan un controlador básico.</li>
+        <li><strong>¿Cuántas bodas has musicado en el último año?</strong> — Un DJ profesional de bodas hace mínimo 30-50 bodas al año.</li>
+        <li><strong>¿Qué pasa si el DJ se enferma el día de mi boda?</strong> — Un proveedor serio tiene respaldo. Nosotros tenemos un roster de 6 DJs.</li>
+        <li><strong>¿Incluye micrófono inalámbrico?</strong> — Parece obvio, pero hay quienes lo cobran aparte.</li>
+        <li><strong>¿Puedo escucharte mezclar antes de contratarte?</strong> — Pide un set de muestra o un video de un evento real.</li>
+        <li><strong>¿Cuántas horas antes llegas a montar?</strong> — El montaje debe estar listo mínimo 1 hora antes de que lleguen los invitados.</li>
+        <li><strong>¿Cobras traslado?</strong> — Si tu venue está en Tepotzotlán o en Valle de Bravo, pregunta antes.</li>
+      </ol>
+
+      <h2>¿Dónde hemos montado DJ para bodas?</h2>
+
+      <p>En REDEIL hemos musicado bodas en venues de toda la zona metropolitana: Hacienda Peñafiel (Tepotzotlán), Hacienda San José de los Laureles, Salón WTC, Hotel Camino Real Polanco, terrazas en Santa Fe, jardines en Coyoacán, haciendas en Tlalpan y salones en Satélite. Cada venue tiene sus particularidades de acústica — un jardín abierto necesita más potencia que un salón cerrado de las mismas dimensiones.</p>
+
+      <h2>Preguntas frecuentes</h2>
+
+      <h3>¿Cuánto cobra un DJ para boda en CDMX ?</h3>
+      <p>Los precios van desde $4,500 + IVA (paquete básico con equipo estándar y 4 horas) hasta $22,000 + IVA (producción completa con equipo Pioneer profesional, técnico de audio, iluminación y 8 horas de servicio). El promedio para una boda de 150-200 personas es el paquete estándar o premium: entre $8,500 y $12,000 + IVA.</p>
+
+      <h3>¿Qué incluye el precio de un DJ para boda?</h3>
+      <p>Depende del paquete. Un servicio básico incluye DJ, controlador, 2 bocinas y micrófono por 4 horas. Un paquete premium incluye DJ con equipo Pioneer CDJ-2000NXS2, subwoofer, técnico de audio, iluminación básica y 6 horas de servicio. En todos los casos incluye montaje, desmontaje y traslado dentro de la zona metropolitana.</p>
+
+      <h3>¿Cuál es la diferencia entre un DJ de fiesta y un DJ de boda?</h3>
+      <p>Un DJ de boda maneja protocolos específicos: coordina con el MC, sabe cuándo bajar la música para brindis, controla la emotividad del vals, hace transiciones suaves entre momentos formales y fiesta. Un DJ de fiesta solo mezcla música — funciona para cumpleaños, pero en una boda se notan las carencias.</p>
+
+      <h3>¿Se paga por adelantado o se puede apartar con anticipo?</h3>
+      <p>En REDEIL se aparta con un anticipo del 50% para reservar la fecha. El resto se liquida 3 días antes del evento o el día del montaje. Aceptamos transferencia bancaria y efectivo.</p>
+
+      <h2>Cotiza tu DJ para boda</h2>
+
+      <p>En REDEIL tenemos paquetes de DJ para boda desde $4,500 + IVA con equipo profesional, montaje completo y experiencia real en bodas. Conoce todos nuestros <a href="/servicios/bocinas-djs/">paquetes de DJ para eventos</a> o revisa los <a href="/servicios/bocinas-bodas/">paquetes de sonido para bodas</a> que incluyen DJ + bocinas + iluminación.</p>
+
+      <p>Si todavía no tienes claro qué nivel necesitas, mándanos un WhatsApp con la fecha, el venue y el número de invitados — te decimos exactamente qué paquete te conviene.</p>
+
+      <div style="text-align:center; margin: var(--space-8) 0;">
+        <a href="/servicios/bocinas-djs/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes DJ</a>
+        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20DJ%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

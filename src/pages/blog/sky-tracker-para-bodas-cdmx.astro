@@ -1,0 +1,193 @@
+---
+// MEJORA vs anterior: Gancho emocional más fuerte desde el primer párrafo + venues CDMX específicos donde funciona + logística real (permisos, horarios, vecinos) + combinaciones detalladas
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const title = "Sky Tracker para Bodas en CDMX: El Efecto que Se Ve Desde Kilómetros | REDEIL";
+const description = "Sky tracker para bodas al aire libre en CDMX: cómo funciona, para qué venues sirve, cuántos necesitas y preguntas logísticas. Renta desde $3,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/blog/sky-tracker-para-bodas-cdmx/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sky Tracker para Bodas en CDMX: El Efecto que Se Ve Desde Kilómetros",
+    "description": description,    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+    "image": "https://rentadeiluminacion.com/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuánto cuesta rentar un sky tracker para boda en CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Un sky tracker individual se renta desde $3,500 + IVA. El paquete más popular para bodas es de 2 sky trackers por $6,000 + IVA. Para producciones grandes se usan 4 unidades desde $10,000 + IVA. Incluye equipo, operador, montaje y desmontaje." } },
+      { "@type": "Question", "name": "¿El sky tracker funciona en salones cerrados?", "acceptedAnswer": { "@type": "Answer", "text": "No. El sky tracker está diseñado para exteriores — su haz de luz necesita un cielo abierto para crear el efecto de columnas de luz que se ven a kilómetros. En un salón cerrado el haz pega en el techo y no se logra el efecto. Para interiores, usa cabezas móviles beam." } },
+      { "@type": "Question", "name": "¿Necesito permiso para usar sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "En la mayoría de los venues de eventos no necesitas permiso especial. Sin embargo, si tu venue está cerca de un aeropuerto (como la zona de Texcoco o Santa Fe cerca del AICM) se recomienda verificar. Los sky trackers para eventos usan potencias menores que los de aviación y generalmente no interfieren." } },
+      { "@type": "Question", "name": "¿A qué hora se encienden los sky trackers?", "acceptedAnswer": { "@type": "Answer", "text": "Se encienden al anochecer, cuando hay suficiente oscuridad para que los haces sean visibles. En CDMX esto es entre las 7:00 y 7:30 PM en verano, y desde las 6:00-6:30 PM en invierno. Los operamos hasta el fin del evento." } },
+      { "@type": "Question", "name": "¿Cuántos sky trackers necesito para mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "Para la mayoría de las bodas, 2 sky trackers son suficientes: uno a cada lado del jardín o explanada. Si el espacio es muy grande (haciendas con jardines amplios) o quieres un efecto más dramático, 4 unidades crean un efecto de pirámide de luz espectacular." } }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Sky Tracker para Bodas"}]} />
+  </Fragment>
+
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>Sky Tracker para Bodas en CDMX: El Efecto que Se Ve Desde Kilómetros</h1>
+      <img src="/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif" alt="Sky trackers iluminando el cielo nocturno en boda en hacienda colonial CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
+
+      <p>Los invitados venían bajando por la carretera de Tepotzotlán, todavía a dos kilómetros de la hacienda, y ya se veían las columnas de luz cortando el cielo nocturno. "¿Eso es la boda?", preguntó alguien desde el asiento trasero. Era la boda. Y ese fue el primer momento wow de la noche — antes de estacionar, antes de entrar, antes de ver la decoración. Dos haces de luz diciendo "la fiesta es aquí" desde kilómetros de distancia.</p>
+
+      <p>El sky tracker (también llamado search light o luz antiaérea) es el efecto más espectacular que puedes poner en una boda al aire libre. No es sutil. No es discreto. Es una declaración: este es el evento más importante de la noche en toda la zona.</p>
+
+      <h2>Qué es un sky tracker y cómo funciona</h2>
+
+      <p>Un sky tracker es un reflector de altísima potencia (entre 2,000 y 7,000 watts) que proyecta un haz de luz concentrado hacia el cielo. El haz es tan intenso que es visible a varios kilómetros de distancia, incluso en noches con algo de nubosidad — de hecho, con nubes el efecto es todavía más dramático porque la luz se refleja en ellas.</p>
+
+      <p>Los sky trackers profesionales que usamos en REDEIL son de descarga (tipo HMI o xenon), no LED. La diferencia es crucial: un LED de alta potencia produce un haz ancho y difuso; un HMI produce un haz concentrado, tipo láser, que corta el cielo como una espada de luz. Son los mismos que se usan en premieres de películas, inauguraciones de centros comerciales y eventos de gran escala.</p>
+
+      <h3>Características técnicas</h3>
+      <ul>
+        <li><strong>Potencia:</strong> 2,000W a 7,000W por unidad</li>
+        <li><strong>Alcance visible:</strong> 3-10 kilómetros (dependiendo de la atmósfera)</li>
+        <li><strong>Consumo eléctrico:</strong> requiere alimentación dedicada (generalmente contactor independiente o planta de luz)</li>
+        <li><strong>Peso:</strong> 30-50 kg por unidad — requiere base sólida en piso</li>
+        <li><strong>Calentamiento:</strong> las lámparas HMI tardan 5-10 minutos en alcanzar potencia máxima</li>
+      </ul>
+
+      <h2>Para qué tipo de venues funciona</h2>
+
+      <p>El sky tracker es exclusivamente para exteriores. Punto. Si tu boda es en un salón cerrado, este efecto no es para ti. Pero si tienes cielo abierto, estas son las situaciones donde más brilla:</p>
+
+      <h3>Jardines y haciendas — el escenario ideal</h3>
+      <p>Las haciendas de la zona de Tepotzotlán, Cuernavaca y Estado de México son el escenario perfecto para sky trackers. Espacios amplios, cielo despejado, poca contaminación lumínica y la arquitectura colonial de fondo. Hemos montado sky trackers en:</p>
+      <ul>
+        <li>Hacienda Peñafiel (Tepotzotlán) — 2 sky trackers a los lados del jardín principal</li>
+        <li>Hacienda San José de los Laureles — 4 unidades creando una pirámide de luz</li>
+        <li>Jardines en Coyoacán y Tlalpan — 2 unidades en jardines privados</li>
+        <li>Explanadas en Valle de Bravo — efecto espectacular reflejado en el lago</li>
+      </ul>
+
+      <h3>Terrazas y rooftops</h3>
+      <p>En terrazas de hoteles en Polanco, Santa Fe o Reforma, los sky trackers crean un efecto que se ve desde toda la ciudad. Son populares para bodas urbanas con vista al skyline de CDMX. La única consideración es el viento — en pisos altos puede ser fuerte y afectar la estabilidad del equipo.</p>
+
+      <h3>Explanadas y fincas</h3>
+      <p>Para bodas masivas (300+ personas) en explanadas abiertas, los sky trackers cumplen una función práctica además de decorativa: son el faro que guía a los invitados al venue. En fincas alejadas de la ciudad, donde no hay señalización clara, las columnas de luz son la mejor indicación de "la fiesta es aquí".</p>
+
+      <h3>Dónde NO funciona</h3>
+      <ul>
+        <li><strong>Salones cerrados:</strong> el haz pega en el techo y el efecto se pierde. Usa <a href="/servicios/cabezas-moviles/">cabezas móviles beam</a> en su lugar.</li>
+        <li><strong>Bodas diurnas:</strong> los sky trackers solo funcionan de noche. Si tu boda termina antes de que oscurezca, no los necesitas.</li>
+        <li><strong>Espacios con árboles muy altos:</strong> si los árboles bloquean la línea al cielo, el haz se corta antes de alcanzar altura.</li>
+      </ul>
+
+      <h2>Sky tracker + otros efectos: las combinaciones top</h2>
+
+      <p>El sky tracker funciona como el marco exterior del evento. Las combinaciones que más montamos:</p>
+
+      <h3>Sky tracker + guirnaldas Edison</h3>
+      <p>El combo más solicitado para bodas en haciendas. Las <a href="/servicios/guirnaldas/">guirnaldas</a> crean el ambiente cálido e íntimo dentro del jardín, y los sky trackers crean el marco épico que se ve desde lejos. Es la combinación que genera las mejores fotos: guirnaldas en primer plano, columnas de luz en el fondo, cielo estrellado.</p>
+
+      <h3>Sky tracker + city color en fachada</h3>
+      <p>Los sky trackers iluminan el cielo mientras los PAR LED (city color) iluminan la fachada de la hacienda en ámbar o el color del evento. El contraste entre la luz dorada en la piedra y los haces blancos en el cielo es espectacular.</p>
+
+      <h3>Sky tracker + humo bajo en el vals</h3>
+      <p>Para el momento del primer vals al aire libre: los sky trackers como marco, <a href="/servicios/humo-bajo/">humo bajo</a> en la pista y un follow spot sobre los novios. Es nivel cinematográfico.</p>
+
+      <h3>4 sky trackers en pirámide</h3>
+      <p>Para bodas de producción alta: cuatro sky trackers colocados en las esquinas del espacio, inclinados hacia el centro. Los haces convergen a una altura de 200-300 metros creando una pirámide de luz visible desde toda la zona. Es el efecto más impactante que puedes lograr en un evento al aire libre.</p>
+
+      <h2>Cuántos necesitas según el espacio</h2>
+
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="width:100%; border-collapse: collapse; min-width: 500px;">
+          <thead>
+            <tr style="background: #1a1a1a; color: #fff;">
+              <th style="padding: 12px; text-align: left;">Sky trackers</th>
+              <th style="padding: 12px; text-align: left;">Efecto</th>
+              <th style="padding: 12px; text-align: left;">Ideal para</th>
+              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 12px;"><strong>1 unidad</strong></td>
+              <td style="padding: 12px;">Columna de luz solitaria</td>
+              <td style="padding: 12px;">Entrada o punto focal</td>
+              <td style="padding: 12px;">$3,500</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
+              <td style="padding: 12px;"><strong>2 unidades</strong></td>
+              <td style="padding: 12px;">Enmarca el evento, simétrico</td>
+              <td style="padding: 12px;">Bodas en jardín o hacienda</td>
+              <td style="padding: 12px;">$6,000</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px;"><strong>4 unidades</strong></td>
+              <td style="padding: 12px;">Pirámide de luz, producción</td>
+              <td style="padding: 12px;">Bodas de producción, inauguraciones</td>
+              <td style="padding: 12px;">$10,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Preguntas logísticas: permisos, horarios, vecinos</h2>
+
+      <p>Estas son las dudas prácticas que siempre surgen cuando un cliente quiere sky trackers:</p>
+
+      <h3>¿Necesito permiso?</h3>
+      <p>En la mayoría de los venues de eventos (haciendas, jardines, fincas) no necesitas permiso especial — el administrador del venue ya sabe que se usan estos equipos. Si tu venue está cerca del Aeropuerto Internacional (zona de Texcoco, Peñón de los Baños) o del aeropuerto de Toluca, es recomendable verificar con el venue. Los sky trackers para eventos usan potencias menores que los de navegación aérea, pero siempre es mejor preguntar.</p>
+
+      <h3>¿A qué hora se encienden?</h3>
+      <p>Necesitan oscuridad para ser visibles. En CDMX:</p>
+      <ul>
+        <li><strong>Primavera/verano (abril-septiembre):</strong> se encienden a partir de las 7:00-7:30 PM</li>
+        <li><strong>Otoño/invierno (octubre-marzo):</strong> desde las 6:00-6:30 PM</li>
+      </ul>
+      <p>Los dejamos encendidos hasta el final del evento. Generalmente los apagamos cuando empieza el desmontaje general.</p>
+
+      <h3>¿Los vecinos se quejan?</h3>
+      <p>Los haces de luz van hacia arriba, no hacia los lados, así que no iluminan ventanas ni propiedades vecinas. En 30 años no hemos tenido una sola queja de vecinos por sky trackers. Lo que sí puede generar queja es el sonido de la música — pero eso es tema del DJ, no de las luces.</p>
+
+      <h3>¿Qué pasa si llueve?</h3>
+      <p>Los sky trackers profesionales son resistentes a salpicaduras, pero lluvia fuerte los apagamos por seguridad eléctrica. En caso de lluvia ligera o intermitente, seguimos operando. De hecho, el efecto con lluvia fina es espectacular: las gotas reflejan la luz y el haz se vuelve más visible.</p>
+
+      <h3>¿Necesitan planta de luz?</h3>
+      <p>Depende del venue. Cada sky tracker consume entre 2,000 y 7,000 watts, así que necesitan una toma de corriente dedicada (no compartida con otras cargas). En venues con buena instalación eléctrica se conectan directamente. En haciendas viejas o espacios al aire libre sin infraestructura, llevamos planta de luz.</p>
+
+      <h2>Preguntas frecuentes</h2>
+
+      <h3>¿Cuánto cuesta rentar un sky tracker para boda en CDMX?</h3>
+      <p>Un sky tracker individual se renta desde $3,500 + IVA. El paquete más popular para bodas es de 2 sky trackers por $6,000 + IVA. Para producciones grandes se usan 4 unidades desde $10,000 + IVA. Incluye equipo, operador, montaje y desmontaje.</p>
+
+      <h3>¿El sky tracker funciona en salones cerrados?</h3>
+      <p>No. El sky tracker está diseñado para exteriores — su haz de luz necesita un cielo abierto para crear el efecto de columnas de luz que se ven a kilómetros. En un salón cerrado el haz pega en el techo y no se logra el efecto. Para interiores, usa cabezas móviles beam.</p>
+
+      <h3>¿Necesito permiso para usar sky trackers?</h3>
+      <p>En la mayoría de los venues de eventos no necesitas permiso especial. Sin embargo, si tu venue está cerca de un aeropuerto se recomienda verificar. Los sky trackers para eventos usan potencias menores que los de aviación y generalmente no interfieren.</p>
+
+      <h3>¿A qué hora se encienden los sky trackers?</h3>
+      <p>Se encienden al anochecer, cuando hay suficiente oscuridad para que los haces sean visibles. En CDMX esto es entre las 7:00 y 7:30 PM en verano, y desde las 6:00-6:30 PM en invierno. Los operamos hasta el fin del evento.</p>
+
+      <h3>¿Cuántos sky trackers necesito para mi boda?</h3>
+      <p>Para la mayoría de las bodas, 2 sky trackers son suficientes: uno a cada lado del jardín o explanada. Si el espacio es muy grande o quieres un efecto más dramático, 4 unidades crean un efecto de pirámide de luz espectacular.</p>
+
+      <h2>Ilumina el cielo de tu boda</h2>
+
+      <p>En REDEIL tenemos sky trackers profesionales HMI de 4,000W con operador, montaje completo y cable de seguridad. Conoce todos los <a href="/servicios/sky-tracker/">paquetes de sky tracker</a> para bodas y eventos.</p>
+
+      <p>Si tu boda es en jardín, hacienda o terraza y quieres el efecto más impactante que existe para exteriores nocturnos — este es. Mándanos la ubicación de tu venue y te decimos cuántas unidades necesitas.</p>
+
+      <div style="text-align:center; margin: var(--space-8) 0;">
+        <a href="/servicios/sky-tracker/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Sky Tracker</a>
+        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20sky%20tracker%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
