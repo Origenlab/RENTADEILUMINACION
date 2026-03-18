@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio Premium Line Array para Eventos CDMX — $12,000 + IVA | REDEIL";
+const description = "Line array QSC KLA + 4 subs + 6 micrófonos Shure ULXD + Yamaha TF3 para eventos de 300-500 personas. Sin puntos muertos. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas/paquete-audio-premium/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Audio Premium — Line Array QSC KLA para Eventos Grandes",
+    "description": "Audio line array profesional para eventos de 300-500 personas. Line array QSC KLA + 4 subwoofers + 6 micrófonos Shure ULXD + mezcladora Yamaha TF3 + monitores de escenario. Técnico de audio, transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas/paquete-audio-premium/",
+      "priceCurrency": "MXN",
+      "price": "12000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "52",
+      "reviewCount": "52"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ricardo Estrada" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Gala corporativa con 400 personas en el Centro Citibanamex. El line array QSC KLA cubrió el salón completo sin puntos muertos. Los ejecutivos en la última fila escucharon igual que los de enfrente."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Díaz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento de fin de año para 350 empleados en un jardín de Coyoacán. La Yamaha TF3 permitió tener ceremonia con discursos y fiesta con DJ usando el mismo equipo. Transiciones perfectas."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Arturo Navarro" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Congreso médico con 500 asistentes en el WTC. 6 micrófonos Shure ULXD para el panel de especialistas — cero interferencias. El audio llegó claro hasta el último asiento del auditorio."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas/renta-bocinas-line-array-concierto.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué ventaja tiene un line array sobre bocinas convencionales?", "acceptedAnswer": { "@type": "Answer", "text": "Un line array proyecta el sonido en un patrón controlado que cubre grandes distancias con volumen uniforme. La persona en la fila 30 escucha al mismo nivel que la de la fila 3. Con bocinas convencionales, las primeras filas reciben demasiado volumen y las últimas no escuchan. Para 300-500 personas, el line array es la única opción que garantiza cobertura uniforme." }},
+      { "@type": "Question", "name": "¿Qué diferencia hay entre el Audio Estándar y el Premium?", "acceptedAnswer": { "@type": "Answer", "text": "El Estándar ($7,000) usa 4 bocinas JBL PRX825 punto source — funcionan perfecto para 100-200 personas. El Premium ($12,000) usa line array QSC KLA que proyecta sonido uniforme a mayores distancias, 4 subwoofers en vez de 2, 6 micrófonos Shure ULXD de grado profesional, Yamaha TF3 de 48 canales y monitores de escenario. El salto es para eventos de 300-500 personas donde la cobertura uniforme es crítica." }},
+      { "@type": "Question", "name": "¿Incluye monitores de escenario?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete Premium incluye monitores para que los presentadores, músicos o ponentes escuchen su propia voz y la mezcla en el escenario. Esto es fundamental en eventos grandes donde el line array apunta al público, no al escenario." }},
+      { "@type": "Question", "name": "¿Los 6 micrófonos Shure ULXD son inalámbricos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los Shure ULXD son micrófonos inalámbricos digitales de gama alta con frecuencias coordinadas — cero interferencias incluso usando los 6 simultáneamente. Ideales para paneles, conferencias, congresos y eventos con múltiples presentadores." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo toma el montaje del line array?", "acceptedAnswer": { "@type": "Answer", "text": "El equipo de montaje llega 3-4 horas antes del evento. Rigging del line array, posicionamiento de subwoofers, instalación de monitores, prueba de micrófonos y ecualización del espacio. El line array QSC KLA se monta en truss o se stackea según el venue." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Audio Estándar — $7,000", image: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Audio profesional para eventos medianos", description: "4 bocinas JBL PRX825 + 2 subwoofers QSC + Yamaha TF1. Si tu evento tiene 100-200 personas, este paquete es suficiente.", link: "/servicios/bocinas/paquete-audio-estandar/" },
+  { title: "Producción Audio — $20,000", image: "/img/bocinas/sonido-profesional-concierto-estadio.avif", alt: "Producción de audio para conciertos y festivales", description: "Line array JBL VTX + delays + FOH + redundancia completa. Para conciertos, festivales y eventos de 500+ personas.", link: "/servicios/bocinas/paquete-produccion-audio/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-baile-novios-iluminacion.avif", alt: "Cabezas móviles para iluminación de eventos grandes", description: "Iluminación robótica que complementa el audio premium. Show de luces programado para cada momento.", link: "/servicios/cabezas-moviles/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor de luz para eventos y galas", description: "Luz que sigue al presentador o artista en el escenario. El complemento visual del line array.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Eventos", href: "/servicios/bocinas/" },
+    { label: "Paquete Audio Premium" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Audio Premium — Line Array para 300 a 500 Personas"
+    subtitle="Desde $12,000 + IVA. Line array QSC KLA + 4 subwoofers + 6 micrófonos Shure ULXD + Yamaha TF3. Sin puntos muertos."
+    introParagraph1='Cuando un evento supera las 200 personas, las bocinas convencionales dejan de funcionar. Las primeras filas escuchan demasiado fuerte y las últimas no escuchan. La diferencia del line array <strong>QSC KLA</strong> es que proyecta sonido uniforme a lo largo de toda la audiencia — la persona en la fila 30 escucha al mismo nivel que la de la fila 3. Cuatro subwoofers distribuidos dan bajo parejo en todo el espacio sin los picos que producen dos subs juntos.'
+    introParagraph2='Los 6 micrófonos <strong>Shure ULXD</strong> son inalámbricos digitales de gama alta — frecuencias coordinadas, cero interferencias, captura de voz cristalina. La mezcladora <strong>Yamaha TF3</strong> de 48 canales maneja el line array, subwoofers, monitores de escenario y todos los micrófonos desde una sola superficie. El técnico ecualiza el espacio, programa memorias de escena y opera el audio completo. Galas, congresos, convenciones, festivales corporativos y eventos masivos en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más o menos potencia?"
+    items={[
+      { label: "Audio Estándar $7,000", href: "/servicios/bocinas/paquete-audio-estandar/", icon: "sonido" },
+      { label: "Producción $20,000", href: "/servicios/bocinas/paquete-produccion-audio/", icon: "sonido" },
+      { label: "Audio Básico $4,000", href: "/servicios/bocinas/paquete-audio-basico/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Audio Premium"
+      price="$12,000"
+      priceNote="+ IVA · Line array · Técnico incluido"
+      features={[
+        { text: "Line array QSC KLA (cobertura uniforme)" },
+        { text: "4 subwoofers distribuidos" },
+        { text: "6 micrófonos Shure ULXD digitales" },
+        { text: "Mezcladora Yamaha TF3 de 48 canales" },
+        { text: "Monitores de escenario incluidos" },
+        { text: "Ecualización profesional al espacio" },
+        { text: "Técnico de audio todo el evento" },
+        { text: "Rigging o stack según venue" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: eventos 300-500 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Audio Premium con line array para un evento."
+      packages={[
+        { label: "Audio Básico", price: "$4,000", href: "/servicios/bocinas/paquete-audio-basico/" },
+        { label: "Estándar", price: "$7,000", href: "/servicios/bocinas/paquete-audio-estandar/" },
+        { label: "Audio Premium", price: "$12,000", href: "/servicios/bocinas/paquete-audio-premium/", active: true },
+        { label: "Producción", price: "$20,000", href: "/servicios/bocinas/paquete-produccion-audio/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Eventos grandes donde la cobertura uniforme es crítica"
+          subtitle="Line array QSC KLA — el mismo nivel de audio de la primera a la última fila."
+          paragraph1="En un evento de 400 personas, la diferencia entre un buen sistema y uno mediocre se mide en una sola cosa: ¿la última fila escuchó los discursos? Con el line array QSC KLA, sí. La proyección controlada del sonido garantiza que cada asiento reciba el mismo nivel de audio."
+          paragraph2="Los 4 subwoofers se distribuyen estratégicamente para que el bajo se sienta parejo en todo el espacio — sin los picos de presión que ocurren cuando apilas dos subs en un solo punto."
+        />
+        <FeatureGrid features={[
+          { title: "Gala Corporativa 300-500", description: "Line array cubre salones de convenciones completos. Discursos, premiaciones y fiesta." },
+          { title: "Congreso o Convención", description: "6 micrófonos ULXD para paneles de expertos. Sin interferencias, sin cortes." },
+          { title: "Festival Corporativo", description: "Jardines y explanadas cubiertas con sonido uniforme. Banda + DJ + discursos." },
+          { title: "Evento de Fin de Año", description: "Ceremonia formal → cena → fiesta. La Yamaha TF3 cambia escenas sin interrumpir." },
+          { title: "Convención de Ventas", description: "Presentaciones con video, paneles y premiaciones. Audio claro para cada momento." },
+          { title: "Cena de Gala con Show", description: "Monitores de escenario para artistas + line array para el público. Dos mezclas independientes." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="La tecnología detrás del sonido uniforme"
+          subtitle="QSC KLA + Shure ULXD + Yamaha TF3 — equipo de gira internacional."
+          paragraph1="El line array QSC KLA usa la misma tecnología que los sistemas de conciertos y festivales internacionales, escalada al tamaño de eventos corporativos y sociales. Cada caja del array se angula para cubrir una sección específica del público."
+          paragraph2="Los micrófonos Shure ULXD operan en frecuencias digitales coordinadas — puedes tener los 6 encendidos simultáneamente sin interferencias. La Yamaha TF3 con 48 canales maneja todo el sistema desde una sola superficie con control por iPad."
+        />
+        <FeatureGrid features={[
+          { title: "Line Array vs. Bocinas Punto Source", description: "El line array proyecta a distancia con nivel uniforme. Las punto source pierden volumen con la distancia." },
+          { title: "4 Subwoofers Distribuidos", description: "Bajo parejo en todo el espacio. Sin picos de presión ni zonas sin graves." },
+          { title: "Shure ULXD — Cero Interferencias", description: "Micrófonos digitales con frecuencias coordinadas. 6 abiertos simultáneamente sin problemas." },
+          { title: "Monitores de Escenario", description: "Los presentadores y artistas escuchan su propia voz. Fundamental en eventos grandes." },
+          { title: "Yamaha TF3 — 48 Canales", description: "Controla line array, subs, monitores y todos los micrófonos desde una sola superficie." },
+          { title: "Rigging Profesional o Stack", description: "El line array se vuela en truss o se stackea en el piso según la configuración del venue." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 52 reseñas verificadas."
+          paragraph1="Galas, congresos, convenciones y festivales corporativos en los principales venues de CDMX."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ricardo Estrada", event: "Gala corporativa — Centro Citibanamex, 400 personas", rating: 5, text: "El line array QSC KLA cubrió el salón completo sin puntos muertos. Los ejecutivos en la última fila escucharon igual que los de enfrente." },
+          { name: "Carolina Díaz", event: "Fin de año empresarial — Jardín Coyoacán, 350 empleados", rating: 5, text: "Ceremonia con discursos y fiesta con DJ usando el mismo equipo. La Yamaha TF3 hizo las transiciones perfectas." },
+          { name: "Arturo Navarro", event: "Congreso médico — WTC Ciudad de México, 500 asistentes", rating: 5, text: "6 micrófonos Shure ULXD para el panel de especialistas — cero interferencias. El audio llegó claro hasta el último asiento del auditorio." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio premium REDEIL en eventos grandes"
+        subtitle="Line array, subwoofers distribuidos y micrófonos de gama alta en acción."
+        paragraph1="Estas fotos son de eventos reales donde montamos el paquete Audio Premium con line array QSC KLA. Galas, congresos y festivales corporativos."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos la ubicación y capacidad por WhatsApp."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Line array QSC KLA montado para evento grande" },
+        { src: "/img/bocinas/sonido-profesional-concierto-estadio.avif", alt: "Sonido profesional con line array para audiencia masiva" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif", alt: "Line array en salón de eventos" },
+        { src: "/img/bocinas-fiestas/bocinas-grandes-eventos-masivos.avif", alt: "Bocinas de alta potencia para eventos masivos" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-instalacion-equipo-cases.avif", alt: "Instalación de equipo de audio line array" },
+        { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales para gala corporativa" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-playa-instalacion-jbl-blancas.avif", alt: "Instalación de bocinas JBL en evento al aire libre" },
+        { src: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif", alt: "Cabina profesional de audio en evento grande" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Audio Premium"
+        subtitle="Todo lo que necesitas saber sobre line array para eventos de 300-500 personas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Mándanos el plano del venue o la dirección — te explicamos el montaje ideal para tu espacio."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué ventaja tiene un line array sobre bocinas convencionales?", answer: "Un line array proyecta el sonido en un patrón controlado que cubre grandes distancias con volumen uniforme. La persona en la fila 30 escucha al mismo nivel que la de la fila 3. Con bocinas convencionales, las primeras filas reciben demasiado volumen y las últimas no escuchan. Para 300-500 personas, el line array es la única opción que garantiza cobertura uniforme." },
+      { question: "¿Qué diferencia hay entre el Audio Estándar y el Premium?", answer: "El Estándar ($7,000) usa 4 bocinas JBL PRX825 punto source — funcionan perfecto para 100-200 personas. El Premium ($12,000) usa line array QSC KLA que proyecta sonido uniforme a mayores distancias, 4 subwoofers en vez de 2, 6 micrófonos Shure ULXD de grado profesional, Yamaha TF3 de 48 canales y monitores de escenario. El salto es para eventos de 300-500 personas donde la cobertura uniforme es crítica." },
+      { question: "¿Incluye monitores de escenario?", answer: "Sí. El paquete Premium incluye monitores para que los presentadores, músicos o ponentes escuchen su propia voz y la mezcla en el escenario. Esto es fundamental en eventos grandes donde el line array apunta al público, no al escenario." },
+      { question: "¿Los 6 micrófonos Shure ULXD son inalámbricos?", answer: "Sí. Los Shure ULXD son micrófonos inalámbricos digitales de gama alta con frecuencias coordinadas — cero interferencias incluso usando los 6 simultáneamente. Ideales para paneles, conferencias, congresos y eventos con múltiples presentadores." },
+      { question: "¿Cuánto tiempo toma el montaje del line array?", answer: "El equipo de montaje llega 3-4 horas antes del evento. Rigging del line array, posicionamiento de subwoofers, instalación de monitores, prueba de micrófonos y ecualización del espacio. El line array QSC KLA se monta en truss o se stackea según el venue." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Evento más pequeño o necesitas producción completa?"
+        paragraph1="Para 100-200 personas el Audio Estándar es suficiente. Para conciertos o festivales de 500+, el paquete Producción tiene line array JBL VTX con redundancia completa."
+        paragraph2="Precio especial cuando combinas audio con iluminación o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu evento suene profesional?</h2>
+        <p>Mándanos la fecha, el venue y la capacidad del evento. Te confirmamos disponibilidad y te enviamos el presupuesto con el diseño de audio.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

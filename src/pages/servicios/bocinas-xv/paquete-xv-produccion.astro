@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción Premium para XV Años CDMX — $24,000 + IVA | REDEIL";
+const description = "DJ artístico + line array JBL VTX + 8 cabezas móviles + seguidor + confeti + humo bajo para XV años 400+ invitados. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete XV Producción — Producción Premium para XV Años",
+    "description": "DJ artístico + line array JBL VTX + 8 cabezas móviles + seguidor de luz + cañones de confeti + humo bajo para XV años premium de 400+ invitados. Producción nivel concierto coordinada con coreografía. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-produccion/",
+      "priceCurrency": "MXN",
+      "price": "24000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "35",
+      "reviewCount": "35"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Adriana Solís" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La producción de los XV de mi hija fue de otro mundo. El humo bajo en el vals, los beams de las 8 cabezas móviles en la coreografía, el confeti en la hora loca. Pareció producción de Televisa."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Francisco Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El line array VTX cubrió 450 personas como si fuera un concierto. El DJ coordinó cada efecto — humo, seguidor, confeti — con los momentos exactos de la noche."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "María Elena Vargas" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La coronación de mi hija con el seguidor de luz, los beams cruzando el salón y el humo bajo cubriendo el piso fue el momento más fotografiado. Producción completa sin un solo error."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete XV Producción que no tienen los otros?", "acceptedAnswer": { "@type": "Answer", "text": "Todo: DJ artístico, line array JBL VTX de gira, 8 cabezas móviles (el doble que el paquete DJ + Luces), seguidor de luz, cañones de confeti, humo bajo y operador de luces dedicado. Es la producción más completa que ofrecemos para XV años." }},
+      { "@type": "Question", "name": "¿El line array JBL VTX es diferente al QSC de los otros paquetes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El JBL VTX es el sistema de sonido que se usa en conciertos y festivales. Tiene más potencia, más claridad y mejor distribución que el QSC. Para 400+ invitados en salones grandes o al aire libre, el VTX garantiza que todos escuchen perfecto." }},
+      { "@type": "Question", "name": "¿El humo bajo es seguro para el salón?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El humo bajo se genera con hielo seco o máquina criogénica. No activa detectores de humo, no mancha el piso, no deja residuo y se disipa en 3-4 minutos. Es el efecto favorito para el vals con papá." }},
+      { "@type": "Question", "name": "¿Cuántos técnicos vienen con el paquete Producción?", "acceptedAnswer": { "@type": "Answer", "text": "Mínimo 4: DJ artístico, operador de luces, operador de seguidor y técnico de efectos (humo bajo + confeti). Para eventos de 500+ personas agregamos personal adicional sin costo extra." }},
+      { "@type": "Question", "name": "¿El confeti ensucia el salón?", "acceptedAnswer": { "@type": "Answer", "text": "El confeti es metalizado y se recoge fácil. Coordinamos con el salón para que la limpieza sea rápida después del evento. Muchos salones ya conocen nuestro trabajo y saben que dejamos todo limpio." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "XV con DJ y Luces — $14,000", image: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "XV años con DJ y show de luces", description: "DJ + line array QSC + 4 cabezas móviles + seguidor. Para 200-400 invitados.", link: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+  { title: "XV Completo con DJ — $8,500", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "DJ y audio para XV años", description: "DJ Pioneer + line array QSC + 4 micrófonos. El más popular para 150-300 invitados.", link: "/servicios/bocinas-xv/paquete-xv-completo/" },
+  { title: "Luces Neón UV", image: "/img/luces-neon/letrero-luminoso-xv-anos.avif", alt: "Letreros neón para XV años", description: "Letreros luminosos personalizados para la mesa de honor o la pista de baile.", link: "/servicios/luces-neon/" },
+  { title: "Máquina de Humo", image: "/img/maquina-de-papelitos/confeti-dorado-boda-novios-fiesta.avif", alt: "Efectos de humo para XV años", description: "Humo atmosférico para crear ambiente durante el baile y resaltar los beams de luz.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "XV Años", href: "/servicios/bocinas-xv/" },
+    { label: "Paquete XV Producción" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete XV Producción — Producción Premium para XV Años"
+    subtitle="Desde $24,000 + IVA. DJ artístico + line array JBL VTX + 8 cabezas móviles + seguidor + confeti + humo bajo."
+    introParagraph1='La coronación de tu hija iluminada por el seguidor de luz mientras el humo bajo cubre el piso como nubes. Los <strong>8 cabezas móviles</strong> proyectan beams que cruzan el salón durante la coreografía con chambelanes. El confeti explota en la hora loca mientras el <strong>DJ artístico</strong> mezcla el drop perfecto. El paquete XV Producción es la experiencia completa — nivel concierto, nivel televisión — para XV años de 400 o más invitados.'
+    introParagraph2='El <strong>line array JBL VTX</strong> es el mismo sistema de sonido que se usa en conciertos y festivales. Cubre salones grandes y espacios abiertos con potencia y claridad que sistemas normales no alcanzan. Un operador de luces controla las 8 cabezas móviles en tiempo real, coordinado con el DJ. Un operador de seguidor no pierde a la festejada en ningún momento. Un técnico de efectos dispara el humo bajo en el vals y el confeti en la hora loca. 4 técnicos trabajando juntos para que cada segundo de la noche sea perfecto. Cobertura en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Comparando paquetes de XV años?"
+    items={[
+      { label: "XV Básico $4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/", icon: "sonido" },
+      { label: "XV Completo $8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/", icon: "sonido" },
+      { label: "XV DJ + Luces $14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="XV Producción"
+      price="$24,000"
+      priceNote="+ IVA · Producción completa · 4 técnicos"
+      features={[
+        { text: "DJ artístico con Pioneer profesional" },
+        { text: "Line array JBL VTX nivel concierto" },
+        { text: "8 cabezas móviles beam/spot/wash" },
+        { text: "Seguidor de luz con operador dedicado" },
+        { text: "Cañones de confeti para hora loca" },
+        { text: "Humo bajo para vals con papá" },
+        { text: "Iluminación ambiente par LED temática" },
+        { text: "4 micrófonos Shure inalámbricos" },
+        { text: "4 técnicos especializados incluidos" },
+        { text: "Ideal: XV años 400+ invitados" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete XV Producción premium para XV años."
+      packages={[
+        { label: "XV Básico", price: "$4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/" },
+        { label: "XV Completo", price: "$8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/" },
+        { label: "XV DJ + Luces", price: "$14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+        { label: "XV Producción", price: "$24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde brilla el paquete XV Producción?"
+          subtitle="Producción nivel concierto para los XV años más espectaculares."
+          paragraph1="8 cabezas móviles crean un muro de beams que transforma cualquier salón en escenario de concierto. El line array JBL VTX llena el espacio con sonido cristalino para 400, 500 o más invitados. El humo bajo convierte el vals en un momento de película y el confeti corona la hora loca."
+          paragraph2="Cada efecto está coordinado: el DJ da la señal, el operador de luces ejecuta el diseño, el seguidor ilumina a la festejada, el técnico de efectos dispara humo o confeti. Cuatro profesionales trabajando como un equipo de producción de televisión."
+        />
+        <FeatureGrid features={[
+          { title: "Vals con Humo Bajo y Seguidor", description: "Tu hija camina entre nubes mientras el seguidor la ilumina. Beams suaves de fondo. El momento más fotografiado." },
+          { title: "Coreografía con 8 Cabezas Móviles", description: "El doble de beams que el paquete DJ + Luces. Cada chambelán iluminado. Producción de TV." },
+          { title: "Hora Loca con Confeti y Strobes", description: "Cañones de confeti + 8 cabezas en modo party + DJ mezclando el drop. La pista explota." },
+          { title: "Coronación con Producción Completa", description: "Seguidor en la festejada, beams cruzando el salón, humo bajo en el piso. Momento estelar." },
+          { title: "Salón de 400+ Invitados", description: "Line array JBL VTX cubre salones grandes sin zonas muertas. Cada invitado escucha perfecto." },
+          { title: "Hacienda o Jardín Grande", description: "Al aire libre, los 8 beams contra el cielo nocturno crean un espectáculo que se ve desde lejos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué hace diferente a la producción premium?"
+          subtitle="Cada efecto coordinado al segundo. Nada al azar."
+          paragraph1="La diferencia entre el paquete XV Producción y los demás no es solo más equipo — es la coordinación. 4 técnicos especializados trabajan juntos con comunicación por radio: el DJ marca los tiempos, el operador de luces ejecuta, el seguidor sigue a la festejada, el técnico de efectos dispara humo y confeti en el momento exacto."
+          paragraph2="El line array JBL VTX es el sistema de sonido de conciertos profesionales. No es lo mismo que un par de bocinas amplificadas — es sonido que envuelve a 400+ personas con la misma claridad en la primera y la última fila."
+        />
+        <FeatureGrid features={[
+          { title: "4 Técnicos Coordinados por Radio", description: "DJ + luces + seguidor + efectos. Comunicación constante para ejecutar cada momento." },
+          { title: "Line Array JBL VTX de Concierto", description: "El mismo sistema de festivales y giras. Potencia y claridad para 400+ personas." },
+          { title: "8 Cabezas Móviles Programadas", description: "Diseño de iluminación personalizado para cada momento de la noche de XV." },
+          { title: "Humo Bajo Criogénico Seguro", description: "No activa detectores de humo. No mancha. Se disipa en minutos. Efecto espectacular." },
+          { title: "Confeti Metalizado Coordinado", description: "Los cañones disparan en el momento exacto de la hora loca. Limpieza coordinada con el salón." },
+          { title: "DJ Artístico — No Solo Playlist", description: "Mezcla en vivo, lee al público, coordina efectos. Un artista que dirige la fiesta." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 35 reseñas verificadas."
+          paragraph1="XV años con producción premium en salones grandes, haciendas y jardines de CDMX y Estado de México."
+          paragraph2="La producción más espectacular que ofrecemos para quinceañeras."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Adriana Solís", event: "XV años — Salón Versalles Toluca, 400 invitados", rating: 5, text: "La producción de los XV de mi hija fue de otro mundo. El humo bajo en el vals, los beams de las 8 cabezas móviles en la coreografía, el confeti en la hora loca. Pareció producción de Televisa." },
+          { name: "Francisco Ríos", event: "Quinceañera — Hacienda grande Estado de México, 450 invitados", rating: 5, text: "El line array VTX cubrió 450 personas como si fuera un concierto. El DJ coordinó cada efecto — humo, seguidor, confeti — con los momentos exactos de la noche." },
+          { name: "María Elena Vargas", event: "XV años — Gran Salón Aristos Pedregal, 380 invitados", rating: 5, text: "La coronación de mi hija con el seguidor de luz, los beams cruzando el salón y el humo bajo cubriendo el piso fue el momento más fotografiado. Producción completa sin un solo error." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción premium para quinceañeras en CDMX"
+        subtitle="8 cabezas móviles + humo bajo + confeti + DJ artístico + line array JBL VTX."
+        paragraph1="Estas fotos son de XV años reales donde montamos el paquete XV Producción. La producción más espectacular que ofrecemos: 8 cabezas móviles, humo bajo, confeti, seguidor y DJ artístico."
+        paragraph2="¿Quieres ver cómo quedaría en tu salón? Mándanos fotos del espacio y la temática de tu hija — te diseñamos la producción completa."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif", alt: "Entrada de quinceañera con humo bajo por escalera" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-pista-baile-line-array.avif", alt: "Pista de baile de XV con line array JBL VTX" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-show-baile-teatro-monitores.avif", alt: "Show de baile con producción premium" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-qsc-salon.avif", alt: "Vals padre e hija con humo bajo y seguidor" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "Coreografía con 8 cabezas móviles y vestido magenta" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif", alt: "DJ artístico con line array en XV años" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-escenario-monitores.avif", alt: "Baile sorpresa con producción completa" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-invitados-qsc-luces.avif", alt: "Producción premium de XV con 400 invitados" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete XV Producción"
+        subtitle="Todo lo que necesitas saber sobre la producción premium para XV años."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el salón, la cantidad de invitados y la temática — te diseñamos la producción completa."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete XV Producción que no tienen los otros?", answer: "Todo: DJ artístico, line array JBL VTX de gira, 8 cabezas móviles (el doble que el paquete DJ + Luces), seguidor de luz, cañones de confeti, humo bajo y operador de luces dedicado. Es la producción más completa que ofrecemos para XV años." },
+      { question: "¿El line array JBL VTX es diferente al QSC de los otros paquetes?", answer: "Sí. El JBL VTX es el sistema de sonido que se usa en conciertos y festivales. Tiene más potencia, más claridad y mejor distribución que el QSC. Para 400+ invitados en salones grandes o al aire libre, el VTX garantiza que todos escuchen perfecto." },
+      { question: "¿El humo bajo es seguro para el salón?", answer: "Sí. El humo bajo se genera con hielo seco o máquina criogénica. No activa detectores de humo, no mancha el piso, no deja residuo y se disipa en 3-4 minutos. Es el efecto favorito para el vals con papá." },
+      { question: "¿Cuántos técnicos vienen con el paquete Producción?", answer: "Mínimo 4: DJ artístico, operador de luces, operador de seguidor y técnico de efectos (humo bajo + confeti). Para eventos de 500+ personas agregamos personal adicional sin costo extra." },
+      { question: "¿El confeti ensucia el salón?", answer: "El confeti es metalizado y se recoge fácil. Coordinamos con el salón para que la limpieza sea rápida después del evento. Muchos salones ya conocen nuestro trabajo y saben que dejamos todo limpio." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Buscas otro nivel de producción para los XV?"
+        paragraph1="El paquete XV Producción es nuestra oferta máxima para quinceañeras. Si tu presupuesto es diferente, los paquetes XV DJ + Luces y XV Completo también ofrecen resultados espectaculares."
+        paragraph2="Precio especial cuando agregas servicios complementarios como luces neón o cabezas móviles extra."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista para los XV años que tu hija merece?</h2>
+        <p>Mándanos la fecha, el salón y cuántos invitados esperas. Te diseñamos la producción completa y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

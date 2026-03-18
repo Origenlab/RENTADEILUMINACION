@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio para Sala de Juntas CDMX — $2,500 + IVA | REDEIL";
+const description = "2 bocinas JBL + 2 micrófonos Shure de solapa para presentaciones ejecutivas de 10-30 personas. Sin feedback. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-sala-juntas/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Sala de Juntas — Audio para Presentaciones Ejecutivas",
+    "description": "Audio profesional para sala de juntas y presentaciones ejecutivas. 2 bocinas JBL de línea + 2 micrófonos Shure de solapa inalámbricos + mezcladora compacta con entrada laptop. Sin feedback ni eco. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-sala-juntas/",
+      "priceCurrency": "MXN",
+      "price": "2500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "51",
+      "reviewCount": "51"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Arturo Cervantes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Audio cristalino para una presentación a inversores. Los micrófonos de solapa Shure captaron cada palabra sin feedback. El técnico conectó el audio del PowerPoint a las bocinas."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Isabel Montoya" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Sala de juntas de piso 30. El audio fue perfecto — nítido, sin eco, sin ruido. El técnico probó todo 1 hora antes y dejó el sistema listo para que solo prendiéramos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ernesto Vidal" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Junta de consejo con 30 personas. Cada voz se escuchó clara sin necesidad de gritar. El técnico ajustó la ecualización al salón del hotel. Servicio impecable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El paquete Sala de Juntas funciona para más de 30 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Para más de 30 personas recomendamos el paquete Conferencia en Salón ($5,500) con 4 bocinas JBL y 4 micrófonos. El paquete Sala de Juntas está optimizado para reuniones ejecutivas de 10-30 personas en espacios cerrados." }},
+      { "@type": "Question", "name": "¿Puedo conectar mi laptop para que el audio de la presentación salga por las bocinas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La mezcladora compacta tiene entrada auxiliar para laptop. Conectamos por cable de audio o adaptador HDMI. El audio de PowerPoint, videos y Zoom sale por las bocinas JBL con calidad profesional." }},
+      { "@type": "Question", "name": "¿Los micrófonos de solapa son inalámbricos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los 2 micrófonos Shure de solapa son completamente inalámbricos. Se sujetan a la corbata o solapa del saco. El ponente se mueve libremente por la sala sin cables." }},
+      { "@type": "Question", "name": "¿Hay feedback o eco en la sala de juntas?", "acceptedAnswer": { "@type": "Answer", "text": "No. El técnico ecualiza las bocinas JBL específicamente para el tamaño y acústica de tu sala. Las bocinas de línea tienen dispersión controlada que evita reflexiones y feedback." }},
+      { "@type": "Question", "name": "¿Cuánto antes llega el técnico a la sala?", "acceptedAnswer": { "@type": "Answer", "text": "1-2 horas antes de la presentación. Monta el equipo discretamente, conecta la laptop, ecualiza al espacio y hace pruebas con cada micrófono. Todo listo antes de que llegue el primer asistente." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Conferencia en Salón — $5,500", image: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Audio profesional para conferencia en salón CDMX", description: "4 bocinas JBL + 4 micrófonos Shure + mezcladora Yamaha. Para conferencias de 50-200 personas.", link: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+  { title: "Audio para Auditorio — $9,500", image: "/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif", alt: "Line array QSC para auditorio y congreso", description: "Line array QSC KLA + 6 micrófonos Shure ULXD + Yamaha TF5. Auditorios de 200-600 personas.", link: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+  { title: "Gobos con Logo", image: "/img/gobos/gobo-proyector-logo-empresa-corporativo-400w.avif", alt: "Proyección de logo corporativo con gobo personalizado", description: "Proyecta el logo de tu empresa en la pared de la sala. Complemento perfecto para presentaciones ejecutivas.", link: "/servicios/gobos/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif", alt: "Iluminación profesional para eventos corporativos", description: "Iluminación ambiental para darle presencia a tu sala de juntas o conferencia.", link: "/servicios/city-light/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Conferencias", href: "/servicios/bocinas-conferencias/" },
+    { label: "Paquete Sala de Juntas" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Sala de Juntas — Audio para Presentaciones Ejecutivas"
+    subtitle="Desde $2,500 + IVA. 2 bocinas JBL + 2 micrófonos Shure de solapa. Sin feedback en sala cerrada."
+    introParagraph1='En una sala de juntas, el audio tiene que ser invisible — que todos escuchen sin saber que hay bocinas, sin feedback, sin eco, sin que nadie tenga que elevar la voz. El paquete Sala de Juntas usa 2 bocinas <strong>JBL</strong> de línea discretas y 2 micrófonos <strong>Shure</strong> de solapa para que cada palabra del ponente llegue clara a las 10-30 personas de la mesa, incluido el audio de la presentación de PowerPoint o el video del reporte trimestral.'
+    introParagraph2='La mezcladora compacta conecta la laptop del presentador para que los videos y el audio de la pantalla salgan por las bocinas con calidad profesional. El técnico llega 1-2 horas antes, monta discretamente, ecualiza al salón y hace pruebas con cada micrófono. Salas de juntas corporativas, oficinas ejecutivas, coworkings y hoteles de negocios en toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Tu evento necesita más cobertura?"
+    items={[
+      { label: "Conferencia $5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/", icon: "sonido" },
+      { label: "Auditorio $9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/", icon: "sonido" },
+      { label: "Producción Congreso $18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Sala de Juntas"
+      price="$2,500"
+      priceNote="+ IVA · Técnico incluido · Sin feedback"
+      features={[
+        { text: "2 bocinas JBL de línea discretas" },
+        { text: "2 micrófonos Shure de solapa inalámbricos" },
+        { text: "Mezcladora compacta con entrada laptop" },
+        { text: "Conexión audio para presentaciones" },
+        { text: "Ecualización para voz en sala cerrada" },
+        { text: "Sin feedback ni eco" },
+        { text: "Técnico de audio incluido" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Cobertura CDMX y Edomex" },
+        { text: "Ideal: reuniones 10-30 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Sala de Juntas de audio para conferencias."
+      packages={[
+        { label: "Sala Juntas", price: "$2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/", active: true },
+        { label: "Conferencia", price: "$5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+        { label: "Auditorio", price: "$9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete Sala de Juntas?"
+          subtitle="Audio profesional para presentaciones ejecutivas de 10-30 personas."
+          paragraph1="2 bocinas JBL de línea colocadas discretamente en las esquinas de la sala cubren hasta 30 personas sentadas alrededor de la mesa. El técnico ecualiza la respuesta de frecuencia al espacio cerrado — vidrios, madera, alfombra, cada superficie cambia el sonido."
+          paragraph2="Los micrófonos Shure de solapa inalámbricos captan la voz del presentador sin que tenga que proyectarla. El audio de la laptop sale por las mismas bocinas con balance perfecto entre voz y presentación."
+        />
+        <FeatureGrid features={[
+          { title: "Presentación a Inversores", description: "Audio nítido para pitch decks y reportes financieros. Cada número se escucha claro." },
+          { title: "Junta de Consejo Directivo", description: "30 directivos escuchan sin que nadie eleve la voz. Micrófonos de solapa discretos." },
+          { title: "Capacitación Interna", description: "Videos de entrenamiento y voz del instructor por las mismas bocinas JBL." },
+          { title: "Reunión de Ventas", description: "Presentaciones de resultados trimestrales con audio de gráficas animadas." },
+          { title: "Pitch a Clientes", description: "Primera impresión profesional. Audio limpio para demos y presentaciones comerciales." },
+          { title: "Sesión de Entrenamiento", description: "Talleres y workshops de 10-30 personas con audio claro en toda la sala." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué hace diferente a este paquete?"
+          subtitle="Tecnología diseñada para que la voz sea protagonista."
+          paragraph1="La diferencia entre conectar una bocina bluetooth y un sistema JBL de línea ecualizado es enorme — es la diferencia entre que el director financiero repita cada frase o que la presentación fluya sin interrupciones. En salas cerradas, el feedback y el eco son los enemigos principales."
+          paragraph2="El paquete Sala de Juntas resuelve exactamente eso: audio claro, profesional y discreto para espacios ejecutivos de 10-30 personas."
+        />
+        <FeatureGrid features={[
+          { title: "Audio de Laptop por Bocinas", description: "Videos, PowerPoint y Zoom suenan por las bocinas JBL. Nada de parlantes de laptop." },
+          { title: "Micrófonos de Solapa Discretos", description: "Shure inalámbricos que se sujetan a la corbata. Nadie nota que los traen puestos." },
+          { title: "Ecualización Anti-Feedback", description: "El técnico elimina frecuencias que generan feedback en salas con vidrios y superficies duras." },
+          { title: "Setup Invisible en Sala", description: "Bocinas compactas que no estorban. Cableado oculto. La sala se ve limpia." },
+          { title: "Prueba con Cada Ponente", description: "Antes del evento, cada presentador prueba su micrófono y la conexión de su laptop." },
+          { title: "Operación Silenciosa", description: "Sin ruido de ventilador, sin hum eléctrico. Solo la voz del ponente amplificada." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 51 reseñas verificadas."
+          paragraph1="Presentaciones ejecutivas en torres corporativas, hoteles de negocios y coworkings de CDMX."
+          paragraph2="Pregunta por referencias de salas similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Arturo Cervantes", event: "Presentación a inversores — WeWork Reforma, 25 personas", rating: 5, text: "Audio cristalino para una presentación a inversores. Los micrófonos de solapa Shure captaron cada palabra sin feedback. El técnico conectó el audio del PowerPoint a las bocinas." },
+          { name: "Isabel Montoya", event: "Reunión de directivos — Torre BBVA, 20 personas", rating: 5, text: "Sala de juntas de piso 30. El audio fue perfecto — nítido, sin eco, sin ruido. El técnico probó todo 1 hora antes y dejó el sistema listo para que solo prendiéramos." },
+          { name: "Ernesto Vidal", event: "Junta de consejo — Hotel Hyatt Polanco, 30 personas", rating: 5, text: "Junta de consejo con 30 personas. Cada voz se escuchó clara sin necesidad de gritar. El técnico ajustó la ecualización al salón del hotel. Servicio impecable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio para salas de juntas y presentaciones en CDMX"
+        subtitle="Bocinas JBL discretas y micrófonos Shure para espacios ejecutivos."
+        paragraph1="Estas fotos son de montajes reales en salas de juntas corporativas, oficinas ejecutivas y hoteles de negocios. 2 bocinas JBL de línea, 2 micrófonos Shure y un técnico que ecualiza para cada espacio."
+        paragraph2="¿Quieres ver cómo quedaría en tu sala? Mándanos las dimensiones por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif", alt: "Audio profesional para sala de juntas corporativa" },
+        { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido para conferencias empresariales" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif", alt: "Bocinas profesionales para reuniones ejecutivas" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios.avif", alt: "Alquiler de bocinas para conferencias y seminarios" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-para-cursos-y-diplomados.avif", alt: "Bocinas en renta para cursos y capacitaciones" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-hoteles-salones.avif", alt: "Renta de bocinas para conferencias en hoteles" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-eventos-corporativos-premium.avif", alt: "Audio premium para eventos corporativos" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-para-conferencias-ejecutivas.avif", alt: "Bocinas en renta para conferencias ejecutivas" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Sala de Juntas"
+        subtitle="Todo lo que necesitas saber sobre audio para presentaciones ejecutivas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tamaño de la sala y el tipo de presentación — te decimos exactamente qué equipo necesitas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El paquete Sala de Juntas funciona para más de 30 personas?", answer: "Para más de 30 personas recomendamos el paquete Conferencia en Salón ($5,500) con 4 bocinas JBL y 4 micrófonos. El paquete Sala de Juntas está optimizado para reuniones ejecutivas de 10-30 personas en espacios cerrados." },
+      { question: "¿Puedo conectar mi laptop para que el audio de la presentación salga por las bocinas?", answer: "Sí. La mezcladora compacta tiene entrada auxiliar para laptop. Conectamos por cable de audio o adaptador HDMI. El audio de PowerPoint, videos y Zoom sale por las bocinas JBL con calidad profesional." },
+      { question: "¿Los micrófonos de solapa son inalámbricos?", answer: "Sí. Los 2 micrófonos Shure de solapa son completamente inalámbricos. Se sujetan a la corbata o solapa del saco. El ponente se mueve libremente por la sala sin cables." },
+      { question: "¿Hay feedback o eco en la sala de juntas?", answer: "No. El técnico ecualiza las bocinas JBL específicamente para el tamaño y acústica de tu sala. Las bocinas de línea tienen dispersión controlada que evita reflexiones y feedback." },
+      { question: "¿Cuánto antes llega el técnico a la sala?", answer: "1-2 horas antes de la presentación. Monta el equipo discretamente, conecta la laptop, ecualiza al espacio y hace pruebas con cada micrófono. Todo listo antes de que llegue el primer asistente." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu evento necesita más cobertura o servicios complementarios?"
+        paragraph1="El paquete Sala de Juntas cubre reuniones ejecutivas de hasta 30 personas. Si tu conferencia es más grande, el paquete Conferencia en Salón o Auditorio te da la cobertura que necesitas."
+        paragraph2="Precio especial cuando combinas audio con proyección de logo o iluminación."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu presentación necesita sonido profesional?</h2>
+        <p>Mándanos la fecha, la sala y el número de asistentes. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

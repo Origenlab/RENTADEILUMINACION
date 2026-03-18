@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio para Auditorio y Congreso CDMX — $9,500 + IVA | REDEIL";
+const description = "Line array QSC KLA + 6 micrófonos Shure ULXD + Yamaha TF5 para auditorios de 200-600 personas. Sin puntos muertos. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-auditorio/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Auditorio — Audio para Congresos de 200-600 Personas",
+    "description": "Audio profesional para auditorios y congresos de 200-600 personas. Line array QSC KLA + 6 micrófonos Shure ULXD + mezcladora Yamaha TF5 + monitores de escenario. Cobertura uniforme sin puntos muertos. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-auditorio/",
+      "priceCurrency": "MXN",
+      "price": "9500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "47",
+      "reviewCount": "47"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Dr. Héctor Solís" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Congreso de cardiología con 400 personas en Centro Citibanamex. El line array QSC cubrió todo el auditorio — desde la primera fila hasta las butacas del fondo. Los 6 micrófonos Shure ULXD funcionaron sin interferencia. Nivel de producción de concierto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Norma Esquivel" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Keynote en Palacio de Minería con 300 asistentes. La acústica del recinto es difícil, pero el técnico de REDEIL ecualizó el line array para que la voz del ponente llegara nítida hasta el balcón. Los monitores de escenario le dieron seguridad al orador."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Prof. Alberto Rivas" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Foro académico en el Auditorio de la UNAM con 500 asistentes. Cinco panelistas con micrófono individual. El sistema Yamaha TF5 manejó todos los canales sin problema. El técnico ajustó cada micro al tono de voz de cada ponente."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es un line array y por qué es mejor que bocinas convencionales para un auditorio?", "acceptedAnswer": { "@type": "Answer", "text": "Un line array es un sistema de bocinas apiladas verticalmente que proyectan el sonido en un patrón controlado. A diferencia de bocinas convencionales, un line array QSC KLA cubre 200-600 personas con volumen uniforme — la fila 50 escucha igual que la fila 1. Es el mismo sistema que usan conciertos y congresos internacionales." }},
+      { "@type": "Question", "name": "¿Los 6 micrófonos pueden usarse simultáneamente en un panel?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La Yamaha TF5 tiene capacidad para manejar los 6 micrófonos Shure ULXD simultáneamente. El técnico balancea cada canal en tiempo real. Para paneles de más de 6 ponentes, agregamos micrófonos adicionales con costo extra." }},
+      { "@type": "Question", "name": "¿Incluyen monitores de escenario para los ponentes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye monitores de escenario para que los ponentes se escuchen a sí mismos. Esto es fundamental en auditorios grandes donde el sonido principal apunta hacia la audiencia y el ponente no se escucha sin monitor." }},
+      { "@type": "Question", "name": "¿El line array funciona en auditorios con balcón o mezzanine?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El line array QSC KLA se puede inclinar para cubrir tanto la platea como el balcón. El técnico calcula los ángulos de cobertura para que no haya puntos muertos en ningún nivel del auditorio." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo necesitan para montar el line array?", "acceptedAnswer": { "@type": "Answer", "text": "3-4 horas antes del evento. El line array requiere estructura de rigging, cableado, ecualización y pruebas de sonido con cada micrófono. El equipo llega temprano para que todo esté listo antes de la primera ponencia." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Conferencia en Salón — $5,500", image: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Audio para conferencia en salón de hotel", description: "4 bocinas JBL + 4 micrófonos Shure + mezcladora Yamaha. Para conferencias de 50-200 personas.", link: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+  { title: "Producción Congreso — $18,000", image: "/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif", alt: "Producción de audio para congreso masivo", description: "Line array completo + delays + mezcladoras redundantes + técnicos FOH. Congresos de 600+ personas.", link: "/servicios/bocinas-conferencias/paquete-produccion-congreso/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/seguidor-conferencia-orador-podium-evento-gala-400w.avif", alt: "Luz seguidor para ponentes en auditorio", description: "Haz de luz profesional que sigue al ponente en el escenario. Keynotes con presencia escénica.", link: "/servicios/seguidor/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif", alt: "Iluminación ambiental para auditorios y congresos", description: "Iluminación ambiental que transforma el auditorio. Colores corporativos en muros y columnas.", link: "/servicios/city-light/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Conferencias", href: "/servicios/bocinas-conferencias/" },
+    { label: "Paquete Auditorio" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Auditorio — Audio para Congresos de 200-600 Personas"
+    subtitle="Desde $9,500 + IVA. Line array QSC KLA + 6 micrófonos Shure ULXD + Yamaha TF5. Sin puntos muertos."
+    introParagraph1='En un auditorio de 200-600 personas, las bocinas convencionales no alcanzan. La fila 40 escucha distorsión o directamente no escucha. El paquete Auditorio usa <strong>line array QSC KLA</strong> — el mismo sistema de conciertos profesionales — para proyectar el sonido de forma controlada a cada butaca del recinto. 6 micrófonos <strong>Shure ULXD</strong> de gama alta captan cada voz sin interferencia ni dropout, y la mezcladora <strong>Yamaha TF5</strong> le da al técnico control total sobre cada canal.'
+    introParagraph2='Los monitores de escenario permiten que los ponentes se escuchen a sí mismos — fundamental en auditorios grandes donde el sonido principal apunta hacia la audiencia. El técnico FOH ecualiza el line array al recinto específico: techos altos, balcón, mezzanine, superficies reflectantes. Centros de convenciones, auditorios universitarios, teatros y recintos de congresos en toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas un equipo diferente?"
+    items={[
+      { label: "Sala Juntas $2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/", icon: "sonido" },
+      { label: "Conferencia $5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/", icon: "sonido" },
+      { label: "Producción Congreso $18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Auditorio"
+      price="$9,500"
+      priceNote="+ IVA · Line array · Monitores incluidos"
+      features={[
+        { text: "Line array QSC KLA profesional" },
+        { text: "6 micrófonos Shure ULXD inalámbricos" },
+        { text: "Mezcladora Yamaha TF5 digital" },
+        { text: "Monitores de escenario para ponentes" },
+        { text: "Rigging y estructura para line array" },
+        { text: "Ecualización al recinto específico" },
+        { text: "Cobertura balcón y mezzanine" },
+        { text: "Técnico FOH durante todo el evento" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: auditorios 200-600 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Auditorio de audio para congreso."
+      packages={[
+        { label: "Sala Juntas", price: "$2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/" },
+        { label: "Conferencia", price: "$5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+        { label: "Auditorio", price: "$9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/", active: true },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete Auditorio?"
+          subtitle="Line array QSC KLA para recintos donde las bocinas normales no alcanzan."
+          paragraph1="El line array QSC KLA se cuelga de la estructura del auditorio y proyecta el sonido en un patrón vertical controlado. La fila 1 y la fila 50 escuchan al mismo volumen — sin que la primera se ensordezca ni la última pierda definición."
+          paragraph2="Los 6 micrófonos Shure ULXD operan en frecuencias escaneadas automáticamente para evitar interferencias con los sistemas de WiFi y radio del recinto."
+        />
+        <FeatureGrid features={[
+          { title: "Congreso Médico o Científico", description: "Paneles de 5-6 expositores con micrófonos ULXD individuales. Terminología técnica clara en 400+ butacas." },
+          { title: "Keynote en Auditorio", description: "Un solo ponente con cobertura total. Monitores de escenario para que se escuche a sí mismo." },
+          { title: "Foro Académico Universitario", description: "Auditorios universitarios con acústica variable. El line array compensa techos altos y muros de piedra." },
+          { title: "Congreso de Industria", description: "Convenciones con sesiones plenarias de 200-600 asistentes. Audio de gira en formato corporativo." },
+          { title: "Simposio Internacional", description: "Audio profesional compatible con sistema de traducción simultánea. Salidas auxiliares para intérpretes." },
+          { title: "Gala de Premiación", description: "Cambios constantes de ponente. El técnico maneja cada micrófono por canal independiente." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué line array en lugar de bocinas convencionales?"
+          subtitle="La diferencia entre audio de concierto y audio de centro comercial."
+          paragraph1="Las bocinas convencionales pierden volumen y definición con la distancia. A 30 metros del escenario, el ponente suena como si hablara desde un túnel. Un line array QSC KLA mantiene la inteligibilidad de la voz hasta los 50 metros con definición constante."
+          paragraph2="Este es el mismo sistema que usan los congresos internacionales, festivales de música y producciones teatrales. Adaptado al formato de conferencia corporativa con la mezcladora Yamaha TF5."
+        />
+        <FeatureGrid features={[
+          { title: "Cobertura Uniforme 200-600 Butacas", description: "Volumen consistente de la primera a la última fila. Sin puntos muertos ni zonas ensordecidas." },
+          { title: "Monitores de Escenario", description: "El ponente se escucha a sí mismo. No tiene que adivinar si el público lo oye." },
+          { title: "Yamaha TF5 Digital", description: "32 canales, ecualización paramétrica, compresores y gates por canal. Control total sobre cada fuente." },
+          { title: "Shure ULXD Anti-Interferencia", description: "Escaneo automático de frecuencias. Cero dropouts incluso con 200 celulares en la audiencia." },
+          { title: "Rigging Profesional Certificado", description: "El line array se cuelga con estructura certificada. Sin trípodes que estorben la visual." },
+          { title: "Técnico FOH Especializado", description: "Ingeniero de audio en la mezcladora todo el evento. Ajustes en tiempo real para cada ponente." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 47 reseñas verificadas."
+          paragraph1="Congresos en Citibanamex, Palacio de Minería, Auditorio UNAM y recintos de toda la CDMX."
+          paragraph2="Pregunta por referencias de auditorios similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Dr. Héctor Solís", event: "Congreso de cardiología — Centro Citibanamex, 400 asistentes", rating: 5, text: "Congreso con 400 personas. El line array QSC cubrió todo el auditorio — desde la primera fila hasta las butacas del fondo. Los 6 micrófonos Shure ULXD funcionaron sin interferencia. Nivel de producción de concierto." },
+          { name: "Lic. Norma Esquivel", event: "Keynote — Palacio de Minería, 300 asistentes", rating: 5, text: "Keynote en Palacio de Minería con 300 asistentes. La acústica del recinto es difícil, pero el técnico ecualizó el line array para que la voz llegara nítida hasta el balcón. Los monitores de escenario le dieron seguridad al orador." },
+          { name: "Prof. Alberto Rivas", event: "Foro académico — Auditorio UNAM, 500 asistentes", rating: 5, text: "Foro académico con 500 asistentes. Cinco panelistas con micrófono individual. El sistema Yamaha TF5 manejó todos los canales sin problema. El técnico ajustó cada micro al tono de voz de cada ponente." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio para auditorios y congresos en CDMX"
+        subtitle="Line array QSC KLA para recintos de 200-600 personas."
+        paragraph1="Estas fotos son de congresos y foros reales donde montamos el paquete Auditorio. Line array profesional, micrófonos Shure ULXD y un técnico FOH que ecualiza para cada recinto."
+        paragraph2="¿Quieres ver cómo quedaría en tu auditorio? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif", alt: "Line array profesional para auditorio de congreso" },
+        { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido profesional para congreso empresarial" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios.avif", alt: "Audio para conferencias en auditorio grande" },
+        { src: "/img/bocinas-conferencias/alquiler-de-bocinas-exposiciones-ferias.avif", alt: "Audio profesional para exposiciones y ferias" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-lanzamientos-productos.avif", alt: "Sonido para lanzamientos en auditorio" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-eventos-institucionales.avif", alt: "Audio para eventos institucionales en auditorio" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-para-foros-y-paneles.avif", alt: "Bocinas para foros académicos y paneles" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-hoteles-salones.avif", alt: "Audio para congresos en centros de convenciones" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Auditorio"
+        subtitle="Todo lo que necesitas saber sobre audio para auditorios de 200-600 personas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el auditorio, la capacidad y el formato de tu congreso — te decimos exactamente qué equipo necesitas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué es un line array y por qué es mejor que bocinas convencionales para un auditorio?", answer: "Un line array es un sistema de bocinas apiladas verticalmente que proyectan el sonido en un patrón controlado. A diferencia de bocinas convencionales, un line array QSC KLA cubre 200-600 personas con volumen uniforme — la fila 50 escucha igual que la fila 1. Es el mismo sistema que usan conciertos y congresos internacionales." },
+      { question: "¿Los 6 micrófonos pueden usarse simultáneamente en un panel?", answer: "Sí. La Yamaha TF5 tiene capacidad para manejar los 6 micrófonos Shure ULXD simultáneamente. El técnico balancea cada canal en tiempo real. Para paneles de más de 6 ponentes, agregamos micrófonos adicionales con costo extra." },
+      { question: "¿Incluyen monitores de escenario para los ponentes?", answer: "Sí. El paquete incluye monitores de escenario para que los ponentes se escuchen a sí mismos. Esto es fundamental en auditorios grandes donde el sonido principal apunta hacia la audiencia y el ponente no se escucha sin monitor." },
+      { question: "¿El line array funciona en auditorios con balcón o mezzanine?", answer: "Sí. El line array QSC KLA se puede inclinar para cubrir tanto la platea como el balcón. El técnico calcula los ángulos de cobertura para que no haya puntos muertos en ningún nivel del auditorio." },
+      { question: "¿Cuánto tiempo necesitan para montar el line array?", answer: "3-4 horas antes del evento. El line array requiere estructura de rigging, cableado, ecualización y pruebas de sonido con cada micrófono. El equipo llega temprano para que todo esté listo antes de la primera ponencia." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas un paquete más compacto o producción completa?"
+        paragraph1="Si tu evento es de 50-200 personas en salón, el paquete Conferencia en Salón tiene el equipo justo. Si vas a llenar un recinto de 600+, el paquete Producción Congreso incluye delays, mezcladoras redundantes y equipo doble de técnicos."
+        paragraph2="Precio especial cuando combinas audio con iluminación profesional."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu congreso necesita audio que llegue a cada butaca?</h2>
+        <p>Mándanos la fecha, el auditorio y el número de asistentes. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción de Audio Profesional para Eventos Masivos CDMX — $20,000 + IVA | REDEIL";
+const description = "Line array JBL VTX + delays + monitors + FOH + redundancia completa para conciertos y festivales de 500+ personas. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas/paquete-produccion-audio/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Producción de Audio Profesional — Line Array JBL VTX para Eventos Masivos",
+    "description": "Producción de audio profesional para conciertos, festivales y eventos masivos de 500+ personas. Line array JBL VTX + torres de delay + monitores de escenario + consola FOH + sistema de redundancia completa. Ingeniero de audio FOH, técnicos de escenario, transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas/paquete-produccion-audio/",
+      "priceCurrency": "MXN",
+      "price": "20000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "36",
+      "reviewCount": "36"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sergio Lozano" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Concierto al aire libre con 2,000 personas en el Foro Pegaso. El line array JBL VTX cubrió todo el espacio con los delays sincronizados perfectamente. El ingeniero de FOH manejó 8 bandas sin un solo problema técnico."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Diana Herrera" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Festival corporativo de fin de año para 800 personas. El sistema de redundancia nos dio la tranquilidad que necesitábamos — si algo fallaba, el respaldo entraba automáticamente. Nada falló."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Contreras" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lanzamiento de marca con 1,500 invitados en el Pepsi Center. Producción de audio impecable — monitores in-ear para los artistas, FOH dedicado, delays calibrados al milisegundo. Nivel de concierto internacional."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas/sonido-profesional-concierto-estadio.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye la 'redundancia completa'?", "acceptedAnswer": { "@type": "Answer", "text": "Redundancia significa que cada componente crítico tiene un respaldo listo para entrar automáticamente si el principal falla: consola de mezcla de respaldo, amplificadores redundantes, procesador de sistema duplicado y cables de señal dobles. En un concierto o festival, un fallo de audio es inaceptable — la redundancia lo previene." }},
+      { "@type": "Question", "name": "¿Qué son los delays y para qué sirven?", "acceptedAnswer": { "@type": "Answer", "text": "Los delays son torres de bocinas posicionadas a lo largo del venue que refuerzan el sonido del line array principal. Están sincronizadas al milisegundo para que el público lejano reciba el sonido al mismo tiempo que el cercano. Sin delays, las personas más allá de 50-60 metros escuchan con retraso y menor volumen." }},
+      { "@type": "Question", "name": "¿Qué diferencia hay entre el Audio Premium y la Producción?", "acceptedAnswer": { "@type": "Answer", "text": "El Premium ($12,000) usa line array QSC KLA para 300-500 personas. La Producción ($20,000) usa line array JBL VTX de gira profesional + torres de delay + monitores de escenario completos + consola FOH dedicada + redundancia total. El salto es para eventos de 500+ personas donde la confiabilidad y la calidad de gira son requisito." }},
+      { "@type": "Question", "name": "¿Incluye ingeniero de FOH dedicado?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye un ingeniero de audio de FOH (Front of House) dedicado que opera la mezcla del público desde una posición óptima en el venue, más técnicos de escenario que manejan los monitores y las conexiones de los artistas. El FOH es independiente del técnico de escenario." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo de anticipación necesitan para montar?", "acceptedAnswer": { "@type": "Answer", "text": "Para producción de audio de este nivel, necesitamos acceso al venue un día antes o al menos 6-8 horas antes del evento. El montaje incluye rigging del line array, posicionamiento de delays, instalación de FOH, cableado de escenario, prueba de línea completa y soundcheck. No se puede apresurar." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Audio Premium — $12,000", image: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Line array QSC KLA para eventos grandes", description: "Line array QSC KLA + 4 subs + 6 micrófonos Shure ULXD. Para eventos de 300-500 personas donde no necesitas producción completa.", link: "/servicios/bocinas/paquete-audio-premium/" },
+  { title: "Audio Estándar — $7,000", image: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Audio profesional para eventos medianos", description: "4 bocinas JBL PRX825 + 2 subs QSC + Yamaha TF1. Para eventos de 100-200 personas.", link: "/servicios/bocinas/paquete-audio-estandar/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-hacienda-gobos-cielo.avif", alt: "Cabezas móviles para conciertos y producciones", description: "Show de luces robóticas programado para cada momento del concierto o festival.", link: "/servicios/cabezas-moviles/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-premiacion-escenario-ganador.avif", alt: "Cañones de confeti para eventos masivos", description: "Cañones de confeti para el momento climático del concierto o festival. Impacto visual garantizado.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Eventos", href: "/servicios/bocinas/" },
+    { label: "Producción de Audio" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Producción de Audio Profesional — Conciertos y Eventos Masivos 500+"
+    subtitle="Desde $20,000 + IVA. Line array JBL VTX + delays + monitors + FOH + redundancia completa. Nivel de gira."
+    introParagraph1='Un concierto, un festival o un lanzamiento de marca con 1,000+ personas no tolera un fallo de audio. Un micrófono que deja de funcionar, un canal que se cae, un amplificador que se apaga — en un evento masivo, cualquiera de esos problemas se convierte en desastre. El paquete Producción de Audio usa line array <strong>JBL VTX</strong> — el mismo sistema de giras internacionales — con redundancia completa: cada componente crítico tiene un respaldo listo para entrar automáticamente.'
+    introParagraph2='Torres de delay sincronizadas al milisegundo para que el público a 100 metros escuche al mismo tiempo que el de la primera fila. Monitores de escenario e in-ear para cada artista. Consola <strong>FOH</strong> dedicada operada por un ingeniero de audio desde la posición óptima del venue, independiente del técnico de escenario. Cableado redundante, amplificadores con failover automático, procesadores de sistema duplicados. Conciertos, festivales, lanzamientos masivos y producciones corporativas en <strong>CDMX, Estado de México</strong> y todo el país.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas menos potencia?"
+    items={[
+      { label: "Audio Premium $12,000", href: "/servicios/bocinas/paquete-audio-premium/", icon: "sonido" },
+      { label: "Audio Estándar $7,000", href: "/servicios/bocinas/paquete-audio-estandar/", icon: "sonido" },
+      { label: "Audio Básico $4,000", href: "/servicios/bocinas/paquete-audio-basico/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Audio"
+      price="$20,000"
+      priceNote="+ IVA · Line array JBL VTX · FOH + redundancia"
+      features={[
+        { text: "Line array JBL VTX (gira profesional)" },
+        { text: "Torres de delay sincronizadas" },
+        { text: "Monitores de escenario + in-ear" },
+        { text: "Consola FOH dedicada" },
+        { text: "Redundancia completa en todo el sistema" },
+        { text: "Ingeniero de audio FOH" },
+        { text: "Técnicos de escenario" },
+        { text: "Amplificadores con failover automático" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: eventos 500+ personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Producción de Audio para un evento masivo."
+      packages={[
+        { label: "Audio Básico", price: "$4,000", href: "/servicios/bocinas/paquete-audio-basico/" },
+        { label: "Estándar", price: "$7,000", href: "/servicios/bocinas/paquete-audio-estandar/" },
+        { label: "Premium", price: "$12,000", href: "/servicios/bocinas/paquete-audio-premium/" },
+        { label: "Producción", price: "$20,000", href: "/servicios/bocinas/paquete-produccion-audio/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Producción de audio para eventos donde el fallo no es opción"
+          subtitle="Redundancia completa, delays calibrados y FOH dedicado — nivel de gira internacional."
+          paragraph1="La diferencia entre rentar bocinas y contratar producción de audio es la ingeniería detrás del sistema. El paquete Producción no solo pone más bocinas — diseña el sistema acústico del venue con simulación de cobertura, calibra delays al milisegundo y monta redundancia en cada punto crítico."
+          paragraph2="El ingeniero de FOH opera la mezcla del público desde una posición calibrada acústicamente, mientras el técnico de escenario maneja los monitores e in-ear de cada artista de forma independiente."
+        />
+        <FeatureGrid features={[
+          { title: "Concierto al Aire Libre", description: "Line array JBL VTX + delays cubren audiencias de miles. Calibración específica para espacios abiertos." },
+          { title: "Festival de Música", description: "Sistema diseñado para múltiples artistas con cambios de set rápidos. Monitores independientes por artista." },
+          { title: "Lanzamiento de Marca Masivo", description: "Producción de audio para eventos corporativos de 1,000+ personas con presentaciones multimedia." },
+          { title: "Convención Nacional", description: "Cobertura acústica uniforme en centros de convenciones. Delays y fill speakers donde se necesiten." },
+          { title: "Festival Corporativo", description: "Fin de año, aniversario de empresa o team building masivo con banda, DJ y discursos." },
+          { title: "Evento Deportivo o Carrera", description: "Audio para ceremonias de premiación, animación y música en espacios abiertos de gran escala." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Ingeniería de audio que no se ve pero se escucha"
+          subtitle="JBL VTX + delays + FOH + redundancia — cada componente tiene una razón."
+          paragraph1="El line array JBL VTX es el sistema que usan las giras internacionales porque entrega SPL extremo con distorsión mínima y cobertura predecible. Cada caja del array se angula con precisión de medio grado usando software de simulación acústica antes del montaje."
+          paragraph2="La redundancia no es un lujo — es un requisito. En un concierto con 2,000 personas, no puedes decir 'se cayó el sistema, esperen 10 minutos'. El failover automático entra en milisegundos sin que el público note nada."
+        />
+        <FeatureGrid features={[
+          { title: "Line Array JBL VTX", description: "El estándar de la industria para conciertos y festivales. SPL extremo, distorsión mínima, cobertura predecible." },
+          { title: "Delays Sincronizados al Milisegundo", description: "Torres de refuerzo que extienden la cobertura del line array. Público lejano escucha sin retraso." },
+          { title: "FOH Dedicado + Escenario Independiente", description: "Dos ingenieros, dos mezclas. El público y los artistas escuchan exactamente lo que necesitan." },
+          { title: "Redundancia con Failover Automático", description: "Consola, amplificadores y procesadores duplicados. Si uno falla, el respaldo entra solo." },
+          { title: "Monitores In-Ear por Artista", description: "Cada músico escucha su propia mezcla personalizada. Sin cuñas de piso que ensucien el escenario." },
+          { title: "Simulación Acústica Pre-Evento", description: "El ingeniero modela la cobertura del venue antes del montaje. Cero improvisación." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 36 reseñas verificadas."
+          paragraph1="Conciertos, festivales, lanzamientos masivos y producciones corporativas en los principales foros y venues de CDMX."
+          paragraph2="Pregunta por referencias de producciones similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Sergio Lozano", event: "Concierto al aire libre — Foro Pegaso, 2,000 personas", rating: 5, text: "El line array JBL VTX cubrió todo el espacio con los delays sincronizados perfectamente. El ingeniero de FOH manejó 8 bandas sin un solo problema técnico." },
+          { name: "Diana Herrera", event: "Festival corporativo de fin de año — 800 personas", rating: 5, text: "El sistema de redundancia nos dio la tranquilidad que necesitábamos — si algo fallaba, el respaldo entraba automáticamente. Nada falló." },
+          { name: "Miguel Ángel Contreras", event: "Lanzamiento de marca — Pepsi Center, 1,500 invitados", rating: 5, text: "Producción de audio impecable — monitores in-ear para los artistas, FOH dedicado, delays calibrados al milisegundo. Nivel de concierto internacional." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción de audio REDEIL en eventos masivos"
+        subtitle="Line array JBL VTX, torres de delay y FOH dedicado en acción."
+        paragraph1="Estas fotos son de producciones reales donde montamos sistemas de audio de gira. Conciertos, festivales y eventos corporativos masivos."
+        paragraph2="¿Tienes un evento de 500+ personas? Mándanos los datos por WhatsApp y diseñamos el sistema acústico."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas/sonido-profesional-concierto-estadio.avif", alt: "Producción de audio profesional con line array JBL VTX en concierto" },
+        { src: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Line array montado en truss para concierto masivo" },
+        { src: "/img/bocinas-fiestas/bocinas-grandes-eventos-masivos.avif", alt: "Audio de alta potencia para evento masivo" },
+        { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales JBL para producción de audio" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl.avif", alt: "Mezcladora profesional y bocinas JBL en producción" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif", alt: "Line array en venue para evento de gran escala" },
+        { src: "/img/bocinas-djs/dj-para-eventos-equipo-sonido-luces.avif", alt: "Equipo de producción de audio y luces para festival" },
+        { src: "/img/bocinas-fiestas/bocinas-amplificadas-fiestas-jardines.avif", alt: "Sistema de audio amplificado para evento al aire libre" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Producción de Audio"
+        subtitle="Todo lo que necesitas saber sobre audio para conciertos y eventos masivos."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Mándanos los datos del evento — te enviamos una propuesta técnica con diseño de cobertura acústica."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye la 'redundancia completa'?", answer: "Redundancia significa que cada componente crítico tiene un respaldo listo para entrar automáticamente si el principal falla: consola de mezcla de respaldo, amplificadores redundantes, procesador de sistema duplicado y cables de señal dobles. En un concierto o festival, un fallo de audio es inaceptable — la redundancia lo previene." },
+      { question: "¿Qué son los delays y para qué sirven?", answer: "Los delays son torres de bocinas posicionadas a lo largo del venue que refuerzan el sonido del line array principal. Están sincronizadas al milisegundo para que el público lejano reciba el sonido al mismo tiempo que el cercano. Sin delays, las personas más allá de 50-60 metros escuchan con retraso y menor volumen." },
+      { question: "¿Qué diferencia hay entre el Audio Premium y la Producción?", answer: "El Premium ($12,000) usa line array QSC KLA para 300-500 personas. La Producción ($20,000) usa line array JBL VTX de gira profesional + torres de delay + monitores de escenario completos + consola FOH dedicada + redundancia total. El salto es para eventos de 500+ personas donde la confiabilidad y la calidad de gira son requisito." },
+      { question: "¿Incluye ingeniero de FOH dedicado?", answer: "Sí. El paquete incluye un ingeniero de audio de FOH (Front of House) dedicado que opera la mezcla del público desde una posición óptima en el venue, más técnicos de escenario que manejan los monitores y las conexiones de los artistas. El FOH es independiente del técnico de escenario." },
+      { question: "¿Cuánto tiempo de anticipación necesitan para montar?", answer: "Para producción de audio de este nivel, necesitamos acceso al venue un día antes o al menos 6-8 horas antes del evento. El montaje incluye rigging del line array, posicionamiento de delays, instalación de FOH, cableado de escenario, prueba de línea completa y soundcheck. No se puede apresurar." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Evento más pequeño o quieres agregar producción visual?"
+        paragraph1="Para eventos de 300-500 personas, el Audio Premium es suficiente. Si necesitas audio para 100-200, el Estándar cubre perfecto."
+        paragraph2="Precio especial cuando combinas producción de audio con iluminación profesional o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu evento suene profesional?</h2>
+        <p>Mándanos la fecha, el venue, la capacidad y el tipo de evento. Te enviamos una propuesta técnica con diseño de cobertura acústica y presupuesto detallado.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

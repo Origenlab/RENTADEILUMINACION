@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio para XV Años Íntimos CDMX — $4,500 + IVA | REDEIL";
+const description = "2 bocinas JBL PRX + subwoofer + 2 micrófonos Shure para XV años de 50-100 invitados. Vals coordinado. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-basico/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete XV Básico — Audio para XV Años Íntimos",
+    "description": "2 bocinas JBL PRX + subwoofer + 2 micrófonos Shure inalámbricos + coordinación de secuencia musical para XV años de 50-100 invitados. Vals con papá coordinado al segundo. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-basico/",
+      "priceCurrency": "MXN",
+      "price": "4500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "53",
+      "reviewCount": "53"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carmen Flores" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El vals con papá se escuchó perfecto. El técnico coordinó la canción exacta y el cambio a la coreografía con los chambelanes fue sin pausa. Bocinas JBL PRX perfectas para el salón."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Juan Pablo Soto" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Mi hija ensayó la coreografía durante semanas y el técnico de REDEIL hizo que cada cambio de canción fuera exacto al segundo. El audio cubrió todo el salón sin distorsión."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rosa Alvarado" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "XV años con 60 invitados en el jardín de la casa. Las bocinas JBL sonaron increíble al aire libre. El vals con papá fue emotivo y la hora loca hizo bailar a todos."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El paquete XV Básico incluye DJ?", "acceptedAnswer": { "@type": "Answer", "text": "No incluye DJ. El técnico de audio opera la playlist de la festejada por Bluetooth y coordina cada transición musical — vals con papá, coreografía, hora loca. Para XV con DJ profesional, el paquete XV Completo ($8,500) es la opción." }},
+      { "@type": "Question", "name": "¿Cuántos invitados cubre el paquete XV Básico?", "acceptedAnswer": { "@type": "Answer", "text": "De 50 a 100 invitados. Las 2 bocinas JBL PRX más el subwoofer cubren salones pequeños y jardines familiares sin problema. Para más de 100 invitados recomendamos el paquete XV Completo con line array." }},
+      { "@type": "Question", "name": "¿El técnico coordina el vals con papá?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico programa la secuencia completa antes del evento: vals con papá, cambio de zapatillas, vals con chambelanes, brindis y hora loca. Cada canción entra al segundo exacto." }},
+      { "@type": "Question", "name": "¿Puedo conectar mi playlist de Spotify o Apple Music?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La mezcladora tiene conexión Bluetooth. Conectamos el celular de la festejada y el técnico opera las transiciones. También aceptamos USB con la playlist preparada." }},
+      { "@type": "Question", "name": "¿El subwoofer es necesario para XV de 80 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La hora loca y la coreografía necesitan graves potentes para que se sienta el ritmo en la pista. Sin subwoofer, el reggaetón y la cumbia suenan planos. El subwoofer le da cuerpo a la fiesta." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "XV Completo con DJ — $8,500", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "DJ y audio completo para XV años", description: "DJ Pioneer + line array QSC + 4 micrófonos. Coordinación con coreógrafo. 150-300 invitados.", link: "/servicios/bocinas-xv/paquete-xv-completo/" },
+  { title: "XV con DJ y Luces — $14,000", image: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "XV años con DJ y show de luces sincronizado", description: "DJ + line array + 4 cabezas móviles + seguidor. Show sincronizado con coreografía.", link: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Humo bajo para vals de XV años", description: "Efecto nubes en el piso para el vals con papá. El complemento más pedido en XV años.", link: "/servicios/humo-bajo/" },
+  { title: "Luces Neón UV", image: "/img/luces-neon/letrero-luminoso-xv-anos.avif", alt: "Letreros neón para decoración de XV años", description: "Letreros luminosos personalizados para la mesa principal o la pista de baile.", link: "/servicios/luces-neon/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "XV Años", href: "/servicios/bocinas-xv/" },
+    { label: "Paquete XV Básico" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete XV Básico — Audio para XV Años Íntimos"
+    subtitle="Desde $4,500 + IVA. 2 bocinas JBL PRX + subwoofer + 2 micrófonos Shure. Vals coordinado al segundo."
+    introParagraph1='Los XV años de tu hija tienen momentos que no pueden fallar: el vals con papá donde la canción tiene que empezar exactamente cuando él le extiende la mano, la coreografía con chambelanes donde cada cambio de ritmo está ensayado al segundo, y la hora loca donde el bajo tiene que hacer temblar la pista. El paquete XV Básico cubre un salón de 50-100 invitados con 2 bocinas <strong>JBL PRX</strong> y un subwoofer que le da potencia a la fiesta sin sobredimensionar.'
+    introParagraph2='Incluye 2 micrófonos <strong>Shure</strong> inalámbricos para brindis y MC, y un técnico que coordina la secuencia musical completa — vals con papá, cambio de zapatillas, vals con chambelanes, brindis, hora loca. No necesitas DJ para un XV de 80 invitados: conectamos la playlist de la festejada por Bluetooth y el técnico opera las transiciones. Salones, jardines familiares y terrazas en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más potencia o DJ profesional?"
+    items={[
+      { label: "XV Completo $8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/", icon: "sonido" },
+      { label: "XV DJ + Luces $14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/", icon: "sonido" },
+      { label: "XV Producción $24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="XV Básico"
+      price="$4,500"
+      priceNote="+ IVA · Técnico incluido · Vals coordinado"
+      features={[
+        { text: "2 bocinas JBL PRX de alta potencia" },
+        { text: "1 subwoofer para pista de baile" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "Mezcladora con conexión Bluetooth" },
+        { text: "Coordinación de secuencia musical" },
+        { text: "Vals con papá coordinado al segundo" },
+        { text: "Técnico de audio incluido" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: XV años 50-100 invitados" },
+        { text: "Compatible con playlist Bluetooth" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete XV Básico de audio para XV años."
+      packages={[
+        { label: "XV Básico", price: "$4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/", active: true },
+        { label: "XV Completo", price: "$8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/" },
+        { label: "XV DJ + Luces", price: "$14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+        { label: "XV Producción", price: "$24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete XV Básico?"
+          subtitle="Audio profesional para los momentos que no pueden fallar en los XV de tu hija."
+          paragraph1="2 bocinas JBL PRX colocadas a los costados de la pista cubren hasta 100 invitados sentados y bailando. El subwoofer se coloca bajo la mesa del DJ o junto a la pista para que los graves lleguen directo al cuerpo."
+          paragraph2="El técnico ecualiza todo al espacio — un salón cerrado suena diferente a un jardín familiar. Cada transición musical está programada antes de que empiece la fiesta."
+        />
+        <FeatureGrid features={[
+          { title: "XV Años en Salón Pequeño", description: "Salones de 50-100 personas. Las JBL PRX llenan el espacio sin distorsión ni feedback." },
+          { title: "Vals con Papá", description: "La canción entra al segundo exacto. El técnico coordina el momento con la familia." },
+          { title: "Coreografía con Chambelanes", description: "Cada cambio de canción sincronizado con los pasos ensayados. Sin retrasos ni cortes bruscos." },
+          { title: "Hora Loca en Salón", description: "El subwoofer le da graves potentes al reggaetón y la cumbia para que nadie se quede sentado." },
+          { title: "Fiesta Íntima Familiar", description: "Jardines familiares y terrazas. Audio potente sin molestar a los vecinos de más." },
+          { title: "Cambio de Zapatillas", description: "Momento emotivo con la canción perfecta. El técnico baja el volumen para las palabras de mamá." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué el paquete XV Básico y no una bocina rentada?"
+          subtitle="Porque los XV de tu hija merecen que el vals suene perfecto."
+          paragraph1="La diferencia entre una bocina genérica y un sistema JBL PRX con subwoofer no es sutil — es la diferencia entre una hora loca que hace temblar la pista y una fiesta donde nadie quiere bailar porque el bajo no se siente."
+          paragraph2="El técnico no solo pone play: coordina la secuencia musical completa, opera las transiciones entre momentos y ajusta el volumen para cada parte de la noche."
+        />
+        <FeatureGrid features={[
+          { title: "Coordinación Musical al Segundo", description: "Vals, coreografía, brindis, hora loca — cada canción programada con tiempos exactos." },
+          { title: "Playlist de la Festejada por BT", description: "Conectamos el celular de tu hija por Bluetooth. Su música, su fiesta, su playlist." },
+          { title: "Sin DJ — Técnico Opera Todo", description: "No necesitas pagar DJ para 80 invitados. El técnico maneja las transiciones." },
+          { title: "Subwoofer para la Hora Loca", description: "Graves que se sienten en el pecho. La hora loca sin sub es media hora loca." },
+          { title: "Micrófonos para Brindis de Familia", description: "2 Shure inalámbricos para el brindis de papá, las palabras de mamá y el MC." },
+          { title: "Setup Rápido en 1 Hora", description: "Llegamos, montamos y ecualizamos en 60 minutos. Sin interrumpir la decoración." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 53 reseñas verificadas."
+          paragraph1="XV años en salones, jardines familiares y terrazas de CDMX y Estado de México."
+          paragraph2="Pregunta por referencias de salones similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Carmen Flores", event: "XV años — Salón Imperial Nezahualcóyotl, 80 invitados", rating: 5, text: "El vals con papá se escuchó perfecto. El técnico coordinó la canción exacta y el cambio a la coreografía con los chambelanes fue sin pausa. Bocinas JBL PRX perfectas para el salón." },
+          { name: "Juan Pablo Soto", event: "Quinceañera — Salón San Juan Iztapalapa, 70 invitados", rating: 5, text: "Mi hija ensayó la coreografía durante semanas y el técnico de REDEIL hizo que cada cambio de canción fuera exacto al segundo. El audio cubrió todo el salón sin distorsión." },
+          { name: "Rosa Alvarado", event: "XV íntimos — Jardín familiar Ecatepec, 60 invitados", rating: 5, text: "XV años con 60 invitados en el jardín de la casa. Las bocinas JBL sonaron increíble al aire libre. El vals con papá fue emotivo y la hora loca hizo bailar a todos." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio para XV años íntimos en CDMX"
+        subtitle="Vals, coreografía y hora loca con sonido profesional JBL."
+        paragraph1="Estas fotos son de XV años reales donde montamos el paquete XV Básico. Dos bocinas JBL PRX, un subwoofer y un técnico que coordina cada momento musical."
+        paragraph2="¿Quieres ver cómo quedaría en tu salón? Mándanos fotos del espacio por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif", alt: "Audio para XV años con chambelanes y bocinas JBL" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-vestido-rosa.avif", alt: "Coreografía de XV años con audio profesional" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coronacion-tiara-flores-bocinas.avif", alt: "Coronación de quinceañera con audio coordinado" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-madre-hija-dj-flores.avif", alt: "Baile madre e hija en XV años con audio" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Vals padre e hija en XV años salón pequeño" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-chambelanes-escenario.avif", alt: "Coreografía de chambelanes con sonido profesional" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-madre-hija-dj-rosa.avif", alt: "Momento emotivo madre e hija en quinceañera" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-chambelanes-dj.avif", alt: "Baile sorpresa de chambelanes con audio JBL" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete XV Básico"
+        subtitle="Todo lo que necesitas saber sobre audio para XV años íntimos."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el salón y cuántos invitados esperas — te decimos exactamente qué equipo necesitas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El paquete XV Básico incluye DJ?", answer: "No incluye DJ. El técnico de audio opera la playlist de la festejada por Bluetooth y coordina cada transición musical — vals con papá, coreografía, hora loca. Para XV con DJ profesional, el paquete XV Completo ($8,500) es la opción." },
+      { question: "¿Cuántos invitados cubre el paquete XV Básico?", answer: "De 50 a 100 invitados. Las 2 bocinas JBL PRX más el subwoofer cubren salones pequeños y jardines familiares sin problema. Para más de 100 invitados recomendamos el paquete XV Completo con line array." },
+      { question: "¿El técnico coordina el vals con papá?", answer: "Sí. El técnico programa la secuencia completa antes del evento: vals con papá, cambio de zapatillas, vals con chambelanes, brindis y hora loca. Cada canción entra al segundo exacto." },
+      { question: "¿Puedo conectar mi playlist de Spotify o Apple Music?", answer: "Sí. La mezcladora tiene conexión Bluetooth. Conectamos el celular de la festejada y el técnico opera las transiciones. También aceptamos USB con la playlist preparada." },
+      { question: "¿El subwoofer es necesario para XV de 80 personas?", answer: "Sí. La hora loca y la coreografía necesitan graves potentes para que se sienta el ritmo en la pista. Sin subwoofer, el reggaetón y la cumbia suenan planos. El subwoofer le da cuerpo a la fiesta." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas DJ profesional o producción de luces?"
+        paragraph1="El paquete XV Básico es perfecto para fiestas íntimas de 50-100 invitados. Si esperas más personas o quieres DJ y luces, los paquetes superiores cubren todo."
+        paragraph2="Precio especial cuando combinas audio con humo bajo, luces neón o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista para los XV años que tu hija merece?</h2>
+        <p>Mándanos la fecha y el salón de los XV. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

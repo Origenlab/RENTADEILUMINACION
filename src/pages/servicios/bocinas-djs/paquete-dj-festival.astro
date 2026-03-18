@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "DJ para Festival y Eventos Masivos CDMX — $22,000 + IVA | REDEIL";
+const description = "DJ artístico con CDJ-3000 + line array JBL VTX + iluminación festival para 500+ personas. Producción completa. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-festival/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "DJ para Festival y Eventos Masivos — Producción Completa",
+    "description": "DJ artístico con Pioneer CDJ-3000 + DJM-A9, line array JBL VTX con subwoofers, iluminación festival con cabezas móviles y strobes, y técnico de audio dedicado. Producción completa para festivales y eventos masivos de 500+ personas en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-festival/",
+      "priceCurrency": "MXN",
+      "price": "22000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "38",
+      "reviewCount": "38"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo Fuentes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El line array VTX cubrió los 800 asistentes con claridad impresionante. El DJ manejó un set de 4 horas que mantuvo la energía arriba toda la noche."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Claudia Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción de festival real. El CDJ-3000 con el DJM-A9 se escucharon brutales en el VTX. La iluminación sincronizada con la música fue espectacular."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Arturo Domínguez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la producción completa para nuestro lanzamiento. El DJ creó un set que hizo que 500 empleados olvidaran que estaban en un evento de empresa."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-djs/dj-para-eventos-musica-electronica.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué equipo incluye el paquete DJ Festival de $22,000?", "acceptedAnswer": { "@type": "Answer", "text": "DJ artístico con Pioneer CDJ-3000 + mezcladora DJM-A9, line array JBL VTX con subwoofers dedicados, iluminación festival con cabezas móviles y strobes, técnico de audio dedicado, 2 micrófonos inalámbricos Shure, transporte, montaje profesional y 6 horas de operación." }},
+      { "@type": "Question", "name": "¿El line array JBL VTX cubre 500+ personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El JBL VTX es un line array de gira diseñado para cubrir audiencias masivas con claridad y potencia. Con la configuración que incluimos cubre cómodamente de 500 a 1,000 personas en espacios abiertos o cerrados." }},
+      { "@type": "Question", "name": "¿El DJ puede tocar sets artísticos de electrónica?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros DJs de festival son artistas con sets propios de house, techno, nu-disco y EDM. Pueden tocar sets 100% artísticos o adaptar su selección al formato del evento — desde música comercial hasta sets underground." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ Corporativo — Galas y Premiaciones", image: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ para evento corporativo con line array", description: "DJ profesional + line array QSC KLA + iluminación corporativa. 100-400 personas. $12,000 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+  { title: "DJ para Boda — Ceremonia y Fiesta", image: "/img/bocinas-djs/dj-para-bodas-recepcion-baile-400w.avif", alt: "DJ profesional para boda con equipo Pioneer", description: "DJ con Pioneer CDJ-2000NXS2 + sonido JBL PRX para 100-250 invitados. $8,500 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-boda/" },
+  { title: "Cabezas Móviles — Show de Luces", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif", alt: "Cabezas móviles con beams en evento masivo", description: "Beams, spots y wash que convierten tu festival en un espectáculo visual. Desde $6,000 + IVA.", link: "/servicios/cabezas-moviles/" },
+  { title: "Confeti — Momento Épico", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Cañones de confeti en evento masivo", description: "Cañones de confeti para el drop, el countdown o el momento culminante del festival. Desde $3,500 + IVA.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "DJ para Fiestas", href: "/servicios/bocinas-djs/" },
+    { label: "DJ Festival" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="DJ para Festival y Eventos Masivos — Producción Completa"
+    subtitle="Desde $22,000 + IVA. DJ con CDJ-3000 + line array JBL VTX + iluminación festival. 500+ personas."
+    introParagraph1='Un festival no se hace con bocinas de fiesta. Se hace con <strong>line array JBL VTX</strong> que lanza el sonido a 800 personas sin perder claridad, con un DJ que toca en <strong>Pioneer CDJ-3000</strong> y mezcladora <strong>DJM-A9</strong> — el setup de gira que usan los DJs internacionales — y con iluminación que se sincroniza con cada drop. En REDEIL montamos producciones de festival real: técnico de audio dedicado que mezcla en vivo el sistema de PA, cabezas móviles que siguen el ritmo del DJ y strobes que explotan en los momentos clave.'
+    introParagraph2='Este paquete es para eventos donde el DJ es el protagonista. Festivales universitarios, fiestas masivas, lanzamientos de gran formato, events corporativos donde 500 personas tienen que bailar, y cualquier producción donde necesitas que el sonido y la luz estén al nivel de un festival internacional. Incluye transporte, montaje profesional con rigging, prueba de sonido, 6 horas de operación y desmontaje. Cubrimos toda la <strong>CDMX</strong>, Estado de México y producimos eventos en todo el país.'
+  />
+
+  <CtaBar
+    headline="Compara paquetes de DJ"
+    items={[
+      { label: "DJ Fiesta — $4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/", icon: "sonido" },
+      { label: "DJ Boda — $8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/", icon: "sonido" },
+      { label: "DJ Corporativo — $12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="DJ Festival"
+      price="$22,000"
+      priceNote="+ IVA · 6 horas incluidas"
+      features={[
+        { text: "DJ artístico con Pioneer CDJ-3000" },
+        { text: "Mezcladora Pioneer DJM-A9" },
+        { text: "Line array JBL VTX con subs" },
+        { text: "Técnico de audio dedicado" },
+        { text: "Iluminación festival con cabezas móviles" },
+        { text: "Strobes y efectos sincronizados" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "Prueba de sonido incluida" },
+        { text: "Transporte + montaje + rigging" },
+        { text: "6 horas de operación incluidas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete DJ festival de $22,000 para nuestro evento masivo."
+      packages={[
+        { label: "DJ Fiesta Privada", price: "$4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+        { label: "DJ Boda", price: "$8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/" },
+        { label: "DJ Corporativo", price: "$12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+        { label: "DJ Festival", price: "$22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Eventos donde el DJ Festival es lo que necesitas"
+          subtitle="500+ personas. Producción real. Nada de bocinas en tripié."
+          paragraph1="El paquete DJ Festival es para eventos donde el audio tiene que cubrir un área grande, donde la iluminación tiene que ser parte del show y donde el DJ no es un proveedor más — es el artista principal. Line array JBL VTX con subwoofers dedicados, cabezas móviles sincronizadas y un técnico de audio que mezcla el PA en tiempo real."
+          paragraph2="Festivales universitarios en explanadas, fiestas masivas en estacionamientos y naves industriales, lanzamientos de marca en foros y expo, y eventos corporativos donde la producción tiene que impresionar."
+        />
+        <FeatureGrid features={[
+          { title: "Festival Universitario", description: "Explanadas, auditorios al aire libre y estadios. El VTX llena el espacio y el DJ mantiene a 800 personas bailando durante horas." },
+          { title: "Fiesta Masiva / Rave", description: "Naves industriales, estacionamientos, terrazas de gran formato. Producción de festival con iluminación sincronizada al BPM del DJ." },
+          { title: "Lanzamiento de Marca", description: "El reveal del producto con audio de impacto, luces que explotan y un DJ que mantiene la energía del after party toda la noche." },
+          { title: "Evento Corporativo Masivo", description: "Cuando 500 empleados necesitan olvidar que es un evento de empresa. Producción de festival en un salón de convenciones." },
+          { title: "Concierto / Show en Vivo", description: "Apertura o cierre de conciertos con DJ set profesional. El CDJ-3000 + DJM-A9 es el rider estándar de artistas internacionales." },
+          { title: "Graduación Masiva", description: "La fiesta de graduación que todos van a recordar. 500+ graduados bailando con producción de festival real." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué el DJ Festival de REDEIL?"
+          subtitle="No es un DJ con bocinas grandes — es una producción de festival completa."
+          paragraph1="La diferencia entre un DJ con bocinas grandes y una producción de festival es el técnico de audio, el line array y la iluminación sincronizada. Nuestro paquete incluye los tres. El DJ se concentra en mezclar, el técnico en que el PA suene perfecto y las luces siguen al beat automáticamente."
+          paragraph2="El Pioneer CDJ-3000 con DJM-A9 es el setup que usan los DJs de talla mundial. Nuestros DJs lo conocen a fondo y pueden tocar sets artísticos de house, techno, electrónica y también comercial — según lo que tu evento necesite."
+        />
+        <FeatureGrid features={[
+          { title: "Line Array JBL VTX de Gira", description: "No es un sistema portátil — es el line array que usan las giras de conciertos. Cobertura uniforme de 500 a 1,000 personas con claridad brutal." },
+          { title: "Técnico de Audio Dedicado", description: "Un ingeniero de sonido que mezcla el PA en tiempo real. Ajusta frecuencias, compresión y niveles según el momento del set y la reacción del público." },
+          { title: "Pioneer CDJ-3000 + DJM-A9", description: "El rider de los DJs internacionales. Pantalla táctil, análisis de track en tiempo real, efectos de estudio y mezcla de 4 canales." },
+          { title: "Iluminación Sincronizada al Beat", description: "Cabezas móviles, strobes y PAR LED que reaccionan al BPM del DJ. Cada drop tiene su explosión de luz automática." },
+          { title: "Prueba de Sonido Profesional", description: "Llegamos con tiempo para montar, cablear y hacer prueba de sonido completa. El DJ prueba su set, el técnico ajusta el PA y todo queda listo." },
+          { title: "Rigging Profesional", description: "Montaje de line array en torres de rigging o puntos de anclaje del venue. Equipo certificado y personal capacitado." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes contrataron producción de festival"
+          subtitle="4.9 estrellas en 38 reseñas de eventos masivos."
+          paragraph1="Cada reseña es de un organizador real que contrató nuestro paquete DJ Festival."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Eduardo Fuentes", event: "Festival universitario — UNAM Estadio Olímpico, 800 personas", rating: 5, text: "El line array VTX cubrió los 800 asistentes con claridad impresionante. El DJ manejó un set de 4 horas que mantuvo la energía arriba toda la noche." },
+          { name: "Claudia Ríos", event: "Evento masivo — Parque Bicentenario, 600 personas", rating: 5, text: "Producción de festival real. El CDJ-3000 con el DJM-A9 se escucharon brutales en el VTX. La iluminación sincronizada con la música fue espectacular." },
+          { name: "Arturo Domínguez", event: "Producción corporativa — Expo Reforma, 500 personas", rating: 5, text: "Contratamos la producción completa para nuestro lanzamiento. El DJ creó un set que hizo que 500 empleados olvidaran que estaban en un evento de empresa." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="DJ Festival en producciones reales"
+        subtitle="Festivales, eventos masivos y producciones de gran formato en CDMX."
+        paragraph1="Cada imagen es de un evento real donde montamos producción de festival completa — line array, iluminación sincronizada y DJ artístico con CDJ-3000. La diferencia entre un evento con DJ y un evento con producción de festival se ve y se siente."
+        paragraph2="¿Tienes un evento masivo? Mándanos los detalles del venue y la cantidad de personas. Te armamos la propuesta técnica completa."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-djs/dj-para-eventos-musica-electronica.avif", alt: "DJ tocando música electrónica en festival CDMX" },
+        { src: "/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif", alt: "Pista iluminada en festival con DJ y line array" },
+        { src: "/img/bocinas-djs/dj-para-eventos-boda-hacienda.avif", alt: "Producción de DJ en evento masivo con iluminación" },
+        { src: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif", alt: "DJ mezclando con CDJ-3000 en producción de festival" },
+        { src: "/img/bocinas-djs/dj-para-eventos-bailando-gente.avif", alt: "Multitud bailando en festival con producción completa" },
+        { src: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ festival en evento corporativo masivo" },
+        { src: "/img/bocinas-djs/dj-para-eventos-jardin-terraza.avif", alt: "DJ con producción festival en espacio al aire libre" },
+        { src: "/img/bocinas-djs/dj-para-eventos-karaoke-animacion.avif", alt: "DJ festival con animación y producción completa" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete DJ Festival"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Para eventos con requerimientos especiales, hacemos visita técnica al venue sin costo."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué equipo incluye el paquete DJ Festival de $22,000?", answer: "DJ artístico con Pioneer CDJ-3000 + mezcladora DJM-A9, line array JBL VTX con subwoofers dedicados, iluminación festival con cabezas móviles y strobes sincronizados, técnico de audio dedicado, 2 micrófonos inalámbricos Shure, transporte, montaje con rigging profesional, prueba de sonido y 6 horas de operación." },
+      { question: "¿El line array JBL VTX cubre 500+ personas?", answer: "Sí. El JBL VTX es un line array de gira diseñado para cubrir audiencias masivas. Con la configuración incluida cubre de 500 a 1,000 personas en espacios abiertos o cerrados con claridad y potencia. Para eventos de más de 1,000 personas, armamos configuraciones custom." },
+      { question: "¿El DJ puede tocar sets artísticos de electrónica?", answer: "Sí. Nuestros DJs de festival son artistas con sets propios de house, techno, nu-disco y EDM. Pueden tocar sets 100% artísticos o adaptar su selección al formato del evento — desde música comercial bailable hasta sets underground de 4 horas." },
+      { question: "¿Necesito contratar electricista por separado?", answer: "Depende del venue. La producción de festival requiere una acometida eléctrica de al menos 100 amperes. Si tu venue no la tiene, te asesoramos sobre lo que se necesita. Hacemos visita técnica previa para verificar capacidad eléctrica sin costo." },
+      { question: "¿Cuánto tiempo tarda el montaje?", answer: "El montaje completo toma entre 4 y 6 horas — line array, rigging, iluminación, cabina de DJ y prueba de sonido. Llegamos con tiempo suficiente para que todo esté probado antes de que llegue el público. Necesitamos acceso al venue desde temprano." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas complementar tu producción de festival?"
+        paragraph1="Las cabezas móviles extra y los cañones de confeti son los complementos más solicitados para producciones de festival. También tenemos DJ corporativo si tu evento es más pequeño, y DJ boda si buscas producción para un evento social."
+        paragraph2="Armamos paquetes combinados con precio especial para producciones. Cuéntanos tu evento y te diseñamos la propuesta técnica."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para montar una producción de festival real?</h2>
+        <p>Mándanos la fecha, el venue, la capacidad y el formato del evento. Te armamos la propuesta técnica completa con visita al venue incluida.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

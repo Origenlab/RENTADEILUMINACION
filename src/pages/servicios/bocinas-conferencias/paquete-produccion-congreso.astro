@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción Audio para Congreso Masivo CDMX — $18,000 + IVA | REDEIL";
+const description = "Line array completo + delays + mezcladoras redundantes + técnicos FOH para congresos de 600+ personas. Streaming HD. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-produccion-congreso/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción Congreso — Audio para Eventos de 600+ Personas",
+    "description": "Producción de audio completa para congresos masivos de 600+ personas. Line array completo + delays + mezcladoras redundantes + técnico FOH + técnico de monitores. Streaming HD incluido. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-produccion-congreso/",
+      "priceCurrency": "MXN",
+      "price": "18000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "39",
+      "reviewCount": "39"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Alejandro Ibarra" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Congreso IMEF con 800 asistentes en Expo Bancomer. Dos line arrays principales más delays para las últimas filas. El técnico FOH y el de monitores coordinaron todo por intercom. Streaming a 3 plataformas simultáneas sin un solo corte."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Dra. Carmen Ortega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Convención médica con 700 asistentes en Centro Histórico. El sistema redundante fue clave — cuando un cable falló, la mezcladora de respaldo tomó el control en 2 segundos. Los asistentes ni se enteraron. Producción de primer nivel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Pablo Guerrero" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción del IBM Forum en el WTC con 600 asistentes. Audio en sala principal y 2 salas breakout sincronizadas. El equipo de REDEIL coordinó 8 micrófonos, video, traducción simultánea y streaming HD. Todo impecable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué significa 'mezcladoras redundantes'?", "acceptedAnswer": { "@type": "Answer", "text": "Significa que llevamos dos mezcladoras: la principal y una de respaldo configurada idéntica. Si la principal falla por cualquier razón — cable suelto, corte de energía, error de software — la de respaldo toma el control en segundos sin que la audiencia note interrupción. Es el estándar de producción para congresos de 600+ personas." }},
+      { "@type": "Question", "name": "¿Qué son los delays y para qué sirven?", "acceptedAnswer": { "@type": "Answer", "text": "Los delays son bocinas adicionales colocadas a mitad del recinto que refuerzan el sonido del line array principal. Compensan la pérdida de volumen en las filas traseras y están sincronizados con un retardo calculado para que el sonido llegue simultáneamente a todo el público. Sin delays, las últimas 10 filas pierden claridad." }},
+      { "@type": "Question", "name": "¿Pueden cubrir múltiples salas simultáneamente?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete Producción puede extenderse a salas breakout o talleres paralelos con costo adicional. Enviamos feeds de audio independientes a cada sala para que la sesión plenaria se transmita en vivo a los salones alternos." }},
+      { "@type": "Question", "name": "¿Incluyen streaming HD profesional?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El audio que sale al stream pasa por una mezcla dedicada — independiente de la mezcla de sala. El técnico optimiza el audio para streaming: compresión, limitación y ecualización específicas para que los asistentes remotos escuchen perfecto en sus laptops o audífonos." }},
+      { "@type": "Question", "name": "¿Cuántos técnicos incluye el paquete?", "acceptedAnswer": { "@type": "Answer", "text": "Dos técnicos: un ingeniero FOH (Front of House) que maneja la mezcla principal para la audiencia, y un técnico de monitores que maneja lo que escuchan los ponentes en el escenario. Ambos se coordinan por intercom durante todo el evento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Audio para Auditorio — $9,500", image: "/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif", alt: "Line array QSC para auditorio de congreso", description: "Line array QSC KLA + 6 micrófonos Shure ULXD + Yamaha TF5. Auditorios de 200-600 personas.", link: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+  { title: "Conferencia en Salón — $5,500", image: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Audio para conferencia en salón de hotel", description: "4 bocinas JBL + 4 micrófonos Shure + mezcladora Yamaha. Para conferencias de 50-200 personas.", link: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+  { title: "Gobos con Logo", image: "/img/gobos/gobo-proyector-logo-empresa-corporativo-400w.avif", alt: "Proyección de logo corporativo con gobo en congreso", description: "Proyecta el logo de tu congreso o empresa en la pantalla principal o muros del recinto.", link: "/servicios/gobos/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/seguidor-conferencia-orador-podium-evento-gala-400w.avif", alt: "Luz seguidor para ponente principal en congreso", description: "Haz de luz profesional que sigue al keynote speaker. Presencia escénica de nivel internacional.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Conferencias", href: "/servicios/bocinas-conferencias/" },
+    { label: "Paquete Producción Congreso" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Producción Congreso — Audio para 600+ Personas"
+    subtitle="Desde $18,000 + IVA. Line array completo + delays + mezcladoras redundantes + 2 técnicos. Streaming HD."
+    introParagraph1='Un congreso de 600+ personas no se cubre con bocinas y buena voluntad. Necesita producción de audio real: <strong>line array completo</strong> con delays para las filas traseras, <strong>mezcladoras redundantes</strong> para que un cable suelto no tumbe el audio de 800 personas, un técnico <strong>FOH</strong> dedicado a la mezcla de sala y un técnico de <strong>monitores</strong> dedicado a lo que escuchan los ponentes en el escenario.'
+    introParagraph2='El paquete Producción Congreso incluye streaming HD con mezcla independiente — el audio que reciben los asistentes remotos por Zoom o YouTube está optimizado para laptops y audífonos, no es simplemente "lo que capta un micrófono de ambiente". Para congresos internacionales, convenciones masivas, foros de industria y producciones corporativas de primer nivel en toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Tu evento es más compacto?"
+    items={[
+      { label: "Sala Juntas $2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/", icon: "sonido" },
+      { label: "Conferencia $5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/", icon: "sonido" },
+      { label: "Auditorio $9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Congreso"
+      price="$18,000"
+      priceNote="+ IVA · 2 técnicos · Redundancia total"
+      features={[
+        { text: "Line array completo con delays" },
+        { text: "Mezcladoras redundantes (principal + respaldo)" },
+        { text: "8+ micrófonos Shure ULXD inalámbricos" },
+        { text: "Técnico FOH + técnico de monitores" },
+        { text: "Monitores de escenario profesionales" },
+        { text: "Streaming HD con mezcla independiente" },
+        { text: "Coordinación por intercom entre técnicos" },
+        { text: "Cobertura 600+ personas sin puntos muertos" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: congresos masivos 600+ personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Producción Congreso de audio para evento masivo."
+      packages={[
+        { label: "Sala Juntas", price: "$2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/" },
+        { label: "Conferencia", price: "$5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+        { label: "Auditorio", price: "$9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete Producción Congreso?"
+          subtitle="Audio de nivel internacional para recintos donde no hay margen de error."
+          paragraph1="El line array principal cubre las primeras 30-40 filas. Los delays — bocinas de refuerzo a mitad del recinto — extienden la cobertura hasta la fila 60+ con el mismo volumen y claridad. Las mezcladoras redundantes garantizan que si cualquier componente falla, el audio sigue sin que la audiencia note nada."
+          paragraph2="Dos técnicos trabajan coordinados por intercom: el FOH controla lo que escucha la audiencia, el de monitores controla lo que escuchan los ponentes. Cada uno con su mezcladora independiente."
+        />
+        <FeatureGrid features={[
+          { title: "Congreso Internacional de Industria", description: "800+ asistentes con sesión plenaria, paneles y Q&A. Audio sincronizado con traducción simultánea." },
+          { title: "Convención Corporativa Masiva", description: "Resultados anuales, keynotes de CEO y presentaciones multimedia para 600+ ejecutivos." },
+          { title: "Foro Económico o Financiero", description: "Ponentes de alto perfil con audio perfecto. Sin margen de error técnico." },
+          { title: "Congreso Médico Nacional", description: "Simposios con 5-6 panelistas simultáneos. Terminología técnica clara en cada butaca." },
+          { title: "Producción Corporativa con Streaming", description: "Audiencia presencial + miles de asistentes remotos. Mezcla de streaming independiente." },
+          { title: "Evento Multisala", description: "Audio principal + feeds a salas breakout. Cada sala con su propia mezcla y volumen." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué producción completa y no solo más bocinas?"
+          subtitle="Porque en un congreso de 600+ personas, la redundancia no es un lujo — es una necesidad."
+          paragraph1="Poner más bocinas no resuelve el problema de un congreso masivo. Sin delays, las últimas filas escuchan con retardo. Sin redundancia, un cable suelto deja a 800 personas en silencio. Sin técnico de monitores, el ponente no sabe si la audiencia lo está escuchando."
+          paragraph2="El paquete Producción Congreso no es el paquete Auditorio con más equipo — es un sistema diseñado desde cero para eventos donde no puede haber un solo segundo de silencio."
+        />
+        <FeatureGrid features={[
+          { title: "Redundancia Total", description: "Mezcladora de respaldo configurada idéntica. Cambio automático en 2 segundos si la principal falla." },
+          { title: "Delays Sincronizados", description: "Bocinas de refuerzo con retardo calculado al milisegundo. Las filas traseras escuchan en sincronía perfecta." },
+          { title: "Streaming con Mezcla Independiente", description: "El audio remoto se optimiza por separado: compresión, limitación y ecualización para audífonos y laptops." },
+          { title: "Intercom entre Técnicos", description: "FOH y monitores se coordinan en tiempo real. Cambios de ponente, ajustes de volumen, resolución de imprevistos." },
+          { title: "8+ Micrófonos ULXD", description: "Frecuencias escaneadas automáticamente. Cero interferencia incluso con cientos de celulares en la sala." },
+          { title: "Cobertura Multisala Opcional", description: "Feeds de audio a salas breakout, traducción simultánea y grabación multipista disponibles." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 39 reseñas verificadas."
+          paragraph1="Congresos en Expo Bancomer, WTC, Centro Citibanamex y recintos de primer nivel en CDMX."
+          paragraph2="Pregunta por referencias de producciones similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Lic. Alejandro Ibarra", event: "Congreso IMEF — Expo Bancomer, 800 asistentes", rating: 5, text: "Congreso IMEF con 800 asistentes. Dos line arrays principales más delays para las últimas filas. El técnico FOH y el de monitores coordinaron todo por intercom. Streaming a 3 plataformas simultáneas sin un solo corte." },
+          { name: "Dra. Carmen Ortega", event: "Convención médica — Centro Histórico, 700 asistentes", rating: 5, text: "El sistema redundante fue clave — cuando un cable falló, la mezcladora de respaldo tomó el control en 2 segundos. Los asistentes ni se enteraron. Producción de primer nivel." },
+          { name: "Ing. Pablo Guerrero", event: "IBM Forum — WTC, 600 asistentes", rating: 5, text: "Producción del IBM Forum con 600 asistentes. Audio en sala principal y 2 salas breakout sincronizadas. El equipo coordinó 8 micrófonos, video, traducción simultánea y streaming HD. Todo impecable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción de audio para congresos masivos en CDMX"
+        subtitle="Line array, delays, redundancia y 2 técnicos para eventos sin margen de error."
+        paragraph1="Estas fotos son de congresos reales donde montamos producción completa. Line arrays con delays, mezcladoras redundantes y equipo de técnicos coordinados por intercom."
+        paragraph2="¿Quieres ver cómo sería la producción de tu congreso? Mándanos los detalles por WhatsApp y te armamos la propuesta técnica."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif", alt: "Producción de audio para congreso empresarial masivo" },
+        { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido completo para congreso de 600+ personas" },
+        { src: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Audio profesional para congreso internacional en CDMX" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios.avif", alt: "Line array para congreso en centro de convenciones" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-lanzamientos-productos.avif", alt: "Producción de audio para lanzamiento corporativo masivo" },
+        { src: "/img/bocinas-conferencias/alquiler-de-bocinas-exposiciones-ferias.avif", alt: "Audio para exposiciones y ferias de gran escala" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-ruedas-de-prensa.avif", alt: "Audio profesional para ruedas de prensa masivas" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-para-conferencias-ejecutivas.avif", alt: "Producción de audio para conferencias ejecutivas de gran formato" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Producción Congreso"
+        subtitle="Todo lo que necesitas saber sobre producción de audio para congresos masivos."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el recinto, la capacidad, el número de ponentes y si necesitas streaming — te armamos la propuesta técnica completa."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué significa 'mezcladoras redundantes'?", answer: "Significa que llevamos dos mezcladoras: la principal y una de respaldo configurada idéntica. Si la principal falla por cualquier razón — cable suelto, corte de energía, error de software — la de respaldo toma el control en segundos sin que la audiencia note interrupción. Es el estándar de producción para congresos de 600+ personas." },
+      { question: "¿Qué son los delays y para qué sirven?", answer: "Los delays son bocinas adicionales colocadas a mitad del recinto que refuerzan el sonido del line array principal. Compensan la pérdida de volumen en las filas traseras y están sincronizados con un retardo calculado para que el sonido llegue simultáneamente a todo el público. Sin delays, las últimas 10 filas pierden claridad." },
+      { question: "¿Pueden cubrir múltiples salas simultáneamente?", answer: "Sí. El paquete Producción puede extenderse a salas breakout o talleres paralelos con costo adicional. Enviamos feeds de audio independientes a cada sala para que la sesión plenaria se transmita en vivo a los salones alternos." },
+      { question: "¿Incluyen streaming HD profesional?", answer: "Sí. El audio que sale al stream pasa por una mezcla dedicada — independiente de la mezcla de sala. El técnico optimiza el audio para streaming: compresión, limitación y ecualización específicas para que los asistentes remotos escuchen perfecto en sus laptops o audífonos." },
+      { question: "¿Cuántos técnicos incluye el paquete?", answer: "Dos técnicos: un ingeniero FOH (Front of House) que maneja la mezcla principal para la audiencia, y un técnico de monitores que maneja lo que escuchan los ponentes en el escenario. Ambos se coordinan por intercom durante todo el evento." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu evento es más compacto o necesitas complementos?"
+        paragraph1="Si tu congreso es de 200-600 personas, el paquete Auditorio con line array QSC cubre el recinto. Si es de 50-200 en salón, el paquete Conferencia en Salón tiene el equipo justo."
+        paragraph2="Precio especial cuando combinas producción de audio con iluminación o proyección de logo."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu congreso necesita producción de audio profesional?</h2>
+        <p>Mándanos la fecha, el recinto, la capacidad y el formato de tu congreso. Te armamos la propuesta técnica completa en 24 horas.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

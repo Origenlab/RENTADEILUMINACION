@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Renta Audio Básico para Eventos CDMX — $4,000 + IVA | REDEIL";
+const description = "2 bocinas JBL PRX315 + subwoofer + 2 micrófonos Shure para eventos de 30-80 personas. Técnico incluido. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas/paquete-audio-basico/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Audio Básico — Renta de Bocinas para Eventos Pequeños",
+    "description": "Audio profesional para eventos de 30-80 personas. 2 bocinas JBL PRX315 + 1 subwoofer QSC compacto + 2 micrófonos Shure inalámbricos + mezcladora compacta. Técnico de audio, transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas/paquete-audio-basico/",
+      "priceCurrency": "MXN",
+      "price": "4000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "58",
+      "reviewCount": "58"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Pedro Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Audio perfecto para un lanzamiento de producto en terraza. Las JBL PRX315 cubrieron los 60 invitados sin problema. El técnico conectó los videos de la presentación al sistema."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana Flores" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Necesitábamos audio discreto para discursos en una cena corporativa. Las bocinas sonaron claras sin imponerse en el ambiente del restaurante."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Tomás Rivera" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Audio para una inauguración con discursos y música ambiental. El equipo básico cubrió exactamente lo que necesitábamos — ni más ni menos."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas/bocinas-profesionales-evento-masivo.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿2 bocinas JBL PRX315 son suficientes para 80 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las JBL PRX315 son bocinas activas de alta eficiencia que cubren salones y terrazas de hasta 80 personas sin forzarse. El subwoofer QSC compacto complementa el rango bajo para que la música suene completa. Si tu evento tiene más de 80 personas, el paquete Audio Estándar ($7,000) con 4 bocinas JBL PRX825 es mejor opción." }},
+      { "@type": "Question", "name": "¿El paquete incluye micrófonos para discursos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, incluye 2 micrófonos Shure inalámbricos. Uno puede quedarse en un atril o mesa principal y el otro circula entre los invitados para preguntas o brindis. Si necesitas más micrófonos, los agregamos por separado." }},
+      { "@type": "Question", "name": "¿Puedo conectar mi laptop para una presentación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La mezcladora tiene entrada auxiliar para laptop y conexión Bluetooth para celular. Puedes reproducir los videos de tu presentación con audio a través de las JBL PRX315 mientras usas un micrófono para hablar. El técnico maneja las transiciones." }},
+      { "@type": "Question", "name": "¿El técnico se queda todo el evento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico llega antes para montar y ecualizar al espacio, opera el audio durante todo el evento (ajustando niveles según el momento), y desmonta al final. Está incluido en el precio." }},
+      { "@type": "Question", "name": "¿Cubren eventos fuera de CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Cubrimos CDMX y Estado de México sin costo de transporte adicional. Para eventos en Cuernavaca, Puebla, Querétaro y otras ciudades cercanas, agregamos solo el costo de traslado. Escríbenos la ubicación y te cotizamos." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Audio Estándar — $7,000", image: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Audio profesional para eventos medianos", description: "4 bocinas JBL PRX825 + 2 subwoofers QSC + 4 micrófonos Shure + Yamaha TF1. Para eventos de 100-200 personas.", link: "/servicios/bocinas/paquete-audio-estandar/" },
+  { title: "Audio Premium — $12,000", image: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Line array QSC KLA para eventos grandes", description: "Line array QSC KLA + 4 subs + 6 micrófonos Shure ULXD. Cobertura uniforme para 300-500 personas.", link: "/servicios/bocinas/paquete-audio-premium/" },
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-equipo-sonido-luces.avif", alt: "DJ profesional con equipo de sonido y luces", description: "DJ profesional con controladora Pioneer + audio completo. Complemento perfecto para tu evento.", link: "/servicios/bocinas-djs/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-beam-spot-wash-totem-salon.avif", alt: "Cabezas móviles beam spot wash para eventos", description: "Iluminación robótica que transforma cualquier espacio. Combina con audio para un evento completo.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Eventos", href: "/servicios/bocinas/" },
+    { label: "Paquete Audio Básico" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Audio Básico — Eventos de 30 a 80 Personas"
+    subtitle="Desde $4,000 + IVA. 2 bocinas JBL PRX315 + subwoofer QSC + 2 micrófonos Shure. Técnico incluido."
+    introParagraph1='No todos los eventos necesitan un line array. Para una reunión de 60 personas en un salón, una presentación en terraza o una cena corporativa, el paquete Audio Básico cubre exactamente lo que se necesita: 2 bocinas <strong>JBL PRX315</strong> que llenan el espacio con sonido limpio, un subwoofer que le da cuerpo a la música sin exceso, y 2 micrófonos <strong>Shure</strong> inalámbricos para discursos o brindis.'
+    introParagraph2='El técnico dimensiona el equipo al espacio — porque sobredimensionar suena tan mal como quedarse corto. Monta, ecualiza al venue, opera el audio toda la noche y desmonta al final. Conexión Bluetooth para playlists, entrada auxiliar para laptop, y la tranquilidad de saber que alguien profesional está cuidando el sonido. Eventos corporativos, reuniones, cenas, lanzamientos y presentaciones en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más potencia o cobertura?"
+    items={[
+      { label: "Audio Estándar $7,000", href: "/servicios/bocinas/paquete-audio-estandar/", icon: "sonido" },
+      { label: "Audio Premium $12,000", href: "/servicios/bocinas/paquete-audio-premium/", icon: "sonido" },
+      { label: "Producción $20,000", href: "/servicios/bocinas/paquete-produccion-audio/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Audio Básico"
+      price="$4,000"
+      priceNote="+ IVA · Técnico incluido · Eventos 30-80 personas"
+      features={[
+        { text: "2 bocinas JBL PRX315 activas" },
+        { text: "1 subwoofer QSC compacto" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "Mezcladora compacta + Bluetooth + AUX" },
+        { text: "Ecualización profesional al espacio" },
+        { text: "Técnico de audio incluido" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Conexión para laptop/presentaciones" },
+        { text: "Cobertura CDMX y Edomex" },
+        { text: "Ideal: eventos 30-80 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Audio Básico para un evento."
+      packages={[
+        { label: "Audio Básico", price: "$4,000", href: "/servicios/bocinas/paquete-audio-basico/", active: true },
+        { label: "Estándar", price: "$7,000", href: "/servicios/bocinas/paquete-audio-estandar/" },
+        { label: "Premium", price: "$12,000", href: "/servicios/bocinas/paquete-audio-premium/" },
+        { label: "Producción", price: "$20,000", href: "/servicios/bocinas/paquete-produccion-audio/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Usos ideales para el Audio Básico"
+          subtitle="El equipo justo para eventos donde la claridad importa más que el volumen."
+          paragraph1="Las 2 bocinas JBL PRX315 entregan sonido limpio y articulado en espacios de hasta 80 personas. El subwoofer QSC compacto agrega cuerpo a la música sin dominar la conversación — perfecto para cenas, cocteles y presentaciones."
+          paragraph2="Los 2 micrófonos Shure inalámbricos cubren discursos, brindis o preguntas del público. La mezcladora tiene Bluetooth para playlists y entrada auxiliar para laptop o presentaciones."
+        />
+        <FeatureGrid features={[
+          { title: "Cena Corporativa", description: "Audio claro para discursos y música ambiental sin interrumpir la conversación entre mesas." },
+          { title: "Lanzamiento de Producto", description: "Micrófono para el presentador, audio de los videos y música ambiental — todo desde el mismo sistema." },
+          { title: "Presentación en Terraza", description: "JBL PRX315 cubren terrazas abiertas de hasta 80 personas sin esfuerzo." },
+          { title: "Inauguración", description: "Discursos de protocolo con micrófono inalámbrico + música ambiental durante el coctel." },
+          { title: "Reunión Social", description: "Cumpleaños, aniversarios o reuniones familiares con música y micrófono para brindis." },
+          { title: "Coctel de Empresa", description: "Audio de fondo que acompaña sin imponer. El técnico ajusta niveles según el momento." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué funciona el equipo dimensionado?"
+          subtitle="Ni sobredimensionar ni quedarse corto — el secreto del buen sonido."
+          paragraph1="Poner un line array de concierto en un salón de 50 personas suena tan mal como quedarse corto de potencia. Las JBL PRX315 están diseñadas para el rango de 30-80 personas: entregan claridad de voz y musicalidad sin rebote ni distorsión."
+          paragraph2="El técnico ecualiza al espacio antes de que lleguen los invitados. Mide la respuesta acústica del venue y ajusta frecuencias para que la voz se entienda y la música suene natural."
+        />
+        <FeatureGrid features={[
+          { title: "Equipo Dimensionado al Espacio", description: "JBL PRX315 para 30-80 personas — potencia justa para el tamaño del venue." },
+          { title: "Sin Sobredimensionar Ni Quedarse Corto", description: "Más equipo no es mejor audio. El equipo correcto para el espacio es mejor audio." },
+          { title: "Bluetooth para Tu Playlist", description: "Conecta tu celular por Bluetooth y reproduce la playlist que quieras sin cables." },
+          { title: "Entrada para Laptop", description: "Presentaciones con video y audio directo a las bocinas. Sin adaptadores complicados." },
+          { title: "Técnico que Opera Todo", description: "Monta, ecualiza, opera durante el evento y desmonta. Tú solo disfrutas." },
+          { title: "Montaje Discreto y Rápido", description: "Equipo compacto que se integra al espacio sin estorbar. Listo en 45 minutos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 58 reseñas verificadas."
+          paragraph1="Cenas corporativas, lanzamientos, inauguraciones y reuniones en toda la CDMX."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Pedro Sánchez", event: "Lanzamiento de marca — Terraza Roma Norte, 60 personas", rating: 5, text: "Audio perfecto para un lanzamiento de producto en terraza. Las JBL PRX315 cubrieron los 60 invitados sin problema. El técnico conectó los videos de la presentación al sistema." },
+          { name: "Mariana Flores", event: "Cena corporativa — Restaurante Polanco, 50 personas", rating: 5, text: "Necesitábamos audio discreto para discursos en una cena corporativa. Las bocinas sonaron claras sin imponerse en el ambiente del restaurante." },
+          { name: "Tomás Rivera", event: "Inauguración galería — Condesa, 70 personas", rating: 5, text: "Audio para una inauguración con discursos y música ambiental. El equipo básico cubrió exactamente lo que necesitábamos — ni más ni menos." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio profesional REDEIL en eventos reales"
+        subtitle="Eventos corporativos, presentaciones y reuniones con sonido impecable."
+        paragraph1="Estas fotos son de eventos donde montamos equipo de audio profesional. Desde cenas íntimas hasta presentaciones corporativas."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales JBL para evento corporativo" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-brindis-microfono-salon.avif", alt: "Micrófono Shure para brindis en evento" },
+        { src: "/img/bocinas-fiestas/audio-eventos-corporativos-conferencias.avif", alt: "Audio profesional para evento corporativo" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl.avif", alt: "Mezcladora y bocinas JBL en evento" },
+        { src: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif", alt: "Cabina de audio profesional para eventos" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-descarga-equipo-salon-qsc-k12.avif", alt: "Equipo QSC profesional para evento" },
+        { src: "/img/bocinas-fiestas/bocinas-amplificadas-fiestas-jardines.avif", alt: "Bocinas amplificadas para evento en jardín" },
+        { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido para conferencias y presentaciones" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Audio Básico"
+        subtitle="Todo lo que necesitas saber sobre audio para eventos de 30-80 personas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tipo de evento y el número de asistentes — te decimos si este paquete es el indicado."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿2 bocinas JBL PRX315 son suficientes para 80 personas?", answer: "Sí. Las JBL PRX315 son bocinas activas de alta eficiencia que cubren salones y terrazas de hasta 80 personas sin forzarse. El subwoofer QSC compacto complementa el rango bajo para que la música suene completa. Si tu evento tiene más de 80 personas, el paquete Audio Estándar ($7,000) con 4 bocinas JBL PRX825 es mejor opción." },
+      { question: "¿El paquete incluye micrófonos para discursos?", answer: "Sí, incluye 2 micrófonos Shure inalámbricos. Uno puede quedarse en un atril o mesa principal y el otro circula entre los invitados para preguntas o brindis. Si necesitas más micrófonos, los agregamos por separado." },
+      { question: "¿Puedo conectar mi laptop para una presentación?", answer: "Sí. La mezcladora tiene entrada auxiliar para laptop y conexión Bluetooth para celular. Puedes reproducir los videos de tu presentación con audio a través de las JBL PRX315 mientras usas un micrófono para hablar. El técnico maneja las transiciones." },
+      { question: "¿El técnico se queda todo el evento?", answer: "Sí. El técnico llega antes para montar y ecualizar al espacio, opera el audio durante todo el evento (ajustando niveles según el momento), y desmonta al final. Está incluido en el precio." },
+      { question: "¿Cubren eventos fuera de CDMX?", answer: "Cubrimos CDMX y Estado de México sin costo de transporte adicional. Para eventos en Cuernavaca, Puebla, Querétaro y otras ciudades cercanas, agregamos solo el costo de traslado. Escríbenos la ubicación y te cotizamos." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más potencia o quieres agregar iluminación?"
+        paragraph1="Si tu evento tiene más de 80 personas, el paquete Audio Estándar o Premium se ajusta mejor. Si quieres un evento completo, combina audio con iluminación."
+        paragraph2="Precio especial cuando combinas audio con iluminación o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu evento suene profesional?</h2>
+        <p>Mándanos la fecha, el lugar y el número de asistentes. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

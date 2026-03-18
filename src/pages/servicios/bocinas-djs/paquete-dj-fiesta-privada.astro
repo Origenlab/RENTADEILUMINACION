@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "DJ para Fiesta Privada CDMX — $4,500 + IVA | REDEIL";
+const description = "DJ profesional con Pioneer DDJ-400 + 2 bocinas JBL + luces LED para fiestas de 30-80 personas. Cumpleaños, reuniones. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-fiesta-privada/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "DJ para Fiesta Privada — Cumpleaños, Reuniones y Posadas",
+    "description": "DJ profesional con controlador Pioneer DDJ-400, 2 bocinas JBL EON, micrófono Shure inalámbrico y 2 luces LED de ambiente. Servicio de 4 horas para fiestas privadas de 30-80 personas en CDMX. Incluye transporte, montaje y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-fiesta-privada/",
+      "priceCurrency": "MXN",
+      "price": "4500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "52",
+      "reviewCount": "52"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Laura Jiménez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El DJ leyó perfectamente a mis invitados. Empezó suave con oldies y fue subiendo hasta que todos bailaban cumbia. Las bocinas JBL EON sonaron perfecto sin molestar vecinos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Reyes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para ser un depa, el sonido fue increíble. El DJ ajustó el volumen perfecto — se oía genial adentro sin que los vecinos se quejaran. La selección musical fue exacta."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Vega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos DJ para una reunión casual de la oficina. Puso ambiente lounge durante la comida y subió la energía para el baile. Muy profesional."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-djs/dj-para-eventos-bailando-gente.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete DJ para fiesta privada de $4,500?", "acceptedAnswer": { "@type": "Answer", "text": "Incluye DJ profesional con controlador Pioneer DDJ-400, 2 bocinas JBL EON compactas, 1 micrófono Shure inalámbrico para brindis o karaoke, 2 luces LED de ambiente, repertorio adaptado a tus gustos, transporte, montaje, 4 horas de operación y desmontaje. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿El DJ puede controlar el volumen para no molestar a los vecinos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros DJs tienen experiencia en fiestas en departamentos y casas. Ajustan el volumen según el espacio y la hora — mantienen el ambiente de fiesta sin generar quejas de vecinos. Las bocinas JBL EON permiten ajuste preciso." }},
+      { "@type": "Question", "name": "¿Puedo pedir canciones específicas o armar una playlist previa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Te enviamos un formulario previo donde puedes listar tus canciones favoritas, géneros que quieres y canciones que NO quieres que suenen. El DJ prepara su set con base en tus preferencias y se adapta en vivo a la reacción de tus invitados." }},
+      { "@type": "Question", "name": "¿El micrófono sirve para karaoke?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El micrófono Shure inalámbrico incluido funciona para brindis, discursos y también para karaoke. El DJ puede poner pistas de karaoke si lo solicitas con anticipación." }},
+      { "@type": "Question", "name": "¿Cuántas personas cubre el equipo de sonido?", "acceptedAnswer": { "@type": "Answer", "text": "Las 2 bocinas JBL EON cubren cómodamente fiestas de 30 a 80 personas en espacios cerrados o semi-abiertos. Para eventos más grandes (100+ personas), te recomendamos el paquete DJ Boda con sistema JBL PRX." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ para Boda — Producción Completa", image: "/img/bocinas-djs/dj-para-bodas-recepcion-baile-400w.avif", alt: "DJ profesional para boda con equipo Pioneer", description: "DJ con Pioneer CDJ-2000NXS2 + sonido JBL PRX para 100-250 invitados. Coordinación con MC. $8,500 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-boda/" },
+  { title: "DJ Corporativo — Galas y Premiaciones", image: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ para evento corporativo con line array", description: "DJ profesional + line array QSC KLA + iluminación corporativa. 100-400 personas. $12,000 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+  { title: "Bola Disco — El Complemento Perfecto", image: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco dorada para fiesta privada", description: "Bola de espejos + focos PAR para darle el toque retro a tu fiesta. Desde $2,000 + IVA.", link: "/servicios/bola-disco/" },
+  { title: "Máquina de Humo — Ambiente de Antro", image: "/img/humo/efecto-humo-sesion-fotos-profesional.avif", alt: "Máquina de humo profesional en fiesta", description: "Neblina que hace visibles los rayos de luz y crea atmósfera de club. Desde $2,500 + IVA.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "DJ para Fiestas", href: "/servicios/bocinas-djs/" },
+    { label: "DJ Fiesta Privada" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="DJ para Fiesta Privada — Cumpleaños, Reuniones y Posadas"
+    subtitle="Desde $4,500 + IVA. DJ con Pioneer DDJ-400 + 2 bocinas JBL EON + luces LED. 4 horas incluidas."
+    introParagraph1='Un DJ para fiesta privada no es lo mismo que un DJ de antro. En tu casa, en tu terraza o en tu departamento, el DJ tiene que leer a tus invitados — saber cuándo poner cumbia para los tíos, cuándo subir con reggaetón para los primos y cuándo bajar el volumen porque los vecinos ya están mirando por la ventana. Nuestros DJs llegan con controlador <strong>Pioneer DDJ-400</strong>, 2 bocinas <strong>JBL EON</strong> y 2 luces LED que transforman tu sala en pista de baile.'
+    introParagraph2='El servicio incluye al DJ con su repertorio adaptado a tus gustos, equipo de audio dimensionado al espacio (no sobredimensionamos — en un departamento no necesitas un line array), micrófono inalámbrico <strong>Shure</strong> para brindis o karaoke, y 2 luces LED de color que crean ambiente sin montar producción. Cumpleaños, posadas, aniversarios, despedidas y reuniones en casas, departamentos y terrazas de toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más producción?"
+    items={[
+      { label: "DJ Boda — $8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/", icon: "sonido" },
+      { label: "DJ Corporativo — $12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/", icon: "sonido" },
+      { label: "DJ Festival — $22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="DJ Fiesta Privada"
+      price="$4,500"
+      priceNote="+ IVA · 4 horas incluidas"
+      features={[
+        { text: "DJ con controlador Pioneer DDJ-400" },
+        { text: "2 bocinas JBL EON compactas" },
+        { text: "1 micrófono Shure inalámbrico" },
+        { text: "2 luces LED de ambiente" },
+        { text: "Repertorio adaptado a tus gustos" },
+        { text: "Volumen controlado para vecinos" },
+        { text: "Conexión Bluetooth de respaldo" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "4 horas de operación incluidas" },
+        { text: "Ideal: fiestas 30-80 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete DJ para fiesta privada de $4,500 para mi evento."
+      packages={[
+        { label: "DJ Fiesta Privada", price: "$4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/", active: true },
+        { label: "DJ Boda", price: "$8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/" },
+        { label: "DJ Corporativo", price: "$12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+        { label: "DJ Festival", price: "$22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Eventos donde el DJ para fiesta privada brilla"
+          subtitle="No necesitas un antro — necesitas al DJ correcto para tu espacio."
+          paragraph1="La diferencia entre una fiesta con playlist de Spotify y una con DJ profesional es abismal. El DJ lee a tus invitados, mezcla en vivo, sube y baja la energía según el momento y tiene el micrófono listo para brindis o karaoke."
+          paragraph2="Nuestros DJs llevan años tocando en fiestas privadas en departamentos de la Condesa, casas en Coyoacán, terrazas en Santa Fe y jardines en Satélite. Saben exactamente cómo manejar el volumen y la selección musical para cada tipo de reunión."
+        />
+        <FeatureGrid features={[
+          { title: "Cumpleaños en Casa", description: "Desde los 30 hasta los 60 años — el DJ adapta la música a la edad de tus invitados y al espacio de tu casa o departamento." },
+          { title: "Posada Navideña", description: "Villancicos al inicio, cumbias después de la piñata y reggaetón cuando los niños se duermen. El DJ sabe la secuencia perfecta." },
+          { title: "Aniversario en Terraza", description: "Música romántica para la cena, oldies para los recuerdos y fiesta para cerrar la noche. Todo en tu terraza." },
+          { title: "Reunión de Amigos", description: "Sin protocolo, sin formalismos — pura música para pasarla bien. El DJ pone lo que el grupo pida en el momento." },
+          { title: "Despedida de Soltera/o", description: "Playlist curada para la ocasión, juegos con micrófono y la energía perfecta para una noche memorable." },
+          { title: "Baby Shower con Fiesta", description: "Música suave durante los juegos y regalos, y fiesta con todo cuando llega la hora de bailar." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué un DJ de REDEIL para tu fiesta privada?"
+          subtitle="No cualquier DJ sabe tocar en un departamento sin que llamen a la policía."
+          paragraph1="Un DJ de antro sube el volumen al máximo y toca lo que él quiere. Un DJ de fiesta privada ajusta todo al espacio, a los invitados y a los vecinos."
+          paragraph2="Nuestros DJs tienen experiencia específica en fiestas residenciales — saben orientar las bocinas, controlar los graves y leer cuándo es momento de subir y cuándo de bajar."
+        />
+        <FeatureGrid features={[
+          { title: "DJ Que Lee a Tu Público", description: "No impone su estilo — observa quiénes están bailando, qué piden y ajusta su set en tiempo real para mantener la pista llena." },
+          { title: "Control de Volumen para Vecinos", description: "Ajuste fino de volumen y ecualización para que suene fuerte adentro sin generar quejas. Experiencia en depas y casas pegadas." },
+          { title: "Repertorio Personalizado Previo", description: "Te mandamos formulario para que nos digas tus canciones favoritas, géneros preferidos y canciones prohibidas. El DJ llega preparado." },
+          { title: "Karaoke Disponible con Micrófono", description: "El micrófono Shure inalámbrico incluido sirve para brindis, discursos y sesiones de karaoke. Pistas disponibles bajo pedido." },
+          { title: "Luces LED Sin Montaje Complejo", description: "2 luces LED de color que crean ambiente de fiesta sin cables por todos lados ni montaje que ocupe espacio en tu sala." },
+          { title: "Setup Compacto para Espacios Pequeños", description: "El controlador Pioneer DDJ-400 y las JBL EON ocupan menos de 1 metro de mesa. Cabe en cualquier rincón." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes contrataron DJ para su fiesta"
+          subtitle="4.9 estrellas en 52 reseñas de fiestas privadas."
+          paragraph1="Cada reseña es de un cliente real que contrató nuestro paquete DJ para fiesta privada."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Laura Jiménez", event: "Fiesta 50 años — Terraza en Narvarte, 60 invitados", rating: 5, text: "El DJ leyó perfectamente a mis invitados. Empezó suave con oldies y fue subiendo hasta que todos bailaban cumbia. Las bocinas JBL EON sonaron perfecto sin molestar vecinos." },
+          { name: "Miguel Ángel Reyes", event: "Cumpleaños — Departamento en Santa Fe, 40 invitados", rating: 5, text: "Para ser un depa, el sonido fue increíble. El DJ ajustó el volumen perfecto — se oía genial adentro sin que los vecinos se quejaran. La selección musical fue exacta." },
+          { name: "Daniela Vega", event: "Reunión corporativa informal — Miguel Ángel de Quevedo, 50 personas", rating: 5, text: "Contratamos DJ para una reunión casual de la oficina. Puso ambiente lounge durante la comida y subió la energía para el baile. Muy profesional." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="DJ para fiestas privadas en eventos reales"
+        subtitle="Cumpleaños, reuniones y posadas en casas y departamentos de CDMX."
+        paragraph1="Cada foto es de un evento real donde nuestros DJs pusieron a bailar a los invitados. Fiestas en terrazas, departamentos, jardines y salones pequeños — el equipo compacto pero con sonido que llena cualquier espacio."
+        paragraph2="¿Quieres ver cómo quedaría en tu espacio? Mándanos fotos por WhatsApp y te orientamos."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-djs/dj-para-eventos-bailando-gente.avif", alt: "DJ para fiesta privada con gente bailando en CDMX" },
+        { src: "/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif", alt: "Pista iluminada en fiesta privada con DJ" },
+        { src: "/img/bocinas-djs/dj-para-eventos-musica-latina.avif", alt: "DJ poniendo música latina en fiesta privada" },
+        { src: "/img/bocinas-djs/dj-para-eventos-karaoke-animacion.avif", alt: "DJ con karaoke y animación en cumpleaños" },
+        { src: "/img/bocinas-djs/dj-para-eventos-terraza-rooftop.avif", alt: "DJ en terraza rooftop para fiesta privada" },
+        { src: "/img/bocinas-djs/dj-para-eventos-privados-exclusivos.avif", alt: "DJ para evento privado exclusivo" },
+        { src: "/img/bocinas-djs/dj-para-eventos-jardin-terraza.avif", alt: "DJ en jardín con terraza para reunión" },
+        { src: "/img/bocinas-djs/dj-para-eventos-fiesta-memorable.avif", alt: "DJ creando fiesta memorable en casa" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete DJ para Fiesta Privada"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Para fiestas más grandes o con más producción, tenemos paquetes DJ Boda, Corporativo y Festival."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete DJ para fiesta privada de $4,500?", answer: "Todo: DJ profesional con controlador Pioneer DDJ-400, 2 bocinas JBL EON compactas, 1 micrófono Shure inalámbrico, 2 luces LED de ambiente, repertorio adaptado a tus gustos, transporte a tu domicilio en CDMX o Edomex, montaje, 4 horas de operación y desmontaje. Sin costos ocultos." },
+      { question: "¿El DJ puede controlar el volumen para no molestar a los vecinos?", answer: "Sí. Nuestros DJs tienen experiencia en fiestas en departamentos y casas. Ajustan el volumen y la ecualización según el espacio y la hora — mantienen el ambiente de fiesta adentro sin generar quejas de vecinos. Las bocinas JBL EON permiten ajuste fino de graves y agudos." },
+      { question: "¿Puedo pedir canciones específicas o armar una playlist previa?", answer: "Sí. Te enviamos un formulario previo donde puedes listar tus canciones favoritas, géneros que quieres y canciones que NO quieres que suenen. El DJ prepara su set con base en tus preferencias y se adapta en vivo a la reacción de tus invitados." },
+      { question: "¿El micrófono sirve para karaoke?", answer: "Sí. El micrófono Shure inalámbrico incluido funciona para brindis, discursos y también para karaoke. El DJ puede poner pistas de karaoke si lo solicitas con anticipación. Es un éxito garantizado en posadas y cumpleaños." },
+      { question: "¿Cuántas personas cubre el equipo de sonido?", answer: "Las 2 bocinas JBL EON cubren cómodamente fiestas de 30 a 80 personas en espacios cerrados o semi-abiertos. Para eventos más grandes de 100+ personas, te recomendamos el paquete DJ Boda con sistema JBL PRX que tiene mayor cobertura." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más producción o complementar tu fiesta?"
+        paragraph1="Si tu evento es más grande o buscas un show más completo, tenemos DJ para bodas con equipo Pioneer CDJ-2000NXS2, DJ corporativo con line array y DJ festival con producción completa. Y si quieres complementar, la bola disco y la máquina de humo son el combo perfecto."
+        paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la propuesta ideal."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu fiesta tenga DJ profesional?</h2>
+        <p>Mándanos la fecha, el lugar y cuántos invitados esperas. Te confirmamos disponibilidad y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

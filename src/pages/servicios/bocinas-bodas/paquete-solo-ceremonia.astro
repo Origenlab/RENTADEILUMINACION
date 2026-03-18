@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio para Ceremonia de Boda CDMX — $3,500 + IVA | REDEIL";
+const description = "Sonido profesional para ceremonia civil o religiosa. 2 bocinas JBL + 2 micrófonos Shure inalámbricos. Votos claros en cada silla. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-solo-ceremonia/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Solo Ceremonia — Audio para Ceremonia de Boda",
+    "description": "Sonido profesional para ceremonia civil o religiosa. 2 bocinas JBL PRX315 portátiles + 2 micrófonos Shure inalámbricos + mezcladora compacta. Votos claros en cada silla. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-solo-ceremonia/",
+      "priceCurrency": "MXN",
+      "price": "3500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "47",
+      "reviewCount": "47"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Los votos se escucharon perfecto hasta la última fila del jardín. Sin cables visibles. El técnico llegó 2 horas antes y ecualizó todo al espacio abierto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La música de entrada de mi esposa se escuchó exactamente como la imaginamos. Micrófonos Shure impecables para los votos del padre."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Méndez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Ceremonia civil en rooftop con viento. El equipo JBL de REDEIL se escuchó claro sin distorsión. El técnico ajustó todo en vivo."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-bodas/renta-bocinas-ceremonia-boda-hacienda-arcos-audio.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El paquete Solo Ceremonia cubre también la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "No. Este paquete está diseñado exclusivamente para la ceremonia (civil, religiosa o simbólica). Para cubrir también la recepción y la pista de baile, el paquete Boda Completa ($7,500) es la opción correcta." }},
+      { "@type": "Question", "name": "¿Los micrófonos captan bien al aire libre con viento?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos micrófonos Shure con filtro antiviento. El técnico ajusta la sensibilidad y ecualización en vivo para compensar el ruido ambiente del jardín o terraza." }},
+      { "@type": "Question", "name": "¿Puedo conectar un guitarrista o chelista a las bocinas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La mezcladora tiene entrada auxiliar para músicos. Conectamos la guitarra, el chelo o el teclado directamente. El sonido sale por las mismas bocinas con balance perfecto entre música y voz." }},
+      { "@type": "Question", "name": "¿Los cables se ven en las fotos?", "acceptedAnswer": { "@type": "Answer", "text": "No. Montamos con cableado oculto y los micrófonos son inalámbricos. El técnico se coordina con el fotógrafo para que el equipo no salga en las tomas principales." }},
+      { "@type": "Question", "name": "¿Cuánto antes llegan al venue?", "acceptedAnswer": { "@type": "Answer", "text": "2 horas antes de la ceremonia. Montaje, ecualización, prueba de micrófonos con el oficiante y coordinación con el wedding planner. Todo listo antes de que llegue el primer invitado." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Boda Completa — $7,500", image: "/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados-400w.avif", alt: "Audio completo para boda ceremonia recepción y fiesta", description: "Ceremonia + recepción + fiesta cubiertos. 4 bocinas JBL PRX825, 2 subwoofers QSC, 4 micrófonos Shure.", link: "/servicios/bocinas-bodas/paquete-boda-completa/" },
+  { title: "Boda con DJ — $11,000", image: "/img/bocinas-bodas/renta-bocinas-boda-dj-cabina-blanca-flores.avif", alt: "DJ profesional con audio completo para boda", description: "DJ profesional con Pioneer DDJ-1000 + audio JBL completo. Coordinación total con MC.", link: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para decoración de boda", description: "El complemento perfecto para tu ceremonia. Guirnaldas cálidas que enmarcan el altar.", link: "/servicios/guirnaldas/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/humo-bajo-romantico-primer-baile-400w.avif", alt: "Humo bajo para primer baile de boda", description: "Efecto nubes en el piso para el primer baile. Combinación perfecta con audio de ceremonia.", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Bocinas para Bodas", href: "/servicios/bocinas-bodas/" },
+    { label: "Paquete Solo Ceremonia" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Solo Ceremonia — Audio para Ceremonia de Boda"
+    subtitle="Desde $3,500 + IVA. 2 bocinas JBL + 2 micrófonos Shure inalámbricos. Votos claros en cada silla."
+    introParagraph1='Los votos son el momento más importante de tu boda — y si la tía de la última fila no los escucha, ese momento se pierde. El paquete Solo Ceremonia cubre exactamente eso: 2 bocinas <strong>JBL PRX315</strong> portátiles colocadas estratégicamente para que cada palabra del oficiante, cada voto y cada nota de la marcha nupcial llegue clara a los 30-80 invitados de tu ceremonia.'
+    introParagraph2='Incluye 2 micrófonos <strong>Shure</strong> inalámbricos — uno para los novios y otro para el oficiante — y una mezcladora compacta con entrada para el músico de la ceremonia (guitarrista, chelista, cuarteto). El técnico de audio llega 2 horas antes, monta discretamente y ecualiza al espacio — jardín, capilla, terraza o hacienda. Sin cables visibles en la alfombra. Cobertura en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas cubrir también la fiesta?"
+    items={[
+      { label: "Boda Completa $7,500", href: "/servicios/bocinas-bodas/paquete-boda-completa/", icon: "sonido" },
+      { label: "Boda con DJ $11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/", icon: "sonido" },
+      { label: "Producción $18,000", href: "/servicios/bocinas-bodas/paquete-produccion-boda/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Solo Ceremonia"
+      price="$3,500"
+      priceNote="+ IVA · Técnico incluido · Sin cables"
+      features={[
+        { text: "2 bocinas JBL PRX315 portátiles" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "Mezcladora compacta con entrada auxiliar" },
+        { text: "Entrada para músico de ceremonia" },
+        { text: "Ecualización al espacio del venue" },
+        { text: "Sin cables visibles en la alfombra" },
+        { text: "Técnico de audio incluido" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Ideal: ceremonias 30-80 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Solo Ceremonia de audio para boda."
+      packages={[
+        { label: "Solo Ceremonia", price: "$3,500", href: "/servicios/bocinas-bodas/paquete-solo-ceremonia/", active: true },
+        { label: "Boda Completa", price: "$7,500", href: "/servicios/bocinas-bodas/paquete-boda-completa/" },
+        { label: "Boda con DJ", price: "$11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-bodas/paquete-produccion-boda/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete Solo Ceremonia?"
+          subtitle="Audio discreto para el momento más importante de tu boda."
+          paragraph1="2 bocinas JBL PRX315 colocadas a los costados del altar cubren hasta 80 invitados sentados en filas. El técnico ecualiza la respuesta de frecuencia al espacio — no suena igual un jardín abierto que una capilla con eco."
+          paragraph2="Los micrófonos Shure inalámbricos captan la voz sin que los novios tengan que alzarla. El resultado: votos claros, música de fondo nítida y cero feedback."
+        />
+        <FeatureGrid features={[
+          { title: "Ceremonia Civil al Aire Libre", description: "Jardín, terraza o hacienda. Las JBL PRX315 cubren el espacio abierto sin distorsión." },
+          { title: "Ceremonia Religiosa en Capilla", description: "Ecualización para espacios cerrados con reverberación. Voz clara sin eco." },
+          { title: "Votos en Jardín de Hacienda", description: "Cada palabra llega hasta la última fila entre árboles y fuentes." },
+          { title: "Terraza o Rooftop", description: "Compensación de viento y ruido urbano. El técnico ajusta en vivo." },
+          { title: "Ceremonia Simbólica en Playa", description: "Equipo resistente a humedad. Viáticos adicionales fuera de CDMX." },
+          { title: "Intercambio de Anillos Íntimo", description: "Bodas pequeñas de 30 personas donde cada susurro importa." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué audio profesional para la ceremonia?"
+          subtitle="Porque un micrófono malo arruina los votos más bonitos."
+          paragraph1="La diferencia entre un micrófono genérico y un Shure ULXD4 inalámbrico no es sutil — es la diferencia entre que los invitados escuchen los votos o solo vean bocas moviéndose. En 30 años de producción de bodas, hemos visto ceremonias arruinadas por audio barato."
+          paragraph2="El paquete Solo Ceremonia usa equipo de gira profesional en formato compacto. Sin exagerar, sin equipo de más — justo lo que necesita una ceremonia de 30 a 80 personas."
+        />
+        <FeatureGrid features={[
+          { title: "Audio Discreto Sin Cables", description: "Micrófonos inalámbricos y cableado oculto. Nada estorba en las fotos." },
+          { title: "Micrófonos de Alta Sensibilidad", description: "Shure con cápsula que capta la voz sin necesidad de hablar fuerte." },
+          { title: "Ecualización para Voz en Exterior", description: "El técnico compensa viento, eco y ruido ambiente en tiempo real." },
+          { title: "Entrada para Músico en Vivo", description: "Guitarra, chelo o teclado conectado directo a la mezcladora." },
+          { title: "Montaje Invisible para Fotos", description: "Coordinación con el fotógrafo para que el equipo no aparezca en tomas." },
+          { title: "Batería de Respaldo Disponible", description: "Si el venue no tiene toma eléctrica cerca, llevamos respaldo de energía." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 47 reseñas verificadas."
+          paragraph1="Ceremonias en jardines, capillas, terrazas y haciendas de CDMX y Estado de México."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Mariana Torres", event: "Ceremonia — Jardín del Arte Coyoacán, 60 invitados", rating: 5, text: "Los votos se escucharon perfecto hasta la última fila del jardín. Sin cables visibles. El técnico ecualizó todo al espacio abierto." },
+          { name: "Roberto Sánchez", event: "Ceremonia — Capilla San José Ajusco, 45 invitados", rating: 5, text: "La música de entrada de mi esposa se escuchó exactamente como la imaginamos. Micrófonos Shure impecables para los votos del padre." },
+          { name: "Carolina Méndez", event: "Boda civil — Terraza Condesa, 70 invitados", rating: 5, text: "Ceremonia civil en rooftop con viento. El equipo JBL se escuchó claro sin distorsión. El técnico ajustó todo en vivo." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio para ceremonias de boda en CDMX"
+        subtitle="Votos claros, música nítida — en jardín, capilla o terraza."
+        paragraph1="Estas fotos son de ceremonias reales donde montamos el paquete Solo Ceremonia. Dos bocinas JBL, dos micrófonos Shure y un técnico que sabe ecualizar para cada espacio."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-hacienda-arcos-audio.avif", alt: "Audio para ceremonia de boda en hacienda con arcos" },
+        { src: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-jardin-guitarrista.avif", alt: "Bocinas para ceremonia con guitarrista en jardín" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-romantico.avif", alt: "Audio para ceremonia de boda romántica" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados.avif", alt: "Micrófono para votos y discursos en ceremonia" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-rustica-dj-ladrillo-jbl.avif", alt: "Bocinas JBL para ceremonia en venue rústico" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif", alt: "Montaje de audio para ceremonia en playa" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-corte-pastel-animador-microfono.avif", alt: "Micrófono Shure inalámbrico para ceremonia" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-baile-padre-hija-iluminacion.avif", alt: "Audio profesional para momentos emotivos de boda" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Solo Ceremonia"
+        subtitle="Todo lo que necesitas saber sobre audio para ceremonia de boda."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tipo de ceremonia y el venue — te decimos exactamente qué equipo necesitas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El paquete Solo Ceremonia cubre también la fiesta?", answer: "No. Este paquete está diseñado exclusivamente para la ceremonia (civil, religiosa o simbólica). Para cubrir también la recepción y la pista de baile, el paquete Boda Completa ($7,500) es la opción correcta." },
+      { question: "¿Los micrófonos captan bien al aire libre con viento?", answer: "Sí. Usamos micrófonos Shure con filtro antiviento. El técnico ajusta la sensibilidad y ecualización en vivo para compensar el ruido ambiente del jardín o terraza." },
+      { question: "¿Puedo conectar un guitarrista o chelista a las bocinas?", answer: "Sí. La mezcladora tiene entrada auxiliar para músicos. Conectamos la guitarra, el chelo o el teclado directamente. El sonido sale por las mismas bocinas con balance perfecto entre música y voz." },
+      { question: "¿Los cables se ven en las fotos?", answer: "No. Montamos con cableado oculto y los micrófonos son inalámbricos. El técnico se coordina con el fotógrafo para que el equipo no salga en las tomas principales." },
+      { question: "¿Cuánto antes llegan al venue?", answer: "2 horas antes de la ceremonia. Montaje, ecualización, prueba de micrófonos con el oficiante y coordinación con el wedding planner. Todo listo antes de que llegue el primer invitado." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas cubrir también la recepción y la fiesta?"
+        paragraph1="El paquete Solo Ceremonia es perfecto si ya tienes DJ o audio para la fiesta. Si quieres cubrir toda la boda con un solo proveedor, el paquete Boda Completa o Boda con DJ son la opción."
+        paragraph2="Precio especial cuando combinas audio con iluminación o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que los votos se escuchen perfecto?</h2>
+        <p>Mándanos la fecha y el venue de tu ceremonia. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

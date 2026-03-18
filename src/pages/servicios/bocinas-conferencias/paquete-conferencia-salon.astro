@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio para Conferencia en Salón CDMX — $5,500 + IVA | REDEIL";
+const description = "4 bocinas JBL + 4 micrófonos Shure + mezcladora Yamaha para conferencias de 50-200 personas. Streaming incluido. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-conferencia-salon/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Conferencia en Salón — Audio para Conferencias de 50-200 Personas",
+    "description": "Audio profesional para conferencias en salón de hotel o centro de convenciones. 4 bocinas JBL + 4 micrófonos Shure (2 de mano, 2 de solapa) + mezcladora Yamaha + DI boxes. Cobertura uniforme para 50-200 asistentes. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-conferencias/paquete-conferencia-salon/",
+      "priceCurrency": "MXN",
+      "price": "5500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "65",
+      "reviewCount": "65"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marcos Aguilar" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Congreso médico con 180 asistentes en el World Trade Center. 4 bocinas JBL cubrieron todo el salón sin puntos muertos. Los micrófonos Shure captaron a cada panelista sin feedback. Streaming a Zoom funcionó perfecto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sandra López" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Conferencia estilo TED con 150 asistentes en Citibanamex. El ponente caminó por el escenario con micrófono de solapa y su voz se escuchó igual en primera fila que en la última. La mezcladora Yamaha manejó los cambios de presentador sin cortes."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Francisco Paredes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Presentación anual de resultados en el Camino Real Pedregal. 120 ejecutivos. Audio perfecto para los videos corporativos y las intervenciones desde el público. El técnico coordinó todo con el staff del hotel."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El paquete incluye salida para streaming o grabación?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La mezcladora Yamaha tiene salida dedicada para streaming por Zoom, Teams o YouTube. El audio que sale al stream es el mismo que escucha la audiencia en sala — limpio, ecualizado y sin ruido ambiente." }},
+      { "@type": "Question", "name": "¿Puedo tener un panel con varios ponentes hablando al mismo tiempo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye 4 micrófonos Shure (2 de mano y 2 de solapa). Para paneles de hasta 4 ponentes simultáneos. El técnico balancea los volúmenes en tiempo real para que nadie se tape." }},
+      { "@type": "Question", "name": "¿Las bocinas cubren un salón largo de hotel sin puntos muertos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las 4 bocinas JBL se colocan en pares — 2 al frente como principales y 2 a los costados como refuerzo. El técnico mide el salón y calcula los ángulos para cobertura uniforme en las 50-200 sillas." }},
+      { "@type": "Question", "name": "¿Incluyen DI boxes para conectar laptop y video?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye DI boxes para conectar laptop, reproductor de video o cualquier fuente de audio. Todo pasa por la mezcladora Yamaha para que el técnico controle volumen y ecualización." }},
+      { "@type": "Question", "name": "¿El técnico se queda durante toda la conferencia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico permanece en la mezcladora durante todo el evento. Ajusta niveles entre ponentes, resuelve cualquier imprevisto y coordina los cambios de micrófono entre presentadores." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Sala de Juntas — $2,500", image: "/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif", alt: "Audio para sala de juntas y presentaciones ejecutivas", description: "2 bocinas JBL + 2 micrófonos Shure de solapa. Para reuniones de 10-30 personas.", link: "/servicios/bocinas-conferencias/paquete-sala-juntas/" },
+  { title: "Audio para Auditorio — $9,500", image: "/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif", alt: "Line array QSC para auditorio y congreso", description: "Line array QSC KLA + 6 micrófonos Shure ULXD + Yamaha TF5. Auditorios de 200-600 personas.", link: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/seguidor-conferencia-orador-podium-evento-gala-400w.avif", alt: "Luz seguidor para ponentes en conferencia", description: "Destaca al ponente principal con un haz de luz profesional. Ideal para keynotes y charlas magistrales.", link: "/servicios/seguidor/" },
+  { title: "Gobos con Logo", image: "/img/gobos/gobo-proyector-logo-empresa-corporativo-400w.avif", alt: "Proyección de logo corporativo con gobo", description: "Proyecta el logo de tu empresa o congreso en la pantalla o pared del salón.", link: "/servicios/gobos/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Conferencias", href: "/servicios/bocinas-conferencias/" },
+    { label: "Paquete Conferencia en Salón" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Conferencia en Salón — Audio para 50-200 Personas"
+    subtitle="Desde $5,500 + IVA. 4 bocinas JBL + 4 micrófonos Shure + mezcladora Yamaha. Más popular."
+    introParagraph1='Una conferencia de 50-200 personas en salón de hotel o centro de convenciones necesita algo que una bocina portátil no puede dar: cobertura uniforme. Que la persona de la fila 20 escuche al ponente con la misma claridad que la de la fila 1. El paquete Conferencia en Salón usa 4 bocinas <strong>JBL</strong> distribuidas estratégicamente, 4 micrófonos <strong>Shure</strong> (2 de mano para paneles y 2 de solapa para keynotes) y una mezcladora <strong>Yamaha</strong> con salida directa para streaming.'
+    introParagraph2='Las DI boxes conectan la laptop del presentador, el reproductor de video y cualquier fuente de audio externo. El técnico llega 2-3 horas antes, mide el salón, coloca las bocinas en los ángulos correctos y ecualiza para eliminar puntos muertos. Salones de hotel, centros de convenciones, auditorios corporativos y recintos de eventos en toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más cobertura o un equipo más compacto?"
+    items={[
+      { label: "Sala Juntas $2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/", icon: "sonido" },
+      { label: "Auditorio $9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/", icon: "sonido" },
+      { label: "Producción Congreso $18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Conferencia en Salón"
+      price="$5,500"
+      priceNote="+ IVA · Más popular · Streaming incluido"
+      features={[
+        { text: "4 bocinas JBL cobertura 50-200 personas" },
+        { text: "2 micrófonos Shure de mano inalámbricos" },
+        { text: "2 micrófonos Shure de solapa inalámbricos" },
+        { text: "Mezcladora Yamaha con salida streaming" },
+        { text: "DI boxes para laptop y video" },
+        { text: "Ecualización al salón del venue" },
+        { text: "Técnico de audio durante todo el evento" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Cobertura CDMX y Edomex" },
+        { text: "Ideal: conferencias 50-200 personas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Conferencia en Salón de audio para conferencias."
+      packages={[
+        { label: "Sala Juntas", price: "$2,500", href: "/servicios/bocinas-conferencias/paquete-sala-juntas/" },
+        { label: "Conferencia", price: "$5,500", href: "/servicios/bocinas-conferencias/paquete-conferencia-salon/", active: true },
+        { label: "Auditorio", price: "$9,500", href: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-conferencias/paquete-produccion-congreso/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde funciona el paquete Conferencia en Salón?"
+          subtitle="Audio uniforme para conferencias medianas en salones cerrados."
+          paragraph1="4 bocinas JBL colocadas en pares — 2 principales al frente del escenario y 2 de refuerzo a los costados — cubren hasta 200 personas sentadas en filas o teatro. El técnico mide el salón y calcula los ángulos de dispersión para que no haya puntos muertos."
+          paragraph2="Los 4 micrófonos Shure permiten paneles de hasta 4 ponentes simultáneos. La mezcladora Yamaha balancea todos los canales y envía audio limpio al stream."
+        />
+        <FeatureGrid features={[
+          { title: "Congreso Médico o Científico", description: "Paneles de 3-4 expositores con micrófonos individuales. Audio claro para terminología técnica." },
+          { title: "Conferencia Corporativa Anual", description: "Resultados, estrategia y Q&A con audio profesional. Video corporativo por las bocinas." },
+          { title: "Charla Estilo TED", description: "Ponente caminando por el escenario con solapa Shure. Voz clara en todo el salón." },
+          { title: "Presentación de Producto", description: "Lanzamiento con video, demos y preguntas del público. DI boxes para cada fuente." },
+          { title: "Seminario o Taller Profesional", description: "Capacitaciones de medio día con audio consistente durante toda la sesión." },
+          { title: "Foro o Mesa Redonda", description: "Hasta 4 micrófonos activos simultáneamente. El técnico balancea en tiempo real." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué incluye que otros no tienen?"
+          subtitle="Equipo de gira profesional para conferencias que sí se escuchan."
+          paragraph1="La mayoría de los salones de hotel tienen audio integrado que suena metálico y no cubre las últimas filas. Nuestro paquete reemplaza ese audio con bocinas JBL de gira profesional y una mezcladora Yamaha que el técnico controla en vivo."
+          paragraph2="El resultado: cada ponente se escucha igual de claro sin importar si habla fuerte o bajo, si está en el podio o caminando por el escenario."
+        />
+        <FeatureGrid features={[
+          { title: "Cobertura Sin Puntos Muertos", description: "4 bocinas JBL distribuidas estratégicamente. La última fila escucha igual que la primera." },
+          { title: "Streaming HD Integrado", description: "Salida dedicada de la Yamaha para Zoom, Teams o YouTube. Audio de estudio al stream." },
+          { title: "Cambio de Ponentes Sin Cortes", description: "El técnico hace transiciones limpias entre micrófonos. Sin silencio ni feedback al cambiar." },
+          { title: "DI Boxes para Todo", description: "Laptop, reproductor de video, sistema de traducción — todo conectado y balanceado." },
+          { title: "Ecualización por Zona", description: "Las bocinas de refuerzo se ecualizan diferente a las principales. Sonido uniforme en todo el salón." },
+          { title: "Técnico en Mezcladora Todo el Evento", description: "No solo monta y se va. El técnico ajusta niveles en vivo durante toda la conferencia." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 65 reseñas verificadas."
+          paragraph1="Conferencias en World Trade Center, Citibanamex, Camino Real y salones de toda la CDMX."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Marcos Aguilar", event: "Congreso médico — World Trade Center, 180 asistentes", rating: 5, text: "Congreso médico con 180 asistentes. 4 bocinas JBL cubrieron todo el salón sin puntos muertos. Los micrófonos Shure captaron a cada panelista sin feedback. Streaming a Zoom funcionó perfecto." },
+          { name: "Sandra López", event: "Conferencia TED-style — Citibanamex, 150 asistentes", rating: 5, text: "Conferencia estilo TED con 150 asistentes. El ponente caminó por el escenario con micrófono de solapa y su voz se escuchó igual en primera fila que en la última. La mezcladora Yamaha manejó los cambios de presentador sin cortes." },
+          { name: "Francisco Paredes", event: "Presentación anual — Camino Real Pedregal, 120 asistentes", rating: 5, text: "Presentación anual de resultados con 120 ejecutivos. Audio perfecto para los videos corporativos y las intervenciones desde el público. El técnico coordinó todo con el staff del hotel." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Audio para conferencias y congresos en CDMX"
+        subtitle="Bocinas JBL, micrófonos Shure y mezcladora Yamaha en salones de todo tipo."
+        paragraph1="Estas fotos son de conferencias reales donde montamos el paquete Conferencia en Salón. 4 bocinas, 4 micrófonos y un técnico que ecualiza para cada salón."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Sonido profesional para conferencias en CDMX" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif", alt: "Bocinas profesionales para conferencias empresariales" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-para-foros-y-paneles.avif", alt: "Bocinas en renta para foros y paneles de discusión" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-lanzamientos-productos.avif", alt: "Audio para lanzamientos de productos en salón" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-ruedas-de-prensa.avif", alt: "Alquiler de bocinas para ruedas de prensa" },
+        { src: "/img/bocinas-conferencias/alquiler-bocinas-para-eventos-institucionales.avif", alt: "Audio para eventos institucionales y gubernamentales" },
+        { src: "/img/bocinas-conferencias/bocinas-en-renta-seminarios-y-talleres.avif", alt: "Bocinas en renta para seminarios y talleres" },
+        { src: "/img/bocinas-conferencias/renta-bocinas-eventos-corporativos-networking.avif", alt: "Audio para eventos corporativos y networking" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Conferencia en Salón"
+        subtitle="Todo lo que necesitas saber sobre audio para conferencias de 50-200 personas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el salón, el número de asistentes y el formato de tu conferencia — te decimos exactamente qué equipo necesitas."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El paquete incluye salida para streaming o grabación?", answer: "Sí. La mezcladora Yamaha tiene salida dedicada para streaming por Zoom, Teams o YouTube. El audio que sale al stream es el mismo que escucha la audiencia en sala — limpio, ecualizado y sin ruido ambiente." },
+      { question: "¿Puedo tener un panel con varios ponentes hablando al mismo tiempo?", answer: "Sí. El paquete incluye 4 micrófonos Shure (2 de mano y 2 de solapa). Para paneles de hasta 4 ponentes simultáneos. El técnico balancea los volúmenes en tiempo real para que nadie se tape." },
+      { question: "¿Las bocinas cubren un salón largo de hotel sin puntos muertos?", answer: "Sí. Las 4 bocinas JBL se colocan en pares — 2 al frente como principales y 2 a los costados como refuerzo. El técnico mide el salón y calcula los ángulos para cobertura uniforme en las 50-200 sillas." },
+      { question: "¿Incluyen DI boxes para conectar laptop y video?", answer: "Sí. El paquete incluye DI boxes para conectar laptop, reproductor de video o cualquier fuente de audio. Todo pasa por la mezcladora Yamaha para que el técnico controle volumen y ecualización." },
+      { question: "¿El técnico se queda durante toda la conferencia?", answer: "Sí. El técnico permanece en la mezcladora durante todo el evento. Ajusta niveles entre ponentes, resuelve cualquier imprevisto y coordina los cambios de micrófono entre presentadores." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas un paquete más compacto o más grande?"
+        paragraph1="Si tu reunión es de menos de 30 personas, el paquete Sala de Juntas es suficiente. Si vas a llenar un auditorio de 200+, el paquete Auditorio tiene line array QSC con cobertura total."
+        paragraph2="Precio especial cuando combinas audio con iluminación o proyección de logo."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tu conferencia necesita audio que se escuche en cada silla?</h2>
+        <p>Mándanos la fecha, el salón y el número de asistentes. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

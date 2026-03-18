@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "XV Años con DJ y Show de Luces CDMX — $14,000 + IVA | REDEIL";
+const description = "DJ + line array + 4 cabezas móviles + seguidor para XV años de 200-400 invitados. Show sincronizado con coreografía. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-dj-luces/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete XV DJ + Luces — XV Años con Show de Luces",
+    "description": "DJ profesional + line array QSC + 4 cabezas móviles + seguidor de luz + iluminación ambiente para XV años de 200-400 invitados. Show de luces sincronizado con coreografía de chambelanes. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-dj-luces/",
+      "priceCurrency": "MXN",
+      "price": "14000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "48",
+      "reviewCount": "48"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Teresa Guzmán" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El show de luces sincronizado con la coreografía fue espectacular. Las cabezas móviles seguían a los chambelanes y el seguidor iluminó el vals con papá. Mis invitados pensaron que era producción de TV."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Campos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La producción transformó el salón. Las cabezas móviles hacían beams al ritmo de la música y el seguidor en el vals de mi hija hizo llorar a toda la familia."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gloria Hernández" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "XV años con producción de luces al aire libre. Las cabezas móviles se veían increíbles contra el cielo nocturno. La hora loca con beams y humo fue una locura."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Las luces se sincronizan con la coreografía de los chambelanes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El operador de luces programa las cabezas móviles para que los beams y colores cambien con cada movimiento de la coreografía. El seguidor ilumina a la festejada en cada momento clave. Se coordina con el coreógrafo antes del evento." }},
+      { "@type": "Question", "name": "¿Qué hace el seguidor de luz durante los XV?", "acceptedAnswer": { "@type": "Answer", "text": "El seguidor es un spotlight operado manualmente que sigue a la festejada durante el vals con papá, la coreografía y los momentos estelares. Crea un círculo de luz que la hace protagonista absoluta del salón." }},
+      { "@type": "Question", "name": "¿Las cabezas móviles funcionan al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las 4 cabezas móviles funcionan en jardines y haciendas. Al aire libre los beams se ven espectaculares contra el cielo nocturno. Montamos en truss o totems portátiles." }},
+      { "@type": "Question", "name": "¿El paquete incluye iluminación ambiente para las mesas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Incluye iluminación ambiente con par LED que baña las paredes y mesas del salón en el color de la temática de los XV. Los colores cambian durante la noche: suaves durante la cena, intensos durante el baile." }},
+      { "@type": "Question", "name": "¿Se puede agregar humo bajo al vals?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El humo bajo es un complemento que se agrega al paquete XV DJ + Luces. Crea el efecto de nubes en el piso durante el vals con papá. Pregunta por el precio del complemento de humo bajo." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "XV Completo con DJ — $8,500", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "DJ y audio completo para XV años", description: "DJ Pioneer + line array QSC + 4 micrófonos. Sin luces. Ideal para 150-300 invitados.", link: "/servicios/bocinas-xv/paquete-xv-completo/" },
+  { title: "XV Producción Total — $24,000", image: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif", alt: "Producción premium para XV años", description: "DJ artístico + line array JBL VTX + 8 cabezas móviles + seguidor + confeti + humo bajo.", link: "/servicios/bocinas-xv/paquete-xv-produccion/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Humo bajo para vals de XV años", description: "Nubes en el piso para el vals con papá. El complemento más emotivo para XV años.", link: "/servicios/humo-bajo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles adicionales para XV años", description: "¿Quieres más beams? Agrega cabezas móviles extra para un show más intenso.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "XV Años", href: "/servicios/bocinas-xv/" },
+    { label: "Paquete XV DJ + Luces" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete XV DJ + Luces — XV Años con Show de Luces"
+    subtitle="Desde $14,000 + IVA. DJ + line array + 4 cabezas móviles + seguidor. Show sincronizado."
+    introParagraph1='Imagina el vals con papá iluminado por un seguidor que crea un círculo de luz alrededor de tu hija, mientras las <strong>4 cabezas móviles</strong> proyectan beams suaves que se mueven al ritmo del vals. Después, en la coreografía con chambelanes, los beams explotan en colores sincronizados con cada cambio de canción. El paquete XV DJ + Luces transforma el salón en un escenario de producción profesional para 200 a 400 invitados.'
+    introParagraph2='El <strong>DJ con Pioneer</strong> coordina la música mientras un operador de luces controla las cabezas móviles y el seguidor en tiempo real. El <strong>line array QSC</strong> cubre el salón completo con sonido uniforme. Iluminación ambiente con par LED en el color de la temática de tu hija — rosa, dorado, magenta, lo que ella quiera. Cada momento de la noche tiene su propio diseño de luces: suave para el vals, dramático para la coreografía, explosivo para la hora loca. Cobertura en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Comparando paquetes de XV años?"
+    items={[
+      { label: "XV Básico $4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/", icon: "sonido" },
+      { label: "XV Completo $8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/", icon: "sonido" },
+      { label: "XV Producción $24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="XV DJ + Luces"
+      price="$14,000"
+      priceNote="+ IVA · DJ + luces · Show sincronizado"
+      features={[
+        { text: "DJ profesional con Pioneer DDJ-1000" },
+        { text: "Line array QSC cobertura 200-400 personas" },
+        { text: "4 cabezas móviles beam/spot/wash" },
+        { text: "Seguidor de luz para la festejada" },
+        { text: "Iluminación ambiente par LED temática" },
+        { text: "Operador de luces dedicado" },
+        { text: "4 micrófonos Shure inalámbricos" },
+        { text: "Show sincronizado con coreografía" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: XV años 200-400 invitados" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete XV DJ + Luces para XV años."
+      packages={[
+        { label: "XV Básico", price: "$4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/" },
+        { label: "XV Completo", price: "$8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/" },
+        { label: "XV DJ + Luces", price: "$14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/", active: true },
+        { label: "XV Producción", price: "$24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde luce el paquete XV DJ + Luces?"
+          subtitle="Show de luces sincronizado que transforma cualquier salón en escenario."
+          paragraph1="Las 4 cabezas móviles se montan en truss o totems a los costados de la pista. El operador de luces programa cada momento: beams suaves durante el vals, colores rápidos durante la coreografía, strobes en la hora loca. El seguidor ilumina a la festejada en cada momento estelar."
+          paragraph2="La iluminación ambiente con par LED baña el salón en el color de la temática — rosa quinceañera, dorado elegante, magenta moderno. Los colores cambian automáticamente durante la noche."
+        />
+        <FeatureGrid features={[
+          { title: "Show de Luces en Vals con Papá", description: "Seguidor sobre la festejada + beams suaves de las cabezas móviles. Momento cinematográfico." },
+          { title: "Coreografía Iluminada", description: "Beams sincronizados con cada cambio de la coreografía. Los chambelanes se ven como en concierto." },
+          { title: "Hora Loca con Beams y Strobes", description: "Las cabezas móviles explotan en colores y movimiento. La pista se convierte en antro." },
+          { title: "Coronación con Seguidor", description: "El momento de la tiara iluminado por el seguidor. La foto más compartida de la noche." },
+          { title: "Jardín de Eventos con Beams al Cielo", description: "Al aire libre, los beams se ven contra el cielo nocturno. Efecto espectacular." },
+          { title: "Salón con Doble Altura", description: "Las cabezas móviles aprovechan la altura para crear beams largos que llenan el espacio." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué hace diferente al paquete DJ + Luces?"
+          subtitle="No es solo poner luces — es diseñar cada momento visual de la noche."
+          paragraph1="La diferencia entre luces decorativas y un show de luces profesional es la sincronización. Las cabezas móviles no están en modo automático tirando colores al azar — un operador las controla en tiempo real, coordinado con el DJ, para que cada beam, cada color y cada efecto coincida con la música."
+          paragraph2="El seguidor de luz no es un reflector fijo — es un operador que sigue a la festejada por todo el salón, creando ese momento de 'la protagonista' que hace llorar a las mamás y genera las fotos más compartidas."
+        />
+        <FeatureGrid features={[
+          { title: "Operador de Luces Dedicado", description: "Un técnico controla las cabezas móviles en vivo. No es modo automático — es show en tiempo real." },
+          { title: "Seguidor con Operador Humano", description: "Un técnico sigue a la festejada con el spotlight. Movimiento fluido, nunca la pierde." },
+          { title: "Diseño de Iluminación por Momentos", description: "Cada parte de la noche tiene su diseño: suave, dramático, explosivo. No es un solo modo." },
+          { title: "Colores de la Temática de los XV", description: "Par LED en el color exacto que eligió tu hija. Mesas, paredes y pista coordinados." },
+          { title: "Coordinación DJ + Luces en Vivo", description: "El DJ y el operador de luces trabajan juntos. Cada drop de la canción tiene su beam." },
+          { title: "Montaje en Truss o Totems Portátiles", description: "Las cabezas móviles se montan alto sin dañar el salón. Desmontaje limpio." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 48 reseñas verificadas."
+          paragraph1="XV años con producción de luces en salones, haciendas y jardines de CDMX y Estado de México."
+          paragraph2="El paquete favorito de las festejadas que quieren un show espectacular."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Teresa Guzmán", event: "XV años — Hacienda Taboada Guanajuato, 300 invitados", rating: 5, text: "El show de luces sincronizado con la coreografía fue espectacular. Las cabezas móviles seguían a los chambelanes y el seguidor iluminó el vals con papá. Mis invitados pensaron que era producción de TV." },
+          { name: "Roberto Campos", event: "Quinceañera — Salón Grand Palace Nezahualcóyotl, 350 invitados", rating: 5, text: "La producción transformó el salón. Las cabezas móviles hacían beams al ritmo de la música y el seguidor en el vals de mi hija hizo llorar a toda la familia." },
+          { name: "Gloria Hernández", event: "XV años — Jardín eventos Ecatepec, 250 invitados", rating: 5, text: "XV años con producción de luces al aire libre. Las cabezas móviles se veían increíbles contra el cielo nocturno. La hora loca con beams y humo fue una locura." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Show de luces y DJ para quinceañeras en CDMX"
+        subtitle="Cabezas móviles + seguidor + DJ — producción de XV años nivel concierto."
+        paragraph1="Estas fotos son de XV años reales donde montamos el paquete XV DJ + Luces. Cabezas móviles, seguidor de luz y DJ coordinados para crear un show que tus invitados no van a olvidar."
+        paragraph2="¿Quieres ver cómo quedaría en tu salón? Mándanos fotos del espacio por WhatsApp y te mostramos el diseño de luces."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "Coreografía de XV con cabezas móviles y vestido magenta" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-show-baile-teatro-monitores.avif", alt: "Show de baile de XV años con iluminación profesional" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-pista-baile-line-array.avif", alt: "Pista de baile de XV con line array y luces" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-qsc-salon.avif", alt: "Vals padre e hija con seguidor de luz" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif", alt: "Entrada de quinceañera por escalera con luces" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif", alt: "DJ y line array en fiesta de XV años" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-vestido-rosa.avif", alt: "Baile de chambelanes con show de luces" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-invitados-qsc-luces.avif", alt: "Invitados bailando con luces y audio profesional" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete XV DJ + Luces"
+        subtitle="Todo lo que necesitas saber sobre el show de luces para quinceañera."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el salón, la temática y cuántos invitados — te diseñamos el show de luces."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Las luces se sincronizan con la coreografía de los chambelanes?", answer: "Sí. El operador de luces programa las cabezas móviles para que los beams y colores cambien con cada movimiento de la coreografía. El seguidor ilumina a la festejada en cada momento clave. Se coordina con el coreógrafo antes del evento." },
+      { question: "¿Qué hace el seguidor de luz durante los XV?", answer: "El seguidor es un spotlight operado manualmente que sigue a la festejada durante el vals con papá, la coreografía y los momentos estelares. Crea un círculo de luz que la hace protagonista absoluta del salón." },
+      { question: "¿Las cabezas móviles funcionan al aire libre?", answer: "Sí. Las 4 cabezas móviles funcionan en jardines y haciendas. Al aire libre los beams se ven espectaculares contra el cielo nocturno. Montamos en truss o totems portátiles." },
+      { question: "¿El paquete incluye iluminación ambiente para las mesas?", answer: "Sí. Incluye iluminación ambiente con par LED que baña las paredes y mesas del salón en el color de la temática de los XV. Los colores cambian durante la noche: suaves durante la cena, intensos durante el baile." },
+      { question: "¿Se puede agregar humo bajo al vals?", answer: "Sí. El humo bajo es un complemento que se agrega al paquete XV DJ + Luces. Crea el efecto de nubes en el piso durante el vals con papá. Pregunta por el precio del complemento de humo bajo." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Buscas algo diferente para los XV de tu hija?"
+        paragraph1="El paquete XV DJ + Luces cubre audio y producción visual para 200-400 invitados. Si quieres la producción máxima con confeti y humo bajo incluidos, el paquete XV Producción lo tiene todo."
+        paragraph2="Precio especial cuando agregas humo bajo o cabezas móviles extra al paquete."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista para los XV años que tu hija merece?</h2>
+        <p>Mándanos la fecha, el salón y la temática de los XV. Te diseñamos el show de luces y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

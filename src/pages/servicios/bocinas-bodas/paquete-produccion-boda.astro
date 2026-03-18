@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción de Audio para Boda Premium CDMX — $18,000 + IVA | REDEIL";
+const description = "Line array JBL VTX + 4 subwoofers + ingeniería FOH para bodas 300+ invitados. Sonido de concierto en tu boda. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-produccion-boda/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción Boda Premium — Line Array + Ingeniería FOH",
+    "description": "Producción de audio profesional para boda premium de 300+ invitados. Line array JBL VTX A8 + 4 subwoofers + ingeniería FOH + monitors de escenario. Sonido de concierto en tu boda. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-produccion-boda/",
+      "priceCurrency": "MXN",
+      "price": "18000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "41",
+      "reviewCount": "41"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Navarro" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El line array cubrió el jardín de 350 personas como si fuera un concierto. El ingeniero FOH ecualizó perfectamente las 4 zonas del venue."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrés Velasco" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción de otro nivel. El sonido se sentía en el pecho en la pista pero no molestaba en las mesas. Eso solo se logra con line array y un ingeniero que sabe."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sofía Delgado" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El equipo VTX sonó increíble en el salón. Los monitors del escenario permitieron que la banda tocara cómoda y el DJ hizo la transición perfecta."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-bodas/renta-bocinas-boda-stack-qsc-subwoofer-escenario.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es un line array y por qué lo necesito para 300+ invitados?", "acceptedAnswer": { "@type": "Answer", "text": "Un line array es un sistema de bocinas apiladas verticalmente que proyecta el sonido a mayor distancia con cobertura uniforme. A diferencia de bocinas convencionales que pierden volumen con la distancia, el line array JBL VTX A8 mantiene el mismo nivel de presión sonora desde la primera fila hasta la fila 50. Para 300+ invitados es la única forma de que todos escuchen igual." }},
+      { "@type": "Question", "name": "¿Qué hace el ingeniero FOH?", "acceptedAnswer": { "@type": "Answer", "text": "El ingeniero FOH (Front of House) opera la mezcla de sonido desde una posición central en el venue. Ecualiza cada zona de forma independiente — pista de baile con potencia, mesas con volumen conversacional, escenario con monitors para los músicos. Es la diferencia entre sonido de boda y sonido de producción profesional." }},
+      { "@type": "Question", "name": "¿El paquete incluye monitors para la banda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Incluye monitors de escenario para que los músicos se escuchen entre sí. Si la banda tiene 5 integrantes, cada uno tiene su mezcla de monitor independiente controlada desde la consola FOH. Esto permite que toquen cómodos y suenen profesionales." }},
+      { "@type": "Question", "name": "¿Puedo combinar line array con DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye la infraestructura de audio — el DJ (propio o de REDEIL) conecta su controladora al sistema y el sonido sale por el line array. Si contratas DJ de REDEIL además de la producción, hay precio especial por paquete combinado." }},
+      { "@type": "Question", "name": "¿Para qué tipo de venue se recomienda este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "Haciendas grandes con jardín de más de 300 personas, salones de banquetes premium, ex-haciendas con múltiples áreas, venues al aire libre con escenario. Si tu boda tiene banda en vivo + DJ + más de 300 invitados, este paquete es el indicado. Para bodas de 100-200 invitados, el paquete Boda Completa ($7,500) es suficiente." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Boda con DJ — $11,000", image: "/img/bocinas-bodas/renta-bocinas-boda-dj-consola-mesa-novios.avif", alt: "DJ profesional con audio para boda", description: "DJ profesional + audio completo para bodas de 150-300 invitados. Sin line array.", link: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+  { title: "Solo Ceremonia — $3,500", image: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-jardin-guitarrista.avif", alt: "Audio para ceremonia de boda", description: "Si solo necesitas audio para la ceremonia. 2 bocinas JBL + 2 micrófonos Shure.", link: "/servicios/bocinas-bodas/paquete-solo-ceremonia/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-novios-baile-vestido-rosa-400w.avif", alt: "Seguidor de luz para boda premium", description: "Luz que sigue a los novios en el primer baile y momentos clave. Producción visual completa.", link: "/servicios/seguidor/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-pista-baile-azul-rosa-300w.avif", alt: "Cabezas móviles para boda premium", description: "Beams y wash programados por DMX. El complemento visual para producción de audio premium.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Bocinas para Bodas", href: "/servicios/bocinas-bodas/" },
+    { label: "Paquete Producción Boda" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Producción Boda Premium — Line Array + Ingeniería FOH"
+    subtitle="Desde $18,000 + IVA. Line array JBL VTX A8 + 4 subwoofers + ingeniero FOH. Bodas 300+ invitados."
+    introParagraph1='Cuando tu boda tiene 300+ invitados, una banda en vivo, un DJ y un jardín de hacienda que mide medio campo de fútbol, las bocinas convencionales no alcanzan. El paquete Producción Boda Premium usa <strong>line array JBL VTX A8</strong> — el mismo sistema que usan los conciertos — para cubrir cada rincón del venue con sonido uniforme. La persona en la mesa más lejana escucha exactamente igual que la que está frente al escenario.'
+    introParagraph2='Un ingeniero <strong>FOH</strong> (Front of House) opera la mezcla desde una posición central, ecualizando cada zona de forma independiente: potencia total en la pista de baile, volumen conversacional en las mesas, monitors de escenario para que la banda se escuche entre sí. 4 subwoofers refuerzan el bajo en la zona de fiesta sin que las mesas vibren. Con más de 30 años produciendo eventos en la <strong>CDMX y Estado de México</strong>, este paquete es para bodas que quieren sonido de producción profesional — no sonido de "evento social".'
+  />
+
+  <CtaBar
+    headline="¿Tu boda es más íntima?"
+    items={[
+      { label: "Solo Ceremonia $3,500", href: "/servicios/bocinas-bodas/paquete-solo-ceremonia/", icon: "sonido" },
+      { label: "Boda Completa $7,500", href: "/servicios/bocinas-bodas/paquete-boda-completa/", icon: "sonido" },
+      { label: "Boda con DJ $11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Premium"
+      price="$18,000"
+      priceNote="+ IVA · Line array · Ingeniero FOH"
+      features={[
+        { text: "Line array JBL VTX A8" },
+        { text: "4 subwoofers de alta potencia" },
+        { text: "Ingeniero FOH profesional" },
+        { text: "Monitors de escenario para banda" },
+        { text: "Mezcladora digital de 48 canales" },
+        { text: "Ecualización por zonas independientes" },
+        { text: "Cobertura uniforme 300+ personas" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Rigging y estructura incluidos" },
+        { text: "Ideal: bodas premium 300+ invitados" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Producción Boda Premium con line array."
+      packages={[
+        { label: "Solo Ceremonia", price: "$3,500", href: "/servicios/bocinas-bodas/paquete-solo-ceremonia/" },
+        { label: "Boda Completa", price: "$7,500", href: "/servicios/bocinas-bodas/paquete-boda-completa/" },
+        { label: "Boda con DJ", price: "$11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-bodas/paquete-produccion-boda/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Dónde se necesita producción de audio con line array?"
+          subtitle="Cuando las bocinas convencionales no cubren tu boda."
+          paragraph1="El line array JBL VTX A8 proyecta el sonido de forma controlada — llega lejos sin tener que subir el volumen cerca del escenario. Esto significa que los invitados de la mesa más lejana escuchan claro y los de la primera fila no terminan sordos."
+          paragraph2="Es la única tecnología que permite separar zonas acústicas dentro del mismo espacio: fiesta fuerte, mesas tranquilas, escenario con monitors. Bocinas convencionales no pueden hacer esto."
+        />
+        <FeatureGrid features={[
+          { title: "Hacienda Grande 300+ Invitados", description: "Jardín extenso donde el sonido tiene que viajar 50+ metros sin perder claridad." },
+          { title: "Boda con Banda en Vivo", description: "8-12 músicos en escenario con monitors individuales y mezcla FOH profesional." },
+          { title: "Salón de Banquetes Premium", description: "Salones de hotel o ex-hacienda con techos altos y reverberación compleja." },
+          { title: "Venue al Aire Libre con Escenario", description: "Escenario montado para banda y DJ con cobertura de line array a todo el jardín." },
+          { title: "Boda Multi-Zona", description: "Ceremonia, cóctel, cena y fiesta en 4 áreas distintas del venue — todas cubiertas." },
+          { title: "Producción con Video y Pantallas", description: "Audio sincronizado con pantallas LED para video de los novios y transmisión en vivo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Ingeniería de sonido FOH — la diferencia invisible"
+          subtitle="El ingeniero FOH convierte tu boda en una producción profesional."
+          paragraph1="La mayoría de los invitados no saben qué es un ingeniero FOH — pero sí notan cuando el sonido está perfecto. Cuando los brindis se escuchan claros en todo el salón, cuando la banda suena como en un concierto, cuando la pista tiene bajo potente pero las mesas permiten conversar."
+          paragraph2="Eso es ingeniería FOH. Un profesional con oído entrenado y equipo de medición que ecualiza cada zona del venue para que suene exactamente como debe sonar. No es volumen — es control."
+        />
+        <FeatureGrid features={[
+          { title: "Ecualización por Zonas", description: "Pista de baile, mesas, bar, jardín — cada zona con su nivel y ecualización independiente." },
+          { title: "Mezcla de Banda en Vivo", description: "Cada instrumento y voz con su canal, su ecualización y su panorámico en la mezcla." },
+          { title: "Monitors de Escenario", description: "Cada músico escucha lo que necesita — batería, bajo, voz — sin interferir con el FOH." },
+          { title: "Control de Feedback", description: "Cero acoples y cero chirridos. El ingeniero usa procesadores de señal profesionales." },
+          { title: "Medición Acústica del Venue", description: "Análisis del espacio con micrófonos de medición antes de la ecualización final." },
+          { title: "Transiciones Sin Corte", description: "De banda a DJ, de ceremonia a cóctel — las transiciones son inaudibles." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 41 reseñas verificadas."
+          paragraph1="Bodas premium con line array en haciendas grandes, salones de hotel y venues al aire libre."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Gabriela Navarro", event: "Boda — Palacio de los Abades Tlalpan, 350 invitados", rating: 5, text: "El line array cubrió el jardín de 350 personas como un concierto. El ingeniero FOH ecualizó las 4 zonas del venue perfectamente." },
+          { name: "Andrés Velasco", event: "Boda — Hacienda San Antonio El Puente, 400 invitados", rating: 5, text: "El sonido se sentía en el pecho en la pista pero no molestaba en las mesas. Eso solo se logra con line array y un ingeniero que sabe." },
+          { name: "Sofía Delgado", event: "Boda — Grand Salón Crystal Pedregal, 300 invitados", rating: 5, text: "El equipo VTX sonó increíble. Los monitors permitieron que la banda tocara cómoda y el DJ hizo la transición perfecta." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción de audio para bodas premium en CDMX"
+        subtitle="Line array JBL VTX — sonido de concierto en tu boda."
+        paragraph1="Estas fotos son de bodas reales con nuestro paquete de Producción Premium. Line array, subwoofers, ingeniero FOH y el equipo técnico que hace que todo funcione."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos fotos del espacio por WhatsApp y te hacemos un diseño de producción."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-stack-qsc-subwoofer-escenario.avif", alt: "Stack de subwoofers QSC en escenario de boda premium" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-qsc-truss-luces.avif", alt: "Salón de boda con audio profesional truss y luces" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-jazz-consola-salon.avif", alt: "Banda en vivo con mezcladora digital en boda" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-fiesta-confeti-chispas-dj.avif", alt: "Fiesta de boda premium con producción de audio" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-consola-mesa-novios.avif", alt: "Producción de audio DJ para boda premium" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-entrada-novios-humo-dj.avif", alt: "Entrada de novios con producción de audio y efectos" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-salon-ambar.avif", alt: "Primer baile con line array y producción premium" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif", alt: "Montaje de producción de audio para boda en exterior" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Producción Boda Premium"
+        subtitle="Todo lo que necesitas saber sobre line array e ingeniería FOH para bodas."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el venue, el número de invitados y si habrá banda — te hacemos una propuesta de producción a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué es un line array y por qué lo necesito para 300+ invitados?", answer: "Un line array es un sistema de bocinas apiladas verticalmente que proyecta el sonido a mayor distancia con cobertura uniforme. A diferencia de bocinas convencionales que pierden volumen con la distancia, el line array JBL VTX A8 mantiene el mismo nivel de presión sonora desde la primera fila hasta la fila 50. Para 300+ invitados es la única forma de que todos escuchen igual." },
+      { question: "¿Qué hace el ingeniero FOH?", answer: "El ingeniero FOH (Front of House) opera la mezcla de sonido desde una posición central en el venue. Ecualiza cada zona de forma independiente — pista de baile con potencia, mesas con volumen conversacional, escenario con monitors para los músicos. Es la diferencia entre sonido de boda y sonido de producción profesional." },
+      { question: "¿El paquete incluye monitors para la banda?", answer: "Sí. Incluye monitors de escenario para que los músicos se escuchen entre sí. Si la banda tiene 5 integrantes, cada uno tiene su mezcla de monitor independiente controlada desde la consola FOH. Esto permite que toquen cómodos y suenen profesionales." },
+      { question: "¿Puedo combinar line array con DJ?", answer: "Sí. El paquete incluye la infraestructura de audio — el DJ (propio o de REDEIL) conecta su controladora al sistema y el sonido sale por el line array. Si contratas DJ de REDEIL además de la producción, hay precio especial por paquete combinado." },
+      { question: "¿Para qué tipo de venue se recomienda este paquete?", answer: "Haciendas grandes con jardín de más de 300 personas, salones de banquetes premium, ex-haciendas con múltiples áreas, venues al aire libre con escenario. Si tu boda tiene banda en vivo + DJ + más de 300 invitados, este paquete es el indicado. Para bodas de 100-200 invitados, el paquete Boda Completa ($7,500) es suficiente." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Tu boda es más íntima o quieres agregar producción visual?"
+        paragraph1="Si tu boda tiene menos de 300 invitados, los paquetes Boda con DJ o Boda Completa cubren perfectamente. Si quieres producción visual además de audio, el seguidor de luz y las cabezas móviles complementan el line array."
+        paragraph2="Precio especial cuando combinas producción de audio con iluminación o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu boda suene como un concierto?</h2>
+        <p>Mándanos fotos del venue, el número de invitados y si habrá banda en vivo. Te hacemos una propuesta de producción a la medida con presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

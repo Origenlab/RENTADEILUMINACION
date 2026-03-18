@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "DJ y Audio Completo para XV Años CDMX — $8,500 + IVA | REDEIL";
+const description = "DJ Pioneer + line array QSC + 4 micrófonos + coordinación coreógrafo para XV años de 150-300 invitados. Más popular. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-completo/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete XV Completo — DJ y Audio para XV Años",
+    "description": "DJ profesional con Pioneer DDJ-1000 + line array QSC + 4 micrófonos Shure inalámbricos + coordinación con coreógrafo para XV años de 150-300 invitados. Vals, coreografía y hora loca cubiertos. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-xv/paquete-xv-completo/",
+      "priceCurrency": "MXN",
+      "price": "8500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "72",
+      "reviewCount": "72"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Leticia Moreno" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El DJ ensayó la coreografía con las chambelanas antes del evento. Cada cambio de canción fue exacto. La hora loca fue épica — no quedó nadie sentado."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Arturo Domínguez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El line array QSC cubrió el salón completo. El DJ coordinó con nuestro MC los 12 momentos de la noche sin error. Mis chambelanes bailaron perfecto porque la música fue exacta."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Esperanza Cruz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "XV años al aire libre. El DJ leyó al público perfecto — cumbias para los tíos, reggaetón para los primos, K-pop para las amigas de mi hija. La coreografía fue impecable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-chambelanes-dj.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El DJ de REDEIL conoce el protocolo de XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros DJs han trabajado en más de 200 XV años. Conocen el orden: entrada de la festejada, vals con papá, cambio de zapatillas, vals con chambelanes, brindis, cena, hora loca, baile libre. Coordinan cada momento con la familia y el MC." }},
+      { "@type": "Question", "name": "¿Qué es un line array y por qué es mejor que bocinas normales?", "acceptedAnswer": { "@type": "Answer", "text": "Un line array QSC es un sistema de columnas de altavoces que distribuye el sonido de forma uniforme en todo el salón. A diferencia de bocinas normales donde los de adelante quedan sordos y los de atrás no escuchan, el line array cubre 150-300 personas al mismo volumen." }},
+      { "@type": "Question", "name": "¿El DJ puede coordinarse con mi coreógrafo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El DJ se comunica con el coreógrafo antes del evento para conocer los tiempos exactos de cada cambio musical. El día del evento, el DJ tiene la secuencia programada y hace las transiciones al segundo." }},
+      { "@type": "Question", "name": "¿Cuántos micrófonos incluye el paquete?", "acceptedAnswer": { "@type": "Answer", "text": "4 micrófonos Shure inalámbricos. Uno para el MC, uno para la festejada, uno para brindis de familia y uno de respaldo. Suficientes para cubrir todos los momentos donde se necesita voz amplificada." }},
+      { "@type": "Question", "name": "¿El paquete XV Completo incluye luces?", "acceptedAnswer": { "@type": "Answer", "text": "No incluye luces. Para XV con show de luces sincronizado, el paquete XV DJ + Luces ($14,000) incluye 4 cabezas móviles y seguidor de luz. El paquete XV Completo se enfoca en audio y DJ de primer nivel." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "XV Básico — $4,500", image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Audio básico para XV años íntimos", description: "2 bocinas JBL PRX + subwoofer + 2 micrófonos. Sin DJ. Ideal para 50-100 invitados.", link: "/servicios/bocinas-xv/paquete-xv-basico/" },
+  { title: "XV con DJ y Luces — $14,000", image: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "XV años con DJ y show de luces", description: "DJ + line array + 4 cabezas móviles + seguidor. Show sincronizado con coreografía.", link: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+  { title: "Confeti", image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Cañones de confeti para XV años", description: "Cañones de confeti para la hora loca o la entrada de la festejada. Efecto espectacular.", link: "/servicios/confeti/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil-400w.avif", alt: "Seguidor de luz para quinceañera", description: "Spotlight que sigue a la festejada en el vals y la coreografía. Protagonista iluminada.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "XV Años", href: "/servicios/bocinas-xv/" },
+    { label: "Paquete XV Completo" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete XV Completo — DJ y Audio para XV Años"
+    subtitle="Desde $8,500 + IVA. DJ Pioneer + line array QSC + 4 micrófonos Shure. El más popular."
+    introParagraph1='Un DJ que no conoce el protocolo de XV años puede arruinar la noche: el vals con papá empieza tarde, la coreografía pierde el timing, la hora loca no prende. El paquete XV Completo incluye un <strong>DJ profesional con Pioneer DDJ-1000</strong> que ha trabajado en más de 200 quinceañeras y conoce cada momento — desde la entrada de la festejada hasta el último reggaetón de la madrugada.'
+    introParagraph2='El <strong>line array QSC</strong> cubre salones de 150 a 300 invitados con sonido uniforme — el tío de la última mesa escucha igual que la madrina de la primera fila. 4 micrófonos <strong>Shure</strong> inalámbricos para MC, festejada, brindis y respaldo. El DJ se coordina con tu coreógrafo antes del evento para que cada cambio de canción en la coreografía sea exacto al segundo. Cobertura en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Quieres agregar show de luces?"
+    items={[
+      { label: "XV Básico $4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/", icon: "sonido" },
+      { label: "XV DJ + Luces $14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/", icon: "sonido" },
+      { label: "XV Producción $24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="XV Completo"
+      price="$8,500"
+      priceNote="+ IVA · DJ incluido · Más popular"
+      features={[
+        { text: "DJ profesional con Pioneer DDJ-1000" },
+        { text: "Line array QSC cobertura uniforme" },
+        { text: "2 subwoofers para graves potentes" },
+        { text: "4 micrófonos Shure inalámbricos" },
+        { text: "Coordinación con coreógrafo" },
+        { text: "Protocolo completo de XV años" },
+        { text: "Mezcla en vivo: cumbia, reggaetón, K-pop" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Ideal: XV años 150-300 invitados" },
+        { text: "DJ especializado en quinceañeras" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete XV Completo con DJ para XV años."
+      packages={[
+        { label: "XV Básico", price: "$4,500", href: "/servicios/bocinas-xv/paquete-xv-basico/" },
+        { label: "XV Completo", price: "$8,500", href: "/servicios/bocinas-xv/paquete-xv-completo/", active: true },
+        { label: "XV DJ + Luces", price: "$14,000", href: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+        { label: "XV Producción", price: "$24,000", href: "/servicios/bocinas-xv/paquete-xv-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿En qué tipo de XV funciona el paquete Completo?"
+          subtitle="DJ que conoce el protocolo + line array que cubre todo el salón."
+          paragraph1="El line array QSC distribuye el sonido de forma uniforme en salones de 150 a 300 personas. No importa si el salón es largo, en L o con doble altura — el DJ ajusta la cobertura para que todos escuchen igual."
+          paragraph2="El DJ llega con la secuencia musical programada: entrada, vals con papá, cambio de zapatillas, vals con chambelanes, brindis, cena con fondo musical, hora loca, baile libre. Cada momento con su canción y su volumen."
+        />
+        <FeatureGrid features={[
+          { title: "XV Años en Salón Grande", description: "Salones de 150-300 personas. El line array QSC llena el espacio sin zonas muertas." },
+          { title: "Coreografía con Chambelanes", description: "El DJ se coordina con el coreógrafo. Cada cambio de canción al segundo exacto." },
+          { title: "Hora Loca con DJ en Vivo", description: "El DJ lee al público y mezcla cumbia, reggaetón, K-pop y norteña según la pista." },
+          { title: "Vals con Papá y Chambelanes", description: "Transiciones suaves entre el vals emotivo y la coreografía rítmica." },
+          { title: "Jardín de Eventos al Aire Libre", description: "Line array QSC funciona perfecto en espacios abiertos. Cobertura sin eco." },
+          { title: "Hacienda o Salón de Dos Pisos", description: "El DJ ajusta la cobertura del line array para cubrir balcones y mezanines." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué un DJ especializado en XV años?"
+          subtitle="Porque un DJ de bodas no sabe cuándo entra el cambio de zapatillas."
+          paragraph1="Los XV años tienen un protocolo específico que un DJ genérico no conoce: la entrada de la festejada con su corte de honor, el vals con papá que tiene un momento exacto para el cambio de zapatillas, la coreografía con chambelanes donde cada beat está ensayado, y la transición a hora loca que tiene que prender la pista en 10 segundos."
+          paragraph2="Nuestros DJs han trabajado en más de 200 quinceañeras. Conocen la secuencia, se coordinan con el MC y el coreógrafo, y saben leer al público — cumbias para los adultos, reggaetón para los jóvenes, K-pop para las amigas de tu hija."
+        />
+        <FeatureGrid features={[
+          { title: "Protocolo de XV Años Completo", description: "Entrada, vals, zapatillas, chambelanes, brindis, cena, hora loca, baile. Todo programado." },
+          { title: "Coordinación con Coreógrafo", description: "El DJ ensaya con el coreógrafo antes del evento. Cambios musicales exactos al segundo." },
+          { title: "Lectura de Público en Vivo", description: "El DJ adapta la música en tiempo real. Si la pista se vacía, cambia de género al instante." },
+          { title: "4 Micrófonos para Toda la Noche", description: "MC, festejada, brindis de familia, respaldo. Sin esperar micrófonos entre momentos." },
+          { title: "Line Array: Sonido Uniforme", description: "Todos escuchan igual. Sin zonas donde el bajo retumba y zonas donde no se oye nada." },
+          { title: "Experiencia en 200+ Quinceañeras", description: "No improvisamos. Cada momento de la noche está planeado y ejecutado con precisión." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 72 reseñas verificadas."
+          paragraph1="XV años en salones, haciendas y jardines de eventos de CDMX y Estado de México."
+          paragraph2="El paquete más popular para quinceañeras de 150 a 300 invitados."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Leticia Moreno", event: "XV años — Hacienda de Cortés Cuernavaca, 250 invitados", rating: 5, text: "El DJ ensayó la coreografía con las chambelanas antes del evento. Cada cambio de canción fue exacto. La hora loca fue épica — no quedó nadie sentado." },
+          { name: "Arturo Domínguez", event: "Quinceañera — Salón Gran Riviera Ecatepec, 200 invitados", rating: 5, text: "El line array QSC cubrió el salón completo. El DJ coordinó con nuestro MC los 12 momentos de la noche sin error. Mis chambelanes bailaron perfecto porque la música fue exacta." },
+          { name: "Esperanza Cruz", event: "XV años — Jardín de eventos Valle de Chalco, 180 invitados", rating: 5, text: "XV años al aire libre. El DJ leyó al público perfecto — cumbias para los tíos, reggaetón para los primos, K-pop para las amigas de mi hija. La coreografía fue impecable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="DJ y audio para quinceañeras en CDMX"
+        subtitle="Line array QSC + DJ Pioneer para 150-300 invitados."
+        paragraph1="Estas fotos son de XV años reales donde montamos el paquete XV Completo. Line array QSC, DJ con Pioneer y coordinación completa del protocolo de quinceañera."
+        paragraph2="¿Quieres ver cómo quedaría en tu salón? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-chambelanes-dj.avif", alt: "DJ coordinando baile sorpresa con chambelanes" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif", alt: "Line array QSC en fiesta de XV años" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-chambelanes-escenario.avif", alt: "Coreografía de chambelanes con audio profesional" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Vals padre e hija con DJ en salón" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-escenario-monitores.avif", alt: "Baile sorpresa en escenario con monitores de audio" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-invitados-qsc-luces.avif", alt: "Fiesta de XV años con line array QSC" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif", alt: "Chambelanes bailando con audio JBL" },
+        { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coronacion-tiara-flores-bocinas.avif", alt: "Coronación de quinceañera con audio coordinado" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete XV Completo"
+        subtitle="Todo lo que necesitas saber sobre DJ y audio para quinceañera."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el salón, cuántos invitados y si tienen coreógrafo — te armamos el plan completo."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El DJ de REDEIL conoce el protocolo de XV años?", answer: "Sí. Nuestros DJs han trabajado en más de 200 XV años. Conocen el orden: entrada de la festejada, vals con papá, cambio de zapatillas, vals con chambelanes, brindis, cena, hora loca, baile libre. Coordinan cada momento con la familia y el MC." },
+      { question: "¿Qué es un line array y por qué es mejor que bocinas normales?", answer: "Un line array QSC es un sistema de columnas de altavoces que distribuye el sonido de forma uniforme en todo el salón. A diferencia de bocinas normales donde los de adelante quedan sordos y los de atrás no escuchan, el line array cubre 150-300 personas al mismo volumen." },
+      { question: "¿El DJ puede coordinarse con mi coreógrafo?", answer: "Sí. El DJ se comunica con el coreógrafo antes del evento para conocer los tiempos exactos de cada cambio musical. El día del evento, el DJ tiene la secuencia programada y hace las transiciones al segundo." },
+      { question: "¿Cuántos micrófonos incluye el paquete?", answer: "4 micrófonos Shure inalámbricos. Uno para el MC, uno para la festejada, uno para brindis de familia y uno de respaldo. Suficientes para cubrir todos los momentos donde se necesita voz amplificada." },
+      { question: "¿El paquete XV Completo incluye luces?", answer: "No incluye luces. Para XV con show de luces sincronizado, el paquete XV DJ + Luces ($14,000) incluye 4 cabezas móviles y seguidor de luz. El paquete XV Completo se enfoca en audio y DJ de primer nivel." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más producción o un paquete más sencillo?"
+        paragraph1="El paquete XV Completo es el más popular porque cubre todo lo que necesita una quinceañera de 150-300 invitados. Si quieres luces o producción completa, los paquetes superiores incluyen todo."
+        paragraph2="Precio especial cuando combinas DJ con confeti, seguidor de luz o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista para los XV años que tu hija merece?</h2>
+        <p>Mándanos la fecha, el salón y la cantidad de invitados. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

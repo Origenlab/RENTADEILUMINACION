@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "DJ Profesional para Boda CDMX — $8,500 + IVA | REDEIL";
+const description = "DJ de bodas con Pioneer CDJ-2000NXS2 + sonido JBL PRX completo para 100-250 invitados. Coordinación con MC. Más popular. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-boda/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "DJ Profesional para Boda — Ceremonia, Vals y Fiesta",
+    "description": "DJ de bodas con Pioneer CDJ-2000NXS2 + DJM-750MK2, sistema de sonido JBL PRX completo, 2 micrófonos inalámbricos Shure y show de luces básico. Coordinación con MC y wedding planner. Para bodas de 100-250 invitados en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-boda/",
+      "priceCurrency": "MXN",
+      "price": "8500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "71",
+      "reviewCount": "71"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ana Sofía Ramírez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El DJ coordinó su playlist con nuestro fotógrafo sin que se lo pidiéramos. El vals fue emotivo, la cena tuvo música suave y la hora loca hizo bailar hasta a mi abuelo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Medina" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo mejor del DJ de REDEIL fue la coordinación con nuestro MC. Cada momento — brindis, ramo, liga — tuvo su canción exacta. Las mezclas con CDJ-2000 fueron de otro nivel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Paulina Estrada" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "DJ que realmente sabe de bodas. No impuso su estilo — construyó la noche alrededor de lo que pedimos. El cambio de ceremonia a fiesta fue perfecto."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El DJ se coordina con el MC y el wedding planner?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Antes de la boda hacemos una junta de producción (presencial o por videollamada) con el MC, el planner y los novios. Definimos tiempos exactos: cuándo entra la novia, cuándo el vals, cuándo el ramo, cuándo la hora loca. El DJ tiene la línea de tiempo completa el día del evento." }},
+      { "@type": "Question", "name": "¿Qué equipo de audio usa el DJ de bodas?", "acceptedAnswer": { "@type": "Answer", "text": "Pioneer CDJ-2000NXS2 con mezcladora DJM-750MK2, sistema de sonido JBL PRX con subs, 2 micrófonos inalámbricos Shure para brindis y MC, y show de luces básico con 4 PAR LED. Equipo profesional que cubre salones de 100 a 250 invitados." }},
+      { "@type": "Question", "name": "¿Cuántas horas incluye el servicio de DJ para boda?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete incluye 6 horas de operación — suficiente para cubrir recepción, cena, vals, protocolos y fiesta. Si necesitas más horas, cada hora extra tiene un costo adicional que te cotizamos por adelantado." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ Fiesta Privada — Reuniones Íntimas", image: "/img/bocinas-djs/dj-para-eventos-bailando-gente-400w.avif", alt: "DJ para fiesta privada con gente bailando", description: "DJ con Pioneer DDJ-400 + 2 bocinas JBL EON para fiestas de 30-80 personas. $4,500 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+  { title: "DJ Corporativo — Galas y Premiaciones", image: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ para evento corporativo con producción", description: "DJ profesional + line array QSC KLA + iluminación corporativa. 100-400 personas. $12,000 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+  { title: "Humo Bajo — Vals de Ensueño", image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Efecto humo bajo para vals de novios", description: "Neblina a ras de piso para el vals. El efecto más romántico que puedes agregar a tu boda. Desde $4,500 + IVA.", link: "/servicios/humo-bajo/" },
+  { title: "Seguidor de Luz — Spotlight para Novios", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor de luz en boda iluminando a los novios", description: "Haz de luz que sigue a los novios en el vals y la entrada. Impacto visual garantizado. Desde $5,000 + IVA.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "DJ para Fiestas", href: "/servicios/bocinas-djs/" },
+    { label: "DJ para Boda" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="DJ Profesional para Boda — Vals, Protocolos y Fiesta"
+    subtitle="Desde $8,500 + IVA. DJ con Pioneer CDJ-2000NXS2 + sonido JBL PRX + coordinación con MC. Más popular."
+    introParagraph1='Un DJ de bodas tiene que saber mucho más que mezclar canciones. Tiene que coordinar el vals con el fotógrafo, bajar el volumen para los brindis sin que se lo pidan, subir la canción del ramo en el momento exacto y construir la fiesta desde la cena tranquila hasta la hora loca donde baila hasta tu abuelita. Nuestros DJs de boda trabajan con equipo <strong>Pioneer CDJ-2000NXS2</strong> y mezcladora <strong>DJM-750MK2</strong> — el estándar profesional que permite mezclas limpias y transiciones que no cortan el mood.'
+    introParagraph2='El paquete incluye sistema de sonido <strong>JBL PRX</strong> con subwoofer que cubre salones de 100 a 250 invitados, 2 micrófonos inalámbricos <strong>Shure</strong> para MC y brindis, show de luces básico con 4 PAR LED, y junta de producción previa con los novios, el MC y el planner. Haciendas, jardines, salones y hoteles de toda la <strong>CDMX</strong> y Estado de México.'
+  />
+
+  <CtaBar
+    headline="Compara paquetes de DJ"
+    items={[
+      { label: "DJ Fiesta — $4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/", icon: "sonido" },
+      { label: "DJ Corporativo — $12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/", icon: "sonido" },
+      { label: "DJ Festival — $22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="DJ Boda — Más Popular"
+      price="$8,500"
+      priceNote="+ IVA · 6 horas incluidas"
+      features={[
+        { text: "DJ con Pioneer CDJ-2000NXS2" },
+        { text: "Mezcladora DJM-750MK2" },
+        { text: "Sistema JBL PRX + subwoofer" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "4 PAR LED show de luces básico" },
+        { text: "Coordinación con MC y planner" },
+        { text: "Junta de producción previa" },
+        { text: "Línea de tiempo del evento" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "6 horas de operación incluidas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete DJ para boda de $8,500 para mi boda."
+      packages={[
+        { label: "DJ Fiesta Privada", price: "$4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+        { label: "DJ Boda", price: "$8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/", active: true },
+        { label: "DJ Corporativo", price: "$12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+        { label: "DJ Festival", price: "$22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Momentos de tu boda que el DJ tiene que clavar"
+          subtitle="No es solo poner canciones — es construir la noche entera."
+          paragraph1="Una boda tiene momentos que no se repiten. El vals, el lanzamiento de ramo, la liga, los brindis, la entrada de los novios, la hora loca. Cada momento necesita su canción exacta en el segundo exacto. Nuestros DJs han tocado en más de 200 bodas y conocen el timing de memoria."
+          paragraph2="La coordinación con el MC es clave. Antes de tu boda hacemos una junta donde definimos la línea de tiempo completa — el DJ sabe exactamente qué viene después de cada momento y prepara la transición musical sin cortes ni silencios incómodos."
+        />
+        <FeatureGrid features={[
+          { title: "Recepción y Coctel", description: "Música lounge o jazz suave mientras llegan los invitados. Volumen bajo para que la gente converse. El DJ ambienta sin ser protagonista." },
+          { title: "Cena y Brindis", description: "Música de fondo elegante durante la cena. El DJ baja el volumen automáticamente para los brindis y sube la canción del momento después de cada discurso." },
+          { title: "Vals de los Novios", description: "La canción que eligieron, en el momento exacto, con el volumen perfecto. El DJ se coordina con el fotógrafo para que capte el primer giro." },
+          { title: "Ramo, Liga y Protocolos", description: "Cada protocolo tiene su canción tradicional o la que los novios eligieron. El DJ las tiene en cola listas para sonar al segundo." },
+          { title: "Hora Loca y Fiesta", description: "La transición de cena a fiesta es un arte. El DJ sube la energía gradualmente hasta que toda la pista está llena. Cumbia, reggaetón, salsa, pop — lo que tu gente baile." },
+          { title: "Último Baile y Cierre", description: "La última canción de la noche tiene que ser especial. El DJ cierra con la canción que los novios eligieron y deja que el momento respire." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué el DJ de REDEIL para tu boda?"
+          subtitle="Más de 200 bodas en haciendas, jardines, salones y hoteles de CDMX."
+          paragraph1="Un DJ de boda que no se ha coordinado con un MC no sabe de bodas. El nuestro llega con la línea de tiempo impresa, los nombres de los novios y los padrinos memorizados, y la playlist aprobada por los novios días antes."
+          paragraph2="El equipo Pioneer CDJ-2000NXS2 permite mezclas con calidad de club. Las transiciones son limpias, los BPMs son precisos y el sonido JBL PRX llena el salón sin distorsión."
+        />
+        <FeatureGrid features={[
+          { title: "Junta de Producción Previa", description: "Nos reunimos con los novios, el MC y el planner para definir cada momento de la boda. El DJ llega al evento con todo preparado — sin improvisación." },
+          { title: "Coordinación con MC en Tiempo Real", description: "El DJ y el MC trabajan con señas y comunicación constante. Cada anuncio del MC tiene su respaldo musical listo." },
+          { title: "Pioneer CDJ-2000NXS2 Profesional", description: "El estándar de la industria. Permite mezclas con USB, Rekordbox y vinilo digital. Transiciones limpias que no cortan la energía." },
+          { title: "Sonido JBL PRX con Subwoofer", description: "Sistema que cubre salones de hasta 250 personas sin distorsión. Graves profundos para la cumbia y agudos cristalinos para los brindis." },
+          { title: "2 Micrófonos Shure Inalámbricos", description: "Uno para el MC y otro de respaldo para brindis de padrinos. Frecuencia dedicada — sin interferencia ni retroalimentación." },
+          { title: "Show de Luces Básico Incluido", description: "4 PAR LED que iluminan la pista con colores que cambian según el momento — dorado para el vals, multicolor para la fiesta." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen las parejas que nos contrataron"
+          subtitle="4.9 estrellas en 71 reseñas de bodas."
+          paragraph1="Cada reseña es de una pareja real que contrató nuestro paquete DJ para boda."
+          paragraph2="Pregunta por referencias de bodas en venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ana Sofía Ramírez", event: "Boda en Hacienda La Laborcilla — Tláhuac, 200 invitados", rating: 5, text: "El DJ coordinó su playlist con nuestro fotógrafo sin que se lo pidiéramos. El vals fue emotivo, la cena tuvo música suave y la hora loca hizo bailar hasta a mi abuelo." },
+          { name: "Carlos Medina", event: "Boda en Salón Presidente InterContinental — 180 invitados", rating: 5, text: "Lo mejor del DJ de REDEIL fue la coordinación con nuestro MC. Cada momento — brindis, ramo, liga — tuvo su canción exacta. Las mezclas con CDJ-2000 fueron de otro nivel." },
+          { name: "Paulina Estrada", event: "Boda en Jardín Camino Real — Texcoco, 220 invitados", rating: 5, text: "DJ que realmente sabe de bodas. No impuso su estilo — construyó la noche alrededor de lo que pedimos. El cambio de ceremonia a fiesta fue perfecto." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="DJ para bodas en eventos reales"
+        subtitle="Haciendas, jardines, salones y hoteles de CDMX y Edomex."
+        paragraph1="Cada imagen es de una boda real donde nuestros DJs manejaron la música de principio a fin. Desde el coctel hasta la última canción — el DJ de boda construye la noche que los novios soñaron."
+        paragraph2="¿Ya tienes venue? Mándanos el nombre y te decimos si ya hemos tocado ahí."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif", alt: "DJ profesional mezclando música en boda CDMX" },
+        { src: "/img/bocinas-djs/dj-para-bodas-recepcion-baile.avif", alt: "DJ en recepción de boda con pista de baile llena" },
+        { src: "/img/bocinas-djs/dj-para-bodas-vals-primer-baile.avif", alt: "DJ poniendo vals para primer baile de novios" },
+        { src: "/img/bocinas-djs/dj-para-eventos-boda-hacienda.avif", alt: "DJ para boda en hacienda con iluminación" },
+        { src: "/img/bocinas-djs/dj-para-eventos-salon-banquetes.avif", alt: "DJ en salón de banquetes para boda" },
+        { src: "/img/bocinas-djs/dj-para-eventos-sociales-celebraciones.avif", alt: "DJ en celebración social de boda" },
+        { src: "/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif", alt: "Pista de baile iluminada en boda con DJ" },
+        { src: "/img/bocinas-djs/dj-para-eventos-fiesta-memorable.avif", alt: "DJ creando fiesta memorable en boda" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete DJ para Boda"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="También tenemos paquetes con humo bajo para el vals y seguidor de luz para la entrada."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El DJ se coordina con el MC y el wedding planner?", answer: "Sí. Antes de la boda hacemos una junta de producción (presencial o por videollamada) con el MC, el planner y los novios. Definimos tiempos exactos: cuándo entra la novia, cuándo el vals, cuándo el ramo, cuándo la hora loca. El DJ tiene la línea de tiempo completa el día del evento." },
+      { question: "¿Qué equipo de audio usa el DJ de bodas?", answer: "Pioneer CDJ-2000NXS2 con mezcladora DJM-750MK2, sistema de sonido JBL PRX con subwoofer, 2 micrófonos inalámbricos Shure para brindis y MC, y show de luces básico con 4 PAR LED. Equipo profesional que cubre salones de 100 a 250 invitados sin distorsión." },
+      { question: "¿Cuántas horas incluye el servicio de DJ para boda?", answer: "El paquete incluye 6 horas de operación — suficiente para cubrir recepción, cena, vals, protocolos y fiesta. Si necesitas más horas, cada hora extra tiene un costo adicional que te cotizamos por adelantado." },
+      { question: "¿Pueden poner la canción que elegimos para el vals?", answer: "Sí, cualquier canción. Nos la envías con anticipación y el DJ la tiene lista en alta calidad. Si quieres un edit especial (por ejemplo, que empiece desde cierto punto o que tenga un fade específico), lo preparamos antes." },
+      { question: "¿El sonido cubre jardines y haciendas al aire libre?", answer: "Sí. El sistema JBL PRX con subwoofer está diseñado para espacios abiertos y cerrados. En jardines y haciendas, orientamos las bocinas para cubrir el área de la pista y las mesas. Para venues muy grandes (300+ personas), te recomendamos el paquete DJ Corporativo con line array." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas complementar tu boda con efectos especiales?"
+        paragraph1="El humo bajo para el vals y el seguidor de luz para la entrada de los novios son los complementos más solicitados en bodas. También tenemos DJ para fiesta privada si tu evento es más íntimo, y DJ corporativo si necesitas más producción."
+        paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu boda y te diseñamos la propuesta ideal."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu boda tenga el DJ que merece?</h2>
+        <p>Mándanos la fecha, el venue y cuántos invitados esperas. Agendamos la junta de producción y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Audio Completo para Boda CDMX — $7,500 + IVA | REDEIL";
+const description = "Ceremonia + recepción + fiesta cubiertos. 4 bocinas JBL PRX825, 2 subwoofers QSC, 4 micrófonos Shure. Boda 100-200 invitados.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-boda-completa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Boda Completa — Audio para Ceremonia, Recepción y Fiesta",
+    "description": "Audio profesional para boda completa: ceremonia + recepción + fiesta. 4 bocinas JBL PRX825 + 2 subwoofers QSC + 4 micrófonos Shure + mezcladora Yamaha TF1. Técnico toda la noche. Transporte e instalación incluidos en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-bodas/paquete-boda-completa/",
+      "priceCurrency": "MXN",
+      "price": "7500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "63",
+      "reviewCount": "63"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Ruiz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el paquete completo y cubrió los tres momentos sin mover equipo. Los votos en el jardín se escucharon perfecto y en la fiesta el bajo de las JBL PRX825 hizo temblar la pista."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernando Gutiérrez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El técnico ecualizó el salón de banquetes de forma impecable. Los brindis se escucharon claros y cuando arrancó la fiesta, los subwoofers QSC llenaron todo el salón."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valeria Castañeda" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda al aire libre con 200 personas. Las 4 bocinas cubrieron el jardín completo sin puntos muertos. El técnico se coordinó con nuestro MC y todo fluyó perfecto."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Las 4 bocinas cubren ceremonia y fiesta sin mover equipo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si la ceremonia y la fiesta son en el mismo espacio, las 4 bocinas JBL PRX825 cubren ambos momentos con solo ajustar niveles desde la mezcladora Yamaha TF1. Si son en espacios separados (jardín + salón), montamos dos sets independientes." }},
+      { "@type": "Question", "name": "¿Qué diferencia hay entre este paquete y el de Solo Ceremonia?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete Solo Ceremonia ($3,500) lleva 2 bocinas JBL PRX315 y 2 micrófonos — cubre solo la ceremonia. El paquete Boda Completa ($7,500) lleva 4 bocinas JBL PRX825 + 2 subwoofers QSC + 4 micrófonos + mezcladora Yamaha TF1 — cubre ceremonia, recepción y fiesta con potencia suficiente para 200 personas bailando." }},
+      { "@type": "Question", "name": "¿Los subwoofers QSC son necesarios para la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Si quieres que la pista de baile se sienta, sí. Los subwoofers QSC agregan el bajo que hace que la música de fiesta (cumbia, reggaetón, electrónica) se sienta en el cuerpo. Sin subwoofer, la música se escucha pero no se siente — y la pista se vacía antes." }},
+      { "@type": "Question", "name": "¿El técnico se queda toda la noche?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico opera la mezcladora Yamaha TF1 durante todo el evento — desde la ceremonia hasta el último baile. Ajusta niveles para cada momento: voz suave en los votos, volumen conversacional en la cena, y potencia total en la fiesta." }},
+      { "@type": "Question", "name": "¿Puedo usar este paquete con mi propio DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete Boda Completa es solo audio — no incluye DJ. Tu DJ conecta su controladora a nuestra mezcladora Yamaha TF1 y usa nuestras bocinas y subwoofers. Si prefieres que REDEIL ponga el DJ también, el paquete Boda con DJ ($11,000) incluye todo." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Solo Ceremonia — $3,500", image: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-jardin-guitarrista.avif", alt: "Audio para ceremonia de boda en jardín", description: "Si solo necesitas audio para la ceremonia y ya tienes equipo para la fiesta. 2 bocinas JBL + 2 micrófonos.", link: "/servicios/bocinas-bodas/paquete-solo-ceremonia/" },
+  { title: "Boda con DJ — $11,000", image: "/img/bocinas-bodas/renta-bocinas-boda-dj-consola-mesa-novios.avif", alt: "DJ profesional con audio para boda completa", description: "Todo lo del paquete completo + DJ profesional con Pioneer DDJ-1000. Coordinación total con MC.", link: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil-400w.avif", alt: "Seguidor de luz para primer baile de boda", description: "Luz que sigue a los novios en el primer baile. El complemento perfecto para audio de boda.", link: "/servicios/seguidor/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-focos-edison-arco-boda-04-300w.avif", alt: "Guirnaldas Edison para decoración de boda", description: "Iluminación cálida que transforma el espacio. Combina con audio para una boda completa.", link: "/servicios/guirnaldas/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Bocinas para Bodas", href: "/servicios/bocinas-bodas/" },
+    { label: "Paquete Boda Completa" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Paquete Boda Completa — Ceremonia + Recepción + Fiesta"
+    subtitle="Desde $7,500 + IVA. 4 bocinas JBL PRX825 + 2 subwoofers QSC + 4 micrófonos Shure. El más popular."
+    introParagraph1='Una boda tiene tres momentos acústicos que no pueden fallar: la ceremonia donde los votos deben escucharse hasta la última silla, la recepción donde el brindis del papá necesita un micrófono que capte su voz temblorosa sin feedback, y la fiesta donde el bajo tiene que sentirse en el pecho. El paquete Boda Completa cubre los tres con 4 bocinas <strong>JBL PRX825</strong>, 2 subwoofers <strong>QSC</strong> y 4 micrófonos <strong>Shure</strong> inalámbricos.'
+    introParagraph2='El montaje se diseña para cubrir ceremonia, recepción y fiesta sin mover equipo entre momentos. Si tu boda tiene la ceremonia en el jardín y la fiesta en el salón, montamos dos sets independientes. El técnico opera la mezcladora <strong>Yamaha TF1</strong> toda la noche — ajustando niveles para cada momento, coordinándose con el MC, el fotógrafo y el wedding planner. Haciendas, jardines, salones y hoteles en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Quieres DJ incluido o producción premium?"
+    items={[
+      { label: "Solo Ceremonia $3,500", href: "/servicios/bocinas-bodas/paquete-solo-ceremonia/", icon: "sonido" },
+      { label: "Boda con DJ $11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/", icon: "sonido" },
+      { label: "Producción $18,000", href: "/servicios/bocinas-bodas/paquete-produccion-boda/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Boda Completa"
+      price="$7,500"
+      priceNote="+ IVA · Más popular · Técnico toda la noche"
+      badge="Más popular"
+      features={[
+        { text: "4 bocinas JBL PRX825 de alta potencia" },
+        { text: "2 subwoofers QSC para pista de baile" },
+        { text: "4 micrófonos Shure inalámbricos" },
+        { text: "Mezcladora Yamaha TF1 digital" },
+        { text: "Cobertura ceremonia + recepción + fiesta" },
+        { text: "Ecualización profesional al venue" },
+        { text: "Técnico de audio toda la noche" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "Coordinación con MC y wedding planner" },
+        { text: "Ideal: bodas 100-200 invitados" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Boda Completa de audio para boda."
+      packages={[
+        { label: "Solo Ceremonia", price: "$3,500", href: "/servicios/bocinas-bodas/paquete-solo-ceremonia/" },
+        { label: "Boda Completa", price: "$7,500", href: "/servicios/bocinas-bodas/paquete-boda-completa/", active: true },
+        { label: "Boda con DJ", price: "$11,000", href: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+        { label: "Producción", price: "$18,000", href: "/servicios/bocinas-bodas/paquete-produccion-boda/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Tres momentos, un solo equipo de audio"
+          subtitle="Ceremonia, recepción y fiesta — sin interrupciones ni silencios incómodos."
+          paragraph1="El paquete Boda Completa está diseñado para que los tres momentos acústicos de tu boda fluyan sin cortes. Las 4 bocinas JBL PRX825 se posicionan para cubrir las áreas principales del venue y los 2 subwoofers QSC se activan cuando arranca la fiesta."
+          paragraph2="El técnico opera la mezcladora Yamaha TF1 toda la noche — baja el volumen para los votos, sube para los brindis, y cuando el MC anuncia el primer baile, los subwoofers entran con la potencia que la pista necesita."
+        />
+        <FeatureGrid features={[
+          { title: "Ceremonia + Recepción + Fiesta", description: "Los tres momentos cubiertos sin cambiar equipo. Solo cambian los niveles." },
+          { title: "Hacienda con Jardín y Salón", description: "Dos sets independientes si la ceremonia y la fiesta son en espacios distintos." },
+          { title: "Salón de Banquetes Grande", description: "4 bocinas JBL PRX825 llenan salones de hasta 200 personas sin puntos muertos." },
+          { title: "Hotel con Terraza y Salón", description: "Ceremonia en la terraza, fiesta en el salón — cubiertos ambos con el mismo equipo." },
+          { title: "Boda con Banda en Vivo + Fiesta", description: "La banda conecta a la Yamaha TF1 y suena por las JBL. Transición perfecta a la fiesta." },
+          { title: "Jardín al Aire Libre 200 Personas", description: "Las PRX825 tienen la potencia para cubrir jardines grandes sin distorsión." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Equipo profesional para cada momento de la boda"
+          subtitle="JBL PRX825 + QSC + Yamaha TF1 — el estándar de la industria."
+          paragraph1="La diferencia entre una boda con buen sonido y una con sonido mediocre se nota en los brindis (¿se escuchó el chiste del padrino?) y en la pista de baile (¿la gente se quedó o se fue a sentar?). El equipo que usamos resuelve ambos problemas."
+          paragraph2="Con más de 30 años produciendo eventos, sabemos que el audio de una boda no es solo volumen — es ecualización por zona, coordinación con el MC y transiciones suaves entre momentos."
+        />
+        <FeatureGrid features={[
+          { title: "Dos Sets Si el Venue Lo Requiere", description: "Ceremonia en jardín y fiesta en salón = dos montajes independientes incluidos." },
+          { title: "Subwoofers QSC para Pista Potente", description: "El bajo que se siente en el pecho. La pista de baile no se vacía." },
+          { title: "Mezcladora Digital Yamaha TF1", description: "32 canales, ecualización paramétrica, memorias de escena para cada momento." },
+          { title: "Sin Mover Equipo Entre Momentos", description: "El técnico cambia niveles desde la mezcladora. Sin pausas, sin ruidos." },
+          { title: "Coordinación Total con Tu Equipo", description: "MC, fotógrafo, wedding planner — el técnico se sincroniza con todos." },
+          { title: "Ecualización Diferenciada por Zona", description: "Volumen conversacional en mesas, potencia total en pista de baile." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="4.9 estrellas en 63 reseñas verificadas."
+          paragraph1="Bodas completas en haciendas, jardines, salones y hoteles de CDMX y Estado de México."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandra Ruiz", event: "Boda — Hacienda San José de los Laureles, 180 invitados", rating: 5, text: "Cubrió los tres momentos sin mover equipo. Los votos en el jardín perfecto y en la fiesta el bajo de las JBL PRX825 hizo temblar la pista." },
+          { name: "Fernando Gutiérrez", event: "Boda — Gran Hotel Ciudad de México, 150 invitados", rating: 5, text: "El técnico ecualizó el salón de banquetes impecable. Los brindis claros y los subwoofers QSC llenaron todo el salón en la fiesta." },
+          { name: "Valeria Castañeda", event: "Boda — Jardín La Cañada Xochimilco, 200 invitados", rating: 5, text: "200 personas al aire libre. Las 4 bocinas cubrieron el jardín completo sin puntos muertos. Coordinación perfecta con nuestro MC." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Bodas completas con audio profesional REDEIL"
+        subtitle="Ceremonia, brindis y fiesta — tres momentos con sonido perfecto."
+        paragraph1="Estas fotos son de bodas reales donde montamos el paquete Boda Completa. 4 bocinas, 2 subwoofers, 4 micrófonos y un técnico que no se despega de la mezcladora."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos la ubicación por WhatsApp y te explicamos el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados.avif", alt: "Brindis de boda con micrófono profesional Shure" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-fiesta-confeti-chispas-dj.avif", alt: "Fiesta de boda con audio JBL y subwoofers QSC" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-romantico.avif", alt: "Primer baile de novios con audio profesional" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-qsc-truss-luces.avif", alt: "Salón de boda con bocinas QSC y truss" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-cabina-blanca-flores.avif", alt: "Cabina de audio en boda elegante" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-entrada-novios-humo-dj.avif", alt: "Entrada de novios con audio y efectos especiales" },
+        { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-jazz-consola-salon.avif", alt: "Banda en vivo conectada a mezcladora Yamaha en boda" },
+        { src: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-hacienda-arcos-audio.avif", alt: "Ceremonia de boda en hacienda con audio profesional" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Boda Completa"
+        subtitle="Todo lo que necesitas saber sobre audio para boda de 100-200 invitados."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el venue y el número de invitados — te decimos exactamente cómo quedaría el montaje."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Las 4 bocinas cubren ceremonia y fiesta sin mover equipo?", answer: "Sí. Si la ceremonia y la fiesta son en el mismo espacio, las 4 bocinas JBL PRX825 cubren ambos momentos con solo ajustar niveles desde la mezcladora Yamaha TF1. Si son en espacios separados (jardín + salón), montamos dos sets independientes." },
+      { question: "¿Qué diferencia hay entre este paquete y el de Solo Ceremonia?", answer: "El paquete Solo Ceremonia ($3,500) lleva 2 bocinas JBL PRX315 y 2 micrófonos — cubre solo la ceremonia. El paquete Boda Completa ($7,500) lleva 4 bocinas JBL PRX825 + 2 subwoofers QSC + 4 micrófonos + mezcladora Yamaha TF1 — cubre ceremonia, recepción y fiesta con potencia suficiente para 200 personas bailando." },
+      { question: "¿Los subwoofers QSC son necesarios para la fiesta?", answer: "Si quieres que la pista de baile se sienta, sí. Los subwoofers QSC agregan el bajo que hace que la música de fiesta (cumbia, reggaetón, electrónica) se sienta en el cuerpo. Sin subwoofer, la música se escucha pero no se siente — y la pista se vacía antes." },
+      { question: "¿El técnico se queda toda la noche?", answer: "Sí. El técnico opera la mezcladora Yamaha TF1 durante todo el evento — desde la ceremonia hasta el último baile. Ajusta niveles para cada momento: voz suave en los votos, volumen conversacional en la cena, y potencia total en la fiesta." },
+      { question: "¿Puedo usar este paquete con mi propio DJ?", answer: "Sí. El paquete Boda Completa es solo audio — no incluye DJ. Tu DJ conecta su controladora a nuestra mezcladora Yamaha TF1 y usa nuestras bocinas y subwoofers. Si prefieres que REDEIL ponga el DJ también, el paquete Boda con DJ ($11,000) incluye todo." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas menos audio o quieres agregar DJ?"
+        paragraph1="Si solo necesitas audio para la ceremonia, el paquete Solo Ceremonia es más económico. Si quieres DJ incluido, el paquete Boda con DJ tiene todo resuelto."
+        paragraph2="Precio especial cuando combinas audio con iluminación o efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu boda suene como debe sonar?</h2>
+        <p>Mándanos la fecha, el venue y el número de invitados. Te confirmamos disponibilidad y te enviamos el presupuesto en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

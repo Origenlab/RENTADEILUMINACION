@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "DJ para Eventos Corporativos CDMX — $12,000 + IVA | REDEIL";
+const description = "DJ profesional para galas, premiaciones y fiestas de empresa. Line array QSC KLA + iluminación corporativa. 100-400 personas. CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-corporativo/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "DJ para Eventos Corporativos — Galas, Premiaciones y Fiestas de Empresa",
+    "description": "DJ profesional con Pioneer CDJ-2000NXS2, line array QSC KLA con procesador, iluminación corporativa con 8 PAR LED y 2 micrófonos inalámbricos Shure. Para galas, premiaciones, fiestas de fin de año y lanzamientos corporativos de 100-400 personas en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bocinas-djs/paquete-dj-corporativo/",
+      "priceCurrency": "MXN",
+      "price": "12000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "49",
+      "reviewCount": "49"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ricardo Alemán" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El DJ entendió los tiempos corporativos perfectamente. Bajó el volumen para los discursos del director, música lounge durante el coctel y subió la energía para la fiesta."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Adriana Campos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "El line array QSC cubrió todo el salón sin puntos muertos. El DJ manejó la transición de premiaciones a fiesta de forma impecable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Jorge Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción de audio nivel conferencia para las premiaciones y nivel fiesta para el after. El DJ supo exactamente cuándo cambiar el mood."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El DJ puede bajar el volumen durante discursos y premiaciones?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El DJ trabaja con una línea de tiempo del evento. Sabe exactamente cuándo hay discursos, premiaciones o presentaciones y baja el volumen o corta la música según se necesite. La transición de protocolo a fiesta es fluida y sin cortes incómodos." }},
+      { "@type": "Question", "name": "¿El line array QSC KLA cubre salones grandes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sistema QSC KLA con procesador cubre salones de hasta 400 personas con audio uniforme — sin puntos muertos ni zonas donde el sonido se distorsiona. Ideal para salones de hotel, centros de convenciones y venues corporativos." }},
+      { "@type": "Question", "name": "¿Incluye iluminación corporativa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete incluye 8 PAR LED con colores programables que pueden configurarse con los colores de tu marca. También podemos agregar gobos con logo proyectado como complemento." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ para Boda — Ceremonia y Fiesta", image: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-400w.avif", alt: "DJ profesional para boda mezclando música", description: "DJ con Pioneer CDJ-2000NXS2 + sonido JBL PRX para 100-250 invitados. $8,500 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-boda/" },
+  { title: "DJ Festival — Producción Masiva", image: "/img/bocinas-djs/dj-para-eventos-musica-electronica.avif", alt: "DJ para festival con producción completa", description: "DJ con CDJ-3000 + line array JBL VTX + iluminación festival. 500+ personas. $22,000 + IVA.", link: "/servicios/bocinas-djs/paquete-dj-festival/" },
+  { title: "Gobos con Logo — Tu Marca Proyectada", image: "/img/gobos/alquiler-gobo-proyeccion-marca-empresa.avif", alt: "Gobo con logo corporativo proyectado en evento", description: "Proyección de tu logo en paredes, pisos o escenario. El toque corporativo que impresiona. Desde $3,000 + IVA.", link: "/servicios/gobos/" },
+  { title: "City Light — Iluminación Arquitectónica", image: "/img/city-light/iluminacion-arquitectonica-hacienda-noche.avif", alt: "Iluminación arquitectónica corporativa en venue", description: "PAR LED de colores para iluminar columnas, muros y fachadas con los colores de tu marca. Desde $4,000 + IVA.", link: "/servicios/city-light/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "DJ para Fiestas", href: "/servicios/bocinas-djs/" },
+    { label: "DJ Corporativo" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="DJ para Eventos Corporativos — Galas, Premiaciones y Fiestas de Empresa"
+    subtitle="Desde $12,000 + IVA. DJ profesional + line array QSC KLA + iluminación corporativa. 100-400 personas."
+    introParagraph1='Un DJ corporativo tiene que entender algo que un DJ de fiestas no necesita: los tiempos de empresa. Hay un director que va a hablar 15 minutos, hay premiaciones con nombre y apellido, hay un coctel donde la música tiene que ser elegante pero no invasiva, y después hay una fiesta donde 300 empleados necesitan olvidar que mañana es lunes. Nuestros DJs corporativos manejan esa transición de protocolo a fiesta con naturalidad — el volumen baja solo cuando tiene que bajar y sube cuando el director ya guardó el micrófono.'
+    introParagraph2='El equipo incluye <strong>line array QSC KLA</strong> con procesador — audio uniforme en todo el salón sin puntos muertos, 2 micrófonos inalámbricos <strong>Shure</strong> para presentadores y premiados, 8 <strong>PAR LED</strong> con colores programables (configurables con los colores de tu marca) y DJ con equipo <strong>Pioneer</strong> profesional. Galas anuales, fiestas de fin de año, lanzamientos de producto, premiaciones internas y eventos corporativos en hoteles, centros de convenciones y salones de toda la <strong>CDMX</strong>.'
+  />
+
+  <CtaBar
+    headline="Compara paquetes de DJ"
+    items={[
+      { label: "DJ Fiesta — $4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/", icon: "sonido" },
+      { label: "DJ Boda — $8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/", icon: "sonido" },
+      { label: "DJ Festival — $22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/", icon: "sonido" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="DJ Corporativo"
+      price="$12,000"
+      priceNote="+ IVA · 6 horas incluidas"
+      features={[
+        { text: "DJ con Pioneer CDJ-2000NXS2 profesional" },
+        { text: "Line array QSC KLA con procesador" },
+        { text: "Subwoofer QSC KS para graves" },
+        { text: "2 micrófonos Shure inalámbricos" },
+        { text: "8 PAR LED con colores de tu marca" },
+        { text: "Música lounge para coctel y cena" },
+        { text: "Coordinación con producción del evento" },
+        { text: "Línea de tiempo de protocolo" },
+        { text: "Transporte + montaje + desmontaje" },
+        { text: "6 horas de operación incluidas" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete DJ corporativo de $12,000 para nuestro evento de empresa."
+      packages={[
+        { label: "DJ Fiesta Privada", price: "$4,500", href: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+        { label: "DJ Boda", price: "$8,500", href: "/servicios/bocinas-djs/paquete-dj-boda/" },
+        { label: "DJ Corporativo", price: "$12,000", href: "/servicios/bocinas-djs/paquete-dj-corporativo/", active: true },
+        { label: "DJ Festival", price: "$22,000", href: "/servicios/bocinas-djs/paquete-dj-festival/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Tipos de eventos corporativos que manejamos"
+          subtitle="Cada formato tiene su lógica musical — y nuestro DJ la conoce."
+          paragraph1="No es lo mismo una gala anual con premiación que una fiesta de fin de año donde todo mundo quiere bailar. El DJ corporativo adapta su set al formato del evento, al perfil de los asistentes y a los tiempos que el área de eventos define."
+          paragraph2="Trabajamos con empresas de todos los tamaños — desde startups con 100 empleados hasta corporativos con 400 personas en un salón de hotel."
+        />
+        <FeatureGrid features={[
+          { title: "Gala Anual y Premiaciones", description: "Música de fondo durante la cena, silencio para los discursos, fanfarria para los premiados y fiesta cuando termina el protocolo. Todo cronometrado." },
+          { title: "Fiesta de Fin de Año", description: "El evento favorito de los empleados. El DJ empieza con coctel elegante y escala hasta tener a 300 personas bailando reggaetón a las 2am." },
+          { title: "Lanzamiento de Producto", description: "Audio cristalino para la presentación, música de impacto para el reveal y fiesta para el networking posterior. Producción completa." },
+          { title: "Team Building y Convivios", description: "Música que une — desde dinámicas con karaoke hasta fiesta libre. El DJ adapta la energía al nivel de confianza del grupo." },
+          { title: "Congreso y Conferencia + After", description: "Audio para ponentes durante el día y DJ para la fiesta de networking por la noche. Mismo equipo, dos configuraciones." },
+          { title: "Aniversario de Empresa", description: "Línea de tiempo musical que cuenta la historia de la empresa — desde el año de fundación hasta hoy. Un detalle que emociona." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué el DJ corporativo de REDEIL?"
+          subtitle="No mandamos al DJ de fiestas a tu evento de empresa."
+          paragraph1="El DJ corporativo tiene que vestirse diferente, hablar diferente y entender que el director general está a 3 metros de la bocina. No es lo mismo. Nuestros DJs corporativos tienen experiencia en eventos de empresa donde el protocolo es tan importante como la fiesta."
+          paragraph2="El line array QSC KLA distribuye el sonido de forma uniforme — la persona en la mesa 1 escucha igual que la de la mesa 30. Sin puntos muertos, sin zonas ensordecedoras."
+        />
+        <FeatureGrid features={[
+          { title: "Line Array QSC KLA Profesional", description: "Audio distribuido uniformemente en todo el salón. Sin puntos muertos ni zonas donde se distorsiona. Cubre hasta 400 personas." },
+          { title: "Colores de Tu Marca en Iluminación", description: "Los 8 PAR LED se programan con los colores corporativos de tu empresa. Tu logo proyectado es un extra disponible con paquete de gobos." },
+          { title: "Transición Protocolo → Fiesta", description: "El momento más delicado del evento. El DJ sabe cuándo el director terminó su discurso y la música tiene que subir sin que nadie lo note." },
+          { title: "Música Lounge para Coctel", description: "Selección curada de jazz, nu-disco y deep house suave que ambienta sin ser protagonista. Volumen calibrado para conversación." },
+          { title: "Coordinación con Producción", description: "Trabajamos con tu agencia de eventos, tu área de RRHH o tu equipo de producción. Nos adaptamos a la estructura que ya tienes." },
+          { title: "Dress Code Profesional", description: "El DJ llega vestido acorde al evento — formal para galas, smart casual para convivios. No mandamos al DJ con playera de festival." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen las empresas que nos contrataron"
+          subtitle="4.9 estrellas en 49 reseñas de eventos corporativos."
+          paragraph1="Cada reseña es de un cliente corporativo real que contrató nuestro paquete DJ para su evento de empresa."
+          paragraph2="Pregunta por referencias de eventos en venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ricardo Alemán", event: "Gala anual — WTC Ciudad de México, 300 personas", rating: 5, text: "El DJ entendió los tiempos corporativos perfectamente. Bajó el volumen para los discursos del director, música lounge durante el coctel y subió la energía para la fiesta." },
+          { name: "Adriana Campos", event: "Fiesta fin de año Scotiabank — Insurgentes, 250 empleados", rating: 5, text: "El line array QSC cubrió todo el salón sin puntos muertos. El DJ manejó la transición de premiaciones a fiesta de forma impecable." },
+          { name: "Jorge Villanueva", event: "Premiación BBVA — Centro Citibanamex, 400 personas", rating: 5, text: "Producción de audio nivel conferencia para las premiaciones y nivel fiesta para el after. El DJ supo exactamente cuándo cambiar el mood." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="DJ corporativo en eventos reales"
+        subtitle="Galas, premiaciones y fiestas de empresa en salones de CDMX."
+        paragraph1="Cada imagen es de un evento corporativo real donde nuestro DJ manejó audio y música. Desde el coctel ejecutivo hasta la fiesta de medianoche — la transición que solo un DJ con experiencia corporativa puede hacer."
+        paragraph2="¿Tienes evento de empresa? Mándanos los detalles y te armamos una propuesta con todo incluido."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ para fiesta de empresa corporativa en CDMX" },
+        { src: "/img/bocinas-djs/dj-para-eventos-salon-banquetes.avif", alt: "DJ en salón de banquetes para evento corporativo" },
+        { src: "/img/bocinas-djs/dj-para-eventos-terraza-rooftop.avif", alt: "DJ en terraza rooftop para coctel corporativo" },
+        { src: "/img/bocinas-djs/dj-para-eventos-sociales-celebraciones.avif", alt: "DJ en celebración corporativa social" },
+        { src: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif", alt: "DJ mezclando música en evento corporativo profesional" },
+        { src: "/img/bocinas-djs/dj-para-eventos-bailando-gente.avif", alt: "Empleados bailando en fiesta de empresa con DJ" },
+        { src: "/img/bocinas-djs/dj-para-eventos-musica-latina.avif", alt: "DJ poniendo música latina en evento corporativo" },
+        { src: "/img/bocinas-djs/dj-para-eventos-privados-exclusivos.avif", alt: "DJ para evento corporativo privado exclusivo" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete DJ Corporativo"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="También podemos agregar gobos con tu logo y city lights con los colores de tu marca."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿El DJ puede bajar el volumen durante discursos y premiaciones?", answer: "Sí. El DJ trabaja con una línea de tiempo del evento. Sabe exactamente cuándo hay discursos, premiaciones o presentaciones y baja el volumen o corta la música según se necesite. La transición de protocolo a fiesta es fluida y sin cortes incómodos." },
+      { question: "¿El line array QSC KLA cubre salones grandes?", answer: "Sí. El sistema QSC KLA con procesador cubre salones de hasta 400 personas con audio uniforme — sin puntos muertos ni zonas donde el sonido se distorsiona. Ideal para salones de hotel, centros de convenciones y venues corporativos." },
+      { question: "¿Incluye iluminación corporativa?", answer: "Sí. El paquete incluye 8 PAR LED con colores programables que pueden configurarse con los colores de tu marca. Si quieres proyectar tu logo, podemos agregar el paquete de gobos como complemento." },
+      { question: "¿Se puede facturar?", answer: "Sí. Emitimos factura CFDI con todos los datos fiscales que necesites. Somos proveedor registrado de múltiples empresas y podemos cumplir con procesos de alta de proveedores si lo requieres." },
+      { question: "¿Pueden cubrir el audio para presentaciones y la música para la fiesta?", answer: "Sí. El mismo sistema de line array QSC KLA sirve para ambas funciones. Conectamos las laptops de los presentadores al sistema para audio cristalino en las ponencias, y el DJ usa el mismo equipo para la fiesta. Un solo proveedor para todo el audio del evento." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas complementar tu evento corporativo?"
+        paragraph1="Los gobos con tu logo proyectado y los city lights con los colores de tu marca son los complementos más solicitados en corporativos. También tenemos DJ para boda si tu evento es social, y DJ festival si necesitas producción para 500+ personas."
+        paragraph2="Armamos paquetes combinados con precio especial para empresas. Cuéntanos tu evento y te diseñamos la propuesta."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para que tu evento corporativo tenga audio y DJ profesional?</h2>
+        <p>Mándanos la fecha, el venue, cuántos asistentes esperas y el formato del evento. Te armamos una propuesta completa en 24 horas.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
