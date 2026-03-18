@@ -1,68 +1,251 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Iluminación para Bodas en CDMX | REDEIL";
-const description = "Renta de iluminación profesional para bodas en CDMX. Guirnaldas, cabezas móviles, city color, gobos y más. Paquetes completos de luz para tu boda. REDEIL.";
+const title = "Paquetes de Iluminación para Boda en CDMX | REDEIL";
+const description = "Guirnaldas, seguidor, cabezas móviles, humo bajo y city color para bodas en CDMX. Paquetes completos desde $8,000 + IVA. Técnico incluido.";
 const canonical = "https://rentadeiluminacion.com/servicios/bodas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Iluminación Profesional para Bodas",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Paquetes de Iluminación para Bodas",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Paquetes completos de iluminación profesional para bodas en CDMX — guirnaldas edison, seguidor, cabezas móviles, humo bajo, city color y gobos monograma. Un solo proveedor para toda la luz de tu boda.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Paquetes de Iluminación para Bodas",
+    "priceRange": "$$$"
   },
-  "description": "Servicio integral de iluminación profesional para bodas en Ciudad de México. Guirnaldas, cabezas móviles, city color, gobos y diseño de iluminación personalizado.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Iluminación para Bodas"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye un paquete de iluminación para boda?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del paquete. Los básicos incluyen guirnaldas edison y uplighters para la ceremonia. Los completos agregan seguidor para el vals, cabezas móviles para la fiesta, humo bajo para el primer baile y city color para ambientar paredes. Todos incluyen técnico de iluminación, traslado, montaje y desmontaje." }},
+      { "@type": "Question", "name": "¿Hacen visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. En los paquetes Premium y Producción hacemos visita previa al venue para planificar la distribución de equipos, verificar tomas de corriente y diseñar el mapa de iluminación. En paquetes básicos, trabajamos con fotos y planos del espacio." }},
+      { "@type": "Question", "name": "¿Pueden iluminar jardines y haciendas sin conexión eléctrica?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Contamos con generadores de energía silenciosos para venues sin conexión eléctrica o con capacidad limitada. El generador se coloca alejado del área de celebración para que no genere ruido durante la ceremonia o el evento." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor iluminando vals de novios en salón con candil", description: "El spotlight que sigue a los novios durante el vals, el brindis y la entrada. El elemento más cinematográfico de la iluminación de boda.", link: "/servicios/seguidor/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", alt: "Guirnaldas edison decorando hacienda para boda", description: "Luz cálida y romántica que transforma jardines, haciendas y terrazas. El elemento decorativo más solicitado para bodas en CDMX.", link: "/servicios/guirnaldas/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Humo bajo en primer baile de boda romántico", description: "Niebla baja que cubre el piso durante el primer baile. El efecto visual más romántico para el vals de los novios.", link: "/servicios/humo-bajo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif", alt: "Cabezas móviles con beams blancos en boda elegante", description: "Show de luces dinámico para la fiesta — beams, gobos con iniciales y wash de color. Elevan la pista de baile a nivel producción.", link: "/servicios/cabezas-moviles/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Iluminación para Bodas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios/" },
+    { label: "Paquetes de Iluminación para Bodas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Iluminación Profesional para Bodas en CDMX"
-      subtitle="Diseño de luz que transforma tu boda en una experiencia mágica e inolvidable"
-      introParagraph1="En REDEIL somos especialistas en iluminación para bodas en la Ciudad de México. Combinamos guirnaldas edison, cabezas móviles, city color, gobos personalizados y luces arquitectónicas para crear ambientes únicos que reflejan la personalidad de cada pareja y el estilo de su celebración."
-      introParagraph2="Ofrecemos paquetes completos de iluminación que cubren desde la ceremonia hasta la fiesta. Nuestro equipo de diseño lumínico visita el venue previamente para planificar cada detalle, asegurando que la luz realce la decoración, el espacio y cada momento especial de tu boda."
+
+    <Hero
+      title="Paquetes de Iluminación Completa para Bodas en CDMX"
+      subtitle="Guirnaldas + seguidor + cabezas móviles + humo bajo. Un solo proveedor para toda la iluminación de tu boda. Desde $8,000 + IVA."
+      introParagraph1='La iluminación define el ambiente de una boda. No es lo mismo una hacienda con focos del venue que esa misma hacienda con <strong>guirnaldas edison cruzando el jardín, uplighters ámbar en las columnas y un seguidor iluminando a los novios en el primer baile</strong>. La diferencia entre "bonita boda" y "la mejor boda del año" casi siempre está en la luz. En <strong>REDEIL</strong> diseñamos paquetes de iluminación completa que cubren cada momento — desde la ceremonia hasta la fiesta — con un solo proveedor y un solo técnico coordinando todo.'
+      introParagraph2='Cada paquete combina los servicios de iluminación que mejor funcionan juntos: <strong>guirnaldas edison</strong> para ambiente cálido, <strong>seguidor</strong> para el vals y los momentos estelares, <strong>cabezas móviles</strong> para la fiesta, <strong>humo bajo</strong> para el primer baile, <strong>city color</strong> para ambientar paredes y <strong>gobos monograma</strong> con las iniciales de los novios. Cubrimos bodas en haciendas, jardines, salones, terrazas y rooftops en toda la CDMX y Estado de México. Montaje anticipado y prueba de luces antes de que lleguen los invitados.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Iluminación que hace única cada boda"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="La iluminación es uno de los elementos más transformadores en una boda. Las guirnaldas edison crean ese ambiente cálido y romántico en jardines y haciendas. Las cabezas móviles añaden dinamismo durante la fiesta y el primer baile. El city color permite bañar paredes y fachadas con el color temático de tu boda. Y los gobos personalizados proyectan monogramas e iniciales de los novios."
-          paragraph2="En REDEIL diseñamos la iluminación de tu boda considerando cada momento: luz suave y cálida para la ceremonia, ambientación elegante para la cena, iluminación dinámica para el primer baile y efectos de alto impacto para la fiesta. Cada transición es operada en vivo por nuestros técnicos para crear una experiencia visual fluida."
+
+    <CtaBar
+      headline="¿Qué necesitas para la iluminación de tu boda?"
+      items={[
+        { label: "Guirnaldas", href: "/servicios/guirnaldas/", icon: "iluminacion" },
+        { label: "Seguidor", href: "/servicios/seguidor/", icon: "iluminacion" },
+        { label: "Ver paquetes", href: "#paquetes", icon: "iluminacion" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Iluminación en bodas reales en CDMX"
+          subtitle="Guirnaldas, seguidor, cabezas móviles y humo bajo en haciendas, jardines y salones."
+          paragraph1="Cada boda tiene su personalidad y la luz debe reflejarla. Las guirnaldas edison en una hacienda colonial, el seguidor siguiendo a los novios en su vals, las cabezas móviles pintando la pista con colores durante la hora loca. Estos son montajes de iluminación reales que hemos operado en la CDMX."
+          paragraph2="Trabajamos con tu wedding planner y decorador para que la iluminación complemente la paleta de colores y el concepto visual de tu boda."
         />
-        <p>Cubrimos bodas en haciendas, jardines, salones, terrazas, rooftops, playas y cualquier venue en la CDMX y zona metropolitana. Contamos con equipo de respaldo y generadores de energía para venues sin conexión eléctrica.</p>
+        <Gallery4x4 images={[
+          { src: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", alt: "Guirnaldas edison iluminando hacienda para boda" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif", alt: "Guirnaldas en hacienda mexicana para boda" },
+          { src: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor iluminando baile de novios en salón con candil" },
+          { src: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Humo bajo en primer baile de boda romántico" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif", alt: "Guirnaldas en ceremonia de boda en jardín" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif", alt: "Cabezas móviles con beams blancos en boda elegante" },
+          { src: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif", alt: "Baile de novios con guirnaldas en hacienda" },
+          { src: "/img/humo-bajo/efecto-nubes-piso-boda-jardin.avif", alt: "Efecto de nubes en piso de boda en jardín" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-romantica-beams-suaves.avif", alt: "Cabezas móviles con beams suaves en boda romántica" },
+          { src: "/img/seguidor/luz-seguidor-boda-entrada-novios-confeti-puerta.avif", alt: "Seguidor iluminando entrada de novios con confeti" },
+          { src: "/img/guirnaldas/renta-guirnaldas-boda-arco-floral-pergola-13.avif", alt: "Guirnaldas en arco floral y pérgola de boda" },
+          { src: "/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif", alt: "Humo bajo en vals de boda con pista iluminada" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-boda-hacienda-gobos-cielo.avif", alt: "Cabezas móviles con gobos en hacienda de boda" },
+          { src: "/img/guirnaldas/renta-guirnaldas-ceremonia-atardecer-jardin-12.avif", alt: "Guirnaldas en ceremonia al atardecer en jardín" },
+          { src: "/img/seguidor/luz-seguidor-boda-salon-candelabros-baile-novios.avif", alt: "Seguidor en baile de novios en salón con candelabros" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-gobo-monograma-boda-salon.avif", alt: "Gobo monograma proyectado en salón de boda" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Iluminación para Bodas" subtitle="Montajes de luz en bodas reales en la Ciudad de México">
-      <figure class="gallery-item">
-        <img src="/img/bodas/boda-hacienda-guirnaldas-cabezas-moviles.avif" alt="Boda en hacienda con guirnaldas edison y cabezas móviles creando ambiente mágico" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bodas/boda-elegante-guirnaldas-iluminacion-dj.avif" alt="Boda elegante con guirnaldas decorativas e iluminación profesional de DJ" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bodas/recepcion-boda-guirnaldas-edison-hacienda.avif" alt="Recepción de boda en hacienda iluminada con guirnaldas edison vintage" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bodas/iluminacion-completa-boda-hacienda-elegante.avif" alt="Iluminación completa profesional en boda elegante en hacienda colonial" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bodas/guirnaldas-led-boda-jardin-noche.avif" alt="Guirnaldas LED iluminando jardín durante boda nocturna romántica" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bodas/salon-boda-guirnaldas-edison-city-color.avif" alt="Salón de boda con guirnaldas edison y city color en tonos elegantes" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Iluminación para Bodas"
+          subtitle="Desde ceremonia íntima hasta producción completa. Técnico de iluminación incluido."
+          paragraph1="Cada paquete incluye equipo profesional, técnico de iluminación, traslado, montaje anticipado y desmontaje. El técnico opera las luces en vivo — cada cambio de escena, cada momento del protocolo, coordinado con el DJ y el maestro de ceremonias."
+          paragraph2="¿Tu boda tiene un concepto específico? Personalizamos cualquier paquete con colores, gobos con iniciales y efectos adicionales."
+        />
+        <PricingCards packages={[
+          {
+            name: "Iluminación Ceremonia",
+            price: "$5,500",
+            priceNote: "+ IVA",
+            description: "Iluminación cálida y elegante para la ceremonia y cena. Uplighters + guirnaldas que transforman el espacio.",
+            features: [
+              { text: "8 uplighters LED ámbar/cálido", included: true },
+              { text: "Guirnaldas edison (30m lineales)", included: true },
+              { text: "Técnico de iluminación incluido", included: true },
+              { text: "Montaje anticipado + desmontaje", included: true },
+              { text: "Ideal para: ceremonias íntimas, cenas", included: true },
+              { text: "Seguidor para el vals", included: false },
+              { text: "Cabezas móviles para fiesta", included: false },
+              { text: "Humo bajo para primer baile", included: false },
+            ],
+            ctaLabel: "Cotizar iluminación ceremonia",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Boda Romántica",
+            price: "$12,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Guirnaldas + seguidor + humo bajo. La combinación perfecta para bodas que quieren ese toque cinematográfico.",
+            features: [
+              { text: "Guirnaldas edison (50m lineales)", included: true },
+              { text: "Seguidor profesional para vals y momentos clave", included: true },
+              { text: "Humo bajo para primer baile", included: true },
+              { text: "12 uplighters LED en paleta de tu boda", included: true },
+              { text: "Técnico de iluminación toda la noche", included: true },
+              { text: "Coordinación con DJ y wedding planner", included: true },
+              { text: "Montaje anticipado + prueba de luces", included: true },
+              { text: "Ideal para: bodas 100-200 personas", included: true },
+            ],
+            ctaLabel: "Cotizar boda romántica",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Boda Premium",
+            price: "$18,000",
+            priceNote: "+ IVA",
+            description: "Todo lo anterior + cabezas móviles + city color + gobos monograma. Producción visual de nivel revista.",
+            features: [
+              { text: "Todo lo incluido en Boda Romántica", included: true },
+              { text: "4 cabezas móviles beam/wash", included: true },
+              { text: "City color para paredes y fachada", included: true },
+              { text: "Gobo monograma con iniciales de los novios", included: true },
+              { text: "Diseño de iluminación personalizado", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "2 técnicos de iluminación", included: true },
+              { text: "Ideal para: bodas 200-350 personas", included: true },
+            ],
+            ctaLabel: "Cotizar boda premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción Boda",
+            price: "$28,000",
+            priceNote: "+ IVA",
+            description: "Producción completa de iluminación: todo el catálogo de luz + técnico dedicado + diseño artístico integral.",
+            features: [
+              { text: "Todo lo incluido en Boda Premium", included: true },
+              { text: "8+ cabezas móviles para show de luces", included: true },
+              { text: "Guirnaldas ilimitadas (100m+ lineales)", included: true },
+              { text: "Bola disco + efectos especiales", included: true },
+              { text: "Director de iluminación dedicado", included: true },
+              { text: "Generador de energía si es necesario", included: true },
+              { text: "Diseño artístico integral del venue", included: true },
+              { text: "Ideal para: bodas 350+ personas", included: true },
+            ],
+            ctaLabel: "Cotizar producción completa",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Iluminación para Bodas"
+          subtitle="Todo lo que necesitas saber antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Te asesoramos según tu venue, estilo de boda y presupuesto para armar el paquete ideal."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué incluye un paquete de iluminación para boda?", answer: "Depende del paquete. Los básicos incluyen guirnaldas edison y uplighters para la ceremonia y cena. Los intermedios agregan seguidor para el vals y humo bajo para el primer baile. Los premium incluyen cabezas móviles, city color, gobos monograma y producción completa. Todos incluyen técnico de iluminación, traslado, montaje anticipado y desmontaje." },
+        { question: "¿Hacen visita previa al venue?", answer: "Sí. En los paquetes Premium y Producción hacemos visita previa al venue para planificar la distribución de equipos, verificar tomas de corriente y diseñar el mapa de iluminación según la arquitectura del espacio. En paquetes básicos, trabajamos con fotos y planos que nos envíes." },
+        { question: "¿Pueden iluminar jardines y haciendas sin conexión eléctrica?", answer: "Sí. Contamos con generadores de energía silenciosos para venues sin conexión eléctrica o con capacidad limitada. El generador se coloca alejado del área de celebración para que no genere ruido durante la ceremonia. Las guirnaldas son de bajo consumo y funcionan perfectamente con generador." },
+        { question: "¿El seguidor sigue a los novios toda la noche?", answer: "El seguidor se usa en los momentos clave: entrada de los novios, primer vals, baile padre-hija/madre-hijo, brindis, corte de pastel y momentos que tú definas. Entre momentos, el técnico apaga el seguidor para que la atención fluya naturalmente. Es más impactante cuando se usa estratégicamente." },
+        { question: "¿Pueden coordinar los colores con mi decoración?", answer: "Siempre. Los uplighters LED y el city color son RGB — podemos programar exactamente los colores de tu paleta de boda. El técnico ajusta los tonos durante el montaje para que la luz complemente flores, manteles y centros de mesa. Si tu wedding planner tiene un moodboard, lo usamos como referencia." },
+        { question: "¿Cuánto tiempo antes montan el equipo?", answer: "Montamos 3-4 horas antes del evento. Las guirnaldas se instalan por la mañana si el venue lo permite. Hacemos prueba de luces completa antes de que lleguen los invitados. El técnico permanece toda la noche operando las transiciones de iluminación en vivo, coordinado con el DJ." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Servicios de Iluminación Individual para Bodas"
+          subtitle="¿Solo necesitas un servicio? Cotiza por separado."
+          paragraph1="Si ya tienes parte de la iluminación resuelta y solo necesitas el seguidor para el vals o las guirnaldas para el jardín, cada servicio se cotiza individualmente. También puedes armar tu propio paquete combinando los que necesites."
+          paragraph2="Cada servicio individual incluye equipo, técnico, traslado y montaje."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para diseñar la iluminación de tu boda?</h2>
+          <p>Cuéntanos sobre tu venue, la fecha y el estilo de tu boda. Te armamos el paquete de iluminación perfecto en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

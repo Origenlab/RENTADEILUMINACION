@@ -9,15 +9,15 @@ import Gallery4x4 from '../../components/Gallery4x4.astro';
 import PricingCards from '../../components/PricingCards.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Máquina de Confeti para Eventos CDMX | REDEIL";
-const description = "Explosiones de confeti y lluvia de papelitos para bodas, XV años, gender reveal y festivales en CDMX. Confeti biodegradable disponible. Desde $2,000 + IVA.";
+const title = "Confeti y Papelitos para Bodas y Salidas de Iglesia CDMX | REDEIL";
+const description = "Lluvia de confeti para la salida de iglesia, el vals y el primer beso. Cañones de CO₂ y confeti manual biodegradable. Desde $1,500 + IVA en CDMX.";
 const canonical = "https://rentadeiluminacion.com/servicios/confeti-papelitos/";
 
 const schemaMarkup = JSON.stringify([
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Renta de Máquina de Confeti para Eventos",
+    "name": "Confeti y Papelitos para Bodas y Salidas de Iglesia",
     "provider": {
       "@type": "LocalBusiness",
       "name": "REDEIL",
@@ -25,30 +25,30 @@ const schemaMarkup = JSON.stringify([
       "telephone": "+525530682988",
       "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
     },
-    "description": "Servicio profesional de renta de máquinas de confeti y papelitos para bodas, XV años, gender reveal y eventos masivos en CDMX. Confeti biodegradable disponible.",
+    "description": "Servicio de confeti y papelitos para bodas — lluvia de pétalos en salida de iglesia, confeti biodegradable para el vals y cañones de CO₂ sutiles para momentos ceremoniales en CDMX.",
     "areaServed": [
       { "@type": "City", "name": "Ciudad de México" },
       { "@type": "State", "name": "Estado de México" }
     ],
-    "serviceType": "Renta de Máquina de Confeti",
+    "serviceType": "Confeti y Papelitos para Bodas",
     "priceRange": "$$"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "¿Cuánto alcance tiene la explosión de confeti?", "acceptedAnswer": { "@type": "Answer", "text": "Las máquinas de confeti profesionales de CO₂ pueden disparar una nube de confeti hasta 8-10 metros de altura y 5-6 metros de radio. Para pistas de baile de hasta 200m², con 2-3 máquinas bien posicionadas se cubre toda el área." }},
-      { "@type": "Question", "name": "¿Tienen confeti biodegradable?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Contamos con confeti de papel biodegradable especialmente para eventos al aire libre — jardines, haciendas y espacios exteriores donde la limpieza puede ser difícil. El confeti de papel se disuelve con agua y no daña el entorno." }},
-      { "@type": "Question", "name": "¿El confeti se puede usar en exteriores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las máquinas de confeti de CO₂ funcionan perfectamente en exteriores. Con viento, la nube se dispersa más ampliamente — el efecto visual puede ser incluso más espectacular. Para exteriores recomendamos confeti biodegradable." }}
+      { "@type": "Question", "name": "¿El confeti biodegradable se puede usar en la salida de la iglesia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El confeti de papel biodegradable es la opción ideal para salidas de iglesia — se disuelve con agua en 24-72 horas sin dejar residuo en la banqueta ni dañar jardines. Es el tipo de confeti que recomendamos para cualquier espacio al aire libre." }},
+      { "@type": "Question", "name": "¿Cuántos cañones necesito para mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del momento. Para la salida de iglesia con 50-80 personas, basta con confeti manual biodegradable sin cañones. Para el vals en salón, 2 cañones de CO₂ sutiles cubren bien una pista de 100m². Para una boda completa con múltiples momentos (entrada, vals, salida), recomendamos 4 cañones posicionados estratégicamente." }},
+      { "@type": "Question", "name": "¿El confeti de pétalos es real o artificial?", "acceptedAnswer": { "@type": "Answer", "text": "Ofrecemos ambas opciones. Los pétalos naturales son ideales para ceremonias íntimas y fotografías románticas. Los pétalos de tela y papel biodegradable son más económicos y funcionan mejor con cañones de CO₂ porque tienen el peso correcto para flotar en el aire." }}
     ]
   }
 ]);
 
 const serviciosRelacionados = [
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Niebla baja en boda en jardín", description: "Confeti en el primer baile + niebla baja para el vals. Dos efectos visuales que crean el momento más fotografiado.", link: "/servicios/humo-bajo/" },
-  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals de novios", description: "Spotlight + lluvia de confeti = la foto de portada de revista. El efecto más cinematográfico para bodas.", link: "/servicios/seguidor/" },
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas móviles con beams en boda", description: "Show de luces + explosión de confeti en el drop musical. La combinación que hace gritar a todos.", link: "/servicios/cabezas-moviles/" },
-  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco en pista de baile", description: "Los destellos de la bola disco + confeti cayendo = imagen de discoteca de lujo. Para fiestas retro o elegantes.", link: "/servicios/bola-disco/" },
+  { title: "Máquinas de Confeti CO₂", image: "/img/confeti/maquina-confeti-boda-novios-celebracion.avif", alt: "Máquina de confeti CO₂ para eventos masivos", description: "¿Necesitas explosiones de confeti para un concierto, festival o evento masivo? Las máquinas de CO₂ profesionales cubren estadios completos.", link: "/servicios/confeti/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Humo bajo en primer baile de boda", description: "Confeti cayendo + niebla baja en el piso = la foto más cinematográfica de tu boda. Dos efectos que se complementan perfecto.", link: "/servicios/humo-bajo/" },
+  { title: "Burbujas", image: "/img/burbujas/burbujas-boda-jardin-novios.avif", alt: "Burbujas en boda de jardín", description: "Burbujas + pétalos en la salida de iglesia. Una combinación delicada y romántica que encanta a todos los invitados.", link: "/servicios/burbujas/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif", alt: "Seguidor iluminando vals de novios", description: "Spotlight en los novios + lluvia de confeti = la imagen que la gente enmarca. El efecto más fotografiado en bodas.", link: "/servicios/seguidor/" },
 ];
 ---
 
@@ -58,23 +58,23 @@ const serviciosRelacionados = [
   <Breadcrumbs items={[
     { label: "Inicio", href: "/" },
     { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
-    { label: "Confeti y Papelitos" }
+    { label: "Confeti y Papelitos para Bodas" }
   ]} />
 </Fragment>
 
     <Hero
-      title="Renta de Máquina de Confeti y Papelitos en CDMX"
-      subtitle="Explosiones de confeti de CO₂ para bodas, XV años, gender reveal y conciertos. Biodegradable disponible. Desde $2,000 + IVA."
-      introParagraph1='Una explosión de confeti detiene el tiempo. La cámara abre el obturador, los invitados levantan la vista y por un segundo todo el mundo está exactamente en el mismo momento. Es el efecto visual más poderoso de cualquier evento — por eso lo usamos en entregas de premios, goles de campeonato, vals de bodas y entradas de quinceañeras. En <strong>REDEIL</strong> operamos máquinas de confeti profesionales con carga de CO₂ que disparan nubes de hasta 10 metros de altura — completamente diferentes a los cañones manuales que se usan en fiestas caseras.'
-      introParagraph2='Contamos con confeti en <strong>dorado, blanco, rosa, azul, multicolor</strong> y en forma de corazones, estrellas y círculos. Para eventos al aire libre, ofrecemos confeti de papel <strong>biodegradable</strong> que se disuelve con agua sin dañar jardines ni plantas. El operador posiciona las máquinas estratégicamente y coordina el disparo exacto con el fotógrafo y el DJ — para que la explosión suceda en el millisegundo correcto. Bodas, XV años, gender reveals, conciertos y eventos corporativos en toda la CDMX y Estado de México.'
+      title="Confeti y Papelitos para el Momento Más Fotografiado de tu Boda"
+      subtitle="Lluvia de confeti en la salida de iglesia, el primer beso y el vals. Pétalos, confeti biodegradable y cañones de CO₂ sutiles. Desde $1,500 + IVA."
+      introParagraph1='Hay un momento en cada boda que todo el mundo recuerda: los novios cruzando la puerta de la iglesia bajo una lluvia de pétalos y confeti. Las cámaras disparan, los invitados aplauden y por un segundo el tiempo se detiene. Ese momento no necesita una máquina de CO₂ industrial — necesita <strong>confeti manual biodegradable, pétalos naturales o cañones sutiles</strong> que crean una nube delicada, íntima y perfectamente coordinada con el fotógrafo.'
+      introParagraph2='En <strong>REDEIL</strong> nos especializamos en los momentos ceremoniales de la boda: la salida de iglesia, el primer beso como esposos, el vals padre-hija y el primer baile. Cada momento tiene su propio tipo de confeti — pétalos para la ceremonia, confeti biodegradable para exteriores, corazones dorados para el vals. Coordinamos cada disparo con el fotógrafo y el videógrafo para que la lluvia suceda exactamente cuando la cámara está lista. Bodas íntimas de 50 personas hasta celebraciones de 400+ en toda la CDMX y Estado de México.'
     />
 
     <CtaBar
-      headline="¿Para qué momento quieres la explosión?"
+      headline="¿En qué momento quieres la lluvia de confeti?"
       items={[
-        { label: "Vals de Boda", href: "#paquetes", icon: "efectos" },
-        { label: "Gender Reveal", href: "#paquetes", icon: "efectos" },
-        { label: "Más efectos", href: "/servicios/efectos-especiales/", icon: "efectos" },
+        { label: "Salida de Iglesia", href: "#paquetes", icon: "efectos" },
+        { label: "Vals y Primer Baile", href: "#paquetes", icon: "efectos" },
+        { label: "Más efectos boda", href: "/servicios/bodas/", icon: "iluminacion" },
         { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
       ]}
     />
@@ -83,28 +83,28 @@ const serviciosRelacionados = [
     <section class="services-section">
       <div class="container">
         <SectionHeader
-          title="Confeti en bodas, XV años y eventos reales"
-          subtitle="Desde explosiones de CO₂ hasta lluvia de papelitos — cada evento tiene su momento."
-          paragraph1="El confeti dorado en el primer baile de los novios. Los papelitos rosas en el gender reveal. La explosión multicolor cuando el DJ hace el drop. Cada explosión de confeti es un momento que la gente recuerda y que los fotógrafos buscan capturar."
-          paragraph2="La clave está en el timing. Nuestros operadores trabajan directamente con el fotógrafo para que el disparo suceda exactamente cuando la cámara está lista."
+          title="Confeti y pétalos en bodas reales"
+          subtitle="Salidas de iglesia, vals, primer beso — cada momento con su confeti ideal."
+          paragraph1="El confeti dorado cayendo sobre los novios en su primer baile. Los pétalos rosas volando en la salida de la iglesia. Los corazones de papel flotando mientras se dan el primer beso como esposos. Cada uno de estos momentos merece un tipo diferente de confeti y un timing perfecto."
+          paragraph2="Nuestro equipo trabaja directamente con tu fotógrafo y videógrafo. El operador espera la señal exacta para que la lluvia de confeti coincida con el momento en que las cámaras están listas."
         />
         <Gallery4x4 images={[
+          { src: "/img/maquina-de-papelitos/confeti-salida-iglesia-boda-novios-felices.avif", alt: "Confeti en salida de iglesia de boda con novios felices" },
+          { src: "/img/maquina-de-papelitos/confeti-rosa-boda-atardecer-beso-novios.avif", alt: "Confeti rosa en boda al atardecer con beso de novios" },
           { src: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico.avif", alt: "Confeti dorado en primer baile de novios romántico" },
-          { src: "/img/maquina-de-papelitos/maquina-confeti-primer-baile-boda-salon-elegante.avif", alt: "Máquina de confeti en primer baile en salón elegante" },
+          { src: "/img/maquina-de-papelitos/confeti-petalos-boda-jardin-camino-novios.avif", alt: "Pétalos y confeti en camino de novios en boda de jardín" },
+          { src: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Confeti dorado en fiesta de boda con novios" },
+          { src: "/img/maquina-de-papelitos/maquina-confeti-primer-baile-boda-salon-elegante.avif", alt: "Confeti en primer baile de boda en salón elegante" },
           { src: "/img/maquina-de-papelitos/explosion-confeti-blanco-boda-pista-baile.avif", alt: "Explosión de confeti blanco en pista de baile de boda" },
-          { src: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "Confeti dorado en vals de quinceañera" },
-          { src: "/img/maquina-de-papelitos/maquina-confeti-xv-anos-baile-padre-quinceañera.avif", alt: "Máquina de confeti en baile de padre con quinceañera" },
-          { src: "/img/maquina-de-papelitos/lluvia-confeti-corazones-xv-anos-vestido-rosa.avif", alt: "Lluvia de confeti corazones en XV años con vestido rosa" },
           { src: "/img/maquina-de-papelitos/confeti-rosa-boda-jardin-atardecer-novios.avif", alt: "Confeti rosa en boda de jardín al atardecer" },
-          { src: "/img/maquina-de-papelitos/explosion-confeti-rosa-revelacion-sexo-bebe-nina.avif", alt: "Explosión de confeti rosa en gender reveal de niña" },
-          { src: "/img/maquina-de-papelitos/explosion-confeti-azul-revelacion-sexo-bebe-nino.avif", alt: "Confeti azul en gender reveal de niño" },
-          { src: "/img/maquina-de-papelitos/maquina-confeti-concierto-fiesta-neon-colores.avif", alt: "Máquina de confeti en concierto con fiesta neón de colores" },
-          { src: "/img/maquina-de-papelitos/explosion-confeti-concierto-multitud-luces.avif", alt: "Explosión de confeti en concierto con multitud y luces" },
-          { src: "/img/maquina-de-papelitos/confeti-discoteca-laser-verde-bola-espejos.avif", alt: "Confeti en discoteca con láser verde y bola de espejos" },
-          { src: "/img/maquina-de-papelitos/maquina-confeti-baile-padre-novia-recepcion.avif", alt: "Confeti en baile de padre e hija en recepción de boda" },
           { src: "/img/maquina-de-papelitos/lluvia-papelitos-boda-elegante-candelabros.avif", alt: "Lluvia de papelitos en boda elegante con candelabros" },
-          { src: "/img/maquina-de-papelitos/confeti-salida-iglesia-boda-novios-felices.avif", alt: "Confeti en salida de iglesia de boda novios felices" },
-          { src: "/img/maquina-de-papelitos/lluvia-confeti-boda-candelier-chispas-frias.avif", alt: "Lluvia de confeti con chispas frías y candelier en boda" },
+          { src: "/img/maquina-de-papelitos/maquina-confeti-baile-padre-novia-recepcion.avif", alt: "Confeti en baile de padre con novia en recepción" },
+          { src: "/img/confeti/maquina-confeti-boda-novios-celebracion.avif", alt: "Máquina de confeti en celebración de boda" },
+          { src: "/img/maquina-de-papelitos/lluvia-confeti-corazones-xv-anos-vestido-rosa.avif", alt: "Lluvia de confeti corazones en celebración con vestido rosa" },
+          { src: "/img/maquina-de-papelitos/lluvia-confeti-boda-candelier-chispas-frias.avif", alt: "Lluvia de confeti con candelier y chispas frías en boda" },
+          { src: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "Confeti dorado en vals de celebración" },
+          { src: "/img/maquina-de-papelitos/maquina-confeti-xv-anos-baile-padre-quinceañera.avif", alt: "Confeti en baile emotivo padre e hija" },
+          { src: "/img/maquina-de-papelitos/explosion-confeti-rosa-revelacion-sexo-bebe-nina.avif", alt: "Explosión de confeti rosa en celebración especial" },
         ]} />
       </div>
     </section>
@@ -113,84 +113,84 @@ const serviciosRelacionados = [
     <section class="services-section services-alt" id="paquetes">
       <div class="container">
         <SectionHeader
-          title="Paquetes de Confeti y Papelitos"
-          subtitle="Desde un disparo único hasta cobertura completa del evento. Operador incluido."
-          paragraph1="Cada paquete incluye las máquinas de CO₂, el confeti en el color que elijas, operador técnico y traslado. El operador coordina el disparo con el fotógrafo, el DJ y el maestro de ceremonias para el timing perfecto."
-          paragraph2="¿Necesitas colores específicos o confeti en forma especial? Consultanos — tenemos amplio catálogo de formas y colores."
+          title="Paquetes de Confeti para Bodas"
+          subtitle="Desde la salida de iglesia hasta la producción completa. Operador y coordinación incluidos."
+          paragraph1="Cada paquete incluye el confeti en el color y forma que elijas, operador técnico, traslado y coordinación con tu fotógrafo. El operador sincroniza cada disparo con las cámaras para que la lluvia suceda en el momento exacto."
+          paragraph2="¿Pétalos naturales, confeti biodegradable o corazones dorados? Te asesoramos según el venue, el momento y el estilo de tu boda."
         />
         <PricingCards packages={[
           {
-            name: "Disparo Único",
-            price: "$2,000",
+            name: "Salida de Iglesia",
+            price: "$1,500",
             priceNote: "+ IVA",
-            description: "Una explosión de confeti perfectamente cronometrada para el momento más especial del evento.",
+            description: "Confeti manual biodegradable y pétalos para la salida de iglesia. El momento más clásico y fotografiado.",
             features: [
-              { text: "1 máquina de confeti CO₂ profesional", included: true },
-              { text: "1 carga de confeti a tu elección de color", included: true },
-              { text: "Operador técnico incluido", included: true },
-              { text: "Traslado + montaje + desmontaje", included: true },
-              { text: "Coordinación con fotógrafo/DJ", included: true },
-              { text: "Ideal para: vals, gender reveal, momentos únicos", included: true },
-              { text: "Disparos adicionales", included: false },
-              { text: "Múltiples colores", included: false },
+              { text: "Confeti manual biodegradable para invitados", included: true },
+              { text: "Pétalos naturales o de tela incluidos", included: true },
+              { text: "Distribución a 50-80 invitados", included: true },
+              { text: "Coordinación con fotógrafo/videógrafo", included: true },
+              { text: "Ideal para: salida de iglesia, ceremonia civil", included: true },
+              { text: "Cañones de CO₂", included: false },
+              { text: "Múltiples momentos", included: false },
+              { text: "Confeti metálico o dorado", included: false },
             ],
-            ctaLabel: "Cotizar disparo único",
+            ctaLabel: "Cotizar salida de iglesia",
             ctaHref: "/contacto/",
           },
           {
-            name: "Moments Pack — 3 Disparos",
-            price: "$4,000",
+            name: "Bodas Íntimas",
+            price: "$2,500",
             priceNote: "+ IVA",
             badge: "Más popular",
             highlight: true,
-            description: "3 explosiones para los 3 momentos estelares del evento. Vals, brindis y hora loca — cada uno con su propio confeti.",
+            description: "2 cañones de CO₂ sutiles + confeti biodegradable + pétalos para el vals y un momento adicional.",
             features: [
-              { text: "2 máquinas de confeti CO₂", included: true },
-              { text: "3 cargas de confeti (colores diferentes)", included: true },
+              { text: "2 cañones de CO₂ sutiles", included: true },
+              { text: "Confeti biodegradable + pétalos", included: true },
+              { text: "2 momentos: vals + salida o primer beso", included: true },
               { text: "Operador técnico incluido", included: true },
+              { text: "Coordinación con fotógrafo y DJ", included: true },
               { text: "Traslado + montaje + desmontaje", included: true },
-              { text: "Coordinación completa con DJ/MC", included: true },
-              { text: "Ideal para: bodas, XV años completos", included: true },
-              { text: "Timing personalizado por momento", included: true },
-              { text: "Confeti biodegradable opcional", included: true },
+              { text: "Ideal para: bodas íntimas 50-150 personas", included: true },
+              { text: "Colores a tu elección", included: true },
             ],
-            ctaLabel: "Cotizar 3 momentos",
+            ctaLabel: "Cotizar bodas íntimas",
             ctaHref: "/contacto/",
           },
           {
-            name: "Show Completo",
-            price: "$6,500",
+            name: "Boda Completa",
+            price: "$4,500",
             priceNote: "+ IVA",
-            description: "Máquinas de confeti disponibles toda la noche para múltiples activaciones en los picos del evento.",
+            description: "4 cañones + confeti biodegradable para múltiples momentos: entrada, vals, primer beso y salida.",
             features: [
-              { text: "3 máquinas de confeti CO₂ profesionales", included: true },
-              { text: "Recarga ilimitada de confeti", included: true },
-              { text: "Operador técnico toda la noche", included: true },
-              { text: "Múltiples colores disponibles", included: true },
-              { text: "Coordinación con DJ en tiempo real", included: true },
-              { text: "Ideal para: galas, corporativos, XV años VIP", included: true },
-              { text: "Confeti biodegradable para exterior", included: true },
-              { text: "Cobertura de toda la pista de baile", included: true },
+              { text: "4 cañones de CO₂ profesionales", included: true },
+              { text: "Confeti biodegradable en varios colores", included: true },
+              { text: "Cobertura de 3-4 momentos del evento", included: true },
+              { text: "Entrada + vals + primer beso + salida", included: true },
+              { text: "Operador técnico toda la recepción", included: true },
+              { text: "Coordinación completa con DJ y MC", included: true },
+              { text: "Pétalos + corazones + confeti circular", included: true },
+              { text: "Ideal para: bodas 150-300 personas", included: true },
             ],
-            ctaLabel: "Cotizar show completo",
+            ctaLabel: "Cotizar boda completa",
             ctaHref: "/contacto/",
           },
           {
-            name: "Producción Masiva",
-            price: "$12,000",
+            name: "Producción Boda Premium",
+            price: "$7,500",
             priceNote: "+ IVA",
-            description: "Para conciertos, festivales y eventos de gran escala. Cañones de confeti de largo alcance para cubrir a cientos de personas.",
+            description: "8 cañones + confeti dorado premium + pétalos + coordinación completa de todos los momentos ceremoniales.",
             features: [
-              { text: "6+ cañones de confeti profesionales", included: true },
-              { text: "Confeti de largo alcance (hasta 15m)", included: true },
-              { text: "Confeti dorado, plateado y multicolor", included: true },
-              { text: "Equipo técnico completo", included: true },
-              { text: "Sincronización con producción del evento", included: true },
-              { text: "Recarga ilimitada durante el show", included: true },
-              { text: "Ideal para: conciertos, festivales, TV", included: true },
-              { text: "Visita previa de producción", included: true },
+              { text: "8 cañones de CO₂ posicionados estratégicamente", included: true },
+              { text: "Confeti dorado, corazones y pétalos premium", included: true },
+              { text: "Cobertura ilimitada de momentos", included: true },
+              { text: "Equipo técnico completo (2 operadores)", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Coordinación con wedding planner", included: true },
+              { text: "Confeti biodegradable para exteriores", included: true },
+              { text: "Ideal para: bodas 300+ personas", included: true },
             ],
-            ctaLabel: "Cotizar producción masiva",
+            ctaLabel: "Cotizar producción premium",
             ctaHref: "/contacto/",
           },
         ]} />
@@ -201,19 +201,19 @@ const serviciosRelacionados = [
     <section class="faq-section">
       <div class="container">
         <SectionHeader
-          title="Preguntas sobre Confeti y Papelitos"
-          subtitle="Todo lo que necesitas saber antes de contratar."
+          title="Preguntas sobre Confeti para Bodas"
+          subtitle="Todo lo que necesitas saber antes de tu boda."
           paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
-          paragraph2="Tenemos confeti en todos los colores, tamaños y materiales — te asesoramos para elegir el ideal."
+          paragraph2="Te asesoramos sobre tipo de confeti, colores y logística según tu venue y estilo de boda."
         />
       </div>
       <FaqSection items={[
-        { question: "¿El confeti deja residuo difícil de limpiar?", answer: "Depende del tipo. El confeti metálico (Mylar) es el más bonito pero el más difícil de recoger — se adhiere a telas y alfombras. El confeti de papel es más fácil de barrer. El biodegradable se disuelve con agua. Para venues que cobran limpieza extra por confeti metálico, recomendamos el de papel o biodegradable. Siempre consultamos con el venue antes." },
-        { question: "¿Tienen confeti biodegradable para jardines?", answer: "Sí. Contamos con confeti de papel biodegradable en colores, corazones y formas especiales. Se disuelve con agua en 24-72 horas sin afectar plantas ni jardines. Es la opción preferida para bodas en haciendas y jardines exteriores." },
-        { question: "¿En qué colores tienen confeti?", answer: "Dorado, plateado, blanco, rosa, azul, verde, rojo, multicolor y en formas: corazones, estrellas, círculos, mariposas y confeti rectangular estándar. Para gender reveals tenemos rosa y azul específicamente. Si necesitas un color especial, consúltanos con anticipación." },
-        { question: "¿Cuánto alcance tiene la máquina?", answer: "Las máquinas profesionales de CO₂ disparan confeti hasta 8-10 metros de altura y 5-6 metros de radio horizontal. Para cubrir una pista de baile de 200m², usamos 2-3 máquinas posicionadas estratégicamente en los extremos." },
-        { question: "¿Se puede usar en el exterior de la iglesia?", answer: "Sí — es uno de los usos más populares. La salida de los novios de la iglesia entre una lluvia de confeti es una imagen clásica. Usamos confeti de papel biodegradable para no dejar residuo en la banqueta. El operador se posiciona en el exterior y dispara cuando los novios cruzan la puerta." },
-        { question: "¿Los cañones de CO₂ son seguros?", answer: "Sí. Las máquinas profesionales de confeti CO₂ son equipo de entretenimiento certificado — el gas CO₂ se libera en cantidades mínimas y se disipa instantáneamente en el aire sin riesgo para los invitados. Son las mismas máquinas que se usan en conciertos de estadio." },
+        { question: "¿El confeti biodegradable se puede usar en la salida de la iglesia?", answer: "Sí. El confeti de papel biodegradable es la opción ideal para salidas de iglesia — se disuelve con agua en 24-72 horas sin dejar residuo en la banqueta ni dañar jardines. Es el tipo de confeti que recomendamos para cualquier espacio al aire libre. Muchas iglesias y haciendas lo permiten sin problema." },
+        { question: "¿Cuántos cañones necesito para mi boda?", answer: "Depende del momento. Para la salida de iglesia con 50-80 personas, basta con confeti manual biodegradable sin cañones. Para el vals en salón, 2 cañones de CO₂ sutiles cubren bien una pista de 100m². Para una boda completa con múltiples momentos (entrada, vals, salida), recomendamos 4 cañones posicionados estratégicamente." },
+        { question: "¿El confeti de pétalos es real o artificial?", answer: "Ofrecemos ambas opciones. Los pétalos naturales son ideales para ceremonias íntimas y fotografías románticas. Los pétalos de tela y papel biodegradable son más económicos y funcionan mejor con cañones de CO₂ porque tienen el peso correcto para flotar en el aire. Te asesoramos según el estilo de tu boda." },
+        { question: "¿Qué diferencia hay entre este servicio y las máquinas de confeti CO₂?", answer: "Este servicio está diseñado para momentos ceremoniales de bodas — salida de iglesia, primer beso, vals. Usamos confeti sutil, pétalos y cañones de CO₂ discretos. Las máquinas de confeti CO₂ (servicio aparte) son explosiones de gran alcance para conciertos, festivales y eventos masivos donde el impacto visual debe llegar a cientos de personas." },
+        { question: "¿Coordinan con mi fotógrafo?", answer: "Siempre. El operador se presenta con tu fotógrafo y videógrafo antes de la ceremonia para acordar las señales de timing. La lluvia de confeti sucede exactamente cuando las cámaras están listas — eso es lo que diferencia un servicio profesional de lanzar confeti al azar." },
+        { question: "¿Qué colores y formas de confeti tienen?", answer: "Para bodas tenemos: dorado, plateado, blanco, rosa, champagne y colores personalizados. En formas: corazones, círculos, estrellas, mariposas y pétalos. El confeti dorado con corazones es el más solicitado para el vals, y los pétalos blancos o rosas para la salida de iglesia." },
       ]} />
     </section>
 
@@ -221,10 +221,10 @@ const serviciosRelacionados = [
     <section class="services-section services-alt">
       <div class="container">
         <SectionHeader
-          title="Combina con Otros Servicios"
-          subtitle="El confeti potencia cualquier otro efecto visual."
-          paragraph1="Un disparo de confeti dorado sincronizado con el spotlight del seguidor en el momento exacto del primer vals — esa es la foto que la gente enmarca. El confeti multiplica el impacto de cualquier otro efecto de iluminación."
-          paragraph2="Armamos paquetes combinados con precio especial para cualquier tipo de evento."
+          title="Combina con Otros Efectos para tu Boda"
+          subtitle="El confeti es solo uno de los momentos mágicos."
+          paragraph1="Confeti en el primer baile + humo bajo en el piso + spotlight del seguidor iluminando a los novios. Esa combinación es la foto que la gente enmarca y comparte. Cada efecto se potencia cuando se combina con los demás."
+          paragraph2="Armamos paquetes combinados con precio especial para bodas completas."
         />
         <div class="services-grid">
           {serviciosRelacionados.map((s) => (
@@ -238,8 +238,8 @@ const serviciosRelacionados = [
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
-          <h2>¿Listo para el momento más fotografiado de tu evento?</h2>
-          <p>Cuéntanos para qué momento quieres el confeti y qué color va mejor con tu decoración. Te cotizamos en minutos.</p>
+          <h2>¿Lista para la lluvia de confeti en tu boda?</h2>
+          <p>Cuéntanos en qué momento quieres el confeti — salida de iglesia, vals, primer beso — y te armamos el paquete perfecto.</p>
           <div class="cta-buttons">
             <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
             <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>

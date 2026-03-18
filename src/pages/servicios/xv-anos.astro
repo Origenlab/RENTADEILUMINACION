@@ -1,65 +1,251 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Iluminación para XV Años en CDMX | REDEIL";
-const description = "Renta de iluminación para XV años en CDMX. Guirnaldas, seguidor, cabezas móviles, humo bajo y más. Paquetes completos para quinceañeras. REDEIL.";
+const title = "Paquetes de Iluminación para XV Años CDMX | REDEIL";
+const description = "Seguidor, cabezas móviles, humo bajo y confeti para el vals y la entrada de tu quinceañera en CDMX. Paquetes desde $6,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/xv-anos/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Iluminación Profesional para XV Años",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Paquetes de Iluminación y Efectos para XV Años",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Paquetes de iluminación y efectos especiales para XV años en CDMX — seguidor para el vals, cabezas móviles para la coreografía, humo bajo para la entrada y confeti para los momentos estelares.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Iluminación y Efectos para XV Años",
+    "priceRange": "$$$"
   },
-  "description": "Servicio integral de iluminación profesional para fiestas de XV años en Ciudad de México. Seguidor, cabezas móviles, guirnaldas y efectos especiales.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Iluminación para XV Años"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El seguidor sigue a la quinceañera durante toda la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "El seguidor se usa en los momentos clave del protocolo: entrada triunfal, vals padre-hija, vals con chambelán, coreografía de chambelanes, cambio de zapato y brindis. Entre momentos, se apaga para que la atención fluya naturalmente. Es más impactante cuando se reserva para los momentos estelares." }},
+      { "@type": "Question", "name": "¿Pueden sincronizar las luces con la coreografía de los chambelanes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro técnico se coordina con el coreógrafo antes del evento para conocer los tiempos musicales y los cambios de formación. Las cabezas móviles cambian de color y patrón en sincronía con cada sección de la coreografía — intro, parte lenta, parte rápida y final." }},
+      { "@type": "Question", "name": "¿Qué incluye el humo bajo para la entrada?", "acceptedAnswer": { "@type": "Answer", "text": "El efecto de humo bajo crea una capa de niebla de 30-40cm sobre el piso que dura 2-3 minutos. La quinceañera camina sobre las nubes mientras el seguidor la ilumina. Incluye máquina de humo bajo profesional, líquido especial, operador y coordinación con el DJ para que la niebla aparezca justo cuando empieza la música de entrada." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Seguidor de Luz", image: "/img/seguidor/seguidor-xv-anos-baile-quinceañera-salon-elegante.avif", alt: "Seguidor iluminando a quinceañera en salón elegante", description: "El spotlight que hace brillar a la quinceañera en cada momento del protocolo — entrada, vals, coreografía y brindis.", link: "/servicios/seguidor/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/humo-bajo-entrada-quinceanos-salon.avif", alt: "Humo bajo en entrada de quinceañera en salón", description: "Niebla baja para la entrada triunfal y el vals. La quinceañera camina sobre nubes mientras el seguidor la ilumina.", link: "/servicios/humo-bajo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-xv-beams-rosa-azul.avif", alt: "Cabezas móviles con beams rosa y azul en XV años", description: "Show de luces dinámico para la coreografía de chambelanes y la fiesta libre. Beams, colores y gobos que elevan la pista.", link: "/servicios/cabezas-moviles/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "Confeti dorado en vals de quinceañera", description: "Explosión de confeti dorado en el vals o al final de la coreografía. El momento más fotografiado de los XV años.", link: "/servicios/confeti/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Iluminación para XV Años" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios/" },
+    { label: "Iluminación para XV Años" }
+  ]} />
 </Fragment>
-<Hero
-      title="Iluminación Profesional para XV Años en CDMX"
-      subtitle="Iluminación mágica que hace brillar a la quinceañera en cada momento"
-      introParagraph1="En REDEIL somos especialistas en iluminación para fiestas de XV años en la Ciudad de México. Combinamos seguidor profesional, cabezas móviles, guirnaldas decorativas, humo bajo y efectos especiales para crear una experiencia visual espectacular que acompaña cada momento de la celebración."
-      introParagraph2="Nuestros paquetes de iluminación para quinceañeras incluyen el seguidor que ilumina a la festejada durante su entrada, vals y coreografía, cabezas móviles para la fiesta, y efectos como humo bajo, confeti y luces neón. Diseñamos cada montaje según el venue y la temática elegida."
+
+    <Hero
+      title="Iluminación y Efectos Especiales para XV Años en CDMX"
+      subtitle="Seguidor para el vals, humo bajo para la entrada, cabezas móviles para la coreografía. Todo coordinado por un solo equipo. Desde $6,000 + IVA."
+      introParagraph1='Una fiesta de XV años tiene momentos que merecen una iluminación a la altura: la entrada triunfal bajando las escaleras entre humo bajo y el haz del seguidor, el vals padre-hija con luz cálida y emotiva, la coreografía de chambelanes con cabezas móviles cambiando de color a ritmo de la música, y la fiesta libre con show de luces completo. En <strong>REDEIL</strong> diseñamos paquetes de iluminación y efectos especiales que cubren cada uno de estos momentos — con un solo proveedor y un técnico que coordina todo con el DJ y el MC.'
+      introParagraph2='Cada paquete combina los servicios que mejor funcionan juntos en XV años: <strong>seguidor profesional</strong> que sigue a la quinceañera en cada momento estelar, <strong>cabezas móviles</strong> que pintan la pista durante la coreografía y la fiesta, <strong>humo bajo</strong> que crea nubes en el piso para la entrada y el vals, y <strong>confeti</strong> que explota en los momentos de mayor emoción. Cubrimos fiestas en salones, jardines, haciendas y terrazas en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Iluminación diseñada para cada momento de los XV años"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Una fiesta de XV años es una celebración llena de momentos únicos que merecen una iluminación a la altura: la entrada triunfal con seguidor y humo bajo, el vals padre-hija con luz cálida y emotiva, la coreografía de chambelanes con efectos dinámicos y la fiesta libre con cabezas móviles y colores vibrantes. En REDEIL planificamos cada cambio de luz para que la transición entre momentos sea fluida y espectacular."
-          paragraph2="El seguidor profesional es el protagonista de la iluminación en XV años: sigue a la quinceañera durante su entrada, vals y baile sorpresa, haciéndola brillar como la estrella de la noche. Complementamos con cabezas móviles que crean shows de luz durante la fiesta, city color para ambientar el salón y efectos especiales como humo bajo, cascadas LED y confeti."
+
+    <CtaBar
+      headline="¿Qué momento de los XV quieres hacer inolvidable?"
+      items={[
+        { label: "Entrada + Vals", href: "#paquetes", icon: "iluminacion" },
+        { label: "Coreografía", href: "#paquetes", icon: "iluminacion" },
+        { label: "Sonido para XV", href: "/servicios/bocinas-xv/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Iluminación y efectos en XV años reales"
+          subtitle="Entrada, vals, coreografía y fiesta — cada momento con su propia iluminación."
+          paragraph1="El seguidor iluminando a la quinceañera mientras baja las escaleras entre humo bajo. Las cabezas móviles cambiando de rosa a azul durante la coreografía de chambelanes. El confeti dorado explotando al final del vals. Estos son montajes reales que hemos operado en fiestas de XV años en la CDMX."
+          paragraph2="Nuestro técnico se coordina con el coreógrafo, el DJ y el maestro de ceremonias para que cada cambio de luz coincida con cada momento del protocolo."
         />
-        <p>Cubrimos fiestas de XV años en salones, jardines, haciendas, terrazas y cualquier venue en la CDMX y zona metropolitana. Nuestro equipo se coordina con el DJ y el maestro de ceremonias para sincronizar la iluminación con cada momento del protocolo.</p>
+        <Gallery4x4 images={[
+          { src: "/img/seguidor/seguidor-xv-anos-baile-quinceañera-salon-elegante.avif", alt: "Seguidor iluminando baile de quinceañera en salón elegante" },
+          { src: "/img/humo-bajo/humo-bajo-entrada-quinceanos-salon.avif", alt: "Humo bajo en entrada de quinceañera en salón" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-fiesta-xv-beams-rosa-azul.avif", alt: "Cabezas móviles con beams rosa y azul en XV años" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vals-chambelan-vestido-rosa.avif", alt: "Seguidor iluminando vals de quinceañera con vestido rosa" },
+          { src: "/img/humo-bajo/humo-bajo-vals-xv-anos-quinceanos.avif", alt: "Humo bajo en vals de XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-seguidor-humo.avif", alt: "Entrada de quinceañera por escalera con seguidor y humo" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-xv-anos-pista-baile-rosa.avif", alt: "Cabezas móviles iluminando pista de baile rosa en XV años" },
+          { src: "/img/seguidor/luz-seguidor-quinceañera-vestido-azul-salon-candelabros.avif", alt: "Seguidor iluminando quinceañera con vestido azul en salón" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-chambelanes-escenario.avif", alt: "Coreografía de chambelanes en escenario de XV años" },
+          { src: "/img/humo-bajo/niebla-baja-vals-quinceanos-elegante.avif", alt: "Niebla baja en vals de quinceañera elegante" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif", alt: "Baile de chambelanes dorados en XV años" },
+          { src: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "Confeti dorado en vals de quinceañera" },
+          { src: "/img/seguidor/seguidor-vals-xv-anos-quinceañera.avif", alt: "Seguidor en vals de XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif", alt: "Entrada de quinceañera por escalera con humo bajo" },
+          { src: "/img/cabezas-moviles/renta-cabezas-moviles-evento-beams-cruzados-fiesta.avif", alt: "Beams cruzados de cabezas móviles en fiesta" },
+          { src: "/img/luces-neon/letrero-luminoso-xv-anos.avif", alt: "Letrero luminoso para XV años" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Iluminación para XV Años" subtitle="Montajes de luz en fiestas de quinceañera reales">
-      <figure class="gallery-item">
-        <img src="/img/xv-anos/iluminacion-xv-anos-seguidor-profesional.avif" alt="Quinceañera iluminada con seguidor profesional durante su entrada triunfal" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif" alt="Vals de XV años con seguidor profesional iluminando a la quinceañera y su padre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/xv-anos/vals-xv-anos-iluminacion-seguidor.avif" alt="Momento emotivo del vals en XV años con iluminación de seguidor" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/xv-anos/renta-guirnaldas-xv-anos-23.avif" alt="Decoración con guirnaldas en fiesta de XV años en salón elegante" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/xv-anos/quinceañera-vals-seguidor-iluminacion.avif" alt="Quinceañera bailando vals con iluminación profesional de seguidor" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Iluminación y Efectos para XV Años"
+          subtitle="Desde el vals con seguidor hasta la producción artística completa. Técnico incluido."
+          paragraph1="Cada paquete incluye equipo profesional, técnico de iluminación, traslado, montaje anticipado y coordinación con el DJ y maestro de ceremonias. El técnico opera las luces en vivo durante toda la fiesta — cada momento del protocolo con su propia iluminación."
+          paragraph2="¿La quinceañera tiene un tema o color específico? Personalizamos cada paquete con los colores y efectos que mejor reflejen su estilo."
+        />
+        <PricingCards packages={[
+          {
+            name: "Vals y Entrada",
+            price: "$6,000",
+            priceNote: "+ IVA",
+            description: "Seguidor + humo bajo + 2 cabezas móviles para la entrada triunfal y el vals. Lo esencial para los momentos más emotivos.",
+            features: [
+              { text: "Seguidor profesional para vals y entrada", included: true },
+              { text: "Humo bajo para entrada o primer vals", included: true },
+              { text: "2 cabezas móviles beam para ambiente", included: true },
+              { text: "Técnico de iluminación incluido", included: true },
+              { text: "Coordinación con DJ y MC", included: true },
+              { text: "Ideal para: fiestas íntimas 80-150 personas", included: true },
+              { text: "Confeti para el vals", included: false },
+              { text: "City color o luces neón", included: false },
+            ],
+            ctaLabel: "Cotizar vals y entrada",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "XV Completo",
+            price: "$10,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Seguidor + humo bajo + 4 cabezas móviles + confeti en el vals. Cobertura completa de todos los momentos del protocolo.",
+            features: [
+              { text: "Seguidor profesional toda la noche", included: true },
+              { text: "Humo bajo para entrada y vals", included: true },
+              { text: "4 cabezas móviles beam/wash", included: true },
+              { text: "Confeti dorado para el vals", included: true },
+              { text: "Sincronización con coreografía", included: true },
+              { text: "Técnico de iluminación toda la noche", included: true },
+              { text: "Montaje anticipado + prueba de luces", included: true },
+              { text: "Ideal para: fiestas 150-250 personas", included: true },
+            ],
+            ctaLabel: "Cotizar XV completo",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "XV Premium",
+            price: "$16,000",
+            priceNote: "+ IVA",
+            description: "Todo lo anterior + city color + luces neón + bola disco + gobos monograma. Producción visual de nivel artístico.",
+            features: [
+              { text: "Todo lo incluido en XV Completo", included: true },
+              { text: "City color para paredes del salón", included: true },
+              { text: "Letrero neón personalizado con nombre", included: true },
+              { text: "Bola disco profesional", included: true },
+              { text: "Gobo monograma con iniciales o nombre", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "2 técnicos de iluminación", included: true },
+              { text: "Ideal para: fiestas 250-400 personas", included: true },
+            ],
+            ctaLabel: "Cotizar XV premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción XV",
+            price: "$26,000",
+            priceNote: "+ IVA",
+            description: "Producción artística completa: todo el catálogo de iluminación y efectos para una fiesta de 400+ personas.",
+            features: [
+              { text: "Todo lo incluido en XV Premium", included: true },
+              { text: "8+ cabezas móviles para show de luces", included: true },
+              { text: "Confeti ilimitado (múltiples momentos)", included: true },
+              { text: "Director de iluminación dedicado", included: true },
+              { text: "Coreografía de luces sincronizada", included: true },
+              { text: "Generador de energía si es necesario", included: true },
+              { text: "Diseño artístico integral del venue", included: true },
+              { text: "Ideal para: fiestas 400+ personas", included: true },
+            ],
+            ctaLabel: "Cotizar producción XV",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Iluminación para XV Años"
+          subtitle="Todo lo que necesitas saber antes de la fiesta."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Te asesoramos según el venue, la temática y el protocolo que tenga planificado la quinceañera."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El seguidor sigue a la quinceañera durante toda la fiesta?", answer: "El seguidor se usa en los momentos clave del protocolo: entrada triunfal, vals padre-hija, vals con chambelán, coreografía de chambelanes, cambio de zapato y brindis. Entre momentos, se apaga para que la atención fluya naturalmente. Es más impactante cuando se reserva para los momentos estelares." },
+        { question: "¿Pueden sincronizar las luces con la coreografía de los chambelanes?", answer: "Sí. Nuestro técnico se coordina con el coreógrafo antes del evento para conocer los tiempos musicales y los cambios de formación. Las cabezas móviles cambian de color y patrón en sincronía con cada sección de la coreografía — intro, parte lenta, parte rápida y final." },
+        { question: "¿Qué incluye el humo bajo para la entrada?", answer: "El efecto de humo bajo crea una capa de niebla de 30-40cm sobre el piso que dura 2-3 minutos. La quinceañera camina sobre las nubes mientras el seguidor la ilumina. Incluye máquina de humo bajo profesional, líquido especial, operador y coordinación con el DJ para que la niebla aparezca justo cuando empieza la música de entrada." },
+        { question: "¿El confeti se puede usar en salones cerrados?", answer: "Sí. Usamos confeti de papel que no daña pisos ni decoración. El confeti se dispara con cañones de CO₂ que son seguros para interiores. Después del evento ayudamos con la recolección. Para salones que cobran limpieza extra, tenemos confeti de papel más fácil de recoger." },
+        { question: "¿Cuánto tiempo antes montan el equipo?", answer: "Montamos 3-4 horas antes de la fiesta. Hacemos prueba de luces completa, calibramos el seguidor y verificamos que todo funcione antes de que lleguen los invitados. El técnico permanece toda la noche operando las transiciones de iluminación en vivo." },
+        { question: "¿Qué diferencia hay entre este servicio y el sonido para XV años?", answer: "Este servicio cubre la iluminación y los efectos visuales — seguidor, cabezas móviles, humo bajo, confeti. El sonido para XV años (bocinas, DJ, micrófono) es un servicio aparte que puedes contratar en nuestro paquete de bocinas para XV. Si necesitas ambos, te hacemos precio especial como paquete combinado." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Servicios Individuales para XV Años"
+          subtitle="¿Solo necesitas un servicio? Cotiza por separado."
+          paragraph1="Si ya tienes parte de la producción resuelta y solo necesitas el seguidor o el humo bajo, cada servicio se cotiza individualmente. También puedes armar tu propio paquete combinando los que necesites."
+          paragraph2="Cada servicio individual incluye equipo, técnico, traslado y montaje."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para hacer brillar a la quinceañera?</h2>
+          <p>Cuéntanos sobre el venue, la fecha y qué momentos del protocolo quieres destacar. Te armamos el paquete perfecto en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
