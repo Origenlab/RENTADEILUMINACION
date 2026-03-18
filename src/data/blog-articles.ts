@@ -429,6 +429,77 @@ export const blogArticles: BlogArticle[] = [
     category: "Zonas",
     img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif",
   },
+  // ──── NUEVOS (Marzo 2026) ────
+  {
+    slug: "cuanto-cuesta-humo-bajo-boda-cdmx",
+    title: "¿Cuánto Cuesta el Humo Bajo para Boda en CDMX? Precios Reales",
+    excerpt: "Precios reales del humo bajo para bodas: desde $3,500 hasta $9,000. Qué incluye, cuánto dura y qué preguntar antes de contratar.",
+    category: "Bodas",
+    img: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif",
+  },
+  {
+    slug: "cuanto-cuesta-renta-pantalla-inflable-cdmx",
+    title: "¿Cuánto Cuesta Rentar una Pantalla Inflable en CDMX? Guía de Precios",
+    excerpt: "Precios reales de renta de pantalla inflable en CDMX: desde $4,500. Tamaños, qué incluye y cuántos lúmenes necesita el proyector.",
+    category: "Guía",
+    img: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif",
+  },
+  {
+    slug: "cuanto-cuesta-confeti-para-boda",
+    title: "¿Cuánto Cuesta el Confeti para Boda? Cañones y Precios Reales",
+    excerpt: "Cañones de confeti desde $1,800, máquinas desde $3,500. Tipos, cuándo usar cada uno y qué permiten los venues de CDMX.",
+    category: "Efectos",
+    img: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif",
+  },
+  {
+    slug: "humo-bajo-vs-maquina-humo-cual-es-para-ti",
+    title: "Humo Bajo vs Máquina de Humo: ¿Cuál es Para Tu Evento?",
+    excerpt: "Diferencias reales entre humo bajo y máquina convencional: cuándo usar cada uno, precios y cuál da mejores fotos en tu boda.",
+    category: "Comparativas",
+    img: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif",
+  },
+  {
+    slug: "iluminacion-salon-vs-jardin-diferencias",
+    title: "Iluminación para Salón vs Jardín: Diferencias que Debes Saber",
+    excerpt: "Iluminar un salón cerrado es muy distinto a iluminar un jardín. Equipo, instalación, costos y qué funciona mejor en cada espacio.",
+    category: "Guía",
+    img: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+  },
+  {
+    slug: "error-mas-caro-iluminacion-bodas",
+    title: "El Error Más Caro en Iluminación para Bodas (y Cómo Evitarlo)",
+    excerpt: "El error que arruina bodas no es el equipo ni el precio. Es la falta de coordinación. Te explicamos qué pasa y cómo evitarlo.",
+    category: "Bodas",
+    img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa-800w.avif",
+  },
+  {
+    slug: "lo-que-tu-fotografo-quiere-que-sepas-sobre-iluminacion",
+    title: "Lo Que Tu Fotógrafo Quiere Que Sepas Sobre la Iluminación",
+    excerpt: "Tu fotógrafo de boda tiene opiniones fuertes sobre la iluminación y probablemente no te las dijo. Aquí están, con consejos de REDEIL.",
+    category: "Guía",
+    img: "/img/bodas/boda-elegante-guirnaldas-iluminacion-dj.avif",
+  },
+  {
+    slug: "que-pasa-cuando-llueve-evento-aire-libre",
+    title: "¿Qué Pasa con la Iluminación Si Llueve en Tu Evento al Aire Libre?",
+    excerpt: "¿Lluvia en tu boda o evento en jardín? Qué equipo resiste el agua, qué no, y cómo preparar un plan B que realmente funcione.",
+    category: "Guía",
+    img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif",
+  },
+  {
+    slug: "temporada-alta-bodas-cdmx-cuando-reservar",
+    title: "Temporada Alta de Bodas en CDMX: Cuándo Reservar y Cuándo Ahorrar",
+    excerpt: "Las fechas más caras y más accesibles para bodas en CDMX. Cuándo reservar iluminación para garantizar disponibilidad y precio justo.",
+    category: "Bodas",
+    img: "/img/bodas/boda-hacienda-guirnaldas-city-color.avif",
+  },
+  {
+    slug: "por-que-el-vals-necesita-su-propia-iluminacion",
+    title: "Por Qué el Vals Necesita Su Propia Iluminación (y Qué Equipo Usamos)",
+    excerpt: "El vals no puede iluminarse igual que el resto de la boda. Te explicamos el equipo, el seguidor HMI y cómo programamos cada segundo.",
+    category: "Bodas",
+    img: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif",
+  },
 ];
 
 // ── Category order for display ──
