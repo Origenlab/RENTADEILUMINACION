@@ -1,0 +1,80 @@
+{
+  "$ref": "#/definitions/directorio",
+  "definitions": {
+    "directorio": {
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "categoria": {
+          "type": "string",
+          "enum": [
+            "audio",
+            "iluminacion",
+            "audio-video",
+            "dj",
+            "efectos"
+          ]
+        },
+        "zona": {
+          "type": "string",
+          "enum": [
+            "cdmx",
+            "estado-de-mexico"
+          ]
+        },
+        "alcaldia_municipio": {
+          "type": "string"
+        },
+        "direccion": {
+          "type": "string"
+        },
+        "telefono": {
+          "type": "string"
+        },
+        "whatsapp": {
+          "type": "string"
+        },
+        "facebook": {
+          "type": "string"
+        },
+        "instagram": {
+          "type": "string"
+        },
+        "horario": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "resenas": {
+          "type": "number"
+        },
+        "servicios": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "activo": {
+          "type": "boolean",
+          "default": true
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nombre",
+        "categoria",
+        "zona",
+        "alcaldia_municipio",
+        "direccion",
+        "servicios"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

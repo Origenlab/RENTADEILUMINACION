@@ -1,0 +1,365 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DirectoryCard from '../../components/DirectoryCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+const empresas = await getCollection('directorio', ({ data }) => data.activo !== false);
+empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
+
+const categorias = [
+  { key: 'all', label: 'Todos' },
+  { key: 'audio', label: 'Audio' },
+  { key: 'iluminacion', label: 'Iluminación' },
+  { key: 'dj', label: 'DJ' },
+  { key: 'audio-video', label: 'Audio & Video' },
+  { key: 'efectos', label: 'Efectos' },
+];
+
+const faqItems = [
+  {
+    question: '¿Este directorio es de empresas que RENTAN o VENDEN equipo?',
+    answer: 'Este directorio lista empresas que VENDEN equipo de audio, iluminación y sonido para eventos en CDMX y Estado de México. Si lo que necesitas es RENTAR equipo de iluminación con instalación incluida, REDEIL es tu opción: nosotros llevamos el equipo, lo instalamos y lo operamos durante tu evento.',
+  },
+  {
+    question: '¿Cuál es la diferencia entre comprar y rentar equipo para eventos?',
+    answer: 'Comprar equipo tiene sentido si organizas eventos con mucha frecuencia y tienes personal técnico propio. Rentar es mejor cuando organizas eventos ocasionalmente: evitas la inversión inicial alta, el mantenimiento, el almacenamiento y el transporte. Además, con la renta siempre tienes equipo actualizado y personal técnico incluido.',
+  },
+  {
+    question: '¿Las empresas del directorio tienen cobertura en toda la CDMX?',
+    answer: 'La mayoría de las empresas listadas tienen sus locales en el Centro Histórico de CDMX o en zonas céntricas. Para el Estado de México incluimos empresas de Ecatepec y Nezahualcóyotl. Recomendamos contactar directamente a cada empresa para confirmar su cobertura y disponibilidad.',
+  },
+  {
+    question: '¿Puedo confiar en las calificaciones y reseñas del directorio?',
+    answer: 'Las calificaciones y número de reseñas que mostramos provienen de Google Maps al momento de crear el directorio. Son datos reales basados en la experiencia de clientes que han visitado o contratado a estas empresas. Te recomendamos revisar también las reseñas directamente en Google Maps antes de tomar una decisión.',
+  },
+  {
+    question: '¿REDEIL está en este directorio?',
+    answer: 'No, REDEIL no aparece en este directorio porque REDEIL RENTA equipo de iluminación, no vende. Este directorio es una guía de empresas proveedoras del sector para ayudarte a encontrar lo que necesitas. Si lo tuyo es rentar para tu próximo evento, contáctanos directamente.',
+  },
+  {
+    question: '¿Cómo puedo agregar mi empresa al directorio?',
+    answer: 'Si tienes una empresa de venta de equipo de audio, iluminación o sonido para eventos en CDMX o Estado de México y quieres aparecer en el directorio, contáctanos. Evaluamos la inclusión de negocios relevantes para el sector de eventos en la zona metropolitana.',
+  },
+];
+
+// Schema ItemList
+const itemListSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Directorio de Proveedores de Equipo de Audio e Iluminación CDMX",
+  "description": "Guía de tiendas y empresas que venden equipo de audio, iluminación y sonido para eventos en Ciudad de México y Estado de México",
+  "numberOfItems": empresas.length,
+  "itemListElement": empresas.map((e, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": e.data.nombre,
+    "url": `https://rentadeiluminacion.com/directorio/${e.slug}/`,
+  })),
+});
+---
+
+<BaseLayout
+  title="Directorio de Proveedores de Audio e Iluminación para Eventos en CDMX | REDEIL"
+  description="Encuentra las mejores tiendas de audio, iluminación y equipo profesional para eventos en Ciudad de México y Estado de México. Directorio con ratings y datos de contacto."
+  canonical="https://rentadeiluminacion.com/directorio/"
+  schemaMarkup={itemListSchema}
+>
+  <Breadcrumbs
+    slot="breadcrumbs"
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Directorio de Proveedores' },
+    ]}
+  />
+
+  <Hero
+    title="Directorio de Proveedores de Equipo para Eventos en CDMX"
+    subtitle="Encuentra las mejores tiendas de audio, iluminación y equipo profesional en Ciudad de México y Estado de México"
+    introParagraph1="Reunimos a los <strong>mejores proveedores de equipo de audio e iluminación</strong> para eventos en la zona metropolitana. Desde tiendas especializadas en el Centro Histórico hasta distribuidores en Ecatepec y Nezahualcóyotl."
+    introParagraph2="¿Prefieres no comprar y solo rentar el equipo para tu evento? En <strong>REDEIL</strong> ofrecemos renta de iluminación profesional con instalación incluida. Nosotros llevamos todo y tú solo disfrutas tu evento."
+    cotizarHref="/contacto/"
+    whatsappText="Hola%20REDEIL%2C%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento"
+  />
+
+  <!-- Filtros por categoría -->
+  <section class="dir-filters">
+    <div class="container">
+      <div class="dir-filters__bar">
+        {categorias.map(cat => (
+          <button
+            class="dir-filter-btn"
+            data-filter={cat.key}
+            aria-pressed={cat.key === 'all' ? 'true' : 'false'}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de empresas -->
+  <section class="dir-section" aria-label="Listado de proveedores">
+    <div class="container">
+      <div class="dir-header">
+        <SectionHeader
+          title="Proveedores de Equipo para Eventos"
+          subtitle="Tiendas especializadas en audio, iluminación y sonido"
+          paragraph1="Selección de las tiendas mejor calificadas en CDMX y Estado de México."
+          paragraph2="Ordenadas por número de reseñas en Google Maps para ayudarte a elegir con confianza."
+        />
+        <div class="dir-zone-filters">
+          <a href="/directorio/cdmx/" class="dir-zone-btn">Solo CDMX</a>
+          <a href="/directorio/estado-de-mexico/" class="dir-zone-btn">Solo Edomex</a>
+        </div>
+      </div>
+
+      <div class="dir-grid" id="dirGrid">
+        {empresas.map(empresa => (
+          <div class="dir-item" data-categoria={empresa.data.categoria} data-zona={empresa.data.zona}>
+            <DirectoryCard
+              nombre={empresa.data.nombre}
+              categoria={empresa.data.categoria}
+              zona={empresa.data.zona}
+              alcaldia_municipio={empresa.data.alcaldia_municipio}
+              telefono={empresa.data.telefono}
+              rating={empresa.data.rating}
+              resenas={empresa.data.resenas}
+              slug={empresa.slug}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Renta -->
+  <section class="dir-cta-section">
+    <div class="container">
+      <div class="dir-cta-box">
+        <div class="dir-cta-content">
+          <h2 class="dir-cta-title">¿Prefieres rentar en lugar de comprar?</h2>
+          <p class="dir-cta-desc">En REDEIL rentamos equipo de iluminación profesional para eventos en CDMX y Estado de México. Cabezas móviles, láseres, pantallas LED, efectos especiales y más. Nosotros llevamos, instalamos y operamos el equipo durante tu evento.</p>
+        </div>
+        <div class="dir-cta-actions">
+          <a href="/servicios/" class="btn-cta btn-cta--primary">Conoce nuestros paquetes →</a>
+          <a href="https://wa.me/525530682988?text=Hola%20REDEIL%2C%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento" class="btn-cta btn-cta--wa" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="dir-faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas Frecuentes del Directorio"
+        paragraph1="Todo lo que necesitas saber sobre los proveedores de equipo para eventos en CDMX."
+        paragraph2="¿No encuentras tu respuesta? Escríbenos directamente por WhatsApp."
+      />
+    </div>
+    <FaqSection
+      items={faqItems}
+      waMessage="Hola REDEIL, vi el directorio de proveedores y tengo una pregunta."
+    />
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function() {
+    var btns = document.querySelectorAll('.dir-filter-btn');
+    var items = document.querySelectorAll('.dir-item');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = btn.getAttribute('data-filter');
+        btns.forEach(function(b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+
+        items.forEach(function(item) {
+          if (filter === 'all' || item.getAttribute('data-categoria') === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* ── Filtros ── */
+  .dir-filters {
+    background: var(--c-bg-alt, #F7F4F0);
+    border-bottom: 1px solid var(--c-border, #E7E0D8);
+    padding: 1rem 0;
+  }
+
+  .dir-filters__bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .dir-filter-btn {
+    padding: 0.5rem 1.125rem;
+    border: 1px solid var(--c-border, #E7E0D8);
+    border-radius: 20px;
+    background: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--c-text, #1C1917);
+    cursor: pointer;
+  }
+
+  .dir-filter-btn[aria-pressed="true"] {
+    background: var(--color-primary, #2C5530);
+    color: #fff;
+    border-color: var(--color-primary, #2C5530);
+  }
+
+  /* ── Section ── */
+  .dir-section {
+    padding: 4rem 0;
+  }
+
+  .dir-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .dir-zone-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    align-self: flex-end;
+  }
+
+  .dir-zone-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--c-border, #E7E0D8);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--c-text, #1C1917);
+    text-decoration: none;
+  }
+
+  .dir-zone-btn:hover {
+    background: var(--c-bg-alt, #F7F4F0);
+  }
+
+  .dir-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* ── CTA Renta ── */
+  .dir-cta-section {
+    padding: 3rem 0;
+    background: var(--c-bg-alt, #F7F4F0);
+  }
+
+  .dir-cta-box {
+    background: var(--color-secondary, #1a1a2e);
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .dir-cta-title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+
+  .dir-cta-desc {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 560px;
+  }
+
+  .dir-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-cta--primary {
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+  }
+
+  .btn-cta--wa {
+    background: #25D366;
+    color: #fff;
+  }
+
+  /* ── FAQ ── */
+  .dir-faq-section {
+    padding: 4rem 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .dir-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .dir-grid {
+      grid-template-columns: 1fr;
+    }
+    .dir-cta-box {
+      padding: 2rem 1.5rem;
+    }
+    .dir-cta-title {
+      font-size: 1.25rem;
+    }
+    .dir-header {
+      flex-direction: column;
+    }
+    .dir-zone-filters {
+      align-self: flex-start;
+    }
+  }
+</style>
