@@ -271,14 +271,30 @@ const year = new Date().getFullYear();
 
   @media (max-width: 640px) {
     .ft__grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+    }
+
+    /* Brand ocupa el ancho completo arriba */
+    .ft__brand {
+      grid-column: 1 / -1;
+    }
+
+    /* Tagline más corta en móvil */
+    .ft__tagline {
+      max-width: 100%;
     }
 
     .ft__bar-inner {
       flex-direction: column;
       gap: 0.5rem;
       text-align: center;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .ft__grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
