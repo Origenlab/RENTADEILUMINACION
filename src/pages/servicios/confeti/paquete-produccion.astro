@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Confeti Profesional para Conciertos y Festivales — $9,000 + IVA | REDEIL";
+const description = "8+ cañones de confeti profesional para conciertos y festivales. Alcance 15m. $9,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/confeti/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Confeti Profesional para Conciertos y Festivales",
+    "description": "8+ cañones de confeti profesional de CO₂ de largo alcance (15m) para conciertos, festivales y eventos masivos. Equipo técnico completo, sincronización con producción, recarga ilimitada. Transporte, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/confeti/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "9000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "35",
+      "reviewCount": "35"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ricardo Estrada" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos a REDEIL para un concierto de 3,000 personas en el Pepsi Center. 10 cañones de confeti sincronizados con el drop del DJ principal — la explosión fue masiva. El equipo técnico llegó al load-in a las 8am y todo estuvo listo para el soundcheck."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrea Paredes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Festival al aire libre en el Parque Bicentenario con 5,000 asistentes. Los cañones de largo alcance cubrieron toda la explanada — el confeti dorado cayendo con las luces del escenario fue un momento épico. Coordinación perfecta con nuestro equipo de producción."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Héctor Bautista" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Premiación corporativa televisada en un foro de Televisa. 8 cañones de confeti dorado sincronizados con el momento del galardón. Todo cronometrado al segundo para las cámaras. REDEIL entiende las necesidades de producción de TV — muy profesionales."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/maquina-de-papelitos/explosion-confeti-concierto-multitud-luces.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántos cañones incluye el paquete de producción?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete base incluye 8 cañones de confeti CO₂ de largo alcance. Se pueden agregar más según el tamaño del venue — para estadios y festivales grandes hemos montado hasta 20 cañones. El precio base de $9,000 + IVA incluye 8 cañones; cañones adicionales se cotizan por separado." }},
+      { "@type": "Question", "name": "¿Qué alcance tienen los cañones de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Los cañones de largo alcance disparan confeti hasta 15 metros de altura y 8-10 metros de radio. Posicionados en el frente del escenario, cubren las primeras 10-15 filas del público. Para cobertura total de un venue grande, se posicionan cañones adicionales en los laterales." }},
+      { "@type": "Question", "name": "¿Se pueden sincronizar con timecode o DMX?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los cañones se integran al sistema de producción del evento vía DMX o timecode. El operador puede disparar manualmente o programar los disparos sincronizados con la música, las luces y las pantallas. Para producciones de TV, el timing es al segundo exacto." }},
+      { "@type": "Question", "name": "¿Incluyen visita previa de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para eventos de producción masiva, hacemos una visita técnica previa al venue para planificar la posición de los cañones, la logística de recarga, las rutas de cableado y la coordinación con el equipo de producción del evento." }},
+      { "@type": "Question", "name": "¿Se puede usar confeti biodegradable en producción masiva?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para festivales al aire libre y eventos en espacios abiertos, tenemos confeti biodegradable en formato de producción. El efecto visual es espectacular y se disuelve con agua sin dejar rastro. Ideal para venues con restricciones ambientales." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "2 Cañones de Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico.avif", alt: "2 cañones de confeti en primer baile de novios", description: "Un disparo perfecto para el vals o entrada. 2 cañones CO₂ + operador. $2,000 + IVA.", link: "/servicios/confeti/paquete-2-canones/" },
+  { title: "4 Cañones de Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "4 cañones de confeti dorado en XV años", description: "Múltiples disparos para bodas y XV años. 4 cañones CO₂ + colores a elegir. $3,500 + IVA.", link: "/servicios/confeti/paquete-4-canones/" },
+  { title: "Confeti Biodegradable", image: "/img/maquina-de-papelitos/confeti-rosa-boda-jardin-atardecer-novios.avif", alt: "Confeti biodegradable en boda de jardín", description: "Se disuelve con agua. Ideal para jardines y haciendas. 3 máquinas + operador. $5,500 + IVA.", link: "/servicios/confeti/paquete-confeti-biodegradable/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Efecto nubes en piso para boda en jardín", description: "Confeti + humo bajo en el escenario. La combinación favorita de producciones de concierto.", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Confeti y Papelitos", href: "/servicios/confeti/" },
+    { label: "Producción" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Confeti Profesional para Conciertos y Festivales"
+    subtitle="Desde $9,000 + IVA. 8+ cañones CO₂ de largo alcance (15m). Equipo técnico completo."
+    introParagraph1='Producción de confeti a escala de concierto — 8 o más cañones de CO₂ de largo alcance que disparan nubes masivas de confeti hasta 15 metros de altura cubriendo a cientos o miles de personas simultáneamente. Este es el nivel de producción que ves en los conciertos de estadio, los festivales de música y las premiaciones de televisión. En <strong>REDEIL</strong> operamos sistemas de confeti profesional integrados al rider técnico del evento con sincronización DMX, timecode y coordinación directa con el equipo de producción.'
+    introParagraph2='El paquete incluye equipo técnico completo: cañones de largo alcance, tanques de CO₂ de alta capacidad, <strong>confeti dorado, plateado y multicolor</strong>, operadores profesionales, visita previa de producción y recarga ilimitada durante el show. Los cañones se integran al sistema DMX o timecode del evento para disparos sincronizados con la música, las luces y las pantallas. Para <strong>conciertos, festivales, eventos masivos y producciones de TV</strong> en CDMX, Estado de México y toda la República.'
+  />
+
+  <CtaBar
+    headline="¿Tu evento es más pequeño?"
+    items={[
+      { label: "2 Cañones — $2,000", href: "/servicios/confeti/paquete-2-canones/", icon: "efectos" },
+      { label: "4 Cañones — $3,500", href: "/servicios/confeti/paquete-4-canones/", icon: "efectos" },
+      { label: "Biodegradable — $5,500", href: "/servicios/confeti/paquete-confeti-biodegradable/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Masiva"
+      price="$9,000"
+      priceNote="+ IVA · Equipo técnico completo"
+      features={[
+        { text: "8+ cañones de confeti CO₂" },
+        { text: "Alcance de hasta 15 metros" },
+        { text: "Confeti dorado, plateado, multicolor" },
+        { text: "Recarga ilimitada durante el show" },
+        { text: "Sincronización DMX / timecode" },
+        { text: "Equipo técnico completo" },
+        { text: "Visita previa de producción" },
+        { text: "Transporte y logística" },
+        { text: "Montaje y desmontaje" },
+        { text: "Cobertura CDMX y República" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de confeti profesional para un concierto/festival."
+      packages={[
+        { label: "2 Cañones", price: "$2,000", href: "/servicios/confeti/paquete-2-canones/" },
+        { label: "4 Cañones", price: "$3,500", href: "/servicios/confeti/paquete-4-canones/" },
+        { label: "Biodegradable", price: "$5,500", href: "/servicios/confeti/paquete-confeti-biodegradable/" },
+        { label: "Producción", price: "$9,000", href: "/servicios/confeti/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estas producciones"
+          subtitle="8+ cañones para venues de 500 a 50,000+ personas."
+          paragraph1="Este paquete está diseñado para producciones donde el confeti es un elemento del show — conciertos, festivales, premiaciones y eventos masivos donde la explosión tiene que cubrir a cientos o miles de personas al mismo tiempo."
+          paragraph2="Nuestro equipo técnico se integra al staff de producción del evento desde la fase de planeación — visita previa, rider técnico, load-in coordinado."
+        />
+        <FeatureGrid features={[
+          { title: "Conciertos en Foro", description: "Pepsi Center, Auditorio BB, Teatro Metropólitan. Cañones al frente del escenario sincronizados con el drop." },
+          { title: "Festivales al Aire Libre", description: "Explanadas y parques. Cañones de largo alcance que cubren a miles de asistentes." },
+          { title: "Premiaciones y Galas", description: "Confeti dorado en el momento del galardón. Timing al segundo para cámaras y transmisión." },
+          { title: "Producciones de TV", description: "Foros de televisión con cámaras múltiples. Disparos coordinados con el director de cámaras." },
+          { title: "Eventos Deportivos", description: "Estadios y arenas. Celebración del campeón con confeti masivo desde el techo." },
+          { title: "Lanzamientos de Marca", description: "El momento reveal con explosión de confeti en los colores corporativos de la marca." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Producción profesional de confeti"
+          subtitle="Integración total al rider técnico del evento."
+          paragraph1="No es solo poner cañones y disparar. La producción de confeti profesional requiere planeación — posición de cañones según vientos y corrientes de aire, logística de recarga, coordinación con iluminación y audio, y timing preciso sincronizado con el show."
+          paragraph2="Nuestro equipo tiene experiencia en conciertos, festivales y producciones de TV. Entendemos los tiempos de load-in, soundcheck, ensayo y show — y nos integramos sin fricciones al staff de producción."
+        />
+        <FeatureGrid features={[
+          { title: "Cañones de Largo Alcance", description: "15 metros de altura y 8-10 metros de radio. Cubren las primeras 15 filas del público." },
+          { title: "Sincronización DMX", description: "Los cañones se integran al sistema de control del evento. Disparos programados o en vivo." },
+          { title: "Timecode Compatible", description: "Para shows con secuencia programada. El confeti dispara en el segundo exacto de la pista." },
+          { title: "Recarga Ilimitada", description: "Tanques de CO₂ de alta capacidad. Sin límite de disparos durante todo el show." },
+          { title: "Visita de Producción", description: "Revisamos el venue antes del evento. Planeamos posición, logística y coordinación." },
+          { title: "Equipo Técnico Completo", description: "Operadores profesionales con experiencia en conciertos y producciones de gran escala." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 35 reseñas."
+          paragraph1="Cada reseña es de un productor o cliente real que contrató el paquete de producción de confeti."
+          paragraph2="Pregunta por referencias de producciones similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ricardo Estrada", event: "Concierto — Pepsi Center", rating: 5, text: "10 cañones de confeti sincronizados con el drop del DJ principal — la explosión fue masiva. El equipo técnico llegó al load-in a las 8am y todo estuvo listo para el soundcheck. Muy profesionales." },
+          { name: "Andrea Paredes", event: "Festival — Parque Bicentenario", rating: 5, text: "Los cañones de largo alcance cubrieron toda la explanada con 5,000 asistentes. El confeti dorado cayendo con las luces del escenario fue un momento épico. Coordinación perfecta con producción." },
+          { name: "Héctor Bautista", event: "Premiación corporativa — Foro Televisa", rating: 5, text: "8 cañones de confeti dorado sincronizados con el momento del galardón. Todo cronometrado al segundo para las cámaras. REDEIL entiende las necesidades de producción de TV." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Confeti profesional en conciertos y eventos masivos"
+        subtitle="Explosiones de confeti a escala de estadio y festival."
+        paragraph1="Cada foto es de una producción real con cañones de confeti profesionales. Conciertos, festivales, premiaciones y eventos deportivos — el confeti a esta escala transforma el momento en algo que la gente recuerda para siempre."
+        paragraph2="¿Tienes una producción similar? Mándanos el rider técnico y te hacemos la propuesta de confeti."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/maquina-de-papelitos/explosion-confeti-concierto-multitud-luces.avif", alt: "Explosión de confeti en concierto con multitud y luces" },
+        { src: "/img/maquina-de-papelitos/maquina-confeti-concierto-fiesta-neon-colores.avif", alt: "Máquina de confeti en concierto con fiesta neón de colores" },
+        { src: "/img/maquina-de-papelitos/confeti-discoteca-laser-verde-bola-espejos.avif", alt: "Confeti en discoteca con láser verde y bola de espejos" },
+        { src: "/img/maquina-de-papelitos/explosion-confeti-estadio-equipo-campeon.avif", alt: "Explosión de confeti en estadio equipo campeón" },
+        { src: "/img/maquina-de-papelitos/confeti-dorado-premiacion-escenario-ganador.avif", alt: "Confeti dorado en premiación escenario ganador" },
+        { src: "/img/maquina-de-papelitos/confeti-colores-meta-maraton-ganador.avif", alt: "Confeti de colores en meta de maratón ganador" },
+        { src: "/img/maquina-de-papelitos/confeti-blanco-negro-moda-pasarela-modelo.avif", alt: "Confeti blanco y negro en pasarela de moda" },
+        { src: "/img/maquina-de-papelitos/lluvia-confeti-boda-candelier-chispas-frias.avif", alt: "Lluvia de confeti con chispas frías y candelier" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete de Producción"
+        subtitle="Todo lo que necesitas saber antes de contratar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp o correo. Respondemos en minutos."
+        paragraph2="Para producciones grandes, agendamos una llamada con tu equipo de producción para alinear todos los detalles técnicos."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántos cañones incluye el paquete de producción?", answer: "El paquete base incluye 8 cañones de confeti CO₂ de largo alcance. Se pueden agregar más según el tamaño del venue — para estadios y festivales grandes hemos montado hasta 20 cañones. El precio base de $9,000 + IVA incluye 8 cañones; cañones adicionales se cotizan por separado." },
+      { question: "¿Qué alcance tienen los cañones de producción?", answer: "Los cañones de largo alcance disparan confeti hasta 15 metros de altura y 8-10 metros de radio. Posicionados en el frente del escenario, cubren las primeras 10-15 filas del público. Para cobertura total de un venue grande, se posicionan cañones adicionales en los laterales." },
+      { question: "¿Se pueden sincronizar con timecode o DMX?", answer: "Sí. Los cañones se integran al sistema de producción del evento vía DMX o timecode. El operador puede disparar manualmente o programar los disparos sincronizados con la música, las luces y las pantallas. Para producciones de TV, el timing es al segundo exacto." },
+      { question: "¿Incluyen visita previa de producción?", answer: "Sí. Para eventos de producción masiva, hacemos una visita técnica previa al venue para planificar la posición de los cañones, la logística de recarga, las rutas de cableado y la coordinación con el equipo de producción del evento." },
+      { question: "¿Se puede usar confeti biodegradable en producción masiva?", answer: "Sí. Para festivales al aire libre y eventos en espacios abiertos, tenemos confeti biodegradable en formato de producción. El efecto visual es espectacular y se disuelve con agua sin dejar rastro. Ideal para venues con restricciones ambientales." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Confeti"
+        subtitle="¿Tu evento es más pequeño o necesitas confeti especial?"
+        paragraph1="Desde 2 cañones para bodas íntimas hasta confeti biodegradable para jardines. Cada paquete incluye operador, transporte y montaje."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tienes una producción que necesita confeti profesional?</h2>
+        <p>Mándanos el rider técnico o cuéntanos el tipo de evento, el venue y la fecha. Te hacemos la propuesta de producción de confeti en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

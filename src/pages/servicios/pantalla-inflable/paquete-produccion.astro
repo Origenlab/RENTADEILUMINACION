@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Pantalla Inflable 10m+ para Festivales — $15,000 + IVA | REDEIL";
+const description = "Pantalla inflable 10m+ con proyector 20,000 lumens para festivales y eventos masivos. $15,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Pantalla Inflable 10m+ Producción — Festivales y Eventos Masivos",
+    "description": "Pantalla inflable de 10 metros o más con proyector de 20,000 lumens y sistema de audio line array profesional para festivales, eventos públicos y producciones masivas. Incluye 2 operadores técnicos, visita previa al venue, traslado, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-produccion/",
+      "priceCurrency": "MXN",
+      "price": "15000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "30",
+      "reviewCount": "30"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Méndez Alvarado" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la pantalla de 10 metros para un festival de cine al aire libre en el Parque Lincoln de Polanco. Más de 500 personas vieron la función y la imagen se veía espectacular. El proyector de 20,000 lumens es impresionante — la imagen era brillante incluso antes de que oscureciera completamente."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Laura Estrada Jiménez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Producción de evento público en la explanada de Bellas Artes para una marca de autos. Pantalla de 12 metros con audio line array. Más de 800 asistentes y todo funcionó impecable. El equipo de REDEIL coordinó con nuestro director de producción y la logística fue impecable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Villanueva Reyes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Festival gastronómico en Coyoacán con pantalla de 10 metros para transmitir competencias de cocina en vivo. 600 asistentes durante el día. El proyector de 20,000 lumens permitió proyectar incluso con sol indirecto. Nivel de producción profesional."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tan grande puede ser la pantalla inflable?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestro paquete de producción incluye pantallas desde 10 metros. Para eventos que requieren pantallas de 12, 15 o incluso 20 metros, cotizamos a la medida según las necesidades del evento. Contáctanos con los detalles de tu producción y te presentamos las opciones disponibles." }},
+      { "@type": "Question", "name": "¿El proyector de 20,000 lumens funciona de día?", "acceptedAnswer": { "@type": "Answer", "text": "El proyector de 20,000 lumens es de grado profesional y puede mostrar imagen visible con luz indirecta del sol. Para funciones diurnas al aire libre, la imagen es visible pero no tan brillante como al anochecer. Para eventos que requieren proyección a plena luz del día, ofrecemos pantallas LED como alternativa." }},
+      { "@type": "Question", "name": "¿Qué incluye el sistema de audio line array?", "acceptedAnswer": { "@type": "Answer", "text": "El sistema line array profesional incluye torres de altavoces con distribución vertical controlada, subwoofers para frecuencias bajas, procesador de señal y mezcla. Cubre audiencias de 300 a 1,000+ personas al aire libre con sonido claro y uniforme. Incluye técnico de audio." }},
+      { "@type": "Question", "name": "¿Se puede proyectar transmisión en vivo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El equipo acepta señal en vivo desde cámaras, switchers de video, streaming por internet o cualquier fuente HDMI/SDI. Para producciones con múltiples cámaras y switching en vivo, ofrecemos equipo de producción adicional. El operador coordina con tu equipo técnico." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar para un festival?", "acceptedAnswer": { "@type": "Answer", "text": "Para festivales y eventos públicos, recomendamos reservar con al menos 3-4 semanas de anticipación. Esto nos permite coordinar la visita previa al venue, planificar la logística de montaje, y asegurar la disponibilidad del equipo de producción completo." }},
+      { "@type": "Question", "name": "¿Ofrecen permisos y coordinación con autoridades?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete de producción incluye la visita previa al venue y la coordinación técnica con tu equipo de producción. Los permisos municipales y de protección civil son responsabilidad del organizador del evento, pero podemos asesorarte sobre los requerimientos técnicos que las autoridades suelen solicitar." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Pantalla 3 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif", alt: "Pantalla inflable 3m para cine familiar", description: "Cine familiar en jardín. 20-50 personas. $4,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-3metros/" },
+  { title: "Pantalla 5 Metros", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable 5m para boda", description: "Bodas y XV años. 50-150 personas. $6,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-5metros/" },
+  { title: "Pantalla 8 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable 8m para evento corporativo", description: "Eventos corporativos. 150-300 personas. $9,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-8metros/" },
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para eventos en CDMX", description: "DJ y sistema de audio profesional para complementar tu producción con música y ambientación en vivo.", link: "/servicios/bocinas-djs/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Pantalla Inflable", href: "/servicios/pantalla-inflable/" },
+    { label: "Paquete Producción 10m+" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Pantalla Inflable 10m+ para Festivales y Eventos Masivos"
+    subtitle="Desde $15,000 + IVA. Pantalla inflable 10m+ con proyector 20,000 lumens + audio line array profesional. Para 300+ personas."
+    introParagraph1='Cuando el evento es un festival de cine al aire libre para 500 personas, una transmisión deportiva pública o el lanzamiento de producto de una marca global, necesitas una pantalla de <strong>10 metros o más</strong> con un proyector de <strong>20,000 lumens</strong> que compita con la luz del día. El paquete de producción de <strong>REDEIL</strong> está diseñado para eventos masivos: pantalla inflable de gran formato, proyector de grado profesional, sistema de audio line array y 2 operadores técnicos.'
+    introParagraph2='Hemos montado producciones en el Parque Lincoln, explanada de Bellas Artes, Hipódromo de las Américas, foros al aire libre de Coyoacán y venues corporativos de Polanco, Santa Fe y Reforma. El equipo llega con anticipación para un montaje que puede tomar 3-4 horas dependiendo del tamaño de la pantalla y la complejidad del audio. Incluimos visita previa al venue sin costo para evaluar el espacio, planificar la logística y coordinar con tu equipo de producción. Traslado, montaje y desmontaje incluidos en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas un tamaño menor?"
+    items={[
+      { label: "3 Metros $4,500", href: "/servicios/pantalla-inflable/paquete-3metros/", icon: "efectos" },
+      { label: "5 Metros $6,500", href: "/servicios/pantalla-inflable/paquete-5metros/", icon: "efectos" },
+      { label: "8 Metros $9,500", href: "/servicios/pantalla-inflable/paquete-8metros/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción 10m+"
+      price="$15,000"
+      priceNote="+ IVA · Proyector 20,000 lm · Audio line array"
+      features={[
+        { text: "Pantalla inflable de 10 metros o más" },
+        { text: "Proyector 20,000 lumens grado profesional" },
+        { text: "Sistema de audio line array" },
+        { text: "2 operadores técnicos" },
+        { text: "Traslado ida y vuelta CDMX" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Visita previa al venue sin costo" },
+        { text: "Capacidad: 300+ personas" },
+        { text: "Conexión HDMI, SDI e inalámbrica" },
+        { text: "Anclaje profesional reforzado" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar la pantalla inflable de 10 metros o más para un festival."
+      packages={[
+        { label: "3 Metros", price: "$4,500", href: "/servicios/pantalla-inflable/paquete-3metros/" },
+        { label: "5 Metros", price: "$6,500", href: "/servicios/pantalla-inflable/paquete-5metros/" },
+        { label: "8 Metros", price: "$9,500", href: "/servicios/pantalla-inflable/paquete-8metros/" },
+        { label: "Producción 10m+", price: "$15,000", href: "/servicios/pantalla-inflable/paquete-produccion/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Para qué eventos es ideal la pantalla de 10 metros o más?"
+          subtitle="Festivales, eventos públicos, producciones de marca y transmisiones masivas."
+          paragraph1="El paquete de producción es para eventos donde el público supera las 300 personas y la producción necesita ser de nivel profesional. El proyector de 20,000 lumens permite proyectar incluso con luz indirecta del sol, y el audio line array cubre audiencias de hasta 1,000 personas."
+          paragraph2="Coordinamos con tu director de producción, agencia de eventos o departamento de marketing para que cada detalle técnico esté cubierto."
+        />
+        <FeatureGrid features={[
+          { title: "Festival de Cine al Aire Libre", description: "Función de cine para 500+ personas en parque o explanada. Imagen cinematográfica y audio envolvente." },
+          { title: "Evento Público de Marca", description: "Lanzamientos, activaciones de marca y experiencias inmersivas con pantalla gigante y producción completa." },
+          { title: "Transmisión Deportiva Masiva", description: "Partidos de la selección, finales de Champions o Super Bowl en pantalla de 10m+ para multitudes." },
+          { title: "Festival Gastronómico", description: "Transmisión de competencias de cocina en vivo, demostraciones y contenido de patrocinadores en gran formato." },
+          { title: "Concierto con Visual", description: "Visuales y VJ content en pantalla gigante como complemento de un concierto o show musical en vivo." },
+          { title: "Evento Gubernamental", description: "Ceremonias, informes y eventos públicos con proyección visible para grandes audiencias al aire libre." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Equipo de producción de nivel profesional"
+          subtitle="Proyector de 20,000 lumens, audio line array y coordinación técnica completa."
+          paragraph1="El paquete de producción no es solo una pantalla más grande — es un equipo de nivel profesional con proyector de cine, audio de concierto y operadores especializados en eventos masivos."
+          paragraph2="Para producciones que requieren switching de video, cámaras en vivo, teleprompter o streaming simultáneo, ofrecemos equipo adicional con cotización a la medida."
+        />
+        <FeatureGrid features={[
+          { title: "Proyector 20,000 Lumens", description: "Grado profesional. Imagen visible con luz indirecta del sol. Resolución Full HD nativa. Compatible con 4K." },
+          { title: "Audio Line Array", description: "Torres de altavoces con distribución vertical controlada. Subwoofers. Cobertura para 300-1,000+ personas al aire libre." },
+          { title: "2 Operadores Técnicos", description: "Un técnico para la pantalla y proyector, otro para el audio. Coordinación profesional con tu equipo de producción." },
+          { title: "Visita Previa al Venue", description: "Evaluamos el espacio, planificamos el posicionamiento, verificamos electricidad y coordinamos logística de montaje." },
+          { title: "Montaje de 3-4 Horas", description: "El equipo llega con anticipación para un montaje profesional. Pruebas completas de imagen y audio antes del evento." },
+          { title: "Pantallas de 10-20 Metros", description: "Disponibles en 10, 12, 15 y hasta 20 metros. Cotizamos a la medida según las necesidades de tu producción." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 30 reseñas verificadas."
+          paragraph1="Festivales, eventos públicos y producciones de marca en venues de CDMX."
+          paragraph2="Pregunta por referencias de producciones similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Roberto Méndez Alvarado", event: "Festival de cine — Parque Lincoln, Polanco", rating: 5, text: "500+ personas vieron la función y la imagen se veía espectacular. El proyector de 20,000 lumens es impresionante — imagen brillante incluso antes de que oscureciera completamente." },
+          { name: "Laura Estrada Jiménez", event: "Evento de marca — Explanada de Bellas Artes", rating: 5, text: "Pantalla de 12 metros con audio line array. 800+ asistentes y todo funcionó impecable. La coordinación con nuestro director de producción fue excelente." },
+          { name: "Carlos Villanueva Reyes", event: "Festival gastronómico — Coyoacán", rating: 5, text: "600 asistentes durante el día. El proyector de 20,000 lumens permitió proyectar incluso con sol indirecto. Nivel de producción profesional." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producciones con pantalla gigante en CDMX"
+        subtitle="Festivales, eventos públicos y activaciones de marca con pantalla de 10 metros o más."
+        paragraph1="Estas fotos son de producciones reales donde se montó la pantalla de 10 metros o más. El impacto visual de una pantalla gigante transforma cualquier espacio público en un foro de producción profesional."
+        paragraph2="¿Tienes una producción en puerta? Coordinamos una visita previa sin costo para evaluar el venue."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla gigante inflable en evento social masivo" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable de gran formato en evento corporativo" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-gigante-inflable-deportes.avif", alt: "Pantalla gigante inflable para transmisión deportiva masiva" },
+        { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-comunidad.avif", alt: "Pantalla inflable para función de cine comunitaria" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-presentacion.avif", alt: "Pantalla inflable para presentación de producción" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-reunion-empresarial.avif", alt: "Pantalla inflable en producción empresarial" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-evento-escolar.avif", alt: "Pantalla inflable de gran formato en explanada" },
+        { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-camping.avif", alt: "Pantalla inflable de gran formato en evento al aire libre" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete de Producción 10m+"
+        subtitle="Todo lo que necesitas saber para tu festival o evento masivo."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tipo de evento, la audiencia esperada y el venue — te presentamos una propuesta técnica completa."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué tan grande puede ser la pantalla inflable?", answer: "Nuestro paquete de producción incluye pantallas desde 10 metros. Para eventos que requieren pantallas de 12, 15 o incluso 20 metros, cotizamos a la medida según las necesidades del evento. Contáctanos con los detalles de tu producción y te presentamos las opciones disponibles." },
+      { question: "¿El proyector de 20,000 lumens funciona de día?", answer: "El proyector de 20,000 lumens es de grado profesional y puede mostrar imagen visible con luz indirecta del sol. Para funciones diurnas al aire libre, la imagen es visible pero no tan brillante como al anochecer. Para eventos que requieren proyección a plena luz del día, ofrecemos pantallas LED como alternativa." },
+      { question: "¿Qué incluye el sistema de audio line array?", answer: "Torres de altavoces con distribución vertical controlada, subwoofers para frecuencias bajas, procesador de señal y mezcla. Cubre audiencias de 300 a 1,000+ personas al aire libre con sonido claro y uniforme. Incluye técnico de audio dedicado." },
+      { question: "¿Se puede proyectar transmisión en vivo?", answer: "Sí. El equipo acepta señal en vivo desde cámaras, switchers de video, streaming por internet o cualquier fuente HDMI/SDI. Para producciones con múltiples cámaras y switching en vivo, ofrecemos equipo de producción adicional." },
+      { question: "¿Con cuánta anticipación debo reservar para un festival?", answer: "Para festivales y eventos públicos, recomendamos reservar con al menos 3-4 semanas de anticipación. Esto nos permite coordinar la visita previa al venue, planificar la logística de montaje, y asegurar la disponibilidad del equipo de producción completo." },
+      { question: "¿Ofrecen permisos y coordinación con autoridades?", answer: "El paquete incluye la visita previa al venue y coordinación técnica con tu equipo de producción. Los permisos municipales y de protección civil son responsabilidad del organizador, pero podemos asesorarte sobre los requerimientos técnicos que las autoridades suelen solicitar." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Pantalla Inflable"
+        subtitle="¿Necesitas un tamaño menor o complementar con DJ profesional?"
+        paragraph1="Para eventos de menor escala, tenemos paquetes desde $4,500 + IVA con pantalla de 3 metros. El de 5 metros es ideal para bodas y el de 8 metros para corporativos."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas pantalla con DJ, iluminación y efectos especiales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Planeas un festival o evento masivo con pantalla gigante?</h2>
+        <p>Cuéntanos la fecha, el venue, la audiencia esperada y el tipo de contenido. Coordinamos una visita previa y te enviamos la propuesta técnica completa.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

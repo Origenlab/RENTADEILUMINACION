@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Bola Disco 90cm para Salones Grandes — $5,500 + IVA | REDEIL";
+const description = "Bola de espejos 90cm + 4 focos PAR + motor para salones grandes y galas. $5,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bola-disco/paquete-90cm/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bola Disco 90cm — Salones Grandes y Galas Corporativas",
+    "description": "Bola de espejos de 90cm con motor de alta potencia y 4 focos PAR de color. Para salones grandes, galas corporativas, haciendas amplias y eventos con pistas de baile de más de 100m². Incluye instalación profesional en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bola-disco/paquete-90cm/",
+      "priceCurrency": "MXN",
+      "price": "5500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "42",
+      "reviewCount": "42"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Vega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La instalamos en el salón principal de Ex Hacienda de Tlalpan para nuestra gala anual corporativa. El salón tiene techos de 7 metros y la bola de 90cm se veía imponente. Los 4 PAR llenaron todo el salón de destellos. Los directivos quedaron encantados."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Diego Ramírez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la boda de mi hermana en un salón de Satélite con techo de 6 metros, la bola de 90cm fue perfecta. La de 60cm se hubiera visto chica en ese espacio. Los destellos llegaban hasta las mesas del fondo. Excelente servicio de REDEIL."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lucía Herrera" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos una cena de gala en Chapultepec y necesitábamos algo que no se perdiera en el espacio grande. La bola de 90cm con los 4 PAR fue exactamente lo que necesitábamos. Elegante, impactante y el montaje fue impecable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bola-disco/bola-disco-grande-para-salones.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuándo necesito la bola de 90cm en vez de la de 60cm?", "acceptedAnswer": { "@type": "Answer", "text": "Cuando tu salón tiene techos de más de 5 metros de altura o la pista de baile es mayor a 80m². En salones grandes, la bola de 60cm se pierde visualmente. La de 90cm con 4 PAR tiene el alcance para cubrir venues amplios, haciendas y salones de gala." }},
+      { "@type": "Question", "name": "¿Qué incluye el paquete de $5,500?", "acceptedAnswer": { "@type": "Answer", "text": "La bola de espejos de 90cm, motor de alta potencia con velocidad variable, 4 focos PAR de color, transporte, instalación profesional con andamio si es necesario, revisión del punto de anclaje, operación durante el evento y desmontaje." }},
+      { "@type": "Question", "name": "¿Necesita andamio para la instalación?", "acceptedAnswer": { "@type": "Answer", "text": "En la mayoría de los salones grandes, sí necesitamos andamio para llegar al punto de anclaje en techos de 5-8 metros. El andamio está incluido en el precio del paquete — no hay costo adicional." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Bola Disco 30cm — Fiestas Íntimas", image: "/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif", alt: "Bola disco 30cm para fiestas privadas", description: "Para reuniones pequeñas en casa y karaoke. Compacta y accesible. $2,000 + IVA.", link: "/servicios/bola-disco/paquete-30cm/" },
+  { title: "Bola Disco 60cm — Bodas y XV Años", image: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco 60cm en boda", description: "La más popular para bodas y XV años en salones estándar. $3,500 + IVA.", link: "/servicios/bola-disco/paquete-60cm/" },
+  { title: "Bola Disco 1.2m — Producciones", image: "/img/bola-disco/bola-disco-gigante-evento-corporativo-lujo.avif", alt: "Bola disco gigante en producción", description: "La bola gigante para festivales, conciertos y mega producciones. $9,000 + IVA.", link: "/servicios/bola-disco/paquete-120cm/" },
+  { title: "Máquina de Humo", image: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Máquina de humo profesional en pista de baile", description: "Bola disco + humo en salón grande = los destellos se vuelven visibles en toda la neblina. Épico.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Bola Disco", href: "/servicios/bola-disco/" },
+    { label: "Paquete 90cm" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Bola Disco 90cm — Para Salones Grandes y Galas Corporativas"
+    subtitle="Desde $5,500 + IVA. Bola de espejos 90cm + motor de alta potencia + 4 focos PAR. Destellos que cubren salones completos."
+    introParagraph1='Cuando el salón es grande, necesitas una bola disco que esté a la altura. La bola de espejos de <strong>90 centímetros</strong> con 4 focos PAR produce destellos de largo alcance que cubren pistas de baile de más de 100m² y salones con techos de 5 a 8 metros. Es la opción ideal para <strong>galas corporativas, bodas en haciendas amplias</strong> y eventos donde el espacio exige presencia visual.'
+    introParagraph2='El paquete incluye la bola de 90cm, motor de alta potencia con velocidad variable, 4 focos PAR de color con geles intercambiables, transporte, instalación profesional con andamio incluido, revisión del punto de anclaje y desmontaje. A diferencia de los paquetes más pequeños, este incluye el doble de focos PAR para garantizar que los destellos lleguen hasta los rincones más alejados del salón. Atendemos toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Otro tamaño o presupuesto?"
+    items={[
+      { label: "30cm Íntima — $2,000", href: "/servicios/bola-disco/paquete-30cm/", icon: "efectos" },
+      { label: "60cm Bodas — $3,500", href: "/servicios/bola-disco/paquete-60cm/", icon: "efectos" },
+      { label: "1.2m Producción — $9,000", href: "/servicios/bola-disco/paquete-120cm/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Bola 90cm — Grande"
+      price="$5,500"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "Bola de espejos 90cm de diámetro" },
+        { text: "Motor de alta potencia velocidad variable" },
+        { text: "4 focos PAR de color incluidos" },
+        { text: "Geles intercambiables de color" },
+        { text: "Cobertura de pista de 100m²+" },
+        { text: "Andamio incluido para instalación" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Instalación profesional (45-60 min)" },
+        { text: "Punto de anclaje inspeccionado" },
+        { text: "Ideal para techos de 5 a 8 metros" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete bola disco 90cm para mi evento en salón grande."
+      packages={[
+        { label: "30cm Íntima", price: "$2,000", href: "/servicios/bola-disco/paquete-30cm/" },
+        { label: "60cm Bodas", price: "$3,500", href: "/servicios/bola-disco/paquete-60cm/" },
+        { label: "90cm Grande", price: "$5,500", href: "/servicios/bola-disco/paquete-90cm/", active: true },
+        { label: "1.2m Producción", price: "$9,000", href: "/servicios/bola-disco/paquete-120cm/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Salones grandes, galas y eventos corporativos"
+          subtitle="La bola de 90cm tiene el alcance que los espacios amplios necesitan."
+          paragraph1="En un salón con techos de 6 o 7 metros, una bola de 60cm se pierde visualmente — los destellos no llegan con fuerza a las mesas del fondo. La bola de 90cm con sus 4 focos PAR de alta potencia resuelve eso: produce destellos que alcanzan cada rincón del venue."
+          paragraph2="Es la favorita de las empresas para galas, cenas de premiación y eventos corporativos de fin de año. El efecto es elegante y sofisticado — lejos del estereotipo de fiesta retro, en un salón grande la bola de espejos es puro lujo."
+        />
+        <FeatureGrid features={[
+          { title: "Galas Corporativas", description: "La bola de 90cm en una gala de empresa es un statement visual. Elegante, impactante y memorable. Los destellos sobre trajes y vestidos de gala se ven increíbles." },
+          { title: "Bodas en Haciendas Grandes", description: "Para haciendas con salones amplios y techos altos, la 90cm es la medida correcta. Los destellos llenan todo el espacio sin perder fuerza." },
+          { title: "Cenas de Premiación", description: "El ambiente visual que crea una bola grande girando sobre una cena formal es sofisticado y único. Perfecto para premios y reconocimientos." },
+          { title: "Eventos de Fin de Año", description: "Cena corporativa, conteo regresivo, hora loca — la bola de 90cm es el centro del show para los eventos de cierre anual." },
+          { title: "Salones de 300+ Invitados", description: "Cuando tu venue tiene capacidad para más de 300 personas, necesitas una bola que se vea desde todas las mesas. La de 90cm cumple con creces." },
+          { title: "Venues con Techo Alto", description: "Techos de 5 a 8 metros necesitan una bola de este tamaño para que los destellos tengan alcance y presencia proporcional al espacio." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes nos contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 42 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató la bola disco 90cm para su evento."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandra Vega", event: "Gala Corporativa — Ex Hacienda de Tlalpan", rating: 5, text: "El salón tiene techos de 7 metros y la bola de 90cm se veía imponente. Los 4 PAR llenaron todo el salón de destellos. Los directivos quedaron encantados con el resultado." },
+          { name: "Diego Ramírez", event: "Boda en Salón — Satélite", rating: 5, text: "Para la boda de mi hermana en un salón con techo de 6 metros, fue perfecta. La de 60cm se hubiera visto chica. Los destellos llegaban hasta las mesas del fondo. Excelente servicio." },
+          { name: "Lucía Herrera", event: "Cena de Gala — Chapultepec", rating: 5, text: "Necesitábamos algo que no se perdiera en el espacio grande. La bola de 90cm con los 4 PAR fue exactamente lo que necesitábamos. Elegante, impactante e instalación impecable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Bola disco 90cm en salones grandes y galas"
+        subtitle="Venues amplios necesitan presencia visual — la 90cm la tiene."
+        paragraph1="La diferencia entre una bola de 60cm y una de 90cm en un salón grande es dramática. La más grande produce destellos más definidos, más luminosos y con mayor alcance. En estas fotos de eventos reales puedes ver el impacto que tiene en venues amplios."
+        paragraph2="¿Tienes fotos de tu salón? Mándanoslas y te confirmamos que la bola de 90cm es la medida correcta para tu espacio."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bola-disco/bola-disco-grande-para-salones.avif", alt: "Bola disco 90cm en salón grande de eventos" },
+        { src: "/img/bola-disco/bola-disco-gigante-evento-corporativo-lujo.avif", alt: "Bola disco en evento corporativo de lujo" },
+        { src: "/img/bola-disco/bola-disco-moderna-coctel-corporativo.avif", alt: "Bola disco moderna en cóctel corporativo" },
+        { src: "/img/bola-disco/renta-bola-espejos-evento-premium.avif", alt: "Bola de espejos en evento premium" },
+        { src: "/img/bola-disco/bola-disco-espejos-evento-lujo.avif", alt: "Bola de espejos en evento de lujo con destellos" },
+        { src: "/img/bola-disco/renta-bola-disco-salon-eventos.avif", alt: "Renta de bola disco en salón de eventos" },
+        { src: "/img/bola-disco/bola-disco-gigante-fiesta-nocturna.avif", alt: "Bola disco gigante en fiesta nocturna" },
+        { src: "/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif", alt: "Bola disco dorada con destellos de colores" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Bola Disco 90cm"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Para producciones y festivales, tenemos la bola gigante de 1.2m con rigging profesional."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuándo necesito la bola de 90cm en vez de la de 60cm?", answer: "Cuando tu salón tiene techos de más de 5 metros de altura o la pista de baile es mayor a 80m². En salones grandes, la bola de 60cm se pierde visualmente. La de 90cm con 4 PAR tiene el alcance para cubrir venues amplios, haciendas grandes y salones de gala." },
+      { question: "¿Qué incluyen los $5,500 + IVA?", answer: "Todo: la bola de espejos de 90cm, motor de alta potencia con velocidad variable, 4 focos PAR de color con geles intercambiables, andamio para la instalación, transporte a tu venue, instalación profesional, inspección del punto de anclaje, operación y desmontaje." },
+      { question: "¿Necesita andamio para la instalación?", answer: "En la mayoría de los salones grandes, sí necesitamos andamio para llegar al punto de anclaje en techos de 5-8 metros. El andamio está incluido en el precio del paquete — no hay costo adicional." },
+      { question: "¿Es demasiado grande para un salón estándar?", answer: "Si tu salón tiene techos menores a 5 metros, probablemente sí — la bola de 60cm ($3,500 + IVA) sería la opción más proporcional. Mándanos fotos de tu venue y te recomendamos el tamaño exacto." },
+      { question: "¿Cuánto tarda la instalación?", answer: "Entre 45 y 60 minutos incluyendo el montaje del andamio y la prueba de los 4 PAR. Llegamos 2 horas antes del evento para que todo esté listo y probado." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Otro tamaño o quieres complementar el show?"
+        paragraph1="Si tu salón es más pequeño, la bola de 60cm es la más popular para bodas estándar. Si necesitas la máxima escala para un festival o producción, la bola gigante de 1.2m con rigging profesional es la opción definitiva."
+        paragraph2="Combinamos bola disco con máquina de humo, cabezas móviles y DJ para paquetes integrales de producción."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para llenar tu salón de destellos?</h2>
+        <p>Mándanos fotos de tu venue y el tipo de evento. Te confirmamos que la bola de 90cm es la ideal y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

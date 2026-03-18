@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Bola Disco Gigante 1.2m para Producciones — $9,000 + IVA | REDEIL";
+const description = "Bola de espejos 1.2m + 6 PAR + rigging profesional para festivales y producciones. $9,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/bola-disco/paquete-120cm/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bola Disco Gigante 1.2m — Producciones y Festivales",
+    "description": "Bola de espejos de 1.2 metros de diámetro con motor industrial, 6 focos PAR de alta potencia y rigging profesional. Para festivales, conciertos, producciones de gran escala y mega eventos. Incluye visita técnica previa, instalación especializada y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bola-disco/paquete-120cm/",
+      "priceCurrency": "MXN",
+      "price": "9000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "28",
+      "reviewCount": "28"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rodrigo Castillo" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La contratamos para un festival de música electrónica en el Pepsi Center. La bola de 1.2 metros colgada sobre la pista principal fue el elemento visual que más fotos generó en redes sociales. Los 6 PAR le daban un efecto masivo. El equipo técnico de REDEIL fue impecable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valentina Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para una producción de moda en Expo Santa Fe necesitábamos un focal point impresionante. La bola gigante con rigging profesional fue exactamente eso. Los destellos llenaban toda la nave de exposiciones. Montaje en 3 horas — muy profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Durán" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La usamos para el concierto de cierre de año en un foro de Coyoacán. La bola de 1.2m sobre el escenario con los 6 PAR sincronizados fue un espectáculo. El público enloqueció cuando empezó a girar. Nivel de producción profesional a un precio muy razonable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bola-disco/bola-disco-gigante-para-eventos.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Para qué tipo de eventos es la bola de 1.2 metros?", "acceptedAnswer": { "@type": "Answer", "text": "Para producciones de gran escala: festivales de música, conciertos, eventos corporativos masivos (500+ personas), producciones de moda, filmaciones y cualquier venue con techos de 8 metros o más. Es una pieza de producción profesional, no una decoración." }},
+      { "@type": "Question", "name": "¿Qué incluye el rigging profesional?", "acceptedAnswer": { "@type": "Answer", "text": "Incluye la inspección estructural del punto de anclaje, cadenas de seguridad certificadas, sistema de rigging con safety cable redundante, motor industrial y supervisión técnica durante toda la instalación. La seguridad es prioridad #1 con una pieza de este peso." }},
+      { "@type": "Question", "name": "¿Se necesita visita técnica previa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es obligatoria. Antes de confirmar la renta, nuestro equipo técnico visita el venue para inspeccionar el punto de anclaje, la capacidad de carga del techo o estructura, el acceso para el montaje y la disponibilidad eléctrica. Sin visita previa no instalamos." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Bola Disco 30cm — Fiestas Íntimas", image: "/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif", alt: "Bola disco 30cm para fiestas", description: "Para reuniones pequeñas en casa y karaoke. Compacta y accesible. $2,000 + IVA.", link: "/servicios/bola-disco/paquete-30cm/" },
+  { title: "Bola Disco 60cm — Bodas y XV Años", image: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco 60cm en boda", description: "La más popular para bodas y XV años. Destellos en toda la pista. $3,500 + IVA.", link: "/servicios/bola-disco/paquete-60cm/" },
+  { title: "Bola Disco 90cm — Salones Grandes", image: "/img/bola-disco/bola-disco-grande-para-salones.avif", alt: "Bola disco 90cm en salón grande", description: "Para galas corporativas y salones amplios. 4 PAR incluidos. $5,500 + IVA.", link: "/servicios/bola-disco/paquete-90cm/" },
+  { title: "Máquina de Humo", image: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Máquina de humo profesional en pista de baile", description: "Bola gigante + humo = miles de destellos visibles flotando en la neblina. Efecto de producción total.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Bola Disco", href: "/servicios/bola-disco/" },
+    { label: "Paquete 1.2m" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Bola Disco Gigante 1.2m — Para Festivales y Producciones"
+    subtitle="Desde $9,000 + IVA. Bola de espejos 1.2m + motor industrial + 6 focos PAR + rigging profesional. Espectáculo de producción."
+    introParagraph1='La bola de espejos de <strong>1.2 metros</strong> no es una decoración — es una pieza de producción. Con más de un metro de diámetro, motor industrial y 6 focos PAR de alta potencia apuntando a su superficie, produce un espectáculo visual masivo que llena <strong>festivales, conciertos, foros y venues de gran escala</strong> con miles de destellos que se mueven al ritmo de la música. Es el focal point que genera contenido para redes sociales.'
+    introParagraph2='El paquete incluye la bola gigante de 1.2m, motor industrial de alta potencia, 6 focos PAR de color, sistema de rigging profesional con cadenas de seguridad certificadas y safety cable redundante, visita técnica previa obligatoria, transporte con equipo de carga, instalación especializada (2-3 horas), supervisión técnica durante el evento y desmontaje. Este no es un paquete de fiesta — es producción profesional con estándares de seguridad de la industria.'
+  />
+
+  <CtaBar
+    headline="¿Otro tamaño o presupuesto?"
+    items={[
+      { label: "30cm Íntima — $2,000", href: "/servicios/bola-disco/paquete-30cm/", icon: "efectos" },
+      { label: "60cm Bodas — $3,500", href: "/servicios/bola-disco/paquete-60cm/", icon: "efectos" },
+      { label: "90cm Grande — $5,500", href: "/servicios/bola-disco/paquete-90cm/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Bola 1.2m — Producción"
+      price="$9,000"
+      priceNote="+ IVA · Rigging incluido"
+      features={[
+        { text: "Bola de espejos 1.2m de diámetro" },
+        { text: "Motor industrial de alta potencia" },
+        { text: "6 focos PAR de alta potencia" },
+        { text: "Rigging profesional certificado" },
+        { text: "Cadenas de seguridad + safety cable" },
+        { text: "Visita técnica previa obligatoria" },
+        { text: "Transporte con equipo de carga" },
+        { text: "Instalación especializada (2-3 hrs)" },
+        { text: "Supervisión técnica en evento" },
+        { text: "Desmontaje profesional incluido" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete bola disco 1.2m para mi producción/festival."
+      packages={[
+        { label: "30cm Íntima", price: "$2,000", href: "/servicios/bola-disco/paquete-30cm/" },
+        { label: "60cm Bodas", price: "$3,500", href: "/servicios/bola-disco/paquete-60cm/" },
+        { label: "90cm Grande", price: "$5,500", href: "/servicios/bola-disco/paquete-90cm/" },
+        { label: "1.2m Producción", price: "$9,000", href: "/servicios/bola-disco/paquete-120cm/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Festivales, conciertos y mega producciones"
+          subtitle="La bola gigante es el centro del espectáculo visual."
+          paragraph1="La bola de espejos de 1.2 metros es una pieza que se usa en producciones de nivel profesional — festivales de música, conciertos, eventos corporativos masivos de 500+ personas, lanzamientos de producto, producciones de moda y filmaciones. No es una decoración de fiesta: es un elemento de producción que requiere rigging profesional."
+          paragraph2="Los 6 focos PAR de alta potencia garantizan que los destellos lleguen a cada rincón del venue, incluso en naves de exposiciones y foros con techos de 10+ metros. Cada PAR puede tener un color diferente para crear efectos multicolor sincronizados."
+        />
+        <FeatureGrid features={[
+          { title: "Festivales de Música", description: "Sobre la pista principal o el escenario, la bola gigante es el focal point que genera miles de fotos y contenido para redes sociales." },
+          { title: "Conciertos y Foros", description: "En foros y auditorios, la bola de 1.2m suspendida sobre el público crea un espectáculo visual que amplifica la experiencia del show." },
+          { title: "Eventos Corporativos Masivos", description: "Para convenciones, lanzamientos de producto y galas de 500+ personas, es el elemento visual que nadie olvida." },
+          { title: "Producciones de Moda", description: "Pasarelas, showrooms y lanzamientos de marca. La bola gigante como focal point de diseño en eventos de alta producción." },
+          { title: "Filmaciones y Video", description: "Set de filmación para videoclips, comerciales y contenido de marca. Los destellos controlados con los 6 PAR son cinematográficos." },
+          { title: "Fiestas Masivas y Clubs", description: "Para venues nocturnos y fiestas de gran escala donde la bola disco gigante es el centro de la pista." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes nos contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 28 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató la bola disco gigante de 1.2m."
+          paragraph2="Pregunta por referencias de producciones similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Rodrigo Castillo", event: "Festival Electrónica — Pepsi Center", rating: 5, text: "La bola de 1.2 metros sobre la pista principal fue el elemento visual que más fotos generó en redes. Los 6 PAR le daban un efecto masivo. El equipo técnico fue impecable." },
+          { name: "Valentina Torres", event: "Producción de Moda — Expo Santa Fe", rating: 5, text: "Necesitábamos un focal point impresionante. La bola gigante con rigging profesional fue exactamente eso. Los destellos llenaban toda la nave. Montaje en 3 horas — muy profesional." },
+          { name: "Miguel Ángel Durán", event: "Concierto — Foro Coyoacán", rating: 5, text: "La bola de 1.2m sobre el escenario con los 6 PAR sincronizados fue un espectáculo. El público enloqueció cuando empezó a girar. Nivel de producción profesional a un precio muy razonable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Bola disco gigante 1.2m en producciones reales"
+        subtitle="Festivales, conciertos y eventos de gran escala en CDMX."
+        paragraph1="La bola gigante es una pieza impresionante por donde la veas. Con más de un metro de diámetro, produce destellos visibles a distancias enormes y es el tipo de elemento visual que hace que la gente saque el celular y grabe. Cada imagen es de un montaje real."
+        paragraph2="¿Tienes un proyecto de producción? Mándanos los detalles del venue y te hacemos una propuesta técnica completa."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bola-disco/bola-disco-gigante-para-eventos.avif", alt: "Bola disco gigante para eventos especiales" },
+        { src: "/img/bola-disco/bola-disco-gigante-fiesta-nocturna.avif", alt: "Bola disco gigante en fiesta nocturna masiva" },
+        { src: "/img/bola-disco/bola-disco-gigante-evento-corporativo-lujo.avif", alt: "Bola disco gigante en evento corporativo de lujo" },
+        { src: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco con DJ en pista de baile de evento masivo" },
+        { src: "/img/bola-disco/renta-bola-espejos-evento-premium.avif", alt: "Bola de espejos premium en evento de gran escala" },
+        { src: "/img/bola-disco/bola-disco-espejos-evento-lujo.avif", alt: "Bola de espejos en evento de producción de lujo" },
+        { src: "/img/bola-disco/bola-disco-moderna-coctel-corporativo.avif", alt: "Bola disco en evento corporativo moderno" },
+        { src: "/img/bola-disco/renta-de-bola-disco-pista-iluminada.avif", alt: "Pista iluminada con bola disco gigante" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Bola Disco 1.2m"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Este es un paquete de producción profesional. Lee las preguntas antes de cotizar."
+        paragraph2="Si tu evento es más pequeño, la bola de 90cm ($5,500 + IVA) puede ser la opción correcta."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Para qué tipo de eventos es la bola de 1.2 metros?", answer: "Para producciones de gran escala: festivales de música, conciertos, eventos corporativos masivos (500+ personas), producciones de moda, filmaciones y cualquier venue con techos de 8 metros o más. Es una pieza de producción profesional, no una decoración de fiesta." },
+      { question: "¿Qué incluyen los $9,000 + IVA?", answer: "Todo: bola de espejos de 1.2m, motor industrial, 6 focos PAR de alta potencia, sistema de rigging profesional con cadenas de seguridad certificadas y safety cable redundante, visita técnica previa, transporte con equipo de carga, instalación especializada (2-3 horas), supervisión técnica durante el evento y desmontaje." },
+      { question: "¿Por qué es obligatoria la visita técnica previa?", answer: "Porque una bola de 1.2 metros pesa considerablemente y necesitamos verificar que el punto de anclaje, el techo o la estructura de rigging del venue soporte el peso con margen de seguridad. También revisamos el acceso para la carga y la disponibilidad eléctrica. La seguridad no es negociable." },
+      { question: "¿Cuánto tarda la instalación?", answer: "Entre 2 y 3 horas dependiendo de la altura del techo y la accesibilidad del punto de anclaje. Incluye el montaje del rigging, la suspensión de la bola, la instalación de los 6 PAR y pruebas completas de funcionamiento." },
+      { question: "¿Se puede sincronizar con el sistema de luces del evento?", answer: "Sí. Los 6 PAR se pueden conectar al sistema DMX de la producción para sincronizar colores y efectos con el resto de la iluminación del evento. Coordinamos con tu equipo técnico o proveedor de iluminación." },
+      { question: "¿Funciona en exteriores?", answer: "Sí, siempre y cuando haya una estructura de rigging adecuada (torres de truss, puentes de luces, etc.) y no haya lluvia ni viento fuerte. Para exteriores, la visita técnica previa es aún más importante." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Otro tamaño o quieres complementar la producción?"
+        paragraph1="Si tu evento no requiere nivel de producción, tenemos bolas de 30cm para fiestas íntimas, 60cm para bodas y XV años, y 90cm para salones grandes. Cada una con motor y focos PAR incluidos."
+        paragraph2="Combinamos la bola gigante con máquina de humo, cabezas móviles y sky trackers para producciones integrales."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para el espectáculo de producción?</h2>
+        <p>Mándanos los detalles de tu venue y tu producción. Agendamos la visita técnica y te cotizamos en 24 horas.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Burbujas Gigantes para Shows y Eventos — $5,000 + IVA | REDEIL";
+const description = "Burbujas gigantes + lluvia continua para shows especiales. Máquinas profesionales. $5,000 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/burbujas/paquete-burbujas-gigantes/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete Burbujas Gigantes — Shows y Eventos Especiales",
+    "description": "Burbujas gigantes de 30-50cm + lluvia continua de burbujas normales para shows corporativos, eventos especiales y producciones en CDMX y Edomex.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "5000", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "48", "reviewCount": "48" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Paulina Guerrero" }, "datePublished": "2026-02-08", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Las burbujas gigantes fueron el centro del show corporativo que organizamos en el WTC. Los asistentes estaban fascinados viendo burbujas de medio metro flotar por el salón. Efecto wow garantizado." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Emilio Torres" }, "datePublished": "2026-01-12", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos para un evento de lanzamiento de producto en Polanco. La combinación de burbujas gigantes y lluvia continua creó una atmósfera increíble. El equipo de REDEIL fue muy profesional." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Gabriela Salinas" }, "datePublished": "2025-12-18", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Para el show de cierre de año de la empresa las burbujas gigantes fueron perfectas. Los niños de los empleados no paraban de intentar atraparlas. Un acierto total para el evento familiar corporativo." }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿Qué tan grandes son las burbujas gigantes?", "acceptedAnswer": { "@type": "Answer", "text": "Las burbujas gigantes miden entre 30 y 50cm de diámetro. Flotan lentamente y capturan la luz de forma espectacular, creando un efecto visual único." }},
+    { "@type": "Question", "name": "¿Se pueden usar burbujas gigantes en interiores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. En salones con techos altos las burbujas gigantes flotan y se ven espectaculares. El fluido que usamos no deja residuo pegajoso en el piso." }}
+  ]}
+]);
+
+const otrosPaquetes = [
+  { title: "Fiesta Infantil — $1,800", image: "/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif", alt: "Burbujas en fiesta infantil", description: "1 máquina para fiestas íntimas y baby showers. $1,800 + IVA.", link: "/servicios/burbujas/paquete-fiesta-infantil/" },
+  { title: "Boda Entrada — $3,200", image: "/img/burbujas/maquina-burbujas-boda-entrada-novios.avif", alt: "Burbujas entrada de novios", description: "2 máquinas para entrada de novios y vals. $3,200 + IVA.", link: "/servicios/burbujas/paquete-boda-entrada/" },
+  { title: "Producción — $8,500", image: "/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif", alt: "Burbujas en festival masivo", description: "6 máquinas + técnico para festivales y conciertos. $8,500 + IVA.", link: "/servicios/burbujas/paquete-produccion/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en evento", description: "Burbujas gigantes + confeti para un show de cierre espectacular.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" }, { label: "Burbujas", href: "/servicios/burbujas/" }, { label: "Burbujas Gigantes" }]} />
+</Fragment>
+
+    <Hero title="Burbujas Gigantes para Shows y Eventos Especiales" subtitle="$5,000 + IVA. Máquina de burbujas gigantes + lluvia continua. El efecto wow para shows corporativos y producciones."
+      introParagraph1='Las burbujas gigantes son otro nivel de espectáculo. Esferas de jabón de 30 a 50 centímetros de diámetro que flotan lentamente por el espacio, capturando la luz y los colores del ambiente. Es un efecto visual que sorprende a adultos y niños por igual — perfecto para shows corporativos, lanzamientos de producto, eventos de cierre de año y producciones especiales donde necesitas el factor wow.'
+      introParagraph2='Este paquete combina una máquina de burbujas gigantes con una de lluvia continua para crear dos capas de efecto: las burbujas grandes que flotan y las pequeñas que llenan el ambiente. El operador técnico controla ambas máquinas y coordina los momentos de activación con el productor del evento. Incluye fluido especial para burbujas gigantes (más resistente que el normal), traslado y montaje en toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar headline="Compara paquetes de burbujas" items={[
+      { label: "Infantil — $1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/", icon: "efectos" },
+      { label: "Boda — $3,200", href: "/servicios/burbujas/paquete-boda-entrada/", icon: "efectos" },
+      { label: "Producción — $8,500", href: "/servicios/burbujas/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]} />
+
+    <section class="services-section">
+      <ContentWithSidebar sidebarTitle="Burbujas Gigantes" price="$5,000" priceNote="+ IVA · Efecto wow" features={[
+        { text: "1 máquina de burbujas gigantes (30-50cm)" }, { text: "1 máquina de lluvia continua" }, { text: "Fluido especial de alta resistencia" }, { text: "Operador técnico incluido" }, { text: "Traslado + montaje + desmontaje" }, { text: "Fluido ilimitado toda la noche" }, { text: "Ideal para shows y corporativos" }, { text: "Coordinación con productor" }, { text: "Cobertura CDMX y Edomex" }, { text: "Funciona en interiores y exteriores" },
+      ]} waMessage="Hola REDEIL, quiero cotizar el paquete Burbujas Gigantes para un show especial." packages={[
+        { label: "Fiesta Infantil", price: "$1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/" },
+        { label: "Boda Entrada", price: "$3,200", href: "/servicios/burbujas/paquete-boda-entrada/" },
+        { label: "Burbujas Gigantes", price: "$5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/", active: true },
+        { label: "Producción", price: "$8,500", href: "/servicios/burbujas/paquete-produccion/" },
+      ]}>
+        <div class="container">
+          <SectionHeader title="Burbujas gigantes para cada tipo de producción" subtitle="El efecto que transforma cualquier show en espectáculo." paragraph1="Las burbujas gigantes flotan lentamente, capturan la luz del escenario y crean una atmósfera etérea que hipnotiza al público. Combinadas con la lluvia continua de burbujas normales, el efecto visual es de producción cinematográfica." paragraph2="Funcionan perfecto en salones con techos altos, escenarios al aire libre, centros de convenciones y cualquier espacio donde quieras un impacto visual memorable." />
+          <FeatureGrid features={[
+            { title: "Shows Corporativos", description: "Lanzamientos de producto, cierres de año, convenciones. Las burbujas gigantes crean un momento memorable que los asistentes fotografían y comparten." },
+            { title: "Eventos Especiales", description: "Inauguraciones, aniversarios, galas. El efecto de burbujas gigantes eleva cualquier producción de nivel medio a nivel premium." },
+            { title: "Producciones Audiovisuales", description: "Filmación de comerciales, videoclips, sesiones fotográficas. Las burbujas gigantes en cámara lenta son un recurso visual espectacular." },
+            { title: "Shows Infantiles Premium", description: "Fiestas infantiles de alto nivel donde las burbujas gigantes se convierten en el centro del espectáculo. Los niños intentan atraparlas sin éxito." },
+            { title: "Eventos al Aire Libre", description: "En jardines y terrazas las burbujas gigantes flotan más alto y se llenan de los colores del cielo. Un efecto natural y orgánico." },
+            { title: "Combinación con Iluminación", description: "Con luces LED o UV, las burbujas gigantes se iluminan por dentro y crean un efecto de ciencia ficción que nadie espera." },
+          ]} columns={2} />
+        </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Lo que dicen nuestros clientes" subtitle="⭐⭐⭐⭐⭐ 48 reseñas verificadas." paragraph1="Shows corporativos y eventos especiales con burbujas gigantes REDEIL." paragraph2="El efecto que convierte cualquier evento en producción de primer nivel." />
+          <TestimonialCards testimonials={[
+            { name: "Paulina Guerrero", event: "Evento corporativo — WTC, CDMX", rating: 5, text: "Las burbujas gigantes fueron el centro del show corporativo. Los asistentes estaban fascinados viendo burbujas de medio metro flotar por el salón. Efecto wow garantizado." },
+            { name: "Emilio Torres", event: "Lanzamiento de producto — Polanco", rating: 5, text: "La combinación de burbujas gigantes y lluvia continua creó una atmósfera increíble para el lanzamiento. El equipo de REDEIL fue muy profesional." },
+            { name: "Gabriela Salinas", event: "Cierre de año — Santa Fe", rating: 5, text: "Para el show de cierre de año las burbujas gigantes fueron perfectas. Los niños de los empleados no paraban de intentar atraparlas. Un acierto total." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Burbujas gigantes en shows y producciones" subtitle="El efecto visual que eleva cualquier evento." paragraph1="Shows corporativos, lanzamientos, filmaciones y fiestas premium." paragraph2="¿Tu evento necesita el factor wow? Mándanos los detalles." />
+        <Gallery4x4 images={[
+          { src: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos.avif", alt: "Burbujas gigantes en fiesta de cumpleaños" },
+          { src: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Show infantil con burbujas gigantes" },
+          { src: "/img/burbujas/renta-burbujas-evento-corporativo-lanzamiento.avif", alt: "Burbujas en lanzamiento corporativo" },
+          { src: "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif", alt: "Efecto especial de burbujas para fotografía" },
+          { src: "/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif", alt: "Máquina de burbujas profesional en jardín" },
+          { src: "/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif", alt: "Burbujas en fiesta temática con luces" },
+          { src: "/img/burbujas/renta-burbujas-festival-kermesse-feria.avif", alt: "Burbujas en festival y kermesse" },
+          { src: "/img/burbujas/burbujas-fiesta-pool-party-alberca.avif", alt: "Burbujas en pool party" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Burbujas Gigantes" subtitle="Todo lo que necesitas saber antes de contratar." paragraph1="Escríbenos por WhatsApp si tienes otra duda." paragraph2="Te asesoramos sobre el mejor setup para tu evento." />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tan grandes son las burbujas gigantes?", answer: "Las burbujas gigantes miden entre 30 y 50 centímetros de diámetro. Flotan lentamente y pueden durar hasta 30 segundos antes de reventarse, dependiendo de las condiciones del ambiente. En interiores sin corrientes de aire duran más." },
+        { question: "¿Se pueden usar en interiores con techo bajo?", answer: "Funcionan mejor en espacios con techos de al menos 3 metros de altura. En techos bajos las burbujas gigantes se revientan rápidamente al tocar el techo. Para techos estándar (2.5m), usamos solo la máquina de lluvia y las gigantes las reservamos para momentos puntuales." },
+        { question: "¿Las burbujas gigantes dejan residuo en el piso?", answer: "El fluido especial para burbujas gigantes es más concentrado que el normal, pero está formulado para dejar mínimo residuo. Recomendamos tener un trapeador cerca para shows de larga duración en pisos lisos." },
+        { question: "¿Puedo combinar burbujas gigantes con humo o niebla?", answer: "Sí, y es una combinación espectacular. Las burbujas gigantes flotando sobre niebla baja crean un efecto de fantasía. Pregunta por nuestro combo de burbujas + humo bajo con precio especial." },
+        { question: "¿Cuántas burbujas gigantes produce la máquina por minuto?", answer: "La máquina de burbujas gigantes produce entre 5 y 20 burbujas grandes por minuto, dependiendo del tamaño configurado. La de lluvia continua produce 500-2,000 burbujas normales por minuto. Juntas crean dos capas de efecto visual." },
+        { question: "¿Funciona al aire libre con viento?", answer: "Con viento moderado las burbujas gigantes se dispersan rápido pero el efecto sigue siendo bonito. Con viento fuerte, recomendamos posicionar las máquinas en una zona protegida. Al aire libre sin viento es el escenario ideal." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="¿Necesitas más máquinas o cobertura total?" paragraph1="Cada paquete sube en cantidad de equipos y alcance." paragraph2="Combina burbujas gigantes con confeti para un cierre espectacular." />
+        <div class="services-grid">{otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container"><div class="cta-content">
+        <h2>¿Listo para el show de burbujas gigantes?</h2>
+        <p>Cuéntanos qué tipo de evento es, el espacio y cuántas personas esperan. Te armamos la propuesta perfecta.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div></div>
+    </section>
+</BaseLayout>

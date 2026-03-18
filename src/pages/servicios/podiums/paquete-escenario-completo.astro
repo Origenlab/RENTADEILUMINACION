@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Escenario Completo con Podiums, Audio e Iluminación — $5,000 + IVA | REDEIL";
+const description = "2 podiums acrílico + iluminación de escenario + audio profesional para conferencias y galas corporativas. $5,000 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/podiums/paquete-escenario-completo/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Escenario Completo con Podiums, Audio e Iluminación",
+    "description": "2 podiums de acrílico transparente de 10mm + iluminación de escenario PAR LED + audio profesional con micrófono inalámbrico para conferencias corporativas y galas de premiación en CDMX. Incluye operador técnico, entrega, colocación y retiro.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/podiums/paquete-escenario-completo/",
+      "priceCurrency": "MXN",
+      "price": "5000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "55",
+      "reviewCount": "55"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ricardo Mendoza Paredes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el escenario completo para nuestra conferencia anual de ventas en el WTC. Los 2 podiums, el audio y la iluminación funcionaron perfecto durante las 6 horas del evento. El operador técnico de REDEIL resolvió todo sin que tuviéramos que preocuparnos por nada."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Torres Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos una gala de premiación para 150 personas en un hotel de Reforma. El paquete de escenario completo nos dio todo lo que necesitábamos — los podiums se veían elegantes, el audio se escuchó claro en todo el salón y la iluminación le dio un look profesional al escenario."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo Ramos Castillo" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el paquete para un evento empresarial de lanzamiento de producto con 120 invitados. La coordinación con el venue fue impecable — REDEIL llegó temprano, montó todo y el operador estuvo presente durante todo el evento. La relación calidad-precio es excelente."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye el paquete Escenario Completo?", "acceptedAnswer": { "@type": "Answer", "text": "Incluye 2 podiums de acrílico transparente de 10mm, iluminación de escenario con PAR LED, audio profesional con micrófono inalámbrico, operador técnico durante el evento, entrega anticipada, colocación, nivelación y retiro al finalizar. Todo por $5,000 + IVA." }},
+      { "@type": "Question", "name": "¿Es suficiente para una conferencia de 150 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El audio profesional incluido cubre salones de hasta 200 personas sin problema. El micrófono inalámbrico permite movilidad en el escenario y la iluminación PAR LED destaca a los oradores frente a la audiencia." }},
+      { "@type": "Question", "name": "¿El operador técnico está incluido en el precio?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete de $5,000 + IVA incluye un operador técnico que se encarga del montaje, la prueba de audio, el control de iluminación durante el evento y el desmontaje al finalizar. No necesitas contratar personal técnico adicional." }},
+      { "@type": "Question", "name": "¿Puedo personalizar los podiums con el logo de mi empresa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Aplicamos vinil de corte con el logotipo corporativo en el frente de los podiums. Envíanos el archivo vectorial y lo preparamos antes del evento. Se retira al finalizar sin dejar residuos en el acrílico." }},
+      { "@type": "Question", "name": "¿Cubren venues fuera de CDMX?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cubrimos CDMX y Estado de México sin costo adicional de traslado. Para venues en otros estados, cotizamos el envío según la distancia. La mayoría de nuestros eventos corporativos son en hoteles y centros de convenciones de la zona metropolitana." }},
+      { "@type": "Question", "name": "¿Puedo agregar más podiums o pantallas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Si necesitas más de 2 podiums o pantallas LED adicionales, cotizamos el complemento. Para eventos grandes con 4+ podiums y staging completo, el paquete Congreso ($8,500 + IVA) es la mejor opción." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Podium", image: "/img/podiums/conferencia-ejecutivo-podium-alto-iluminacion-profesional.avif", alt: "1 podium de acrílico para conferencia individual", description: "1 podium de acrílico para presentaciones y conferencias pequeñas. $1,500 + IVA.", link: "/servicios/podiums/paquete-1-podium/" },
+  { title: "2 Podiums", image: "/img/podiums/conferencia-empresarial-podium-transparente-audiencia-profesional.avif", alt: "2 podiums de acrílico para bodas y galas", description: "2 podiums idénticos para bodas, galas y mesas de honor. $2,500 + IVA.", link: "/servicios/podiums/paquete-2-podiums/" },
+  { title: "Congreso", image: "/img/podiums/conferencia-masiva-podium-acrilico-pantallas-auditorio.avif", alt: "Múltiples podiums para congreso en auditorio", description: "4+ podiums + staging + audio + iluminación + técnico para congresos. $8,500 + IVA.", link: "/servicios/podiums/paquete-congreso/" },
+  { title: "Bocinas", image: "/img/bocinas/renta-bocinas-bose-evento-empresarial.avif", alt: "Bocinas profesionales para eventos corporativos", description: "Audio profesional para reforzar la conferencia o gala. Complemento ideal para escenarios grandes.", link: "/servicios/bocinas/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Podiums", href: "/servicios/podiums/" },
+    { label: "Escenario Completo" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Escenario Completo con Podiums, Audio e Iluminación"
+    subtitle="Desde $5,000 + IVA. 2 podiums + audio profesional + iluminación de escenario + operador técnico incluido."
+    introParagraph1='El paquete Escenario Completo es la solución integral para <strong>conferencias corporativas, galas de premiación y eventos empresariales medianos</strong> de 50 a 200 personas. Incluye 2 podiums de acrílico transparente de <strong>10mm</strong>, iluminación de escenario con PAR LED, audio profesional con micrófono inalámbrico y un operador técnico que se encarga de todo durante el evento. Sin preocupaciones técnicas — tu equipo se enfoca en el contenido y nosotros en la producción del escenario.'
+    introParagraph2='La iluminación PAR LED destaca a los oradores frente a la audiencia y le da presencia profesional al escenario. El audio cubre salones de hasta 200 personas con claridad total. Los podiums se pueden personalizar con el <strong>logotipo corporativo</strong> en vinil de corte. El servicio cubre entrega anticipada, montaje completo, operación durante el evento y retiro al finalizar. Cobertura en <strong>CDMX y Estado de México</strong> sin costo adicional de traslado.'
+  />
+
+  <CtaBar
+    headline="Compara paquetes de podiums para tu evento"
+    items={[
+      { label: "1 Podium — $1,500", href: "/servicios/podiums/paquete-1-podium/", icon: "efectos" },
+      { label: "2 Podiums — $2,500", href: "/servicios/podiums/paquete-2-podiums/", icon: "efectos" },
+      { label: "Congreso — $8,500", href: "/servicios/podiums/paquete-congreso/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Escenario Completo"
+      price="$5,000"
+      priceNote="+ IVA · Podiums + Audio + Iluminación"
+      features={[
+        { text: "2 podiums acrílico transparente 10mm" },
+        { text: "Iluminación escenario PAR LED" },
+        { text: "Audio profesional con micrófono inalámbrico" },
+        { text: "Operador técnico durante el evento" },
+        { text: "Entrega anticipada y colocación" },
+        { text: "Retiro incluido al finalizar" },
+        { text: "Personalización vinil con logo corporativo" },
+        { text: "Iluminación LED en base de podiums" },
+        { text: "Cobertura CDMX y Edomex" },
+        { text: "Coordinación directa con venue" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Escenario Completo con podiums, audio e iluminación para conferencia/gala corporativa."
+      packages={[
+        { label: "1 Podium", price: "$1,500", href: "/servicios/podiums/paquete-1-podium/" },
+        { label: "2 Podiums", price: "$2,500", href: "/servicios/podiums/paquete-2-podiums/" },
+        { label: "Escenario Completo", price: "$5,000", href: "/servicios/podiums/paquete-escenario-completo/", active: true },
+        { label: "Congreso", price: "$8,500", href: "/servicios/podiums/paquete-congreso/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Ideal para estos eventos corporativos"
+          subtitle="Escenario profesional listo para conferencias de 50 a 200 personas."
+          paragraph1="El paquete Escenario Completo resuelve la producción técnica de eventos empresariales medianos. Conferencias anuales, lanzamientos de producto, galas de premiación y presentaciones ejecutivas — todo cubierto con un solo paquete a precio fijo."
+          paragraph2="El operador técnico se coordina directamente con el venue para que el montaje no interfiera con la logística del evento."
+        />
+        <FeatureGrid features={[
+          { title: "Conferencias Corporativas", description: "Juntas anuales, reportes trimestrales y presentaciones ejecutivas con audio claro e iluminación profesional en el escenario." },
+          { title: "Galas de Premiación", description: "Entrega de reconocimientos con 2 podiums — uno para el presentador y otro para el premiado. Iluminación que destaca el escenario." },
+          { title: "Lanzamientos de Producto", description: "Escenario profesional para presentar un nuevo producto o servicio frente a clientes, prensa y colaboradores." },
+          { title: "Eventos Empresariales", description: "Cenas de fin de año, aniversarios de empresa y eventos de integración con discursos formales y reconocimientos." },
+          { title: "Paneles y Mesas Redondas", description: "2 podiums para moderador y panelistas con audio que llega a toda la audiencia sin esfuerzo." },
+          { title: "Seminarios y Capacitaciones", description: "Presentaciones de varias horas con operador técnico que controla audio e iluminación durante toda la jornada." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Todo lo que incluye el paquete"
+          subtitle="Producción técnica completa sin costos ocultos."
+          paragraph1="El precio de $5,000 + IVA cubre todo lo necesario para que tu escenario funcione de forma profesional. No hay extras ni sorpresas — audio, iluminación, podiums, operador, entrega y retiro están incluidos."
+          paragraph2="Si necesitas personalización adicional como pantallas LED o más micrófonos, cotizamos el complemento por separado."
+        />
+        <FeatureGrid features={[
+          { title: "2 Podiums Acrílico 10mm", description: "Podiums transparentes idénticos, pulidos a espejo. Superficie amplia para laptop o tablet. Soportan hasta 15 kg cada uno." },
+          { title: "Iluminación PAR LED", description: "Luces PAR LED que iluminan el escenario y destacan a los oradores. Colores personalizables según tu marca corporativa." },
+          { title: "Audio con Micrófono", description: "Sistema de audio profesional con micrófono inalámbrico. Cobertura clara para salones de hasta 200 personas." },
+          { title: "Operador Técnico", description: "Un técnico de REDEIL presente durante todo el evento. Controla audio, iluminación y resuelve cualquier imprevisto en tiempo real." },
+          { title: "Logo en Vinil de Corte", description: "Personalización con logotipo corporativo en el frente de los podiums. Envía tu archivo vectorial y lo preparamos." },
+          { title: "Montaje y Desmontaje", description: "Llegamos antes del evento, montamos todo, hacemos pruebas de audio y retiramos al finalizar. Cero logística para tu equipo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 55 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete Escenario Completo para su evento corporativo."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ricardo Mendoza Paredes", event: "Conferencia anual de ventas — WTC", rating: 5, text: "Los 2 podiums, el audio y la iluminación funcionaron perfecto durante las 6 horas del evento. El operador técnico resolvió todo sin que tuviéramos que preocuparnos por nada. Muy recomendable." },
+          { name: "Gabriela Torres Villanueva", event: "Gala de premiación — Hotel Reforma", rating: 5, text: "El paquete nos dio todo lo que necesitábamos para 150 personas. Los podiums se veían elegantes, el audio se escuchó claro en todo el salón y la iluminación le dio un look profesional al escenario." },
+          { name: "Eduardo Ramos Castillo", event: "Lanzamiento de producto — Polanco", rating: 5, text: "Evento empresarial con 120 invitados. La coordinación con el venue fue impecable — REDEIL llegó temprano, montó todo y el operador estuvo presente todo el evento. Excelente relación calidad-precio." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Escenarios completos en eventos reales"
+        subtitle="Conferencias, galas y eventos corporativos en CDMX."
+        paragraph1="Cada foto es de un evento real donde el paquete Escenario Completo fue la solución de producción técnica. Podiums, audio e iluminación trabajando juntos en escenarios profesionales."
+        paragraph2="Mándanos fotos de tu venue y te mostramos cómo quedaría el montaje."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif", alt: "Escenario completo con podium de acrílico e iluminación azul en auditorio corporativo" },
+        { src: "/img/podiums/conferencia-ejecutivo-podium-transparente-escenario-iluminado.avif", alt: "Ejecutivo en podium transparente con escenario iluminado profesionalmente" },
+        { src: "/img/podiums/conferencia-orador-microfono-podium-acrilico-escenario-azul.avif", alt: "Orador con micrófono en podium de acrílico sobre escenario azul" },
+        { src: "/img/podiums/conferencia-mujer-ejecutiva-podium-acrilico-auditorio-grande.avif", alt: "Ejecutiva en podium de acrílico con audio profesional en auditorio grande" },
+        { src: "/img/podiums/conferencia-auditorio-grande-podium-transparente-iluminacion.avif", alt: "Auditorio con podium transparente e iluminación de escenario completa" },
+        { src: "/img/podiums/conferencia-mujer-traje-rojo-podium-acrilico-evento-corporativo.avif", alt: "Evento corporativo con podium de acrílico y producción de escenario" },
+        { src: "/img/podiums/conferencia-podium-acrilico-alto-iluminacion-azul-cortinas.avif", alt: "Podium de acrílico alto con iluminación profesional y cortinas de escenario" },
+        { src: "/img/podiums/conferencia-auditorio-podium-acrilico-vista-trasera-audiencia.avif", alt: "Vista panorámica de escenario completo con podium y audiencia corporativa" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el paquete Escenario Completo"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Te asesoramos gratis sobre la mejor configuración para tu conferencia o gala."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye el paquete Escenario Completo?", answer: "Incluye 2 podiums de acrílico transparente de 10mm, iluminación de escenario con PAR LED, audio profesional con micrófono inalámbrico, operador técnico durante el evento, entrega anticipada, colocación, nivelación y retiro al finalizar. Todo por $5,000 + IVA." },
+      { question: "¿Es suficiente para una conferencia de 150 personas?", answer: "Sí. El audio profesional incluido cubre salones de hasta 200 personas sin problema. El micrófono inalámbrico permite movilidad en el escenario y la iluminación PAR LED destaca a los oradores frente a la audiencia." },
+      { question: "¿El operador técnico está incluido en el precio?", answer: "Sí. Los $5,000 + IVA incluyen un operador técnico que se encarga del montaje, la prueba de audio, el control de iluminación durante el evento y el desmontaje al finalizar. No necesitas contratar personal técnico adicional." },
+      { question: "¿Puedo personalizar los podiums con el logo de mi empresa?", answer: "Sí. Aplicamos vinil de corte con el logotipo corporativo en el frente de los podiums. Envíanos el archivo vectorial y lo preparamos antes del evento. Se retira al finalizar sin dejar residuos en el acrílico." },
+      { question: "¿Cubren venues fuera de CDMX?", answer: "Sí. Cubrimos CDMX y Estado de México sin costo adicional de traslado. Para venues en otros estados, cotizamos el envío según la distancia. La mayoría de nuestros eventos corporativos son en hoteles y centros de convenciones de la zona metropolitana." },
+      { question: "¿Puedo agregar más podiums o pantallas?", answer: "Sí. Si necesitas más de 2 podiums o pantallas LED adicionales, cotizamos el complemento. Para eventos grandes con 4+ podiums y staging completo, el paquete Congreso ($8,500 + IVA) es la mejor opción." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="Compara opciones o agrega complementos."
+        paragraph1="Si tu evento necesita un solo podium, solo los atriles sin audio, o staging completo para congreso, tenemos la opción indicada. Las bocinas profesionales son el complemento ideal para reforzar el audio en salones grandes."
+        paragraph2="Combinamos servicios con precio especial — pregunta por tu paquete integral."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para reservar el Escenario Completo para tu evento corporativo?</h2>
+        <p>Mándanos la fecha, el venue y el número de asistentes. Te confirmamos disponibilidad y enviamos cotización en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

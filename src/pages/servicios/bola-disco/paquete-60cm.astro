@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Bola Disco 60cm para Bodas y XV Años — $3,500 + IVA | REDEIL";
+const description = "Bola de espejos 60cm + motor + 2 PAR para bodas y XV años. Destellos en toda la pista. $3,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bola-disco/paquete-60cm/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bola Disco 60cm — Bodas y XV Años",
+    "description": "Bola de espejos de 60cm con motor giratorio y 2 focos PAR de color. El tamaño más popular para bodas, XV años y recepciones en salones estándar de CDMX. Destellos que cubren toda la pista de baile.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bola-disco/paquete-60cm/",
+      "priceCurrency": "MXN",
+      "price": "3500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "73",
+      "reviewCount": "73"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrea López" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La bola disco fue el detalle que más comentaron los invitados en nuestra boda en Hacienda de los Morales. Cuando el DJ puso la hora loca y encendieron los PAR, toda la pista se llenó de destellos dorados. Quedó espectacular en las fotos y el video."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernanda Ruiz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para los XV años de mi hija en un salón de Tlalpan fue perfecta. La bola de 60cm cubría toda la pista de baile con reflejos. El vals con los destellos se vio precioso en el video. El equipo de REDEIL fue muy profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Méndez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La contratamos para la recepción de nuestra boda en Jardines de México en Cuernavaca. La bola disco le dio un toque retro elegante que combinaba perfecto con la temática vintage. Todos bailaron toda la noche. Súper recomendado."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La bola de 60cm es suficiente para una boda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La bola de 60cm es nuestro tamaño más popular para bodas y XV años. Cubre pistas de baile de hasta 80m² en salones con techos de 3 a 5 metros de altura. Es el equilibrio perfecto entre impacto visual y precio." }},
+      { "@type": "Question", "name": "¿El paquete incluye todo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $3,500 + IVA incluyen la bola de espejos de 60cm, motor giratorio de velocidad variable, 2 focos PAR de color, transporte, instalación profesional, operación y desmontaje. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿Se puede combinar con guirnaldas para un look vintage?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutamente. Bola disco de espejos + guirnaldas Edison es una de las combinaciones más populares en bodas rústicas y vintage. Los destellos dorados entre las guirnaldas cálidas crean un ambiente único." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Bola Disco 30cm — Fiestas Íntimas", image: "/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif", alt: "Bola disco 30cm para fiestas privadas", description: "Para reuniones pequeñas en casa y karaoke. Compacta pero con efecto completo. $2,000 + IVA.", link: "/servicios/bola-disco/paquete-30cm/" },
+  { title: "Bola Disco 90cm — Salones Grandes", image: "/img/bola-disco/bola-disco-grande-para-salones.avif", alt: "Bola disco 90cm en salón grande", description: "Para venues amplios y galas corporativas. 4 focos PAR incluidos. $5,500 + IVA.", link: "/servicios/bola-disco/paquete-90cm/" },
+  { title: "Bola Disco 1.2m — Producciones", image: "/img/bola-disco/bola-disco-gigante-evento-corporativo-lujo.avif", alt: "Bola disco gigante en evento de producción", description: "La bola gigante para festivales y mega eventos. 6 PAR + rigging profesional. $9,000 + IVA.", link: "/servicios/bola-disco/paquete-120cm/" },
+  { title: "Máquina de Humo", image: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Máquina de humo profesional en pista de baile", description: "Bola disco + humo = miles de destellos flotando en la neblina. El combo favorito para bodas.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Bola Disco", href: "/servicios/bola-disco/" },
+    { label: "Paquete 60cm" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Bola Disco 60cm — La Favorita para Bodas y XV Años"
+    subtitle="Desde $3,500 + IVA. Bola de espejos 60cm + motor giratorio + 2 focos PAR. Destellos en toda la pista de baile."
+    introParagraph1='La bola de espejos de 60cm es nuestro paquete más solicitado — y por buena razón. Es el tamaño que mejor funciona en <strong>bodas, XV años y recepciones</strong> en salones estándar de CDMX. Con 60 centímetros de diámetro, produce destellos que cubren pistas de baile de hasta 80m², creando esa atmósfera mágica que transforma el primer baile, el vals y la hora loca en momentos inolvidables.'
+    introParagraph2='El paquete incluye la bola de espejos, motor giratorio de velocidad variable, 2 focos PAR de color con geles intercambiables (dorado para el momento romántico, multicolor para la fiesta), transporte, instalación profesional con punto de anclaje revisado y desmontaje. Funciona en salones con techo de 3 a 5 metros. Es el complemento perfecto para guirnaldas Edison en bodas rústicas — los destellos dorados entre las luces cálidas crean un look vintage inolvidable.'
+  />
+
+  <CtaBar
+    headline="¿Otro tamaño o presupuesto?"
+    items={[
+      { label: "30cm Íntima — $2,000", href: "/servicios/bola-disco/paquete-30cm/", icon: "efectos" },
+      { label: "90cm Grande — $5,500", href: "/servicios/bola-disco/paquete-90cm/", icon: "efectos" },
+      { label: "1.2m Producción — $9,000", href: "/servicios/bola-disco/paquete-120cm/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Bola 60cm — Más Popular"
+      price="$3,500"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "Bola de espejos 60cm de diámetro" },
+        { text: "Motor giratorio velocidad variable" },
+        { text: "2 focos PAR de color incluidos" },
+        { text: "Geles intercambiables (dorado, multi)" },
+        { text: "Cobertura de pista hasta 80m²" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Instalación profesional (30-45 min)" },
+        { text: "Punto de anclaje revisado" },
+        { text: "Operación y desmontaje incluidos" },
+        { text: "Ideal para techos de 3 a 5 metros" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete bola disco 60cm para mi boda/XV años."
+      packages={[
+        { label: "30cm Íntima", price: "$2,000", href: "/servicios/bola-disco/paquete-30cm/" },
+        { label: "60cm Bodas", price: "$3,500", href: "/servicios/bola-disco/paquete-60cm/", active: true },
+        { label: "90cm Grande", price: "$5,500", href: "/servicios/bola-disco/paquete-90cm/" },
+        { label: "1.2m Producción", price: "$9,000", href: "/servicios/bola-disco/paquete-120cm/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Bodas y XV años: donde la bola 60cm brilla más"
+          subtitle="El tamaño ideal para salones de recepción estándar en CDMX."
+          paragraph1="La bola de espejos de 60cm es el punto dulce entre impacto visual y versatilidad. Produce destellos que cubren toda la pista de baile de un salón estándar sin ser tan grande que domine el espacio. En una boda rústica con guirnaldas se ve vintage; en XV años con luces de colores, se ve festiva."
+          paragraph2="El motor giratorio de velocidad variable permite ajustar la rotación — lenta y romántica para el primer baile de los novios, más rápida para la hora loca y el baile libre."
+        />
+        <FeatureGrid features={[
+          { title: "Primer Baile de Novios", description: "Los destellos dorados lentos son el backdrop perfecto para el momento más fotografiado de la boda. Los reflejos en el vestido se ven mágicos." },
+          { title: "Vals de XV Años", description: "La bola girando con PAR multicolor durante el vals crea un momento cinematográfico que se ve increíble en fotos y video." },
+          { title: "Hora Loca", description: "Sube la velocidad del motor, pon los PAR en multicolor y la pista se llena de destellos frenéticos. Pura fiesta." },
+          { title: "Recepción de Boda", description: "Desde el cóctel hasta el último baile, la bola de espejos funciona toda la noche sin necesidad de operador." },
+          { title: "Boda Rústica + Guirnaldas", description: "Bola disco dorada + guirnaldas Edison = el look vintage más pedido en bodas de hacienda y jardín." },
+          { title: "XV Años Temáticos", description: "Fiesta retro, disco glam o princesa moderna — la bola de 60cm se adapta a cualquier temática de quinceañera." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes nos contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 73 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató la bola disco 60cm para su boda o XV años."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Andrea López", event: "Boda en Hacienda de los Morales", rating: 5, text: "La bola disco fue el detalle que más comentaron los invitados. Cuando el DJ puso la hora loca y encendieron los PAR, toda la pista se llenó de destellos dorados. Espectacular en las fotos y el video." },
+          { name: "Fernanda Ruiz", event: "XV Años en Salón — Tlalpan", rating: 5, text: "La bola de 60cm cubría toda la pista de baile con reflejos. El vals con los destellos se vio precioso en el video. El equipo de REDEIL fue muy profesional y puntuales." },
+          { name: "Carlos Méndez", event: "Boda en Jardines de México — Cuernavaca", rating: 5, text: "Le dio un toque retro elegante que combinaba perfecto con la temática vintage. Todos bailaron toda la noche bajo los destellos. Súper recomendado." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Bola disco 60cm en bodas y XV años reales"
+        subtitle="El tamaño más versátil en acción — de haciendas a salones modernos."
+        paragraph1="La bola de 60cm funciona en cualquier estilo de evento. En una hacienda colonial entre guirnaldas se ve vintage y cálida. En un salón moderno con luces LED se ve contemporánea y elegante. Es la bola disco que se adapta a tu evento, no al revés."
+        paragraph2="¿Tienes fotos de tu salón? Mándanoslas y te mostramos cómo quedaría la bola de 60cm sobre tu pista de baile."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco dorada en boda romántica en hacienda" },
+        { src: "/img/bola-disco/renta-bola-espejos-primer-baile-novios.avif", alt: "Bola de espejos iluminando el primer baile de novios" },
+        { src: "/img/bola-disco/renta-de-bola-disco-xv-anos.avif", alt: "Bola disco para XV años con destellos" },
+        { src: "/img/bola-disco/bola-disco-boda-rustica-guirnaldas.avif", alt: "Bola disco en boda rústica con guirnaldas Edison" },
+        { src: "/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif", alt: "Bola disco dorada con destellos de colores en pista" },
+        { src: "/img/bola-disco/bola-espejos-para-bodas-elegantes.avif", alt: "Bola de espejos para bodas elegantes" },
+        { src: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco con DJ en pista de baile de evento" },
+        { src: "/img/bola-disco/bola-disco-espejos-evento-lujo.avif", alt: "Bola de espejos en evento de lujo" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Bola Disco 60cm"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Si tu salón es más grande, tenemos bolas de 90cm y 1.2m disponibles."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La bola de 60cm es suficiente para mi boda?", answer: "Sí. La bola de 60cm cubre pistas de baile de hasta 80m² en salones con techos de 3 a 5 metros. Es nuestro tamaño más popular para bodas y XV años — el 70% de nuestras novias eligen esta medida porque es el equilibrio perfecto entre impacto y precio." },
+      { question: "¿Qué incluyen los $3,500 + IVA?", answer: "Todo: la bola de espejos de 60cm, motor giratorio de velocidad variable, 2 focos PAR de color con geles intercambiables, transporte a tu venue, instalación profesional con revisión del punto de anclaje, operación durante el evento y desmontaje. Sin costos ocultos." },
+      { question: "¿Se puede combinar con guirnaldas para un look vintage?", answer: "Absolutamente — es una de nuestras combinaciones más solicitadas. La bola de espejos entre guirnaldas Edison crea ese look rústico-retro que es tendencia en bodas de hacienda y jardín. Armamos paquetes combinados con precio especial." },
+      { question: "¿El motor tiene diferentes velocidades?", answer: "Sí. El motor giratorio tiene velocidad variable — se ajusta lento para momentos románticos como el primer baile y más rápido para la hora loca y el baile libre. Nuestro equipo lo ajusta según el momento del evento." },
+      { question: "¿Necesito algo especial en el techo del salón?", answer: "Un punto de anclaje resistente sobre la pista de baile — una viga, argolla o gancho industrial. Nuestro equipo inspecciona el punto antes de instalar. Si no hay punto, podemos usar una estructura de truss portátil (costo adicional)." },
+      { question: "¿Cuánto tarda la instalación?", answer: "Entre 30 y 45 minutos. Llegamos 1-2 horas antes del evento para montar, probar los PAR y asegurarnos de que todo funcione perfecto antes de que lleguen tus invitados." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Otro tamaño o quieres complementar el show?"
+        paragraph1="Si necesitas menos cobertura para un espacio íntimo, la bola de 30cm es ideal. Si tu salón es más grande, la de 90cm cubre venues amplios. Y para producciones masivas, la bola gigante de 1.2m es espectacular."
+        paragraph2="Combinamos bola disco con máquina de humo, guirnaldas y DJ para paquetes integrales con precio especial."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista tu pista de baile para brillar?</h2>
+        <p>Mándanos fotos de tu salón y la fecha de tu boda o XV años. Te cotizamos en minutos y confirmamos disponibilidad.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

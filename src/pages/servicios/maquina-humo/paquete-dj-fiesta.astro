@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Máquina de Humo para Fiesta y DJ — $2,500 + IVA | REDEIL";
+const description = "Máquina de humo profesional para tu pista de baile. 1 máquina 1,200W + operador + fluido. $2,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-dj-fiesta/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Máquina de Humo para Fiesta y DJ",
+    "description": "Renta de máquina de humo profesional 1,200W para pistas de baile en fiestas privadas, cumpleaños y eventos íntimos en CDMX. Incluye operador técnico, fluido certificado, transporte, montaje y desmontaje.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-dj-fiesta/",
+      "priceCurrency": "MXN",
+      "price": "2500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "58",
+      "reviewCount": "58"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana López" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Renté la máquina de humo para mi fiesta de cumpleaños en una terraza en la Roma Norte. El humo con las luces del DJ se veía increíble — todos mis invitados estaban tomando fotos y videos. El operador fue súper puntual y discreto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carlos Mendoza" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La usé para una fiesta privada en casa con DJ en Coyoacán. La máquina transformó la sala en una pista de baile de club. El fluido no dejó olor y al día siguiente no había ningún residuo. Excelente relación precio-calidad."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ana Fernández" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contraté el paquete para la fiesta de mi esposo en un salón pequeño en Polanco. El operador coordinó perfecto con el DJ — activaba el humo justo en los drops de la música. Se sentía como estar en un concierto. Súper recomendado."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/humo/maquina-humo-fiesta-neon-discoteca.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Una máquina de humo es suficiente para mi fiesta privada?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Una máquina de 1,200W cubre perfectamente pistas de baile de hasta 80m² en fiestas de hasta 100 personas. Para espacios más grandes o eventos de toda la noche, te recomendamos el paquete Noche Completa con fluido ilimitado." }},
+      { "@type": "Question", "name": "¿El humo activa las alarmas de mi casa o salón?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del tipo de detector. Los detectores ópticos pueden activarse. Te pedimos que nos informes qué tipo de detectores tiene tu venue para tomar precauciones. En la mayoría de los salones de eventos ya están acostumbrados a este equipo." }},
+      { "@type": "Question", "name": "¿Cuánto dura el fluido incluido en el paquete?", "acceptedAnswer": { "@type": "Answer", "text": "El litro de fluido incluido genera entre 60-90 minutos de humo en uso intermitente normal. Suficiente para los momentos clave de una fiesta de 3-4 horas. Si necesitas humo continuo toda la noche, el paquete Noche Completa incluye fluido ilimitado." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Noche Completa — Fluido Ilimitado", image: "/img/humo/humo-profesional-evento-nocturno-iluminacion.avif", alt: "Humo atmosférico toda la noche en evento", description: "Humo toda la noche para bodas y XV años. Fluido ilimitado + operador 4-6 horas. $4,500 + IVA.", link: "/servicios/maquina-humo/paquete-noche-completa/" },
+  { title: "Show Corporativo — 2 Máquinas", image: "/img/humo/efecto-humo-evento-corporativo-escenario.avif", alt: "Humo en escenario corporativo", description: "2 máquinas de humo para escenarios y producciones corporativas. $7,500 + IVA.", link: "/servicios/maquina-humo/paquete-show-corporativo/" },
+  { title: "Festival — 4 Máquinas", image: "/img/humo/maquina-humo-concierto-festival-luces.avif", alt: "Humo en festival con luces", description: "4 máquinas + fog chiller + técnico para festivales y conciertos masivos. $12,000 + IVA.", link: "/servicios/maquina-humo/paquete-festival/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de cabezas móviles con beams de colores", description: "Los beams de las cabezas móviles cortando el humo crean el efecto de concierto más impactante.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Máquina de Humo", href: "/servicios/maquina-humo/" },
+    { label: "DJ y Fiesta" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Máquina de Humo para Fiesta y DJ — Pista de Baile Profesional"
+    subtitle="Desde $2,500 + IVA. 1 máquina 1,200W + operador + fluido certificado. CDMX y Edomex."
+    introParagraph1='La renta de máquina de humo para fiesta privada es la forma más rápida de transformar cualquier pista de baile en un escenario de club. Una sola máquina de humo de 1,200W genera suficiente neblina para que los beams del DJ se hagan visibles, las luces corten el aire y los invitados sientan que están en algo especial. En <strong>REDEIL</strong> operamos equipo profesional <strong>Antari</strong> y <strong>Chauvet</strong> — las mismas marcas que se usan en los clubes y conciertos de la CDMX.'
+    introParagraph2='Este paquete incluye todo lo que necesitas para una fiesta íntima: la máquina de humo profesional, 1 litro de fluido de glicol certificado (inodoro, sin residuo), operador técnico que coordina las activaciones con tu DJ, transporte, montaje y desmontaje. Ideal para fiestas privadas en casa, terrazas, cumpleaños y reuniones de hasta 100 personas en la Ciudad de México y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más humo?"
+    items={[
+      { label: "Noche Completa — $4,500", href: "/servicios/maquina-humo/paquete-noche-completa/", icon: "efectos" },
+      { label: "Show Corporativo — $7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/", icon: "efectos" },
+      { label: "Festival — $12,000", href: "/servicios/maquina-humo/paquete-festival/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="DJ y Fiesta"
+      price="$2,500"
+      priceNote="+ IVA · Operador incluido"
+      features={[
+        { text: "1 máquina de humo 1,200W" },
+        { text: "Fluido certificado 1L (60-90 min)" },
+        { text: "Operador técnico incluido" },
+        { text: "Coordinación con DJ" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje" },
+        { text: "Fluido inodoro sin residuo" },
+        { text: "Equipo Antari / Chauvet" },
+        { text: "Pista de baile hasta 80m²" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete DJ y Fiesta de máquina de humo para mi fiesta privada."
+      packages={[
+        { label: "DJ y Fiesta", price: "$2,500", href: "/servicios/maquina-humo/paquete-dj-fiesta/", active: true },
+        { label: "Noche Completa", price: "$4,500", href: "/servicios/maquina-humo/paquete-noche-completa/" },
+        { label: "Show Corporativo", price: "$7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/" },
+        { label: "Festival", price: "$12,000", href: "/servicios/maquina-humo/paquete-festival/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos"
+          subtitle="1 máquina de humo cubre pistas de baile íntimas hasta 80m²."
+          paragraph1="Este paquete está pensado para fiestas privadas donde quieres el efecto de humo atmosférico sin necesitar cobertura de toda la noche. El operador activa la máquina en los momentos de mayor impacto — drops del DJ, canciones especiales, hora loca."
+          paragraph2="Para espacios pequeños como terrazas, salas o jardines privados, una máquina de 1,200W genera el ambiente perfecto sin llenar el lugar en exceso."
+        />
+        <FeatureGrid features={[
+          { title: "Fiestas Privadas en Casa", description: "Transforma tu sala o terraza en una pista de baile con ambiente de club nocturno." },
+          { title: "Cumpleaños con DJ", description: "El humo hace visibles los beams y láseres del DJ. El efecto más fotografiado de la noche." },
+          { title: "Reuniones en Terraza", description: "En espacios abiertos el humo crea una atmósfera envolvente sin acumularse en exceso." },
+          { title: "Fiestas Temáticas", description: "Halloween, neón, disco — el humo es el efecto base que potencia cualquier temática." },
+          { title: "Despedidas de Soltero/a", description: "Pista de baile íntima con ambiente de antro. El combo perfecto con luces neón." },
+          { title: "Eventos Pequeños hasta 100", description: "Bodas civiles, aniversarios y celebraciones íntimas donde quieres un toque especial." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Humo atmosférico vs. humo bajo: ¿cuál es para tu fiesta?"
+          subtitle="La máquina de humo convencional es la opción para pistas de baile con DJ."
+          paragraph1="El humo atmosférico asciende lentamente y llena el espacio con neblina — es lo que ves en clubes nocturnos y conciertos. Los beams de las cabezas móviles y los láseres se vuelven visibles al cortar esa neblina. Es el efecto favorito para fiestas con música y baile."
+          paragraph2="El humo bajo (niebla fría) permanece pegado al piso — se usa en bodas para el vals. Si tu fiesta es para bailar toda la noche con DJ, la máquina de humo convencional es la indicada."
+        />
+        <FeatureGrid features={[
+          { title: "Humo que Asciende", description: "Llena el espacio gradualmente creando un ambiente envolvente para toda la pista." },
+          { title: "Beams Visibles", description: "Las luces del DJ cortan el humo y crean líneas de luz espectaculares en el aire." },
+          { title: "Control por Operador", description: "Activaciones precisas en los momentos clave — no se deja prendida toda la noche." },
+          { title: "Fluido Inodoro", description: "Glicol farmacéutico certificado. Sin olor, sin residuo, sin manchas en la ropa." },
+          { title: "Dispersión Rápida", description: "En 5-10 minutos el humo se disipa si necesitas que el ambiente se despeje." },
+          { title: "Seguro para Interiores", description: "Compatible con equipos de audio, iluminación y sistemas de ventilación estándar." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 58 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató la máquina de humo para su fiesta."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Mariana López", event: "Cumpleaños en terraza — Roma Norte", rating: 5, text: "El humo con las luces del DJ se veía increíble — todos mis invitados estaban tomando fotos y videos. El operador fue súper puntual y discreto. Para una fiesta íntima es más que suficiente." },
+          { name: "Carlos Mendoza", event: "Fiesta privada en casa — Coyoacán", rating: 5, text: "La máquina transformó la sala en una pista de baile de club. El fluido no dejó olor y al día siguiente no había ningún residuo. Excelente relación precio-calidad." },
+          { name: "Ana Fernández", event: "Fiesta de cumpleaños — Polanco", rating: 5, text: "El operador coordinó perfecto con el DJ — activaba el humo justo en los drops de la música. Se sentía como estar en un concierto. Súper recomendado para fiestas pequeñas." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Máquina de humo en fiestas reales"
+        subtitle="Pistas de baile, fiestas privadas y cumpleaños con humo atmosférico."
+        paragraph1="Cada foto es de un montaje real con máquina de humo en fiestas privadas. Terrazas, salas, jardines y salones pequeños — una sola máquina crea el ambiente de club que transforma la fiesta."
+        paragraph2="¿Tu espacio se parece a alguno de estos? Mándanos fotos por WhatsApp y te decimos cómo quedaría."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/humo/maquina-humo-fiesta-neon-discoteca.avif", alt: "Máquina de humo en fiesta neón tipo discoteca" },
+        { src: "/img/humo/maquina-humo-portatil-fiesta-privada.avif", alt: "Máquina de humo portátil en fiesta privada" },
+        { src: "/img/humo/renta-humo-atmosferico-fiesta-tematica.avif", alt: "Humo atmosférico en fiesta temática" },
+        { src: "/img/humo/efecto-niebla-fiesta-cumpleanos-luces.avif", alt: "Niebla con luces en fiesta de cumpleaños" },
+        { src: "/img/humo/renta-maquina-humo-eventos-fiesta-noche.avif", alt: "Máquina de humo en fiesta de noche" },
+        { src: "/img/humo/niebla-densa-fiesta-electronica-rave.avif", alt: "Niebla densa en fiesta electrónica" },
+        { src: "/img/humo/renta-humo-escenario-presentacion-dj.avif", alt: "Humo en presentación de DJ" },
+        { src: "/img/humo/humo-denso-evento-halloween-terror.avif", alt: "Humo denso en evento de Halloween" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete DJ y Fiesta"
+        subtitle="Todo lo que necesitas saber antes de rentar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Cada espacio es diferente — te asesoramos gratis sobre si este paquete es el indicado para tu fiesta."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Una máquina de humo es suficiente para mi fiesta privada?", answer: "Sí. Una máquina de 1,200W cubre perfectamente pistas de baile de hasta 80m² y fiestas de hasta 100 personas. Para espacios más grandes, eventos de toda la noche o bodas, te recomendamos el paquete Noche Completa ($4,500 + IVA) con fluido ilimitado." },
+      { question: "¿El humo activa las alarmas de mi casa o salón?", answer: "Depende del tipo de detector. Los detectores ópticos pueden activarse con el humo. Te pedimos que nos informes qué tipo de detectores tiene tu espacio para tomar las precauciones necesarias. En la mayoría de los salones de eventos ya saben cómo manejar el equipo de humo." },
+      { question: "¿Cuánto dura el fluido incluido en el paquete?", answer: "El litro de fluido incluido genera entre 60-90 minutos de humo en uso intermitente. Suficiente para los momentos clave de una fiesta de 3-4 horas. El operador activa la máquina estratégicamente — no se deja encendida todo el tiempo." },
+      { question: "¿El humo deja olor en la ropa o el espacio?", answer: "No. El fluido profesional que usamos es de glicol farmacéutico certificado — prácticamente inodoro. No deja residuo en la ropa ni en los muebles. Al día siguiente no queda rastro." },
+      { question: "¿Se puede usar en espacios abiertos como terrazas?", answer: "Sí. En terrazas y jardines el humo se disipa más rápido, pero el operador ajusta la frecuencia de las activaciones para mantener el efecto. En exteriores el humo crea una atmósfera envolvente sin acumularse en exceso." },
+      { question: "¿Puedo agregar más fluido si la fiesta se extiende?", answer: "Sí. Si necesitas más fluido el día del evento, te cobramos solo el costo del fluido adicional. Pero si sabes que tu fiesta será de más de 4 horas, te conviene más el paquete Noche Completa que incluye fluido ilimitado por $4,500 + IVA." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Máquina de Humo"
+        subtitle="¿Necesitas más cobertura o un evento más grande?"
+        paragraph1="Si tu evento es de toda la noche, necesitas cubrir un salón grande o es un concierto, tenemos paquetes hasta 4 máquinas con fog chiller. Y si quieres maximizar el efecto visual, combinamos con cabezas móviles."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista tu pista de baile para el humo?</h2>
+        <p>Cuéntanos el tipo de fiesta, el tamaño del espacio y la fecha. Te confirmamos disponibilidad y cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

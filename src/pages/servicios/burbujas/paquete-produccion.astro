@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Burbujas Profesionales para Festivales — $8,500 + IVA | REDEIL";
+const description = "6 máquinas de burbujas + técnico para festivales y shows masivos. Cobertura total. $8,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/burbujas/paquete-produccion/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete Producción Burbujas — 6 Máquinas para Festivales y Shows Masivos",
+    "description": "6 máquinas de burbujas profesionales + técnico dedicado para festivales, conciertos y shows masivos. Cobertura total de escenario y público. CDMX y Edomex.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "8500", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "33", "reviewCount": "33" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Ricardo Domínguez" }, "datePublished": "2026-01-28", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos las 6 máquinas para un festival en el Foro Sol. La cobertura fue total — burbujas sobre todo el público durante el cierre del headliner. El técnico de REDEIL se coordinó perfecto con nuestro equipo de producción." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Alejandra Vega" }, "datePublished": "2025-12-15", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Para el concierto de fin de año en Auditorio Nacional necesitábamos burbujas masivas. REDEIL montó las 6 máquinas en los laterales del escenario y el efecto fue brutal. El público enloqueció." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Miguel Ángel Fuentes" }, "datePublished": "2025-11-20", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Organizamos un festival de música en Xochimilco y las burbujas fueron el efecto que más impacto tuvo. 6 máquinas cubriendo todo el escenario. Las fotos y videos que subió la gente fueron increíbles." }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿6 máquinas cubren un escenario de festival?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 6 máquinas distribuidas en los laterales y frente del escenario cubren áreas de hasta 500m². El técnico las posiciona para máxima cobertura sobre el público." }},
+    { "@type": "Question", "name": "¿El técnico se integra con el equipo de producción?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro técnico trabaja directamente con el director de producción del festival, coordinando las activaciones con la música y la iluminación." }}
+  ]}
+]);
+
+const otrosPaquetes = [
+  { title: "Fiesta Infantil — $1,800", image: "/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif", alt: "Burbujas en fiesta infantil", description: "1 máquina para fiestas íntimas. Fluido no tóxico. $1,800 + IVA.", link: "/servicios/burbujas/paquete-fiesta-infantil/" },
+  { title: "Boda Entrada — $3,200", image: "/img/burbujas/maquina-burbujas-boda-entrada-novios.avif", alt: "Burbujas entrada de novios", description: "2 máquinas para bodas y XV años. $3,200 + IVA.", link: "/servicios/burbujas/paquete-boda-entrada/" },
+  { title: "Burbujas Gigantes — $5,000", image: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Burbujas gigantes en show", description: "Burbujas gigantes + lluvia continua para shows especiales. $5,000 + IVA.", link: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en evento", description: "Burbujas masivas + confeti para el cierre más épico de un festival.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" }, { label: "Burbujas", href: "/servicios/burbujas/" }, { label: "Producción" }]} />
+</Fragment>
+
+    <Hero title="Burbujas Profesionales para Festivales y Shows Masivos" subtitle="$8,500 + IVA. 6 máquinas de burbujas + técnico dedicado. Cobertura total de escenario y público."
+      introParagraph1='Cuando un festival o concierto activa las máquinas de burbujas sobre el público, la energía cambia instantáneamente. Miles de burbujas cayendo desde los laterales del escenario crean un efecto visual masivo que el público fotografía, graba y comparte en redes sociales. Es uno de los efectos especiales más impactantes en producción de eventos a gran escala — y uno de los más accesibles en relación costo-impacto.'
+      introParagraph2='Este paquete incluye 6 máquinas de burbujas profesionales de alta producción, posicionadas estratégicamente alrededor del escenario para cobertura total. Un técnico dedicado de <strong>REDEIL</strong> se integra con tu equipo de producción y coordina las activaciones con la música, la iluminación y los momentos clave del show. Incluye fluido profesional ilimitado, traslado, montaje completo y operación durante todo el evento. Atendemos festivales, conciertos, kermeses, ferias y shows masivos en CDMX y Estado de México.'
+    />
+
+    <CtaBar headline="Compara paquetes de burbujas" items={[
+      { label: "Infantil — $1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/", icon: "efectos" },
+      { label: "Boda — $3,200", href: "/servicios/burbujas/paquete-boda-entrada/", icon: "efectos" },
+      { label: "Gigantes — $5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]} />
+
+    <section class="services-section">
+      <ContentWithSidebar sidebarTitle="Producción" price="$8,500" priceNote="+ IVA · Cobertura masiva" features={[
+        { text: "6 máquinas de burbujas profesionales" }, { text: "Técnico dedicado de producción" }, { text: "Fluido profesional ilimitado" }, { text: "Cobertura hasta 500m²" }, { text: "Traslado + montaje + desmontaje" }, { text: "Coordinación con equipo de producción" }, { text: "Ideal para festivales y conciertos" }, { text: "Activaciones sincronizadas con música" }, { text: "Cobertura CDMX y Edomex" }, { text: "Operación durante todo el evento" },
+      ]} waMessage="Hola REDEIL, quiero cotizar el paquete Producción de burbujas para un festival masivo." packages={[
+        { label: "Fiesta Infantil", price: "$1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/" },
+        { label: "Boda Entrada", price: "$3,200", href: "/servicios/burbujas/paquete-boda-entrada/" },
+        { label: "Burbujas Gigantes", price: "$5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+        { label: "Producción", price: "$8,500", href: "/servicios/burbujas/paquete-produccion/", active: true },
+      ]}>
+        <div class="container">
+          <SectionHeader title="Burbujas masivas para cada tipo de producción" subtitle="6 máquinas distribuidas para máximo impacto visual." paragraph1="Las 6 máquinas se posicionan en los laterales y frente del escenario, creando una cortina de burbujas que cubre al público completo. El técnico coordina las activaciones con los drops de la música y los momentos clave del show para máximo impacto." paragraph2="Funcionan en foros, explanadas, estadios, jardines masivos y cualquier espacio abierto o cerrado con capacidad para cientos o miles de personas." />
+          <FeatureGrid features={[
+            { title: "Festivales de Música", description: "Burbujas cayendo sobre el público durante el headliner. El efecto más fotografiado y compartido en redes sociales de cualquier festival." },
+            { title: "Conciertos y Shows", description: "6 máquinas sincronizadas con la música crean momentos épicos que el público no olvida. Perfecto para artistas que quieren un cierre espectacular." },
+            { title: "Eventos Masivos", description: "Kermeses, ferias, carnavales y eventos comunitarios con miles de asistentes. Las burbujas cubren todo el espacio y crean un ambiente festivo instantáneo." },
+            { title: "Producciones Corporativas", description: "Convenciones, lanzamientos y eventos de marca a gran escala. Las burbujas profesionales elevan la producción a otro nivel." },
+            { title: "Graduaciones Masivas", description: "Ceremonias de graduación en explanadas. Burbujas cayendo mientras los graduados celebran — fotos grupales memorables." },
+            { title: "Shows de Cierre de Año", description: "Fiestas de fin de año corporativas y públicas. Las burbujas a medianoche combinadas con confeti crean un momento inolvidable." },
+          ]} columns={2} />
+        </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Lo que dicen nuestros clientes" subtitle="⭐⭐⭐⭐⭐ 33 reseñas verificadas." paragraph1="Festivales, conciertos y shows masivos con burbujas REDEIL." paragraph2="El efecto que transforma un show en una experiencia inolvidable." />
+          <TestimonialCards testimonials={[
+            { name: "Ricardo Domínguez", event: "Festival — Foro Sol, CDMX", rating: 5, text: "La cobertura fue total — burbujas sobre todo el público durante el cierre del headliner. El técnico de REDEIL se coordinó perfecto con nuestro equipo de producción." },
+            { name: "Alejandra Vega", event: "Concierto — Auditorio Nacional", rating: 5, text: "Necesitábamos burbujas masivas para el concierto de fin de año. REDEIL montó las 6 máquinas en los laterales y el efecto fue brutal. El público enloqueció." },
+            { name: "Miguel Ángel Fuentes", event: "Festival — Xochimilco", rating: 5, text: "Las burbujas fueron el efecto que más impacto tuvo en el festival. 6 máquinas cubriendo todo el escenario. Las fotos y videos que subió la gente fueron increíbles." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Burbujas profesionales en festivales y conciertos" subtitle="Producción a gran escala con cobertura total." paragraph1="Foros, explanadas, estadios y espacios masivos — nuestras 6 máquinas cubren todo." paragraph2="¿Tu producción necesita burbujas masivas? Mándanos el rider técnico." />
+        <Gallery4x4 images={[
+          { src: "/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif", alt: "Burbujas en carnaval y evento masivo" },
+          { src: "/img/burbujas/renta-burbujas-festival-kermesse-feria.avif", alt: "Burbujas en festival y kermesse" },
+          { src: "/img/burbujas/burbujas-profesionales-fiesta-graduacion.avif", alt: "Burbujas profesionales en graduación" },
+          { src: "/img/burbujas/renta-burbujas-evento-corporativo-lanzamiento.avif", alt: "Burbujas en evento corporativo" },
+          { src: "/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif", alt: "Máquinas de burbujas profesionales" },
+          { src: "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif", alt: "Efecto de burbujas para producción visual" },
+          { src: "/img/burbujas/burbujas-fiesta-pool-party-alberca.avif", alt: "Burbujas en evento al aire libre" },
+          { src: "/img/burbujas/maquina-burbujas-boda-romantica-exterior.avif", alt: "Máquinas de burbujas en exterior" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Burbujas para Festivales" subtitle="Todo lo que tu equipo de producción necesita saber." paragraph1="Escríbenos por WhatsApp o mándanos tu rider técnico." paragraph2="Nos integramos con cualquier equipo de producción." />
+      </div>
+      <FaqSection items={[
+        { question: "¿6 máquinas cubren un escenario de festival?", answer: "Sí. 6 máquinas distribuidas en los laterales y frente del escenario cubren áreas de hasta 500m². Para festivales más grandes o con múltiples escenarios, podemos escalar el paquete con máquinas adicionales — cotiza tu caso específico." },
+        { question: "¿El técnico se integra con mi equipo de producción?", answer: "Sí. Nuestro técnico trabaja directamente con el director de producción, stage manager y DJ. Se integra al canal de comunicación del equipo (radio o headset) y coordina las activaciones en tiempo real." },
+        { question: "¿Cuánto fluido se necesita para un festival de 6 horas?", answer: "Llevamos fluido suficiente para 8-10 horas de producción continua con las 6 máquinas. Para festivales de 2 días, ajustamos la cantidad. Nunca nos quedamos sin fluido durante un evento." },
+        { question: "¿Las máquinas necesitan electricidad del venue?", answer: "Sí. Necesitamos 6 tomas de corriente estándar (120V) distribuidas en las posiciones de las máquinas. Si el escenario tiene distribución eléctrica profesional, nuestro técnico se conecta directamente al panel." },
+        { question: "¿Se pueden sincronizar con DMX o timecode?", answer: "Las máquinas profesionales que usamos aceptan activación manual por nuestro técnico en coordinación con el show. Para sincronización DMX automatizada, pregunta por nuestro upgrade de control digital con costo adicional." },
+        { question: "¿Qué pasa si llueve durante el festival?", answer: "Las máquinas de burbujas funcionan bajo lluvia ligera sin problema. Con lluvia fuerte, las burbujas se revientan más rápido pero el efecto sigue siendo visible. Si la producción se suspende por clima, coordinamos con tu equipo para reagendar." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="¿Tu evento es más pequeño? Tenemos opciones para todo." paragraph1="Desde fiestas infantiles hasta producciones masivas." paragraph2="Combina burbujas con confeti para un cierre de festival épico." />
+        <div class="services-grid">{otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container"><div class="cta-content">
+        <h2>¿Listo para las burbujas masivas en tu festival?</h2>
+        <p>Mándanos la fecha, el venue, el aforo esperado y tu rider técnico. Te armamos la propuesta en horas.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div></div>
+    </section>
+</BaseLayout>

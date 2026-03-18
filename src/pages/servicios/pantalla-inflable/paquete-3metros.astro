@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Pantalla Inflable 3m para Cine en Jardín — $4,500 + IVA | REDEIL";
+const description = "Pantalla inflable 3m + proyector HD + audio para cine al aire libre en jardín. 20-50 personas. $4,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-3metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Pantalla Inflable 3 Metros — Cine en Jardín",
+    "description": "Pantalla inflable de 3 metros con proyector HD de 3,000 lumens y audio estéreo para cine al aire libre en jardín. Ideal para 20-50 personas. Incluye operador técnico, traslado, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-3metros/",
+      "priceCurrency": "MXN",
+      "price": "4500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "62",
+      "reviewCount": "62"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Mendoza Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Rentamos la pantalla de 3 metros para el cumpleaños de mi hijo en nuestro jardín de Coyoacán. Éramos 30 personas y los niños estaban fascinados viendo Coco al aire libre. El audio se escuchaba perfecto y el operador fue muy amable. Experiencia increíble."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo Ramírez Castillo" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos una noche de cine en la terraza de nuestra casa en Del Valle para la posada de la oficina. La pantalla de 3 metros fue perfecta para el espacio. La imagen se veía nítida y el montaje fue rápido. Muy recomendable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Torres Villegas" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la pijamada de mi hija en el jardín de Tlalpan fue ideal. 15 niñas viendo películas con palomitas. La pantalla de 3 metros cubrió perfecto el espacio y el equipo de REDEIL se encargó de todo. Precio justo y servicio profesional."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La pantalla de 3 metros es suficiente para 50 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La pantalla de 3 metros tiene una superficie de proyección visible para hasta 50 personas sentadas en un jardín o terraza. La imagen se ve nítida a una distancia de hasta 15 metros. Para más de 50 personas, recomendamos el paquete de 5 metros." }},
+      { "@type": "Question", "name": "¿El proyector funciona si todavía no está completamente oscuro?", "acceptedAnswer": { "@type": "Answer", "text": "El proyector de 3,000 lumens funciona bien a partir del atardecer. Para una imagen óptima, recomendamos empezar la proyección cuando el sol ya se metió. Si tu evento empieza más temprano, el operador posiciona la pantalla de espaldas a la luz residual para optimizar la imagen." }},
+      { "@type": "Question", "name": "¿Puedo proyectar videojuegos en la pantalla?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes conectar cualquier consola (PlayStation, Xbox, Nintendo Switch) por HDMI al proyector. La pantalla de 3 metros es ideal para noches de gaming en el jardín. El operador configura la conexión y ajusta el audio para que todo funcione perfecto." }},
+      { "@type": "Question", "name": "¿Qué incluye el paquete de $4,500?", "acceptedAnswer": { "@type": "Answer", "text": "Los $4,500 + IVA incluyen: pantalla inflable de 3 metros, proyector HD de 3,000 lumens, 2 bocinas con audio estéreo, cableado completo, operador técnico, traslado ida y vuelta, montaje y desmontaje. Sin costos ocultos en CDMX y zona metropolitana." }},
+      { "@type": "Question", "name": "¿Se puede montar la pantalla en una terraza pequeña?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La pantalla de 3 metros es la más compacta de nuestro catálogo y se adapta a terrazas, patios y jardines pequeños. Necesitas un espacio mínimo de 4 metros de ancho por 3 metros de profundidad para la pantalla, más espacio adicional para la audiencia." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar?", "acceptedAnswer": { "@type": "Answer", "text": "Recomendamos reservar con al menos 1 semana de anticipación, especialmente en temporada alta (diciembre, puentes y fines de semana). Para eventos de último minuto, contáctanos por WhatsApp y verificamos disponibilidad inmediata." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Pantalla 5 Metros", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable 5m para boda", description: "El tamaño más popular para bodas y XV años. 50-150 personas. $6,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-5metros/" },
+  { title: "Pantalla 8 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable 8m para evento corporativo", description: "Para eventos corporativos y convenciones. 150-300 personas. $9,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-8metros/" },
+  { title: "Producción 10m+", image: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla inflable gigante para festival", description: "Festivales y eventos masivos. Proyector 20,000 lumens. $15,000 + IVA.", link: "/servicios/pantalla-inflable/paquete-produccion/" },
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para eventos en CDMX", description: "Complementa tu pantalla con DJ y audio profesional para una experiencia audiovisual completa.", link: "/servicios/bocinas-djs/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Pantalla Inflable", href: "/servicios/pantalla-inflable/" },
+    { label: "Paquete 3 Metros" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Pantalla Inflable 3m para Cine en Jardín"
+    subtitle="Desde $4,500 + IVA. Pantalla inflable 3m + proyector HD 3,000 lumens + audio estéreo. Ideal para 20-50 personas."
+    introParagraph1='Nada supera una noche de cine al aire libre en tu propio jardín — y con una pantalla inflable de <strong>3 metros</strong>, el plan se convierte en un evento que todos quieren repetir. El paquete de <strong>REDEIL</strong> incluye la pantalla, proyector HD de 3,000 lumens, sistema de audio estéreo con 2 bocinas, operador técnico, traslado, montaje y desmontaje. Solo elige la película y prepara las palomitas.'
+    introParagraph2='La pantalla de 3 metros es la opción perfecta para reuniones familiares, cumpleaños infantiles, posadas navideñas, pijamadas y noches de gaming en el jardín. Se monta en 15 minutos y la imagen se ve nítida desde cualquier ángulo. El operador llega 2 horas antes, calibra el proyector, configura el audio y hace pruebas para que todo esté perfecto cuando oscurezca. Funciona en jardines, terrazas, patios y azoteas de toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas una pantalla más grande?"
+    items={[
+      { label: "5 Metros $6,500", href: "/servicios/pantalla-inflable/paquete-5metros/", icon: "efectos" },
+      { label: "8 Metros $9,500", href: "/servicios/pantalla-inflable/paquete-8metros/", icon: "efectos" },
+      { label: "Producción 10m+ $15,000", href: "/servicios/pantalla-inflable/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Pantalla 3 Metros"
+      price="$4,500"
+      priceNote="+ IVA · Proyector HD · Audio incluido"
+      features={[
+        { text: "Pantalla inflable de 3 metros" },
+        { text: "Proyector HD 3,000 lumens" },
+        { text: "2 bocinas con audio estéreo" },
+        { text: "Operador técnico incluido" },
+        { text: "Traslado ida y vuelta CDMX" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Conexión HDMI + inalámbrica" },
+        { text: "Capacidad: 20-50 personas" },
+        { text: "Inflado en 15 minutos" },
+        { text: "Anclaje con estacas y contrapesos" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar la pantalla inflable de 3 metros para cine familiar en mi jardín."
+      packages={[
+        { label: "3 Metros", price: "$4,500", href: "/servicios/pantalla-inflable/paquete-3metros/", active: true },
+        { label: "5 Metros", price: "$6,500", href: "/servicios/pantalla-inflable/paquete-5metros/" },
+        { label: "8 Metros", price: "$9,500", href: "/servicios/pantalla-inflable/paquete-8metros/" },
+        { label: "Producción 10m+", price: "$15,000", href: "/servicios/pantalla-inflable/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Para qué eventos es ideal la pantalla de 3 metros?"
+          subtitle="Cine familiar, cumpleaños infantiles y noches de gaming en el jardín."
+          paragraph1="La pantalla de 3 metros es la opción perfecta para eventos íntimos al aire libre. No necesitas un jardín enorme ni un público masivo — necesitas una experiencia de cine que todos disfruten desde cualquier lugar."
+          paragraph2="El proyector HD de 3,000 lumens produce una imagen nítida y brillante en cuanto oscurece. El audio estéreo llena el espacio sin molestar a los vecinos."
+        />
+        <FeatureGrid features={[
+          { title: "Cine Familiar en Jardín", description: "Películas bajo las estrellas con la familia. Palomitas, cobijas y una pantalla que todos ven desde cualquier ángulo." },
+          { title: "Cumpleaños Infantil", description: "La película favorita del cumpleañero en pantalla gigante. Los niños se fascinan con la experiencia de cine al aire libre." },
+          { title: "Posada Navideña", description: "Películas navideñas con ponche y tamales en el jardín. El plan perfecto para la posada de la cuadra o del trabajo." },
+          { title: "Noche de Gaming", description: "Conecta tu consola PlayStation, Xbox o Nintendo Switch y juega en pantalla de 3 metros. Gaming al aire libre." },
+          { title: "Pijamada con Cine", description: "La pijamada más cool: cine al aire libre con sleeping bags en el jardín. Funciona con cualquier plataforma de streaming." },
+          { title: "Terraza o Azotea", description: "La pantalla de 3m se adapta a terrazas y azoteas pequeñas. El espacio mínimo que necesitas es 4x3 metros." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Qué incluye el paquete de 3 metros?"
+          subtitle="Todo lo que necesitas para tu noche de cine — sin costos ocultos."
+          paragraph1="El paquete incluye absolutamente todo: pantalla inflable, inflador eléctrico, proyector calibrado, audio con 2 bocinas, cables, extensiones, operador técnico y traslado. No necesitas rentar nada adicional."
+          paragraph2="El operador se queda durante toda la función para asegurar que la imagen y el audio funcionen perfectamente. Si necesitas cambiar de película o ajustar el volumen, él se encarga."
+        />
+        <FeatureGrid features={[
+          { title: "Pantalla Inflable 3m", description: "Lona blanca cinematográfica con marco negro. Superficie uniforme sin arrugas para imagen nítida." },
+          { title: "Proyector HD 3,000 Lumens", description: "Resolución Full HD con brillo suficiente para proyección al aire libre a partir del atardecer." },
+          { title: "Audio Estéreo", description: "2 bocinas con potencia adecuada para 20-50 personas. Sonido claro sin distorsión." },
+          { title: "Operador Técnico", description: "Profesional que monta, calibra, opera y desmonta todo el equipo. Tú solo disfrutas." },
+          { title: "Traslado Completo", description: "Ida y vuelta incluidos en CDMX y zona metropolitana. Sin cargos adicionales por distancia." },
+          { title: "Montaje Express", description: "Inflado en 15 minutos. Calibración y pruebas en 30 minutos más. Listo antes de que lleguen tus invitados." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 62 reseñas verificadas."
+          paragraph1="Cumpleaños, posadas y noches de cine familiar en jardines y terrazas de CDMX."
+          paragraph2="Pregunta por referencias de espacios similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Carolina Mendoza Ríos", event: "Cumpleaños infantil — Coyoacán", rating: 5, text: "Rentamos la pantalla de 3 metros para el cumpleaños de mi hijo. Éramos 30 personas y los niños estaban fascinados viendo Coco al aire libre. El audio se escuchaba perfecto y el operador fue muy amable." },
+          { name: "Eduardo Ramírez Castillo", event: "Posada — Terraza en Del Valle", rating: 5, text: "Organizamos una noche de cine en la terraza para la posada de la oficina. La pantalla de 3 metros fue perfecta para el espacio. La imagen se veía nítida y el montaje fue rápido." },
+          { name: "Gabriela Torres Villegas", event: "Pijamada — Jardín en Tlalpan", rating: 5, text: "Para la pijamada de mi hija fue ideal. 15 niñas viendo películas con palomitas. La pantalla cubrió perfecto el espacio y el equipo de REDEIL se encargó de todo. Precio justo." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Cine al aire libre en jardines y terrazas"
+        subtitle="Pantalla de 3 metros montada en eventos reales en CDMX."
+        paragraph1="Estas fotos son de cumpleaños, posadas y noches de cine familiar donde se contrató la pantalla de 3 metros. Compacta pero impactante — transforma cualquier jardín en una sala de cine."
+        paragraph2="¿Quieres ver cómo quedaría en tu espacio? Mándanos fotos por WhatsApp y te mostramos el resultado esperado."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/pantalla-inflable/alquiler-pantalla-cine-inflable-posada.avif", alt: "Pantalla inflable para cine en posada navideña" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif", alt: "Pantalla inflable para cine en fiesta infantil" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-cumpleanos-infantil.avif", alt: "Pantalla inflable para cumpleaños infantil al aire libre" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-familiar.avif", alt: "Pantalla inflable en evento familiar con cine al aire libre" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-tematica.avif", alt: "Pantalla inflable para fiesta temática nocturna" },
+        { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-camping.avif", alt: "Pantalla inflable para noche de cine en camping" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-despedida-soltera.avif", alt: "Pantalla inflable para despedida de soltera" },
+        { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-comunidad.avif", alt: "Pantalla inflable para función de cine comunitaria" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre la Pantalla de 3 Metros"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tipo de espacio y la cantidad de invitados — te confirmamos si la pantalla de 3 metros es la indicada."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La pantalla de 3 metros es suficiente para 50 personas?", answer: "Sí. La pantalla de 3 metros tiene una superficie de proyección visible para hasta 50 personas sentadas en un jardín o terraza. La imagen se ve nítida a una distancia de hasta 15 metros. Para más de 50 personas, recomendamos el paquete de 5 metros." },
+      { question: "¿El proyector funciona si todavía no está completamente oscuro?", answer: "El proyector de 3,000 lumens funciona bien a partir del atardecer. Para una imagen óptima, recomendamos empezar la proyección cuando el sol ya se metió. Si tu evento empieza más temprano, el operador posiciona la pantalla de espaldas a la luz residual para optimizar la imagen." },
+      { question: "¿Puedo proyectar videojuegos en la pantalla?", answer: "Sí. Puedes conectar cualquier consola (PlayStation, Xbox, Nintendo Switch) por HDMI al proyector. La pantalla de 3 metros es ideal para noches de gaming en el jardín. El operador configura la conexión y ajusta el audio para que todo funcione perfecto." },
+      { question: "¿Qué incluye el paquete de $4,500?", answer: "Los $4,500 + IVA incluyen: pantalla inflable de 3 metros, proyector HD de 3,000 lumens, 2 bocinas con audio estéreo, cableado completo, operador técnico, traslado ida y vuelta, montaje y desmontaje. Sin costos ocultos en CDMX y zona metropolitana." },
+      { question: "¿Se puede montar la pantalla en una terraza pequeña?", answer: "Sí. La pantalla de 3 metros es la más compacta de nuestro catálogo y se adapta a terrazas, patios y jardines pequeños. Necesitas un espacio mínimo de 4 metros de ancho por 3 metros de profundidad para la pantalla, más espacio adicional para la audiencia." },
+      { question: "¿Con cuánta anticipación debo reservar?", answer: "Recomendamos reservar con al menos 1 semana de anticipación, especialmente en temporada alta (diciembre, puentes y fines de semana). Para eventos de último minuto, contáctanos por WhatsApp y verificamos disponibilidad inmediata." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Pantalla Inflable"
+        subtitle="¿Necesitas una pantalla más grande o audio profesional?"
+        paragraph1="Si tu evento es para más de 50 personas o necesitas un proyector más potente, los paquetes de 5 y 8 metros te dan más capacidad. Y combinar con DJ y bocinas profesionales eleva la experiencia a otro nivel."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas 2 o más servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para tu noche de cine al aire libre?</h2>
+        <p>Cuéntanos la fecha, el espacio y cuántas personas esperan. Te confirmamos disponibilidad y te enviamos la cotización en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

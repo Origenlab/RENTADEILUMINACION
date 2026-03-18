@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Pantalla Inflable 5m para Bodas y XV Años — $6,500 + IVA | REDEIL";
+const description = "Pantalla inflable 5m + proyector + audio para bodas y XV años. 50-150 personas. $6,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-5metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Pantalla Inflable 5 Metros — Bodas y XV Años",
+    "description": "Pantalla inflable de 5 metros con proyector HD de 5,000 lumens y audio profesional para bodas y XV años. Ideal para 50-150 personas. Incluye operador técnico, traslado, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-5metros/",
+      "priceCurrency": "MXN",
+      "price": "6500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "78",
+      "reviewCount": "78"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrea Gutiérrez Morales" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La pantalla de 5 metros fue el hit de nuestra boda en Hacienda San Fernando, Tlalpan. Proyectamos el video de nuestra historia de amor y los 120 invitados lo disfrutaron desde cualquier mesa. La calidad de imagen fue increíble y el audio se escuchó perfecto en todo el jardín."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "José Luis Herrera Vega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para los XV años de mi hija en el Salón Versalles de Naucalpan, la pantalla de 5 metros fue espectacular. Proyectamos el video de su sesión de fotos y luego una película para los invitados. El operador coordinó todo con el DJ. Muy profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernanda Ruiz Hernández" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la pantalla para nuestra boda civil en un jardín de Xochimilco. 80 invitados y todos vieron perfecto el video de los novios. El montaje fue rápido, el equipo muy amable y la imagen se veía nítida incluso con las luces del jardín. Totalmente recomendable."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La pantalla de 5 metros funciona para una boda de 150 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La pantalla de 5 metros es nuestro tamaño más popular para bodas y cubre perfectamente audiencias de 50 a 150 personas. La imagen es visible desde cualquier mesa del jardín o salón. El proyector de 5,000 lumens asegura una imagen nítida incluso con algo de iluminación ambiental." }},
+      { "@type": "Question", "name": "¿Se puede proyectar el video de los novios durante la recepción?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es uno de los usos más populares. Puedes proyectar el video de la historia de amor, el slideshow de fotos, mensajes de familiares que no pudieron asistir, o incluso transmitir en vivo la ceremonia para quienes están en la recepción. El operador se encarga de la transición entre contenidos." }},
+      { "@type": "Question", "name": "¿La pantalla inflable se puede montar en una hacienda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Hemos montado pantallas de 5 metros en haciendas de Tlalpan, Xochimilco, Cuernavaca y Estado de México. La pantalla se ancla con estacas en pasto o con contrapesos en piso firme. El operador evalúa el mejor posicionamiento considerando la luz ambiental y el viento." }},
+      { "@type": "Question", "name": "¿El audio es suficiente para 150 personas al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sistema de audio profesional incluido en el paquete de 5 metros tiene potencia para cubrir hasta 150 personas en espacio abierto con sonido claro y sin distorsión. Si tu evento es en un espacio muy grande o necesitas audio para DJ también, podemos agregar bocinas adicionales." }},
+      { "@type": "Question", "name": "¿Se puede usar la pantalla para karaoke?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes conectar una laptop con software de karaoke y las letras se proyectan en la pantalla de 5 metros. Combinado con el sistema de audio incluido y un micrófono (disponible como accesorio), tienes una sesión de karaoke en pantalla gigante." }},
+      { "@type": "Question", "name": "¿La pantalla se monta antes de la ceremonia o de la recepción?", "acceptedAnswer": { "@type": "Answer", "text": "Llegamos 2-3 horas antes del momento en que necesitas la pantalla. Si la necesitas desde la ceremonia, montamos temprano. Si solo es para la recepción, nos coordinamos con el wedding planner para montar durante la ceremonia y tener todo listo cuando lleguen los invitados al área de la recepción." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Pantalla 3 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif", alt: "Pantalla inflable 3m para fiesta infantil", description: "Cine familiar en jardín. 20-50 personas. $4,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-3metros/" },
+  { title: "Pantalla 8 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable 8m para evento corporativo", description: "Eventos corporativos y convenciones. 150-300 personas. $9,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-8metros/" },
+  { title: "Producción 10m+", image: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla inflable gigante para festival", description: "Festivales y eventos masivos. Proyector 20,000 lumens. $15,000 + IVA.", link: "/servicios/pantalla-inflable/paquete-produccion/" },
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para eventos en CDMX", description: "DJ y audio profesional para complementar tu pantalla inflable con música y ambientación.", link: "/servicios/bocinas-djs/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Pantalla Inflable", href: "/servicios/pantalla-inflable/" },
+    { label: "Paquete 5 Metros" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Pantalla Inflable 5m para Bodas y XV Años"
+    subtitle="Desde $6,500 + IVA. Pantalla inflable 5m + proyector HD 5,000 lumens + audio profesional. El más popular para 50-150 personas."
+    introParagraph1='El video de los novios proyectado en una pantalla de <strong>5 metros</strong> mientras 120 invitados lo ven desde sus mesas — ese es el momento que convierte una recepción en un evento inolvidable. El paquete de <strong>REDEIL</strong> es el más solicitado para bodas y XV años: pantalla inflable de 5 metros, proyector HD de 5,000 lumens, sistema de audio profesional, operador técnico, traslado, montaje y desmontaje.'
+    introParagraph2='La pantalla de 5 metros es imponente pero versátil: funciona en jardines de haciendas, salones al aire libre, terrazas de hoteles y cualquier espacio donde necesites una proyección que todos vean con claridad. El proyector de 5,000 lumens produce una imagen brillante que se ve bien incluso con algo de iluminación ambiental — perfecto para recepciones donde las luces del venue están encendidas. El operador coordina con el DJ y el wedding planner para que el video se proyecte en el momento exacto. Servicio disponible en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas un tamaño diferente?"
+    items={[
+      { label: "3 Metros $4,500", href: "/servicios/pantalla-inflable/paquete-3metros/", icon: "efectos" },
+      { label: "8 Metros $9,500", href: "/servicios/pantalla-inflable/paquete-8metros/", icon: "efectos" },
+      { label: "Producción 10m+ $15,000", href: "/servicios/pantalla-inflable/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Pantalla 5 Metros"
+      price="$6,500"
+      priceNote="+ IVA · Proyector 5,000 lm · Audio profesional"
+      features={[
+        { text: "Pantalla inflable de 5 metros" },
+        { text: "Proyector HD 5,000 lumens" },
+        { text: "Sistema de audio profesional" },
+        { text: "Operador técnico incluido" },
+        { text: "Traslado ida y vuelta CDMX" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Conexión HDMI + inalámbrica" },
+        { text: "Capacidad: 50-150 personas" },
+        { text: "Coordinación con DJ/wedding planner" },
+        { text: "Anclaje reforzado para exteriores" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar la pantalla inflable de 5 metros para mi boda."
+      packages={[
+        { label: "3 Metros", price: "$4,500", href: "/servicios/pantalla-inflable/paquete-3metros/" },
+        { label: "5 Metros", price: "$6,500", href: "/servicios/pantalla-inflable/paquete-5metros/", active: true },
+        { label: "8 Metros", price: "$9,500", href: "/servicios/pantalla-inflable/paquete-8metros/" },
+        { label: "Producción 10m+", price: "$15,000", href: "/servicios/pantalla-inflable/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Para qué eventos es ideal la pantalla de 5 metros?"
+          subtitle="Bodas, XV años y fiestas grandes con video en pantalla gigante."
+          paragraph1="La pantalla de 5 metros es el tamaño que más contratamos porque cubre el rango más común de eventos sociales: bodas de 80-150 invitados, XV años, aniversarios y fiestas de graduación. La imagen es visible desde cualquier mesa del jardín."
+          paragraph2="El proyector de 5,000 lumens asegura que el video se vea nítido incluso con las luces de la recepción encendidas — no necesitas apagar todo para que la proyección funcione."
+        />
+        <FeatureGrid features={[
+          { title: "Video de Novios en Boda", description: "Proyecta la historia de amor, el slideshow de fotos o mensajes de familiares. El momento más emotivo de la recepción." },
+          { title: "XV Años — Video Sorpresa", description: "El video de la sesión de fotos de la quinceañera en pantalla gigante. Un momento que los invitados no esperan." },
+          { title: "Transmisión en Vivo", description: "Transmite la ceremonia en vivo para los invitados que están en la recepción. O conecta familiares a distancia por videollamada." },
+          { title: "Haciendas y Jardines", description: "Funciona perfecto en haciendas de Tlalpan, Xochimilco, Cuernavaca. Anclaje reforzado para exteriores." },
+          { title: "Karaoke Gigante", description: "Conecta tu laptop con karaoke y las letras se ven en 5 metros. La sesión de karaoke más épica de la fiesta." },
+          { title: "Película Post-Cena", description: "Después de la cena, proyecta una película mientras los invitados disfrutan. Plan perfecto para cerrar la noche." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="¿Por qué la pantalla de 5 metros es la más popular?"
+          subtitle="El equilibrio perfecto entre tamaño, impacto visual y versatilidad."
+          paragraph1="La pantalla de 3 metros funciona para reuniones pequeñas. La de 8 metros es para corporativos. Pero la de 5 metros es el sweet spot: lo suficientemente grande para impresionar a 150 personas, lo suficientemente compacta para caber en jardines estándar."
+          paragraph2="El proyector de 5,000 lumens es el doble de potente que el del paquete básico — la diferencia se nota en la nitidez de la imagen, especialmente cuando hay algo de luz ambiental en la recepción."
+        />
+        <FeatureGrid features={[
+          { title: "Imagen Brillante y Nítida", description: "5,000 lumens producen una imagen que se ve bien incluso con las luces del venue encendidas." },
+          { title: "Audio para 150 Personas", description: "Sistema de audio profesional que cubre hasta 150 personas al aire libre sin distorsión." },
+          { title: "Montaje Rápido", description: "Inflado en 20 minutos. Calibración completa en menos de 1 hora. Listo antes de la recepción." },
+          { title: "Coordinación con DJ", description: "El operador coordina con el DJ para que el video se proyecte en el momento exacto de la recepción." },
+          { title: "Resistente al Viento", description: "Sistema de anclaje reforzado con estacas y contrapesos. Soporta brisa moderada sin problema." },
+          { title: "Conexión Flexible", description: "HDMI desde laptop, señal inalámbrica desde celular, USB para archivos. El operador configura todo." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 78 reseñas verificadas."
+          paragraph1="Bodas, XV años y fiestas en haciendas, jardines y salones de CDMX y Estado de México."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Andrea Gutiérrez Morales", event: "Boda — Hacienda San Fernando, Tlalpan", rating: 5, text: "La pantalla de 5 metros fue el hit de nuestra boda. Proyectamos el video de nuestra historia de amor y los 120 invitados lo disfrutaron desde cualquier mesa. La calidad de imagen fue increíble." },
+          { name: "José Luis Herrera Vega", event: "XV Años — Salón Versalles, Naucalpan", rating: 5, text: "Para los XV de mi hija, la pantalla fue espectacular. Proyectamos el video de su sesión de fotos y luego una película. El operador coordinó todo con el DJ. Muy profesional." },
+          { name: "Fernanda Ruiz Hernández", event: "Boda civil — Jardín en Xochimilco", rating: 5, text: "80 invitados y todos vieron perfecto el video de los novios. El montaje fue rápido, el equipo muy amable y la imagen se veía nítida incluso con las luces del jardín." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Pantalla inflable en bodas y XV años reales"
+        subtitle="5 metros de imagen en haciendas, jardines y salones de CDMX."
+        paragraph1="Estas fotos son de bodas y XV años donde se contrató la pantalla de 5 metros. El tamaño impacta a los invitados y la calidad de imagen hace que el video se disfrute como en un cine."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos fotos por WhatsApp y te mostramos el resultado esperado."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para video de aniversario en boda" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-boda-hacienda.avif", alt: "Pantalla inflable en hacienda para boda al aire libre" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-despedida-soltera.avif", alt: "Pantalla inflable para despedida de soltera" },
+        { src: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla gigante inflable en evento social" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-cine-inflable-posada.avif", alt: "Pantalla inflable para cine en posada" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-familiar.avif", alt: "Pantalla inflable en evento familiar" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-cumpleanos-infantil.avif", alt: "Pantalla inflable en cumpleaños" },
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-tematica.avif", alt: "Pantalla inflable en fiesta temática" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre la Pantalla de 5 Metros"
+        subtitle="Todo lo que necesitas saber antes de reservar para tu boda o XV años."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el venue, la fecha y la cantidad de invitados — te confirmamos si la pantalla de 5 metros es la indicada."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La pantalla de 5 metros funciona para una boda de 150 personas?", answer: "Sí. La pantalla de 5 metros es nuestro tamaño más popular para bodas y cubre perfectamente audiencias de 50 a 150 personas. La imagen es visible desde cualquier mesa del jardín o salón. El proyector de 5,000 lumens asegura una imagen nítida incluso con algo de iluminación ambiental." },
+      { question: "¿Se puede proyectar el video de los novios durante la recepción?", answer: "Sí, es uno de los usos más populares. Puedes proyectar la historia de amor, el slideshow de fotos, mensajes de familiares que no pudieron asistir, o incluso transmitir en vivo la ceremonia. El operador se encarga de la transición entre contenidos y coordina con el DJ el momento exacto." },
+      { question: "¿La pantalla inflable se puede montar en una hacienda?", answer: "Sí. Hemos montado pantallas de 5 metros en haciendas de Tlalpan, Xochimilco, Cuernavaca y Estado de México. La pantalla se ancla con estacas en pasto o con contrapesos en piso firme. El operador evalúa el mejor posicionamiento considerando la luz ambiental y el viento." },
+      { question: "¿El audio es suficiente para 150 personas al aire libre?", answer: "Sí. El sistema de audio profesional incluido tiene potencia para cubrir hasta 150 personas en espacio abierto con sonido claro y sin distorsión. Si tu evento necesita audio para DJ y pantalla al mismo tiempo, podemos agregar bocinas adicionales con precio especial." },
+      { question: "¿Se puede usar la pantalla para karaoke?", answer: "Sí. Puedes conectar una laptop con software de karaoke y las letras se proyectan en la pantalla de 5 metros. Combinado con el sistema de audio incluido y un micrófono adicional, tienes una sesión de karaoke en pantalla gigante que anima cualquier fiesta." },
+      { question: "¿La pantalla se monta antes de la ceremonia o de la recepción?", answer: "Llegamos 2-3 horas antes del momento en que necesitas la pantalla. Si solo es para la recepción, nos coordinamos con el wedding planner para montar durante la ceremonia y tener todo listo cuando lleguen los invitados al área de recepción." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Pantalla Inflable"
+        subtitle="¿Necesitas un tamaño diferente o complementar con audio profesional?"
+        paragraph1="Si tu evento es para menos de 50 personas, el paquete de 3 metros es suficiente. Para corporativos de 150-300 personas, el de 8 metros es ideal. Y para festivales, la producción de 10 metros o más."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas 2 o más servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Quieres la pantalla más popular para tu boda?</h2>
+        <p>Cuéntanos la fecha, el venue y cuántos invitados esperan. Te confirmamos disponibilidad y te enviamos la cotización en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

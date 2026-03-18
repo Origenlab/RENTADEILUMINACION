@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Pantalla Inflable 8m para Eventos Corporativos — $9,500 + IVA | REDEIL";
+const description = "Pantalla inflable 8m + proyector 10,000 lumens + audio profesional. 150-300 personas. $9,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-8metros/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Pantalla Inflable 8 Metros — Eventos Corporativos",
+    "description": "Pantalla inflable de 8 metros con proyector de 10,000 lumens y audio profesional de alta potencia para eventos corporativos y convenciones. Ideal para 150-300 personas. Incluye operador técnico, traslado, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/pantalla-inflable/paquete-8metros/",
+      "priceCurrency": "MXN",
+      "price": "9500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "45",
+      "reviewCount": "45"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandro Domínguez Soto" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la pantalla de 8 metros para la convención anual de nuestra empresa en el Centro Banamex. 250 asistentes y la imagen se veía perfecta desde la última fila. El proyector de 10,000 lumens hizo toda la diferencia. Equipo puntual y profesional."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Patricia Navarro León" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para el lanzamiento de producto de nuestra marca en un jardín de Polanco, la pantalla de 8 metros fue espectacular. Proyectamos el video del producto y presentaciones para 200 invitados. Audio impecable y montaje profesional. REDEIL superó nuestras expectativas."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Castro Flores" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Evento corporativo de fin de año en el Hipódromo de las Américas. 300 empleados viendo la retrospectiva del año en pantalla de 8 metros. La calidad de imagen y sonido fue de nivel profesional. El operador coordinó todo con nuestro equipo de producción sin problema."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La pantalla de 8 metros funciona para 300 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La pantalla de 8 metros cubre audiencias de 150 a 300 personas con imagen visible desde cualquier punto del venue. El proyector de 10,000 lumens produce una imagen brillante y nítida incluso en espacios con algo de iluminación ambiental. Para más de 300 personas, recomendamos el paquete de producción con pantalla de 10 metros o más." }},
+      { "@type": "Question", "name": "¿El proyector de 10,000 lumens funciona con luz ambiental?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. A diferencia de proyectores convencionales, un equipo de 10,000 lumens produce una imagen visible incluso con iluminación ambiental moderada. Es ideal para eventos corporativos donde no es práctico apagar todas las luces. Para resultados óptimos al aire libre, recomendamos empezar la proyección al atardecer." }},
+      { "@type": "Question", "name": "¿Se puede conectar una presentación de PowerPoint?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El proyector acepta conexión HDMI, VGA y señal inalámbrica. Puedes conectar tu laptop con PowerPoint, Keynote, Google Slides o cualquier software de presentaciones. El operador configura todo y hace pruebas antes del evento para asegurar que la imagen se vea perfecta." }},
+      { "@type": "Question", "name": "¿Qué espacio necesito para la pantalla de 8 metros?", "acceptedAnswer": { "@type": "Answer", "text": "Necesitas un espacio mínimo de 10 metros de ancho por 5 metros de profundidad para la pantalla y el equipo, más el espacio para la audiencia. La pantalla funciona en estacionamientos, jardines amplios, foros al aire libre, explanadas y espacios corporativos. El operador puede hacer una visita previa al venue si lo necesitas." }},
+      { "@type": "Question", "name": "¿El audio cubre un espacio abierto para 300 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El sistema de audio profesional de alta potencia incluido en el paquete de 8 metros está diseñado para cubrir audiencias de hasta 300 personas en espacio abierto. Si necesitas distribución de audio en múltiples zonas, podemos agregar bocinas adicionales con precio especial." }},
+      { "@type": "Question", "name": "¿Ofrecen visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Para eventos corporativos con pantalla de 8 metros, ofrecemos visita previa al venue sin costo adicional en CDMX. Evaluamos el espacio, la posición óptima de la pantalla, las condiciones de luz y viento, y coordinamos con tu equipo de producción los requerimientos técnicos." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Pantalla 3 Metros", image: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif", alt: "Pantalla inflable 3m para cine familiar", description: "Cine familiar en jardín. 20-50 personas. $4,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-3metros/" },
+  { title: "Pantalla 5 Metros", image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable 5m para boda", description: "Bodas y XV años. 50-150 personas. $6,500 + IVA.", link: "/servicios/pantalla-inflable/paquete-5metros/" },
+  { title: "Producción 10m+", image: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla inflable gigante para festival", description: "Festivales y eventos masivos. Proyector 20,000 lumens. $15,000 + IVA.", link: "/servicios/pantalla-inflable/paquete-produccion/" },
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para eventos en CDMX", description: "Audio profesional con DJ para complementar tu presentación corporativa con ambientación.", link: "/servicios/bocinas-djs/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Pantalla Inflable", href: "/servicios/pantalla-inflable/" },
+    { label: "Paquete 8 Metros" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Pantalla Inflable 8m para Eventos Corporativos"
+    subtitle="Desde $9,500 + IVA. Pantalla inflable 8m + proyector 10,000 lumens + audio profesional de alta potencia. Para 150-300 personas."
+    introParagraph1='Cuando tu presentación corporativa necesita impactar a 300 personas al aire libre, una pantalla de <strong>8 metros</strong> con proyector de <strong>10,000 lumens</strong> es la solución. El paquete de <strong>REDEIL</strong> está diseñado para convenciones, lanzamientos de producto, eventos de fin de año, conferencias y cualquier evento corporativo que necesite una proyección de gran formato visible desde la última fila.'
+    introParagraph2='La pantalla inflable de 8 metros se monta en 25 minutos y el proyector de 10,000 lumens produce una imagen brillante que compite con la luz ambiental — no necesitas apagar todas las luces del venue para que la presentación se vea. El audio profesional de alta potencia cubre hasta 300 personas en espacio abierto. El operador técnico llega con anticipación, coordina con tu equipo de producción, configura las conexiones (HDMI, VGA, inalámbrica) y hace pruebas completas. Traslado, montaje y desmontaje incluidos en toda la <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas un tamaño diferente?"
+    items={[
+      { label: "3 Metros $4,500", href: "/servicios/pantalla-inflable/paquete-3metros/", icon: "efectos" },
+      { label: "5 Metros $6,500", href: "/servicios/pantalla-inflable/paquete-5metros/", icon: "efectos" },
+      { label: "Producción 10m+ $15,000", href: "/servicios/pantalla-inflable/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Pantalla 8 Metros"
+      price="$9,500"
+      priceNote="+ IVA · Proyector 10,000 lm · Audio de alta potencia"
+      features={[
+        { text: "Pantalla inflable de 8 metros" },
+        { text: "Proyector 10,000 lumens" },
+        { text: "Audio profesional de alta potencia" },
+        { text: "Operador técnico incluido" },
+        { text: "Traslado ida y vuelta CDMX" },
+        { text: "Montaje y desmontaje incluidos" },
+        { text: "Conexión HDMI, VGA e inalámbrica" },
+        { text: "Capacidad: 150-300 personas" },
+        { text: "Anclaje reforzado para exteriores" },
+        { text: "Visita previa al venue disponible" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar la pantalla inflable de 8 metros para un evento corporativo."
+      packages={[
+        { label: "3 Metros", price: "$4,500", href: "/servicios/pantalla-inflable/paquete-3metros/" },
+        { label: "5 Metros", price: "$6,500", href: "/servicios/pantalla-inflable/paquete-5metros/" },
+        { label: "8 Metros", price: "$9,500", href: "/servicios/pantalla-inflable/paquete-8metros/", active: true },
+        { label: "Producción 10m+", price: "$15,000", href: "/servicios/pantalla-inflable/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Para qué eventos corporativos es ideal la pantalla de 8 metros?"
+          subtitle="Convenciones, lanzamientos, conferencias y eventos de fin de año."
+          paragraph1="La pantalla de 8 metros es la solución profesional para eventos corporativos donde la audiencia supera las 150 personas. El proyector de 10,000 lumens asegura que la imagen sea visible incluso con iluminación ambiental — ideal para eventos donde no puedes apagar las luces."
+          paragraph2="El operador coordina con tu equipo de producción, IT o agencia de eventos para que las conexiones, el audio y el timing estén perfectos."
+        />
+        <FeatureGrid features={[
+          { title: "Convención Anual", description: "Presentaciones, retrospectivas y discursos del CEO en pantalla gigante. Visible para 300 personas desde cualquier punto." },
+          { title: "Lanzamiento de Producto", description: "Video de producto en 8 metros con audio envolvente. El impacto visual que tu marca necesita." },
+          { title: "Evento de Fin de Año", description: "Retrospectiva del año, premiaciones y video corporativo. El cierre que tus empleados van a recordar." },
+          { title: "Conferencia al Aire Libre", description: "Ponencias y paneles con presentaciones visibles para toda la audiencia. Audio profesional para preguntas y respuestas." },
+          { title: "Transmisión Deportiva", description: "Partido de futbol, box o F1 en pantalla de 8 metros. La experiencia de un estadio en tu evento corporativo." },
+          { title: "Team Building", description: "Noches de cine corporativo, trivia en pantalla gigante o gaming en equipo. Actividades de integración en gran formato." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Especificaciones técnicas del paquete de 8 metros"
+          subtitle="Proyector de 10,000 lumens, audio de alta potencia y conexión múltiple."
+          paragraph1="El paquete de 8 metros está diseñado para exigencias corporativas: proyector de alta luminosidad que compite con luz ambiental, audio que cubre espacios abiertos amplios y conexiones compatibles con cualquier equipo."
+          paragraph2="Para eventos que requieren señalización digital, teleprompter o switching entre múltiples fuentes de video, ofrecemos equipo adicional con cotización especial."
+        />
+        <FeatureGrid features={[
+          { title: "Proyector 10,000 Lumens", description: "Imagen brillante visible con luz ambiental moderada. Resolución Full HD. Compatible con señal 4K." },
+          { title: "Audio de Alta Potencia", description: "Sistema de audio profesional que cubre 300 personas en espacio abierto. Subwoofer incluido para bajas frecuencias." },
+          { title: "Conexión Múltiple", description: "HDMI, VGA, DisplayPort y señal inalámbrica. Compatible con Windows, Mac, tablets y celulares." },
+          { title: "Pantalla Cinematográfica", description: "Lona blanca de alta reflectancia con marco negro. 8 metros de ancho. Superficie sin arrugas." },
+          { title: "Anclaje Profesional", description: "Sistema de estacas y contrapesos reforzado para pantallas grandes. Soporta viento moderado." },
+          { title: "Operador Especializado", description: "Técnico con experiencia en eventos corporativos. Coordina con tu equipo de producción o agencia." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes corporativos"
+          subtitle="5 estrellas en 45 reseñas verificadas."
+          paragraph1="Convenciones, lanzamientos y eventos de fin de año en venues de CDMX y Estado de México."
+          paragraph2="Pregunta por referencias de eventos corporativos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Alejandro Domínguez Soto", event: "Convención — Centro Banamex", rating: 5, text: "250 asistentes y la imagen se veía perfecta desde la última fila. El proyector de 10,000 lumens hizo toda la diferencia. Equipo puntual y profesional." },
+          { name: "Patricia Navarro León", event: "Lanzamiento de producto — Polanco", rating: 5, text: "La pantalla de 8 metros fue espectacular para el lanzamiento. Proyectamos el video del producto para 200 invitados. Audio impecable y montaje profesional." },
+          { name: "Miguel Ángel Castro Flores", event: "Fin de año — Hipódromo de las Américas", rating: 5, text: "300 empleados viendo la retrospectiva del año en pantalla de 8 metros. Calidad de imagen y sonido de nivel profesional. Coordinación impecable." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Pantalla de 8 metros en eventos corporativos reales"
+        subtitle="Convenciones, lanzamientos y presentaciones en foros y jardines de CDMX."
+        paragraph1="Estas fotos son de eventos corporativos donde se montó la pantalla de 8 metros. La imagen de gran formato transforma cualquier espacio en un foro profesional."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Coordinamos una visita previa sin costo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable en evento corporativo con proyección profesional" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-presentacion.avif", alt: "Pantalla inflable para presentación corporativa" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-reunion-empresarial.avif", alt: "Pantalla inflable en reunión empresarial" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-gigante-inflable-deportes.avif", alt: "Pantalla gigante inflable para transmisión deportiva" },
+        { src: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla gigante inflable en evento social corporativo" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-evento-escolar.avif", alt: "Pantalla inflable en evento institucional" },
+        { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-comunidad.avif", alt: "Pantalla inflable para evento comunitario corporativo" },
+        { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-boda-hacienda.avif", alt: "Pantalla inflable de gran formato en hacienda" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre la Pantalla de 8 Metros"
+        subtitle="Todo lo que necesitas saber para tu evento corporativo."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos el tipo de evento, la cantidad de asistentes y el venue — te confirmamos la viabilidad técnica."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La pantalla de 8 metros funciona para 300 personas?", answer: "Sí. La pantalla de 8 metros cubre audiencias de 150 a 300 personas con imagen visible desde cualquier punto del venue. El proyector de 10,000 lumens produce una imagen brillante y nítida incluso en espacios con algo de iluminación ambiental. Para más de 300 personas, recomendamos el paquete de producción con pantalla de 10 metros o más." },
+      { question: "¿El proyector de 10,000 lumens funciona con luz ambiental?", answer: "Sí. A diferencia de proyectores convencionales, un equipo de 10,000 lumens produce una imagen visible incluso con iluminación ambiental moderada. Es ideal para eventos corporativos donde no es práctico apagar todas las luces. Para resultados óptimos al aire libre, recomendamos empezar la proyección al atardecer." },
+      { question: "¿Se puede conectar una presentación de PowerPoint?", answer: "Sí. El proyector acepta conexión HDMI, VGA y señal inalámbrica. Puedes conectar tu laptop con PowerPoint, Keynote, Google Slides o cualquier software de presentaciones. El operador configura todo y hace pruebas antes del evento." },
+      { question: "¿Qué espacio necesito para la pantalla de 8 metros?", answer: "Necesitas un espacio mínimo de 10 metros de ancho por 5 metros de profundidad para la pantalla y el equipo, más el espacio para la audiencia. Funciona en estacionamientos, jardines amplios, foros al aire libre, explanadas y espacios corporativos. El operador puede hacer una visita previa al venue." },
+      { question: "¿El audio cubre un espacio abierto para 300 personas?", answer: "Sí. El sistema de audio profesional de alta potencia incluido está diseñado para cubrir hasta 300 personas en espacio abierto. Si necesitas distribución de audio en múltiples zonas o micrófonos para ponentes, podemos agregar equipo adicional con precio especial." },
+      { question: "¿Ofrecen visita previa al venue?", answer: "Sí. Para eventos corporativos con pantalla de 8 metros, ofrecemos visita previa al venue sin costo adicional en CDMX. Evaluamos el espacio, la posición óptima de la pantalla, las condiciones de luz y viento, y coordinamos con tu equipo de producción los requerimientos técnicos." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Pantalla Inflable"
+        subtitle="¿Necesitas un tamaño diferente o una producción completa?"
+        paragraph1="Para eventos más pequeños, los paquetes de 3 y 5 metros son ideales. Para festivales y eventos masivos con más de 300 personas, el paquete de producción con pantalla de 10 metros o más y proyector de 20,000 lumens."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas pantalla con audio profesional y DJ."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Necesitas pantalla gigante para tu evento corporativo?</h2>
+        <p>Cuéntanos la fecha, el venue, la cantidad de asistentes y el tipo de contenido. Te enviamos la cotización y coordinamos la visita previa.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

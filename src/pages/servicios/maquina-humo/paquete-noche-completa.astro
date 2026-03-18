@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Humo Atmosférico Noche Completa — $4,500 + IVA | REDEIL";
+const description = "Humo atmosférico toda la noche para bodas y XV años. Fluido ilimitado + operador 4-6 horas. $4,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-noche-completa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Humo Atmosférico Noche Completa",
+    "description": "Renta de humo atmosférico profesional toda la noche para bodas, XV años y recepciones en CDMX. Máquina de 1,500W, fluido ilimitado, operador técnico 4-6 horas, transporte, montaje y desmontaje incluidos.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-noche-completa/",
+      "priceCurrency": "MXN",
+      "price": "4500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "72",
+      "reviewCount": "72"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valentina Ríos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos el humo noche completa para nuestra boda en Hacienda de los Morales. El operador estuvo las 6 horas coordinando con el DJ — el humo en la pista durante el primer baile fue mágico. Todos los invitados comentaron lo espectacular que se veía."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para los XV años de mi hija en un salón en Tlalpan. El fluido ilimitado fue clave porque la fiesta duró casi 7 horas. El operador sabía exactamente cuándo activar el humo — en el vals, la entrada y la hora loca. Increíble servicio."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Gabriela Torres" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Renté el paquete para una recepción de boda en jardín en Xochimilco. La combinación del humo con las cabezas móviles que también rentamos se veía de producción de concierto. El mejor dinero que gastamos en la boda después de la comida."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/humo/maquina-humo-profesional-boda-pista-baile.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántas horas cubre el paquete Noche Completa?", "acceptedAnswer": { "@type": "Answer", "text": "El operador cubre de 4 a 6 horas continuas. Para la mayoría de bodas y XV años esto abarca desde la recepción/cena hasta el cierre de la fiesta. Si necesitas más horas, podemos extender con un costo adicional mínimo." }},
+      { "@type": "Question", "name": "¿El fluido ilimitado significa que el humo está encendido todo el tiempo?", "acceptedAnswer": { "@type": "Answer", "text": "No. Fluido ilimitado significa que no hay límite en la cantidad de fluido que se usa durante el evento. El operador activa el humo estratégicamente en los momentos de mayor impacto — vals, brindis, hora loca — y lo controla para mantener el nivel perfecto sin exceso." }},
+      { "@type": "Question", "name": "¿Este paquete funciona para bodas al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. En bodas en jardín o hacienda el humo se disipa más rápido, pero con fluido ilimitado el operador puede activar con mayor frecuencia para mantener el efecto. El resultado en exteriores es muy atmosférico y fotogénico." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ y Fiesta — 1 Máquina", image: "/img/humo/maquina-humo-fiesta-neon-discoteca.avif", alt: "Máquina de humo en fiesta con DJ", description: "1 máquina de humo para fiestas privadas y cumpleaños. Paquete básico. $2,500 + IVA.", link: "/servicios/maquina-humo/paquete-dj-fiesta/" },
+  { title: "Show Corporativo — 2 Máquinas", image: "/img/humo/efecto-humo-evento-corporativo-escenario.avif", alt: "Humo en escenario corporativo", description: "2 máquinas de humo para escenarios y producciones corporativas. $7,500 + IVA.", link: "/servicios/maquina-humo/paquete-show-corporativo/" },
+  { title: "Festival — 4 Máquinas", image: "/img/humo/maquina-humo-concierto-festival-luces.avif", alt: "Humo en festival con luces", description: "4 máquinas + fog chiller + técnico para festivales y conciertos masivos. $12,000 + IVA.", link: "/servicios/maquina-humo/paquete-festival/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de cabezas móviles con beams de colores", description: "Los beams de las cabezas móviles cortando el humo crean el efecto de concierto más impactante.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Máquina de Humo", href: "/servicios/maquina-humo/" },
+    { label: "Noche Completa" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Humo Atmosférico Noche Completa — Bodas, XV Años y Recepciones"
+    subtitle="Desde $4,500 + IVA. Fluido ilimitado + operador 4-6 horas. El más popular para bodas."
+    introParagraph1='El paquete de humo atmosférico noche completa es el más solicitado para bodas y XV años porque cubre todo el evento sin preocuparte por el fluido. Una máquina de humo profesional de 1,500W con fluido ilimitado y un operador técnico que controla las activaciones durante 4 a 6 horas continuas. El humo transforma la recepción completa — desde el primer baile hasta el último tema de la noche.'
+    introParagraph2='El operador se coordina con tu DJ o MC para activar el humo en los momentos de mayor impacto: la entrada de los novios, el vals, el brindis, la hora loca. Entre momento y momento, mantiene un nivel sutil de neblina que hace visibles todos los efectos de iluminación. Servicio completo con equipo <strong>Antari</strong> y <strong>Chauvet</strong>, transporte, montaje y desmontaje en toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas otro paquete?"
+    items={[
+      { label: "DJ y Fiesta — $2,500", href: "/servicios/maquina-humo/paquete-dj-fiesta/", icon: "efectos" },
+      { label: "Show Corporativo — $7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/", icon: "efectos" },
+      { label: "Festival — $12,000", href: "/servicios/maquina-humo/paquete-festival/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Noche Completa"
+      price="$4,500"
+      priceNote="+ IVA · Fluido ilimitado"
+      badge="Más popular"
+      features={[
+        { text: "1 máquina de humo 1,500W" },
+        { text: "Fluido ilimitado toda la noche" },
+        { text: "Operador técnico 4-6 horas" },
+        { text: "Coordinación con DJ y MC" },
+        { text: "Control de intensidad variable" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje" },
+        { text: "Fluido inodoro certificado" },
+        { text: "Equipo Antari / Chauvet" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Noche Completa de máquina de humo para mi boda."
+      packages={[
+        { label: "DJ y Fiesta", price: "$2,500", href: "/servicios/maquina-humo/paquete-dj-fiesta/" },
+        { label: "Noche Completa", price: "$4,500", href: "/servicios/maquina-humo/paquete-noche-completa/", active: true },
+        { label: "Show Corporativo", price: "$7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/" },
+        { label: "Festival", price: "$12,000", href: "/servicios/maquina-humo/paquete-festival/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos"
+          subtitle="El paquete más popular para bodas, XV años y recepciones de toda la noche."
+          paragraph1="Con fluido ilimitado y operador de 4 a 6 horas, este paquete cubre toda la recepción sin interrupciones. El operador sabe exactamente cuándo activar el humo para que cada momento especial tenga el máximo impacto visual."
+          paragraph2="Es el paquete que más recomendamos para bodas porque el humo durante el primer baile, combinado con iluminación, crea las fotos y videos más espectaculares del evento."
+        />
+        <FeatureGrid features={[
+          { title: "Bodas y Recepciones", description: "Humo durante toda la recepción. El primer baile con neblina es el momento más fotografiado de la noche." },
+          { title: "XV Años", description: "Desde el vals hasta el último baile. El humo crea el escenario de cuento que toda quinceañera sueña." },
+          { title: "Fiestas de Gala", description: "Recepciones elegantes en salones y haciendas. El humo sutil eleva el ambiente toda la noche." },
+          { title: "Bodas en Jardín", description: "En exteriores el humo se disipa más rápido — con fluido ilimitado el operador mantiene el efecto constante." },
+          { title: "Bodas en Hacienda", description: "Salones grandes de haciendas necesitan fluido continuo. Este paquete está diseñado para eso." },
+          { title: "Fiestas de 4-6 Horas", description: "Cobertura completa sin preocuparte por el fluido. El operador está presente todo el evento." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Fluido ilimitado: la diferencia clave"
+          subtitle="Sin límite de activaciones. Sin cargos extra. Humo toda la noche."
+          paragraph1="En el paquete básico llevas 1 litro de fluido — suficiente para momentos puntuales. En el paquete Noche Completa no hay límite: el operador activa las veces que sean necesarias durante las 4-6 horas del evento. Para bodas y XV años donde la fiesta dura toda la noche, esto es esencial."
+          paragraph2="La máquina de 1,500W también es más potente — genera más volumen de humo en menos tiempo, ideal para salones grandes y haciendas donde el espacio absorbe más neblina."
+        />
+        <FeatureGrid features={[
+          { title: "Sin Límite de Fluido", description: "Activa las veces que necesites. No hay cargo adicional por fluido extra." },
+          { title: "Máquina de 1,500W", description: "Más potencia que el paquete básico. Llena salones grandes en menos tiempo." },
+          { title: "Operador 4-6 Horas", description: "Presente todo el evento. Coordina cada activación con el DJ y el MC." },
+          { title: "Intensidad Variable", description: "El operador ajusta la densidad del humo según el momento — sutil para cena, intenso para baile." },
+          { title: "Activaciones Coordinadas", description: "Vals, brindis, entrada de novios, hora loca — cada momento con su nivel de humo." },
+          { title: "Cobertura Completa", description: "Desde la recepción hasta el cierre. No te quedas sin humo a mitad de la noche." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 72 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete Noche Completa para su evento."
+          paragraph2="Pregunta por referencias de bodas o XV años similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Valentina Ríos", event: "Boda — Hacienda de los Morales", rating: 5, text: "El operador estuvo las 6 horas coordinando con el DJ — el humo en la pista durante el primer baile fue mágico. Todos los invitados comentaron lo espectacular que se veía." },
+          { name: "Roberto Sánchez", event: "XV Años — Salón en Tlalpan", rating: 5, text: "El fluido ilimitado fue clave porque la fiesta duró casi 7 horas. El operador sabía exactamente cuándo activar el humo — en el vals, la entrada y la hora loca. Increíble servicio." },
+          { name: "Gabriela Torres", event: "Boda en jardín — Xochimilco", rating: 5, text: "La combinación del humo con las cabezas móviles que también rentamos se veía de producción de concierto. El mejor dinero que gastamos en la boda después de la comida." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Humo noche completa en bodas y XV años"
+        subtitle="Fluido ilimitado en recepciones, haciendas y salones de eventos."
+        paragraph1="Cada foto es de un evento real con el paquete Noche Completa. Bodas en hacienda, XV años en salón, recepciones en jardín — el humo atmosférico transforma la pista de baile durante toda la noche."
+        paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos por WhatsApp y te decimos cómo quedaría."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Humo profesional en pista de baile de boda" },
+        { src: "/img/humo/humo-bajo-primer-baile-novios-boda.avif", alt: "Humo en primer baile de novios en boda" },
+        { src: "/img/humo/renta-humo-fiestas-xv-anos-salon.avif", alt: "Humo en salón para fiesta de XV años" },
+        { src: "/img/humo/maquina-niebla-boda-romantica-jardin.avif", alt: "Niebla en boda romántica en jardín" },
+        { src: "/img/humo/humo-profesional-evento-nocturno-iluminacion.avif", alt: "Humo con iluminación en evento nocturno" },
+        { src: "/img/humo/renta-maquina-humo-eventos-fiesta-noche.avif", alt: "Máquina de humo en evento de noche" },
+        { src: "/img/humo/efecto-humo-sesion-fotos-profesional.avif", alt: "Efecto de humo en sesión de fotos profesional" },
+        { src: "/img/humo/renta-humo-atmosferico-fiesta-tematica.avif", alt: "Humo atmosférico en fiesta temática" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Noche Completa"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Cada boda y venue es diferente — te asesoramos gratis para que el efecto sea perfecto."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántas horas cubre el paquete Noche Completa?", answer: "El operador cubre de 4 a 6 horas continuas. Para la mayoría de bodas y XV años esto abarca desde la recepción hasta el cierre de la fiesta. Si necesitas más horas, podemos extender el servicio con un costo adicional mínimo — avísanos con anticipación." },
+      { question: "¿El fluido ilimitado significa que el humo está encendido todo el tiempo?", answer: "No. Fluido ilimitado significa que no hay límite en la cantidad que se usa durante el evento. El operador activa estratégicamente en los momentos de mayor impacto — vals, brindis, hora loca — y controla la intensidad para mantener el nivel perfecto sin exceso." },
+      { question: "¿Funciona para bodas al aire libre en jardín?", answer: "Sí. En bodas en jardín o hacienda el humo se disipa más rápido, pero con fluido ilimitado el operador activa con mayor frecuencia para mantener el efecto constante. El resultado en exteriores es muy atmosférico y fotogénico." },
+      { question: "¿Puedo combinar con cabezas móviles o humo bajo?", answer: "Sí — y es la combinación más solicitada. El humo atmosférico hace visibles los beams de las cabezas móviles. Si también quieres humo bajo para el vals, cotiza ambos servicios y te hacemos precio especial por el combo." },
+      { question: "¿La máquina de 1,500W es muy ruidosa?", answer: "Las máquinas de humo profesionales generan un soplo breve de 2-3 segundos cada vez que se activan. Entre activaciones son completamente silenciosas. El operador las posiciona lejos de la mesa principal para que el ruido sea imperceptible durante los momentos clave." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Máquina de Humo"
+        subtitle="¿Necesitas más cobertura o un paquete diferente?"
+        paragraph1="Desde una máquina para fiestas íntimas hasta 4 máquinas para festivales. También tenemos paquetes corporativos con coordinación de producción completa."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para reservar el humo para tu boda o XV años?</h2>
+        <p>Mándanos la fecha, el venue y el tipo de evento. Te confirmamos disponibilidad y enviamos el presupuesto completo en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Podiums para Congresos y Convenciones — $8,500 + IVA | REDEIL";
+const description = "4+ podiums + staging + audio + iluminación + técnico para congresos y convenciones. $8,500 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/podiums/paquete-congreso/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Podiums para Congresos y Convenciones",
+    "description": "Paquete completo con 4+ podiums de acrílico transparente de 10mm + staging profesional + audio line array + iluminación de escenario + técnico dedicado para congresos y convenciones en CDMX. Montaje anticipado y pruebas incluidas.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/podiums/paquete-congreso/",
+      "priceCurrency": "MXN",
+      "price": "8500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "30",
+      "reviewCount": "30"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Dr. Héctor Villanueva Cruz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos a REDEIL para el Congreso Nacional de Cardiología en el Centro Citibanamex. Necesitábamos 6 podiums en diferentes salas y todo estuvo perfecto. El técnico coordinó la logística entre salas y el audio se escuchó impecable en cada auditorio. Servicio de primer nivel."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ing. Patricia Domínguez León" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el paquete Congreso para la Convención Anual de Ingeniería en Expo Reforma. 4 podiums con logo del congreso, staging profesional y audio line array. El montaje empezó a las 6am y a las 9am todo estaba impecable. Muy profesionales."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Lic. Daniela Estrada Ruiz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Organizamos un congreso médico de 3 días en el WTC México y REDEIL se encargó de todo el staging. 5 podiums, audio para 500 personas, iluminación de escenario y un técnico que estuvo los 3 días. Cero problemas. Lo recomiendo ampliamente para eventos masivos."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/podiums/conferencia-masiva-podium-acrilico-pantallas-auditorio.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántos podiums incluye el paquete Congreso?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete base incluye 4 podiums de acrílico transparente. Si necesitas más, se agregan por $800 + IVA cada podium adicional. Para congresos de 3+ días con múltiples salas, armamos propuestas con 6, 8 o más podiums." }},
+      { "@type": "Question", "name": "¿El audio es suficiente para un auditorio de 500 personas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El paquete Congreso incluye audio line array profesional dimensionado para auditorios de hasta 500 personas. Para recintos más grandes como el Centro Citibanamex, escalamos el sistema con más bocinas." }},
+      { "@type": "Question", "name": "¿El técnico se queda los 3 días del congreso?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico dedicado está incluido durante toda la duración del congreso — ya sea 1, 2 o 3 días. Se encarga del montaje, la operación diaria, ajustes entre ponencias y el desmontaje al finalizar." }},
+      { "@type": "Question", "name": "¿Pueden montar en múltiples salas simultáneamente?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para congresos con salas simultáneas, distribuimos los podiums y el equipo en cada sala según tu programa. El técnico coordina la logística entre salas para que cada ponencia tenga su podium listo." }},
+      { "@type": "Question", "name": "¿Incluyen branding con el logotipo del congreso?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El branding con vinil de corte en todos los podiums está incluido sin costo adicional. Envíanos el logotipo del congreso y lo aplicamos en cada podium antes del primer día del evento." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar para un congreso?", "acceptedAnswer": { "@type": "Answer", "text": "Recomendamos reservar con 3-4 semanas de anticipación. En temporada alta de convenciones (septiembre-noviembre) la demanda es muy alta. Para congresos de 3+ días con múltiples salas, confirma con al menos un mes de anticipación." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Podium", image: "/img/podiums/conferencia-ejecutivo-podium-alto-iluminacion-profesional.avif", alt: "1 podium de acrílico para conferencia", description: "Solo 1 podium para conferencia íntima o sala de juntas. $1,500 + IVA.", link: "/servicios/podiums/paquete-1-podium/" },
+  { title: "2 Podiums", image: "/img/podiums/conferencia-empresarial-podium-transparente-audiencia-profesional.avif", alt: "2 podiums de acrílico", description: "2 podiums para bodas, galas y mesas de honor. $2,500 + IVA.", link: "/servicios/podiums/paquete-2-podiums/" },
+  { title: "Escenario Completo", image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif", alt: "Escenario completo con podiums", description: "2 podiums + audio + iluminación para eventos corporativos. $5,000 + IVA.", link: "/servicios/podiums/paquete-escenario-completo/" },
+  { title: "PAR LED", image: "/img/par-led/renta-par-led-boda-salon-300w.avif", alt: "PAR LED para iluminación de congreso", description: "Amplía la iluminación de tu congreso con más PAR LED en salas y pasillos.", link: "/servicios/par-led/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Podiums", href: "/servicios/podiums/" },
+    { label: "Congreso" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Podiums para Congresos y Convenciones"
+    subtitle="Desde $8,500 + IVA. 4+ podiums + staging + audio line array + iluminación + técnico dedicado."
+    introParagraph1='El paquete Congreso está diseñado para <strong>congresos, convenciones y eventos masivos</strong> que requieren múltiples podiums, staging profesional y producción de primer nivel. Incluye 4 o más podiums de acrílico transparente de 10mm con branding corporativo, audio <strong>line array</strong> para auditorios de hasta 500 personas, iluminación profesional de escenario y un técnico dedicado que opera todo durante la totalidad del evento — ya sea 1, 2 o 3 días de congreso.'
+    introParagraph2='Este paquete es para organizadores que necesitan un proveedor confiable que se encargue de toda la infraestructura de escenario. El técnico llega horas antes del primer día para el <strong>montaje anticipado</strong>, realiza pruebas de audio e iluminación, verifica cada podium y se queda durante todo el congreso coordinando los cambios entre ponencias y salas. Hemos montado en el <strong>Centro Citibanamex</strong>, <strong>WTC México</strong>, <strong>Expo Reforma</strong> y los principales recintos de congresos en CDMX.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas otro nivel de servicio?"
+    items={[
+      { label: "1 Podium — $1,500", href: "/servicios/podiums/paquete-1-podium/", icon: "efectos" },
+      { label: "2 Podiums — $2,500", href: "/servicios/podiums/paquete-2-podiums/", icon: "efectos" },
+      { label: "Escenario — $5,000", href: "/servicios/podiums/paquete-escenario-completo/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Congreso"
+      price="$8,500"
+      priceNote="+ IVA · Técnico incluido"
+      features={[
+        { text: "4+ podiums acrílico transparente 10mm" },
+        { text: "Staging profesional completo" },
+        { text: "Audio line array hasta 500 personas" },
+        { text: "Iluminación profesional de escenario" },
+        { text: "Técnico dedicado todo el evento" },
+        { text: "Branding con logotipo del congreso" },
+        { text: "Montaje anticipado + pruebas" },
+        { text: "Soporte multi-sala disponible" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Congreso de podiums para convención."
+      packages={[
+        { label: "1 Podium", price: "$1,500", href: "/servicios/podiums/paquete-1-podium/" },
+        { label: "2 Podiums", price: "$2,500", href: "/servicios/podiums/paquete-2-podiums/" },
+        { label: "Escenario Completo", price: "$5,000", href: "/servicios/podiums/paquete-escenario-completo/" },
+        { label: "Congreso", price: "$8,500", href: "/servicios/podiums/paquete-congreso/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos"
+          subtitle="4+ podiums con staging para congresos, convenciones y eventos masivos."
+          paragraph1="Este paquete es para eventos donde la escala importa. Congresos médicos con 500 asistentes, convenciones de industria con múltiples salas simultáneas, y eventos masivos donde cada detalle del escenario debe funcionar sin fallas durante días."
+          paragraph2="Nuestro técnico coordina toda la logística de escenario para que tú y tu equipo organizador se concentren en el contenido del congreso."
+        />
+        <FeatureGrid features={[
+          { title: "Congresos Médicos", description: "Múltiples podiums en auditorios y salas de ponencias. Audio line array para que cada ponencia se escuche perfecto." },
+          { title: "Convenciones de Industria", description: "Staging profesional con branding corporativo. Podiums en cada sala con logística coordinada entre sesiones." },
+          { title: "Congresos Académicos", description: "Ponencias, paneles y mesas de debate. Podiums para cada ponente con audio dedicado." },
+          { title: "Eventos Multi-Día", description: "El técnico se queda los 3 días. Montaje al inicio, operación diaria y desmontaje al finalizar." },
+          { title: "Múltiples Salas", description: "Distribuimos podiums y equipo en diferentes salas simultáneamente. Logística coordinada por nuestro técnico." },
+          { title: "Recintos Grandes", description: "Centro Citibanamex, WTC México, Expo Reforma. Conocemos los recintos y sus requerimientos técnicos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Producción de primer nivel para tu congreso"
+          subtitle="Audio line array + iluminación profesional + staging coordinado."
+          paragraph1="No es solo poner podiums en un escenario. Es una producción integral donde el audio line array garantiza que cada ponente se escuche claro hasta la última fila, la iluminación de escenario crea el ambiente profesional que tu congreso merece, y los podiums con branding dan identidad visual a cada sala."
+          paragraph2="El técnico dedicado es la pieza clave — coordina cambios entre ponencias, ajusta niveles de audio según cada orador y opera la iluminación en tiempo real."
+        />
+        <FeatureGrid features={[
+          { title: "Audio Line Array", description: "Sistema profesional para auditorios de hasta 500 personas. Cada ponente se escucha claro en toda la sala." },
+          { title: "Iluminación de Escenario", description: "PAR LED RGBW en colores del congreso. Iluminación que hace lucir profesional cada ponencia." },
+          { title: "4+ Podiums con Branding", description: "Todos los podiums con el logotipo del congreso aplicado en vinil. Identidad visual consistente." },
+          { title: "Técnico Dedicado", description: "Profesional que opera todo el staging durante los 1-3 días del congreso. Sin costos adicionales." },
+          { title: "Montaje Anticipado", description: "Llegamos horas antes del primer día. Montaje, pruebas de audio, ajustes de iluminación. Todo verificado." },
+          { title: "Logística Multi-Sala", description: "Coordinamos la distribución de podiums y equipo entre salas. Cambios entre sesiones en minutos." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 30 reseñas."
+          paragraph1="Cada reseña es de un organizador real que contrató el paquete Congreso para su evento."
+          paragraph2="Pregunta por referencias de congresos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Dr. Héctor Villanueva Cruz", event: "Congreso Nacional de Cardiología — Centro Citibanamex", rating: 5, text: "Necesitábamos 6 podiums en diferentes salas y todo estuvo perfecto. El técnico coordinó la logística entre salas y el audio se escuchó impecable en cada auditorio. Servicio de primer nivel." },
+          { name: "Ing. Patricia Domínguez León", event: "Convención Anual de Ingeniería — Expo Reforma", rating: 5, text: "4 podiums con logo del congreso, staging profesional y audio line array. El montaje empezó a las 6am y a las 9am todo estaba impecable. Muy profesionales y puntuales." },
+          { name: "Lic. Daniela Estrada Ruiz", event: "Congreso Médico 3 días — WTC México", rating: 5, text: "REDEIL se encargó de todo el staging. 5 podiums, audio para 500 personas, iluminación de escenario y un técnico que estuvo los 3 días. Cero problemas. Lo recomiendo ampliamente." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Podiums en congresos y convenciones reales"
+        subtitle="Staging profesional en los principales recintos de CDMX."
+        paragraph1="Cada foto es de un congreso o convención real donde montamos el paquete completo. Podiums con branding, audio line array, iluminación profesional — todo operado por nuestro técnico dedicado."
+        paragraph2="¿Organizas un congreso? Mándanos el programa y el recinto — te armamos la propuesta completa."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/podiums/conferencia-masiva-podium-acrilico-pantallas-auditorio.avif", alt: "Congreso masivo con podium y pantallas en auditorio" },
+        { src: "/img/podiums/conferencia-estadio-podium-transparente-multitud-pantallas.avif", alt: "Convención con podium transparente frente a multitud" },
+        { src: "/img/podiums/conferencia-auditorio-grande-podium-transparente-iluminacion.avif", alt: "Auditorio grande con podium e iluminación para congreso" },
+        { src: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif", alt: "Escenario corporativo con luces azules para convención" },
+        { src: "/img/podiums/conferencia-auditorio-podium-acrilico-vista-trasera-audiencia.avif", alt: "Vista de audiencia de congreso con podium" },
+        { src: "/img/podiums/conferencia-mujer-ejecutiva-podium-acrilico-auditorio-grande.avif", alt: "Ponente en podium durante congreso" },
+        { src: "/img/podiums/presentacion-corporativa-podium-acrilico-graficos-audiencia.avif", alt: "Presentación en congreso con gráficos" },
+        { src: "/img/podiums/conferencia-ejecutivo-podium-transparente-escenario-iluminado.avif", alt: "Escenario iluminado de convención con podium" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el paquete Congreso"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Cada congreso es diferente — te asesoramos gratis sobre la mejor configuración para tu evento."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Cuántos podiums incluye el paquete Congreso?", answer: "El paquete base incluye 4 podiums de acrílico transparente. Si necesitas más, se agregan por $800 + IVA cada podium adicional. Para congresos de 3+ días con múltiples salas simultáneas, armamos propuestas con 6, 8 o más podiums según tu programa." },
+      { question: "¿El audio es suficiente para un auditorio de 500 personas?", answer: "Sí. El paquete Congreso incluye audio line array profesional dimensionado para auditorios de hasta 500 personas. Para recintos como el Centro Citibanamex o Expo Reforma, escalamos el sistema según el tamaño de cada sala." },
+      { question: "¿El técnico se queda los 3 días del congreso?", answer: "Sí. El técnico dedicado está incluido durante toda la duración del congreso — ya sea 1, 2 o 3 días. Se encarga del montaje, la operación diaria, ajustes entre ponencias, coordinación entre salas y el desmontaje al finalizar." },
+      { question: "¿Pueden montar en múltiples salas simultáneamente?", answer: "Sí. Para congresos con salas simultáneas, distribuimos los podiums y el equipo según tu programa. El técnico coordina la logística entre salas para que cada ponencia tenga su podium listo y el audio funcionando." },
+      { question: "¿Incluyen branding con el logotipo del congreso?", answer: "Sí. El branding con vinil de corte en todos los podiums está incluido sin costo adicional. Envíanos el logotipo del congreso en formato vectorial y lo aplicamos en cada podium antes del primer día." },
+      { question: "¿Con cuánta anticipación debo reservar para un congreso?", answer: "Recomendamos reservar con 3-4 semanas de anticipación. En temporada alta de convenciones (septiembre-noviembre) la demanda es muy alta. Para congresos de 3+ días con múltiples salas, confirma con al menos un mes de anticipación." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas algo más pequeño o quieres ampliar el setup?"
+        paragraph1="Si tu evento es más pequeño, tenemos opciones desde 1 podium. Y si quieres ampliar la iluminación del congreso con más PAR LED en salas y pasillos, cotizamos con precio especial."
+        paragraph2="Armamos propuestas integrales a medida para congresos de cualquier escala."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Organizas un congreso o convención?</h2>
+        <p>Mándanos el programa, el recinto y las fechas. Te armamos la propuesta completa con podiums, staging, audio e iluminación en un solo presupuesto.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

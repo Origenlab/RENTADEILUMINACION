@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "2 Cañones de Confeti para Bodas — $2,000 + IVA | REDEIL";
+const description = "Explosión de confeti para el vals o entrada de novios. 2 cañones CO₂ + operador. $2,000 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/confeti/paquete-2-canones/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "2 Cañones de Confeti para Bodas",
+    "description": "Explosión de confeti con 2 cañones profesionales de CO₂ para el vals o entrada de novios en bodas íntimas. Incluye operador, confeti a elegir color, transporte, montaje y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/confeti/paquete-2-canones/",
+      "priceCurrency": "MXN",
+      "price": "2000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "52",
+      "reviewCount": "52"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernanda Castillo" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos los 2 cañones para el vals en nuestra boda en un jardín de Tlalpan. La explosión de confeti dorado fue perfecta — el fotógrafo capturó la foto más bonita de toda la noche. El operador se coordinó directo con el DJ y el timing fue impecable."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Mendoza" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos los 2 cañones para la entrada de los novios en la recepción en Coyoacán. La nube de confeti blanco fue espectacular — todos los invitados aplaudieron. Muy puntual el equipo y el montaje fue rápido."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Alejandra Ruiz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Renté los cañones para una boda íntima en una terraza de la Condesa. Con solo 2 máquinas cubrieron toda la pista pequeña. El confeti rosa quedó hermoso con las luces del salón. Totalmente vale la pena."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿2 cañones de confeti son suficientes para mi boda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 2 cañones de confeti CO₂ cubren una pista de baile de hasta 80m². Para bodas íntimas de hasta 60 invitados, la explosión es espectacular y cubre a los novios y su área inmediata. Si tu evento tiene más invitados o quieres múltiples disparos, te recomendamos el paquete de 4 cañones." }},
+      { "@type": "Question", "name": "¿En qué colores tienen el confeti?", "acceptedAnswer": { "@type": "Answer", "text": "Dorado, plateado, blanco, rosa, azul, rojo, multicolor y en formas de corazones, estrellas y círculos. Para bodas, los más populares son dorado y blanco. Para gender reveal, rosa y azul. Consúltanos si necesitas un color especial." }},
+      { "@type": "Question", "name": "¿El operador coordina el disparo con mi fotógrafo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro operador se comunica directamente con tu fotógrafo y DJ para que el disparo suceda en el momento exacto — cuando la cámara está lista y la música lo requiere. Eso es lo que diferencia un cañón profesional de un cañón casero." }},
+      { "@type": "Question", "name": "¿Se puede usar en una terraza o casa pequeña?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los cañones de CO₂ funcionan en cualquier espacio — salones, terrazas, jardines y casas. Para techos bajos (menos de 3m), ajustamos el ángulo de disparo para que el confeti se disperse hacia los lados en vez de subir al máximo." }},
+      { "@type": "Question", "name": "¿El confeti mancha la ropa o los vestidos?", "acceptedAnswer": { "@type": "Answer", "text": "No. El confeti profesional que usamos está diseñado para eventos — no mancha, no tiñe y no se adhiere a las telas. El confeti metálico (Mylar) es más vistoso pero algo más difícil de barrer; el confeti de papel es más fácil de limpiar." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "4 Cañones de Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-xv-anos-vals-quinceañera.avif", alt: "4 cañones de confeti dorado en XV años", description: "Múltiples disparos para bodas y XV años. 4 cañones CO₂ + colores a elegir. $3,500 + IVA.", link: "/servicios/confeti/paquete-4-canones/" },
+  { title: "Confeti Biodegradable", image: "/img/maquina-de-papelitos/confeti-rosa-boda-jardin-atardecer-novios.avif", alt: "Confeti biodegradable en boda de jardín", description: "Se disuelve con agua. Ideal para jardines y haciendas. 3 máquinas + operador. $5,500 + IVA.", link: "/servicios/confeti/paquete-confeti-biodegradable/" },
+  { title: "Producción Masiva", image: "/img/maquina-de-papelitos/explosion-confeti-concierto-multitud-luces.avif", alt: "Confeti profesional en concierto masivo", description: "8+ cañones para conciertos y festivales. Alcance 15m. $9,000 + IVA.", link: "/servicios/confeti/paquete-produccion/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Efecto nubes en piso para boda en jardín", description: "Confeti + niebla baja para el vals. Los dos efectos más fotografiados de una boda.", link: "/servicios/humo-bajo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Confeti y Papelitos", href: "/servicios/confeti/" },
+    { label: "2 Cañones" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="2 Cañones de Confeti para Bodas Íntimas"
+    subtitle="Desde $2,000 + IVA. 2 cañones CO₂ + operador + color a elegir. CDMX y Edomex."
+    introParagraph1='Dos cañones de confeti profesionales de CO₂ posicionados estratégicamente para crear una explosión perfecta en el momento más especial de tu boda. No es lo mismo un cañón manual de fiesta que una máquina profesional — la diferencia está en el alcance (hasta 10 metros de altura), la densidad de la nube y el timing exacto controlado por un operador que se coordina con tu fotógrafo. En <strong>REDEIL</strong> operamos cañones de confeti profesionales para bodas íntimas, entradas de novios y vals en toda la CDMX.'
+    introParagraph2='El paquete de 2 cañones es ideal para <strong>bodas íntimas, casas, terrazas y jardines pequeños</strong> donde quieres un solo momento épico de confeti. Eliges el color — dorado, blanco, rosa, corazones, estrellas — y el operador posiciona los cañones para maximizar la cobertura de tu pista. El disparo se coordina directamente con el fotógrafo y el DJ para que la explosión suceda en el <strong>milisegundo exacto</strong>. La foto que todos quieren tener de su boda.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más cañones o múltiples disparos?"
+    items={[
+      { label: "4 Cañones — $3,500", href: "/servicios/confeti/paquete-4-canones/", icon: "efectos" },
+      { label: "Biodegradable — $5,500", href: "/servicios/confeti/paquete-confeti-biodegradable/", icon: "efectos" },
+      { label: "Producción — $9,000", href: "/servicios/confeti/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="2 Cañones de Confeti"
+      price="$2,000"
+      priceNote="+ IVA · Operador incluido"
+      features={[
+        { text: "2 cañones de confeti CO₂" },
+        { text: "Color de confeti a elegir" },
+        { text: "Operador técnico incluido" },
+        { text: "Coordinación con fotógrafo/DJ" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje" },
+        { text: "Disparo en el momento exacto" },
+        { text: "Confeti profesional no mancha" },
+        { text: "Pista de baile hasta 80m²" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 2 cañones de confeti para mi boda íntima."
+      packages={[
+        { label: "2 Cañones", price: "$2,000", href: "/servicios/confeti/paquete-2-canones/", active: true },
+        { label: "4 Cañones", price: "$3,500", href: "/servicios/confeti/paquete-4-canones/" },
+        { label: "Biodegradable", price: "$5,500", href: "/servicios/confeti/paquete-confeti-biodegradable/" },
+        { label: "Producción", price: "$9,000", href: "/servicios/confeti/paquete-produccion/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos momentos"
+          subtitle="2 cañones cubren pistas de baile de hasta 80m²."
+          paragraph1="Este paquete está diseñado para bodas íntimas y eventos pequeños donde quieres una sola explosión de confeti perfectamente cronometrada. Los 2 cañones crean una nube densa y espectacular que cubre a los novios y su área inmediata."
+          paragraph2="Nuestro operador posiciona los cañones según la distribución de tu venue para maximizar el efecto visual y la cobertura fotográfica."
+        />
+        <FeatureGrid features={[
+          { title: "Vals de Novios", description: "La explosión de confeti dorado en el primer baile. La foto más compartida de toda la boda." },
+          { title: "Entrada de Novios", description: "Los novios entran a la recepción bajo una lluvia de confeti blanco. Momento épico garantizado." },
+          { title: "Bodas en Casa", description: "Patio, terraza o jardín. Los cañones se adaptan a espacios pequeños sin problema." },
+          { title: "Bodas en Terraza", description: "Rooftops y terrazas. El confeti cayendo con las luces de la ciudad de fondo." },
+          { title: "Gender Reveal", description: "Rosa o azul — la explosión revela el sexo del bebé. Un solo disparo, máximo impacto." },
+          { title: "Brindis Especial", description: "El momento del brindis con una lluvia de confeti dorado. Ideal para aniversarios y cumpleaños." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Cañón profesional vs. cañón casero"
+          subtitle="La diferencia es el alcance, la densidad y el timing."
+          paragraph1="Un cañón de confeti manual de tienda de fiestas dispara 2-3 metros y se acaba en un segundo. Un cañón profesional de CO₂ dispara hasta 10 metros de altura con una nube densa que dura varios segundos cayendo — suficiente para que el fotógrafo capture múltiples tomas."
+          paragraph2="El operador controla el timing exacto del disparo. Se comunica con tu fotógrafo y DJ para que la explosión suceda cuando la cámara está lista y la música llega al punto exacto."
+        />
+        <FeatureGrid features={[
+          { title: "Alcance de 10 Metros", description: "La nube de confeti sube hasta 10m y se dispersa cubriendo toda la pista de baile." },
+          { title: "Carga de CO₂", description: "Gas CO₂ profesional que impulsa el confeti con fuerza. Seguro para interiores y exteriores." },
+          { title: "Timing Controlado", description: "El operador dispara en el milisegundo exacto coordinado con fotógrafo y DJ." },
+          { title: "Color a Elegir", description: "Dorado, blanco, rosa, azul, corazones, estrellas. Elige el que combine con tu evento." },
+          { title: "No Mancha", description: "Confeti profesional que no tiñe vestidos ni manteles. Diseñado para eventos." },
+          { title: "Montaje Rápido", description: "Se instala en 15 minutos. Sin cables visibles ni estructuras invasivas." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 52 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete de 2 cañones de confeti."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Fernanda Castillo", event: "Boda en jardín — Tlalpan", rating: 5, text: "La explosión de confeti dorado fue perfecta — el fotógrafo capturó la foto más bonita de toda la noche. El operador se coordinó directo con el DJ y el timing fue impecable." },
+          { name: "Roberto Mendoza", event: "Boda recepción — Coyoacán", rating: 5, text: "Usamos los 2 cañones para la entrada de los novios. La nube de confeti blanco fue espectacular — todos los invitados aplaudieron. Muy puntual el equipo." },
+          { name: "Alejandra Ruiz", event: "Boda íntima — Condesa", rating: 5, text: "Con solo 2 máquinas cubrieron toda la pista pequeña. El confeti rosa quedó hermoso con las luces del salón. Totalmente vale la pena para una boda íntima." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="2 cañones de confeti en bodas reales"
+        subtitle="Bodas íntimas, entradas de novios y vals con confeti profesional."
+        paragraph1="Cada foto es de un evento real donde se usaron cañones de confeti profesionales. Bodas en jardín, terrazas, salones íntimos — 2 cañones son suficientes para crear el momento más fotografiado de la noche."
+        paragraph2="¿Tu venue se parece a alguno de estos? Mándanos fotos por WhatsApp y te decimos cómo quedarían los cañones."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico.avif", alt: "Confeti dorado en primer baile de novios romántico" },
+        { src: "/img/maquina-de-papelitos/maquina-confeti-primer-baile-boda-salon-elegante.avif", alt: "Máquina de confeti en primer baile de boda en salón elegante" },
+        { src: "/img/maquina-de-papelitos/explosion-confeti-blanco-boda-pista-baile.avif", alt: "Explosión de confeti blanco en pista de baile de boda" },
+        { src: "/img/maquina-de-papelitos/maquina-confeti-baile-padre-novia-recepcion.avif", alt: "Confeti en baile de padre e hija en recepción de boda" },
+        { src: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif", alt: "Confeti dorado en boda de novios fiesta" },
+        { src: "/img/confeti/maquina-confeti-boda-novios-celebracion.avif", alt: "Máquina de confeti en boda novios celebración" },
+        { src: "/img/maquina-de-papelitos/lluvia-papelitos-boda-elegante-candelabros.avif", alt: "Lluvia de papelitos en boda elegante con candelabros" },
+        { src: "/img/maquina-de-papelitos/confeti-salida-iglesia-boda-novios-felices.avif", alt: "Confeti en salida de iglesia de boda novios felices" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete de 2 Cañones"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Cada espacio es diferente — te asesoramos gratis sobre si 2 cañones son suficientes para tu venue."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿2 cañones de confeti son suficientes para mi boda?", answer: "Sí. 2 cañones de confeti CO₂ cubren una pista de baile de hasta 80m². Para bodas íntimas de hasta 60 invitados, la explosión es espectacular y cubre a los novios y su área inmediata. Si tu evento tiene más invitados o quieres múltiples disparos, te recomendamos el paquete de 4 cañones ($3,500 + IVA)." },
+      { question: "¿En qué colores tienen el confeti?", answer: "Dorado, plateado, blanco, rosa, azul, rojo, multicolor y en formas de corazones, estrellas y círculos. Para bodas, los más populares son dorado y blanco. Para gender reveal, rosa y azul. Consúltanos si necesitas un color especial con anticipación." },
+      { question: "¿El operador coordina el disparo con mi fotógrafo?", answer: "Sí. Nuestro operador se comunica directamente con tu fotógrafo y DJ para que el disparo suceda en el momento exacto — cuando la cámara está lista y la música lo requiere. Eso es lo que diferencia un cañón profesional de un cañón casero." },
+      { question: "¿Se puede usar en una terraza o casa pequeña?", answer: "Sí. Los cañones de CO₂ funcionan en cualquier espacio — salones, terrazas, jardines y casas. Para techos bajos (menos de 3m), ajustamos el ángulo de disparo para que el confeti se disperse hacia los lados en vez de subir al máximo." },
+      { question: "¿El confeti mancha la ropa o los vestidos?", answer: "No. El confeti profesional que usamos está diseñado para eventos — no mancha, no tiñe y no se adhiere a las telas. El confeti metálico (Mylar) es más vistoso pero algo más difícil de barrer; el confeti de papel es más fácil de limpiar." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Confeti"
+        subtitle="¿Necesitas más cañones o confeti especial?"
+        paragraph1="Si tu evento es más grande o quieres múltiples disparos, tenemos paquetes hasta 8+ cañones. Y si es al aire libre, el confeti biodegradable se disuelve con agua sin dejar rastro."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para la explosión de confeti en tu boda?</h2>
+        <p>Cuéntanos la fecha, el venue y el momento que quieres iluminar con confeti. Te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

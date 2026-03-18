@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Humo Profesional para Festivales y Conciertos — $12,000 + IVA | REDEIL";
+const description = "4 máquinas de humo + fog chiller + técnico para festivales y conciertos. Cobertura masiva. $12,000 + IVA.";
+const canonical = "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-festival/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Humo Profesional para Festivales y Conciertos",
+    "description": "Renta de 4 máquinas de humo profesional + fog chiller + técnico dedicado para festivales, conciertos y producciones masivas en CDMX. Cobertura de escenarios grandes, fluido ilimitado, coordinación con producción completa.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/maquina-humo/paquete-festival/",
+      "priceCurrency": "MXN",
+      "price": "12000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "38",
+      "reviewCount": "38"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ricardo Navarro" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos las 4 máquinas de humo para un festival de música electrónica en el Pepsi Center. La cobertura fue total — el fog chiller creaba una capa de niebla densa a nivel del escenario que se veía espectacular con los láseres. El técnico se integró perfecto con nuestro equipo de producción."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Daniela Ortega" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos el paquete para un concierto privado en un venue en Santa Fe. Las 4 máquinas llenaron todo el espacio y el efecto con las cabezas móviles fue de otro nivel. El técnico de REDEIL fue muy profesional y se adaptó a todos los cambios de producción."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Miguel Ángel Reyes" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Lo usamos para la grabación de un video musical en un foro de TV en Churubusco. Las 4 máquinas + fog chiller nos dieron el control total de la neblina — podíamos hacer capas densas a ras de piso y humo atmosférico arriba. El resultado en cámara fue increíble."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/humo/maquina-humo-concierto-festival-luces.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué es el fog chiller y por qué lo incluye este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "El fog chiller enfría el humo antes de salir de la máquina, creando una niebla densa que permanece a ras del piso en lugar de ascender. Esto permite tener dos tipos de humo simultáneamente: niebla baja densa en el escenario y humo atmosférico que asciende. Es el estándar en festivales y conciertos profesionales." }},
+      { "@type": "Question", "name": "¿4 máquinas cubren un escenario de festival?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 4 máquinas de 1,500W distribuidas estratégicamente cubren escenarios de hasta 500m² y más. Para festivales al aire libre, el técnico ajusta la frecuencia de activación para compensar la dispersión del viento. Es la configuración estándar para festivales medianos y grandes en CDMX." }},
+      { "@type": "Question", "name": "¿Incluye técnico dedicado o es el mismo operador de los otros paquetes?", "acceptedAnswer": { "@type": "Answer", "text": "Incluye un técnico dedicado con experiencia en festivales y producciones masivas. No es el mismo perfil que un operador de fiestas — este técnico sabe trabajar con riders técnicos, coordinar con lighting designers y adaptarse a producciones complejas con múltiples proveedores." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "DJ y Fiesta — 1 Máquina", image: "/img/humo/maquina-humo-fiesta-neon-discoteca.avif", alt: "Máquina de humo en fiesta con DJ", description: "1 máquina de humo para fiestas privadas y cumpleaños. Paquete básico. $2,500 + IVA.", link: "/servicios/maquina-humo/paquete-dj-fiesta/" },
+  { title: "Noche Completa — Fluido Ilimitado", image: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Humo profesional en boda toda la noche", description: "Humo toda la noche para bodas y XV años. Fluido ilimitado. $4,500 + IVA.", link: "/servicios/maquina-humo/paquete-noche-completa/" },
+  { title: "Show Corporativo — 2 Máquinas", image: "/img/humo/efecto-humo-evento-corporativo-escenario.avif", alt: "Humo en escenario corporativo", description: "2 máquinas para producciones corporativas con coordinación de producción. $7,500 + IVA.", link: "/servicios/maquina-humo/paquete-show-corporativo/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-show-luces-beams-colores-300w.avif", alt: "Show de cabezas móviles con beams de colores", description: "Los beams de las cabezas móviles cortando el humo crean el efecto de concierto más espectacular.", link: "/servicios/cabezas-moviles/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Máquina de Humo", href: "/servicios/maquina-humo/" },
+    { label: "Festival" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Humo Profesional para Festivales y Conciertos — Cobertura Masiva"
+    subtitle="Desde $12,000 + IVA. 4 máquinas + fog chiller + técnico dedicado. Festivales, conciertos y TV."
+    introParagraph1='El paquete de humo profesional para festivales es la configuración de mayor cobertura que ofrecemos — 4 máquinas de humo de 1,500W distribuidas estratégicamente más fog chiller para niebla densa a ras del escenario. Es el setup estándar que se usa en festivales de música, conciertos masivos, grabaciones de TV y producciones audiovisuales donde necesitas control total del humo en un espacio grande.'
+    introParagraph2='Incluye un técnico dedicado con experiencia en producciones masivas que se integra con tu equipo — lighting designers, directores técnicos, stage managers. El técnico llega al load-in, posiciona las máquinas según el rider, coordina con producción y opera las 4 máquinas + fog chiller durante todo el evento. Fluido ilimitado, equipo profesional <strong>Antari</strong> y <strong>Chauvet</strong>, transporte, montaje y desmontaje en toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas otro paquete?"
+    items={[
+      { label: "DJ y Fiesta — $2,500", href: "/servicios/maquina-humo/paquete-dj-fiesta/", icon: "efectos" },
+      { label: "Noche Completa — $4,500", href: "/servicios/maquina-humo/paquete-noche-completa/", icon: "efectos" },
+      { label: "Show Corporativo — $7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Contenido principal + Sidebar sticky -->
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Festival"
+      price="$12,000"
+      priceNote="+ IVA · 4 máquinas + fog chiller"
+      features={[
+        { text: "4 máquinas de humo 1,500W" },
+        { text: "Fog chiller para niebla baja" },
+        { text: "Técnico dedicado de producción" },
+        { text: "Fluido ilimitado certificado" },
+        { text: "Coordinación con rider técnico" },
+        { text: "Cobertura de escenario masivo" },
+        { text: "Transporte ida y vuelta" },
+        { text: "Montaje y desmontaje" },
+        { text: "Equipo Antari / Chauvet" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Festival de máquina de humo para mi concierto."
+      packages={[
+        { label: "DJ y Fiesta", price: "$2,500", href: "/servicios/maquina-humo/paquete-dj-fiesta/" },
+        { label: "Noche Completa", price: "$4,500", href: "/servicios/maquina-humo/paquete-noche-completa/" },
+        { label: "Show Corporativo", price: "$7,500", href: "/servicios/maquina-humo/paquete-show-corporativo/" },
+        { label: "Festival", price: "$12,000", href: "/servicios/maquina-humo/paquete-festival/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos"
+          subtitle="4 máquinas + fog chiller cubren escenarios masivos hasta 500m²."
+          paragraph1="Este paquete está diseñado para producciones donde el humo es un elemento técnico del show — no solo ambiente. Festivales donde los láseres necesitan cortar neblina densa, conciertos donde el escenario desaparece y reaparece entre el humo, grabaciones de TV donde cada toma requiere un nivel exacto de neblina."
+          paragraph2="El técnico dedicado tiene experiencia en producciones de este calibre y sabe trabajar con riders técnicos, equipos de lighting y múltiples proveedores simultáneamente."
+        />
+        <FeatureGrid features={[
+          { title: "Festivales de Música", description: "Cobertura masiva del escenario principal. 4 máquinas distribuidas para efecto uniforme en toda el área." },
+          { title: "Conciertos Masivos", description: "Humo denso para shows de luces y láseres. El fog chiller crea la capa de niebla baja icónica." },
+          { title: "Grabación de TV y Video", description: "Control preciso de densidad para cada toma. El técnico ajusta en tiempo real según dirección." },
+          { title: "Producciones Audiovisuales", description: "Videos musicales, comerciales y contenido donde el humo es parte de la dirección de arte." },
+          { title: "Raves y Fiestas Masivas", description: "Neblina densa continua que llena el espacio completo. Fluido ilimitado para toda la noche." },
+          { title: "Eventos de Gran Formato", description: "Centros de convenciones, arenas y foros de TV. Cobertura para los venues más grandes de CDMX." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Fog chiller: la diferencia del paquete Festival"
+          subtitle="Niebla baja densa + humo atmosférico. Dos efectos simultáneos."
+          paragraph1="El fog chiller es un accesorio que enfría el humo antes de que salga de la máquina. El resultado es una niebla densa y pesada que permanece a ras del piso en lugar de ascender. Esto permite tener dos capas de humo simultáneamente: niebla baja densa en el escenario y humo atmosférico que sube y hace visibles los beams y láseres."
+          paragraph2="Es el efecto estándar en festivales internacionales — la capa de niebla baja en el escenario crea una imagen de producción de primer nivel que se ve espectacular tanto en vivo como en cámara."
+        />
+        <FeatureGrid features={[
+          { title: "Niebla a Ras de Piso", description: "El fog chiller crea una capa densa que permanece en el suelo del escenario. Efecto de nubes." },
+          { title: "Humo Atmosférico Arriba", description: "Las máquinas sin chiller generan humo que asciende y hace visibles láseres y beams." },
+          { title: "Dos Capas Simultáneas", description: "La combinación de niebla baja + humo alto es el estándar de festivales internacionales." },
+          { title: "Control Independiente", description: "El técnico controla el fog chiller y las máquinas por separado para ajustar cada capa." },
+          { title: "4 Máquinas Distribuidas", description: "Posicionadas estratégicamente para cobertura total. Sin zonas muertas en el escenario." },
+          { title: "Fluido Ilimitado", description: "Para producciones de horas continuas. Sin preocuparte por el consumo de fluido." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 38 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete Festival para su producción."
+          paragraph2="Pregunta por referencias de festivales o conciertos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Ricardo Navarro", event: "Festival electrónico — Pepsi Center", rating: 5, text: "La cobertura fue total — el fog chiller creaba una capa de niebla densa a nivel del escenario que se veía espectacular con los láseres. El técnico se integró perfecto con nuestro equipo de producción." },
+          { name: "Daniela Ortega", event: "Concierto privado — Santa Fe", rating: 5, text: "Las 4 máquinas llenaron todo el espacio y el efecto con las cabezas móviles fue de otro nivel. El técnico de REDEIL fue muy profesional y se adaptó a todos los cambios de producción." },
+          { name: "Miguel Ángel Reyes", event: "Video musical — Foro en Churubusco", rating: 5, text: "Las 4 máquinas + fog chiller nos dieron el control total de la neblina — podíamos hacer capas densas a ras de piso y humo atmosférico arriba. El resultado en cámara fue increíble." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <!-- Galería -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Humo profesional en festivales y producciones"
+        subtitle="Conciertos, festivales, grabaciones de TV y producciones masivas."
+        paragraph1="Cada foto es de un montaje real con el paquete Festival. Escenarios de festivales, conciertos en arenas, foros de TV y producciones audiovisuales — 4 máquinas + fog chiller dan cobertura total."
+        paragraph2="¿Tu producción necesita un setup similar? Mándanos el rider técnico por WhatsApp y te cotizamos."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/humo/maquina-humo-concierto-festival-luces.avif", alt: "Máquina de humo en concierto de festival con luces" },
+        { src: "/img/humo/niebla-densa-fiesta-electronica-rave.avif", alt: "Niebla densa en fiesta electrónica tipo rave" },
+        { src: "/img/humo/humo-profesional-evento-nocturno-iluminacion.avif", alt: "Humo profesional en evento nocturno" },
+        { src: "/img/humo/renta-humo-escenario-presentacion-dj.avif", alt: "Humo en escenario con DJ" },
+        { src: "/img/humo/humo-teatral-obra-teatro-escenario.avif", alt: "Humo teatral en escenario de producción" },
+        { src: "/img/humo/renta-humo-espectaculo-magia-show.avif", alt: "Humo en espectáculo y show en vivo" },
+        { src: "/img/humo/efecto-humo-evento-corporativo-escenario.avif", alt: "Humo en escenario de producción" },
+        { src: "/img/humo/renta-humo-evento-empresarial-lanzamiento.avif", alt: "Humo en evento de producción masiva" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Festival"
+        subtitle="Todo lo que necesitas saber antes de contratar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp o mándanos el rider técnico de tu producción."
+        paragraph2="Cada festival y concierto es diferente — te asesoramos sobre la configuración óptima para tu escenario."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué es el fog chiller y por qué lo incluye este paquete?", answer: "El fog chiller enfría el humo antes de salir de la máquina, creando una niebla densa que permanece a ras del piso en lugar de ascender. Esto permite tener dos tipos de humo simultáneamente: niebla baja densa en el escenario y humo atmosférico que asciende. Es el estándar en festivales y conciertos profesionales a nivel internacional." },
+      { question: "¿4 máquinas cubren un escenario de festival?", answer: "Sí. 4 máquinas de 1,500W distribuidas estratégicamente cubren escenarios de hasta 500m² y más. Para festivales al aire libre, el técnico ajusta la frecuencia de activación para compensar la dispersión del viento. Es la configuración estándar para festivales medianos y grandes en CDMX." },
+      { question: "¿El técnico tiene experiencia en festivales y conciertos?", answer: "Sí. El técnico dedicado del paquete Festival tiene experiencia en producciones masivas — festivales, conciertos en arenas, grabaciones de TV. Sabe trabajar con riders técnicos, coordinar con lighting designers y adaptarse a producciones complejas con múltiples proveedores." },
+      { question: "¿Funciona para grabaciones de video y TV?", answer: "Sí — y es uno de los usos más frecuentes. El fog chiller permite crear capas de niebla controladas a diferentes alturas. El técnico ajusta la densidad exacta que la dirección de fotografía necesita para cada toma. Es el setup estándar en foros de TV y producciones audiovisuales." },
+      { question: "¿Se puede usar en exteriores sin techo?", answer: "Sí. En festivales al aire libre el humo se dispersa más rápido por el viento, pero con 4 máquinas y fluido ilimitado, el técnico mantiene el efecto constante activando con mayor frecuencia. El fog chiller funciona mejor en espacios cerrados o semicerrados donde la niebla baja se mantiene más tiempo." },
+      { question: "¿Necesitan acceso a electricidad en el escenario?", answer: "Sí. Las 4 máquinas + fog chiller necesitan acceso a corriente eléctrica estándar (110V). Cada máquina consume aproximadamente 1,500W. Coordinamos los requerimientos eléctricos con tu equipo de producción durante la llamada técnica para evitar problemas el día del evento." },
+    ]} />
+  </section>
+
+  <!-- Otros paquetes -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Máquina de Humo"
+        subtitle="¿Necesitas menos cobertura o un paquete diferente?"
+        paragraph1="Desde una máquina para fiestas íntimas hasta 2 máquinas para producciones corporativas. Cada paquete incluye operador y equipo profesional."
+        paragraph2="Armamos propuestas integrales con precio especial cuando combinas servicios de humo, iluminación y audio."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para el setup de humo de tu festival o concierto?</h2>
+        <p>Mándanos el rider técnico o cuéntanos sobre tu producción. Nos integramos con tu equipo y te cotizamos todo.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

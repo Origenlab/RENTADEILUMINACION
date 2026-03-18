@@ -1,71 +1,254 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Pantalla Inflable para Eventos | REDEIL CDMX";
-const description = "Renta de pantalla inflable para eventos en CDMX. Cine al aire libre, bodas y fiestas con pantalla gigante inflable. Montaje profesional por REDEIL.";
+const title = "Renta de Pantalla Inflable para Eventos y Cine al Aire Libre CDMX | REDEIL";
+const description = "Pantallas inflables de 3m a 10m+ para cine al aire libre, bodas y eventos corporativos en CDMX. Proyector HD + audio incluidos. Desde $4,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/pantalla-inflable/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Pantalla Inflable para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Pantalla Inflable para Eventos y Cine al Aire Libre",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio de renta de pantallas inflables de 3m a 10m+ para cine al aire libre, bodas, XV años y eventos corporativos en CDMX. Incluye proyector HD, sistema de audio y operador técnico.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Pantalla Inflable",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de pantallas inflables para cine al aire libre, bodas, fiestas y eventos en la Ciudad de México. Incluye proyector y sistema de audio.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Pantalla Inflable"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué tamaño de pantalla inflable necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende de la cantidad de personas y del espacio disponible. Para jardines familiares con 20-50 personas, una pantalla de 3 metros es ideal. Para bodas y XV años con 50-150 invitados, recomendamos 5 metros. Para eventos corporativos de 150-300 personas, 8 metros. Y para festivales o eventos masivos al aire libre, 10 metros o más." }},
+      { "@type": "Question", "name": "¿La pantalla inflable funciona con viento?", "acceptedAnswer": { "@type": "Answer", "text": "Las pantallas inflables están diseñadas para soportar brisa ligera gracias a su sistema de anclaje con estacas y contrapesos. Con vientos moderados (hasta 25 km/h) funcionan sin problema. Si se pronostica viento fuerte, coordinamos con anticipación para usar anclajes reforzados o reposicionar la pantalla en una zona protegida del venue." }},
+      { "@type": "Question", "name": "¿El proyector y el audio están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos nuestros paquetes incluyen la pantalla inflable, proyector HD de alta luminosidad (adecuado al tamaño de la pantalla), sistema de audio con bocinas, cableado, operador técnico, traslado, montaje y desmontaje. Solo necesitas decirnos qué contenido quieres proyectar." }},
+      { "@type": "Question", "name": "¿Puedo conectar mi laptop o celular para proyectar?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El proyector acepta conexión HDMI desde laptop, consola de videojuegos o reproductor multimedia. También podemos recibir señal inalámbrica desde celular o tablet. El operador técnico se encarga de configurar todo antes de que empiece tu evento." }},
+      { "@type": "Question", "name": "¿Cuánto tiempo tarda el montaje de la pantalla inflable?", "acceptedAnswer": { "@type": "Answer", "text": "El equipo llega 2-3 horas antes del evento. El inflado de la pantalla toma 15-20 minutos. El resto del tiempo se dedica a calibrar el proyector, configurar el audio, hacer pruebas de imagen y ajustar el enfoque. Todo queda listo antes de que lleguen tus invitados." }},
+      { "@type": "Question", "name": "¿Qué pasa si llueve el día del evento?", "acceptedAnswer": { "@type": "Answer", "text": "Si hay pronóstico de lluvia, coordinamos contigo con 24-48 horas de anticipación. Las opciones incluyen: reubicar la pantalla bajo un techo o carpa, reprogramar sin costo adicional, o montar un plan B en interior. El equipo electrónico (proyector y audio) debe protegerse del agua, por lo que no se puede operar bajo lluvia directa." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional con cabina para eventos en CDMX", description: "Complementa tu pantalla inflable con DJ y sistema de audio profesional para una experiencia audiovisual completa.", link: "/servicios/bocinas-djs/" },
+  { title: "Luces Neón", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Luces neón para glow party y celebración", description: "Decora el área de la pantalla con letreros neón personalizados. Ideal para fiestas temáticas y cine al aire libre.", link: "/servicios/luces-neon/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco en pista de baile de evento", description: "Después de la función de cine, activa la pista de baile con bola disco y luces. La combinación perfecta para fiestas.", link: "/servicios/bola-disco/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en primer baile de novios", description: "Agrega un momento wow con lluvia de confeti al terminar la proyección. Efecto espectacular para bodas y cumpleaños.", link: "/servicios/confeti/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Pantalla Inflable" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Pantalla Inflable" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Pantalla Inflable para Eventos en CDMX"
-      subtitle="Cine al aire libre y proyecciones gigantes para eventos inolvidables"
-      introParagraph1="En REDEIL ponemos a tu disposición el servicio de renta de pantallas inflables para eventos en la Ciudad de México y zona metropolitana. Nuestras pantallas gigantes son ideales para funciones de cine al aire libre, proyecciones de video en bodas, fiestas temáticas y eventos corporativos."
-      introParagraph2="Ofrecemos un servicio integral que incluye el montaje de la pantalla inflable, proyector de alta luminosidad y sistema de audio. Nuestro equipo técnico se encarga de todo para que tú y tus invitados disfruten de una experiencia audiovisual de primer nivel."
+
+    <Hero
+      title="Renta de Pantalla Inflable para Eventos y Cine al Aire Libre CDMX"
+      subtitle="Pantallas inflables de 3m a 10m+ con proyector HD y audio incluidos. Cine al aire libre, bodas, XV años y eventos corporativos. Desde $4,500 + IVA."
+      introParagraph1='Hay algo mágico en ver una película bajo las estrellas — y cuando la pantalla mide 5 metros de ancho y el audio llena el jardín, la experiencia se convierte en un evento que nadie olvida. En <strong>REDEIL</strong> rentamos pantallas inflables de <strong>3 a 10+ metros</strong> para cine al aire libre, bodas, fiestas infantiles, eventos corporativos y festivales en la CDMX y Estado de México. Cada paquete incluye la pantalla, proyector HD de alta luminosidad, sistema de audio, operador técnico, traslado, montaje y desmontaje.'
+      introParagraph2='Nuestras pantallas inflables son de lona blanca cinematográfica con marco negro que elimina la luz parásita — la imagen se ve nítida incluso con algo de luz ambiental. El inflado toma 15 minutos y el sistema de anclaje soporta brisa ligera sin problema. Trabajamos en jardines, terrazas, azoteas, estacionamientos, haciendas, parques y cualquier espacio abierto. El operador calibra el proyector, configura el audio y hace pruebas antes de que lleguen tus invitados. Solo dinos qué quieres proyectar: película, video de boda, presentación corporativa, partido de futbol o videojuegos — nosotros nos encargamos del resto.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Pantalla gigante inflable para todo tipo de eventos"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Las pantallas inflables han revolucionado la forma de disfrutar el entretenimiento visual en eventos al aire libre. Su gran tamaño permite que todos los asistentes disfruten del contenido con comodidad, ya sea una película, un video de bodas, presentaciones corporativas o transmisiones deportivas en vivo."
-          paragraph2="En REDEIL contamos con pantallas inflables de gran formato que se instalan en minutos y ofrecen una superficie de proyección uniforme y sin arrugas. Son perfectas para jardines, terrazas, azoteas, estacionamientos y cualquier espacio abierto donde se quiera crear una experiencia de cine bajo las estrellas."
+
+    <CtaBar
+      headline="¿Qué tipo de evento planeas?"
+      items={[
+        { label: "Cine al Aire Libre", href: "#paquetes", icon: "efectos" },
+        { label: "Boda / XV Años", href: "/servicios/pantalla-inflable/paquete-5metros/", icon: "efectos" },
+        { label: "Evento Corporativo", href: "/servicios/pantalla-inflable/paquete-8metros/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <!-- Galería -->
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Cine al aire libre y proyecciones gigantes en eventos reales"
+          subtitle="Pantallas inflables montadas en jardines, haciendas, terrazas y foros de CDMX."
+          paragraph1="Desde funciones de cine familiar en el jardín hasta proyecciones corporativas para 300 personas — cada montaje se adapta al espacio y al público. Las fotos hablan por sí solas: pantallas nítidas, audio envolvente y un público que disfruta cada minuto."
+          paragraph2="¿Quieres ver cómo quedaría en tu venue? Mándanos fotos del espacio por WhatsApp y te mostramos el resultado esperado con el tamaño de pantalla ideal."
         />
-        <p>Nuestro servicio de renta de pantalla inflable en CDMX es muy solicitado para bodas donde se proyectan videos de los novios, fiestas de cumpleaños con películas temáticas, eventos corporativos con presentaciones y noches de cine comunitario. Nos adaptamos a las necesidades específicas de tu evento para garantizar una experiencia memorable.</p>
+        <Gallery4x4 images={[
+          { src: "/img/pantalla-inflable/alquiler-pantalla-cine-inflable-posada.avif", alt: "Alquiler de pantalla de cine inflable para posada navideña" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-gigante-inflable-deportes.avif", alt: "Pantalla gigante inflable para transmisión de deportes en vivo" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif", alt: "Pantalla inflable para proyección de video en aniversario de boda" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-boda-hacienda.avif", alt: "Pantalla inflable instalada en hacienda para boda al aire libre" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-cumpleanos-infantil.avif", alt: "Pantalla inflable para cine en cumpleaños infantil" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-despedida-soltera.avif", alt: "Pantalla inflable para despedida de soltera con cine al aire libre" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-evento-escolar.avif", alt: "Pantalla inflable para evento escolar y función de cine" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-presentacion.avif", alt: "Pantalla inflable para presentación corporativa al aire libre" },
+          { src: "/img/pantalla-inflable/alquiler-pantalla-inflable-reunion-empresarial.avif", alt: "Pantalla inflable en reunión empresarial al aire libre" },
+          { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-camping.avif", alt: "Pantalla de cine inflable para noche de camping al aire libre" },
+          { src: "/img/pantalla-inflable/pantalla-cine-exterior-inflable-comunidad.avif", alt: "Pantalla de cine inflable para función comunitaria al aire libre" },
+          { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable para evento corporativo con proyección profesional" },
+          { src: "/img/pantalla-inflable/pantalla-cine-inflable-evento-familiar.avif", alt: "Pantalla de cine inflable en evento familiar al aire libre" },
+          { src: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-infantil.avif", alt: "Pantalla inflable para cine en fiesta infantil nocturna" },
+          { src: "/img/pantalla-inflable/pantalla-cine-inflable-fiesta-tematica.avif", alt: "Pantalla de cine inflable para fiesta temática nocturna" },
+          { src: "/img/pantalla-inflable/pantalla-gigante-inflable-evento-social.avif", alt: "Pantalla gigante inflable para evento social al aire libre" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Pantalla Inflable" subtitle="Proyecciones y cine al aire libre en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/pantalla-inflable-videojuegos-evento-gaming.avif" alt="Pantalla inflable utilizada para proyección de videojuegos en evento gaming" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/pantalla-gigante-cine-inflable-feria.avif" alt="Pantalla gigante inflable montada en feria para función de cine al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/renta-pantalla-inflable-fiesta-navidad.avif" alt="Pantalla inflable rentada para fiesta navideña con proyección de películas" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/pantalla-cine-inflable-evento-familiar.avif" alt="Pantalla de cine inflable en evento familiar al aire libre con público sentado" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/alquiler-pantalla-inflable-boda-hacienda.avif" alt="Pantalla inflable instalada en hacienda para proyección de video de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/pantalla-inflable-cine-noche-romantica.avif" alt="Pantalla inflable para noche de cine romántica al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/pantalla-inflable/renta-pantalla-cine-inflable-terraza-roof.avif" alt="Pantalla de cine inflable montada en terraza rooftop para evento nocturno" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <!-- Paquetes -->
+    <section class="services-section services-alt" id="paquetes">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Pantalla Inflable"
+          subtitle="Desde cine familiar en el jardín hasta festivales con pantalla de 10 metros."
+          paragraph1="Cada paquete incluye la pantalla inflable, proyector HD de alta luminosidad, sistema de audio con bocinas, cableado completo, operador técnico, traslado, montaje y desmontaje. Solo elige el tamaño."
+          paragraph2="¿No sabes qué tamaño necesitas? Dinos cuántas personas esperan y el tipo de espacio — te recomendamos el paquete ideal."
+        />
+        <PricingCards packages={[
+          {
+            name: "Pantalla 3 Metros",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            description: "Cine al aire libre para jardines privados y fiestas familiares. Pantalla compacta ideal para 20-50 personas.",
+            features: [
+              { text: "Pantalla inflable de 3 metros", included: true },
+              { text: "Proyector HD 3,000 lumens", included: true },
+              { text: "2 bocinas con audio estéreo", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: cine familiar, cumpleaños infantiles", included: true },
+              { text: "Capacidad: 20-50 personas", included: true },
+              { text: "Proyector de alta potencia", included: false },
+            ],
+            ctaLabel: "Cotizar pantalla 3 metros",
+            ctaHref: "/servicios/pantalla-inflable/paquete-3metros/",
+          },
+          {
+            name: "Pantalla 5 Metros",
+            price: "$6,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El tamaño más solicitado para bodas y XV años. Pantalla imponente para 50-150 invitados.",
+            features: [
+              { text: "Pantalla inflable de 5 metros", included: true },
+              { text: "Proyector HD 5,000 lumens", included: true },
+              { text: "Sistema de audio profesional", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas, XV años, fiestas grandes", included: true },
+              { text: "Capacidad: 50-150 personas", included: true },
+              { text: "Conexión HDMI + inalámbrica", included: true },
+            ],
+            ctaLabel: "Cotizar pantalla 5 metros",
+            ctaHref: "/servicios/pantalla-inflable/paquete-5metros/",
+          },
+          {
+            name: "Pantalla 8 Metros",
+            price: "$9,500",
+            priceNote: "+ IVA",
+            description: "Para eventos corporativos y reuniones empresariales. Proyector de 10,000 lumens para imagen nítida.",
+            features: [
+              { text: "Pantalla inflable de 8 metros", included: true },
+              { text: "Proyector 10,000 lumens", included: true },
+              { text: "Audio profesional de alta potencia", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: corporativos, convenciones", included: true },
+              { text: "Capacidad: 150-300 personas", included: true },
+              { text: "Conexión múltiple (HDMI, VGA, inalámbrica)", included: true },
+            ],
+            ctaLabel: "Cotizar pantalla 8 metros",
+            ctaHref: "/servicios/pantalla-inflable/paquete-8metros/",
+          },
+          {
+            name: "Pantalla 10m+ Producción",
+            price: "$15,000",
+            priceNote: "+ IVA",
+            description: "Producción completa para festivales, eventos públicos y transmisiones masivas al aire libre.",
+            features: [
+              { text: "Pantalla inflable de 10 metros o más", included: true },
+              { text: "Proyector 20,000 lumens", included: true },
+              { text: "Sistema de audio line array profesional", included: true },
+              { text: "2 operadores técnicos", included: true },
+              { text: "Traslado + montaje + desmontaje", included: true },
+              { text: "Ideal para: festivales, eventos públicos", included: true },
+              { text: "Capacidad: 300+ personas", included: true },
+              { text: "Visita previa al venue incluida", included: true },
+            ],
+            ctaLabel: "Cotizar producción 10m+",
+            ctaHref: "/servicios/pantalla-inflable/paquete-produccion/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Pantalla Inflable"
+          subtitle="Resolvemos todas las dudas antes de contratar."
+          paragraph1="Desde el tamaño ideal hasta el plan de lluvia — aquí respondemos todo sobre la renta de pantallas inflables."
+          paragraph2="Si tu duda no está aquí, escríbenos por WhatsApp. Respondemos en minutos."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Qué tamaño de pantalla inflable necesito para mi evento?", answer: "Depende de la cantidad de personas y del espacio disponible. Para jardines familiares con 20-50 personas, una pantalla de 3 metros es ideal. Para bodas y XV años con 50-150 invitados, recomendamos 5 metros. Para eventos corporativos de 150-300 personas, 8 metros. Y para festivales o eventos masivos al aire libre, 10 metros o más. Envíanos fotos de tu espacio por WhatsApp y te recomendamos el tamaño exacto." },
+        { question: "¿La pantalla inflable funciona con viento?", answer: "Las pantallas inflables están diseñadas para soportar brisa ligera gracias a su sistema de anclaje con estacas y contrapesos. Con vientos moderados (hasta 25 km/h) funcionan sin problema. Si se pronostica viento fuerte, coordinamos con anticipación para usar anclajes reforzados o reposicionar la pantalla en una zona protegida del venue." },
+        { question: "¿El proyector y el audio están incluidos en el precio?", answer: "Sí. Todos nuestros paquetes incluyen la pantalla inflable, proyector HD de alta luminosidad adecuado al tamaño de la pantalla, sistema de audio con bocinas, cableado completo, operador técnico, traslado, montaje y desmontaje. Solo necesitas decirnos qué contenido quieres proyectar — película, video, presentación o transmisión en vivo." },
+        { question: "¿Puedo conectar mi laptop o celular para proyectar?", answer: "Sí. El proyector acepta conexión HDMI desde laptop, consola de videojuegos o reproductor multimedia. También podemos recibir señal inalámbrica desde celular o tablet. El operador técnico se encarga de configurar todo y hacer pruebas antes de que empiece tu evento." },
+        { question: "¿Cuánto tiempo tarda el montaje de la pantalla inflable?", answer: "El equipo llega 2-3 horas antes del evento. El inflado de la pantalla toma 15-20 minutos. El resto del tiempo se dedica a calibrar el proyector, configurar el audio, hacer pruebas de imagen y ajustar el enfoque. Todo queda listo antes de que lleguen tus invitados." },
+        { question: "¿Qué pasa si llueve el día del evento?", answer: "Si hay pronóstico de lluvia, coordinamos contigo con 24-48 horas de anticipación. Las opciones incluyen: reubicar la pantalla bajo un techo o carpa, reprogramar sin costo adicional, o montar un plan B en interior. El equipo electrónico (proyector y audio) debe protegerse del agua, por lo que no se puede operar bajo lluvia directa." },
+      ]} />
+    </section>
+
+    <!-- Servicios relacionados -->
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Pantalla Inflable"
+          subtitle="Audio profesional, iluminación y efectos para una experiencia completa."
+          paragraph1="La pantalla inflable es el centro del espectáculo — pero cuando agregas audio profesional con DJ, luces neón decorativas o una lluvia de confeti al final de la función, el evento se transforma en algo que tus invitados van a recordar por años."
+          paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y diseñamos la producción completa."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para el cine al aire libre en tu evento?</h2>
+          <p>Cuéntanos la fecha, el espacio y cuántas personas esperan. Te recomendamos el tamaño ideal y te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

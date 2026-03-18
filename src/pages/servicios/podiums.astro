@@ -1,71 +1,246 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Podiums para Eventos | REDEIL CDMX";
-const description = "Renta de podiums y atriles de acrílico para conferencias y eventos corporativos en CDMX. Entrega e instalación incluidas. REDEIL.";
+const title = "Renta de Podiums y Atriles de Acrílico para Eventos CDMX | REDEIL";
+const description = "Podiums de acrílico transparente para conferencias, bodas y eventos corporativos en CDMX. Entrega, instalación y retiro incluidos. Desde $1,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/podiums/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Podiums para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Podiums y Atriles de Acrílico para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio de renta de podiums y atriles de acrílico transparente de 10mm para conferencias, bodas, congresos y eventos corporativos en Ciudad de México. Entrega, instalación y retiro incluidos.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Renta de Podiums y Atriles",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de podiums y atriles de acrílico transparente para conferencias, presentaciones y eventos corporativos en Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Podiums"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿De qué material son los podiums?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestros podiums están fabricados en acrílico transparente de 10mm de espesor. El material es resistente, cristalino y le da una apariencia moderna y profesional al escenario. Se limpian y pulen antes de cada evento para que luzcan impecables frente a cámaras y audiencia." }},
+      { "@type": "Question", "name": "¿El podium soporta una laptop o tablet?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La superficie superior del podium tiene espacio suficiente para colocar una laptop, tablet, documentos y micrófono de cuello de ganso. Soporta hasta 15 kg sin problema. También tiene un borde discreto que evita que los objetos se deslicen." }},
+      { "@type": "Question", "name": "¿Los podiums incluyen micrófono?", "acceptedAnswer": { "@type": "Answer", "text": "El podium se entrega solo como estructura. Si necesitas micrófono de cuello de ganso, micrófono inalámbrico o sistema de audio completo, lo cotizamos como complemento. Tenemos paquetes que incluyen todo: podium + audio + iluminación de escenario." }},
+      { "@type": "Question", "name": "¿Se puede agregar iluminación LED al podium?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ofrecemos iluminación LED integrada en la base del podium que le da un efecto luminoso elegante. Puedes elegir color blanco, azul o el color corporativo de tu empresa. La iluminación LED se incluye sin costo adicional si la solicitas al momento de reservar." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar?", "acceptedAnswer": { "@type": "Answer", "text": "Idealmente 1-2 semanas antes del evento. En temporada de congresos y convenciones (septiembre-noviembre) la demanda es alta. Para eventos grandes con 4+ podiums, recomendamos reservar con 3 semanas de anticipación." }},
+      { "@type": "Question", "name": "¿Se puede personalizar el podium con logotipo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Podemos aplicar vinil de corte o impresión en el frente del podium con tu logotipo corporativo. Envíanos tu logo en formato vectorial y lo preparamos antes del evento. El branding se retira al finalizar sin dejar residuos en el acrílico." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "PAR LED", image: "/img/par-led/renta-par-led-boda-salon-300w.avif", alt: "Iluminación PAR LED para escenarios y conferencias", description: "Ilumina el escenario y al orador con PAR LED de colores. Complemento ideal para presentaciones con podium.", link: "/servicios/par-led/" },
+  { title: "Bocinas y DJ", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "Equipo de audio profesional para eventos y conferencias", description: "Audio profesional para que el orador se escuche claro en todo el salón. Micrófonos Shure inalámbricos incluidos.", link: "/servicios/bocinas-djs/" },
+  { title: "Pantalla Inflable", image: "/img/pantalla-inflable/pantalla-cine-inflable-evento-corporativo.avif", alt: "Pantalla inflable para proyección en eventos corporativos", description: "Pantalla gigante para proyectar presentaciones detrás del podium. Ideal para congresos y conferencias.", link: "/servicios/pantalla-inflable/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Show de luces con cabezas móviles para eventos", description: "Iluminación robótica para galas y premiaciones. Los beams resaltan el escenario donde está el podium.", link: "/servicios/cabezas-moviles/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Podiums" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Podiums" }
+  ]} />
 </Fragment>
-<Hero
-      title="Podiums para Eventos en CDMX"
-      subtitle="Atriles y podiums de acrílico elegantes para conferencias y presentaciones"
-      introParagraph1="REDEIL ofrece el servicio de renta de podiums y atriles de acrílico para eventos corporativos, conferencias, congresos y presentaciones en toda la Ciudad de México. Nuestros podiums transparentes aportan una imagen profesional y moderna al escenario de cualquier evento."
-      introParagraph2="Contamos con experiencia en montajes para conferencias de prensa, paneles ejecutivos, ceremonias institucionales y eventos privados. Nuestro equipo se encarga de la entrega, colocación y retiro del podium, garantizando puntualidad y un acabado impecable en cada montaje."
+
+    <Hero
+      title="Renta de Podiums de Acrílico para Eventos en CDMX"
+      subtitle="Atriles transparentes profesionales para conferencias, bodas y congresos. Desde $1,500 + IVA."
+      introParagraph1='En <strong>REDEIL</strong> llevamos más de 500 conferencias, congresos y eventos corporativos con nuestros podiums de acrílico transparente. Cada podium está fabricado en acrílico cristalino de <strong>10mm de espesor</strong>, con acabado pulido a espejo que luce impecable frente a cámaras de video y fotografía profesional. El diseño transparente permite que toda la atención se centre en el orador, sin distracciones visuales — exactamente lo que necesitan conferencias de prensa, paneles ejecutivos, premiaciones y discursos de boda.'
+      introParagraph2='Ofrecemos <strong>iluminación LED integrada opcional</strong> en la base del podium que crea un efecto luminoso elegante en colores blanco, azul o el color corporativo de tu empresa. El servicio incluye entrega puntual en el venue, colocación exacta en el escenario según tu layout, nivelación profesional y retiro al finalizar el evento. Operamos en toda la <strong>CDMX y Estado de México</strong> — desde auditorios en Santa Fe y Polanco hasta salones en Centro Histórico y Coyoacán. Para congresos grandes, manejamos 4 o más podiums simultáneos con logística coordinada.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Podiums de acrílico: presencia y elegancia en escenario"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Un podium de acrílico transparente es el complemento ideal para cualquier presentación profesional. Su diseño limpio y moderno permite que la atención se centre en el orador, mientras que su estructura ofrece la funcionalidad necesaria para sostener documentos, tablets o micrófonos durante conferencias y discursos."
-          paragraph2="En REDEIL ofrecemos podiums de acrílico de alta calidad, ideales para eventos corporativos, congresos, premiaciones, conferencias de prensa y ceremonias oficiales. Cada podium se entrega limpio, pulido y en perfectas condiciones para que luzca impecable frente a la audiencia y las cámaras."
+
+    <CtaBar
+      headline="¿Qué tipo de evento tienes?"
+      items={[
+        { label: "Conferencia", href: "/servicios/podiums/paquete-1-podium/", icon: "efectos" },
+        { label: "Boda / Gala", href: "/servicios/podiums/paquete-2-podiums/", icon: "efectos" },
+        { label: "Congreso", href: "/servicios/podiums/paquete-congreso/", icon: "efectos" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Podiums de acrílico en eventos reales"
+          subtitle="Conferencias, congresos, premiaciones y bodas en CDMX."
+          paragraph1="Cada imagen es de un evento real donde nuestros podiums de acrílico fueron el centro del escenario. Desde conferencias ejecutivas en auditorios corporativos hasta discursos de boda en salones elegantes — el podium transparente aporta presencia profesional sin robar protagonismo al orador."
+          paragraph2="¿Tu evento se parece a alguno de estos? Mándanos fotos del venue por WhatsApp y te asesoramos sobre la mejor configuración de podiums para tu escenario."
         />
-        <p>Nuestro servicio incluye traslado, colocación en el punto exacto del escenario y retiro al finalizar el evento. Podemos complementar la renta del podium con iluminación de escenario, audio profesional y otros servicios de REDEIL para ofrecer una solución integral para tu evento en CDMX.</p>
+        <Gallery4x4 images={[
+          { src: "/img/podiums/conferencia-auditorio-grande-podium-transparente-iluminacion.avif", alt: "Conferencia en auditorio grande con podium transparente e iluminación profesional" },
+          { src: "/img/podiums/conferencia-auditorio-podium-acrilico-vista-trasera-audiencia.avif", alt: "Vista trasera de conferencia con podium de acrílico y audiencia" },
+          { src: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif", alt: "Conferencia corporativa con podium de acrílico en auditorio con luces azules" },
+          { src: "/img/podiums/conferencia-ejecutivo-podium-alto-iluminacion-profesional.avif", alt: "Ejecutivo en podium alto con iluminación profesional" },
+          { src: "/img/podiums/conferencia-ejecutivo-podium-transparente-escenario-iluminado.avif", alt: "Ejecutivo en podium transparente sobre escenario iluminado" },
+          { src: "/img/podiums/conferencia-ejecutivo-podium-transparente-graficos-financieros.avif", alt: "Ejecutivo presentando gráficos financieros desde podium transparente" },
+          { src: "/img/podiums/conferencia-empresarial-podium-transparente-audiencia-profesional.avif", alt: "Conferencia empresarial con podium transparente y audiencia profesional" },
+          { src: "/img/podiums/conferencia-estadio-podium-transparente-multitud-pantallas.avif", alt: "Conferencia en estadio con podium transparente frente a multitud y pantallas" },
+          { src: "/img/podiums/conferencia-masiva-podium-acrilico-pantallas-auditorio.avif", alt: "Conferencia masiva con podium de acrílico y pantallas en auditorio" },
+          { src: "/img/podiums/conferencia-mujer-ejecutiva-podium-acrilico-auditorio-grande.avif", alt: "Mujer ejecutiva en podium de acrílico en auditorio grande" },
+          { src: "/img/podiums/conferencia-mujer-podium-acrilico-tablet-presentacion.avif", alt: "Mujer en conferencia usando tablet sobre podium de acrílico" },
+          { src: "/img/podiums/conferencia-mujer-traje-rojo-podium-acrilico-evento-corporativo.avif", alt: "Mujer con traje rojo en podium de acrílico en evento corporativo" },
+          { src: "/img/podiums/conferencia-orador-microfono-podium-acrilico-escenario-azul.avif", alt: "Orador con micrófono en podium de acrílico sobre escenario azul" },
+          { src: "/img/podiums/conferencia-podium-acrilico-alto-iluminacion-azul-cortinas.avif", alt: "Podium de acrílico alto con iluminación azul y cortinas de escenario" },
+          { src: "/img/podiums/presentacion-corporativa-podium-acrilico-graficos-audiencia.avif", alt: "Presentación corporativa con podium de acrílico mostrando gráficos a la audiencia" },
+          { src: "/img/podiums/presentacion-ejecutivo-podium-acrilico-graficos-pantalla-azul.avif", alt: "Ejecutivo realizando presentación desde podium de acrílico con pantalla azul" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Podiums" subtitle="Podiums de acrílico en conferencias y eventos corporativos">
-      <figure class="gallery-item">
-        <img src="/img/podiums/conferencia-estadio-podium-transparente-multitud-pantallas.avif" alt="Conferencia en estadio con podium transparente frente a multitud y pantallas gigantes" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/presentacion-corporativa-podium-acrilico-graficos-audiencia.avif" alt="Presentación corporativa con orador en podium de acrílico mostrando gráficos a la audiencia" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/presentacion-ejecutivo-podium-acrilico-graficos-pantalla-azul.avif" alt="Ejecutivo realizando presentación desde podium de acrílico con pantalla azul de gráficos" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/podium-acrilico-transparente-columna-plateada-conferencia.avif" alt="Podium de acrílico transparente con columna plateada en escenario de conferencia" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/conferencia-mujer-traje-rojo-podium-acrilico-evento-corporativo.avif" alt="Mujer con traje rojo hablando desde podium de acrílico en evento corporativo" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/conferencia-mujer-podium-acrilico-tablet-presentacion.avif" alt="Mujer en conferencia usando tablet sobre podium de acrílico durante presentación" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/podiums/conferencia-orador-microfono-podium-acrilico-escenario-azul.avif" alt="Orador con micrófono en podium de acrílico sobre escenario iluminado en azul" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Podiums"
+          subtitle="4 opciones — desde 1 podium para conferencia hasta staging completo para congresos."
+          paragraph1="Todos los paquetes incluyen entrega puntual en el venue, colocación en el escenario, nivelación profesional y retiro al finalizar. Los podiums se entregan limpios, pulidos y en condiciones impecables."
+          paragraph2="¿Necesitas algo diferente? Armamos paquetes a medida con podiums + audio + iluminación."
+        />
+        <PricingCards packages={[
+          {
+            name: "1 Podium",
+            price: "$1,500",
+            priceNote: "+ IVA",
+            description: "1 podium de acrílico transparente para conferencias pequeñas, presentaciones en sala de juntas y discursos individuales.",
+            features: [
+              { text: "1 podium acrílico transparente 10mm", included: true },
+              { text: "Iluminación LED base opcional", included: true },
+              { text: "Entrega + colocación + retiro", included: true },
+              { text: "Superficie para laptop/tablet", included: true },
+              { text: "Cobertura CDMX y Edomex", included: true },
+              { text: "Branding con logotipo", included: false },
+              { text: "Audio / micrófono", included: false },
+              { text: "Iluminación de escenario", included: false },
+            ],
+            ctaLabel: "Ver paquete 1 Podium",
+            ctaHref: "/servicios/podiums/paquete-1-podium/",
+          },
+          {
+            name: "2 Podiums",
+            price: "$2,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "2 podiums de acrílico para mesas de honor, bodas, galas y eventos con múltiples oradores.",
+            features: [
+              { text: "2 podiums acrílico transparente 10mm", included: true },
+              { text: "Iluminación LED base opcional", included: true },
+              { text: "Entrega + colocación + retiro", included: true },
+              { text: "Superficie para laptop/tablet", included: true },
+              { text: "Ideal para bodas y galas", included: true },
+              { text: "Cobertura CDMX y Edomex", included: true },
+              { text: "Audio / micrófono", included: false },
+              { text: "Iluminación de escenario", included: false },
+            ],
+            ctaLabel: "Ver paquete 2 Podiums",
+            ctaHref: "/servicios/podiums/paquete-2-podiums/",
+          },
+          {
+            name: "Escenario Completo",
+            price: "$5,000",
+            priceNote: "+ IVA",
+            description: "2 podiums + iluminación de escenario + audio profesional. La solución integral para eventos corporativos.",
+            features: [
+              { text: "2 podiums acrílico transparente 10mm", included: true },
+              { text: "Iluminación LED de escenario", included: true },
+              { text: "Audio profesional para orador", included: true },
+              { text: "Micrófono inalámbrico Shure", included: true },
+              { text: "Operador técnico incluido", included: true },
+              { text: "Entrega + montaje + desmontaje", included: true },
+              { text: "Branding con logotipo", included: true },
+              { text: "Cobertura CDMX y Edomex", included: true },
+            ],
+            ctaLabel: "Ver paquete Escenario",
+            ctaHref: "/servicios/podiums/paquete-escenario-completo/",
+          },
+          {
+            name: "Congreso",
+            price: "$8,500",
+            priceNote: "+ IVA",
+            description: "4+ podiums + staging completo + audio profesional + iluminación + técnico dedicado para congresos y convenciones.",
+            features: [
+              { text: "4+ podiums acrílico transparente", included: true },
+              { text: "Staging profesional completo", included: true },
+              { text: "Audio line array para auditorio", included: true },
+              { text: "Iluminación profesional de escenario", included: true },
+              { text: "Técnico dedicado todo el evento", included: true },
+              { text: "Branding con logotipo corporativo", included: true },
+              { text: "Montaje anticipado + pruebas", included: true },
+              { text: "Cobertura CDMX y Edomex", included: true },
+            ],
+            ctaLabel: "Ver paquete Congreso",
+            ctaHref: "/servicios/podiums/paquete-congreso/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Podiums"
+          subtitle="Lo que todos preguntan antes de rentar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Cada evento es diferente — te asesoramos gratis sobre cuántos podiums necesitas y qué complementos agregar."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿De qué material son los podiums?", answer: "Nuestros podiums están fabricados en acrílico transparente de 10mm de espesor. El material es resistente, cristalino y le da una apariencia moderna y profesional al escenario. Se limpian y pulen antes de cada evento para que luzcan impecables frente a cámaras y audiencia." },
+        { question: "¿El podium soporta una laptop o tablet?", answer: "Sí. La superficie superior del podium tiene espacio suficiente para colocar una laptop, tablet, documentos y micrófono de cuello de ganso. Soporta hasta 15 kg sin problema. También tiene un borde discreto que evita que los objetos se deslicen durante la presentación." },
+        { question: "¿Los podiums incluyen micrófono?", answer: "El podium se entrega solo como estructura. Si necesitas micrófono de cuello de ganso, micrófono inalámbrico o sistema de audio completo, lo cotizamos como complemento. Nuestro paquete Escenario Completo ($5,000 + IVA) incluye podiums + audio + iluminación." },
+        { question: "¿Se puede agregar iluminación LED al podium?", answer: "Sí. Ofrecemos iluminación LED integrada en la base del podium que crea un efecto luminoso elegante. Puedes elegir color blanco, azul o el color corporativo de tu empresa. La iluminación LED se incluye sin costo adicional si la solicitas al momento de reservar." },
+        { question: "¿Con cuánta anticipación debo reservar?", answer: "Idealmente 1-2 semanas antes del evento. En temporada de congresos y convenciones (septiembre-noviembre) la demanda es alta. Para eventos grandes con 4+ podiums, recomendamos reservar con 3 semanas de anticipación para garantizar disponibilidad." },
+        { question: "¿Se puede personalizar el podium con logotipo?", answer: "Sí. Podemos aplicar vinil de corte o impresión en el frente del podium con tu logotipo corporativo. Envíanos tu logo en formato vectorial (AI, EPS o PDF) y lo preparamos antes del evento. El branding se retira al finalizar sin dejar residuos en el acrílico." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Podium con Otros Servicios"
+          subtitle="Audio, iluminación y pantallas para un escenario profesional completo."
+          paragraph1="Un podium solo es el inicio. Si necesitas que el orador se escuche en todo el auditorio, proyectar presentaciones en pantalla grande o iluminar el escenario con colores corporativos, tenemos la solución completa."
+          paragraph2="Armamos paquetes integrales de podium + audio + iluminación con precio especial."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para rentar podiums para tu evento?</h2>
+          <p>Cuéntanos la fecha, el tipo de evento y cuántos podiums necesitas. Te enviamos cotización en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

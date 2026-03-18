@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Bola Disco 30cm para Fiestas Íntimas — $2,000 + IVA | REDEIL";
+const description = "Bola disco 30cm con motor y 2 focos PAR. Ideal para fiestas privadas y karaoke. $2,000 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/bola-disco/paquete-30cm/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bola Disco 30cm — Fiestas Íntimas y Karaoke",
+    "description": "Bola de espejos de 30cm con motor giratorio y 2 focos PAR de color. Ideal para fiestas privadas, karaoke, terrazas y reuniones íntimas en casa. Incluye transporte, instalación y desmontaje en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/bola-disco/paquete-30cm/",
+      "priceCurrency": "MXN",
+      "price": "2000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "55",
+      "reviewCount": "55"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana Estrada" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La pusimos en la terraza de mi departamento en la Condesa para una fiesta de cumpleaños y quedó increíble. El tamaño era perfecto para el espacio — no era exagerada pero llenaba toda la terraza de destellos. El equipo de REDEIL fue puntualísimo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Roberto Medina" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "La renté para un karaoke en casa en Coyoacán. La bola con los PAR de colores le dio ese toque de bar profesional que buscábamos. Mis amigos no podían creer que costara tan poco. Instalación en 20 minutos."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Paola Sánchez" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Para la reunión de fin de año en nuestra oficina en Polanco fue el detalle perfecto. La bola 30cm cabe en cualquier techo bajo y el efecto con las dos luces PAR fue muy bonito. La gente se sacaba fotos toda la noche."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿La bola disco de 30cm es suficiente para una fiesta en casa?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. La bola de 30cm es ideal para espacios con techo de hasta 3.5 metros — terrazas, salas, jardines techados y salones pequeños. Los 2 focos PAR incluidos llenan el espacio de destellos sin ser excesivos para un ambiente íntimo." }},
+      { "@type": "Question", "name": "¿El paquete incluye motor y focos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $2,000 + IVA incluyen la bola de espejos de 30cm, motor giratorio de velocidad variable, 2 focos PAR de color, transporte, instalación profesional y desmontaje. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿Se puede instalar en un techo bajo?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, la bola de 30cm es precisamente la opción para techos bajos de 2.5 a 3.5 metros. Es compacta y ligera, así que necesita un punto de anclaje mínimo — un gancho o viga es suficiente." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Bola Disco 60cm — Bodas y XV Años", image: "/img/bola-disco/bola-disco-dorada-boda-hacienda-romantica.avif", alt: "Bola disco 60cm en boda romántica", description: "La más popular para bodas y XV años. Destellos que cubren toda la pista. $3,500 + IVA.", link: "/servicios/bola-disco/paquete-60cm/" },
+  { title: "Bola Disco 90cm — Salones Grandes", image: "/img/bola-disco/bola-disco-grande-para-salones.avif", alt: "Bola disco 90cm en salón grande", description: "Para venues amplios y galas corporativas. 4 focos PAR incluidos. $5,500 + IVA.", link: "/servicios/bola-disco/paquete-90cm/" },
+  { title: "Bola Disco 1.2m — Producciones", image: "/img/bola-disco/bola-disco-gigante-evento-corporativo-lujo.avif", alt: "Bola disco gigante en evento de producción", description: "La bola gigante para festivales y conciertos. 6 PAR + rigging profesional. $9,000 + IVA.", link: "/servicios/bola-disco/paquete-120cm/" },
+  { title: "Máquina de Humo", image: "/img/humo/maquina-humo-profesional-boda-pista-baile.avif", alt: "Máquina de humo profesional en pista de baile", description: "Bola disco + humo = miles de destellos flotando en la neblina. El combo más instagrameable.", link: "/servicios/maquina-humo/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Bola Disco", href: "/servicios/bola-disco/" },
+    { label: "Paquete 30cm" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Bola Disco 30cm — Para Fiestas Íntimas y Karaoke"
+    subtitle="Desde $2,000 + IVA. Bola de espejos 30cm + motor giratorio + 2 focos PAR. Instalación y desmontaje incluidos."
+    introParagraph1='La bola disco pequeña es la reina de las fiestas en casa, los karaokes y las reuniones íntimas en terraza. Con <strong>30 centímetros de diámetro</strong>, es compacta pero produce miles de destellos que llenan cualquier espacio pequeño de magia. En <strong>REDEIL</strong> la entregamos con motor giratorio de velocidad variable y 2 focos PAR de color que apuntan directamente a la bola para crear el efecto visual completo — sin los PAR, la bola no brilla.'
+    introParagraph2='Este paquete está diseñado para fiestas privadas en casa, terrazas, departamentos, karaokes, cenas temáticas de los 70s u 80s y reuniones pequeñas donde quieres ese toque retro sin ocupar mucho espacio. La instalación es rápida (20-30 minutos), necesitamos un punto de anclaje en el techo — un gancho, viga o argolla — y dejamos todo montado, probado y listo. Atendemos toda la CDMX y Estado de México.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más tamaño?"
+    items={[
+      { label: "60cm Bodas — $3,500", href: "/servicios/bola-disco/paquete-60cm/", icon: "efectos" },
+      { label: "90cm Grande — $5,500", href: "/servicios/bola-disco/paquete-90cm/", icon: "efectos" },
+      { label: "1.2m Producción — $9,000", href: "/servicios/bola-disco/paquete-120cm/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Bola 30cm — Íntima"
+      price="$2,000"
+      priceNote="+ IVA · Instalación incluida"
+      features={[
+        { text: "Bola de espejos 30cm de diámetro" },
+        { text: "Motor giratorio velocidad variable" },
+        { text: "2 focos PAR de color incluidos" },
+        { text: "Geles intercambiables de color" },
+        { text: "Transporte ida y vuelta CDMX" },
+        { text: "Instalación profesional (20-30 min)" },
+        { text: "Punto de anclaje revisado" },
+        { text: "Operación durante el evento" },
+        { text: "Desmontaje al finalizar" },
+        { text: "Ideal para techos de hasta 3.5m" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete bola disco 30cm para mi fiesta íntima."
+      packages={[
+        { label: "30cm Íntima", price: "$2,000", href: "/servicios/bola-disco/paquete-30cm/", active: true },
+        { label: "60cm Bodas", price: "$3,500", href: "/servicios/bola-disco/paquete-60cm/" },
+        { label: "90cm Grande", price: "$5,500", href: "/servicios/bola-disco/paquete-90cm/" },
+        { label: "1.2m Producción", price: "$9,000", href: "/servicios/bola-disco/paquete-120cm/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Espacios perfectos para la bola disco 30cm"
+          subtitle="Compacta pero con efecto completo — ideal para espacios íntimos."
+          paragraph1="La bola de espejos de 30cm es la opción ideal cuando el espacio es pequeño pero quieres el efecto retro completo. En una terraza de departamento, en la sala de una casa, en un jardín techado o en un saloncito de fiestas, la bola pequeña produce miles de reflejos que se mueven al ritmo de la música."
+          paragraph2="Los 2 focos PAR incluidos apuntan directamente a la bola. Cambia el color de los geles y transformas completamente el ambiente — dorado para cenas románticas, multicolor para fiestas retro, rosa para despedidas de soltera."
+        />
+        <FeatureGrid features={[
+          { title: "Fiestas en Casa", description: "La sala, el patio, la terraza — la bola 30cm transforma cualquier rincón de tu casa en una pista de baile con destellos." },
+          { title: "Karaoke Privado", description: "El efecto bola disco + karaoke es infalible. Le da ese ambiente de bar profesional a cualquier reunión con micrófono." },
+          { title: "Cenas Temáticas 70s/80s", description: "La bola de espejos es el centro de cualquier fiesta retro. Ponla con música disco y la ambientación está resuelta." },
+          { title: "Terraza y Jardín Techado", description: "Compacta y ligera, funciona en terrazas con pérgola o jardines con techo bajo. Solo necesitamos un gancho." },
+          { title: "Despedida de Soltera", description: "Bola disco + luces de colores = el mood perfecto para una noche de celebración íntima con amigas." },
+          { title: "Cumpleaños Infantil VIP", description: "A los niños les fascina ver los destellos moverse por las paredes. Un toque mágico para cumpleaños en casa." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen quienes nos contrataron"
+          subtitle="⭐⭐⭐⭐⭐ 5 estrellas en 55 reseñas."
+          paragraph1="Cada reseña es de un cliente real que contrató el paquete de bola disco 30cm."
+          paragraph2="Pregunta por referencias de eventos similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Mariana Estrada", event: "Cumpleaños en Terraza — Condesa", rating: 5, text: "La pusimos en la terraza de mi departamento para una fiesta de cumpleaños y quedó increíble. El tamaño era perfecto para el espacio — llenaba toda la terraza de destellos. El equipo fue puntualísimo." },
+          { name: "Roberto Medina", event: "Karaoke en Casa — Coyoacán", rating: 5, text: "La renté para un karaoke en casa. La bola con los PAR de colores le dio ese toque de bar profesional. Mis amigos no podían creer que costara tan poco. Instalación en 20 minutos." },
+          { name: "Paola Sánchez", event: "Reunión de Fin de Año — Polanco", rating: 5, text: "Para la reunión en nuestra oficina fue el detalle perfecto. La bola 30cm cabe en cualquier techo bajo y el efecto con las dos luces PAR fue muy bonito. La gente se sacaba fotos toda la noche." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Bola disco 30cm en eventos reales"
+        subtitle="Fiestas privadas, karaokes y reuniones íntimas en CDMX."
+        paragraph1="La bola pequeña es la prueba de que el tamaño no lo es todo. En espacios íntimos, los destellos son más concentrados y el efecto visual es más envolvente. Cada imagen es de un montaje real con nuestras bolas de espejos."
+        paragraph2="¿Tienes fotos de tu espacio? Mándanoslas por WhatsApp y te confirmamos que el tamaño de 30cm es el ideal para tu techo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/bola-disco/renta-bola-disco-para-fiestas-cdmx.avif", alt: "Renta de bola disco para fiestas en CDMX" },
+        { src: "/img/bola-disco/bola-disco-para-fiestas-tematicas-70s.avif", alt: "Bola disco para fiesta temática de los 70s" },
+        { src: "/img/bola-disco/renta-bola-disco-fiesta-80s-90s.avif", alt: "Bola disco para fiesta retro de los 80s y 90s" },
+        { src: "/img/bola-disco/bola-disco-fiesta-salon-clasico.avif", alt: "Bola disco en salón clásico para fiesta privada" },
+        { src: "/img/bola-disco/bola-disco-para-aniversarios-fiestas.avif", alt: "Bola disco para aniversarios y fiestas privadas" },
+        { src: "/img/bola-disco/bola-disco-espejos-fiesta-dj-luces.avif", alt: "Bola de espejos con luces DJ en fiesta" },
+        { src: "/img/bola-disco/renta-de-bola-disco-pista-iluminada.avif", alt: "Pista iluminada con bola disco y destellos" },
+        { src: "/img/bola-disco/bola-disco-dorada-pista-led-retro.avif", alt: "Bola disco dorada con pista LED retro" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Bola Disco 30cm"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Si tu espacio es más grande, tenemos bolas de 60cm, 90cm y 1.2m disponibles."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿La bola disco de 30cm es suficiente para una fiesta en casa?", answer: "Sí. La bola de 30cm es ideal para espacios con techo de hasta 3.5 metros — terrazas, salas, jardines techados y salones pequeños. Los 2 focos PAR incluidos llenan el espacio de destellos sin ser excesivos para un ambiente íntimo." },
+      { question: "¿Qué incluyen los $2,000 + IVA?", answer: "Todo: la bola de espejos de 30cm, motor giratorio de velocidad variable, 2 focos PAR de color con geles intercambiables, transporte a tu domicilio en CDMX o Edomex, instalación profesional, operación durante el evento y desmontaje al finalizar. Sin costos ocultos." },
+      { question: "¿Necesito algo especial en el techo?", answer: "Solo un punto de anclaje — un gancho, viga o argolla resistente. La bola de 30cm es ligera y no requiere anclaje industrial. Nuestro equipo revisa el punto antes de instalar para garantizar seguridad." },
+      { question: "¿Se puede cambiar el color de los destellos?", answer: "Sí. Los focos PAR vienen con geles intercambiables. Podemos usar dorado para un toque elegante, multicolor para fiestas retro, azul para ambientes lounge o rosa para despedidas de soltera. Tú eliges." },
+      { question: "¿Cuánto tarda la instalación?", answer: "Entre 20 y 30 minutos. Llegamos con tiempo suficiente para dejar todo montado y probado antes de que lleguen tus invitados. La bola de 30cm es la más rápida de instalar de todas nuestras opciones." },
+      { question: "¿Funciona en exteriores?", answer: "Sí, siempre y cuando haya un techo o pérgola donde colgarla y una conexión eléctrica cercana. En terrazas techadas y jardines con palapa funciona perfecto. No la instalamos a la intemperie sin protección." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más tamaño o complementar el efecto?"
+        paragraph1="Si tu espacio es más grande o buscas mayor impacto visual, tenemos bolas de 60cm para bodas, 90cm para salones grandes y 1.2m para producciones. Y si quieres el combo perfecto, la bola disco con máquina de humo es espectacular."
+        paragraph2="Armamos paquetes combinados con precio especial. Cuéntanos tu evento y te diseñamos la propuesta ideal."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Lista tu fiesta para brillar con destellos?</h2>
+        <p>Mándanos fotos de tu espacio y el tipo de evento. Te confirmamos que la bola de 30cm es la ideal y te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza Gratis por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

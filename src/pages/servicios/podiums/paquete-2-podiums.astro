@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "2 Podiums de Acrílico para Bodas y Galas — $2,500 + IVA | REDEIL";
+const description = "2 podiums acrílico para mesa de honor, discursos y brindis en bodas y galas. $2,500 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/podiums/paquete-2-podiums/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "2 Podiums de Acrílico para Bodas y Galas",
+    "description": "2 podiums de acrílico transparente de 10mm para mesas de honor, discursos de boda, brindis y galas en CDMX. Incluye entrega, colocación, iluminación LED opcional y retiro.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/podiums/paquete-2-podiums/",
+      "priceCurrency": "MXN",
+      "price": "2500",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "65",
+      "reviewCount": "65"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Mariana López Fernández" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Rentamos los 2 podiums para nuestra boda en un jardín de Tlalpan. Uno para los discursos de los padrinos y otro para el brindis. Se veían hermosos con la iluminación LED blanca — las fotos quedaron espectaculares. El equipo de REDEIL fue muy puntual."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Fernando Ríos Hernández" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Usamos los 2 podiums para una gala de premiación en el Hotel St. Regis. Los colocaron en el escenario principal y quedaron perfectos para la entrega de reconocimientos. El acrílico transparente combinó perfecto con la decoración elegante del salón."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Navarro Díaz" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contraté los podiums para una mesa de honor en una cena de gala empresarial en Polanco. Los dos atriles lucieron impecables — profesionales y modernos. La entrega fue antes de lo esperado y el retiro al día siguiente sin ningún problema."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/podiums/conferencia-empresarial-podium-transparente-audiencia-profesional.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Los 2 podiums son iguales?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los 2 podiums son idénticos en diseño, dimensiones y material — acrílico transparente de 10mm. Ambos se entregan limpios, pulidos y con iluminación LED opcional en la base. Esto da uniformidad visual al escenario." }},
+      { "@type": "Question", "name": "¿Se pueden colocar en diferentes zonas del venue?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes colocar un podium en el escenario principal y otro en la zona de recepción, o ambos juntos en la mesa de honor. Nuestro equipo los coloca donde los necesites dentro del mismo venue." }},
+      { "@type": "Question", "name": "¿Son ideales para bodas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los 2 podiums son el paquete más pedido para bodas — uno para los discursos de padrinos y familiares, y otro para el brindis de los novios. La transparencia del acrílico se integra con cualquier decoración de boda." }},
+      { "@type": "Question", "name": "¿Se pueden personalizar con logo o nombre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Podemos aplicar vinil de corte con los nombres de los novios, el monograma de la boda, o el logotipo corporativo. Envíanos el diseño y lo preparamos antes del evento." }},
+      { "@type": "Question", "name": "¿Incluye la entrega en el precio?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los $2,500 + IVA incluyen entrega de los 2 podiums en tu venue, colocación en los puntos del escenario que necesites, nivelación profesional y retiro al finalizar el evento. Sin costos ocultos." }},
+      { "@type": "Question", "name": "¿Puedo agregar audio o iluminación de escenario?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cotizamos audio e iluminación como complemento. Si quieres la solución completa, el paquete Escenario Completo ($5,000 + IVA) incluye 2 podiums + audio + iluminación de escenario." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "1 Podium", image: "/img/podiums/conferencia-ejecutivo-podium-alto-iluminacion-profesional.avif", alt: "1 podium de acrílico para conferencia individual", description: "1 podium de acrílico para conferencias pequeñas y presentaciones. $1,500 + IVA.", link: "/servicios/podiums/paquete-1-podium/" },
+  { title: "Escenario Completo", image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules.avif", alt: "Escenario completo con podiums, audio e iluminación", description: "2 podiums + iluminación de escenario + audio profesional. $5,000 + IVA.", link: "/servicios/podiums/paquete-escenario-completo/" },
+  { title: "Congreso", image: "/img/podiums/conferencia-masiva-podium-acrilico-pantallas-auditorio.avif", alt: "Múltiples podiums para congreso en auditorio", description: "4+ podiums + staging + audio + iluminación + técnico. $8,500 + IVA.", link: "/servicios/podiums/paquete-congreso/" },
+  { title: "PAR LED", image: "/img/par-led/renta-par-led-boda-salon-300w.avif", alt: "PAR LED para iluminar escenario de boda", description: "Ilumina el escenario y los podiums con PAR LED de colores. Complemento perfecto para bodas.", link: "/servicios/par-led/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Podiums", href: "/servicios/podiums/" },
+    { label: "2 Podiums" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="2 Podiums de Acrílico para Bodas y Galas"
+    subtitle="Desde $2,500 + IVA. Entrega + colocación + retiro incluidos. Iluminación LED opcional."
+    introParagraph1='El paquete de 2 podiums es el más solicitado para <strong>bodas, galas y mesas de honor</strong> donde hay múltiples oradores a lo largo del evento. Un podium para los discursos de padrinos y familiares, otro para el brindis de los novios — o los dos juntos flanqueando la mesa de honor. El acrílico transparente de <strong>10mm</strong> se integra con cualquier decoración y estilo de evento, desde bodas rústicas en jardín hasta galas elegantes en salones de hotel.'
+    introParagraph2='Ambos podiums son idénticos en diseño y dimensiones, dando uniformidad visual al escenario. Incluyen <strong>iluminación LED opcional en la base</strong> en color blanco, azul o el color de tu boda — sin costo adicional. El servicio cubre entrega puntual, colocación en los puntos exactos del escenario, nivelación y retiro al finalizar. Si necesitas personalización con nombres o monograma, aplicamos vinil de corte antes del evento. Cobertura completa en <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas más servicios para tu evento?"
+    items={[
+      { label: "1 Podium — $1,500", href: "/servicios/podiums/paquete-1-podium/", icon: "efectos" },
+      { label: "Escenario — $5,000", href: "/servicios/podiums/paquete-escenario-completo/", icon: "efectos" },
+      { label: "Congreso — $8,500", href: "/servicios/podiums/paquete-congreso/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="2 Podiums"
+      price="$2,500"
+      priceNote="+ IVA · Entrega incluida"
+      features={[
+        { text: "2 podiums acrílico transparente 10mm" },
+        { text: "Diseño idéntico — uniformidad visual" },
+        { text: "Iluminación LED base opcional" },
+        { text: "Superficie para laptop/tablet" },
+        { text: "Soporta hasta 15 kg cada uno" },
+        { text: "Entrega puntual en venue" },
+        { text: "Colocación + nivelación" },
+        { text: "Retiro al finalizar" },
+        { text: "Personalización con vinil opcional" },
+        { text: "Cobertura CDMX y Edomex" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete de 2 podiums acrílico para boda/gala."
+      packages={[
+        { label: "1 Podium", price: "$1,500", href: "/servicios/podiums/paquete-1-podium/" },
+        { label: "2 Podiums", price: "$2,500", href: "/servicios/podiums/paquete-2-podiums/", active: true },
+        { label: "Escenario Completo", price: "$5,000", href: "/servicios/podiums/paquete-escenario-completo/" },
+        { label: "Congreso", price: "$8,500", href: "/servicios/podiums/paquete-congreso/" },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="Perfecto para estos eventos"
+          subtitle="2 podiums cubren bodas, galas y mesas de honor con múltiples oradores."
+          paragraph1="El paquete de 2 podiums es el favorito de wedding planners y coordinadores de galas. Tener dos atriles permite que los discursos fluyan sin pausas — mientras un orador termina en un podium, el siguiente ya está listo en el otro."
+          paragraph2="La transparencia del acrílico no compite con la decoración del evento — se integra de forma elegante con cualquier estilo."
+        />
+        <FeatureGrid features={[
+          { title: "Bodas y Recepciones", description: "Un podium para discursos de padrinos, otro para el brindis de los novios. El combo más pedido para bodas." },
+          { title: "Galas de Premiación", description: "Uno para el presentador, otro para el premiado. Fluidez total en la entrega de reconocimientos." },
+          { title: "Mesas de Honor", description: "Los 2 podiums flanqueando la mesa de honor le dan un marco profesional al escenario del evento." },
+          { title: "Cenas Corporativas", description: "Discursos de directivos y agradecimientos especiales en cenas de fin de año y aniversarios de empresa." },
+          { title: "Eventos Sociales", description: "Bautizos, XV años, aniversarios. Los podiums aportan formalidad elegante para los momentos de discurso." },
+          { title: "Paneles de Discusión", description: "2 podiums enfrentados para debates, paneles y mesas redondas con formato formal." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Personalización para tu boda o gala"
+          subtitle="Nombres, monograma o logotipo corporativo en el podium."
+          paragraph1="Para bodas, aplicamos vinil de corte con los nombres de los novios o el monograma de la boda en el frente del podium. Para galas corporativas, colocamos el logotipo de la empresa. El vinil se retira al finalizar sin dañar el acrílico."
+          paragraph2="La iluminación LED en la base puede ser del color de tu boda o de tu marca — blanco, azul, rosa, dorado o el tono que necesites."
+        />
+        <FeatureGrid features={[
+          { title: "Vinil con Nombres", description: "Los nombres de los novios en tipografía elegante en el frente del podium. Incluido si lo solicitas." },
+          { title: "Monograma de Boda", description: "Tu monograma o logo de boda aplicado en vinil de corte. Envía el diseño y lo preparamos." },
+          { title: "Logo Corporativo", description: "Para galas empresariales. Tu logotipo en el podium da presencia institucional al escenario." },
+          { title: "LED Color Personalizado", description: "Iluminación LED en la base en el color que necesites. Blanco, azul, rosa, dorado y más." },
+          { title: "Acabado Impecable", description: "Cada podium se pule a espejo antes del evento. Lucen perfectos en las fotos de tu boda." },
+          { title: "Retiro sin Residuos", description: "El vinil se retira al finalizar sin dejar marcas ni residuos en el acrílico transparente." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 65 reseñas."
+          paragraph1="Cada reseña es de un cliente real que rentó el paquete de 2 podiums para su boda o gala."
+          paragraph2="Pregunta por referencias de bodas similares a la tuya cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Mariana López Fernández", event: "Boda en jardín — Tlalpan", rating: 5, text: "Rentamos los 2 podiums para nuestra boda. Uno para los discursos de los padrinos y otro para el brindis. Se veían hermosos con la iluminación LED blanca — las fotos quedaron espectaculares." },
+          { name: "Fernando Ríos Hernández", event: "Gala de premiación — Hotel St. Regis", rating: 5, text: "Los 2 podiums en el escenario principal quedaron perfectos para la entrega de reconocimientos. El acrílico transparente combinó perfecto con la decoración elegante del salón." },
+          { name: "Carolina Navarro Díaz", event: "Cena de gala empresarial — Polanco", rating: 5, text: "Los dos atriles lucieron impecables — profesionales y modernos. La entrega fue antes de lo esperado y el retiro al día siguiente sin ningún problema. Excelente servicio." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="2 Podiums en bodas y galas reales"
+        subtitle="Bodas en jardín, galas de hotel y mesas de honor en CDMX."
+        paragraph1="Cada foto es de un evento real donde nuestros 2 podiums de acrílico fueron parte del escenario. La transparencia del material se adapta a cualquier estilo de decoración."
+        paragraph2="¿Tu boda o gala se parece a alguno de estos eventos? Mándanos fotos del venue."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/podiums/conferencia-empresarial-podium-transparente-audiencia-profesional.avif", alt: "Podiums de acrílico en evento empresarial con audiencia" },
+        { src: "/img/podiums/conferencia-auditorio-grande-podium-transparente-iluminacion.avif", alt: "Podium transparente en auditorio grande con iluminación" },
+        { src: "/img/podiums/conferencia-mujer-ejecutiva-podium-acrilico-auditorio-grande.avif", alt: "Mujer ejecutiva en podium de acrílico" },
+        { src: "/img/podiums/conferencia-mujer-traje-rojo-podium-acrilico-evento-corporativo.avif", alt: "Podium de acrílico en evento corporativo elegante" },
+        { src: "/img/podiums/conferencia-auditorio-podium-acrilico-vista-trasera-audiencia.avif", alt: "Vista de audiencia con podium de acrílico" },
+        { src: "/img/podiums/conferencia-ejecutivo-podium-transparente-escenario-iluminado.avif", alt: "Escenario iluminado con podium transparente" },
+        { src: "/img/podiums/conferencia-orador-microfono-podium-acrilico-escenario-azul.avif", alt: "Orador en podium de acrílico sobre escenario" },
+        { src: "/img/podiums/conferencia-podium-acrilico-alto-iluminacion-azul-cortinas.avif", alt: "Podium de acrílico con iluminación azul elegante" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el paquete de 2 Podiums"
+        subtitle="Todo lo que necesitas saber antes de reservar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respondemos en minutos."
+        paragraph2="Te asesoramos gratis sobre la mejor configuración para tu boda o gala."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Los 2 podiums son iguales?", answer: "Sí. Los 2 podiums son idénticos en diseño, dimensiones y material — acrílico transparente de 10mm. Ambos se entregan limpios, pulidos y con iluminación LED opcional. Esto da uniformidad visual al escenario de tu boda o gala." },
+      { question: "¿Se pueden colocar en diferentes zonas del venue?", answer: "Sí. Puedes colocar un podium en el escenario principal y otro en la zona de recepción, o ambos juntos flanqueando la mesa de honor. Nuestro equipo los coloca donde los necesites dentro del mismo venue." },
+      { question: "¿Son ideales para bodas?", answer: "Sí. Es nuestro paquete más popular para bodas. Un podium para los discursos de padrinos y familiares, otro para el brindis de los novios. La transparencia del acrílico se integra con cualquier estilo de decoración de boda." },
+      { question: "¿Se pueden personalizar con nombres o monograma?", answer: "Sí. Aplicamos vinil de corte con los nombres de los novios, el monograma de la boda o el logotipo corporativo. Envíanos el diseño y lo preparamos antes del evento. Se retira sin dejar residuos." },
+      { question: "¿El precio incluye entrega y retiro?", answer: "Sí. Los $2,500 + IVA incluyen entrega de los 2 podiums en tu venue, colocación en los puntos que necesites, nivelación profesional y retiro al finalizar. Sin costos ocultos ni sorpresas." },
+      { question: "¿Puedo agregar audio o iluminación de escenario?", answer: "Sí. Cotizamos audio e iluminación como complemento. Si prefieres la solución integral, el paquete Escenario Completo ($5,000 + IVA) incluye 2 podiums + audio + iluminación de escenario." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes y Servicios"
+        subtitle="¿Necesitas más podiums o complementos?"
+        paragraph1="Si tu evento requiere un solo podium, escenario completo con audio o staging para congreso, tenemos la opción perfecta. El PAR LED es el complemento ideal para iluminar el escenario."
+        paragraph2="Combinamos servicios con precio especial — pregunta por tu paquete integral."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para reservar los 2 podiums para tu boda o gala?</h2>
+        <p>Mándanos la fecha, el venue y el tipo de evento. Te confirmamos disponibilidad y enviamos cotización en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Reservar — Cotiza Gratis</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

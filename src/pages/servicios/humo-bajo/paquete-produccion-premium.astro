@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Producción Premium Humo Bajo + Seguidor + Cabezas — $13,000 | REDEIL";
+const description = "Humo bajo + seguidor de luz + cabezas móviles. La producción completa para bodas premium. $13,000 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/humo-bajo/paquete-produccion-premium/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Paquete Producción Premium — Humo Bajo + Seguidor de Luz + Cabezas Móviles",
+    "description": "Producción completa de iluminación y efectos para bodas premium: 2 máquinas de niebla baja, 1 seguidor de luz profesional con operador y 4 cabezas móviles para show de luces. Equipo técnico completo, visita previa al venue y coordinación integral. $13,000 + IVA en CDMX.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://rentadeiluminacion.com/servicios/humo-bajo/paquete-produccion-premium/",
+      "priceCurrency": "MXN",
+      "price": "13000",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "55",
+      "reviewCount": "55"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valeria Sánchez Aguilar" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Nuestra boda en la Hacienda Santa Rosa de Lima en Xochimilco fue como una producción de cine. El humo bajo cubrió toda la pista, el seguidor nos iluminó durante el vals y las cabezas móviles hicieron un show de beams que cortaban la niebla. Los invitados no dejaban de grabar. REDEIL se encargó de todo."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrés Morales Figueroa" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Boda premium en el Club de Banqueros de la CDMX. El paquete completo fue la mejor inversión. El momento del vals fue cinematográfico: niebla en el piso, spotlight siguiéndonos y los beams de las cabezas móviles moviéndose en sincronía con la música. Las fotos parecen de revista."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carolina Torres Medina" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Contratamos la producción premium para nuestra boda en el Hotel Four Seasons de Santa Fe. El equipo de REDEIL hizo una visita previa para planear todo. El día del evento, cada momento fue perfecto: niebla, seguidor y cabezas móviles coordinados al milímetro. Superó todas nuestras expectativas."
+      }
+    ],
+    "image": "https://rentadeiluminacion.com/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Qué incluye exactamente el paquete Producción Premium?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete incluye: 2 máquinas de niebla baja con fluido ilimitado, 1 seguidor de luz profesional (HMI o LED) con operador dedicado, 4 cabezas móviles para show de beams y wash, equipo técnico completo (3-4 personas), visita previa al venue para planificación, traslado, montaje, operación toda la noche y desmontaje. Coordinación integral con DJ, MC y wedding planner." }},
+      { "@type": "Question", "name": "¿Cuál es la diferencia con contratar los servicios por separado?", "acceptedAnswer": { "@type": "Answer", "text": "Contratar humo bajo, seguidor y cabezas móviles por separado costaría más de $18,000. El paquete Producción Premium a $13,000 + IVA te ahorra más de $5,000 y, lo más importante, todo opera coordinado por un solo equipo técnico. No hay conflictos entre proveedores, el timing es perfecto y la visita previa permite planear cada detalle." }},
+      { "@type": "Question", "name": "¿El seguidor de luz sigue a los novios durante el vals?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El seguidor de luz tiene un operador dedicado que enfoca un spotlight en los novios durante todo el vals. El haz de luz se mueve suavemente siguiendo cada paso de los novios sobre la niebla baja. Es el efecto cinematográfico que hace que el vals parezca una escena de película." }},
+      { "@type": "Question", "name": "¿Las cabezas móviles se sincronizan con la música?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las 4 cabezas móviles se programan para sincronizarse con el tempo y los momentos clave de la música. Durante el vals crean un ambiente suave y romántico. En la fiesta cambian a beams dinámicos y efectos de color que transforman el salón. El operador de luces adapta el show en tiempo real." }},
+      { "@type": "Question", "name": "¿Incluye visita previa al venue?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Antes del evento, el director técnico de REDEIL visita el venue para evaluar el espacio, planear la posición de cada equipo, coordinar con el encargado del salón y definir con el wedding planner los momentos exactos donde se activará cada efecto. Esta visita es clave para que el día del evento todo salga perfecto." }},
+      { "@type": "Question", "name": "¿Para qué tipo de bodas es ideal este paquete?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete Producción Premium es ideal para bodas premium de 150-400 invitados en haciendas, hoteles, salones de lujo y venues de alto nivel. Es para parejas que quieren que su boda tenga una producción de iluminación y efectos a nivel profesional — no solo un efecto aislado, sino una experiencia visual completa toda la noche." }}
+    ]
+  }
+]);
+
+const otrosPaquetes = [
+  { title: "Vals Único", image: "/img/humo-bajo/humo-bajo-primer-vals-romantico.avif", alt: "Humo bajo para vals único de boda", description: "1 máquina para un solo momento estelar. Ideal para bodas íntimas. $3,500 + IVA.", link: "/servicios/humo-bajo/paquete-vals-unico/" },
+  { title: "Recepción Completa", image: "/img/humo-bajo/humo-bajo-boda-salon-iluminacion.avif", alt: "Niebla baja para toda la recepción", description: "1 máquina con fluido ilimitado para toda la noche. El más popular. $5,500 + IVA.", link: "/servicios/humo-bajo/paquete-recepcion-completa/" },
+  { title: "Doble Cobertura", image: "/img/humo-bajo/niebla-baja-boda-hacienda-mexicana.avif", alt: "2 máquinas de humo bajo para hacienda", description: "2 máquinas para haciendas y salones grandes. Pista completamente cubierta. $8,500 + IVA.", link: "/servicios/humo-bajo/paquete-doble-cobertura/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz profesional para boda premium", description: "Spotlight profesional que sigue a los novios. Incluido en este paquete o disponible por separado.", link: "/servicios/seguidor/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Humo Bajo", href: "/servicios/humo-bajo/" },
+    { label: "Producción Premium" }
+  ]} />
+</Fragment>
+
+  <Hero
+    title="Producción Premium — Humo Bajo + Seguidor + Cabezas Móviles"
+    subtitle="Desde $13,000 + IVA. La producción completa de iluminación y efectos para bodas premium."
+    introParagraph1='Hay bodas y hay <strong>producciones</strong>. El paquete <strong>Producción Premium</strong> de <strong>REDEIL</strong> convierte tu boda en un espectáculo visual completo: 2 máquinas de niebla baja cubren la pista de nubes, un seguidor de luz profesional sigue a los novios con un spotlight cinematográfico y 4 cabezas móviles crean un show de beams y color que transforma el salón. Todo operado por un equipo técnico de 3-4 personas, coordinado al milímetro con el DJ y el wedding planner.'
+    introParagraph2='Es el paquete que eligen las parejas que quieren que cada momento de su boda sea una experiencia visual — no solo el vals, sino toda la noche. La entrada de los novios sobre niebla con spotlight, el vals con beams cortando la bruma, la fiesta con show de luces sincronizado con la música. Incluye visita previa al venue para planear cada detalle: posición de los equipos, timing de cada efecto y coordinación con todos los proveedores. Traslado, montaje y operación toda la noche incluidos en <strong>CDMX y Estado de México</strong>.'
+  />
+
+  <CtaBar
+    headline="¿Solo necesitas humo bajo sin producción completa?"
+    items={[
+      { label: "Vals Único $3,500", href: "/servicios/humo-bajo/paquete-vals-unico/", icon: "efectos" },
+      { label: "Recepción Completa $5,500", href: "/servicios/humo-bajo/paquete-recepcion-completa/", icon: "efectos" },
+      { label: "Doble Cobertura $8,500", href: "/servicios/humo-bajo/paquete-doble-cobertura/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <section class="services-section">
+    <ContentWithSidebar
+      sidebarTitle="Producción Premium"
+      price="$13,000"
+      priceNote="+ IVA · Humo + Seguidor + Cabezas"
+      features={[
+        { text: "2 máquinas de niebla baja profesional" },
+        { text: "1 seguidor de luz con operador dedicado" },
+        { text: "4 cabezas móviles para show de luces" },
+        { text: "Fluido ilimitado + fluido de larga duración" },
+        { text: "Equipo técnico completo (3-4 personas)" },
+        { text: "Visita previa al venue incluida" },
+        { text: "Coordinación con DJ, MC y wedding planner" },
+        { text: "Traslado, montaje y desmontaje" },
+        { text: "Operación toda la noche" },
+        { text: "Ideal: bodas premium y producciones" },
+      ]}
+      waMessage="Hola REDEIL, quiero cotizar el paquete Producción Premium de humo bajo con seguidor y cabezas móviles para mi boda premium."
+      packages={[
+        { label: "Vals Único", price: "$3,500", href: "/servicios/humo-bajo/paquete-vals-unico/" },
+        { label: "Recepción Completa", price: "$5,500", href: "/servicios/humo-bajo/paquete-recepcion-completa/" },
+        { label: "Doble Cobertura", price: "$8,500", href: "/servicios/humo-bajo/paquete-doble-cobertura/" },
+        { label: "Producción Premium", price: "$13,000", href: "/servicios/humo-bajo/paquete-produccion-premium/", active: true },
+      ]}
+    >
+      <div class="container">
+        <SectionHeader
+          title="¿Qué momentos transforma la producción premium?"
+          subtitle="Cada momento de la boda se convierte en una escena cinematográfica."
+          paragraph1="La producción premium no es un efecto aislado — es una experiencia visual que acompaña toda la noche. Desde la entrada de los novios hasta el último baile, cada momento tiene su diseño de iluminación y efectos planificado de antemano."
+          paragraph2="El director técnico de REDEIL coordina los 3 elementos (niebla, seguidor, cabezas) para que cada transición sea fluida y cada momento tenga el impacto visual correcto."
+        />
+        <FeatureGrid features={[
+          { title: "Vals Cinematográfico", description: "Niebla en el piso + spotlight siguiendo a los novios + beams suaves cortando la bruma. El momento estelar." },
+          { title: "Entrada Triunfal", description: "Los novios cruzan el salón sobre niebla con spotlight y cabezas móviles creando un pasillo de luz." },
+          { title: "Show de Fiesta", description: "Las 4 cabezas móviles se sincronizan con la música del DJ para un show de luces dinámico toda la noche." },
+          { title: "Brindis Iluminado", description: "Seguidor enfocando la mesa principal + niebla sutil alrededor. Un brindis con producción profesional." },
+          { title: "Baile con Padres", description: "Spotlight íntimo en el padre y la novia sobre una capa de niebla. Emotivo y perfectamente iluminado." },
+          { title: "Momento Sorpresa", description: "¿Un momento especial no planificado? El equipo adapta la producción en tiempo real para cualquier improvisación." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="3 servicios coordinados por un solo equipo"
+          subtitle="Humo bajo, seguidor y cabezas móviles operados en sincronía — sin conflictos entre proveedores."
+          paragraph1="La ventaja decisiva del paquete Producción Premium es la coordinación. Cuando contratas niebla, seguidor y cabezas por separado con diferentes proveedores, cada uno opera por su cuenta y los timings no coinciden. Con REDEIL, un solo director técnico controla los 3 elementos como una sola producción."
+          paragraph2="La visita previa al venue permite planear la posición exacta de cada equipo, el ángulo de cada haz de luz, el timing de cada efecto y la coordinación con el DJ y el MC. El día del evento, todo está ensayado."
+        />
+        <FeatureGrid features={[
+          { title: "Director Técnico Dedicado", description: "Un profesional que coordina niebla, seguidor y cabezas como una sola producción integrada." },
+          { title: "Visita Previa al Venue", description: "Evaluación del espacio, posicionamiento de equipos y coordinación con el salón antes del evento." },
+          { title: "Timing Perfecto", description: "Los 3 elementos se activan en el segundo exacto. La niebla, el spotlight y los beams arrancan sincronizados." },
+          { title: "Ahorro de $5,000+", description: "Contratar los 3 servicios por separado cuesta más de $18,000. El paquete integrado: $13,000 + IVA." },
+          { title: "Sin Conflictos", description: "Un solo equipo, un solo proveedor, una sola coordinación. Sin problemas de logística entre proveedores." },
+          { title: "Adaptación en Vivo", description: "Si algo cambia durante la fiesta, el director técnico ajusta los 3 elementos en tiempo real." },
+        ]} columns={2} />
+      </div>
+
+      <div class="container" style="margin-top: 3rem;">
+        <SectionHeader
+          title="Lo que dicen nuestros clientes"
+          subtitle="5 estrellas en 55 reseñas verificadas."
+          paragraph1="Bodas premium en haciendas, hoteles y salones de lujo de CDMX con producción completa."
+          paragraph2="Pregunta por referencias de venues similares al tuyo cuando nos contactes."
+        />
+        <TestimonialCards testimonials={[
+          { name: "Valeria Sánchez Aguilar", event: "Boda — Hacienda Santa Rosa de Lima, Xochimilco", rating: 5, text: "Fue como una producción de cine. Humo bajo, seguidor y cabezas móviles con beams cortando la niebla. Los invitados no dejaban de grabar. REDEIL se encargó de todo." },
+          { name: "Andrés Morales Figueroa", event: "Boda — Club de Banqueros, CDMX", rating: 5, text: "El vals fue cinematográfico: niebla en el piso, spotlight siguiéndonos y los beams moviéndose con la música. Las fotos parecen de revista. La mejor inversión de la boda." },
+          { name: "Carolina Torres Medina", event: "Boda — Hotel Four Seasons, Santa Fe", rating: 5, text: "La visita previa marcó la diferencia. El día del evento, cada momento fue perfecto: niebla, seguidor y cabezas coordinados al milímetro. Superó todas nuestras expectativas." },
+        ]} />
+      </div>
+    </ContentWithSidebar>
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Producción premium en bodas reales"
+        subtitle="Humo bajo + seguidor + cabezas móviles — el espectáculo visual completo."
+        paragraph1="Estas fotos son de bodas premium donde se contrató la producción completa. La combinación de niebla baja, seguidor de luz y cabezas móviles crea un resultado visual que ningún efecto aislado puede lograr."
+        paragraph2="¿Quieres ver cómo quedaría en tu venue? Agenda la visita previa gratuita y te mostramos el plan de producción completo."
+      />
+      <Gallery4x4 images={[
+        { src: "/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif", alt: "Primer baile de novios con humo bajo y seguidor de luz" },
+        { src: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Primer baile romántico con producción premium de iluminación" },
+        { src: "/img/humo-bajo/humo-bajo-pista-baile-luces-led.avif", alt: "Pista de baile con humo bajo y cabezas móviles LED" },
+        { src: "/img/humo-bajo/renta-humo-bajo-primer-baile-boda.avif", alt: "Producción premium con humo bajo para primer baile" },
+        { src: "/img/humo-bajo/humo-bajo-profesional-evento-nocturno.avif", alt: "Producción profesional de humo bajo en evento nocturno premium" },
+        { src: "/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif", alt: "Vals de boda con humo bajo y producción de luz completa" },
+        { src: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Efecto de humo bajo con seguidor durante baile de novios" },
+        { src: "/img/humo-bajo/niebla-baja-boda-hacienda-mexicana.avif", alt: "Niebla baja con producción premium en hacienda mexicana" },
+      ]} />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre el Paquete Producción Premium"
+        subtitle="Todo sobre la producción completa de humo bajo + seguidor + cabezas móviles."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp al 55 3068 2988. Respondemos en minutos."
+        paragraph2="Cuéntanos tu venue y la fecha — te diseñamos la propuesta de producción completa."
+      />
+    </div>
+    <FaqSection items={[
+      { question: "¿Qué incluye exactamente el paquete Producción Premium?", answer: "El paquete incluye: 2 máquinas de niebla baja con fluido ilimitado, 1 seguidor de luz profesional (HMI o LED) con operador dedicado, 4 cabezas móviles para show de beams y wash, equipo técnico completo (3-4 personas), visita previa al venue para planificación, traslado, montaje, operación toda la noche y desmontaje. Coordinación integral con DJ, MC y wedding planner." },
+      { question: "¿Cuál es la diferencia con contratar los servicios por separado?", answer: "Contratar humo bajo, seguidor y cabezas móviles por separado costaría más de $18,000. El paquete Producción Premium a $13,000 + IVA te ahorra más de $5,000 y, lo más importante, todo opera coordinado por un solo equipo técnico. No hay conflictos entre proveedores, el timing es perfecto y la visita previa permite planear cada detalle." },
+      { question: "¿El seguidor de luz sigue a los novios durante el vals?", answer: "Sí. El seguidor de luz tiene un operador dedicado que enfoca un spotlight en los novios durante todo el vals. El haz de luz se mueve suavemente siguiendo cada paso de los novios sobre la niebla baja. Es el efecto cinematográfico que hace que el vals parezca una escena de película." },
+      { question: "¿Las cabezas móviles se sincronizan con la música?", answer: "Sí. Las 4 cabezas móviles se programan para sincronizarse con el tempo y los momentos clave de la música. Durante el vals crean un ambiente suave y romántico. En la fiesta cambian a beams dinámicos y efectos de color que transforman el salón. El operador de luces adapta el show en tiempo real." },
+      { question: "¿Incluye visita previa al venue?", answer: "Sí. Antes del evento, el director técnico de REDEIL visita el venue para evaluar el espacio, planear la posición de cada equipo, coordinar con el encargado del salón y definir con el wedding planner los momentos exactos donde se activará cada efecto. Esta visita es clave para que el día del evento todo salga perfecto." },
+      { question: "¿Para qué tipo de bodas es ideal este paquete?", answer: "El paquete Producción Premium es ideal para bodas premium de 150-400 invitados en haciendas, hoteles, salones de lujo y venues de alto nivel. Es para parejas que quieren que su boda tenga una producción de iluminación y efectos a nivel profesional — no solo un efecto aislado, sino una experiencia visual completa toda la noche." },
+    ]} />
+  </section>
+
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Otros Paquetes de Humo Bajo"
+        subtitle="¿Solo necesitas niebla baja sin la producción completa?"
+        paragraph1="Si tu presupuesto es más ajustado o solo necesitas niebla para un momento, los paquetes Vals Único, Recepción Completa y Doble Cobertura cubren diferentes necesidades a menor costo."
+        paragraph2="Propuestas personalizadas para cualquier tipo de evento y presupuesto."
+      />
+      <div class="services-grid">
+        {otrosPaquetes.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para la producción visual completa de tu boda?</h2>
+        <p>Cuéntanos la fecha, el venue y tu visión. Agendamos la visita previa y te diseñamos la propuesta de producción a medida.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

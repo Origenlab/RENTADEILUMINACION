@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Burbujas para Fiestas Infantiles — $1,800 + IVA | REDEIL";
+const description = "Máquina de burbujas para fiestas infantiles y baby showers. Fluido no tóxico + operador. $1,800 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/burbujas/paquete-fiesta-infantil/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete Burbujas Fiesta Infantil — 1 Máquina Profesional",
+    "description": "Máquina de burbujas profesional para fiestas infantiles, baby showers y cumpleaños en casa o terraza. Fluido no tóxico + operador incluido. CDMX y Edomex.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "1800", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "64", "reviewCount": "64" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Mariana López" }, "datePublished": "2026-02-10", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "La máquina de burbujas fue el hit de la fiesta de mi hija. Los niños no pararon de correr detrás de las burbujas. El operador fue super amable y puntual." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Roberto Castillo" }, "datePublished": "2026-01-18", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos para el baby shower de mi esposa en la terraza de nuestra casa. Las burbujas le dieron un toque mágico a las fotos y el fluido es completamente seguro." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Sofía Ramírez" }, "datePublished": "2025-12-05", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Perfecto para el cumpleaños de mi sobrino en el jardín. La máquina estuvo trabajando una hora y los niños estaban felices. Precio justo y servicio profesional." }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿El fluido de burbujas es seguro para niños pequeños?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Usamos fluido profesional no tóxico, sin irritantes y seguro para niños desde 1 año. Si un niño toca o prueba una burbuja, no hay riesgo alguno." }},
+    { "@type": "Question", "name": "¿Cuánto dura el efecto de burbujas?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete incluye fluido para 1 hora de producción continua de burbujas. Suficiente para el momento principal de la fiesta infantil." }}
+  ]}
+]);
+
+const otrosPaquetes = [
+  { title: "Boda Entrada — $3,200", image: "/img/burbujas/maquina-burbujas-boda-entrada-novios.avif", alt: "Burbujas entrada de novios en boda", description: "2 máquinas para entrada de novios. Fluido ilimitado + operador. $3,200 + IVA.", link: "/servicios/burbujas/paquete-boda-entrada/" },
+  { title: "Burbujas Gigantes — $5,000", image: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Burbujas gigantes en show infantil", description: "Burbujas gigantes + lluvia continua para shows especiales. $5,000 + IVA.", link: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+  { title: "Producción — $8,500", image: "/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif", alt: "Burbujas profesionales en festival masivo", description: "6 máquinas + técnico para festivales y shows masivos. $8,500 + IVA.", link: "/servicios/burbujas/paquete-produccion/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en primer baile", description: "Combina burbujas + confeti para una fiesta doblemente mágica.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" }, { label: "Burbujas", href: "/servicios/burbujas/" }, { label: "Fiesta Infantil" }]} />
+</Fragment>
+
+    <Hero title="Burbujas para Fiestas Infantiles y Baby Showers" subtitle="$1,800 + IVA. 1 máquina profesional + fluido no tóxico + operador. El efecto favorito de los niños."
+      introParagraph1='Hay pocos efectos que generen tanta alegría instantánea como una lluvia de burbujas en una fiesta infantil. Los niños corren, saltan, intentan atraparlas — y los papás se quedan con las fotos más tiernas del evento. En <strong>REDEIL</strong> llevamos una máquina de burbujas profesional con fluido no tóxico especialmente formulado para eventos con niños pequeños, completamente seguro si lo tocan o lo prueban.'
+      introParagraph2='Este paquete es ideal para fiestas de cumpleaños en casa o terraza, baby showers al aire libre, bautizos y eventos íntimos de hasta 50 personas. El operador llega, monta la máquina en el lugar ideal y la activa en el momento que tú elijas — la entrada del pastel, la piñata o cuando los niños necesiten un boost de diversión. Incluye fluido para una hora continua de burbujas, traslado y montaje en toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar headline="Compara paquetes de burbujas" items={[
+      { label: "Boda Entrada — $3,200", href: "/servicios/burbujas/paquete-boda-entrada/", icon: "efectos" },
+      { label: "Gigantes — $5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/", icon: "efectos" },
+      { label: "Producción — $8,500", href: "/servicios/burbujas/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]} />
+
+    <section class="services-section">
+      <ContentWithSidebar sidebarTitle="Fiesta Infantil" price="$1,800" priceNote="+ IVA · Íntimo y seguro" features={[
+        { text: "1 máquina de burbujas profesional" }, { text: "Fluido no tóxico certificado" }, { text: "Producción continua 1 hora" }, { text: "Operador técnico incluido" }, { text: "Traslado + montaje + desmontaje" }, { text: "Ideal para casa, terraza, jardín" }, { text: "Seguro para niños desde 1 año" }, { text: "Coordinación con animador" }, { text: "Cobertura CDMX y Edomex" }, { text: "Hasta 50 invitados" },
+      ]} waMessage="Hola REDEIL, quiero cotizar el paquete Fiesta Infantil de burbujas para una fiesta de niños." packages={[
+        { label: "Fiesta Infantil", price: "$1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/", active: true },
+        { label: "Boda Entrada", price: "$3,200", href: "/servicios/burbujas/paquete-boda-entrada/" },
+        { label: "Burbujas Gigantes", price: "$5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+        { label: "Producción", price: "$8,500", href: "/servicios/burbujas/paquete-produccion/" },
+      ]}>
+        <div class="container">
+          <SectionHeader title="Burbujas para cada momento de la fiesta infantil" subtitle="El efecto más seguro y más divertido para los pequeños." paragraph1="Una máquina de burbujas transforma cualquier fiesta de niños. Ya sea en el jardín de tu casa, la terraza de un salón o un parque, las burbujas crean un ambiente mágico que mantiene a los niños entretenidos durante toda la celebración." paragraph2="El fluido profesional que usamos está certificado para contacto infantil — sin químicos irritantes, sin aroma agresivo y sin riesgo si un niño se mete una burbuja en la boca." />
+          <FeatureGrid features={[
+            { title: "Cumpleaños Infantiles", description: "El momento de las burbujas se convierte en el favorito de la fiesta. Los niños corren, saltan y las fotos quedan increíbles." },
+            { title: "Baby Showers", description: "Burbujas flotando en la terraza mientras abres los regalos. Un toque delicado y fotogénico para la celebración." },
+            { title: "Bautizos", description: "Efecto sutil y elegante para la recepción después de la ceremonia. Las burbujas complementan la decoración sin exagerar." },
+            { title: "Fiestas en Jardín", description: "Al aire libre las burbujas duran más y flotan más alto. El efecto se multiplica con la luz natural del día." },
+            { title: "Fiestas en Terraza", description: "Espacios pequeños e íntimos donde una sola máquina cubre todo. Perfecto para departamentos con terraza en CDMX." },
+            { title: "Piñata con Burbujas", description: "Activa las burbujas justo cuando rompen la piñata. Dulces + burbujas = el momento más caótico y divertido." },
+          ]} columns={2} />
+        </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Lo que dicen nuestros clientes" subtitle="⭐⭐⭐⭐⭐ 64 reseñas verificadas." paragraph1="Fiestas infantiles y baby showers con burbujas REDEIL." paragraph2="El efecto más sencillo y el que más sonrisas genera." />
+          <TestimonialCards testimonials={[
+            { name: "Mariana López", event: "Cumpleaños 4 años — Coyoacán", rating: 5, text: "La máquina de burbujas fue el hit de la fiesta de mi hija. Los niños no pararon de correr detrás de las burbujas. El operador fue super amable y puntual." },
+            { name: "Roberto Castillo", event: "Baby shower — Satélite", rating: 5, text: "Contratamos para el baby shower de mi esposa en la terraza. Las burbujas le dieron un toque mágico a las fotos y el fluido es completamente seguro." },
+            { name: "Sofía Ramírez", event: "Cumpleaños 6 años — Tlalpan", rating: 5, text: "Perfecto para el cumpleaños de mi sobrino en el jardín. La máquina estuvo trabajando una hora y los niños estaban felices. Precio justo y servicio profesional." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Burbujas en fiestas infantiles y baby showers" subtitle="El efecto que transforma cualquier fiesta de niños." paragraph1="Casas, jardines, terrazas y salones pequeños — las burbujas funcionan en todos lados." paragraph2="¿Tu fiesta se parece? Mándanos los detalles por WhatsApp." />
+        <Gallery4x4 images={[
+          { src: "/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif", alt: "Máquina de burbujas en fiesta infantil" },
+          { src: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos.avif", alt: "Burbujas gigantes en cumpleaños de niños" },
+          { src: "/img/burbujas/renta-burbujas-baby-shower-decoracion.avif", alt: "Burbujas en decoración de baby shower" },
+          { src: "/img/burbujas/maquina-burbujas-fiesta-jardin-terraza.avif", alt: "Máquina de burbujas en fiesta de jardín" },
+          { src: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Show infantil con burbujas y animación" },
+          { src: "/img/burbujas/maquina-burbujas-evento-navidad-posada.avif", alt: "Burbujas en evento navideño y posada" },
+          { src: "/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif", alt: "Burbujas en fiesta temática mágica" },
+          { src: "/img/burbujas/maquina-burbujas-despedida-soltera-diversion.avif", alt: "Burbujas en fiesta divertida" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Burbujas para Fiestas Infantiles" subtitle="Todo lo que necesitas saber antes de contratar." paragraph1="Escríbenos por WhatsApp si tienes otra duda." paragraph2="Te asesoramos para que el efecto sea perfecto en tu fiesta." />
+      </div>
+      <FaqSection items={[
+        { question: "¿El fluido de burbujas es seguro para niños pequeños?", answer: "Sí. Usamos fluido profesional no tóxico, sin irritantes y formulado específicamente para entretenimiento infantil. Si un niño toca o prueba una burbuja, no representa ningún riesgo. Solo evitamos contacto directo del fluido con los ojos." },
+        { question: "¿La máquina hace mucho ruido?", answer: "No. Las máquinas profesionales que usamos producen un zumbido suave — mucho menos que una bocina de música. Los niños no se asustan y el sonido no interfiere con la conversación ni con la música." },
+        { question: "¿Funciona en espacios cerrados?", answer: "Sí. En salones cerrados las burbujas se acumulan más porque no hay viento que las disperse, creando un efecto más denso. Solo considera que al reventarse dejan una película fina en el piso — recomendamos tener un trapeador cerca para pistas resbalosas." },
+        { question: "¿Puedo elegir el momento exacto de activación?", answer: "Sí. El operador activa la máquina cuando tú digas — al entrar el pastel, durante la piñata, en la entrada del festejado. Tú decides y el operador coordina contigo y con el animador." },
+        { question: "¿Cuántas burbujas produce en una hora?", answer: "La máquina profesional produce entre 500 y 2,000 burbujas por minuto dependiendo de la configuración. En una hora continua, estamos hablando de miles de burbujas flotando por toda la fiesta." },
+        { question: "¿Qué pasa si llueve el día de la fiesta?", answer: "Si tu evento es al aire libre y llueve, la máquina puede funcionar bajo techo o en un área cubierta sin problema. Si necesitas reagendar, coordinamos contigo para buscar una nueva fecha sin costo extra." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="¿Necesitas más máquinas o burbujas gigantes?" paragraph1="Cada paquete sube en intensidad y cobertura." paragraph2="Combina burbujas con confeti para una fiesta doblemente mágica." />
+        <div class="services-grid">{otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container"><div class="cta-content">
+        <h2>¿Listo para llenar de burbujas la fiesta de tus pequeños?</h2>
+        <p>Cuéntanos la fecha, el lugar y cuántos niños esperan. Te confirmamos disponibilidad en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div></div>
+    </section>
+</BaseLayout>

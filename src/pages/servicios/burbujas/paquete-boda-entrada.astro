@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import CtaBar from '../../../components/CtaBar.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FeatureGrid from '../../../components/FeatureGrid.astro';
+import TestimonialCards from '../../../components/TestimonialCards.astro';
+import ContentWithSidebar from '../../../components/ContentWithSidebar.astro';
+import Gallery4x4 from '../../../components/Gallery4x4.astro';
+import FaqSection from '../../../components/FaqSection.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const title = "Burbujas para Entrada de Novios en Bodas — $3,200 + IVA | REDEIL";
+const description = "Lluvia de burbujas para la entrada de novios. 2 máquinas + fluido ilimitado + operador. $3,200 + IVA en CDMX.";
+const canonical = "https://rentadeiluminacion.com/servicios/burbujas/paquete-boda-entrada/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org", "@type": "Product",
+    "name": "Paquete Burbujas Entrada de Novios — 2 Máquinas Profesionales",
+    "description": "Lluvia de burbujas para la entrada de novios en bodas y XV años. 2 máquinas profesionales + fluido ilimitado + operador técnico. CDMX y Edomex.",
+    "brand": { "@type": "Brand", "name": "REDEIL" },
+    "image": "https://rentadeiluminacion.com/img/burbujas/maquina-burbujas-boda-entrada-novios.avif",
+    "offers": { "@type": "Offer", "url": canonical, "priceCurrency": "MXN", "price": "3200", "priceValidUntil": "2027-12-31", "availability": "https://schema.org/InStock" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "71", "reviewCount": "71" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Andrea Villanueva" }, "datePublished": "2026-02-22", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "La entrada de mi esposo y yo entre burbujas fue el momento más mágico de la boda. Las fotos en el Jardín Jacarandas quedaron espectaculares. El operador se coordinó perfecto con el DJ." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Carlos Mendoza" }, "datePublished": "2026-01-15", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Contratamos las 2 máquinas para la entrada de los novios y el vals. REDEIL llegó puntual al Hacienda de Cortés y el efecto fue increíble. Las burbujas con la luz del atardecer — fotos de revista." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Fernanda Quiroz" }, "datePublished": "2025-11-28", "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Lo usamos para los XV de mi hija en Salón Versalles. La entrada de la quinceañera con burbujas fue un momento que nadie esperaba. El videógrafo dijo que fue de sus mejores tomas." }
+    ]
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿2 máquinas son suficientes para una boda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. 2 máquinas colocadas a los lados del pasillo o la entrada crean una cortina de burbujas densa y uniforme. Para recepciones grandes con pista de baile continua, recomendamos el paquete Producción." }},
+    { "@type": "Question", "name": "¿El operador se coordina con el DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro operador se pone de acuerdo con el DJ o maestro de ceremonias para activar las burbujas en el momento exacto de la entrada." }}
+  ]}
+]);
+
+const otrosPaquetes = [
+  { title: "Fiesta Infantil — $1,800", image: "/img/burbujas/renta-maquina-burbujas-fiesta-infantil.avif", alt: "Burbujas en fiesta infantil", description: "1 máquina para fiestas íntimas. Fluido no tóxico. $1,800 + IVA.", link: "/servicios/burbujas/paquete-fiesta-infantil/" },
+  { title: "Burbujas Gigantes — $5,000", image: "/img/burbujas/burbujas-gigantes-show-infantil-animacion.avif", alt: "Burbujas gigantes en show especial", description: "Burbujas gigantes + lluvia continua para shows especiales. $5,000 + IVA.", link: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+  { title: "Producción — $8,500", image: "/img/burbujas/burbujas-fiesta-carnaval-evento-masivo.avif", alt: "Burbujas profesionales en festival", description: "6 máquinas + técnico para festivales y shows masivos. $8,500 + IVA.", link: "/servicios/burbujas/paquete-produccion/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti dorado en primer baile", description: "Burbujas en la entrada + confeti en el brindis. La combinación perfecta para bodas.", link: "/servicios/confeti/" },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" }, { label: "Burbujas", href: "/servicios/burbujas/" }, { label: "Boda Entrada" }]} />
+</Fragment>
+
+    <Hero title="Lluvia de Burbujas para la Entrada de Novios en Bodas" subtitle="$3,200 + IVA. 2 máquinas profesionales + fluido ilimitado + operador. El momento más fotografiado de tu boda."
+      introParagraph1='La entrada de los novios entre una lluvia de burbujas es una de las imágenes más buscadas por fotógrafos de bodas. La luz rebota en cada esfera de jabón creando destellos pequeños que llenan la escena — es un efecto sutil, elegante y profundamente romántico. En <strong>REDEIL</strong> colocamos 2 máquinas de burbujas profesionales a los costados del pasillo o la entrada para crear una cortina continua que envuelve a los novios mientras caminan hacia la recepción.'
+      introParagraph2='Este paquete incluye fluido ilimitado para toda la noche, lo que significa que el operador puede activar las burbujas en múltiples momentos: la entrada, el vals, el brindis, la salida. Se coordina directamente con el DJ o maestro de ceremonias para que el timing sea perfecto. Atendemos bodas y XV años en haciendas, jardines, salones y terrazas de toda la CDMX y Estado de México.'
+    />
+
+    <CtaBar headline="Compara paquetes de burbujas" items={[
+      { label: "Infantil — $1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/", icon: "efectos" },
+      { label: "Gigantes — $5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/", icon: "efectos" },
+      { label: "Producción — $8,500", href: "/servicios/burbujas/paquete-produccion/", icon: "efectos" },
+      { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+    ]} />
+
+    <section class="services-section">
+      <ContentWithSidebar sidebarTitle="Boda Entrada" price="$3,200" priceNote="+ IVA · Más popular" features={[
+        { text: "2 máquinas de burbujas profesionales" }, { text: "Fluido ilimitado toda la noche" }, { text: "Operador técnico 4-6 horas" }, { text: "Traslado + montaje + desmontaje" }, { text: "Coordinación con DJ y fotógrafo" }, { text: "Activaciones múltiples a demanda" }, { text: "Ideal para bodas y XV años" }, { text: "Cobertura CDMX y Edomex" }, { text: "Montaje discreto fuera de escena" }, { text: "Fluido profesional de larga duración" },
+      ]} waMessage="Hola REDEIL, quiero cotizar el paquete Boda Entrada de burbujas para mi boda." packages={[
+        { label: "Fiesta Infantil", price: "$1,800", href: "/servicios/burbujas/paquete-fiesta-infantil/" },
+        { label: "Boda Entrada", price: "$3,200", href: "/servicios/burbujas/paquete-boda-entrada/", active: true },
+        { label: "Burbujas Gigantes", price: "$5,000", href: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+        { label: "Producción", price: "$8,500", href: "/servicios/burbujas/paquete-produccion/" },
+      ]}>
+        <div class="container">
+          <SectionHeader title="Burbujas para cada momento de tu boda o XV años" subtitle="No solo la entrada — el vals, el brindis, la salida." paragraph1="Con fluido ilimitado y operador toda la noche, las burbujas están disponibles para cada momento importante. El operador se coordina con el DJ para activar las máquinas exactamente cuando la música sube y los novios hacen su aparición." paragraph2="En jardines y haciendas, las burbujas flotan más alto y duran más — la combinación con la luz del atardecer es simplemente perfecta para las fotos." />
+          <FeatureGrid features={[
+            { title: "Entrada de Novios", description: "El momento principal. Dos cortinas de burbujas a los lados del pasillo crean un efecto de ensueño mientras los novios caminan hacia la recepción." },
+            { title: "Vals y Primer Baile", description: "Burbujas flotando alrededor de la pista mientras bailan el vals. Las fotos y el video quedan espectaculares con la iluminación correcta." },
+            { title: "XV Años — Entrada", description: "La quinceañera entra al salón entre burbujas y aplausos. Un momento que los invitados no esperan y que queda perfecto en video." },
+            { title: "Brindis y Pastel", description: "Burbujas sutiles durante el brindis o el corte de pastel. Un toque elegante sin exagerar." },
+            { title: "Bodas en Jardín", description: "Al aire libre las burbujas se llenan de color con la luz natural. Los jardines y haciendas son el escenario perfecto para este efecto." },
+            { title: "Salida de los Novios", description: "Lluvia de burbujas en la salida final. Un cierre mágico que los invitados recuerdan — y que el fotógrafo captura perfecto." },
+          ]} columns={2} />
+        </div>
+        <div class="container" style="margin-top: 3rem;">
+          <SectionHeader title="Lo que dicen nuestros clientes" subtitle="⭐⭐⭐⭐⭐ 71 reseñas verificadas." paragraph1="Bodas y XV años con burbujas REDEIL." paragraph2="El efecto más romántico y el que mejor queda en fotos." />
+          <TestimonialCards testimonials={[
+            { name: "Andrea Villanueva", event: "Boda — Jardín Jacarandas, Cuernavaca", rating: 5, text: "La entrada de mi esposo y yo entre burbujas fue el momento más mágico de la boda. Las fotos quedaron espectaculares. El operador se coordinó perfecto con el DJ." },
+            { name: "Carlos Mendoza", event: "Boda — Hacienda de Cortés, Cuernavaca", rating: 5, text: "Contratamos las 2 máquinas para la entrada y el vals. REDEIL llegó puntual y el efecto fue increíble. Las burbujas con la luz del atardecer — fotos de revista." },
+            { name: "Fernanda Quiroz", event: "XV años — Salón Versalles, CDMX", rating: 5, text: "Lo usamos para los XV de mi hija. La entrada de la quinceañera con burbujas fue un momento que nadie esperaba. El videógrafo dijo que fue de sus mejores tomas." },
+          ]} />
+        </div>
+      </ContentWithSidebar>
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Burbujas en bodas, XV años y recepciones" subtitle="El efecto más romántico para tu celebración." paragraph1="Haciendas, jardines, salones y terrazas — las burbujas funcionan en cualquier venue." paragraph2="¿Tu boda se parece? Mándanos los detalles por WhatsApp." />
+        <Gallery4x4 images={[
+          { src: "/img/burbujas/maquina-burbujas-boda-entrada-novios.avif", alt: "Entrada de novios con lluvia de burbujas" },
+          { src: "/img/burbujas/maquina-burbujas-profesional-boda-jardin.avif", alt: "Máquina de burbujas profesional en boda de jardín" },
+          { src: "/img/burbujas/maquina-burbujas-vals-quinceanos-pista.avif", alt: "Burbujas en vals de quinceañera" },
+          { src: "/img/burbujas/renta-burbujas-evento-xv-anos-salon.avif", alt: "Burbujas en evento de XV años en salón" },
+          { src: "/img/burbujas/maquina-burbujas-boda-romantica-exterior.avif", alt: "Burbujas en boda romántica exterior" },
+          { src: "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif", alt: "Efecto especial de burbujas para fotografía" },
+          { src: "/img/burbujas/burbujas-profesionales-fiesta-graduacion.avif", alt: "Burbujas profesionales en graduación" },
+          { src: "/img/burbujas/burbujas-fiesta-tematica-magica-luces.avif", alt: "Burbujas con luces mágicas en fiesta" },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader title="Preguntas sobre Burbujas para Bodas" subtitle="Todo lo que necesitas saber antes de contratar." paragraph1="Escríbenos por WhatsApp si tienes otra duda." paragraph2="Te asesoramos sobre la mejor colocación para tu venue." />
+      </div>
+      <FaqSection items={[
+        { question: "¿2 máquinas son suficientes para una boda de 200 personas?", answer: "Sí. 2 máquinas colocadas a los lados del pasillo o la entrada crean una cortina de burbujas densa y continua. Para bodas con pista de baile grande donde quieras burbujas toda la noche en la pista, considera el paquete Producción con 6 máquinas." },
+        { question: "¿Las burbujas mojan los vestidos?", answer: "Las burbujas son 99% aire — cuando se revientan dejan una capa mínima de jabón que se seca en segundos. No manchan vestidos blancos ni telas delicadas. El fluido profesional que usamos está formulado para evitar residuos." },
+        { question: "¿El operador se coordina con mi DJ y fotógrafo?", answer: "Sí. Nuestro operador llega con tiempo para hablar con el DJ y el fotógrafo. Se ponen de acuerdo en los momentos exactos de activación para que el timing sea perfecto y el fotógrafo esté listo." },
+        { question: "¿Funciona en salones cerrados?", answer: "Sí. En salones cerrados las burbujas se acumulan más y crean un efecto más denso. Solo hay que considerar que el piso puede ponerse ligeramente resbaloso — recomendamos avisar al venue para que tengan personal de limpieza atento." },
+        { question: "¿Puedo agregar más máquinas el mismo día?", answer: "Si tenemos disponibilidad, sí. Pero es mejor confirmar desde la cotización cuántas máquinas necesitas para que llevemos el equipo completo. El upgrade al paquete Burbujas Gigantes ($5,000) o Producción ($8,500) sale mejor." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader title="Otros Paquetes y Complementos" subtitle="¿Necesitas más efecto o burbujas gigantes?" paragraph1="Cada paquete sube en cantidad de máquinas y cobertura." paragraph2="Combina burbujas con confeti para el brindis perfecto." />
+        <div class="services-grid">{otrosPaquetes.map((s) => (<ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />))}</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container"><div class="cta-content">
+        <h2>¿Lista la lluvia de burbujas para tu boda?</h2>
+        <p>Cuéntanos la fecha, el venue y qué momentos quieres que sean especiales. Te cotizamos en minutos.</p>
+        <div class="cta-buttons">
+          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div></div>
+    </section>
+</BaseLayout>
