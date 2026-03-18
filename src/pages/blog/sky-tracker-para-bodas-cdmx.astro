@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Gancho emocional más fuerte desde el primer párrafo + venues CDMX específicos donde funciona + logística real (permisos, horarios, vecinos) + combinaciones detalladas
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Sky Tracker para Bodas en CDMX: El Efecto que Se Ve Desde Kilómetros | REDEIL";
 const description = "Sky tracker para bodas al aire libre en CDMX: cómo funciona, para qué venues sirve, cuántos necesitas y preguntas logísticas. Renta desde $3,500 + IVA.";
@@ -29,18 +28,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif";
+const imageAlt = "Sky trackers iluminando el cielo nocturno en boda en hacienda colonial CDMX";
+const category = "Iluminación";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Sky Tracker para Bodas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Sky Tracker para Bodas en CDMX: El Efecto que Se Ve Desde Kilómetros</h1>
-      <img src="/img/sky-tracker/luces-antiaereas-boda-hacienda-colonial.avif" alt="Sky trackers iluminando el cielo nocturno en boda en hacienda colonial CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Los invitados venían bajando por la carretera de Tepotzotlán, todavía a dos kilómetros de la hacienda, y ya se veían las columnas de luz cortando el cielo nocturno. "¿Eso es la boda?", preguntó alguien desde el asiento trasero. Era la boda. Y ese fue el primer momento wow de la noche — antes de estacionar, antes de entrar, antes de ver la decoración. Dos haces de luz diciendo "la fiesta es aquí" desde kilómetros de distancia.</p>
 
       <p>El sky tracker (también llamado search light o luz antiaérea) es el efecto más espectacular que puedes poner en una boda al aire libre. No es sutil. No es discreto. Es una declaración: este es el evento más importante de la noche en toda la zona.</p>
@@ -104,38 +106,36 @@ const schemaMarkup = JSON.stringify([
 
       <h2>Cuántos necesitas según el espacio</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 500px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Sky trackers</th>
-              <th style="padding: 12px; text-align: left;">Efecto</th>
-              <th style="padding: 12px; text-align: left;">Ideal para</th>
-              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+            <tr>
+              <th>Sky trackers</th>
+              <th>Efecto</th>
+              <th>Ideal para</th>
+              <th>Precio + IVA</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>1 unidad</strong></td>
-              <td style="padding: 12px;">Columna de luz solitaria</td>
-              <td style="padding: 12px;">Entrada o punto focal</td>
-              <td style="padding: 12px;">$3,500</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>2 unidades</strong></td>
-              <td style="padding: 12px;">Enmarca el evento, simétrico</td>
-              <td style="padding: 12px;">Bodas en jardín o hacienda</td>
-              <td style="padding: 12px;">$6,000</td>
+            <tr>
+              <td><strong>1 unidad</strong></td>
+              <td>Columna de luz solitaria</td>
+              <td>Entrada o punto focal</td>
+              <td>$3,500</td>
             </tr>
             <tr>
-              <td style="padding: 12px;"><strong>4 unidades</strong></td>
-              <td style="padding: 12px;">Pirámide de luz, producción</td>
-              <td style="padding: 12px;">Bodas de producción, inauguraciones</td>
-              <td style="padding: 12px;">$10,000</td>
+              <td><strong>2 unidades</strong></td>
+              <td>Enmarca el evento, simétrico</td>
+              <td>Bodas en jardín o hacienda</td>
+              <td>$6,000</td>
+            </tr>
+            <tr>
+              <td><strong>4 unidades</strong></td>
+              <td>Pirámide de luz, producción</td>
+              <td>Bodas de producción, inauguraciones</td>
+              <td>$10,000</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <h2>Preguntas logísticas: permisos, horarios, vecinos</h2>
 
@@ -184,10 +184,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si tu boda es en jardín, hacienda o terraza y quieres el efecto más impactante que existe para exteriores nocturnos — este es. Mándanos la ubicación de tu venue y te decimos cuántas unidades necesitas.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/sky-tracker/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Sky Tracker</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20sky%20tracker%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Más visual — explicación detallada de instalación + tamaños con medidas reales + dónde colocarlas para máximo impacto fotográfico + combinaciones con city color y gobos
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Cascadas LED para Bodas: El Efecto Visual que Transforma Cualquier Fondo | REDEIL";
 const description = "Cascadas LED para bodas en CDMX: qué son, tamaños, dónde instalarlas para las mejores fotos y combinaciones con city color y gobos. Renta desde $3,000 + IVA.";
@@ -28,18 +27,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif";
+const imageAlt = "Cascadas LED como backdrop espectacular para boda, efecto twinkle blanco cálido";
+const category = "Iluminación";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Cascadas LED para Bodas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Cascadas LED para Bodas: El Efecto Visual que Transforma Cualquier Fondo</h1>
-      <img src="/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif" alt="Cascadas LED como backdrop espectacular para boda, efecto twinkle blanco cálido" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Si hay un efecto que ha dominado los backdrops de bodas en CDMX en los últimos dos años, son las cascadas LED. Esa cortina de cientos de luces diminutas que caen como una lluvia de estrellas detrás de la mesa de novios, detrás del altar o cubriendo una pared completa del salón. Cada foto del brindis, cada video del discurso del papá, cada selfie de los invitados — todos tienen ese fondo brillante y mágico de fondo.</p>
 
       <p>Y lo mejor es que son más accesibles de lo que la gente cree. Una cortina de cascadas LED cuesta una fracción de lo que cobra un florista por un backdrop de flores — y en las fotos, el impacto visual es igual o mayor.</p>
@@ -61,49 +63,47 @@ const schemaMarkup = JSON.stringify([
 
       <h2>Tamaños y configuraciones disponibles</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 600px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Configuración</th>
-              <th style="padding: 12px; text-align: left;">Medida</th>
-              <th style="padding: 12px; text-align: left;">LEDs aprox.</th>
-              <th style="padding: 12px; text-align: left;">Uso típico</th>
-              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+            <tr>
+              <th>Configuración</th>
+              <th>Medida</th>
+              <th>LEDs aprox.</th>
+              <th>Uso típico</th>
+              <th>Precio + IVA</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>1 cortina</strong></td>
-              <td style="padding: 12px;">3m × 3m</td>
-              <td style="padding: 12px;">600-900</td>
-              <td style="padding: 12px;">Mesa de novios, punto focal</td>
-              <td style="padding: 12px;">$3,000</td>
+            <tr>
+              <td><strong>1 cortina</strong></td>
+              <td>3m × 3m</td>
+              <td>600-900</td>
+              <td>Mesa de novios, punto focal</td>
+              <td>$3,000</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>2 cortinas</strong></td>
-              <td style="padding: 12px;">6m × 3m</td>
-              <td style="padding: 12px;">1,200-1,800</td>
-              <td style="padding: 12px;">Backdrop de ceremonia, pared de salón</td>
-              <td style="padding: 12px;">$5,500</td>
+            <tr>
+              <td><strong>2 cortinas</strong></td>
+              <td>6m × 3m</td>
+              <td>1,200-1,800</td>
+              <td>Backdrop de ceremonia, pared de salón</td>
+              <td>$5,500</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>4 cortinas</strong></td>
-              <td style="padding: 12px;">12m × 3m</td>
-              <td style="padding: 12px;">2,400-3,600</td>
-              <td style="padding: 12px;">Muro completo de salón</td>
-              <td style="padding: 12px;">$8,500</td>
+            <tr>
+              <td><strong>4 cortinas</strong></td>
+              <td>12m × 3m</td>
+              <td>2,400-3,600</td>
+              <td>Muro completo de salón</td>
+              <td>$8,500</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Arco/U</strong></td>
-              <td style="padding: 12px;">Variable</td>
-              <td style="padding: 12px;">Variable</td>
-              <td style="padding: 12px;">Arco de ceremonia, media luna</td>
-              <td style="padding: 12px;">Desde $6,000</td>
+            <tr>
+              <td><strong>Arco/U</strong></td>
+              <td>Variable</td>
+              <td>Variable</td>
+              <td>Arco de ceremonia, media luna</td>
+              <td>Desde $6,000</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>Las cortinas se pueden unir para crear muros continuos o separar para enmarcar un espacio. También se pueden colgar en ángulo para crear un dosel (techo inclinado de luces) sobre la mesa de novios o la pista de baile.</p>
 
@@ -172,10 +172,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Mándanos una foto de tu venue y te decimos exactamente cuántas cortinas necesitas y dónde colocarlas para el mayor impacto visual.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/cascadas-led/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Cascadas LED</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20cascadas%20LED%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

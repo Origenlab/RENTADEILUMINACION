@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Tipos de Iluminación para Eventos: Guía Completa para No Cometer Errores | REDEIL";
 const description = "Conoce todos los tipos de iluminación para eventos: wash, spot, beam, efectos, ambiental. Cuándo usar cada uno y errores comunes. Guía experta REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-beam-spot-wash-totem-salon.avif";
+const imageAlt = "Diferentes tipos de iluminación profesional para eventos: beam, spot y wash";
+const category = "Guía";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Tipos de Iluminación"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Tipos de Iluminación para Eventos: Guía Completa para No Cometer Errores</h1>
-
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-beam-spot-wash-totem-salon.avif" alt="Diferentes tipos de iluminación profesional para eventos: beam, spot y wash" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Cuando un cliente nos dice "quiero luces para mi evento", la primera pregunta que hacemos es: ¿qué tipo de luces? Porque en iluminación profesional para eventos existen al menos seis categorías distintas, y cada una cumple una función diferente. Usar la equivocada puede arruinar la estética, desperdiciar presupuesto o dejar zonas del evento completamente oscuras.</p>
 
       <p>Después de más de 30 años montando eventos en la Ciudad de México, hemos visto de todo: bodas con 20 cabezas móviles y cero luz ambiental (los invitados tropezaban con las mesas), XV años con pura luz wash sin ningún efecto dinámico (se veía plano y aburrido), y corporativos con luces de colores cuando lo que necesitaban era iluminación blanca limpia. Esta guía te va a evitar esos errores.</p>
@@ -108,32 +109,32 @@ const schemaMarkup = JSON.stringify([
 
       <p>El secreto de un evento bien iluminado no es tener mucho equipo — es combinar los tipos correctos. Aquí van las combinaciones que más funcionan según el tipo de evento:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left;">Evento</th>
-            <th style="padding: 12px; text-align:left;">Combinación Recomendada</th>
+          <tr>
+            <th>Evento</th>
+            <th>Combinación Recomendada</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;"><strong>Boda elegante</strong></td>
-            <td style="padding: 12px;">Ambiental (par LED) + decorativa (guirnaldas) + puntual (seguidor) + efectos (humo bajo, gobos)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;"><strong>XV años</strong></td>
-            <td style="padding: 12px;">Ambiental + beam (cabezas móviles) + efectos (CO2, bengalas) + decorativa (neón)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;"><strong>Corporativo</strong></td>
-            <td style="padding: 12px;">Ambiental (blanco neutro) + puntual (spot en escenario) + decorativa (uplighting en marca)</td>
+          <tr>
+            <td><strong>Boda elegante</strong></td>
+            <td>Ambiental (par LED) + decorativa (guirnaldas) + puntual (seguidor) + efectos (humo bajo, gobos)</td>
           </tr>
           <tr>
-            <td style="padding: 12px;"><strong>Fiesta/antro</strong></td>
-            <td style="padding: 12px;">Beam (cabezas móviles) + ambiental (wash) + efectos (CO2, láser) + haze</td>
+            <td><strong>XV años</strong></td>
+            <td>Ambiental + beam (cabezas móviles) + efectos (CO2, bengalas) + decorativa (neón)</td>
+          </tr>
+          <tr>
+            <td><strong>Corporativo</strong></td>
+            <td>Ambiental (blanco neutro) + puntual (spot en escenario) + decorativa (uplighting en marca)</td>
+          </tr>
+          <tr>
+            <td><strong>Fiesta/antro</strong></td>
+            <td>Beam (cabezas móviles) + ambiental (wash) + efectos (CO2, láser) + haze</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Los 3 Errores Más Comunes</h2>
 
@@ -147,9 +148,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Ahora que conoces los tipos de iluminación, el siguiente paso es elegir la combinación correcta para tu evento. En <strong>REDEIL</strong> te asesoramos sin compromiso — cuéntanos qué tipo de evento planeas y te recomendamos exactamente qué equipo necesitas. Explora nuestro catálogo completo de <a href="/servicios/iluminacion/">servicios de iluminación</a> o cotiza directo.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Tu Iluminación</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

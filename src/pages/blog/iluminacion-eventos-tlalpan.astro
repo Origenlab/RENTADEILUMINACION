@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Tlalpan CDMX — Haciendas, Jardines y Salones | REDEIL";
 const description = "Renta de iluminación profesional para eventos en Tlalpan CDMX. Guirnaldas, sky trackers, luces LED y efectos especiales para haciendas, jardines amplios y quintas. Cotiza hoy.";
@@ -72,18 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif";
+const imageAlt = "Guirnaldas Edison iluminando jardín de hacienda en Tlalpan para boda";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Tlalpan"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Tlalpan CDMX — Haciendas, Jardines y Salones</h1>
-      <img src="/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" alt="Guirnaldas Edison iluminando jardín de hacienda en Tlalpan para boda" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Tlalpan es una de las alcaldías más buscadas para eventos en la Ciudad de México, y no es casualidad. Su mezcla de haciendas coloniales, jardines amplios rodeados de bosque, quintas privadas y la cercanía con el Ajusco crean un escenario que pocos lugares en CDMX pueden ofrecer. Pero esa misma belleza natural viene con desafíos específicos para la iluminación: espacios enormes al aire libre, temperaturas que bajan considerablemente por la noche, y haciendas con instalaciones eléctricas que no siempre están preparadas para una producción profesional.</p>
 
       <p>En REDEIL llevamos años montando iluminación para bodas, XV años, eventos corporativos y fiestas privadas en toda la zona de Tlalpan. Conocemos los venues, sabemos qué funciona en cada espacio y llegamos con soluciones ya probadas para los retos que presenta esta alcaldía. Aquí te contamos todo lo que necesitas saber para que tu evento en Tlalpan tenga la iluminación que merece.</p>
@@ -158,26 +160,4 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Con cuánta anticipación debo reservar para un evento en Tlalpan?</h3>
       <p>Recomendamos reservar con mínimo 3-4 semanas de anticipación, especialmente en temporada alta (noviembre-febrero). Para eventos en haciendas que requieren visita técnica previa para evaluar la situación eléctrica y los puntos de montaje, lo ideal es contactarnos con 6 semanas de anticipación. Así podemos hacer la visita al venue, planificar la logística y asegurarnos de llevar todo lo necesario el día del evento.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Tlalpan →</a>
-      </div>
-
-      <h2>También Atendemos Zonas Cercanas</h2>
-      <p>Si tu evento no es en Tlalpan pero sí en una alcaldía cercana, también cubrimos estas zonas con el mismo nivel de servicio:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-bodas-coyoacan/">Iluminación para eventos en Coyoacán</a> — Jardines coloniales, foros culturales y casas con jardín en una de las alcaldías con más encanto de CDMX.</li>
-        <li><a href="/blog/iluminacion-eventos-xochimilco/">Iluminación para eventos en Xochimilco</a> — Haciendas, trajineras y jardines junto a los canales con un ambiente único.</li>
-        <li><a href="/blog/iluminacion-eventos-alvaro-obregon/">Iluminación para eventos en Álvaro Obregón</a> — Salones, terrazas y jardines en San Ángel, Chimalistac y zonas residenciales.</li>
-      </ul>
-
-      <h2>Haz Que Tu Evento en Tlalpan Sea Inolvidable</h2>
-      <p>La iluminación es lo que transforma un espacio bonito en una experiencia memorable. En Tlalpan tienes la ventaja de contar con venues espectaculares; nosotros nos encargamos de que se vean a la altura con iluminación profesional, montaje puntual y un equipo que sabe exactamente cómo resolver los retos técnicos de cada espacio.</p>
-
-      <p>Cuéntanos sobre tu evento: dónde es, cuántos invitados esperas, qué tipo de ambiente quieres crear. Te armamos una propuesta a la medida con precios claros y sin sorpresas.</p>
-
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis →</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

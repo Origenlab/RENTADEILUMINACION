@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Venustiano Carranza CDMX — Salones, Bodas y Convenciones | REDEIL";
 const description = "Iluminación profesional para eventos en Venustiano Carranza CDMX. Cabezas móviles, luces LED y efectos para salones en Balbuena, Peñón de los Baños y zona aeropuerto.";
@@ -72,19 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif";
+const imageAlt = "Cabezas móviles con beams iluminando evento corporativo en Venustiano Carranza CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Venustiano Carranza"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Venustiano Carranza: Balbuena, Peñón de los Baños, Zona Aeropuerto y Más</h1>
-
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif" alt="Cabezas móviles con beams iluminando evento corporativo en Venustiano Carranza CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p><strong>Venustiano Carranza</strong> es una alcaldía estratégica en la Ciudad de México. Ubicada en la zona oriente-centro de la capital, combina colonias con profunda tradición familiar como <strong>Jardín Balbuena</strong>, <strong>Moctezuma</strong> y <strong>Peñón de los Baños</strong> con una de las zonas comerciales y corporativas más activas de la ciudad: todo el corredor que rodea al <strong>Aeropuerto Internacional de la Ciudad de México</strong>. Esa mezcla hace que los eventos en esta alcaldía sean tremendamente diversos: bodas familiares en salones de Balbuena, XV años en la colonia Moctezuma, y convenciones empresariales de cientos de personas en hoteles de la zona aeropuerto.</p>
 
       <p>En REDEIL llevamos años trabajando en Venustiano Carranza. Conocemos sus salones, sus hoteles, las particularidades logísticas de cada zona y lo que cada tipo de evento necesita para que la iluminación y ambientación estén a la altura. Nuestro servicio incluye traslado, montaje profesional, operación técnica durante todo el evento y desmontaje completo. Sin letras chiquitas ni costos sorpresa.</p>
@@ -145,30 +146,6 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Ofrecen paquetes de iluminación + sonido?</h3>
       <p>Sí. Combinamos iluminación profesional con <a href="/servicios/bocinas/">sistemas de sonido</a> de alta potencia. Los paquetes integrados tienen mejor precio que contratar cada servicio por separado, y la ventaja operativa es enorme: un solo equipo que coordina luces y sonido para que todo funcione en sincronía durante tu evento.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Venustiano Carranza →</a>
       </div>
-
-      <h2>También atendemos alcaldías y municipios cercanos</h2>
-
-      <p>Si tu evento no es en Venustiano Carranza pero sí en la zona oriente o centro de la ciudad, también te atendemos. Consulta nuestras guías para zonas cercanas:</p>
-
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-iztapalapa/">Iluminación para eventos en Iztapalapa</a></li>
-        <li><a href="/blog/iluminacion-eventos-gustavo-a-madero/">Iluminación para eventos en Gustavo A. Madero</a></li>
-        <li><a href="/blog/iluminacion-eventos-centro-historico-cdmx/">Iluminación para eventos en el Centro Histórico (Cuauhtémoc)</a></li>
-      </ul>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento en Venustiano Carranza?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

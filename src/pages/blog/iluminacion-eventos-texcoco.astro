@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Texcoco Estado de México — Haciendas, Salones y Bodas | REDEIL";
 const description = "Iluminación profesional para eventos en Texcoco Edomex. Guirnaldas, cabezas móviles y efectos especiales para haciendas, salones de eventos y quintas en la zona oriente.";
@@ -72,19 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-focos-edison-eventos.avif";
+const imageAlt = "Guirnaldas con focos Edison iluminando jardín de hacienda para evento en Texcoco Estado de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Texcoco"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Texcoco — Haciendas, Salones y Bodas</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-focos-edison-eventos.avif" alt="Guirnaldas con focos Edison iluminando jardín de hacienda para evento en Texcoco Estado de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p><strong>Texcoco</strong> es uno de los municipios con más personalidad de la <strong>zona oriente del Estado de México</strong>. Con una historia que se remonta a los pueblos prehispánicos, arquitectura colonial que todavía se respira en sus calles y haciendas restauradas que hoy funcionan como venues de eventos, Texcoco se ha convertido en una de las opciones favoritas para bodas, XV años y celebraciones que buscan algo diferente a los salones genéricos de la ciudad.</p>
 
       <p>La demanda de iluminación profesional en esta zona crece cada temporada. En REDEIL llevamos años atendiendo eventos en Texcoco y toda la zona oriente del Edomex, saliendo desde la Ciudad de México con todo el equipo necesario: luces, estructuras, cableado, planta de luz cuando se requiere y operadores técnicos que se quedan durante todo el evento. Si estás planeando una celebración en Texcoco, aquí te cuento todo lo que necesitas saber sobre la <strong>renta de iluminación profesional</strong> para tu evento.</p>
@@ -159,35 +160,6 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Llevan planta de luz a haciendas de Texcoco?</h3>
       <p>Sí. Muchas haciendas de la zona oriente tienen capacidad eléctrica limitada, especialmente las propiedades más antiguas. Llevamos plantas de luz silenciosas de 20 a 45 kVA para garantizar el suministro eléctrico durante todo el evento. Las probamos antes de que empiece la celebración y las monitoreamos durante la noche para que no haya interrupciones ni ruido que afecte la experiencia de tus invitados.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Texcoco →</a>
       </div>
-
-      <h2>También atendemos zonas cercanas</h2>
-      <p>Si tu evento no es directamente en Texcoco pero sí en una zona cercana, también llegamos sin problema. Conoce nuestros servicios de iluminación en:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-iztapalapa/">Iztapalapa</a> — salones, jardines y espacios de eventos en la zona oriente de CDMX</li>
-        <li><a href="/blog/iluminacion-eventos-toluca-metepec/">Toluca y Metepec</a> — haciendas, salones y venues del Valle de Toluca</li>
-        <li><a href="/blog/iluminacion-eventos-ecatepec/">Ecatepec</a> — salones y jardines en la zona norte del Estado de México</li>
-      </ul>
-
-      <h2>Tu evento en Texcoco merece iluminación profesional</h2>
-      <p>Las haciendas, los jardines y los salones de Texcoco tienen el espacio y la personalidad. Nosotros ponemos la luz que hace que todo se vea como lo imaginaste. Cuéntanos dónde será tu evento, qué tipo de celebración estás planeando y cuántas personas esperas. Te enviamos una propuesta detallada con precios transparentes, sin letras chiquitas ni sorpresas el día del evento.</p>
-
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Solicita tu Cotización Gratis →</a>
-      </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

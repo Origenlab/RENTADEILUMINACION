@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Boda de 100 vs 300 Personas: Diferencias Clave | REDEIL";
 const description = "Descubre cuántos equipos de iluminación necesitas según el número de invitados. Comparativa 100 vs 300 personas: watts, luminarios, costos y distribución.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/bodas/boda-salon-guirnaldas-pista-iluminada.avif";
+const imageAlt = "Iluminación profesional completa para recepción de boda en salón grande CDMX";
+const category = "Comparativas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"100 vs 300 Personas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Boda de 100 vs 300 Personas: Diferencias Clave</h1>
-
-      <img src="/img/bodas/boda-salon-guirnaldas-pista-iluminada.avif" alt="Iluminación profesional completa para recepción de boda en salón grande CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Una de las primeras preguntas que nos hacen las parejas cuando piden cotización es: "¿Cuántos equipos necesito?" La respuesta depende directamente de dos factores: el número de invitados y el tamaño del espacio. No es lo mismo iluminar una boda íntima de 100 personas en un jardín pequeño que una celebración de 300 invitados en una hacienda con múltiples áreas.</p>
 
       <p>En esta guía vamos a desglosar las diferencias reales en equipamiento, consumo eléctrico, distribución y costos para que puedas planificar tu presupuesto con información concreta.</p>
@@ -169,20 +170,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>La mejor forma de tener un presupuesto real es contactarnos con los datos de tu evento: número de invitados, venue, fecha y concepto. Con esa información, preparamos una cotización detallada y personalizada sin compromiso.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/eventos/bodas/" class="btn btn-primary btn-lg">Cotiza según tu número de invitados →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

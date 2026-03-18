@@ -2,22 +2,16 @@
 /**
  * BlogLayout — REDEIL
  * ────────────────────
- * Usa SOLO los componentes existentes del sitio:
- * BaseLayout, Hero, CtaBar, ContentWithSidebar, SectionHeader, ServiceCard
- *
- * Estructura idéntica a páginas de servicio:
- * Hero → CtaBar → ContentWithSidebar (artículo + sidebar) → Servicios relacionados → CTA Final
- *
- * Sin componentes custom. Sin CSS de layout custom.
- * Solo CSS para tipografía del contenido markdown.
+ * Layout de 2 columnas para artículos del blog.
+ * Col izquierda: artículo completo | Col derecha: BlogSidebar sticky
+ * Hereda de BaseLayout. Sin animaciones. CSS limpio y scoped.
  */
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hero from '../components/Hero.astro';
 import CtaBar from '../components/CtaBar.astro';
-import ContentWithSidebar from '../components/ContentWithSidebar.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import ServiceCard from '../components/ServiceCard.astro';
+import BlogSidebar from '../components/BlogSidebar.astro';
+import BlogCard from '../components/BlogCard.astro';
 
 interface Props {
   title: string;
@@ -39,12 +33,52 @@ const {
   schemaMarkup,
 } = Astro.props;
 
-const serviciosRelacionados = [
-  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para bodas", description: "Focos Edison con luz cálida vintage para jardines, terrazas y haciendas. Las más pedidas para bodas.", link: "/servicios/guirnaldas/" },
-  { title: "Cascadas LED", image: "/img/cascadas-led/cascadas-led-novios-mesa-romantica-boda-300w.avif", alt: "Cascadas LED para mesa de novios", description: "Cortinas de luces LED como backdrop para la mesa de novios. Efecto brillante y fotogénico.", link: "/servicios/cascadas-led/" },
-  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Show de luces para eventos", description: "Show de luces robóticas Beam, Spot y Wash con control DMX. El efecto de concierto en tu evento.", link: "/servicios/cabezas-moviles/" },
-  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para vals de boda", description: "Niebla baja que crea nubes en el piso para el vals. El efecto más emotivo para bodas y XV años.", link: "/servicios/humo-bajo/" },
+// Popular articles for sidebar (hand-picked)
+const popularArticles = [
+  { title: "¿Cuánto Cuesta la Iluminación para una Boda en CDMX?", slug: "cuanto-cuesta-iluminacion-boda-cdmx", category: "Bodas", img: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18-400w.avif" },
+  { title: "¿Cuántos Metros de Guirnaldas Necesito para mi Boda?", slug: "cuantos-metros-guirnaldas-necesito", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
+  { title: "Tipos de Iluminación para Eventos: Guía Completa", slug: "tipos-iluminacion-para-eventos", category: "Guía", img: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif" },
+  { title: "Bengalas Frías en Interiores: ¿Son Seguras?", slug: "bengalas-frias-seguras-interiores", category: "Efectos", img: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif" },
+  { title: "¿Cuánto Cuesta un DJ para Boda en CDMX?", slug: "cuanto-cuesta-dj-para-boda-cdmx", category: "Sonido", img: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif" },
 ];
+
+// Related articles by category
+const relatedByCategory: Record<string, Array<{title: string; description: string; image: string; imageAlt: string; category: string; slug: string}>> = {
+  "Bodas": [
+    { title: "Checklist de Iluminación para Boda", description: "La lista que usan los wedding planners para no olvidar nada.", image: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif", imageAlt: "Guirnaldas para boda", category: "Bodas", slug: "checklist-iluminacion-boda" },
+    { title: "Iluminación para el Primer Vals", description: "Follow Spot, Gobo y efectos para el momento más fotogénico.", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", imageAlt: "Iluminación primer vals", category: "Bodas", slug: "iluminacion-primer-vals-boda" },
+    { title: "¿Cuánto Cuesta la Iluminación para Boda en CDMX?", description: "Precios reales y rangos por paquete.", image: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18-400w.avif", imageAlt: "Iluminación boda hacienda", category: "Bodas", slug: "cuanto-cuesta-iluminacion-boda-cdmx" },
+  ],
+  "XV Años": [
+    { title: "Tendencias de Iluminación para XV Años 2025", description: "Neón, LED, efectos especiales y todo lo que está de moda.", image: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif", imageAlt: "Luces neón XV años", category: "XV Años", slug: "iluminacion-xv-anos-tendencias" },
+    { title: "Efectos Especiales para Entrada de XV Años", description: "CO2, bengalas y sky tracker para la entrada más impactante.", image: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif", imageAlt: "Efectos especiales XV", category: "XV Años", slug: "entrada-xv-anos-efectos-especiales" },
+    { title: "Iluminación para XV Años en Iztapalapa", description: "Equipos y efectos para salones y jardines.", image: "/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif", imageAlt: "XV años Iztapalapa", category: "Zonas", slug: "iluminacion-xv-anos-iztapalapa" },
+  ],
+  "Guirnaldas": [
+    { title: "¿Cuántos Metros de Guirnaldas Necesito?", description: "Calculadora práctica por tipo de espacio e invitados.", image: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif", imageAlt: "Guirnaldas boda jardín", category: "Guirnaldas", slug: "cuantos-metros-guirnaldas-necesito" },
+    { title: "Guirnaldas: Jardín vs Salón — Diferencias Clave", description: "No todas funcionan igual. Lo que debes saber.", image: "/img/guirnaldas/renta-guirnaldas-boda-finca-hacienda-600w.avif", imageAlt: "Guirnaldas hacienda", category: "Guirnaldas", slug: "guirnaldas-boda-jardin-vs-salon" },
+    { title: "Focos Edison vs LED para Guirnaldas: ¿Cuál Elegir?", description: "Temperatura, consumo y estética. Comparativa honesta.", image: "/img/guirnaldas/renta-guirnaldas-foco-edison-vintage-bodas-600w.avif", imageAlt: "Guirnaldas Edison vintage", category: "Guirnaldas", slug: "diferencia-guirnaldas-edison-led" },
+  ],
+  "Sonido": [
+    { title: "Audio para Boda: Lo Que Nadie Te Dice", description: "Los 3 momentos de audio y errores que arruinan eventos.", image: "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl-800w.avif", imageAlt: "Audio profesional boda", category: "Sonido", slug: "audio-profesional-boda-que-necesitas-saber" },
+    { title: "¿Cuánto Cuesta un DJ para Boda en CDMX?", description: "Precios reales de DJ: desde $4,500 hasta $22,000.", image: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif", imageAlt: "DJ para bodas CDMX", category: "Sonido", slug: "cuanto-cuesta-dj-para-boda-cdmx" },
+    { title: "Audio para Conferencias en CDMX", description: "Por qué el sonido mata tu presentación.", image: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios-800w.avif", imageAlt: "Audio conferencias", category: "Sonido", slug: "audio-profesional-conferencias-cdmx" },
+  ],
+  "Efectos": [
+    { title: "Bengalas Frías en Interiores: ¿Son Seguras?", description: "Mitos y verdades sobre los sparklers en salones.", image: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif", imageAlt: "Bengalas frías interiores", category: "Efectos", slug: "bengalas-frias-seguras-interiores" },
+    { title: "Guía de Efectos que Combinan Perfecto", description: "CO2, confeti y bengalas frías para máximo impacto.", image: "/img/galeria/confeti-03.avif", imageAlt: "Efectos especiales evento", category: "Efectos", slug: "efectos-especiales-que-combinan" },
+    { title: "Máquina de Burbujas para Bodas y Fiestas", description: "El efecto más fotogénico y cuándo usarlo.", image: "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif", imageAlt: "Máquina de burbujas", category: "Efectos", slug: "maquina-burbujas-bodas-fiestas-cdmx" },
+  ],
+};
+
+// Default related articles if category not found
+const defaultRelated = [
+  { title: "Tipos de Iluminación para Eventos: Guía Completa", description: "Wash, spot, efectos, arquitectónica. Todo lo que debes conocer.", image: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif", imageAlt: "Tipos de iluminación", category: "Guía", slug: "tipos-iluminacion-para-eventos" },
+  { title: "¿Cuánto Cuesta la Iluminación para una Boda?", description: "Precios reales, rangos por paquete y qué incluye cada opción.", image: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18-400w.avif", imageAlt: "Iluminación boda", category: "Bodas", slug: "cuanto-cuesta-iluminacion-boda-cdmx" },
+  { title: "Cabezas Móviles vs Par LED: ¿Cuál Necesita Tu Evento?", description: "Comparativa técnica para elegir el equipo correcto.", image: "/img/cabezas-moviles/renta-cabezas-moviles-beam-wash-eventos-cdmx-600w.avif", imageAlt: "Cabezas móviles vs par led", category: "Equipos", slug: "cabezas-moviles-vs-par-led" },
+];
+
+const relatedArticles = relatedByCategory[category] || defaultRelated;
 ---
 
 <BaseLayout
@@ -62,15 +96,15 @@ const serviciosRelacionados = [
     ]} />
   </Fragment>
 
-  <!-- Hero — mismas 2 columnas que todo el sitio -->
+  <!-- Hero — 2 columnas igual que todo el sitio -->
   <Hero
     title={title}
     subtitle={description}
-    introParagraph1={`<strong>${category}</strong> · Escrito por el equipo técnico de <strong>REDEIL</strong> con más de 30 años de experiencia en iluminación profesional para eventos en la Ciudad de México y Estado de México. Cada artículo está basado en proyectos reales y asesoría directa a nuestros clientes.`}
-    introParagraph2={`En este blog compartimos conocimiento práctico sobre cómo elegir la iluminación correcta para cada tipo de evento — bodas en hacienda, XV años temáticos, galas corporativas y fiestas privadas. Todo lo que aprendemos en campo, lo documentamos aquí para ti.`}
+    introParagraph1={`<strong>${category}</strong> · Escrito por el equipo técnico de <strong>REDEIL</strong> con más de 30 años de experiencia en iluminación profesional para eventos en la Ciudad de México y Estado de México. Cada artículo está basado en proyectos reales.`}
+    introParagraph2={`En este blog compartimos conocimiento práctico sobre cómo elegir la iluminación correcta para cada tipo de evento — bodas, XV años, galas corporativas y fiestas privadas. Todo lo que aprendemos en campo, lo documentamos para ti.`}
   />
 
-  <!-- CtaBar — misma barra naranja -->
+  <!-- CtaBar — barra de acceso rápido -->
   <CtaBar
     headline="Explora nuestros servicios"
     items={[
@@ -81,72 +115,76 @@ const serviciosRelacionados = [
     ]}
   />
 
-  <!-- Contenido del artículo con sidebar — ContentWithSidebar existente -->
-  <section class="services-section">
-    <ContentWithSidebar
-      sidebarTitle="Cotiza tu Evento"
-      features={[
-        { text: "30 años de experiencia" },
-        { text: "Equipo profesional certificado" },
-        { text: "Instalación incluida" },
-        { text: "CDMX y Estado de México" },
-        { text: "Sin costos ocultos" },
-        { text: "Asesoría gratuita por WhatsApp" },
-      ]}
-      waMessage={`Hola REDEIL, leí el artículo "${title}" y quiero cotizar iluminación para mi evento.`}
-      packages={[
-        { label: "Iluminación", price: "", href: "/servicios/iluminacion/" },
-        { label: "Sonido y DJ", price: "", href: "/servicios/sonido/" },
-        { label: "Efectos Especiales", price: "", href: "/servicios/efectos-especiales/" },
-        { label: "Ver todos", price: "", href: "/servicios/" },
-      ]}
-    >
-      <!-- Imagen destacada del artículo -->
-      <div class="container">
-        <img
-          src={image}
-          alt={imageAlt}
-          style="width:100%; height:auto; border-radius:8px; margin-bottom:2rem;"
-          loading="eager"
-          width="1200"
-          height="630"
-        />
+  <!-- Contenido del artículo: 2 columnas (artículo + sidebar) -->
+  <section class="blog-article-section">
+    <div class="container blog-article-layout">
+
+      <!-- Artículo principal -->
+      <article class="blog-article">
+
+        <!-- Imagen destacada -->
+        <div class="blog-article__hero-img">
+          <img
+            src={image}
+            alt={imageAlt}
+            loading="eager"
+            width="1200"
+            height="630"
+          />
+        </div>
+
+        <!-- Contenido del artículo (slot) -->
+        <div class="blog-content">
+          <slot />
+        </div>
+
+        <!-- CTA al final del artículo -->
+        <div class="blog-article__cta">
+          <div class="blog-article__cta-inner">
+            <h3>¿Te quedaron dudas sobre tu evento?</h3>
+            <p>Escríbenos por WhatsApp con la fecha y el venue. Te asesoramos gratis y te cotizamos en minutos.</p>
+            <div class="blog-article__cta-btns">
+              <a href={`https://wa.me/5215530682988?text=${encodeURIComponent(`Hola REDEIL, leí el artículo "${title}" y quiero cotizar iluminación para mi evento.`)}`}
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn btn-whatsapp btn-lg">
+                Cotizar por WhatsApp
+              </a>
+              <a href="/contacto/" class="btn btn-primary btn-lg">Ver todos los servicios</a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Sidebar -->
+      <div class="blog-article-sidebar">
+        <BlogSidebar popularArticles={popularArticles} />
       </div>
 
-      <!-- Contenido markdown renderizado -->
-      <div class="container blog-content">
-        <slot />
-      </div>
-    </ContentWithSidebar>
-  </section>
-
-  <!-- Servicios relacionados — SectionHeader + ServiceCard como en todo el sitio -->
-  <section class="services-section services-alt">
-    <div class="container">
-      <SectionHeader
-        title="Servicios Relacionados"
-        subtitle="Conoce nuestros servicios más solicitados para eventos."
-        paragraph1="Cada servicio incluye transporte, instalación profesional, operación durante el evento y desmontaje. Cotiza sin compromiso por WhatsApp."
-        paragraph2="Combinamos servicios con precio especial. Cuéntanos tu evento y te armamos la propuesta perfecta."
-      />
-      <div class="services-grid">
-        {serviciosRelacionados.map((s) => (
-          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
-        ))}
-      </div>
     </div>
   </section>
 
-  <!-- CTA Final — mismo estilo naranja de todo el sitio -->
-  <section class="cta-section">
+  <!-- Artículos relacionados -->
+  <section class="blog-related services-alt">
     <div class="container">
-      <div class="cta-content">
-        <h2>¿Te quedaron dudas sobre tu evento?</h2>
-        <p>Escríbenos por WhatsApp con la fecha y el venue. Te asesoramos gratis y te cotizamos en minutos.</p>
-        <div class="cta-buttons">
-          <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
-          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
-        </div>
+      <div class="blog-related__header">
+        <h2 class="blog-related__title">Artículos Relacionados</h2>
+        <p class="blog-related__sub">Más guías y consejos del equipo técnico de REDEIL</p>
+      </div>
+      <div class="blog-related__grid">
+        {relatedArticles.map((art) => (
+          <BlogCard
+            title={art.title}
+            description={art.description}
+            image={art.image}
+            imageAlt={art.imageAlt}
+            category={art.category}
+            slug={art.slug}
+          />
+        ))}
+      </div>
+      <div class="blog-related__link">
+        <a href="/blog/" class="btn btn-outline btn-lg">Ver todos los artículos →</a>
       </div>
     </div>
   </section>
@@ -154,62 +192,164 @@ const serviciosRelacionados = [
 </BaseLayout>
 
 <style>
-/* Tipografía para contenido markdown dentro del artículo */
+/* ──────────────────────────────────────────
+   LAYOUT DE 2 COLUMNAS
+   ────────────────────────────────────────── */
+.blog-article-section {
+  background: #f8f9fa;
+  padding: 3rem 0 4rem;
+}
+
+.blog-article-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* ──────────────────────────────────────────
+   ARTÍCULO
+   ────────────────────────────────────────── */
+.blog-article {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+}
+
+.blog-article__hero-img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+}
+
+.blog-article__hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ──────────────────────────────────────────
+   TIPOGRAFÍA DEL CONTENIDO
+   ────────────────────────────────────────── */
+.blog-content {
+  padding: 2.5rem 2.5rem 2rem;
+  max-width: 720px;
+}
+
 .blog-content :global(h2) {
   font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
   margin: 2.5rem 0 1rem;
   line-height: 1.25;
+  padding-left: 1rem;
+  border-left: 4px solid var(--color-primary, #ff5722);
 }
+
+.blog-content :global(h2:first-child) {
+  margin-top: 0;
+}
+
 .blog-content :global(h3) {
   font-family: var(--font-primary, 'Montserrat', sans-serif);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
   margin: 2rem 0 0.75rem;
+  line-height: 1.3;
 }
+
 .blog-content :global(p) {
   font-family: var(--font-body, 'Open Sans', sans-serif);
   font-size: 1.0625rem;
   line-height: 1.8;
-  color: var(--color-gray-800, #343a40);
+  color: #343a40;
   margin: 0 0 1.4rem;
 }
+
 .blog-content :global(strong) {
   font-weight: 700;
   color: var(--color-secondary, #1C2B4A);
 }
+
+.blog-content :global(em) {
+  font-style: italic;
+}
+
 .blog-content :global(ul),
 .blog-content :global(ol) {
-  margin: 0 0 1.4rem 1.5rem;
-  padding: 0;
   font-family: var(--font-body, 'Open Sans', sans-serif);
   font-size: 1.0625rem;
   line-height: 1.8;
-  color: var(--color-gray-800, #343a40);
+  color: #343a40;
+  margin: 0 0 1.4rem 0;
+  padding-left: 0;
+  list-style: none;
 }
-.blog-content :global(li) {
+
+.blog-content :global(ul li),
+.blog-content :global(ol li) {
+  padding-left: 1.75rem;
+  position: relative;
   margin-bottom: 0.5rem;
 }
+
+.blog-content :global(ul li::before) {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.65rem;
+  width: 7px;
+  height: 7px;
+  background: var(--color-primary, #ff5722);
+  border-radius: 50%;
+}
+
+.blog-content :global(ol) {
+  counter-reset: ol-counter;
+}
+
+.blog-content :global(ol li) {
+  counter-increment: ol-counter;
+}
+
+.blog-content :global(ol li::before) {
+  content: counter(ol-counter) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--color-primary, #ff5722);
+  font-size: 0.875rem;
+}
+
 .blog-content :global(a) {
-  color: var(--color-primary, #E05800);
+  color: var(--color-primary, #ff5722);
+  text-decoration: none;
+}
+
+.blog-content :global(a:hover) {
   text-decoration: underline;
 }
+
 .blog-content :global(blockquote) {
-  border-left: 4px solid var(--color-primary, #E05800);
-  background: rgba(224,88,0,0.05);
+  border-left: 4px solid var(--color-primary, #ff5722);
+  background: rgba(255, 87, 34, 0.05);
   margin: 1.5rem 0;
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 0 8px 8px 0;
 }
+
 .blog-content :global(blockquote p) {
   margin: 0;
   color: var(--color-secondary, #1C2B4A);
   font-weight: 600;
   font-style: italic;
+  font-size: 1.0625rem;
 }
+
 .blog-content :global(img) {
   width: 100%;
   height: auto;
@@ -217,12 +357,35 @@ const serviciosRelacionados = [
   margin: 1.5rem 0;
   display: block;
 }
+
+.blog-content :global(figure) {
+  margin: 1.5rem 0;
+}
+
+.blog-content :global(figcaption) {
+  font-size: 0.8125rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ── Tablas responsive (sin inline styles) ── */
+.blog-content :global(.table-wrap) {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
 .blog-content :global(table) {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  min-width: 480px;
   font-size: 0.9375rem;
 }
+
 .blog-content :global(th) {
   background: var(--color-secondary, #1C2B4A);
   color: #fff;
@@ -230,12 +393,170 @@ const serviciosRelacionados = [
   text-align: left;
   font-family: var(--font-primary, 'Montserrat', sans-serif);
   font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
+
+.blog-content :global(th:first-child) {
+  border-radius: 0;
+}
+
 .blog-content :global(td) {
-  padding: 0.65rem 1rem;
-  border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #343a40;
+  vertical-align: top;
 }
+
+.blog-content :global(tr:last-child td) {
+  border-bottom: none;
+}
+
 .blog-content :global(tr:nth-child(even) td) {
-  background: var(--color-gray-50, #f8f9fa);
+  background: #f8f9fa;
+}
+
+/* ──────────────────────────────────────────
+   CTA DENTRO DEL ARTÍCULO
+   ────────────────────────────────────────── */
+.blog-article__cta {
+  border-top: 1px solid #e9ecef;
+  background: #f8f9fa;
+  padding: 2.5rem;
+}
+
+.blog-article__cta-inner {
+  max-width: 640px;
+}
+
+.blog-article__cta h3 {
+  font-family: var(--font-primary, 'Montserrat', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-secondary, #1C2B4A);
+  margin: 0 0 0.5rem;
+}
+
+.blog-article__cta p {
+  font-size: 0.9375rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.blog-article__cta-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ──────────────────────────────────────────
+   SIDEBAR
+   ────────────────────────────────────────── */
+.blog-article-sidebar {
+  position: sticky;
+  top: calc(36px + 70px + 1.5rem);
+}
+
+/* ──────────────────────────────────────────
+   ARTÍCULOS RELACIONADOS
+   ────────────────────────────────────────── */
+.blog-related {
+  padding: 3.5rem 0;
+}
+
+.blog-related__header {
+  margin-bottom: 2rem;
+}
+
+.blog-related__title {
+  font-family: var(--font-primary, 'Montserrat', sans-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-secondary, #1C2B4A);
+  margin: 0 0 0.5rem;
+}
+
+.blog-related__sub {
+  font-size: 0.9375rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.blog-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.blog-related__link {
+  text-align: center;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE
+   ────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .blog-article-layout {
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .blog-article-layout {
+    grid-template-columns: 1fr 260px;
+    gap: 1.5rem;
+  }
+
+  .blog-content {
+    padding: 2rem 2rem 1.75rem;
+  }
+
+  .blog-article__cta {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .blog-article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-article-sidebar {
+    position: static;
+    order: 2;
+  }
+
+  .blog-related__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-article-section {
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .blog-content {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .blog-article__cta {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .blog-article__cta-btns {
+    flex-direction: column;
+  }
+
+  .blog-related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-related {
+    padding: 2.5rem 0;
+  }
 }
 </style>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Toluca y Metepec — Haciendas, Salones y Corporativos | REDEIL";
 const description = "Iluminación profesional para eventos en Toluca y Metepec Estado de México. Guirnaldas, cabezas móviles y efectos para haciendas, salones y centros de convenciones.";
@@ -72,18 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif";
+const imageAlt = "Guirnaldas de luces en evento al aire libre en hacienda del Valle de Toluca";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Toluca y Metepec"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Toluca y Metepec — Haciendas, Salones y Corporativos</h1>
-      <img src="/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif" alt="Guirnaldas de luces en evento al aire libre en hacienda del Valle de Toluca" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Toluca y Metepec se han convertido en dos de los destinos más solicitados para eventos en el Estado de México. El Valle de Toluca concentra haciendas con arquitectura colonial impresionante, jardines enormes rodeados de volcanes, salones de banquetes con capacidades que en CDMX son difíciles de encontrar, y un Centro de Convenciones que recibe eventos corporativos de talla nacional. La zona está viviendo un crecimiento acelerado en producción de eventos premium, y la iluminación profesional es el elemento que marca la diferencia entre un evento normal y uno que tus invitados van a recordar.</p>
 
       <p>En REDEIL cubrimos Toluca, Metepec y todo el Valle de Toluca directamente desde nuestra base en la Ciudad de México. Nuestro equipo viaja con todo el material, realiza el montaje completo, opera la iluminación durante el evento y desmonta al final. El traslado está incluido en nuestras cotizaciones para esta zona, así que no hay sorpresas.</p>
@@ -148,23 +150,4 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Qué tipo de iluminación recomiendan para haciendas en Metepec?</h3>
       <p>Para haciendas recomendamos guirnaldas Edison (100-200 metros) para jardines, city colors para fachadas de piedra, sky trackers para crear ambiente exterior y cabezas móviles para la pista de baile. Cada propuesta se adapta al espacio.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Toluca o Metepec</a>
-      </div>
-
-      <h2>Zonas Cercanas que También Cubrimos</h2>
-      <p>Además de Toluca y Metepec, atendemos eventos en zonas cercanas del Estado de México y zona poniente de CDMX:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-huixquilucan/">Iluminación para eventos en Huixquilucan</a></li>
-        <li><a href="/blog/iluminacion-eventos-naucalpan/">Iluminación para eventos en Naucalpan</a></li>
-        <li><a href="/blog/iluminacion-eventos-texcoco/">Iluminación para eventos en Texcoco</a></li>
-      </ul>
-
-      <div style="background: var(--color-gray-100); border-radius: var(--radius-lg); padding: var(--space-6); margin: var(--space-8) 0; text-align:center;">
-        <h3 style="margin-top:0;">Tu evento en el Valle de Toluca merece iluminación profesional</h3>
-        <p>Cuéntanos los detalles de tu evento y te enviamos una cotización personalizada sin compromiso. Incluimos traslado, montaje, operación y desmontaje.</p>
-        <a href="/contacto/" class="btn btn-primary btn-lg">Solicitar Cotización Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Centro Histórico CDMX — Palacios, Galas y Corporativos | REDEIL";
 const description = "Iluminación profesional para eventos en el Centro Histórico de la Ciudad de México. Cabezas móviles, luces LED y efectos para palacios, hoteles, azoteas y salones históricos.";
@@ -72,19 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.avif";
+const imageAlt = "Iluminación arquitectónica profesional en fachada colonial con arcos del Centro Histórico CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Centro Histórico"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Centro Histórico CDMX — Palacios, Galas y Corporativos</h1>
-
-      <img src="/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.avif" alt="Iluminación arquitectónica profesional en fachada colonial con arcos del Centro Histórico CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>El <strong>Centro Histórico de la Ciudad de México</strong> no es cualquier zona para hacer un evento. Es Patrimonio de la Humanidad por la UNESCO, tiene edificios con más de 400 años de historia, palacios de cantera con techos abovedados y azoteas con la mejor vista de la ciudad. Cuando un cliente nos dice que su evento es en el Centro, sabemos que el nivel de exigencia sube automáticamente. Los venues de esta zona —Palacio de Minería, Casino Español, Hotel Zócalo Central, terrazas sobre Madero— no admiten montajes improvisados. La iluminación tiene que respetar la arquitectura, cumplir con las restricciones de edificios protegidos y al mismo tiempo crear una atmósfera que esté a la altura de estos espacios extraordinarios.</p>
 
       <p>En <strong>REDEIL</strong> llevamos más de 30 años iluminando eventos en la CDMX, y el Centro Histórico es una de las zonas que más conocemos. Hemos montado desde galas corporativas en salones del siglo XVIII hasta bodas en azoteas con vista al Zócalo y presentaciones de marca en patios coloniales. Cada espacio del Centro tiene particularidades únicas, y nosotros sabemos exactamente cómo trabajar con ellas.</p>
@@ -148,31 +149,6 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Ofrecen gobos personalizados para eventos corporativos?</h3>
       <p>Sí. Proyectamos logotipos y textos personalizados en muros, pisos y techos mediante gobos en cabezas móviles. Ideal para lanzamientos de producto, galas corporativas y eventos de marca en el Centro Histórico. El gobo se fabrica a medida con tu diseño y queda listo en pocos días.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en el Centro Histórico →</a>
       </div>
-
-      <h2>Zonas Cercanas que También Atendemos</h2>
-
-      <p>Si tu evento es en una alcaldía o zona cercana al Centro Histórico, también tenemos cobertura completa:</p>
-
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-polanco/">Polanco</a> — Hoteles 5 estrellas, rooftops y salones elegantes sobre Masaryk y Campos Elíseos.</li>
-        <li><a href="/blog/iluminacion-eventos-benito-juarez/">Benito Juárez</a> — Del Valle, Narvarte, WTC y terrazas urbanas.</li>
-        <li><a href="/blog/iluminacion-eventos-azcapotzalco/">Azcapotzalco</a> — Clavería, Industrial Vallejo y salones del norte de CDMX.</li>
-        <li><a href="/blog/iluminacion-eventos-gustavo-a-madero/">Gustavo A. Madero</a> — La Basílica, Lindavista, Tepeyac y colonias del norte.</li>
-      </ul>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Cabezas Móviles vs Par LED: ¿Cuál Necesita Tu Evento? | REDEIL";
 const description = "Diferencias entre cabezas móviles y par LED para eventos. Cuándo usar cada uno, precios, efectos y recomendaciones. Guía profesional REDEIL CDMX.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/cabezas-moviles-vs-par-led/" }
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-boda-pista-baile-azul-rosa-300w.avif";
+const imageAlt = "Cabezas móviles iluminando pista de baile en boda con tonos azul y rosa";
+const category = "Equipos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Cabezas Móviles vs Par LED"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Cabezas Móviles vs Par LED: ¿Cuál Necesita Tu Evento?</h1>
-
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-pista-baile-azul-rosa-300w.avif" alt="Cabezas móviles iluminando pista de baile en boda con tonos azul y rosa" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es una de las decisiones más comunes cuando estás armando la iluminación de tu evento: <strong>¿cabezas móviles o par LED?</strong> La respuesta corta es que no compiten entre sí, se complementan. Pero si tu presupuesto te obliga a elegir uno, necesitas entender qué hace cada equipo, cómo se ve en la práctica y cuál te da mayor impacto según tu tipo de evento. Aquí te lo explico a detalle.</p>
 
       <h2>¿Qué es un Par LED?</h2>
@@ -47,62 +48,62 @@ const schemaMarkup = JSON.stringify([
 
       <h2>La Comparación Definitiva</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Característica</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Par LED</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Cabeza Móvil</th>
+          <tr>
+            <th>Característica</th>
+            <th>Par LED</th>
+            <th>Cabeza Móvil</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Movimiento</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Fijo</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Pan y tilt motorizado</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Tipo de luz</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Baño amplio de color</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Beam, spot o wash dinámico</td>
+            <td>Movimiento</td>
+            <td>Fijo</td>
+            <td>Pan y tilt motorizado</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Función principal</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Ambientación y color</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Show de luz y efectos</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Operador necesario</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No (se programan y listo)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Sí (lightjockey en vivo)</td>
+            <td>Tipo de luz</td>
+            <td>Baño amplio de color</td>
+            <td>Beam, spot o wash dinámico</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Gobos (patrones)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Sí (spot y beam)</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Peso por unidad</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2 – 5 kg</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">8 – 25 kg</td>
+            <td>Función principal</td>
+            <td>Ambientación y color</td>
+            <td>Show de luz y efectos</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Consumo eléctrico</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">30 – 120W por unidad</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">150 – 350W por unidad</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Precio renta (por unidad)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$350 – $800 MXN</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$1,500 – $4,000 MXN</td>
+            <td>Operador necesario</td>
+            <td>No (se programan y listo)</td>
+            <td>Sí (lightjockey en vivo)</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Impacto visual</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Alto (ambientación)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Muy alto (show dinámico)</td>
+            <td>Gobos (patrones)</td>
+            <td>No</td>
+            <td>Sí (spot y beam)</td>
+          </tr>
+          <tr>
+            <td>Peso por unidad</td>
+            <td>2 – 5 kg</td>
+            <td>8 – 25 kg</td>
+          </tr>
+          <tr>
+            <td>Consumo eléctrico</td>
+            <td>30 – 120W por unidad</td>
+            <td>150 – 350W por unidad</td>
+          </tr>
+          <tr>
+            <td>Precio renta (por unidad)</td>
+            <td>$350 – $800 MXN</td>
+            <td>$1,500 – $4,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Impacto visual</td>
+            <td>Alto (ambientación)</td>
+            <td>Muy alto (show dinámico)</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Cuándo Elegir Solo Par LED</h2>
 
@@ -165,9 +166,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Cada evento es distinto, y por eso hacemos propuestas personalizadas. No vendemos paquetes genéricos: diseñamos iluminación a la medida.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

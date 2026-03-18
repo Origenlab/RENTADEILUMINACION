@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Tendencias de Iluminación para XV Años en CDMX — Ideas que Brillan | REDEIL";
 const description = "Las mejores ideas de iluminación para XV años en CDMX. Tendencias actuales: neón, LED, efectos especiales y paquetes desde $8,000. Guía REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-xv-anos-tendencias/" }
   }
 ]);
+const image = "/img/luces-neon/letrero-luminoso-xv-anos.avif";
+const imageAlt = "Letrero luminoso de neón personalizado para fiesta de XV años";
+const category = "XV Años";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Iluminación XV Años"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Tendencias de Iluminación para XV Años en CDMX — Ideas que Brillan</h1>
-
-      <img src="/img/luces-neon/letrero-luminoso-xv-anos.avif" alt="Letrero luminoso de neón personalizado para fiesta de XV años" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Si estás organizando unos XV años y quieres que la fiesta se vea espectacular, la iluminación es el elemento que marca la diferencia entre un evento bonito y uno que tus invitados van a recordar por años. Llevamos más de 30 años montando fiestas de quince años en la Ciudad de México y zona metropolitana, y te puedo decir con total certeza: <strong>la iluminación correcta transforma cualquier salón</strong>. Aquí te comparto las tendencias que están dominando en CDMX y cómo puedes aplicarlas en tu evento.</p>
 
       <h2>Letreros de Neón LED: Lo Más Pedido del Momento</h2>
@@ -98,20 +99,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>Tu fiesta de XV años merece verse increíble. Con la iluminación adecuada, hasta el salón más sencillo se transforma en algo espectacular.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/eventos/xv-anos/" class="btn btn-primary btn-lg">Ver Paquetes para XV Años</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

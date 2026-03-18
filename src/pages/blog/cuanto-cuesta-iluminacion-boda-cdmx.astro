@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "¿Cuánto Cuesta la Iluminación para una Boda en CDMX? Guía de Precios | REDEIL";
 const description = "Precios reales de iluminación para bodas en CDMX. Desde $5,000 hasta $50,000+. Qué incluye cada paquete y cómo elegir según tu presupuesto.";
@@ -18,18 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18-400w.avif";
+const imageAlt = "Guirnaldas de luces en boda en hacienda mexicana";
+const category = "Bodas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Costo Iluminación Boda"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>¿Cuánto Cuesta la Iluminación para una Boda en CDMX? Guía de Precios Reales</h1>
-      <img src="/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18-400w.avif" alt="Guirnaldas de luces en boda en hacienda mexicana" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es la pregunta que recibo todos los días: <em>"¿Cuánto me va a costar la iluminación para mi boda?"</em> Y la respuesta honesta es: depende. Pero "depende" no te sirve de mucho cuando estás armando un presupuesto, así que aquí te voy a dar números reales, rangos concretos y una guía clara para que sepas exactamente qué esperar.</p>
 
       <p>Estos precios están basados en lo que cobramos en REDEIL y en lo que se maneja en el mercado profesional de iluminación para bodas en la Ciudad de México y zona metropolitana. No son precios de catálogo inflados: son lo que realmente vas a pagar.</p>
@@ -37,37 +39,37 @@ const schemaMarkup = JSON.stringify([
       <h2>Rangos generales de inversión</h2>
       <p>Para darte un panorama rápido, estos son los rangos según el nivel de producción:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-gray-300);">
-            <th style="text-align:left; padding: var(--space-2);">Nivel</th>
-            <th style="text-align:left; padding: var(--space-2);">Inversión</th>
-            <th style="text-align:left; padding: var(--space-2);">Ideal para</th>
+          <tr>
+            <th>Nivel</th>
+            <th>Inversión</th>
+            <th>Ideal para</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);"><strong>Esencial</strong></td>
-            <td style="padding: var(--space-2);">$5,000 - $12,000 MXN</td>
-            <td style="padding: var(--space-2);">Bodas íntimas (50-80 invitados)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);"><strong>Profesional</strong></td>
-            <td style="padding: var(--space-2);">$12,000 - $25,000 MXN</td>
-            <td style="padding: var(--space-2);">Bodas medianas (80-200 invitados)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);"><strong>Premium</strong></td>
-            <td style="padding: var(--space-2);">$25,000 - $50,000 MXN</td>
-            <td style="padding: var(--space-2);">Bodas grandes con producción completa</td>
+          <tr>
+            <td><strong>Esencial</strong></td>
+            <td>$5,000 - $12,000 MXN</td>
+            <td>Bodas íntimas (50-80 invitados)</td>
           </tr>
           <tr>
-            <td style="padding: var(--space-2);"><strong>Luxury</strong></td>
-            <td style="padding: var(--space-2);">$50,000+ MXN</td>
-            <td style="padding: var(--space-2);">Bodas de alta producción, múltiples espacios</td>
+            <td><strong>Profesional</strong></td>
+            <td>$12,000 - $25,000 MXN</td>
+            <td>Bodas medianas (80-200 invitados)</td>
+          </tr>
+          <tr>
+            <td><strong>Premium</strong></td>
+            <td>$25,000 - $50,000 MXN</td>
+            <td>Bodas grandes con producción completa</td>
+          </tr>
+          <tr>
+            <td><strong>Luxury</strong></td>
+            <td>$50,000+ MXN</td>
+            <td>Bodas de alta producción, múltiples espacios</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>¿Qué incluye cada nivel?</h2>
 
@@ -111,52 +113,52 @@ const schemaMarkup = JSON.stringify([
       <h2>Desglose por equipo individual</h2>
       <p>Si prefieres armar tu paquete a la medida, estos son los costos individuales más comunes:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-gray-300);">
-            <th style="text-align:left; padding: var(--space-2);">Equipo</th>
-            <th style="text-align:left; padding: var(--space-2);">Precio renta</th>
+          <tr>
+            <th>Equipo</th>
+            <th>Precio renta</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">PAR LED RGBWA (por pieza)</td>
-            <td style="padding: var(--space-2);">$350 - $600 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Cabeza móvil wash LED</td>
-            <td style="padding: var(--space-2);">$1,200 - $2,500 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Cabeza móvil beam</td>
-            <td style="padding: var(--space-2);">$1,500 - $3,000 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Follow spot HMI 1200W</td>
-            <td style="padding: var(--space-2);">$3,500 - $5,000 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Gobo personalizado</td>
-            <td style="padding: var(--space-2);">$2,000 - $3,500 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Máquina de humo bajo</td>
-            <td style="padding: var(--space-2);">$3,000 - $5,500 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Guirnaldas de luces (por metro)</td>
-            <td style="padding: var(--space-2);">$80 - $150 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Letrero neón LED</td>
-            <td style="padding: var(--space-2);">$2,500 - $8,000 MXN</td>
+          <tr>
+            <td>PAR LED RGBWA (por pieza)</td>
+            <td>$350 - $600 MXN</td>
           </tr>
           <tr>
-            <td style="padding: var(--space-2);">Operador de iluminación</td>
-            <td style="padding: var(--space-2);">$2,500 - $4,000 MXN</td>
+            <td>Cabeza móvil wash LED</td>
+            <td>$1,200 - $2,500 MXN</td>
+          </tr>
+          <tr>
+            <td>Cabeza móvil beam</td>
+            <td>$1,500 - $3,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Follow spot HMI 1200W</td>
+            <td>$3,500 - $5,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Gobo personalizado</td>
+            <td>$2,000 - $3,500 MXN</td>
+          </tr>
+          <tr>
+            <td>Máquina de humo bajo</td>
+            <td>$3,000 - $5,500 MXN</td>
+          </tr>
+          <tr>
+            <td>Guirnaldas de luces (por metro)</td>
+            <td>$80 - $150 MXN</td>
+          </tr>
+          <tr>
+            <td>Letrero neón LED</td>
+            <td>$2,500 - $8,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Operador de iluminación</td>
+            <td>$2,500 - $4,000 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Factores que afectan el precio</h2>
 
@@ -186,9 +188,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Visita nuestra sección de <a href="/eventos/bodas/">iluminación para bodas</a> para ver ejemplos de lo que hacemos, o solicita una cotización sin compromiso.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

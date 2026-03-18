@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Decoración Neón para Bodas: Ideas, Precios y Cómo Pedirla | REDEIL";
 const description = "Letreros y decoración neón para bodas en CDMX. Ideas creativas, precios desde $2,500 y cómo elegir el diseño perfecto. Renta profesional REDEIL.";
@@ -18,18 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/luces-neon/letrero-neon-better-together-boda-400w.avif";
+const imageAlt = "Letrero neón Better Together en boda elegante en CDMX";
+const category = "Luces Neón";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Neón para Bodas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Decoración Neón para Bodas: Ideas, Precios y Cómo Elegir el Diseño Perfecto</h1>
-      <img src="/img/luces-neon/letrero-neon-better-together-boda-400w.avif" alt="Letrero neón Better Together en boda elegante en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Si hay algo que transforma por completo la atmósfera de una boda, es un letrero de neón bien elegido. Con más de 30 años montando iluminación para eventos en la Ciudad de México, te puedo decir que pocas cosas generan tantas fotos, tantos comentarios y tanto impacto visual como un buen neón personalizado detrás de la mesa de novios o en la pista de baile.</p>
 
       <p>Pero antes de lanzarte a rentar uno, hay varias cosas que vale la pena saber: qué tipos existen, cuánto cuestan, qué tamaño necesitas y cómo evitar los errores más comunes. Aquí te lo explico todo.</p>
@@ -68,37 +70,37 @@ const schemaMarkup = JSON.stringify([
       <h2>¿Dónde colocar el letrero neón?</h2>
       <p>La ubicación es casi tan importante como el diseño. Estas son las posiciones más efectivas:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-gray-300);">
-            <th style="text-align:left; padding: var(--space-2);">Ubicación</th>
-            <th style="text-align:left; padding: var(--space-2);">Efecto</th>
-            <th style="text-align:left; padding: var(--space-2);">Tamaño ideal</th>
+          <tr>
+            <th>Ubicación</th>
+            <th>Efecto</th>
+            <th>Tamaño ideal</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Detrás de mesa de novios</td>
-            <td style="padding: var(--space-2);">Focal point para fotos</td>
-            <td style="padding: var(--space-2);">1 - 1.5 m</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Sobre la pista de baile</td>
-            <td style="padding: var(--space-2);">Ambiente festivo</td>
-            <td style="padding: var(--space-2);">80 cm - 1.2 m</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Entrada del venue</td>
-            <td style="padding: var(--space-2);">Primera impresión</td>
-            <td style="padding: var(--space-2);">60 cm - 1 m</td>
+          <tr>
+            <td>Detrás de mesa de novios</td>
+            <td>Focal point para fotos</td>
+            <td>1 - 1.5 m</td>
           </tr>
           <tr>
-            <td style="padding: var(--space-2);">Photobooth</td>
-            <td style="padding: var(--space-2);">Fondo para selfies</td>
-            <td style="padding: var(--space-2);">80 cm - 1 m</td>
+            <td>Sobre la pista de baile</td>
+            <td>Ambiente festivo</td>
+            <td>80 cm - 1.2 m</td>
+          </tr>
+          <tr>
+            <td>Entrada del venue</td>
+            <td>Primera impresión</td>
+            <td>60 cm - 1 m</td>
+          </tr>
+          <tr>
+            <td>Photobooth</td>
+            <td>Fondo para selfies</td>
+            <td>80 cm - 1 m</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>¿Cuánto cuesta rentar un letrero neón para boda en CDMX?</h2>
       <p>Los precios varían dependiendo del tamaño, la complejidad del diseño y si es un modelo estándar o personalizado. Estos son los rangos reales en la zona metropolitana:</p>
@@ -144,9 +146,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Explora nuestro catálogo completo de <a href="/servicios/luces-neon/">luces neón para eventos</a> y encuentra el diseño ideal para tu celebración. Si ya tienes una idea en mente, solicita tu cotización personalizada.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

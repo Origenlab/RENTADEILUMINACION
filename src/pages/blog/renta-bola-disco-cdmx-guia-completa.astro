@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Tabla comparativa de 4 tamaños con venue ideal y personas + explicación técnica de motor/focos/rigging + casos de uso específicos por tipo de evento
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas | REDEIL";
 const description = "Guía completa de bola disco: tamaños de 30cm a 1.2m, precios desde $1,500 + IVA, qué necesitas para que funcione y cuándo usarla. Renta en CDMX.";
@@ -28,18 +27,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif";
+const imageAlt = "Bola disco dorada reflejando luces de colores sobre pista de baile en evento";
+const category = "Efectos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Bola Disco: Guía Completa"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas</h1>
-      <img src="/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif" alt="Bola disco dorada reflejando luces de colores sobre pista de baile en evento" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es un objeto de los años 70 que sigue siendo el rey absoluto de las pistas de baile. Pasan las décadas, cambian las modas, aparecen LEDs y láser y pantallas holográficas — y la bola disco sigue ahí, girando, llenando el salón de puntos de luz que se mueven por paredes, techo, piso y rostros. No existe un solo efecto de iluminación que genere tanta magia con tan poco.</p>
 
       <p>Pero no todas las bolas disco son iguales. El tamaño importa, lo que la ilumina importa, y cómo se instala importa. Aquí te explico todo lo que necesitas saber para elegir la correcta para tu evento.</p>
@@ -48,54 +50,52 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL manejamos cuatro tamaños de bola disco. Cada uno tiene su venue ideal y su rango de cobertura:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 650px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Tamaño</th>
-              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
-              <th style="padding: 12px; text-align: left;">Peso</th>
-              <th style="padding: 12px; text-align: left;">Personas</th>
-              <th style="padding: 12px; text-align: left;">Venue ideal</th>
-              <th style="padding: 12px; text-align: left;">Efecto</th>
+            <tr>
+              <th>Tamaño</th>
+              <th>Precio + IVA</th>
+              <th>Peso</th>
+              <th>Personas</th>
+              <th>Venue ideal</th>
+              <th>Efecto</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>30 cm</strong></td>
-              <td style="padding: 12px;">$1,500</td>
-              <td style="padding: 12px;">3-4 kg</td>
-              <td style="padding: 12px;">Hasta 50</td>
-              <td style="padding: 12px;">Terraza, sala, fiesta privada</td>
-              <td style="padding: 12px;">Puntos sutiles, decorativo</td>
+            <tr>
+              <td><strong>30 cm</strong></td>
+              <td>$1,500</td>
+              <td>3-4 kg</td>
+              <td>Hasta 50</td>
+              <td>Terraza, sala, fiesta privada</td>
+              <td>Puntos sutiles, decorativo</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>60 cm</strong></td>
-              <td style="padding: 12px;">$2,800</td>
-              <td style="padding: 12px;">8-10 kg</td>
-              <td style="padding: 12px;">50-200</td>
-              <td style="padding: 12px;">Salón de bodas, XV años</td>
-              <td style="padding: 12px;">Cobertura completa de pista</td>
+            <tr>
+              <td><strong>60 cm</strong></td>
+              <td>$2,800</td>
+              <td>8-10 kg</td>
+              <td>50-200</td>
+              <td>Salón de bodas, XV años</td>
+              <td>Cobertura completa de pista</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>90 cm</strong></td>
-              <td style="padding: 12px;">$4,200</td>
-              <td style="padding: 12px;">15-20 kg</td>
-              <td style="padding: 12px;">200-400</td>
-              <td style="padding: 12px;">Salón grande, explanada</td>
-              <td style="padding: 12px;">Impacto visual fuerte, llena el espacio</td>
+            <tr>
+              <td><strong>90 cm</strong></td>
+              <td>$4,200</td>
+              <td>15-20 kg</td>
+              <td>200-400</td>
+              <td>Salón grande, explanada</td>
+              <td>Impacto visual fuerte, llena el espacio</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>1.2 m</strong></td>
-              <td style="padding: 12px;">$6,500</td>
-              <td style="padding: 12px;">30-35 kg</td>
-              <td style="padding: 12px;">400+</td>
-              <td style="padding: 12px;">Producción, festival, antro</td>
-              <td style="padding: 12px;">Espectáculo, pieza central</td>
+            <tr>
+              <td><strong>1.2 m</strong></td>
+              <td>$6,500</td>
+              <td>30-35 kg</td>
+              <td>400+</td>
+              <td>Producción, festival, antro</td>
+              <td>Espectáculo, pieza central</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>La regla general: si el techo del venue está a menos de 4 metros, una bola de 60cm es perfecta. Si el techo está a más de 5 metros, necesitas 90cm o más para que el efecto se note. Una bola de 30cm en un salón de techo de 7 metros se pierde completamente.</p>
 
@@ -191,10 +191,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>¿No sabes qué tamaño necesitas? Mándanos una foto de tu venue por WhatsApp — te decimos el tamaño exacto en 5 minutos.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/bola-disco/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Bola Disco</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20bola%20disco%20para%20mi%20evento" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

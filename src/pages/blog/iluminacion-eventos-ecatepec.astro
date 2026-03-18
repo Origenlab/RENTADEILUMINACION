@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Ecatepec — REDEIL Zona Norte | REDEIL";
 const description = "Renta de iluminación profesional para eventos en Ecatepec de Morelos. Luces LED, cabezas móviles, sonido y efectos especiales para bodas, XV años y fiestas en zona norte Edomex.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-ecatepec/" }
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif";
+const imageAlt = "Cabezas móviles con beams blancos iluminando salón de eventos en Ecatepec zona norte Edomex";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Ecatepec"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Ecatepec: Servicio Profesional en Zona Norte</h1>
-
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif" alt="Cabezas móviles con beams blancos iluminando salón de eventos en Ecatepec zona norte Edomex" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p><strong>Ecatepec de Morelos</strong> es el municipio más poblado del Estado de México y uno de los que más eventos celebra en toda la <strong>zona norte del Valle de México</strong>. Con decenas de salones populares, jardines de eventos y espacios versátiles, la demanda de iluminación profesional en Ecatepec crece cada año. En REDEIL atendemos esta zona con el mismo nivel de calidad y profesionalismo que ofrecemos en toda la zona metropolitana: equipo de grado comercial, montaje incluido y operador técnico durante todo el evento.</p>
 
       <p>Si estás organizando una boda, una fiesta de <a href="/eventos/xv-anos/">XV años</a>, un evento corporativo o cualquier celebración en Ecatepec, la iluminación profesional es lo que marca la diferencia entre un evento normal y uno que tus invitados recordarán. Nuestro servicio de <strong>renta de iluminación en Ecatepec</strong> incluye traslado, montaje, operación y desmontaje sin costos ocultos.</p>
@@ -90,20 +91,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>También puedes llenar nuestro <a href="/contacto/">formulario de contacto</a> y un asesor te llamará para entender exactamente lo que necesitas. En REDEIL no vendemos paquetes genéricos: diseñamos la iluminación ideal para tu evento específico, tu presupuesto y tu venue en Ecatepec.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu evento en Ecatepec →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

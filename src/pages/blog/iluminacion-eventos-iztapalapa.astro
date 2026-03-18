@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Iztapalapa CDMX — Salones, XV Años y Bodas | REDEIL";
 const description = "Iluminación profesional para eventos en Iztapalapa CDMX. Cabezas móviles, seguidor, confeti, bola disco y DJ para XV años, bodas y graduaciones en salones.";
@@ -72,18 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif";
+const imageAlt = "Cabezas móviles con beams de luz en evento en Iztapalapa CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Iztapalapa"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Iztapalapa CDMX — Salones, XV Años y Bodas</h1>
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif" alt="Cabezas móviles con beams de luz en evento en Iztapalapa CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Iztapalapa es la alcaldía más poblada de la Ciudad de México. Con casi dos millones de habitantes, la demanda de servicios para eventos es enorme: cada fin de semana se celebran cientos de XV años, bodas, graduaciones y bautizos en los salones que se extienden por toda la demarcación. Y cuando hablamos de hacer un evento que realmente se recuerde, la iluminación profesional marca la diferencia entre una fiesta bonita y una fiesta espectacular.</p>
 
       <p>En REDEIL llevamos años trabajando en salones de Iztapalapa. Conocemos los espacios, sabemos qué funciona en cada tipo de venue y entendemos lo que las familias de esta zona buscan: calidad profesional a precios accesibles, con todo incluido para no tener que preocuparse de nada el día del evento.</p>
@@ -164,21 +166,4 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Hacen montaje y desmontaje el mismo día?</h3>
       <p>Sí. Llegamos con anticipación para montar todo el equipo y nos quedamos durante el evento para operarlo. Al finalizar, desmontamos y retiramos todo. No necesitas preocuparte por nada.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Iztapalapa →</a>
-      </div>
-
-      <h2>Zonas Cercanas a Iztapalapa</h2>
-      <p>También ofrecemos servicio de iluminación profesional en alcaldías vecinas:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-venustiano-carranza/">Iluminación para eventos en Venustiano Carranza</a></li>
-        <li><a href="/blog/iluminacion-eventos-xochimilco/">Iluminación para eventos en Xochimilco</a></li>
-        <li><a href="/blog/iluminacion-eventos-benito-juarez/">Iluminación para eventos en Benito Juárez</a></li>
-      </ul>
-
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

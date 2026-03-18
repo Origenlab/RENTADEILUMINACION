@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Checklist de Iluminación para Boda: Todo lo que Debes Confirmar | REDEIL";
 const description = "Checklist profesional de iluminación para boda. 15 puntos que debes verificar con tu proveedor. No dejes nada al azar. Guía experta REDEIL.";
@@ -18,18 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/galeria/arquitectonica-01.avif";
+const imageAlt = "Iluminación arquitectónica profesional para evento";
+const category = "Bodas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Checklist Iluminación"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Checklist de Iluminación para Boda: 15 Puntos que Debes Confirmar con tu Proveedor</h1>
-      <img src="/img/galeria/arquitectonica-01.avif" alt="Iluminación arquitectónica profesional para evento" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Después de 30 años montando iluminación para bodas, puedo decirte que la mayoría de los problemas que surgen el día del evento se pudieron haber evitado con una simple conversación previa. No es que las parejas no se preocupen, es que simplemente no saben qué preguntar.</p>
 
       <p>Este checklist es el mismo que usamos internamente en REDEIL antes de cada boda. Son los 15 puntos clave que debes tener claros con tu proveedor de iluminación para que no haya sorpresas. Imprímelo, guárdalo en tu celular o mándalo por WhatsApp a tu wedding planner.</p>
@@ -132,9 +134,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Conoce nuestros <a href="/eventos/bodas/">paquetes de iluminación para bodas</a> o platícanos los detalles de tu evento para una cotización personalizada.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

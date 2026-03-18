@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Gustavo A. Madero CDMX — Lindavista, Tepeyac y Más | REDEIL";
 const description = "Iluminación profesional para eventos en Gustavo A. Madero CDMX. Cabezas móviles, guirnaldas y efectos para bodas, XV años y eventos en Lindavista, Tepeyac y Martín Carrera.";
@@ -72,19 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif";
+const imageAlt = "Guirnaldas de luz cálida decorando evento en salón de Gustavo A. Madero CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Gustavo A. Madero"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Gustavo A. Madero: Lindavista, Tepeyac, Martín Carrera y Más</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif" alt="Guirnaldas de luz cálida decorando evento en salón de Gustavo A. Madero CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p><strong>Gustavo A. Madero</strong> es una de las alcaldías más grandes y pobladas de la Ciudad de México. Con colonias tan diversas como Lindavista, Tepeyac, Martín Carrera, Industrial y la zona de la Villa, GAM concentra una cantidad impresionante de salones de eventos, jardines y espacios para celebraciones de todo tipo. Desde bodas religiosas con recepción cerca de la <strong>Basílica de Guadalupe</strong> hasta fiestas de XV años en los salones de Lindavista, esta alcaldía tiene una tradición de celebración profundamente arraigada.</p>
 
       <p>En REDEIL llevamos años atendiendo eventos en toda la alcaldía Gustavo A. Madero. Conocemos los salones, sabemos cómo manejar la logística de acceso en zonas complicadas y entendemos lo que cada tipo de celebración necesita en términos de iluminación y ambientación. Nuestro servicio incluye traslado, montaje profesional, operación técnica durante todo el evento y desmontaje. Sin costos ocultos, sin sorpresas.</p>
@@ -141,31 +142,6 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Atienden la colonia Lindavista y alrededores?</h3>
       <p>Claro. Cubrimos toda la alcaldía GAM incluyendo Lindavista, Tepeyac, Martín Carrera, Industrial, Aragón y la zona de la Villa. Conocemos los principales salones y espacios de eventos de cada colonia. El traslado está incluido en todos nuestros paquetes.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Gustavo A. Madero →</a>
       </div>
-
-      <h2>También atendemos alcaldías y municipios cercanos</h2>
-
-      <p>Si tu evento no es en GAM pero sí en la zona norte de la ciudad, también te atendemos. Consulta nuestras guías para zonas cercanas:</p>
-
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-azcapotzalco/">Iluminación para eventos en Azcapotzalco</a></li>
-        <li><a href="/blog/iluminacion-eventos-venustiano-carranza/">Iluminación para eventos en Venustiano Carranza</a></li>
-        <li><a href="/blog/iluminacion-eventos-centro-historico-cdmx/">Iluminación para eventos en el Centro Histórico (Cuauhtémoc)</a></li>
-        <li><a href="/blog/iluminacion-eventos-ecatepec/">Iluminación para eventos en Ecatepec</a></li>
-      </ul>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento en GAM?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

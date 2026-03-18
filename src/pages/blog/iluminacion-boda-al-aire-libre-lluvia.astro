@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "¿Qué Pasa con la Iluminación si Llueve en mi Boda al Aire Libre? | REDEIL";
 const description = "Guía completa sobre iluminación para bodas al aire libre con lluvia. Clasificación IP, equipo certificado, planes B y cómo REDEIL protege tu evento en CDMX.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif";
+const imageAlt = "Guirnaldas de luz en jardín para boda al aire libre en CDMX";
+const category = "Guía";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Boda Lluvia"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>¿Qué Pasa con la Iluminación si Llueve en mi Boda al Aire Libre?</h1>
-
-      <img src="/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif" alt="Guirnaldas de luz en jardín para boda al aire libre en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es la pregunta que más escuchamos de las parejas que planean una boda al aire libre en CDMX: "¿Y si llueve?" La preocupación es completamente válida, especialmente si consideras que la temporada de lluvias en el Valle de México va de junio a octubre, con lluvias que pueden ser intensas y repentinas.</p>
 
       <p>La realidad es que la lluvia no tiene por qué arruinar tu evento ni poner en riesgo la iluminación, siempre y cuando trabajes con un proveedor que use equipo profesional certificado y tenga protocolos claros de contingencia. En REDEIL hemos montado cientos de eventos al aire libre durante temporada de lluvias, y ninguno se ha cancelado por agua.</p>
@@ -117,20 +118,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL llevamos más de 30 años montando iluminación profesional para <a href="/eventos/bodas/">bodas</a> al aire libre en CDMX y Estado de México. Conocemos los venues, conocemos el clima y tenemos el equipo certificado para que tu evento sea seguro y espectacular, llueva o no llueva.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/guirnaldas/" class="btn btn-primary btn-lg">Conoce nuestras guirnaldas certificadas →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

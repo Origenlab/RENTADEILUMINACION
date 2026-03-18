@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Bengalas Frías en Interiores: Son Seguras, Sin Humo y Sin Calor — Mitos y Verdades | REDEIL";
 const description = "Las bengalas frías (sparksters) son seguras para interiores: sin humo, sin calor, sin residuos. Desmontamos mitos y explicamos cómo funcionan.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/bengalas-frias-seguras-interiores/" }
   }
 ]);
+const image = "/img/maquina-de-papelitos/lluvia-confeti-boda-candelier-chispas-frias.avif";
+const imageAlt = "Chispas frías en boda de salón, efecto seguro sin humo";
+const category = "Efectos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Bengalas Frías Seguras"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Bengalas Frías en Interiores: Son Seguras, Sin Humo y Sin Calor</h1>
-
-      <img src="/img/maquina-de-papelitos/lluvia-confeti-boda-candelier-chispas-frias.avif" alt="Chispas frías en boda de salón, efecto seguro sin humo" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es la duda número uno que nos hacen los novios y las wedding planners: <strong>"¿las bengalas frías son realmente seguras para usarlas dentro de un salón?"</strong>. La respuesta corta es sí, absolutamente. Pero entiendo la desconfianza, porque la palabra "bengala" evoca fuego, humo y calor. Aquí te explico exactamente qué son las bengalas frías, cómo funcionan y por qué puedes usarlas sin preocupación en cualquier espacio cerrado.</p>
 
       <h2>Qué Son las Bengalas Frías (y Qué NO Son)</h2>
@@ -95,9 +96,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL llevamos años montando chispas frías en salones, haciendas, jardines y terrazas de la CDMX y zona centro. Usamos exclusivamente equipo profesional con control DMX y operadores certificados. Conoce nuestro <a href="/servicios/sparklers/">servicio de bengalas frías y sparklers</a> y cotiza para tu evento.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/sparklers/" class="btn btn-primary btn-lg">Ver Servicio de Bengalas Frías</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

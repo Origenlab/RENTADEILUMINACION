@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Eventos en Álvaro Obregón — Santa Fe, Lomas y Pedregal | REDEIL";
 const description = "Renta de iluminación profesional para eventos en Álvaro Obregón: Santa Fe, Lomas de Chapultepec y Pedregal. Cobertura completa CDMX. Cotiza hoy.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-alvaro-obregon/" }
   }
 ]);
+const image = "/img/city-color/iluminacion-arquitectonica-edificio-oficinas.avif";
+const imageAlt = "Iluminación arquitectónica profesional para evento corporativo en zona de Santa Fe CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Álvaro Obregón"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Eventos en Álvaro Obregón — Santa Fe, Lomas y Pedregal</h1>
-
-      <img src="/img/city-color/iluminacion-arquitectonica-edificio-oficinas.avif" alt="Iluminación arquitectónica profesional para evento corporativo en zona de Santa Fe CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>La alcaldía Álvaro Obregón concentra algunas de las zonas más exclusivas de la Ciudad de México para celebrar eventos. Desde los rascacielos corporativos de Santa Fe hasta las residencias de Lomas de Chapultepec y los jardines privados del Pedregal, esta zona demanda iluminación profesional a la altura de sus espacios. En REDEIL llevamos más de 3,000 eventos iluminados en la CDMX y Estado de México, y conocemos al detalle los requerimientos técnicos y logísticos que cada venue de Álvaro Obregón exige.</p>
 
       <h2>Santa Fe: Iluminación Corporativa de Alto Nivel</h2>
@@ -88,20 +89,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si estás planeando un evento en Santa Fe, Lomas de Chapultepec, Pedregal o cualquier colonia de Álvaro Obregón, contáctanos para una cotización personalizada. Te respondemos en menos de 2 horas.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/iluminacion/" class="btn btn-primary btn-lg">Cotiza tu iluminación en Álvaro Obregón →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

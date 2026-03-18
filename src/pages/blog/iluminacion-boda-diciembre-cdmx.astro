@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Boda en Diciembre CDMX — Navideña vs Clásica | REDEIL";
 const description = "Compara iluminación navideña vs clásica elegante para tu boda en diciembre en CDMX. Venues, clima, tendencias y tips de expertos con 30 años de experiencia.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-recepcion-boda-hacienda-mesas-guirnaldas-29.avif";
+const imageAlt = "Iluminación cálida con guirnaldas Edison para boda en hacienda en diciembre CDMX";
+const category = "Temporadas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Boda Diciembre"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Boda en Diciembre en CDMX: Navideña vs Clásica Elegante</h1>
-
-      <img src="/img/guirnaldas/renta-guirnaldas-recepcion-boda-hacienda-mesas-guirnaldas-29.avif" alt="Iluminación cálida con guirnaldas Edison para boda en hacienda en diciembre CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Diciembre es uno de los meses más solicitados para bodas en la Ciudad de México. El clima fresco, las vacaciones y la energía festiva crean un ambiente perfecto para celebrar. Pero hay una decisión que genera más debate del que imaginas entre las parejas: ¿la iluminación debe ir con el espíritu navideño o mantener una línea clásica y atemporal?</p>
 
       <p>Después de más de 3,000 eventos montados en CDMX y Estado de México, en REDEIL hemos trabajado ambos estilos a fondo. Aquí te damos una comparación honesta para que elijas con información real, no con suposiciones.</p>
@@ -118,20 +119,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>En cualquier caso, lo más importante es que trabajes con un equipo que tenga experiencia real en <a href="/eventos/bodas/">bodas en CDMX</a> y que conozca los venues de la zona. La iluminación no es un commodity: es el elemento que define la atmósfera completa de tu celebración.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/eventos/bodas/" class="btn btn-primary btn-lg">Cotiza la iluminación para tu boda →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

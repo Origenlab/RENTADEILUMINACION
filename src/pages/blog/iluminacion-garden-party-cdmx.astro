@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Garden Party en CDMX: Iluminación Perfecta para Fiestas al Aire Libre | REDEIL";
 const description = "Guía completa de iluminación para garden parties en CDMX. Guirnaldas, festoon lights, luces LED para jardín, consideraciones de energía y los mejores venues.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-garden-party-cdmx/" }
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif";
+const imageAlt = "Guirnaldas Edison iluminando jardín para fiesta al aire libre en CDMX";
+const category = "Guía";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Garden Party"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Garden Party en CDMX: Iluminación Perfecta para Fiestas al Aire Libre</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas Edison iluminando jardín para fiesta al aire libre en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Las garden parties se han convertido en una de las tendencias más fuertes para eventos sociales en la Ciudad de México. Bodas, cumpleaños, despedidas, baby showers y hasta eventos corporativos se están moviendo a jardines, terrazas y espacios al aire libre. Y la razón es simple: la combinación de naturaleza, cielo abierto y buena iluminación crea una atmósfera que ningún salón cerrado puede igualar. Pero iluminar un jardín no es lo mismo que iluminar un salón. Hay retos específicos que debes conocer para que tu fiesta al aire libre se vea espectacular de principio a fin.</p>
 
       <h2>Por Qué la Iluminación es Crítica en un Garden Party</h2>
@@ -116,20 +117,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL somos especialistas en iluminación para exteriores. Tenemos el equipo resistente a la intemperie, la experiencia en logística de energía eléctrica al aire libre y el ojo estético para transformar cualquier jardín en un escenario de revista. Conoce nuestros servicios de <a href="/servicios/guirnaldas/">guirnaldas para eventos</a> y <a href="/servicios/iluminacion/">iluminación profesional</a>, y cotiza tu garden party con todo incluido.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/guirnaldas/" class="btn btn-primary btn-lg">Ver Guirnaldas para Jardín</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

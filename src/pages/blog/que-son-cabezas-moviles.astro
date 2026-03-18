@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "¿Qué Son las Cabezas Móviles y Para Qué Sirven en un Evento? | REDEIL";
 const description = "Las cabezas móviles (moving heads) crean shows de luz dinámicos. Tipos beam, spot y wash, cuándo usarlas y por qué transforman tu evento. Guía REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/que-son-cabezas-moviles/" }
   }
 ]);
+const image = "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif";
+const imageAlt = "Cabezas móviles con beams blancos elegantes en boda";
+const category = "Equipos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Cabezas Móviles"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>¿Qué Son las Cabezas Móviles y Para Qué Sirven en un Evento?</h1>
-
-      <img src="/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif" alt="Cabezas móviles con beams blancos elegantes en boda" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Si has estado en una boda, un concierto o una fiesta de XV años donde la luz "se movía" por todo el salón creando efectos espectaculares, lo que viste fueron <strong>cabezas móviles</strong>. Son el equipo de iluminación más impactante que puedes agregar a un evento, y aquí te explico exactamente qué son, cómo funcionan y cuándo vale la pena incluirlas.</p>
 
       <h2>Cabezas Móviles: Definición Simple</h2>
@@ -80,37 +81,37 @@ const schemaMarkup = JSON.stringify([
 
       <p>Depende del tamaño del espacio y del efecto que quieras. Esta es nuestra guía rápida:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Tipo de Evento</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Cabezas recomendadas</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Inversión aprox.</th>
+          <tr>
+            <th>Tipo de Evento</th>
+            <th>Cabezas recomendadas</th>
+            <th>Inversión aprox.</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Boda íntima (50-80 invitados)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2 – 4 unidades</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$4,000 – $8,000 MXN</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Boda mediana (100-200 invitados)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">4 – 8 unidades</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$8,000 – $16,000 MXN</td>
+            <td>Boda íntima (50-80 invitados)</td>
+            <td>2 – 4 unidades</td>
+            <td>$4,000 – $8,000 MXN</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">XV años / fiesta grande</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">6 – 12 unidades</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$10,000 – $22,000 MXN</td>
+            <td>Boda mediana (100-200 invitados)</td>
+            <td>4 – 8 unidades</td>
+            <td>$8,000 – $16,000 MXN</td>
           </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Evento corporativo / lanzamiento</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">8 – 20 unidades</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$15,000 – $40,000 MXN</td>
+          <tr>
+            <td>XV años / fiesta grande</td>
+            <td>6 – 12 unidades</td>
+            <td>$10,000 – $22,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Evento corporativo / lanzamiento</td>
+            <td>8 – 20 unidades</td>
+            <td>$15,000 – $40,000 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <p>La regla de oro: <strong>siempre en números pares</strong>. Las cabezas móviles lucen mejor en pares simétricos (2, 4, 6, 8). Colocar una sola cabeza móvil desbalancea el diseño visual.</p>
 
@@ -148,9 +149,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Conoce nuestro <a href="/servicios/cabezas-moviles/">servicio de renta de cabezas móviles</a> con operador incluido, o contáctanos para diseñar un plan de iluminación personalizado para tu evento.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

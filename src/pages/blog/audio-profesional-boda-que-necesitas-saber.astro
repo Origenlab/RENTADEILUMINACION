@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Más emocional que el artículo de DJ — historias de errores reales + los 3 momentos de audio + checklist para el lector + coordinación con fotógrafo y MC
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Audio para Boda: Lo Que Nadie Te Dice Antes de Contratar en CDMX | REDEIL";
 const description = "Los 3 momentos de audio en una boda, errores que arruinan eventos y cómo elegir el equipo correcto. 30 años de experiencia en bodas CDMX.";
@@ -29,18 +28,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl-800w.avif";
+const imageAlt = "Sistema de audio profesional con bocinas JBL y mezcladora para boda en CDMX";
+const category = "Sonido";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Audio para Boda"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Audio para Boda: Lo Que Nadie Te Dice Antes de Contratar en CDMX</h1>
-      <img src="/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl-800w.avif" alt="Sistema de audio profesional con bocinas JBL y mezcladora para boda en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>He visto bodas de medio millón de pesos arruinadas por el audio. No exagero. La ceremonia donde nadie escuchó los votos. El brindis del papá que se perdió en un eco horrible. La pista de baile donde las bocinas distorsionaban cada vez que subía el volumen. Y lo peor: nadie se da cuenta de que el audio está mal hasta que ya es demasiado tarde.</p>
 
       <p>El audio es el servicio más invisible de una boda — cuando funciona bien, nadie lo nota. Cuando funciona mal, todos lo sufren. Y después de 30 años montando sonido en bodas en toda la Ciudad de México, te puedo decir exactamente qué necesitas y qué errores evitar.</p>
@@ -80,54 +82,52 @@ const schemaMarkup = JSON.stringify([
 
       <h2>Qué equipo necesitas según el número de personas</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 600px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Personas</th>
-              <th style="padding: 12px; text-align: left;">Espacio típico</th>
-              <th style="padding: 12px; text-align: left;">Bocinas</th>
-              <th style="padding: 12px; text-align: left;">Subs</th>
-              <th style="padding: 12px; text-align: left;">Técnico</th>
-              <th style="padding: 12px; text-align: left;">Precio desde</th>
+            <tr>
+              <th>Personas</th>
+              <th>Espacio típico</th>
+              <th>Bocinas</th>
+              <th>Subs</th>
+              <th>Técnico</th>
+              <th>Precio desde</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>50-80</strong></td>
-              <td style="padding: 12px;">Jardín íntimo, terraza</td>
-              <td style="padding: 12px;">2 × 15"</td>
-              <td style="padding: 12px;">—</td>
-              <td style="padding: 12px;">No necesario</td>
-              <td style="padding: 12px;">$5,500 + IVA</td>
+            <tr>
+              <td><strong>50-80</strong></td>
+              <td>Jardín íntimo, terraza</td>
+              <td>2 × 15"</td>
+              <td>—</td>
+              <td>No necesario</td>
+              <td>$5,500 + IVA</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>80-200</strong></td>
-              <td style="padding: 12px;">Salón mediano, hacienda</td>
-              <td style="padding: 12px;">2-4 × 15"</td>
-              <td style="padding: 12px;">1-2 × 18"</td>
-              <td style="padding: 12px;">Recomendado</td>
-              <td style="padding: 12px;">$8,500 + IVA</td>
+            <tr>
+              <td><strong>80-200</strong></td>
+              <td>Salón mediano, hacienda</td>
+              <td>2-4 × 15"</td>
+              <td>1-2 × 18"</td>
+              <td>Recomendado</td>
+              <td>$8,500 + IVA</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>200-400</strong></td>
-              <td style="padding: 12px;">Salón grande, explanada</td>
-              <td style="padding: 12px;">4-6 × 15"</td>
-              <td style="padding: 12px;">2-4 × 18"</td>
-              <td style="padding: 12px;">Incluido</td>
-              <td style="padding: 12px;">$12,000 + IVA</td>
+            <tr>
+              <td><strong>200-400</strong></td>
+              <td>Salón grande, explanada</td>
+              <td>4-6 × 15"</td>
+              <td>2-4 × 18"</td>
+              <td>Incluido</td>
+              <td>$12,000 + IVA</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>400+</strong></td>
-              <td style="padding: 12px;">WTC, hotel, venue masivo</td>
-              <td style="padding: 12px;">Line array</td>
-              <td style="padding: 12px;">4 × 18"</td>
-              <td style="padding: 12px;">Incluido + monitor</td>
-              <td style="padding: 12px;">$18,000 + IVA</td>
+            <tr>
+              <td><strong>400+</strong></td>
+              <td>WTC, hotel, venue masivo</td>
+              <td>Line array</td>
+              <td>4 × 18"</td>
+              <td>Incluido + monitor</td>
+              <td>$18,000 + IVA</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>En jardines y espacios abiertos siempre se necesita más potencia que en salones cerrados. El sonido se dispersa sin paredes que lo reflejen. Un jardín de 200 personas necesita el equipo que en un salón cerrado cubriría 350.</p>
 
@@ -205,10 +205,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si estás planeando tu boda y no sabes qué nivel de audio necesitas, mándanos las fotos de tu venue y el número de invitados — te decimos exactamente qué equipo funciona para tu espacio.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/bocinas-bodas/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Audio Boda</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20audio%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

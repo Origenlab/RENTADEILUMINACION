@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Bodas en Ciudad Satélite y Naucalpan | REDEIL";
 const description = "Renta de iluminación profesional para bodas en Ciudad Satélite y Naucalpan. Guirnaldas, luces LED, cabezas móviles y sonido para salones modernos y terrazas en zona residencial.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-bodas-satelite/" }
   }
 ]);
+const image = "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif";
+const imageAlt = "Iluminación profesional completa para boda elegante en salón de Ciudad Satélite Naucalpan";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Bodas Satélite"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Bodas en Ciudad Satélite y Naucalpan: Elegancia con Luz Profesional</h1>
-
-      <img src="/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" alt="Iluminación profesional completa para boda elegante en salón de Ciudad Satélite Naucalpan" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p><strong>Ciudad Satélite</strong> es una de las zonas más emblemáticas del Estado de México. Conocida por las icónicas <strong>Torres de Satélite</strong> diseñadas por Luis Barragán y Mathias Goeritz, esta <strong>zona residencial</strong> se ha consolidado como un polo importante para la celebración de bodas elegantes y sofisticadas. Los <strong>salones modernos</strong>, las <strong>terrazas</strong> con vista y los espacios de eventos de la zona demandan una iluminación a la altura de su estética contemporánea.</p>
 
       <p>En REDEIL somos especialistas en <strong>iluminación para bodas en Ciudad Satélite y Naucalpan</strong>. Entendemos que una boda en esta zona tiene un estándar visual alto: los novios buscan ambientes sofisticados, fotografías impecables y una experiencia que refleje el estilo moderno de la zona. Nuestra <a href="/servicios/iluminacion/">iluminación profesional</a> está diseñada exactamente para eso.</p>
@@ -87,20 +88,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL llevamos más de 3,000 eventos iluminados en la zona metropolitana. Conocemos los salones, las terrazas y los jardines de Satélite y Naucalpan. Sabemos exactamente qué equipo funciona mejor en cada espacio y cómo sacarle el máximo provecho a tu presupuesto sin comprometer la calidad. Tu boda merece luz profesional.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu boda en Satélite →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

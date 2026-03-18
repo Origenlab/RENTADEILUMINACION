@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Huixquilucan Edomex — Interlomas, Haciendas y Country Clubs | REDEIL";
 const description = "Iluminación profesional para eventos en Huixquilucan Estado de México. Cabezas móviles, guirnaldas y efectos para haciendas, country clubs, Interlomas y Bosque Real.";
@@ -72,19 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif";
+const imageAlt = "Guirnaldas iluminando baile de novios en hacienda de Huixquilucan Estado de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Huixquilucan"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Huixquilucan Edomex — Interlomas, Haciendas y Country Clubs</h1>
-
-      <img src="/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif" alt="Guirnaldas iluminando baile de novios en hacienda de Huixquilucan Estado de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Huixquilucan es territorio premium del Estado de México. Interlomas, Bosque Real, La Herradura, haciendas de campo entre cerros boscosos y country clubs con jardines impecables: los eventos aquí tienen un estándar de calidad que no admite medias tintas. La gente que organiza bodas, fiestas y eventos corporativos en Huixquilucan espera una producción a la altura de los venues que elige, y la iluminación es uno de los elementos que más impacto visual genera en cualquier celebración.</p>
 
       <p>En REDEIL conocemos esta zona a fondo. Hemos montado iluminación en haciendas con muros de piedra volcánica, en terrazas de departamentos de lujo en Interlomas, en jardines de country clubs y en salones de eventos que miran hacia el valle. Cada espacio en Huixquilucan tiene particularidades que requieren un enfoque técnico específico, y ese conocimiento acumulado es lo que nos permite entregar resultados consistentes evento tras evento.</p>
@@ -153,37 +154,6 @@ const schemaMarkup = JSON.stringify([
       <h3>¿También cubren la zona de Santa Fe cercana a Huixquilucan?</h3>
       <p>Por supuesto. Cubrimos toda la zona de Santa Fe-Huixquilucan incluyendo Punta Santa Fe, los corporativos de la zona y los espacios de eventos de Interlomas y Bosque Real. La cercanía geográfica hace que la logística sea ideal para atender ambas zonas en el mismo circuito.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Huixquilucan →</a>
       </div>
-
-      <h2>También Atendemos Zonas Cercanas</h2>
-      <p>Si tu evento no es en Huixquilucan pero sí en un municipio o alcaldía cercana, cubrimos estas zonas con el mismo nivel de servicio:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-naucalpan/">Iluminación para eventos en Naucalpan</a> — Salones, jardines, zona industrial y Ciudad Satélite. El municipio vecino con mayor oferta de venues en Edomex.</li>
-        <li><a href="/blog/iluminacion-eventos-polanco/">Iluminación para eventos en Polanco</a> — Hoteles cinco estrellas, rooftops y salones exclusivos en la zona más elegante de CDMX.</li>
-        <li><a href="/blog/iluminacion-eventos-toluca-metepec/">Iluminación para eventos en Toluca y Metepec</a> — Haciendas, jardines y salones en la capital del Estado de México y sus alrededores.</li>
-      </ul>
-
-      <h2>Tu Evento en Huixquilucan Merece Iluminación de Primer Nivel</h2>
-      <p>Los venues de Huixquilucan son de los mejores del Estado de México. Haciendas con historia, jardines impecables y espacios con vistas que cortan la respiración. Pero todo ese potencial se pierde si la iluminación no está a la altura. Nosotros nos encargamos de que cada rincón de tu evento se vea exactamente como lo imaginaste, con equipo profesional, montaje puntual y operadores que saben resolver cualquier reto técnico que el venue presente.</p>
-
-      <p>Cuéntanos sobre tu evento: la fecha, el venue, el número de invitados y el tipo de ambiente que quieres crear. Te enviamos una cotización detallada en menos de 2 horas, sin compromiso y con precios claros.</p>
-
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis →</a>
-      </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Tabla de precios con 4 niveles detallados + comparativa DJ fiesta vs DJ boda + preguntas concretas antes de contratar + datos de equipos reales Pioneer/DJM
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios | REDEIL";
 const description = "Precios reales de DJ para boda en CDMX: desde $4,500 hasta $22,000 + IVA. Comparativa de paquetes, qué incluye cada nivel y qué preguntar antes de contratar.";
@@ -28,18 +27,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif";
+const imageAlt = "DJ profesional mezclando música en boda en CDMX con equipo Pioneer";
+const category = "Sonido";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"¿Cuánto Cuesta un DJ para Boda?"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios</h1>
-      <img src="/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif" alt="DJ profesional mezclando música en boda en CDMX con equipo Pioneer" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es la pregunta que todo novio y toda novia hacen — y que la mayoría de proveedores evitan responder directamente. "Depende", te dicen. Y sí, depende. Pero aquí te voy a dar los números reales, desglosados, para que sepas exactamente en qué rango te mueves y qué estás pagando en cada nivel.</p>
 
       <p>Después de más de 30 años montando sonido en bodas en toda la Ciudad de México y zona metropolitana, puedo decir que los precios que vas a ver aquí reflejan lo que realmente se cobra en el mercado profesional — no en el informal.</p>
@@ -48,49 +50,47 @@ const schemaMarkup = JSON.stringify([
 
       <p>Estos son los cuatro niveles de servicio que manejamos en REDEIL, con lo que incluye cada uno:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 600px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Paquete</th>
-              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
-              <th style="padding: 12px; text-align: left;">Horas</th>
-              <th style="padding: 12px; text-align: left;">Personas</th>
-              <th style="padding: 12px; text-align: left;">Equipo principal</th>
+            <tr>
+              <th>Paquete</th>
+              <th>Precio + IVA</th>
+              <th>Horas</th>
+              <th>Personas</th>
+              <th>Equipo principal</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Básico</strong></td>
-              <td style="padding: 12px;">$4,500</td>
-              <td style="padding: 12px;">4 hrs</td>
-              <td style="padding: 12px;">Hasta 80</td>
-              <td style="padding: 12px;">Controlador DDJ-400, 2 bocinas 15"</td>
+            <tr>
+              <td><strong>Básico</strong></td>
+              <td>$4,500</td>
+              <td>4 hrs</td>
+              <td>Hasta 80</td>
+              <td>Controlador DDJ-400, 2 bocinas 15"</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Estándar</strong></td>
-              <td style="padding: 12px;">$8,500</td>
-              <td style="padding: 12px;">5 hrs</td>
-              <td style="padding: 12px;">Hasta 150</td>
-              <td style="padding: 12px;">DDJ-1000, 2 bocinas JBL EON 15", 1 sub 18"</td>
+            <tr>
+              <td><strong>Estándar</strong></td>
+              <td>$8,500</td>
+              <td>5 hrs</td>
+              <td>Hasta 150</td>
+              <td>DDJ-1000, 2 bocinas JBL EON 15", 1 sub 18"</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Premium</strong></td>
-              <td style="padding: 12px;">$12,000</td>
-              <td style="padding: 12px;">6 hrs</td>
-              <td style="padding: 12px;">Hasta 250</td>
-              <td style="padding: 12px;">CDJ-2000NXS2 + DJM-750MK2, 4 bocinas, 2 subs</td>
+            <tr>
+              <td><strong>Premium</strong></td>
+              <td>$12,000</td>
+              <td>6 hrs</td>
+              <td>Hasta 250</td>
+              <td>CDJ-2000NXS2 + DJM-750MK2, 4 bocinas, 2 subs</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Producción</strong></td>
-              <td style="padding: 12px;">$22,000</td>
-              <td style="padding: 12px;">8 hrs</td>
-              <td style="padding: 12px;">Hasta 500</td>
-              <td style="padding: 12px;">CDJ-2000NXS2 + DJM-900NXS2, line array, 4 subs, técnico</td>
+            <tr>
+              <td><strong>Producción</strong></td>
+              <td>$22,000</td>
+              <td>8 hrs</td>
+              <td>Hasta 500</td>
+              <td>CDJ-2000NXS2 + DJM-900NXS2, line array, 4 subs, técnico</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>Todos los paquetes incluyen DJ profesional, micrófono inalámbrico para brindis, montaje y desmontaje. Los paquetes Estándar en adelante incluyen iluminación básica (4-8 PAR LED). El paquete Producción incluye técnico de audio independiente.</p>
 
@@ -133,44 +133,42 @@ const schemaMarkup = JSON.stringify([
 
       <p>Esto es algo que mucha gente no distingue — y es fundamental. Un DJ que es buenísimo en un antro o en una fiesta de cumpleaños puede ser un desastre en tu boda. ¿Por qué?</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 500px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Aspecto</th>
-              <th style="padding: 12px; text-align: left;">DJ de fiesta</th>
-              <th style="padding: 12px; text-align: left;">DJ de boda</th>
+            <tr>
+              <th>Aspecto</th>
+              <th>DJ de fiesta</th>
+              <th>DJ de boda</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Protocolo</strong></td>
-              <td style="padding: 12px;">Pone música y la gente baila</td>
-              <td style="padding: 12px;">Coordina con MC, fotógrafo, wedding planner</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Momentos</strong></td>
-              <td style="padding: 12px;">Un solo bloque de música continua</td>
-              <td style="padding: 12px;">Vals, ramo, liga, brindis, hora loca — cada uno con su timing</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Volumen</strong></td>
-              <td style="padding: 12px;">Alto toda la noche</td>
-              <td style="padding: 12px;">Se adapta: bajo en cena, medio en coctel, alto en pista</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Playlist</strong></td>
-              <td style="padding: 12px;">Lo que está de moda</td>
-              <td style="padding: 12px;">Personalizada: mezcla generaciones, géneros, peticiones de los novios</td>
+            <tr>
+              <td><strong>Protocolo</strong></td>
+              <td>Pone música y la gente baila</td>
+              <td>Coordina con MC, fotógrafo, wedding planner</td>
             </tr>
             <tr>
-              <td style="padding: 12px;"><strong>Vestimenta</strong></td>
-              <td style="padding: 12px;">Casual</td>
-              <td style="padding: 12px;">Formal o según el dress code del evento</td>
+              <td><strong>Momentos</strong></td>
+              <td>Un solo bloque de música continua</td>
+              <td>Vals, ramo, liga, brindis, hora loca — cada uno con su timing</td>
+            </tr>
+            <tr>
+              <td><strong>Volumen</strong></td>
+              <td>Alto toda la noche</td>
+              <td>Se adapta: bajo en cena, medio en coctel, alto en pista</td>
+            </tr>
+            <tr>
+              <td><strong>Playlist</strong></td>
+              <td>Lo que está de moda</td>
+              <td>Personalizada: mezcla generaciones, géneros, peticiones de los novios</td>
+            </tr>
+            <tr>
+              <td><strong>Vestimenta</strong></td>
+              <td>Casual</td>
+              <td>Formal o según el dress code del evento</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>En 30 años hemos visto bodas donde el DJ puso reggaetón a todo volumen durante la cena (los papás y abuelos se salieron del salón), bodas donde el DJ no sabía cuándo cortar para el brindis, y bodas donde el DJ desapareció 20 minutos porque "fue al baño". Un DJ de boda profesional sabe que su trabajo es hacer que la fiesta fluya sin que nadie se dé cuenta de que hay alguien controlándola.</p>
 
@@ -212,10 +210,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si todavía no tienes claro qué nivel necesitas, mándanos un WhatsApp con la fecha, el venue y el número de invitados — te decimos exactamente qué paquete te conviene.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/bocinas-djs/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes DJ</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20DJ%20para%20mi%20boda" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

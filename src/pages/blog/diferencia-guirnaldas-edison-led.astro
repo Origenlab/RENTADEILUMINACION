@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Focos Edison vs LED para Guirnaldas: ¿Cuál Elegir para tu Evento? | REDEIL";
 const description = "Compara focos Edison vintage vs LED para guirnaldas de eventos. Diferencias en estética, consumo, durabilidad y precio. Guía experta de REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/diferencia-guirnaldas-edison-led/" }
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-focos-edison-eventos.avif";
+const imageAlt = "Guirnaldas con focos Edison de filamento para eventos";
+const category = "Guirnaldas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Edison vs LED"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Focos Edison vs LED para Guirnaldas: ¿Cuál Elegir para tu Evento?</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-focos-edison-eventos.avif" alt="Guirnaldas con focos Edison de filamento para eventos" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>"¿Edison o LED?" Es la segunda pregunta que nos hacen después de "¿cuánto cuesta?". Y tiene sentido, porque la respuesta no es la misma para todos los eventos. Un foco Edison de filamento visible le da un look completamente distinto a un foco LED de luz fría. Aquí te explico las diferencias reales, sin tecnicismos innecesarios, para que elijas con toda la información sobre la mesa.</p>
 
       <h2>¿Qué Es un Foco Edison Exactamente?</h2>
@@ -48,52 +49,52 @@ const schemaMarkup = JSON.stringify([
 
       <p>Donde sí hay una diferencia enorme es entre un <strong>foco tipo Edison (filamento visible)</strong> y un <strong>foco LED estándar (difuso/opaco)</strong>. Son dos estéticas completamente distintas:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Característica</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Edison (filamento visible)</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">LED estándar (difuso)</th>
+          <tr>
+            <th>Característica</th>
+            <th>Edison (filamento visible)</th>
+            <th>LED estándar (difuso)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Estética</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Vintage, rústica, romántica</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Moderna, limpia, festiva</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Temperatura de color</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2200K – 2700K (ámbar cálido)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">3000K – 6500K (variable)</td>
+            <td>Estética</td>
+            <td>Vintage, rústica, romántica</td>
+            <td>Moderna, limpia, festiva</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Forma del foco</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">ST64, A60, G80 (decorativos)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">G45, micro LED, esférico</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Consumo por foco</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">4 – 6 watts</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">1 – 2 watts</td>
+            <td>Temperatura de color</td>
+            <td>2200K – 2700K (ámbar cálido)</td>
+            <td>3000K – 6500K (variable)</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Brillo percibido</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Medio-bajo (ambiental)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Medio-alto (funcional)</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Ideal para</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Bodas, cenas románticas, haciendas</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Fiestas, XV años, eventos corporativos</td>
+            <td>Forma del foco</td>
+            <td>ST64, A60, G80 (decorativos)</td>
+            <td>G45, micro LED, esférico</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Precio por metro (renta)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$65 – $90 MXN</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$45 – $65 MXN</td>
+            <td>Consumo por foco</td>
+            <td>4 – 6 watts</td>
+            <td>1 – 2 watts</td>
+          </tr>
+          <tr>
+            <td>Brillo percibido</td>
+            <td>Medio-bajo (ambiental)</td>
+            <td>Medio-alto (funcional)</td>
+          </tr>
+          <tr>
+            <td>Ideal para</td>
+            <td>Bodas, cenas románticas, haciendas</td>
+            <td>Fiestas, XV años, eventos corporativos</td>
+          </tr>
+          <tr>
+            <td>Precio por metro (renta)</td>
+            <td>$65 – $90 MXN</td>
+            <td>$45 – $65 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>¿Cuándo Elegir Guirnaldas Edison?</h2>
 
@@ -146,9 +147,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Ya sabes las diferencias. Ahora déjanos ayudarte a elegir el tipo exacto de foco, la cantidad de metros y el diseño de montaje que tu espacio necesita. Visita nuestro <a href="/servicios/guirnaldas/">servicio de renta de guirnaldas</a> para ver todas las opciones disponibles, o contáctanos para una asesoría personalizada sin costo.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

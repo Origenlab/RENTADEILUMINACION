@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Paquete 50 vs 100 Metros de Guirnaldas: ¿Cuál Elegir para tu Evento? | REDEIL";
 const description = "Compara los paquetes de 50 y 100 metros de guirnaldas Edison. Diferencias, precios, para cuántos invitados y cuál te conviene. Guía REDEIL.";
@@ -18,64 +17,66 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/paquete-guirnaldas-50-vs-100-metros/" }
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif";
+const imageAlt = "Guirnaldas de luces Edison en jardín de boda al aire libre";
+const category = "Paquetes";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"50 vs 100 Metros Guirnaldas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Paquete 50 vs 100 Metros de Guirnaldas: ¿Cuál Elegir para tu Evento?</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas de luces Edison en jardín de boda al aire libre" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Nuestros dos paquetes más solicitados de guirnaldas son el de <strong>50 metros</strong> y el de <strong>100 metros</strong>. Y la pregunta que nos hacen siempre es: <em>"¿con cuál me voy?"</em>. No es solo cuestión de presupuesto; tiene que ver con el tamaño de tu espacio, el número de invitados y el efecto visual que quieres lograr. Te doy una comparación directa y honesta para que tomes la mejor decisión.</p>
 
       <h2>Comparación Rápida: 50 vs 100 Metros</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Característica</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Paquete 50 m</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Paquete 100 m</th>
+          <tr>
+            <th>Característica</th>
+            <th>Paquete 50 m</th>
+            <th>Paquete 100 m</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Área que cubre (zigzag)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">40 – 60 m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 120 m²</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Invitados recomendados</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">40 – 80</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 180</td>
+            <td>Área que cubre (zigzag)</td>
+            <td>40 – 60 m²</td>
+            <td>80 – 120 m²</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Focos Edison incluidos</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">~100 focos</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">~200 focos</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Inversión aproximada</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$3,500 – $5,000 MXN</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$6,500 – $8,500 MXN</td>
+            <td>Invitados recomendados</td>
+            <td>40 – 80</td>
+            <td>80 – 180</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Tiempo de montaje</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">1.5 – 2 horas</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2.5 – 3.5 horas</td>
+            <td>Focos Edison incluidos</td>
+            <td>~100 focos</td>
+            <td>~200 focos</td>
           </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Incluye montaje y desmontaje</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Sí</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Sí</td>
+          <tr>
+            <td>Inversión aproximada</td>
+            <td>$3,500 – $5,000 MXN</td>
+            <td>$6,500 – $8,500 MXN</td>
+          </tr>
+          <tr>
+            <td>Tiempo de montaje</td>
+            <td>1.5 – 2 horas</td>
+            <td>2.5 – 3.5 horas</td>
+          </tr>
+          <tr>
+            <td>Incluye montaje y desmontaje</td>
+            <td>Sí</td>
+            <td>Sí</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Cuándo Elegir el Paquete de 50 Metros</h2>
 
@@ -140,9 +141,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si no estás seguro, mándanos el nombre de tu venue o las medidas de tu espacio y te decimos exactamente cuál paquete necesitas. Sin costo, sin compromiso.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu Paquete de Guirnaldas</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Efectos Especiales para Entrada de XV Años: CO2, Bengalas y Sky Tracker | REDEIL";
 const description = "Haz una entrada espectacular en tus XV años con CO2, bengalas frías y sky tracker. Ideas, precios y cómo combinarlos. Guía profesional REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/entrada-xv-anos-efectos-especiales/" }
   }
 ]);
+const image = "/img/galeria/sky-tracker-01.avif";
+const imageAlt = "Sky tracker iluminando el cielo en evento de XV años";
+const category = "XV Años";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Entrada XV Años Efectos"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Efectos Especiales para la Entrada de XV Años: CO2, Bengalas Frías y Sky Tracker</h1>
-
-      <img src="/img/galeria/sky-tracker-01.avif" alt="Sky tracker iluminando el cielo en evento de XV años" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>La entrada de la quinceañera es <strong>el momento más importante de toda la fiesta</strong>. Es el instante donde todos los ojos están puestos en ella, la música sube, las luces cambian y el salón entero contiene la respiración. Después de montar miles de entradas de XV años en la Ciudad de México, te puedo asegurar que los efectos especiales son los que convierten ese momento de "bonito" a "inolvidable". Aquí te explico cada efecto, cuánto cuesta, cómo funciona y cómo combinarlos para lograr un impacto máximo.</p>
 
       <h2>Cañones de CO2: La Explosión de Energía</h2>
@@ -129,20 +130,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>La entrada de la quinceañera solo sucede una vez. Con los efectos correctos, bien coordinados y operados por profesionales, ese momento se convierte en algo que la festejada y sus invitados van a recordar para siempre.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/efectos-especiales/" class="btn btn-primary btn-lg">Cotiza Efectos Especiales</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

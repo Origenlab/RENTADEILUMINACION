@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Equipo Audiovisual para Conferencias en CDMX: Pantallas, Micrófonos y Sonido | REDEIL";
 const description = "Renta de equipo audiovisual para conferencias en CDMX. Pantallas LED, micrófonos, bocinas y proyección. Todo lo que necesitas. Guía REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/hero/hero-bocinas-conferencias.avif";
+const imageAlt = "Equipo audiovisual profesional para conferencia corporativa en CDMX";
+const category = "Corporativo";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Audiovisual Conferencias"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Equipo Audiovisual para Conferencias en CDMX: Pantallas, Micrófonos y Sonido</h1>
-
-      <img src="/img/hero/hero-bocinas-conferencias.avif" alt="Equipo audiovisual profesional para conferencia corporativa en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Una conferencia con audio deficiente o una pantalla que no se ve desde la tercera fila puede arruinar meses de planeación. Lo hemos visto cientos de veces: empresas que invierten en venue, catering y logística, pero subestiman el equipo audiovisual. El resultado es un público que no escucha, no lee las diapositivas y pierde el interés antes de la segunda ponencia.</p>
 
       <p>En <strong>REDEIL</strong> llevamos más de 30 años montando eventos corporativos en la Ciudad de México. Conferencias, congresos, lanzamientos de producto, capacitaciones y convenciones — cada formato tiene necesidades técnicas diferentes. Esta guía te explica exactamente qué equipo necesitas, cuánto cuesta y cómo evitar los errores que cometen el 90% de los organizadores.</p>
@@ -74,37 +75,37 @@ const schemaMarkup = JSON.stringify([
 
       <p>El sistema de sonido debe dimensionarse al tamaño del salón. Un error común es usar bocinas demasiado pequeñas y compensar subiendo el volumen — el resultado es distorsión y fatiga auditiva.</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left;">Asistentes</th>
-            <th style="padding: 12px; text-align:left;">Sistema Recomendado</th>
-            <th style="padding: 12px; text-align:left;">Precio Desde</th>
+          <tr>
+            <th>Asistentes</th>
+            <th>Sistema Recomendado</th>
+            <th>Precio Desde</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;">30-80 personas</td>
-            <td style="padding: 12px;">2 bocinas activas 12" + mixer</td>
-            <td style="padding: 12px;">$3,500 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;">80-200 personas</td>
-            <td style="padding: 12px;">4 bocinas line array + subwoofer + mixer digital</td>
-            <td style="padding: 12px;">$8,000 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #e9ecef;">
-            <td style="padding: 12px;">200-500 personas</td>
-            <td style="padding: 12px;">Line array profesional + monitores de escenario + técnico</td>
-            <td style="padding: 12px;">$15,000 MXN</td>
+          <tr>
+            <td>30-80 personas</td>
+            <td>2 bocinas activas 12" + mixer</td>
+            <td>$3,500 MXN</td>
           </tr>
           <tr>
-            <td style="padding: 12px;">500+ personas</td>
-            <td style="padding: 12px;">Sistema de sonido distribuido + delay towers + ingeniero de audio</td>
-            <td style="padding: 12px;">$25,000 MXN</td>
+            <td>80-200 personas</td>
+            <td>4 bocinas line array + subwoofer + mixer digital</td>
+            <td>$8,000 MXN</td>
+          </tr>
+          <tr>
+            <td>200-500 personas</td>
+            <td>Line array profesional + monitores de escenario + técnico</td>
+            <td>$15,000 MXN</td>
+          </tr>
+          <tr>
+            <td>500+ personas</td>
+            <td>Sistema de sonido distribuido + delay towers + ingeniero de audio</td>
+            <td>$25,000 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Equipo Complementario que Marca la Diferencia</h2>
 
@@ -163,9 +164,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>En <strong>REDEIL</strong> armamos paquetes audiovisuales a la medida para conferencias, congresos y eventos corporativos en toda la CDMX y Estado de México. Incluimos transporte, montaje, operación técnica durante el evento y desmontaje. Conoce nuestros servicios de <a href="/servicios/sonido/">sonido profesional</a> y <a href="/servicios/pantallas-led/">pantallas LED</a>, o cotiza directamente tu evento.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Tu Conferencia</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

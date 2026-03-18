@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Más emocional — el efecto más fotogénico + comparación profesional vs juguete + momentos específicos para burbujas + preguntas prácticas sobre el piso y duración
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Máquina de Burbujas para Bodas y Fiestas: El Efecto Más Fotogénico | REDEIL";
 const description = "Máquina de burbujas profesional para bodas y fiestas en CDMX: cómo funciona, mejores momentos, diferencia con máquinas de juguete y precios desde $2,000 + IVA.";
@@ -28,18 +27,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/burbujas/burbujas-efecto-especial-fotografia-video.avif";
+const imageAlt = "Burbujas profesionales como efecto especial para fotografía y video en boda";
+const category = "Efectos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Máquina de Burbujas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Máquina de Burbujas para Bodas y Fiestas: El Efecto Más Fotogénico</h1>
-      <img src="/img/burbujas/burbujas-efecto-especial-fotografia-video.avif" alt="Burbujas profesionales como efecto especial para fotografía y video en boda" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Hay un efecto que los fotógrafos adoran, que los novios nunca se arrepienten de haber contratado, que hace sonreír a los niños y a los abuelos por igual, y que en fotos y video se ve absolutamente mágico. Son las burbujas. Así de simple — burbujas flotando en el aire mientras los novios salen de la iglesia, mientras el cumpleañero sopla las velas, mientras la quinceañera baila el vals.</p>
 
       <p>Suena sencillo. Y lo es. Pero la diferencia entre burbujas de una máquina profesional y burbujas de un juguete de $200 pesos es la diferencia entre un efecto cinematográfico y un charco de jabón en el piso.</p>
@@ -48,49 +50,47 @@ const schemaMarkup = JSON.stringify([
 
       <p>Esta es la primera distinción que debes entender porque te va a ahorrar una decepción:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 550px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Característica</th>
-              <th style="padding: 12px; text-align: left;">Máquina de juguete</th>
-              <th style="padding: 12px; text-align: left;">Máquina profesional</th>
+            <tr>
+              <th>Característica</th>
+              <th>Máquina de juguete</th>
+              <th>Máquina profesional</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Producción</strong></td>
-              <td style="padding: 12px;">20-50 burbujas/min</td>
-              <td style="padding: 12px;">500-3,000 burbujas/min</td>
+            <tr>
+              <td><strong>Producción</strong></td>
+              <td>20-50 burbujas/min</td>
+              <td>500-3,000 burbujas/min</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Tamaño de burbujas</strong></td>
-              <td style="padding: 12px;">Grandes, irregulares</td>
-              <td style="padding: 12px;">Uniformes, ajustables</td>
+            <tr>
+              <td><strong>Tamaño de burbujas</strong></td>
+              <td>Grandes, irregulares</td>
+              <td>Uniformes, ajustables</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Alcance</strong></td>
-              <td style="padding: 12px;">1-2 metros</td>
-              <td style="padding: 12px;">5-10 metros con ventilador</td>
+            <tr>
+              <td><strong>Alcance</strong></td>
+              <td>1-2 metros</td>
+              <td>5-10 metros con ventilador</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Duración continua</strong></td>
-              <td style="padding: 12px;">5-10 minutos (se calienta)</td>
-              <td style="padding: 12px;">Horas de operación continua</td>
+            <tr>
+              <td><strong>Duración continua</strong></td>
+              <td>5-10 minutos (se calienta)</td>
+              <td>Horas de operación continua</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Residuo en piso</strong></td>
-              <td style="padding: 12px;">Deja película jabonosa</td>
-              <td style="padding: 12px;">Mínimo — líquido profesional</td>
+            <tr>
+              <td><strong>Residuo en piso</strong></td>
+              <td>Deja película jabonosa</td>
+              <td>Mínimo — líquido profesional</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Control</strong></td>
-              <td style="padding: 12px;">Encender/apagar</td>
-              <td style="padding: 12px;">DMX, control remoto, temporizador</td>
+            <tr>
+              <td><strong>Control</strong></td>
+              <td>Encender/apagar</td>
+              <td>DMX, control remoto, temporizador</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>Una máquina profesional produce una nube densa de cientos de burbujas por minuto — el efecto es envolvente, llena el espacio, se mueve con el viento y crea una atmósfera completa. Una máquina de juguete produce 20 burbujas que se caen en un metro. La diferencia es enorme.</p>
 
@@ -181,10 +181,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Es el efecto con mejor relación costo-impacto que puedes agregar a tu evento. Mándanos un WhatsApp y te armamos la combinación perfecta para tu celebración.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/burbujas/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Burbujas</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20cotizar%20burbujas%20para%20mi%20evento" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

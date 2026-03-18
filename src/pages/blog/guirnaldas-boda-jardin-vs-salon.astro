@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Guirnaldas para Boda: Jardín vs Salón — Diferencias y Consejos Clave | REDEIL";
 const description = "¿Boda en jardín o salón? Descubre las diferencias clave para elegir guirnaldas Edison perfectas. IP65 exteriores, montaje, diseño y tips profesionales.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/guirnaldas-boda-jardin-vs-salon/" }
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif";
+const imageAlt = "Guirnaldas Edison iluminando una boda en hacienda mexicana";
+const category = "Guirnaldas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Jardín vs Salón"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Guirnaldas para Boda: Jardín vs Salón — Diferencias y Consejos Clave</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" alt="Guirnaldas Edison iluminando una boda en hacienda mexicana" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Elegir guirnaldas para tu boda parece sencillo hasta que te das cuenta de que el mismo producto no funciona igual en un <strong>jardín al aire libre</strong> que en un <strong>salón cerrado</strong>. Los materiales, el montaje, la cantidad de focos y hasta el tipo de cable cambian radicalmente. Aquí te explicamos todo lo que necesitas saber para tomar la mejor decisión, sin gastar de más ni quedarte corto.</p>
 
       <h2>La Diferencia Fundamental: Intemperie vs Ambiente Controlado</h2>
@@ -42,52 +43,52 @@ const schemaMarkup = JSON.stringify([
 
       <h2>Comparativa Completa: Jardín vs Salón</h2>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Característica</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Jardín / Exterior</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Salón / Interior</th>
+          <tr>
+            <th>Característica</th>
+            <th>Jardín / Exterior</th>
+            <th>Salón / Interior</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Protección mínima</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">IP65</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">IP20</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Tipo de cable</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Caucho negro reforzado</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Cable estándar (negro o transparente)</td>
+            <td>Protección mínima</td>
+            <td>IP65</td>
+            <td>IP20</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Puntos de anclaje</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Árboles, postes, estructura tubular</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Techo, vigas, rieles</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Tiempo de montaje (100 m)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">3 – 5 horas</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2 – 3 horas</td>
+            <td>Tipo de cable</td>
+            <td>Caucho negro reforzado</td>
+            <td>Cable estándar (negro o transparente)</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">¿Necesita planta de luz?</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Frecuentemente sí</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Casi nunca</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Riesgo principal</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Viento y lluvia</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Altura limitada de techo</td>
+            <td>Puntos de anclaje</td>
+            <td>Árboles, postes, estructura tubular</td>
+            <td>Techo, vigas, rieles</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Costo por metro (aprox.)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$65 – $90 MXN</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$55 – $75 MXN</td>
+            <td>Tiempo de montaje (100 m)</td>
+            <td>3 – 5 horas</td>
+            <td>2 – 3 horas</td>
+          </tr>
+          <tr>
+            <td>¿Necesita planta de luz?</td>
+            <td>Frecuentemente sí</td>
+            <td>Casi nunca</td>
+          </tr>
+          <tr>
+            <td>Riesgo principal</td>
+            <td>Viento y lluvia</td>
+            <td>Altura limitada de techo</td>
+          </tr>
+          <tr>
+            <td>Costo por metro (aprox.)</td>
+            <td>$65 – $90 MXN</td>
+            <td>$55 – $75 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <h2>Montaje en Jardín: Lo que Debes Saber</h2>
 
@@ -148,9 +149,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Conoce todas las opciones de nuestro <a href="/servicios/guirnaldas/">servicio de renta de guirnaldas</a> y encuentra el paquete perfecto para tu boda, sea donde sea.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

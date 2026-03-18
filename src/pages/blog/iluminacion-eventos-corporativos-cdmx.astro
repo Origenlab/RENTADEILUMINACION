@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Eventos Corporativos en CDMX: Guía Completa | REDEIL";
 const description = "Iluminación profesional para eventos corporativos en CDMX. Conferencias, lanzamientos, galas. Qué equipo necesitas y precios. Guía REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-corporativos-cdmx/" }
   }
 ]);
+const image = "/img/hero/hero-bocinas-conferencias.avif";
+const imageAlt = "Iluminación profesional para evento corporativo con bocinas y conferencia";
+const category = "Corporativo";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Iluminación Corporativa"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Eventos Corporativos en CDMX: Guía Completa</h1>
-
-      <img src="/img/hero/hero-bocinas-conferencias.avif" alt="Iluminación profesional para evento corporativo con bocinas y conferencia" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>La iluminación en un evento corporativo no es decoración: es comunicación. La luz correcta refuerza tu marca, dirige la atención del público y crea la atmósfera profesional que tu empresa necesita proyectar. Después de más de tres décadas iluminando conferencias, lanzamientos de producto, galas empresariales y convenciones en la Ciudad de México, te comparto todo lo que necesitas saber para que tu próximo evento corporativo se vea impecable.</p>
 
       <h2>Por Qué la Iluminación Corporativa es Diferente</h2>
@@ -128,9 +129,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>La diferencia entre un evento corporativo bien iluminado y uno con las luces del salón es la misma diferencia que hay entre una presentación de PowerPoint en blanco y negro y una producción audiovisual de primer nivel. Tu empresa merece proyectar profesionalismo en cada detalle.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Tu Evento Corporativo</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Renta de Iluminación para Eventos en Xochimilco — Trajineras, Jardines y Haciendas | REDEIL";
 const description = "Iluminación profesional para eventos en Xochimilco CDMX. Guirnaldas, luces LED y efectos especiales para trajineras, jardines con canales y haciendas. Cotiza hoy.";
@@ -72,18 +71,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif";
+const imageAlt = "Guirnaldas de luces iluminando jardín para evento en Xochimilco";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Xochimilco"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Renta de Iluminación para Eventos en Xochimilco — Trajineras, Jardines y Haciendas</h1>
-      <img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas de luces iluminando jardín para evento en Xochimilco" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Xochimilco no se parece a ningún otro lugar de la Ciudad de México. Sus canales, chinampas, trajineras de colores, jardines que terminan donde empieza el agua y haciendas rodeadas de vegetación crean un paisaje que ya de por sí tiene algo mágico. Ahora imagina ese escenario con iluminación profesional: guirnaldas reflejándose en el agua, luces LED bañando los árboles de colores, el humo bajo flotando sobre la pista mientras suena el vals. Eso es lo que hacemos en REDEIL cada fin de semana en esta alcaldía.</p>
 
       <p>Pero iluminar en Xochimilco no es igual que hacerlo en Polanco o en la Roma. Aquí hay retos específicos: humedad constante, venues sin suficiente capacidad eléctrica, montajes sobre agua y espacios al aire libre que dependen del clima. Por eso, en este artículo te explico todo lo que necesitas saber para contratar iluminación profesional para tu evento en Xochimilco, desde las consideraciones técnicas hasta los servicios más solicitados.</p>
@@ -169,24 +171,4 @@ const schemaMarkup = JSON.stringify([
       <h3>¿Llevan planta de luz a Xochimilco?</h3>
       <p>Sí. Muchos espacios en Xochimilco, especialmente cerca de los canales, tienen capacidad eléctrica limitada. Llevamos plantas de luz silenciosas de 20 a 45 kVA para garantizar el suministro durante todo el evento. El costo va de $3,500 a $8,000 MXN según la potencia necesaria, y siempre las probamos antes de que lleguen los invitados.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en Xochimilco →</a>
-      </div>
-
-      <h2>También atendemos zonas cercanas</h2>
-      <p>Si tu evento no es directamente en Xochimilco pero sí en una alcaldía vecina, también llegamos sin problema. Conoce nuestros servicios de iluminación en:</p>
-      <ul>
-        <li><a href="/blog/iluminacion-eventos-tlalpan/">Tlalpan</a> — haciendas, bosques y jardines con altitud</li>
-        <li><a href="/blog/iluminacion-eventos-iztapalapa/">Iztapalapa</a> — salones, jardines y espacios de eventos</li>
-        <li><a href="/blog/iluminacion-bodas-coyoacan/">Coyoacán</a> — casonas coloniales, museos y foros</li>
-      </ul>
-
-      <h2>Lleva tu evento en Xochimilco al siguiente nivel</h2>
-      <p>Xochimilco ya tiene la magia del paisaje, los canales y la tradición. Nosotros ponemos la luz que hace que todo eso se vea todavía mejor. Cuéntanos qué tienes en mente, dónde será tu evento y cuántas personas esperas, y te armamos una propuesta a la medida con precios transparentes y sin sorpresas.</p>
-
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Solicita tu Cotización Gratis →</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Bodas en el Sur de CDMX — Xochimilco, Tláhuac y Milpa Alta | REDEIL";
 const description = "Renta de iluminación para bodas en el sur de CDMX: guirnaldas en Xochimilco, luces LED en Tláhuac y cabezas móviles en Milpa Alta. Servicio profesional con montaje incluido.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-bodas-cdmx-sur/" }
   }
 ]);
+const image = "/img/bodas/guirnaldas-vintage-boda-jardin-exterior.avif";
+const imageAlt = "Guirnaldas vintage iluminando un jardín para boda en el sur de la Ciudad de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Bodas Sur CDMX"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Bodas en el Sur de CDMX: Xochimilco, Tláhuac y Milpa Alta</h1>
-
-      <img src="/img/bodas/guirnaldas-vintage-boda-jardin-exterior.avif" alt="Guirnaldas vintage iluminando un jardín para boda en el sur de la Ciudad de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>El sur de la Ciudad de México es una de las zonas más solicitadas para celebrar bodas. Alcaldías como <strong>Xochimilco, Tláhuac y Milpa Alta</strong> ofrecen escenarios naturales que difícilmente encuentras en otras partes de la ciudad: jardines rodeados de vegetación, haciendas coloniales, la icónica <strong>zona chinampera</strong> y espacios rústicos con un encanto único. En REDEIL nos hemos especializado en llevar <strong>iluminación profesional para bodas</strong> a cada rincón del sur de CDMX, adaptándonos a las particularidades de cada venue.</p>
 
       <p>Sabemos que una boda en el sur tiene un carácter especial. Los espacios suelen ser abiertos, rodeados de naturaleza, con techos altos o sin techo alguno. Eso exige soluciones de iluminación que no solo decoren, sino que funcionen técnicamente en condiciones al aire libre. Nuestro equipo llega preparado con <a href="/servicios/guirnaldas/">guirnaldas</a>, <a href="/servicios/luces-led/">luces LED</a>, <a href="/servicios/cabezas-moviles/">cabezas móviles</a> y toda la infraestructura necesaria para que tu boda brille sin importar las condiciones del espacio.</p>
@@ -80,20 +81,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si estás planeando tu boda en el sur de CDMX, contáctanos por <a href="https://wa.me/5215530682988">WhatsApp</a> o a través de nuestro <a href="/contacto/">formulario</a>. Te enviamos cotización personalizada en menos de 2 horas con todo detallado: equipo, cantidades, horarios de montaje y precio final sin sorpresas.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza la iluminación de tu boda →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

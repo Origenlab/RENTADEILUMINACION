@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Cobertura de REDEIL: Iluminación en Toda la Zona Metropolitana | REDEIL";
 const description = "REDEIL cubre toda la ZMVM: CDMX y Estado de México. Conoce nuestras zonas de cobertura, tiempos de traslado y logística para tu evento.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/renta-iluminacion-zona-metropolitana/" }
   }
 ]);
+const image = "/img/city-color/renta-iluminacion-eventos-nocturnos.avif";
+const imageAlt = "Iluminación profesional para eventos nocturnos en la Zona Metropolitana del Valle de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Zona Metropolitana"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Cobertura de REDEIL: Iluminación en Toda la Zona Metropolitana</h1>
-
-      <img src="/img/city-color/renta-iluminacion-eventos-nocturnos.avif" alt="Iluminación profesional para eventos nocturnos en la Zona Metropolitana del Valle de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Una de las preguntas más frecuentes que recibimos es: "¿Llegan hasta mi zona?" La respuesta es sí. REDEIL ofrece cobertura completa en toda la Zona Metropolitana del Valle de México, que incluye las 16 alcaldías de la CDMX y los principales municipios del Estado de México. Con más de 3,000 eventos realizados, hemos llevado iluminación profesional a prácticamente cada rincón de la ZMVM.</p>
 
       <h2>Cobertura en la Ciudad de México: 16 Alcaldías</h2>
@@ -91,20 +92,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>No importa si es una boda íntima en una hacienda de Tepotzotlán, un evento corporativo en Polanco, unos XV años en Nezahualcóyotl o un festival en Metepec: REDEIL llega con el mismo equipo profesional, el mismo compromiso y la misma calidad que nos ha dado la confianza de miles de clientes en toda la zona metropolitana.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/iluminacion/" class="btn btn-primary btn-lg">Solicita cotización con tu ubicación →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación Completa vs Básica: ¿Qué Diferencia Hace en Tus Fotos y Video? | REDEIL";
 const description = "La diferencia entre iluminación básica y completa se nota en fotos y video. Comparación real con ejemplos. Invierte en lo que se ve. Guía REDEIL.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-completa-vs-basica/" }
   }
 ]);
+const image = "/img/galeria/arquitectonica-01.avif";
+const imageAlt = "Iluminación arquitectónica profesional en evento elegante";
+const category = "Guía";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Completa vs Básica"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación Completa vs Básica: ¿Qué Diferencia Hace en Tus Fotos y Video?</h1>
-
-      <img src="/img/galeria/arquitectonica-01.avif" alt="Iluminación arquitectónica profesional en evento elegante" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Hay algo que los novios y organizadores no ven hasta después del evento: <strong>la iluminación define cómo se ven tus fotos y tu video</strong>. No importa que tu fotógrafo tenga la mejor cámara del mercado; si la luz del espacio es plana, amarillenta o insuficiente, las fotos van a reflejarlo. Después de miles de eventos, puedo decirte con certeza que la diferencia entre iluminación básica y completa no se siente solo en el momento, se ve para siempre en tu álbum.</p>
 
       <h2>Qué Consideramos Iluminación Básica</h2>
@@ -85,47 +86,47 @@ const schemaMarkup = JSON.stringify([
 
       <p>Seamos directos con los números:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Concepto</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Básica</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Completa</th>
+          <tr>
+            <th>Concepto</th>
+            <th>Básica</th>
+            <th>Completa</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Guirnaldas</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">50 m ($3,500)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">100 m ($7,500)</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Uplighting</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No incluido</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">12 PAR LED ($6,000)</td>
+            <td>Guirnaldas</td>
+            <td>50 m ($3,500)</td>
+            <td>100 m ($7,500)</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Seguidor de luz</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No incluido</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">1 unidad ($5,000)</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Cabezas móviles</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No incluido</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">4 unidades ($7,500)</td>
+            <td>Uplighting</td>
+            <td>No incluido</td>
+            <td>12 PAR LED ($6,000)</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Efectos especiales</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">No incluido</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">Bengalas frías ($5,500)</td>
+            <td>Seguidor de luz</td>
+            <td>No incluido</td>
+            <td>1 unidad ($5,000)</td>
           </tr>
-          <tr style="background: var(--color-secondary); color: white;">
-            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total</strong></td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;"><strong>$3,500 MXN</strong></td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;"><strong>$31,500 MXN</strong></td>
+          <tr>
+            <td>Cabezas móviles</td>
+            <td>No incluido</td>
+            <td>4 unidades ($7,500)</td>
+          </tr>
+          <tr>
+            <td>Efectos especiales</td>
+            <td>No incluido</td>
+            <td>Bengalas frías ($5,500)</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>$3,500 MXN</strong></td>
+            <td><strong>$31,500 MXN</strong></td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <p>Sí, la diferencia es significativa. Pero piénsalo así: si tu boda cuesta $250,000 a $400,000 MXN en total (que es el promedio en CDMX para 150 invitados), la iluminación completa representa entre el <strong>8% y 12%</strong> de tu presupuesto. Y es lo que determina cómo se ven el otro 88% de las cosas que contrataste: el vestido, las flores, la decoración, el venue. Todo se ve mejor con buena luz.</p>
 
@@ -151,9 +152,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>La comida se termina, la música se apaga, las flores se marchitan. Lo que queda para siempre son las fotos y el video. Y lo que determina cómo se ven es la luz. Consulta nuestras opciones de <a href="/servicios/iluminacion/">iluminación profesional para eventos</a> y encuentra el paquete que mejor se ajuste a tu visión y presupuesto.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu Iluminación</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Glow Party Perfecta en CDMX: Guía Completa con Luces UV y Neón | REDEIL";
 const description = "Organiza una glow party increíble en CDMX. Luces UV, neón, pintura fluorescente y todo lo que necesitas. Guía completa con precios y tips REDEIL.";
@@ -18,18 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }
 ]);
+const image = "/img/luces-neon/letrero-led-neon-fiestas.avif";
+const imageAlt = "Letrero LED neón para glow party y fiestas en CDMX";
+const category = "Luces Neón";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Glow Party CDMX"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Glow Party Perfecta en CDMX: Guía Completa con Luces UV y Neón</h1>
-      <img src="/img/luces-neon/letrero-led-neon-fiestas.avif" alt="Letrero LED neón para glow party y fiestas en CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Una glow party bien montada es de esas fiestas que nadie olvida. El concepto es sencillo: oscureces el espacio, enciendes luces ultravioleta y todo lo que es fluorescente cobra vida. Pero entre el concepto y la ejecución hay un mundo de diferencia, y ahí es donde la experiencia marca todo.</p>
 
       <p>Llevo más de tres décadas montando iluminación para eventos en la CDMX y zona metropolitana, y las fiestas de luz negra siguen siendo de las más solicitadas para cumpleaños, despedidas de soltera, fiestas de empresa y celebraciones de XV años. Aquí te comparto todo lo que necesitas para que tu glow party sea un éxito total.</p>
@@ -72,32 +74,32 @@ const schemaMarkup = JSON.stringify([
       <h2>¿Cuánto cuesta montar una glow party en CDMX?</h2>
       <p>Estos son rangos reales basados en eventos que montamos regularmente en la zona metropolitana:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-4) 0;">
+      <table>
         <thead>
-          <tr style="border-bottom: 2px solid var(--color-gray-300);">
-            <th style="text-align:left; padding: var(--space-2);">Concepto</th>
-            <th style="text-align:left; padding: var(--space-2);">Precio aproximado</th>
+          <tr>
+            <th>Concepto</th>
+            <th>Precio aproximado</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Paquete básico UV (4-6 barras + montaje)</td>
-            <td style="padding: var(--space-2);">$4,500 - $6,500 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Paquete intermedio (8-10 barras + neón + humo)</td>
-            <td style="padding: var(--space-2);">$8,000 - $12,000 MXN</td>
-          </tr>
-          <tr style="border-bottom: 1px solid var(--color-gray-200);">
-            <td style="padding: var(--space-2);">Paquete completo (cobertura total + láser + neón + efectos)</td>
-            <td style="padding: var(--space-2);">$15,000 - $22,000 MXN</td>
+          <tr>
+            <td>Paquete básico UV (4-6 barras + montaje)</td>
+            <td>$4,500 - $6,500 MXN</td>
           </tr>
           <tr>
-            <td style="padding: var(--space-2);">Letrero neón adicional</td>
-            <td style="padding: var(--space-2);">desde $2,500 MXN</td>
+            <td>Paquete intermedio (8-10 barras + neón + humo)</td>
+            <td>$8,000 - $12,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Paquete completo (cobertura total + láser + neón + efectos)</td>
+            <td>$15,000 - $22,000 MXN</td>
+          </tr>
+          <tr>
+            <td>Letrero neón adicional</td>
+            <td>desde $2,500 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <p>Los precios incluyen traslado dentro de CDMX y zona metropolitana, montaje, operación durante el evento y desmontaje. Para ubicaciones fuera de la zona metro, se cotiza el traslado adicional.</p>
 
@@ -134,9 +136,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Conoce nuestro <a href="/servicios/luces-neon/paquete-glow-party/">Paquete Glow Party</a> con todo incluido, o cuéntanos tu idea y te armamos una propuesta a la medida.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

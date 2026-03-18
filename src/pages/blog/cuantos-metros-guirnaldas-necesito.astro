@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "¿Cuántos Metros de Guirnaldas Necesito para mi Boda? Calculadora Práctica | REDEIL";
 const description = "Calcula cuántos metros de guirnaldas necesitas según tu espacio. Tabla práctica por m², tipo de evento y número de invitados. Guía profesional REDEIL.";
@@ -18,56 +17,58 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/cuantos-metros-guirnaldas-necesito/" }
   }
 ]);
+const image = "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif";
+const imageAlt = "Guirnaldas de luces en jardín para boda al aire libre";
+const category = "Guirnaldas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Metros de Guirnaldas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>¿Cuántos Metros de Guirnaldas Necesito para mi Boda?</h1>
-
-      <img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas de luces en jardín para boda al aire libre" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Es la pregunta que nos hacen con más frecuencia: <strong>"¿cuántos metros de guirnaldas necesito?"</strong>. Después de montar más de 2,000 eventos en la Ciudad de México y alrededores, tenemos una respuesta clara, y no es la misma para todos. Depende de tu espacio, del estilo que quieras lograr y, sí, del presupuesto que manejes. Aquí te damos una guía práctica con tablas y ejemplos reales para que calcules exactamente lo que necesitas.</p>
 
       <h2>La Regla General: Metros de Guirnalda por Metro Cuadrado</h2>
 
       <p>Vamos a lo concreto. La cantidad de guirnaldas que necesitas se mide en función del área que quieres cubrir. No es lo mismo decorar un techo completo de un salón de 200 m² que enmarcar solo el perímetro de un jardín. Aquí va nuestra tabla base:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Tipo de Instalación</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Metros de guirnalda por m² de espacio</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Ejemplo (100 m²)</th>
+          <tr>
+            <th>Tipo de Instalación</th>
+            <th>Metros de guirnalda por m² de espacio</th>
+            <th>Ejemplo (100 m²)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Perímetro / marco</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">0.3 – 0.5 m/m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">30 – 50 m</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Zigzag sobre pista de baile</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">0.8 – 1.2 m/m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 120 m</td>
+            <td>Perímetro / marco</td>
+            <td>0.3 – 0.5 m/m²</td>
+            <td>30 – 50 m</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">Techo completo (cielo de luces)</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">1.5 – 2.0 m/m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">150 – 200 m</td>
+            <td>Zigzag sobre pista de baile</td>
+            <td>0.8 – 1.2 m/m²</td>
+            <td>80 – 120 m</td>
           </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">Camino o pasillo de entrada</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2 m de guirnalda por metro lineal</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">20 m (pasillo de 10 m)</td>
+          <tr>
+            <td>Techo completo (cielo de luces)</td>
+            <td>1.5 – 2.0 m/m²</td>
+            <td>150 – 200 m</td>
+          </tr>
+          <tr>
+            <td>Camino o pasillo de entrada</td>
+            <td>2 m de guirnalda por metro lineal</td>
+            <td>20 m (pasillo de 10 m)</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <p>¿Ves por qué no hay una respuesta única? Un cielo de luces requiere hasta <strong>4 veces más material</strong> que un simple enmarcado perimetral.</p>
 
@@ -75,42 +76,42 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si todavía no tienes las medidas exactas de tu venue, puedes usar el número de invitados como referencia. Los salones y jardines en CDMX suelen seguir este patrón:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: var(--space-6) 0;"><table style="width:100%; min-width: 500px; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+      <table>
         <thead>
-          <tr style="background: var(--color-secondary); color: white;">
-            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Invitados</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Área aprox. del venue</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Guirnaldas recomendadas (zigzag)</th>
-            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Inversión aprox.</th>
+          <tr>
+            <th>Invitados</th>
+            <th>Área aprox. del venue</th>
+            <th>Guirnaldas recomendadas (zigzag)</th>
+            <th>Inversión aprox.</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">50 – 80</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">60 – 80 m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">50 – 80 m</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$3,500 – $5,500 MXN</td>
-          </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">100 – 150</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">100 – 150 m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 150 m</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$5,500 – $9,000 MXN</td>
+            <td>50 – 80</td>
+            <td>60 – 80 m²</td>
+            <td>50 – 80 m</td>
+            <td>$3,500 – $5,500 MXN</td>
           </tr>
           <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">150 – 250</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">150 – 250 m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">120 – 250 m</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$8,000 – $15,000 MXN</td>
+            <td>100 – 150</td>
+            <td>100 – 150 m²</td>
+            <td>80 – 150 m</td>
+            <td>$5,500 – $9,000 MXN</td>
           </tr>
-          <tr style="background: #f9f9f9;">
-            <td style="padding: 10px; border: 1px solid #ddd;">300+</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">250+ m²</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">200 – 400 m</td>
-            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$12,000 – $22,000 MXN</td>
+          <tr>
+            <td>150 – 250</td>
+            <td>150 – 250 m²</td>
+            <td>120 – 250 m</td>
+            <td>$8,000 – $15,000 MXN</td>
+          </tr>
+          <tr>
+            <td>300+</td>
+            <td>250+ m²</td>
+            <td>200 – 400 m</td>
+            <td>$12,000 – $22,000 MXN</td>
           </tr>
         </tbody>
-      </table></div>
+      </table>
 
       <p>Estos rangos incluyen montaje y desmontaje profesional. Los precios varían según la temporada y la distancia al venue, pero te dan un punto de partida muy realista.</p>
 
@@ -170,9 +171,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>Mándanos las medidas de tu espacio (o el nombre del venue) y te hacemos un cálculo exacto sin costo ni compromiso.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Eventos en Naucalpan — Renta de Luces y Sonido | REDEIL";
 const description = "Renta de iluminación profesional para eventos en Naucalpan y zona industrial. Luces LED, cabezas móviles, sonido y efectos especiales con servicio en Edomex y Santa Fe.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-naucalpan/" }
   }
 ]);
+const image = "/img/galeria/cascadas-led-01.avif";
+const imageAlt = "Iluminación LED profesional para eventos corporativos y fiestas en Naucalpan Estado de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Naucalpan"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Eventos en Naucalpan: Renta de Luces y Sonido Profesional</h1>
-
-      <img src="/img/galeria/cascadas-led-01.avif" alt="Iluminación LED profesional para eventos corporativos y fiestas en Naucalpan Estado de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Naucalpan de Juárez es uno de los municipios con mayor actividad de eventos en el Estado de México. Su cercanía con la zona de <strong>Santa Fe</strong>, sus múltiples salones de eventos y jardines, así como la presencia de una importante <strong>zona industrial</strong>, hacen que la demanda de servicios de iluminación profesional sea constante durante todo el año. En REDEIL llevamos más de 3,000 eventos respaldándonos como la opción número uno en <strong>renta de iluminación en Naucalpan</strong> y toda la zona poniente del Valle de México.</p>
 
       <p>Ya sea que organices una boda en un jardín de Naucalpan, un evento corporativo en la zona industrial o una fiesta privada en algún salón cercano a Periférico, nuestro equipo llega puntual con toda la infraestructura necesaria para transformar tu espacio. Ofrecemos <a href="/servicios/iluminacion/">iluminación arquitectónica</a>, <a href="/servicios/luces-led/">luces LED</a>, <a href="/servicios/cabezas-moviles/">cabezas móviles</a>, <a href="/servicios/sonido/">sonido profesional</a> y <a href="/servicios/efectos-especiales/">efectos especiales</a> con montaje y operador incluidos.</p>
@@ -90,20 +91,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>En REDEIL entendemos que cada evento en Naucalpan tiene necesidades diferentes. Por eso trabajamos con paquetes personalizados que se ajustan a tu presupuesto sin sacrificar calidad. Toda nuestra renta de iluminación incluye equipo profesional de grado comercial, cables, estructuras, montaje y operador técnico certificado.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu evento en Naucalpan →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

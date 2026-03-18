@@ -1,7 +1,6 @@
 ---
 // MEJORA vs anterior: Guía paso a paso para organizar glow party + diferencia real entre UV y neón + qué brilla bajo luz negra + equipo por metro cuadrado + mayor variedad de casos de uso
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Luz Negra para Fiestas en CDMX: Cómo Organizar una Glow Party Profesional | REDEIL";
 const description = "Guía completa de luz negra UV para fiestas: qué brilla, cuánto equipo necesitas, diferencia con neón y cómo organizar una glow party paso a paso. CDMX.";
@@ -29,18 +28,21 @@ const schemaMarkup = JSON.stringify([
     ]
   }
 ]);
+const image = "/img/luz-negra/ambiente-glow-party-neon-800w.avif";
+const imageAlt = "Ambiente de glow party con luz negra UV y accesorios neón fluorescentes";
+const category = "Efectos";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Luz Negra para Fiestas"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Luz Negra para Fiestas en CDMX: Cómo Organizar una Glow Party Profesional</h1>
-      <img src="/img/luz-negra/ambiente-glow-party-neon-800w.avif" alt="Ambiente de glow party con luz negra UV y accesorios neón fluorescentes" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Una fiesta de luz negra mal hecha es solo un cuarto oscuro donde nadie ve nada. Bien hecha, es una experiencia que la gente no olvida — la ropa blanca brilla como si fuera de otro planeta, los dientes se ven fluorescentes, la pintura neón en las paredes parece tener vida propia y cada accesorio glow se convierte en una pieza de arte luminoso.</p>
 
       <p>La diferencia entre una glow party amateur y una profesional está en el equipo, la cantidad de luz UV, la preparación del espacio y los accesorios. Aquí te explico exactamente cómo organizar una que de verdad funcione.</p>
@@ -95,49 +97,47 @@ const schemaMarkup = JSON.stringify([
       <h3>Paso 2: Calcula el equipo UV</h3>
       <p>La regla de cobertura es:</p>
 
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <table style="width:100%; border-collapse: collapse; min-width: 500px;">
+      <table>
           <thead>
-            <tr style="background: #1a1a1a; color: #fff;">
-              <th style="padding: 12px; text-align: left;">Espacio</th>
-              <th style="padding: 12px; text-align: left;">Metros²</th>
-              <th style="padding: 12px; text-align: left;">Barras UV LED</th>
-              <th style="padding: 12px; text-align: left;">Paquete REDEIL</th>
-              <th style="padding: 12px; text-align: left;">Precio + IVA</th>
+            <tr>
+              <th>Espacio</th>
+              <th>Metros²</th>
+              <th>Barras UV LED</th>
+              <th>Paquete REDEIL</th>
+              <th>Precio + IVA</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Pista de baile</strong></td>
-              <td style="padding: 12px;">30-50 m²</td>
-              <td style="padding: 12px;">3-4</td>
-              <td style="padding: 12px;">Blacklight Básico</td>
-              <td style="padding: 12px;">$3,500</td>
+            <tr>
+              <td><strong>Pista de baile</strong></td>
+              <td>30-50 m²</td>
+              <td>3-4</td>
+              <td>Blacklight Básico</td>
+              <td>$3,500</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee; background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Salón mediano</strong></td>
-              <td style="padding: 12px;">60-100 m²</td>
-              <td style="padding: 12px;">6-8</td>
-              <td style="padding: 12px;">Blacklight Party</td>
-              <td style="padding: 12px;">$6,500</td>
+            <tr>
+              <td><strong>Salón mediano</strong></td>
+              <td>60-100 m²</td>
+              <td>6-8</td>
+              <td>Blacklight Party</td>
+              <td>$6,500</td>
             </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 12px;"><strong>Salón grande</strong></td>
-              <td style="padding: 12px;">100-200 m²</td>
-              <td style="padding: 12px;">10-14</td>
-              <td style="padding: 12px;">UV Premium</td>
-              <td style="padding: 12px;">$10,000</td>
+            <tr>
+              <td><strong>Salón grande</strong></td>
+              <td>100-200 m²</td>
+              <td>10-14</td>
+              <td>UV Premium</td>
+              <td>$10,000</td>
             </tr>
-            <tr style="background: #f9f9f9;">
-              <td style="padding: 12px;"><strong>Nave / bodega</strong></td>
-              <td style="padding: 12px;">200+ m²</td>
-              <td style="padding: 12px;">16+</td>
-              <td style="padding: 12px;">Producción UV</td>
-              <td style="padding: 12px;">Desde $14,000</td>
+            <tr>
+              <td><strong>Nave / bodega</strong></td>
+              <td>200+ m²</td>
+              <td>16+</td>
+              <td>Producción UV</td>
+              <td>Desde $14,000</td>
             </tr>
           </tbody>
         </table>
-      </div>
 
       <p>Las barras UV LED profesionales que usamos emiten en 395-405nm y tienen una potencia de 18-36W cada una. Cubren un área de 10-15m² por barra. Se montan en truss o en soportes de pared a una altura de 2.5-3 metros, apuntando hacia abajo para una cobertura uniforme.</p>
 
@@ -208,10 +208,4 @@ const schemaMarkup = JSON.stringify([
 
       <p>¿Quieres organizar una glow party y no sabes por dónde empezar? Mándanos las fotos de tu espacio y el número de personas — te armamos el paquete completo con equipo UV, sonido y accesorios.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/luz-negra/" class="btn btn-primary btn-lg" style="margin-right: 1rem;">Ver Paquetes Luz Negra</a>
-        <a href="https://wa.me/5215530682988?text=Hola%2C%20quiero%20organizar%20una%20glow%20party" class="btn btn-secondary btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+      </BlogLayout>

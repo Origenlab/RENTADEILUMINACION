@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Bodas en Haciendas del Estado de México | REDEIL";
 const description = "Guirnaldas, City Color e iluminación profesional para bodas en haciendas del Edomex: Tepotzotlán, Valle de Bravo y más. Expertos en espacios rústicos.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-haciendas-edomex/" }
   }
 ]);
+const image = "/img/guirnaldas/renta-guirnaldas-hacienda-colonial-31.avif";
+const imageAlt = "Guirnaldas con focos Edison iluminando patio de hacienda colonial para boda en Estado de México";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Haciendas Edomex"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Bodas en Haciendas del Estado de México</h1>
-
-      <img src="/img/guirnaldas/renta-guirnaldas-hacienda-colonial-31.avif" alt="Guirnaldas con focos Edison iluminando patio de hacienda colonial para boda en Estado de México" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Las haciendas coloniales del Estado de México son, sin duda, los venues más espectaculares para celebrar una boda. Sus patios empedrados, corredores con arcos de cantera, fuentes centrales y jardines amplios crean un escenario natural que solo necesita la iluminación correcta para convertirse en un sueño hecho realidad. En REDEIL somos especialistas en iluminar estos espacios rústicos y majestuosos, con más de 3,000 eventos en CDMX y Edomex que nos respaldan.</p>
 
       <h2>El Encanto de las Haciendas: Por Qué la Iluminación lo Cambia Todo</h2>
@@ -86,20 +87,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si ya tienes tu hacienda reservada en el Estado de México, el siguiente paso es agendar una visita de scouting con nuestro equipo técnico. Visitamos la hacienda, tomamos medidas, evaluamos la infraestructura eléctrica y te presentamos una propuesta de iluminación con renders y plano técnico. Ya sea en Tepotzotlán, Valle de Bravo, Metepec, Ixtapan de la Sal o cualquier municipio del Edomex, llegamos a donde esté tu hacienda.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/guirnaldas/" class="btn btn-primary btn-lg">Ver paquetes de guirnaldas para haciendas →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>

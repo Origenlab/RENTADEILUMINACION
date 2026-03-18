@@ -1,6 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const title = "Iluminación para Eventos en Benito Juárez — Del Valle, Narvarte y Colonia del Valle | REDEIL";
 const description = "Renta de luces profesionales para eventos en Benito Juárez: Del Valle, Narvarte, WTC y terrazas. Iluminación LED, guirnaldas y efectos. Cotiza hoy.";
@@ -18,19 +17,21 @@ const schemaMarkup = JSON.stringify([
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-benito-juarez/" }
   }
 ]);
+const image = "/img/city-color/iluminacion-fiesta-corporativa-azul.avif";
+const imageAlt = "Iluminación profesional LED azul para evento corporativo en zona Benito Juárez CDMX";
+const category = "Zonas";
+
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Benito Juárez"}]} />
-  </Fragment>
-
-  <article class="section">
-    <div class="container" style="max-width: 800px;">
-      <h1>Iluminación para Eventos en Benito Juárez — Del Valle, Narvarte y Colonia del Valle</h1>
-
-      <img src="/img/city-color/iluminacion-fiesta-corporativa-azul.avif" alt="Iluminación profesional LED azul para evento corporativo en zona Benito Juárez CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
-
+<BlogLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  image={image}
+  imageAlt={imageAlt}
+  category={category}
+  schemaMarkup={schemaMarkup}
+>
       <p>Benito Juárez es una de las alcaldías más dinámicas de la Ciudad de México para eventos. Su ubicación céntrica, la diversidad de foros, salones, terrazas y espacios residenciales-comerciales la convierten en una sede natural para bodas, fiestas corporativas, XV años y celebraciones de todo tipo. En REDEIL tenemos amplia experiencia iluminando eventos en Del Valle, Narvarte, la zona del WTC y todas las colonias que conforman esta alcaldía estratégica.</p>
 
       <h2>Del Valle y Colonia del Valle: Versatilidad para Todo Tipo de Evento</h2>
@@ -77,20 +78,6 @@ const schemaMarkup = JSON.stringify([
 
       <p>Si tu evento es en Del Valle, Narvarte, la zona del WTC o cualquier punto de Benito Juárez, escríbenos para recibir una cotización personalizada. Te respondemos en menos de 2 horas con opciones adaptadas a tu espacio y presupuesto.</p>
 
-      <div style="text-align:center; margin: var(--space-8) 0;">
-        <a href="/servicios/luces-led/" class="btn btn-primary btn-lg">Cotiza luces LED para tu evento →</a>
       </div>
-    </div>
-  </article>
-
-  <section class="cta-final">
-    <div class="container">
-      <h2>¿Listo para cotizar tu evento?</h2>
-      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
-      <div class="cta-btns">
-        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
-        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
-      </div>
-    </div>
   </section>
-</BaseLayout>
+</BlogLayout>
