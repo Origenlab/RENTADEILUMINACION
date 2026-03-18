@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Plantas de Luz para Eventos CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para cualquier evento en exteriores sin toma de corriente disponible.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Plantas de Luz",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Plantas de Luz CDMX | REDEIL — Generadores para Eventos"
+  description="Renta de plantas de luz y generadores eléctricos en CDMX. Energía garantizada para eventos en jardines, haciendas y exteriores. Instalación incluida."
+  canonical="https://rentadeiluminacion.com/servicios/plantas-de-luz/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Plantas de Luz en CDMX</h1>
+        <p>Generadores eléctricos silenciosos para eventos en jardines, haciendas y espacios sin toma de corriente disponible.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta plantas de luz y generadores eléctricos industriales en la Ciudad de México y Zona Metropolitana. Contamos con generadores desde 5 kVA para pequeñas instalaciones de iluminación hasta 100 kVA para eventos masivos con sonido, pantallas e iluminación profesional completa. Todos los equipos son insonorizados para no interferir con el audio del evento.</p>
+        <p class="hero__seo">El servicio incluye transporte del generador, conexión a los equipos de iluminación y sonido REDEIL, operación durante el evento y retiro. Ideal para bodas en haciendas, jardines privados, carpas en campos de golf y cualquier espacio donde el suministro eléctrico municipal sea insuficiente o inexistente en CDMX y Edomex.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

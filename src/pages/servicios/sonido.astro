@@ -5,20 +5,45 @@ import Hero from '../../components/Hero.astro';
 import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
 const title = "Renta de Sonido y DJ para Eventos en CDMX | REDEIL";
 const description = "Audio profesional JBL y QSC para bodas, XV años y fiestas. DJ, bocinas, micrófonos. Desde 50 hasta 2,000 personas. Instalación incluida. Cotiza gratis.";
 const canonical = "https://rentadeiluminacion.com/servicios/sonido/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Sonido y DJ Profesional para Eventos",
-  "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988" },
-  "description": "Servicio profesional de renta de audio, bocinas y DJ para bodas, XV años y eventos en CDMX.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" }
-});
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Sonido y DJ Profesional para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de audio, bocinas y DJ para bodas, XV años y eventos en CDMX y Estado de México.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Sonido y DJ",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántas bocinas necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Depende del espacio y la cantidad de personas. Para eventos de hasta 100 personas en salón cerrado, un par de bocinas JBL PRX es suficiente. Para 200+, usamos sistemas line array. Te asesoramos según las dimensiones de tu venue." }},
+      { "@type": "Question", "name": "¿El DJ trae su propio equipo de sonido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro DJ llega con consola profesional, bocinas, subwoofer y todo lo necesario. Si ya tienes equipo de sonido contratado, también puede trabajar con tu setup existente." }},
+      { "@type": "Question", "name": "¿Puedo rentar solo las bocinas sin DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Claro. Muchos clientes rentan solo el equipo de audio con técnico. Conectamos tu playlist de Spotify, tu laptop o el micrófono que necesites. El técnico se encarga de que todo suene bien." }},
+      { "@type": "Question", "name": "¿Incluyen micrófonos para la ceremonia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, incluimos micrófonos inalámbricos profesionales. Para bodas, normalmente usamos 2: uno para los votos y otro para el oficiante. Para conferencias, hasta 4 micrófonos según necesidad." }},
+      { "@type": "Question", "name": "¿Cubren eventos al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Tenemos equipos diseñados para exteriores con la potencia necesaria para espacios abiertos. Si no hay toma eléctrica, incluimos planta de luz sin costo adicional." }}
+    ]
+  }
+]);
 
 const servicios = [
   { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de bocinas line array JBL para evento", description: "Bocinas JBL y sistemas QSC desde 50 hasta 2,000+ personas. Sonido cristalino y potente con técnico de audio incluido.", link: "/servicios/bocinas/" },
@@ -33,7 +58,11 @@ const servicios = [
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
 
 <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Sonido y DJ" }]} />
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios/" },
+    { label: "Sonido y DJ" }
+  ]} />
 </Fragment>
 
     <Hero
@@ -53,7 +82,38 @@ const servicios = [
       ]}
     />
 
+    <!-- Galería de sonido y DJ -->
     <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Sonido Profesional para Cada Tipo de Evento"
+          subtitle="Bocinas JBL, sistemas line array, DJ y producción de audio."
+          paragraph1="No es lo mismo una ceremonia de boda donde necesitas claridad absoluta en los votos, que una pista de baile donde quieres que el bajo se sienta en el pecho. Tampoco es igual una conferencia donde cada palabra del ponente importa, que una fiesta de XV donde el DJ tiene que prender al salón entero."
+          paragraph2="Por eso no rentamos bocinas genéricas — dimensionamos el equipo para tu espacio y tipo de evento. Nuestro técnico de audio está presente todo el tiempo para que cada momento suene perfecto."
+        />
+        <Gallery4x4 images={[
+          { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales para evento masivo" },
+          { src: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Sistema line array para concierto" },
+          { src: "/img/bocinas/sonido-profesional-concierto-estadio.avif", alt: "Sonido profesional en concierto" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-romantico.avif", alt: "Primer baile con sonido profesional" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif", alt: "Line array en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-cabina-blanca-flores.avif", alt: "Cabina DJ en boda elegante" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-fiesta-confeti-chispas-dj.avif", alt: "Fiesta con confeti y DJ" },
+          { src: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif", alt: "DJ profesional con cabina" },
+          { src: "/img/bocinas-djs/dj-profesional-consola-pioneer-cdj.avif", alt: "Consola Pioneer CDJ profesional" },
+          { src: "/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif", alt: "Pista iluminada con DJ" },
+          { src: "/img/bocinas-djs/dj-para-fiestas-hora-loca.avif", alt: "DJ animando hora loca" },
+          { src: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo.avif", alt: "Audio para conferencia ejecutiva" },
+          { src: "/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif", alt: "Sonido en auditorio profesional" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon.avif", alt: "Vals XV años con DJ" },
+          { src: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales.avif", alt: "Bocinas para fiesta" },
+          { src: "/img/bocinas-fiestas/bocinas-profesionales-fiestas-noche.avif", alt: "Sonido para fiesta nocturna" },
+        ]} />
+      </div>
+    </section>
+
+    <!-- Servicios de sonido -->
+    <section class="services-section services-alt">
       <div class="container">
         <SectionHeader
           title="Equipo de Audio Profesional"
@@ -69,6 +129,7 @@ const servicios = [
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section">
       <div class="container">
         <SectionHeader
@@ -83,9 +144,11 @@ const servicios = [
         { question: "¿El DJ trae su propio equipo de sonido?", answer: "Sí. Nuestro DJ llega con consola profesional, bocinas, subwoofer y todo lo necesario. Si ya tienes equipo de sonido contratado, también puede trabajar con tu setup existente." },
         { question: "¿Puedo rentar solo las bocinas sin DJ?", answer: "Claro. Muchos clientes rentan solo el equipo de audio con técnico. Conectamos tu playlist de Spotify, tu laptop o el micrófono que necesites. El técnico se encarga de que todo suene bien." },
         { question: "¿Incluyen micrófonos para la ceremonia?", answer: "Sí, incluimos micrófonos inalámbricos profesionales. Para bodas, normalmente usamos 2: uno para los votos y otro para el oficiante. Para conferencias, hasta 4 micrófonos según necesidad." },
+        { question: "¿Cubren eventos al aire libre?", answer: "Sí. Tenemos equipos diseñados para exteriores con la potencia necesaria para espacios abiertos. Si no hay toma eléctrica, incluimos planta de luz sin costo adicional." },
       ]} />
     </section>
 
+    <!-- CTA Final -->
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">

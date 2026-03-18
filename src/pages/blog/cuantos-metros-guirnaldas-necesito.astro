@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const title = "¿Cuántos Metros de Guirnaldas Necesito para mi Boda? Calculadora Práctica | REDEIL";
+const description = "Calcula cuántos metros de guirnaldas necesitas según tu espacio. Tabla práctica por m², tipo de evento y número de invitados. Guía profesional REDEIL.";
+const canonical = "https://rentadeiluminacion.com/blog/cuantos-metros-guirnaldas-necesito/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Cuántos Metros de Guirnaldas Necesito para mi Boda? Calculadora Práctica",
+    "description": "Calcula cuántos metros de guirnaldas necesitas según tu espacio. Tabla práctica por m², tipo de evento y número de invitados. Guía profesional REDEIL.",
+    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+    "image": "https://rentadeiluminacion.com/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/cuantos-metros-guirnaldas-necesito/" }
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Metros de Guirnaldas"}]} />
+  </Fragment>
+
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>¿Cuántos Metros de Guirnaldas Necesito para mi Boda?</h1>
+
+      <img src="/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" alt="Guirnaldas de luces en jardín para boda al aire libre" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
+
+      <p>Es la pregunta que nos hacen con más frecuencia: <strong>"¿cuántos metros de guirnaldas necesito?"</strong>. Después de montar más de 2,000 eventos en la Ciudad de México y alrededores, tenemos una respuesta clara, y no es la misma para todos. Depende de tu espacio, del estilo que quieras lograr y, sí, del presupuesto que manejes. Aquí te damos una guía práctica con tablas y ejemplos reales para que calcules exactamente lo que necesitas.</p>
+
+      <h2>La Regla General: Metros de Guirnalda por Metro Cuadrado</h2>
+
+      <p>Vamos a lo concreto. La cantidad de guirnaldas que necesitas se mide en función del área que quieres cubrir. No es lo mismo decorar un techo completo de un salón de 200 m² que enmarcar solo el perímetro de un jardín. Aquí va nuestra tabla base:</p>
+
+      <table style="width:100%; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+        <thead>
+          <tr style="background: var(--color-secondary); color: white;">
+            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Tipo de Instalación</th>
+            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Metros de guirnalda por m² de espacio</th>
+            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Ejemplo (100 m²)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Perímetro / marco</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">0.3 – 0.5 m/m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">30 – 50 m</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Zigzag sobre pista de baile</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">0.8 – 1.2 m/m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 120 m</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Techo completo (cielo de luces)</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">1.5 – 2.0 m/m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">150 – 200 m</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">Camino o pasillo de entrada</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">2 m de guirnalda por metro lineal</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">20 m (pasillo de 10 m)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>¿Ves por qué no hay una respuesta única? Un cielo de luces requiere hasta <strong>4 veces más material</strong> que un simple enmarcado perimetral.</p>
+
+      <h2>Calculadora por Número de Invitados</h2>
+
+      <p>Si todavía no tienes las medidas exactas de tu venue, puedes usar el número de invitados como referencia. Los salones y jardines en CDMX suelen seguir este patrón:</p>
+
+      <table style="width:100%; border-collapse:collapse; margin: var(--space-6) 0; font-size: 0.95rem;">
+        <thead>
+          <tr style="background: var(--color-secondary); color: white;">
+            <th style="padding: 12px; text-align:left; border: 1px solid #ddd;">Invitados</th>
+            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Área aprox. del venue</th>
+            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Guirnaldas recomendadas (zigzag)</th>
+            <th style="padding: 12px; text-align:center; border: 1px solid #ddd;">Inversión aprox.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">50 – 80</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">60 – 80 m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">50 – 80 m</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$3,500 – $5,500 MXN</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">100 – 150</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">100 – 150 m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">80 – 150 m</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$5,500 – $9,000 MXN</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">150 – 250</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">150 – 250 m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">120 – 250 m</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$8,000 – $15,000 MXN</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px; border: 1px solid #ddd;">300+</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">250+ m²</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">200 – 400 m</td>
+            <td style="padding: 10px; text-align:center; border: 1px solid #ddd;">$12,000 – $22,000 MXN</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Estos rangos incluyen montaje y desmontaje profesional. Los precios varían según la temporada y la distancia al venue, pero te dan un punto de partida muy realista.</p>
+
+      <h2>Ejemplo Real: Boda en Hacienda de Tlalpan (180 invitados)</h2>
+
+      <p>Te comparto un caso reciente. Nos pidieron iluminar un jardín rectangular de 20 x 8 metros (160 m²) en una hacienda en Tlalpan. La pareja quería un <strong>cielo de guirnaldas Edison</strong> sobre las mesas y un marco perimetral en la zona de coctelería (40 m²).</p>
+
+      <ul>
+        <li><strong>Cielo de luces (160 m²):</strong> 160 × 1.7 = 272 metros de guirnalda</li>
+        <li><strong>Perímetro coctelería (40 m²):</strong> 40 × 0.4 = 16 metros</li>
+        <li><strong>Total:</strong> 288 metros de guirnalda con focos Edison de filamento cálido</li>
+      </ul>
+
+      <p>El resultado fue espectacular: un manto de luz ámbar que cubría toda la recepción. Los invitados no paraban de tomar fotos. Y es que cuando calculas bien, el efecto es mágico.</p>
+
+      <h2>Factores que Modifican tu Cálculo</h2>
+
+      <p>Antes de cerrar tu pedido, considera estos puntos que pueden subir o bajar tus metros:</p>
+
+      <h3>Altura del montaje</h3>
+      <p>Si el techo o la estructura de soporte está a más de 5 metros, necesitarás más cableado para las bajadas. Normalmente sumamos entre un 10% y 15% extra en metros.</p>
+
+      <h3>Densidad de focos</h3>
+      <p>Las guirnaldas estándar tienen un foco cada 50 cm. Si quieres mayor densidad (cada 30 cm), necesitas menos metros lineales para lograr el mismo brillo. Pero el costo por metro sube.</p>
+
+      <h3>Forma del espacio</h3>
+      <p>Los jardines con forma irregular o con árboles, columnas y fuentes requieren más metros. Siempre recomendamos una <strong>visita técnica previa</strong> para medir con precisión y evitar sorpresas el día del evento.</p>
+
+      <h3>Combinación con otra iluminación</h3>
+      <p>Si vas a usar <strong>par LED</strong> o <strong>luces uplighting</strong> como complemento, puedes reducir la cantidad de guirnaldas y concentrarlas en zonas clave como la pista de baile y la mesa de honor.</p>
+
+      <h2>Errores Comunes al Calcular Guirnaldas</h2>
+
+      <p>En 30 años hemos visto de todo. Estos son los errores que más se repiten:</p>
+
+      <ul>
+        <li><strong>Calcular solo el largo del espacio:</strong> Las guirnaldas cruzan en ambas direcciones. No olvides el ancho.</li>
+        <li><strong>No considerar las bajadas:</strong> De la estructura al punto de corriente siempre hay metros "invisibles" que se necesitan.</li>
+        <li><strong>Pedir menos "para ahorrar":</strong> Quedan huecos oscuros y el efecto se pierde. Mejor cubre menos área pero con la densidad correcta.</li>
+        <li><strong>Olvidar la extensión eléctrica:</strong> Cada tramo necesita conexión. En jardines grandes puede requerirse planta de luz.</li>
+      </ul>
+
+      <h2>Tip Profesional: La Fórmula Rápida</h2>
+
+      <p>Si quieres un número rápido sin complicarte, usa esta fórmula que usamos internamente:</p>
+
+      <p style="background: #f5f5f5; padding: 20px; border-radius: 8px; text-align: center; font-size: 1.1rem; margin: var(--space-6) 0;">
+        <strong>Metros de guirnalda = Largo del espacio × Ancho ÷ Separación entre líneas</strong><br />
+        <span style="font-size: 0.9rem; color: #666;">Separación típica: 1 m entre líneas para efecto denso, 1.5 m para efecto sutil</span>
+      </p>
+
+      <p>Ejemplo rápido: espacio de 15 m × 10 m con separación de 1.2 m = 15 × (10 ÷ 1.2) = <strong>125 metros</strong>. Súmale un 15% de margen y tienes 144 metros.</p>
+
+      <h2>Cotiza tus Guirnaldas con REDEIL</h2>
+
+      <p>Ya tienes una idea clara de cuántos metros necesitas. Ahora déjanos ayudarte a elegir el tipo de foco, el diseño del montaje y el paquete ideal para tu presupuesto. Conoce nuestro <a href="/servicios/guirnaldas/">servicio de renta de guirnaldas</a> con montaje incluido, o explora nuestros paquetes diseñados para cada tipo de evento.</p>
+
+      <p>Mándanos las medidas de tu espacio (o el nombre del venue) y te hacemos un cálculo exacto sin costo ni compromiso.</p>
+
+      <div style="text-align:center; margin: var(--space-8) 0;">
+        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza Gratis</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -22,6 +22,94 @@ const {
 const finalOgTitle = ogTitle || title;
 const finalOgDescription = ogDescription || description;
 
+// BreadcrumbList schema — auto-generated from canonical URL
+const siteUrl = 'https://rentadeiluminacion.com';
+const urlPath = new URL(canonical).pathname;
+const pathSegments = urlPath.split('/').filter(Boolean);
+
+const slugNames: Record<string, string> = {
+  'servicios': 'Servicios',
+  'eventos': 'Eventos',
+  'nosotros': 'Nosotros',
+  'contacto': 'Contacto',
+  'blog': 'Blog',
+  'aviso-privacidad': 'Aviso de Privacidad',
+  'zonas-de-cobertura': 'Zonas de Cobertura',
+  'cabezas-moviles': 'Cabezas Móviles',
+  'guirnaldas': 'Guirnaldas',
+  'luces-neon': 'Luces Neón',
+  'luces-led': 'Luces LED',
+  'sky-tracker': 'Sky Tracker',
+  'bola-disco': 'Bola de Disco',
+  'city-color': 'City Color',
+  'city-light': 'City Light',
+  'gobos': 'Gobos',
+  'cascadas-led': 'Cascadas LED',
+  'maquina-humo': 'Máquina de Humo',
+  'humo-bajo': 'Humo Bajo',
+  'confeti': 'Confeti',
+  'confeti-papelitos': 'Confeti Papelitos',
+  'burbujas': 'Burbujas',
+  'bocinas': 'Bocinas',
+  'bocinas-bodas': 'Bocinas para Bodas',
+  'bocinas-xv': 'Bocinas para XV Años',
+  'bocinas-fiestas': 'Bocinas para Fiestas',
+  'bocinas-conferencias': 'Bocinas para Conferencias',
+  'bocinas-djs': 'DJ y Bocinas',
+  'dj': 'DJ',
+  'pantalla-inflable': 'Pantalla Inflable',
+  'iluminacion-arquitectonica': 'Iluminación Arquitectónica',
+  'luz-negra': 'Luz Negra',
+  'seguidor': 'Seguidor',
+  'podiums': 'Podiums',
+  'bodas': 'Bodas',
+  'xv-anos': 'XV Años',
+  'co2': 'CO2',
+  'sparklers': 'Sparklers',
+  'robot-led': 'Robot LED',
+  'microfonos': 'Micrófonos',
+  'pantallas-led': 'Pantallas LED',
+  'plantas-de-luz': 'Plantas de Luz',
+  'iluminacion': 'Iluminación',
+  'sonido': 'Sonido',
+  'efectos-especiales': 'Efectos Especiales',
+  'paquete-50-metros': 'Paquete 50 Metros',
+  'paquete-100-metros': 'Paquete 100 Metros',
+  'paquete-200-metros': 'Paquete 200 Metros',
+  'paquete-500-metros': 'Paquete 500 Metros',
+  'paquete-uv-basico': 'Paquete UV Básico',
+  'paquete-neon-premium': 'Paquete Neón Premium',
+  'paquete-glow-party': 'Paquete Glow Party',
+  'paquete-produccion-neon': 'Paquete Producción Neón',
+};
+
+let breadcrumbSchema: string | null = null;
+if (pathSegments.length > 0) {
+  const items: Array<Record<string, unknown>> = [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl + "/" }
+  ];
+  let currentPath = '';
+  pathSegments.forEach((seg, i) => {
+    currentPath += '/' + seg;
+    const isLast = i === pathSegments.length - 1;
+    const name = slugNames[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+    const entry: Record<string, unknown> = {
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": name,
+    };
+    if (!isLast) {
+      entry["item"] = siteUrl + currentPath + "/";
+    }
+    items.push(entry);
+  });
+  breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items
+  });
+}
+
 import TopBar from '../components/TopBar.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -63,6 +151,7 @@ import Footer from '../components/Footer.astro';
   <link rel="stylesheet" href="/css/style.css">
 
   {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup} />}
+  {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
   <!-- TruConversion -->
   <script is:inline>

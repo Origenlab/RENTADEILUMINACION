@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Bengalas Frías y Sparksters CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de bengalas frías y sparksters en CDMX. Efectos de chispas sin humo ni calor para entradas de novios, XV años y lanzamientos de marca.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Bengalas Frías",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Bengalas Frías CDMX | REDEIL — Sparksters para Eventos"
+  description="Renta de bengalas frías y sparksters en CDMX. Chispas sin calor, sin humo, sin riesgo. Para entrada de novios, XV años y momentos especiales. Cotiza gratis."
+  canonical="https://rentadeiluminacion.com/servicios/sparklers/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Bengalas Frías en CDMX</h1>
+        <p>Sparksters que producen lluvia de chispas frías — sin calor, sin humo, sin riesgo — para los momentos más icónicos de tu evento.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta bengalas frías y sparksters profesionales en la Ciudad de México y Zona Metropolitana. A diferencia de las bengalas tradicionales, las bengalas frías producen chispas a temperatura ambiente — no queman, no generan humo tóxico y no activan alarmas de incendio. Por eso son el efecto preferido para interiores: salones, hoteles y restaurantes sin ventilación especial.</p>
+        <p class="hero__seo">Los sparksters se detonan de forma remota y sincronizada por nuestro técnico, creando columnas de chispas de 1 a 3 metros de altura durante 30-60 segundos. Perfectos para la entrada de novios, el primer vals, la entrada de quinceañera, lanzamientos de marca y cualquier momento especial que necesite impacto visual. Instalación y operación incluidas en CDMX y Edomex.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

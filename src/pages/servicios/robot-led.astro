@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const schemaMarkup = JSON.stringify([{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Robot LED para Eventos CDMX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+  },
+  "description": "Renta de robot LED en CDMX. Efectos de luces robóticas automáticas para pistas de baile, entradas espectaculares y momentos especiales en eventos.",
+  "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+  "serviceType": "Renta de Robot LED",
+  "priceRange": "$$"
+}]);
+---
+<BaseLayout
+  title="Renta de Robot LED CDMX | REDEIL — Efectos Automáticos para Pista"
+  description="Renta de robot LED en CDMX. Efectos robóticos automáticos para pistas de baile de bodas, XV años y fiestas. Mueve, cambia de color y crea shows de luz."
+  canonical="https://rentadeiluminacion.com/servicios/robot-led/"
+  schemaMarkup={schemaMarkup}
+>
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__col1">
+        <h1>Renta de Robot LED en CDMX</h1>
+        <p>Robots de luz automatizados que se mueven, cambian de color y crean shows de iluminación sincronizados con la música.</p>
+        <div class="hero__ctas">
+          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
+          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero__col2">
+        <p class="hero__seo">REDEIL renta robots LED profesionales en la Ciudad de México y Zona Metropolitana. Los robots de luz son efectos automatizados que se programan para crear shows de iluminación sincronizados con la música de tu evento. Se mueven, giran, enfocan y cambian de color siguiendo una coreografía predefinida por nuestro técnico de iluminación, transformando cualquier pista de baile en un show profesional.</p>
+        <p class="hero__seo">Ideales para el primer vals en bodas, la entrada de quinceañera, fiesta principal y despedida. El robot LED trabaja en conjunto con cabezas móviles, par LED y confeti para crear ambientes únicos. Con más de 20 años de experiencia en eventos CDMX, REDEIL programa el show de luz perfecto para tu celebración.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
