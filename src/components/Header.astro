@@ -345,29 +345,38 @@ function isActive(href: string, children?: { href: string }[]): boolean {
     position: relative;
     flex-shrink: 0;
     cursor: pointer;
-    border: none;
-    background: none;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    align-items: center;
+    justify-content: center;
   }
 
   .hdr__bar,
   .hdr__bar::before,
   .hdr__bar::after {
-    width: 20px;
-    height: 1.5px;
-    background: var(--c-text, #1a1a1a);
-    border-radius: 1px;
-    transition: all 0.3s var(--ease, ease);
+    width: 22px;
+    height: 2px;
+    background: var(--color-secondary, #1a1a2e);
+    border-radius: 2px;
+    transition: all 0.25s ease;
     position: absolute;
-    left: 12px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .hdr__bar { top: 21px; }
-  .hdr__bar::before { content: ''; top: -6px; }
-  .hdr__bar::after { content: ''; top: 6px; }
+  .hdr__bar { top: 50%; margin-top: -1px; }
+  .hdr__bar::before { content: ''; top: -7px; margin-top: 0; }
+  .hdr__bar::after  { content: ''; top:  7px; margin-top: 0; }
 
+  .hdr__toggle--open {
+    border-color: var(--color-primary, #ff5722);
+    background: #fff8f6;
+  }
   .hdr__toggle--open .hdr__bar { background: transparent; }
-  .hdr__toggle--open .hdr__bar::before { top: 0; transform: rotate(45deg); }
-  .hdr__toggle--open .hdr__bar::after { top: 0; transform: rotate(-45deg); }
+  .hdr__toggle--open .hdr__bar::before { top: 0; transform: translateX(-50%) rotate(45deg); }
+  .hdr__toggle--open .hdr__bar::after  { top: 0; transform: translateX(-50%) rotate(-45deg); }
 
   /* ══════════════════════════════════════
      Mobile Overlay

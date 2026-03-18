@@ -287,6 +287,18 @@ const variantClass = `topbar--${style}`;
   }
 
   /* Very small: tighten spacing */
+  @media (max-width: 480px) {
+    .topbar__item {
+      white-space: normal;
+      word-break: break-word;
+      max-width: 100%;
+    }
+    .topbar__promo {
+      white-space: normal;
+      text-align: center;
+    }
+  }
+
   @media (max-width: 400px) {
     .topbar__inner {
       padding: 0.35rem 0.75rem;

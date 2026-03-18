@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlogSidebar from '../../components/BlogSidebar.astro';
 
 const title = "Blog de Iluminación para Eventos | REDEIL CDMX";
-const description = "Guías, consejos y tendencias de iluminación para bodas, XV años y eventos en CDMX. 30 años de experiencia REDEIL en cada artículo.";
+const description = "Guías, consejos y tendencias de iluminación profesional para bodas, XV años, corporativos y fiestas en CDMX. 30+ años de experiencia.";
 const canonical = "https://rentadeiluminacion.com/blog/";
 
 const articles = [
-  // Nuevos — Sonido, Efectos, Iluminación (Marzo 2026)
+  // ──── NUEVOS (Marzo 2026) ────
   { slug: "cuanto-cuesta-dj-para-boda-cdmx", title: "¿Cuánto Cuesta un DJ para Boda en CDMX? Guía de Precios", excerpt: "Precios reales de DJ para boda: desde $4,500 hasta $22,000. Qué incluye cada nivel y qué preguntar antes de contratar.", category: "Sonido", img: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif" },
   { slug: "audio-profesional-boda-que-necesitas-saber", title: "Audio para Boda: Lo Que Nadie Te Dice Antes de Contratar", excerpt: "Los 3 momentos de audio en una boda, errores que arruinan eventos y cómo elegir el equipo correcto.", category: "Sonido", img: "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl-800w.avif" },
   { slug: "renta-bola-disco-cdmx-guia-completa", title: "Bola Disco para Eventos en CDMX: Tamaños, Precios y Cuál Necesitas", excerpt: "Guía completa: tamaños de 30cm a 1.2m, precios, qué necesitas para que funcione y cuándo usarla.", category: "Efectos", img: "/img/bola-disco/bola-disco-dorada-pista-baile-colores.avif" },
@@ -16,74 +17,133 @@ const articles = [
   { slug: "audio-profesional-conferencias-cdmx", title: "Audio para Conferencias en CDMX: Por Qué el Sonido Mata tu Presentación", excerpt: "Errores comunes, equipo por tamaño de auditorio, tipos de micrófonos y checklist profesional.", category: "Corporativo", img: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios-800w.avif" },
   { slug: "cascadas-led-para-bodas-eventos-cdmx", title: "Cascadas LED para Bodas: El Efecto Visual que Transforma Cualquier Fondo", excerpt: "Qué son, tamaños disponibles, dónde instalarlas para las mejores fotos y combinaciones ganadoras.", category: "Iluminación", img: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif" },
   { slug: "luz-negra-para-fiestas-cdmx-guia", title: "Luz Negra para Fiestas en CDMX: Cómo Organizar una Glow Party Profesional", excerpt: "Qué brilla bajo UV, cuánto equipo necesitas, diferencia con neón y guía paso a paso.", category: "Efectos", img: "/img/luz-negra/ambiente-glow-party-neon-800w.avif" },
-  // Bodas
+  // ──── BODAS ────
   { slug: "cuanto-cuesta-iluminacion-boda-cdmx", title: "¿Cuánto Cuesta la Iluminación para una Boda en CDMX?", excerpt: "Precios reales, rangos por paquete y qué incluye cada opción. Guía honesta para planear tu presupuesto.", category: "Bodas", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
   { slug: "checklist-iluminacion-boda", title: "Checklist de Iluminación para Boda: Todo lo que Debes Confirmar", excerpt: "La lista que usan los wedding planners profesionales para no olvidar nada en la iluminación.", category: "Bodas", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
   { slug: "iluminacion-primer-vals-boda", title: "Iluminación para el Primer Vals: Follow Spot, Gobo y Efectos", excerpt: "Cómo crear el momento más fotogénico de la boda con iluminación profesional.", category: "Bodas", img: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif" },
   { slug: "paquete-iluminacion-boda-completo", title: "Paquete Completo de Iluminación para Boda: Qué Incluye", excerpt: "Desglose real de qué equipos conforman un paquete de iluminación completo para boda.", category: "Paquetes", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
-  // XV Años
+  // ──── XV AÑOS ────
   { slug: "iluminacion-xv-anos-tendencias", title: "Tendencias de Iluminación para XV Años en CDMX 2025", excerpt: "Neón, luces LED de colores, bengalas frías y más. Todo lo que está de moda este año.", category: "XV Años", img: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif" },
   { slug: "entrada-xv-anos-efectos-especiales", title: "Efectos Especiales para Entrada de XV Años: CO2, Bengalas y Sky Tracker", excerpt: "Cómo hacer la entrada más impactante con efectos especiales profesionales.", category: "XV Años", img: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif" },
-  // Guirnaldas
+  // ──── GUIRNALDAS ────
   { slug: "cuantos-metros-guirnaldas-necesito", title: "¿Cuántos Metros de Guirnaldas Necesito para mi Boda?", excerpt: "Calculadora práctica con tablas por metros cuadrados, tipo de espacio y número de invitados.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
   { slug: "guirnaldas-boda-jardin-vs-salon", title: "Guirnaldas para Boda: Jardín vs Salón — Diferencias Clave", excerpt: "No todas las guirnaldas funcionan igual en interior y exterior. Lo que debes saber antes de contratar.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-boda-finca-hacienda-600w.avif" },
   { slug: "diferencia-guirnaldas-edison-led", title: "Focos Edison vs LED para Guirnaldas: ¿Cuál Elegir?", excerpt: "Temperatura de color, consumo eléctrico, costo y estética. Comparativa honesta.", category: "Guirnaldas", img: "/img/guirnaldas/renta-guirnaldas-foco-edison-vintage-bodas-600w.avif" },
   { slug: "paquete-guirnaldas-50-vs-100-metros", title: "Paquete 50 vs 100 Metros de Guirnaldas: ¿Cuál Elegir?", excerpt: "Cómo saber cuántos metros necesitas según el tamaño de tu espacio y número de invitados.", category: "Paquetes", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-encino-cdmx-600w.avif" },
-  // Neón
+  // ──── NEÓN ────
   { slug: "decoracion-neon-bodas-2025", title: "Decoración Neón para Bodas 2025: Ideas y Cómo Pedirla", excerpt: "Las tendencias más buscadas en decoración neón para bodas y cómo integrarlas en tu evento.", category: "Luces Neón", img: "/img/luces-neon/renta-luces-neon-boda-letrero-mr-mrs-600w.avif" },
   { slug: "glow-party-ideas-cdmx", title: "Glow Party en CDMX: Guía Completa con UV y Neón", excerpt: "Todo lo que necesitas para organizar una glow party épica: equipos, vestuario, logística.", category: "Luces Neón", img: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif" },
-  // Cabezas móviles
+  // ──── EQUIPOS ────
   { slug: "que-son-cabezas-moviles", title: "¿Qué Son las Cabezas Móviles y Para Qué Sirven?", excerpt: "La guía que necesitas si nunca has contratado iluminación profesional para eventos.", category: "Equipos", img: "/img/cabezas-moviles/renta-cabezas-moviles-beam-wash-eventos-cdmx-600w.avif" },
   { slug: "cabezas-moviles-vs-par-led", title: "Cabezas Móviles vs Par LED: ¿Cuál Necesita Tu Evento?", excerpt: "Comparativa técnica y práctica para elegir el equipo correcto según tu tipo de evento.", category: "Equipos", img: "/img/cabezas-moviles/renta-cabezas-moviles-beam-wash-eventos-cdmx-600w.avif" },
-  // Técnicos
   { slug: "tipos-iluminacion-para-eventos", title: "Tipos de Iluminación para Eventos: Guía Completa", excerpt: "Wash, spot, efectos, arquitectónica, ambiental. Todo lo que debes conocer antes de cotizar.", category: "Guía", img: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif" },
   { slug: "sky-tracker-que-es", title: "Sky Tracker para Eventos: Qué Es, Cómo Funciona y Cuándo Usarlo", excerpt: "El efecto más vistoso para entradas y exteriores nocturnos. Todo sobre los search lights.", category: "Equipos", img: "/img/sky-tracker/renta-sky-tracker-eventos-cdmx-600w.avif" },
   { slug: "bengalas-frias-seguras-interiores", title: "Bengalas Frías en Interiores: ¿Son Seguras?", excerpt: "Mitos y verdades sobre los sparksters en salones. Por qué no queman, no generan humo y no activan alarmas.", category: "Efectos", img: "/img/cascadas-led/renta-cascadas-led-eventos-cdmx-600w.avif" },
-  // Corporativo
+  // ──── CORPORATIVO ────
   { slug: "iluminacion-eventos-corporativos-cdmx", title: "Iluminación para Eventos Corporativos en CDMX", excerpt: "Cómo elegir la iluminación correcta para conferencias, lanzamientos y cenas empresariales.", category: "Corporativo", img: "/img/city-color/renta-iluminacion-led-par-color-wash-eventos-600w.avif" },
   { slug: "audiovisual-conferencias-cdmx", title: "Equipo Audiovisual para Conferencias en CDMX", excerpt: "Pantallas, micrófonos y sonido. Todo lo que necesita una conferencia profesional.", category: "Corporativo", img: "/img/bocinas/renta-bocinas-conferencias-corporativos-600w.avif" },
-  // Comparativa
+  // ──── GUÍAS / COMPARATIVAS ────
   { slug: "iluminacion-completa-vs-basica", title: "Iluminación Completa vs Básica: Diferencia en Fotos y Video", excerpt: "Por qué la iluminación profesional transforma completamente el recuerdo visual de tu evento.", category: "Guía", img: "/img/bodas/redeil-iluminacion-boda-jardin-hacienda-guirnaldas-600w.avif" },
-  // Geográficos — Zonas CDMX y Edomex
-  { slug: "iluminacion-bodas-coyoacan", title: "Iluminación para Bodas en Coyoacán CDMX — Jardines, Haciendas y Espacios", excerpt: "Guía de iluminación para bodas en Coyoacán: jardines privados, casas coloniales y los mejores espacios de la zona.", category: "Zonas", img: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif" },
-  { slug: "iluminacion-eventos-polanco", title: "Iluminación para Eventos en Polanco CDMX — Hoteles, Rooftops y Salones", excerpt: "Iluminación profesional para eventos de alta gama en Polanco: hoteles 5 estrellas, rooftops y salones elegantes.", category: "Zonas", img: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif" },
-  { slug: "iluminacion-bodas-tlalpan", title: "Renta de Iluminación para Bodas en Tlalpan — Haciendas y Jardines", excerpt: "Iluminación perfecta para bodas en haciendas y jardines de Tlalpan, zona boscosa del Ajusco.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" },
-  { slug: "iluminacion-xv-anos-iztapalapa", title: "Iluminación para XV Años en Iztapalapa — Salones y Jardines", excerpt: "Equipos de iluminación y efectos especiales para XV años en salones y jardines de Iztapalapa.", category: "Zonas", img: "/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif" },
-  { slug: "iluminacion-eventos-naucalpan", title: "Iluminación para Eventos en Naucalpan — Renta de Luces y Sonido", excerpt: "Servicios de iluminación y sonido para eventos en Naucalpan y zona poniente del Estado de México.", category: "Zonas", img: "/img/galeria/cascadas-led-01.avif" },
-  { slug: "iluminacion-bodas-cdmx-sur", title: "Iluminación para Bodas en el Sur de CDMX — Xochimilco, Tláhuac y Milpa Alta", excerpt: "Guirnaldas, luces LED y efectos especiales para bodas en la zona sur de la Ciudad de México.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" },
-  { slug: "iluminacion-eventos-ecatepec", title: "Renta de Iluminación para Eventos en Ecatepec — REDEIL Zona Norte", excerpt: "Cobertura completa de iluminación profesional para eventos en Ecatepec y zona norte del Edomex.", category: "Zonas", img: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif" },
-  { slug: "iluminacion-bodas-satelite", title: "Iluminación para Bodas en Ciudad Satélite y Naucalpan", excerpt: "Iluminación elegante para bodas en la zona de Ciudad Satélite: salones modernos, terrazas y jardines.", category: "Zonas", img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" },
-  { slug: "iluminacion-eventos-alvaro-obregon", title: "Iluminación para Eventos en Álvaro Obregón — Santa Fe, Lomas y Pedregal", excerpt: "Iluminación corporativa y social para eventos en Santa Fe, Lomas de Chapultepec y Pedregal.", category: "Zonas", img: "/img/city-color/iluminacion-arquitectonica-edificio-oficinas.avif" },
-  { slug: "iluminacion-eventos-benito-juarez", title: "Iluminación para Eventos en Benito Juárez — Del Valle, Narvarte y Colonia del Valle", excerpt: "Servicios de iluminación para foros, terrazas y salones en la alcaldía Benito Juárez.", category: "Zonas", img: "/img/galeria/cabezas-moviles-01.avif" },
-  { slug: "iluminacion-haciendas-edomex", title: "Iluminación para Bodas en Haciendas del Estado de México", excerpt: "Guirnaldas, city color y efectos especiales para haciendas coloniales en Tepotzotlán, Valle de Bravo y más.", category: "Zonas", img: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif" },
-  { slug: "renta-iluminacion-zona-metropolitana", title: "Cobertura de REDEIL: Iluminación en Toda la Zona Metropolitana", excerpt: "Mapa completo de cobertura REDEIL: CDMX, Edomex, zona norte, sur, poniente y oriente.", category: "Zonas", img: "/img/galeria/cabezas-moviles-02.avif" },
-  // Comparativas y temporadas
-  { slug: "iluminacion-boda-diciembre-cdmx", title: "Iluminación para Boda en Diciembre CDMX — Navideña vs Clásica", excerpt: "Compara estilos navideño vs clásico para bodas de diciembre en CDMX. Tips, precios y recomendaciones.", category: "Temporadas", img: "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif" },
-  { slug: "iluminacion-boda-al-aire-libre-lluvia", title: "¿Qué Pasa con la Iluminación si Llueve en mi Boda al Aire Libre?", excerpt: "Equipos IP65, planes B y cómo REDEIL protege tu iluminación de la lluvia en eventos exteriores.", category: "Guía", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif" },
-  { slug: "cuanto-adelanto-contratar-iluminacion", title: "¿Con Cuánta Anticipación Debo Contratar la Iluminación para mi Evento?", excerpt: "Timeline de reserva por tipo de evento: bodas 3-6 meses, XV años 2-4 meses, corporativos 1-2 meses.", category: "Guía", img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" },
-  { slug: "iluminacion-boda-100-vs-300-personas", title: "Iluminación para Boda de 100 vs 300 Personas: Diferencias Clave", excerpt: "Cuántos equipos, watts y luminarios necesitas según el número de invitados a tu boda.", category: "Comparativas", img: "/img/bodas/boda-salon-guirnaldas-pista-iluminada.avif" },
+  { slug: "iluminacion-boda-diciembre-cdmx", title: "Iluminación para Boda en Diciembre CDMX — Navideña vs Clásica", excerpt: "Compara estilos navideño vs clásico para bodas de diciembre en CDMX.", category: "Temporadas", img: "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif" },
+  { slug: "iluminacion-boda-al-aire-libre-lluvia", title: "¿Qué Pasa con la Iluminación si Llueve en mi Boda al Aire Libre?", excerpt: "Equipos IP65, planes B y cómo REDEIL protege tu iluminación de la lluvia.", category: "Guía", img: "/img/guirnaldas/renta-guirnaldas-boda-jardin-ceremonia-guirnaldas-05.avif" },
+  { slug: "cuanto-adelanto-contratar-iluminacion", title: "¿Con Cuánta Anticipación Debo Contratar la Iluminación?", excerpt: "Timeline de reserva por tipo de evento: bodas 3-6 meses, XV años 2-4 meses, corporativos 1-2 meses.", category: "Guía", img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" },
+  { slug: "iluminacion-boda-100-vs-300-personas", title: "Iluminación para Boda de 100 vs 300 Personas: Diferencias Clave", excerpt: "Cuántos equipos, watts y luminarios necesitas según el número de invitados.", category: "Comparativas", img: "/img/bodas/boda-salon-guirnaldas-pista-iluminada.avif" },
   { slug: "sonido-vs-iluminacion-presupuesto", title: "¿En Qué Invertir Más: Sonido o Iluminación para tu Evento?", excerpt: "Análisis de presupuesto: cuándo priorizar sonido, cuándo iluminación y cómo equilibrar ambos.", category: "Comparativas", img: "/img/bocinas/bocinas-profesionales-evento-masivo.avif" },
-  { slug: "iluminacion-boda-civil-vs-religiosa", title: "Iluminación para Boda Civil vs Religiosa: ¿Qué Cambia?", excerpt: "Diferencias de montaje, restricciones de venue y equipos recomendados para cada tipo de ceremonia.", category: "Comparativas", img: "/img/bodas/boda-hacienda-iluminacion-profesional.avif" },
-  { slug: "efectos-especiales-que-combinan", title: "Guía de Efectos Especiales que Combinan Perfecto — CO2, Confeti y Bengalas", excerpt: "Cómo combinar CO2, confeti y bengalas frías para máximo impacto. Timing, seguridad y precios.", category: "Efectos", img: "/img/galeria/confeti-03.avif" },
-  { slug: "iluminacion-garden-party-cdmx", title: "Garden Party en CDMX: Iluminación Perfecta para Fiestas al Aire Libre", excerpt: "Guirnaldas, luces festoon y iluminación ambiental para garden parties y fiestas de jardín en CDMX.", category: "Guía", img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" },
+  { slug: "iluminacion-boda-civil-vs-religiosa", title: "Iluminación para Boda Civil vs Religiosa: ¿Qué Cambia?", excerpt: "Diferencias de montaje, restricciones de venue y equipos recomendados.", category: "Comparativas", img: "/img/bodas/boda-hacienda-iluminacion-profesional.avif" },
+  { slug: "efectos-especiales-que-combinan", title: "Guía de Efectos que Combinan Perfecto — CO2, Confeti y Bengalas", excerpt: "Cómo combinar CO2, confeti y bengalas frías para máximo impacto.", category: "Efectos", img: "/img/galeria/confeti-03.avif" },
+  { slug: "iluminacion-garden-party-cdmx", title: "Garden Party en CDMX: Iluminación Perfecta para Fiestas al Aire Libre", excerpt: "Guirnaldas, luces festoon y iluminación ambiental para garden parties.", category: "Guía", img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" },
+  // ──── ZONAS GEOGRÁFICAS ────
+  { slug: "iluminacion-bodas-coyoacan", title: "Iluminación para Bodas en Coyoacán CDMX", excerpt: "Guía de iluminación para bodas en Coyoacán: jardines privados, casas coloniales y los mejores espacios.", category: "Zonas", img: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif" },
+  { slug: "iluminacion-eventos-polanco", title: "Iluminación para Eventos en Polanco CDMX", excerpt: "Iluminación profesional para eventos de alta gama en Polanco: hoteles 5 estrellas, rooftops y salones.", category: "Zonas", img: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif" },
+  { slug: "iluminacion-bodas-tlalpan", title: "Renta de Iluminación para Bodas en Tlalpan", excerpt: "Iluminación perfecta para bodas en haciendas y jardines de Tlalpan, zona boscosa del Ajusco.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" },
+  { slug: "iluminacion-xv-anos-iztapalapa", title: "Iluminación para XV Años en Iztapalapa", excerpt: "Equipos de iluminación y efectos especiales para XV años en salones y jardines de Iztapalapa.", category: "Zonas", img: "/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif" },
+  { slug: "iluminacion-eventos-naucalpan", title: "Iluminación para Eventos en Naucalpan", excerpt: "Servicios de iluminación y sonido para eventos en Naucalpan y zona poniente del Estado de México.", category: "Zonas", img: "/img/galeria/cascadas-led-01.avif" },
+  { slug: "iluminacion-bodas-cdmx-sur", title: "Iluminación para Bodas en el Sur de CDMX", excerpt: "Guirnaldas, luces LED y efectos especiales para bodas en la zona sur.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" },
+  { slug: "iluminacion-eventos-ecatepec", title: "Renta de Iluminación para Eventos en Ecatepec", excerpt: "Cobertura completa de iluminación profesional para eventos en Ecatepec y zona norte del Edomex.", category: "Zonas", img: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif" },
+  { slug: "iluminacion-bodas-satelite", title: "Iluminación para Bodas en Ciudad Satélite y Naucalpan", excerpt: "Iluminación elegante para bodas en Ciudad Satélite: salones modernos, terrazas y jardines.", category: "Zonas", img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" },
+  { slug: "iluminacion-eventos-alvaro-obregon", title: "Iluminación para Eventos en Álvaro Obregón", excerpt: "Iluminación corporativa y social para eventos en Santa Fe, Lomas de Chapultepec y Pedregal.", category: "Zonas", img: "/img/city-color/iluminacion-arquitectonica-edificio-oficinas.avif" },
+  { slug: "iluminacion-eventos-benito-juarez", title: "Iluminación para Eventos en Benito Juárez", excerpt: "Servicios de iluminación para foros, terrazas y salones en la alcaldía Benito Juárez.", category: "Zonas", img: "/img/galeria/cabezas-moviles-01.avif" },
+  { slug: "iluminacion-haciendas-edomex", title: "Iluminación para Bodas en Haciendas del Estado de México", excerpt: "Guirnaldas, city color y efectos especiales para haciendas coloniales.", category: "Zonas", img: "/img/guirnaldas/renta-guirnaldas-boda-hacienda-mexicana-guirnaldas-18.avif" },
+  { slug: "renta-iluminacion-zona-metropolitana", title: "Cobertura REDEIL: Iluminación en Toda la Zona Metropolitana", excerpt: "Mapa completo de cobertura REDEIL: CDMX, Edomex, zona norte, sur, poniente y oriente.", category: "Zonas", img: "/img/galeria/cabezas-moviles-02.avif" },
+  // ──── EXTRAS ────
+  { slug: "iluminacion-eventos-azcapotzalco", title: "Iluminación para Eventos en Azcapotzalco", excerpt: "Servicios de iluminación profesional para eventos sociales y corporativos en Azcapotzalco.", category: "Zonas", img: "/img/galeria/cascadas-led-01.avif" },
+  { slug: "iluminacion-eventos-centro-historico-cdmx", title: "Iluminación para Eventos en el Centro Histórico CDMX", excerpt: "Iluminación para eventos en palacios, museos y terrazas del Centro Histórico.", category: "Zonas", img: "/img/city-color/iluminacion-arquitectonica-edificio-oficinas.avif" },
+  { slug: "iluminacion-eventos-gustavo-a-madero", title: "Iluminación para Eventos en Gustavo A. Madero", excerpt: "Servicios completos de iluminación para la zona norte de la Ciudad de México.", category: "Zonas", img: "/img/galeria/cabezas-moviles-01.avif" },
+  { slug: "iluminacion-eventos-huixquilucan", title: "Iluminación para Eventos en Huixquilucan", excerpt: "Iluminación premium para eventos en Interlomas, La Herradura y zonas residenciales.", category: "Zonas", img: "/img/bodas/boda-hacienda-iluminacion-profesional-completa.avif" },
+  { slug: "iluminacion-eventos-iztapalapa", title: "Iluminación para Eventos en Iztapalapa", excerpt: "Cobertura de iluminación profesional en la alcaldía más grande de CDMX.", category: "Zonas", img: "/img/galeria/cascadas-led-01.avif" },
+  { slug: "iluminacion-eventos-texcoco", title: "Iluminación para Eventos en Texcoco", excerpt: "Iluminación para haciendas, salones y jardines en Texcoco y alrededores.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif" },
+  { slug: "iluminacion-eventos-tlalpan", title: "Iluminación para Eventos en Tlalpan", excerpt: "Iluminación profesional para eventos en la zona boscosa del Ajusco y Tlalpan.", category: "Zonas", img: "/img/guirnaldas/renta-guirnaldas-boda-finca-hacienda-600w.avif" },
+  { slug: "iluminacion-eventos-toluca-metepec", title: "Iluminación para Eventos en Toluca y Metepec", excerpt: "Servicios de iluminación y efectos especiales para eventos en el Valle de Toluca.", category: "Zonas", img: "/img/galeria/cabezas-moviles-02.avif" },
+  { slug: "iluminacion-eventos-venustiano-carranza", title: "Iluminación para Eventos en Venustiano Carranza", excerpt: "Iluminación para salones, foros y espacios de eventos en la zona centro-oriente.", category: "Zonas", img: "/img/galeria/confeti-03.avif" },
+  { slug: "iluminacion-eventos-xochimilco", title: "Iluminación para Eventos en Xochimilco", excerpt: "Guirnaldas y luces para bodas en jardines y trajineras de Xochimilco.", category: "Zonas", img: "/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif" },
 ];
 
-const categories = [...new Set(articles.map(a => a.category))];
+// ── Build categories with counts ──
+const catMap = new Map<string, number>();
+articles.forEach(a => {
+  catMap.set(a.category, (catMap.get(a.category) || 0) + 1);
+});
+
+const categoryOrder = ["Bodas", "XV Años", "Guirnaldas", "Luces Neón", "Equipos", "Efectos", "Sonido", "Corporativo", "Guía", "Comparativas", "Paquetes", "Temporadas", "Zonas"];
+const categories = categoryOrder
+  .filter(c => catMap.has(c))
+  .map(c => ({
+    name: c,
+    count: catMap.get(c)!,
+    slug: c.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-"),
+  }));
+
+// ── Popular articles (hand-picked for best SEO value) ──
+const popularSlugs = [
+  "cuanto-cuesta-iluminacion-boda-cdmx",
+  "cuantos-metros-guirnaldas-necesito",
+  "tipos-iluminacion-para-eventos",
+  "bengalas-frias-seguras-interiores",
+  "cuanto-cuesta-dj-para-boda-cdmx",
+];
+const popularArticles = popularSlugs
+  .map(slug => articles.find(a => a.slug === slug))
+  .filter(Boolean)
+  .map(a => ({ title: a!.title, slug: a!.slug, category: a!.category, img: a!.img }));
+
+// ── Featured = first article ──
+const featured = articles[0];
+const restArticles = articles.slice(1);
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog de Iluminación para Eventos — REDEIL",
+  "description": description,
+  "url": canonical,
+  "publisher": {
+    "@type": "Organization",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com"
+  }
+});
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
   <Fragment slot="breadcrumbs">
     <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
   </Fragment>
 
+  {/* ──── HERO ──── */}
   <section class="hero">
     <div class="container hero__grid">
       <div class="hero__col1">
-        <h1>Blog de Iluminación para Eventos</h1>
-        <p>Guías, consejos y tendencias de iluminación profesional para bodas, XV años, corporativos y fiestas en CDMX.</p>
-        <div class="hero__ctas">
-          <a href="/contacto/" class="btn btn-primary">Cotizar →</a>
-          <a href="https://wa.me/5215530682988" class="btn btn-secondary">WhatsApp</a>
+        <h1>Blog de Iluminación<br>para Eventos</h1>
+        <p>Guías prácticas, precios reales y consejos de nuestro equipo técnico con más de 30 años iluminando bodas, XV años, corporativos y fiestas en CDMX.</p>
+        <div class="hero__meta">
+          <span class="hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            {articles.length} artículos
+          </span>
+          <span class="hero__meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+            {categories.length} categorías
+          </span>
         </div>
       </div>
       <div class="hero__col2">
@@ -93,47 +153,567 @@ const categories = [...new Set(articles.map(a => a.category))];
     </div>
   </section>
 
-  <section class="section">
+  {/* ──── FEATURED ARTICLE ──── */}
+  <section class="blog-featured">
     <div class="container">
-      <div class="blog-grid">
-        {articles.map(article => (
-          <article class="blog-card">
-            <a href={`/blog/${article.slug}/`} class="blog-card__link">
-              <div class="blog-card__img">
-                <img
-                  src={article.img}
-                  alt={article.title}
-                  loading="lazy"
-                  width="400"
-                  height="225"
-                />
-              </div>
-              <div class="blog-card__body">
-                <span class="blog-card__cat">{article.category}</span>
-                <h2 class="blog-card__title">{article.title}</h2>
-                <p class="blog-card__excerpt">{article.excerpt}</p>
-                <span class="blog-card__cta">Leer artículo →</span>
-              </div>
-            </a>
-          </article>
+      <a href={`/blog/${featured.slug}/`} class="bf">
+        <div class="bf__img">
+          <img src={featured.img} alt={featured.title} loading="eager" width="800" height="450" />
+          <span class="bf__badge">Destacado</span>
+          <span class="bf__cat">{featured.category}</span>
+        </div>
+        <div class="bf__body">
+          <h2 class="bf__title">{featured.title}</h2>
+          <p class="bf__excerpt">{featured.excerpt}</p>
+          <span class="bf__cta">Leer artículo completo →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  {/* ──── CATEGORY PILLS (mobile filter) ──── */}
+  <section class="blog-filters">
+    <div class="container">
+      <div class="bf-pills" id="categoryPills">
+        <button class="bf-pill bf-pill--active" data-cat="all">Todos</button>
+        {categoryOrder.filter(c => catMap.has(c)).map(cat => (
+          <button class="bf-pill" data-cat={cat}>{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></button>
         ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ──── MAIN: GRID + SIDEBAR ──── */}
+  <section class="blog-main">
+    <div class="container blog-main__layout">
+      <div class="blog-main__content">
+        <div class="blog-grid" id="blogGrid">
+          {restArticles.map(article => (
+            <article class="bc" data-category={article.category}>
+              <a href={`/blog/${article.slug}/`} class="bc__img-link">
+                <div class="bc__img">
+                  <img src={article.img} alt={article.title} loading="lazy" width="600" height="338" />
+                  <span class="bc__cat">{article.category}</span>
+                </div>
+              </a>
+              <div class="bc__body">
+                <h2 class="bc__title">
+                  <a href={`/blog/${article.slug}/`}>{article.title}</a>
+                </h2>
+                <p class="bc__desc">{article.excerpt}</p>
+                <a href={`/blog/${article.slug}/`} class="bc__link">
+                  Leer artículo <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="blog-main__sidebar">
+        <BlogSidebar
+          categories={categories}
+          popularArticles={popularArticles}
+        />
+      </div>
+    </div>
+  </section>
+
+  {/* ──── CTA FINAL ──── */}
+  <section class="blog-cta-final">
+    <div class="container blog-cta-final__inner">
+      <h2>¿No encuentras lo que buscas?</h2>
+      <p>Nuestro equipo técnico tiene la respuesta. Cotiza sin compromiso o pregúntanos directamente por WhatsApp.</p>
+      <div class="blog-cta-final__btns">
+        <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Gratis →</a>
+        <a href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminación." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">WhatsApp</a>
       </div>
     </div>
   </section>
 </BaseLayout>
 
+<script>
+  // ── Category filter (client-side, no-JS-library) ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const pills = document.querySelectorAll('.bf-pill');
+    const cards = document.querySelectorAll('#blogGrid .bc');
+    const searchInput = document.getElementById('blogSearch') as HTMLInputElement | null;
+
+    let activeCat = 'all';
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('bf-pill--active'));
+        pill.classList.add('bf-pill--active');
+        activeCat = (pill as HTMLElement).dataset.cat || 'all';
+        filterCards();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => filterCards());
+    }
+
+    function filterCards() {
+      const query = searchInput?.value.toLowerCase().trim() || '';
+      cards.forEach(card => {
+        const el = card as HTMLElement;
+        const cat = el.dataset.category || '';
+        const text = el.textContent?.toLowerCase() || '';
+        const matchesCat = activeCat === 'all' || cat === activeCat;
+        const matchesSearch = !query || text.includes(query);
+        el.style.display = matchesCat && matchesSearch ? '' : 'none';
+      });
+    }
+  });
+</script>
+
 <style>
+  /* ──────────────────────────────────────────
+     FEATURED ARTICLE
+     ────────────────────────────────────────── */
+  .blog-featured {
+    background: #f8f9fa;
+    padding: 2.5rem 0;
+  }
+
+  .bf {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+  }
+
+  .bf__img {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .bf__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bf__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-secondary, #1a1a2e);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  .bf__cat {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .bf__body {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bf__title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--color-secondary, #1a1a2e);
+    line-height: 1.25;
+    margin: 0 0 1rem;
+  }
+
+  .bf__excerpt {
+    font-size: 0.9375rem;
+    color: #6c757d;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+  }
+
+  .bf__cta {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary, #ff5722);
+  }
+
+  .bf:hover .bf__cta {
+    color: #c44d00;
+  }
+
+  /* ──────────────────────────────────────────
+     CATEGORY PILLS
+     ────────────────────────────────────────── */
+  .blog-filters {
+    padding: 1.5rem 0;
+    background: #fff;
+    border-bottom: 1px solid #e9ecef;
+    position: sticky;
+    top: calc(36px + 70px);
+    z-index: 50;
+  }
+
+  .bf-pills {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .bf-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bf-pill {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 100px;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #495057;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .bf-pill:hover {
+    border-color: var(--color-primary, #ff5722);
+    color: var(--color-primary, #ff5722);
+  }
+
+  .bf-pill--active {
+    background: var(--color-primary, #ff5722);
+    border-color: var(--color-primary, #ff5722);
+    color: #fff;
+  }
+
+  .bf-pill--active:hover {
+    color: #fff;
+  }
+
+  .bf-pill__count {
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  .bf-pill--active .bf-pill__count {
+    opacity: 0.9;
+  }
+
+  /* ──────────────────────────────────────────
+     MAIN LAYOUT: GRID + SIDEBAR
+     ────────────────────────────────────────── */
+  .blog-main {
+    padding: 3rem 0;
+    background: #fff;
+  }
+
+  .blog-main__layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .blog-main__sidebar {
+    position: sticky;
+    top: calc(36px + 70px + 60px + 1.5rem);
+  }
+
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
   }
-  .blog-card { border-radius: var(--radius-md, 12px); overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .blog-card__link { display: block; text-decoration: none; color: inherit; }
-  .blog-card__img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-  .blog-card__body { padding: 1.25rem; }
-  .blog-card__cat { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--primary, #ff5722); }
-  .blog-card__title { font-size: 1rem; font-weight: 700; margin: .5rem 0; line-height: 1.35; color: #1a1a1a; }
-  .blog-card__excerpt { font-size: .875rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
-  .blog-card__cta { font-size: .875rem; font-weight: 600; color: var(--primary, #ff5722); }
+
+  /* ──────────────────────────────────────────
+     BLOG CARDS (inline — consistent with BlogCard.astro)
+     ────────────────────────────────────────── */
+  .bc {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bc__img-link {
+    display: block;
+    position: relative;
+  }
+
+  .bc__img {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bc__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bc__cat {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .bc__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .bc__title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-secondary, #1a1a2e);
+    margin: 0 0 0.625rem;
+    line-height: 1.3;
+  }
+
+  .bc__title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .bc__title a:hover {
+    color: var(--color-primary, #ff5722);
+  }
+
+  .bc__desc {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.65;
+    flex: 1;
+    margin: 0 0 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .bc__link {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary, #ff5722);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .bc__link:hover {
+    color: #c44d00;
+  }
+
+  /* ──────────────────────────────────────────
+     CTA FINAL
+     ────────────────────────────────────────── */
+  .blog-cta-final {
+    background: var(--color-primary, #ff5722);
+    padding: 3.5rem 0;
+  }
+
+  .blog-cta-final__inner {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .blog-cta-final h2 {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 0.75rem;
+  }
+
+  .blog-cta-final p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+  }
+
+  .blog-cta-final__btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .blog-cta-final .btn-primary {
+    background: #fff;
+    color: var(--color-primary, #ff5722);
+    border-color: #fff;
+    box-shadow: none;
+  }
+
+  .blog-cta-final .btn-primary:hover {
+    background: #f0f0f0;
+    color: #c44d00;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .blog-cta-final .btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .blog-cta-final .btn-outline:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+    color: #fff;
+  }
+
+  /* ──────────────────────────────────────────
+     HERO META
+     ────────────────────────────────────────── */
+  .hero__meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .hero__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+
+  .hero__meta-item svg {
+    opacity: 0.6;
+    stroke: currentColor;
+  }
+
+  /* ──────────────────────────────────────────
+     RESPONSIVE
+     ────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .blog-main__layout {
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .bf {
+      grid-template-columns: 1fr;
+    }
+
+    .bf__img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .bf__body {
+      padding: 1.75rem;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .blog-main__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-main__sidebar {
+      position: static;
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-featured {
+      padding: 1.5rem 0;
+    }
+
+    .bf__body {
+      padding: 1.25rem;
+    }
+
+    .bf__title {
+      font-size: 1.125rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-main {
+      padding: 2rem 0;
+    }
+
+    .blog-main__sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-cta-final {
+      padding: 2.5rem 0;
+    }
+
+    .hero__meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
 </style>
