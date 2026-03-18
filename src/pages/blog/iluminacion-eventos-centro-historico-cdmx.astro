@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const title = "Renta de Iluminación para Eventos en Centro Histórico CDMX — Palacios, Galas y Corporativos | REDEIL";
+const description = "Iluminación profesional para eventos en el Centro Histórico de la Ciudad de México. Cabezas móviles, luces LED y efectos para palacios, hoteles, azoteas y salones históricos.";
+const canonical = "https://rentadeiluminacion.com/blog/iluminacion-eventos-centro-historico-cdmx/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Renta de Iluminación para Eventos en Centro Histórico CDMX — Palacios, Galas y Corporativos",
+    "description": "Iluminación profesional para eventos en el Centro Histórico de la Ciudad de México. Cabezas móviles, luces LED y efectos para palacios, hoteles, azoteas y salones históricos.",
+    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+    "image": "https://rentadeiluminacion.com/img/iluminacion-arquitectonica/renta-iluminacion-arquitectonica-palacio-fachada-city-color-01.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-centro-historico-cdmx/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Pueden montar iluminación en edificios históricos del Centro?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Utilizamos sistemas de montaje no invasivos: truss con bases contrapesadas, clamps de seguridad y uplights inalámbricos de batería. No perforamos ni fijamos nada a muros o techos protegidos por el INAH." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta la iluminación para un evento en el Centro Histórico?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Desde $6,000 MXN para iluminación ambiental con uplights LED hasta $35,000+ MXN para montajes completos con cabezas móviles, gobos personalizados y efectos especiales. Los precios varían según el venue y los requerimientos." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo manejan la logística de carga en el Centro Histórico?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Coordinamos horarios de carga y descarga con cada venue. Usamos vehículos compactos para calles peatonales y angostas. Conocemos los accesos de servicio de los principales edificios del Centro." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Ofrecen gobos personalizados para eventos corporativos?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. Proyectamos logotipos y textos personalizados en muros, pisos y techos mediante gobos en cabezas móviles. Ideal para lanzamientos de producto, galas corporativas y eventos de marca en el Centro Histórico." }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "79"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andrea Solís Villanueva" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "REDEIL iluminó nuestra gala corporativa en el Palacio de Minería. El montaje con cabezas móviles y uplights dorados fue espectacular, resaltó la arquitectura sin dañar nada. Los invitados no dejaban de comentar la iluminación."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Enrique Fuentes Ramos" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Hicimos nuestra boda en una azotea del Centro Histórico con vista al Zócalo. REDEIL montó guirnaldas, city colors y bengalas frías para el brindis. La vista con las luces fue mágica. Totalmente profesionales."
+      }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Blog",href:"/blog/"},{label:"Eventos Centro Histórico"}]} />
+  </Fragment>
+
+  <article class="section">
+    <div class="container" style="max-width: 800px;">
+      <h1>Renta de Iluminación para Eventos en Centro Histórico CDMX — Palacios, Galas y Corporativos</h1>
+
+      <img src="/img/iluminacion-arquitectonica/iluminacion-arquitectonica-arcos-coloniales-luz-violeta-fachada.avif" alt="Iluminación arquitectónica profesional en fachada colonial con arcos del Centro Histórico CDMX" loading="lazy" style="width:100%; border-radius:var(--radius-lg); margin: var(--space-6) 0;" />
+
+      <p>El <strong>Centro Histórico de la Ciudad de México</strong> no es cualquier zona para hacer un evento. Es Patrimonio de la Humanidad por la UNESCO, tiene edificios con más de 400 años de historia, palacios de cantera con techos abovedados y azoteas con la mejor vista de la ciudad. Cuando un cliente nos dice que su evento es en el Centro, sabemos que el nivel de exigencia sube automáticamente. Los venues de esta zona —Palacio de Minería, Casino Español, Hotel Zócalo Central, terrazas sobre Madero— no admiten montajes improvisados. La iluminación tiene que respetar la arquitectura, cumplir con las restricciones de edificios protegidos y al mismo tiempo crear una atmósfera que esté a la altura de estos espacios extraordinarios.</p>
+
+      <p>En <strong>REDEIL</strong> llevamos más de 30 años iluminando eventos en la CDMX, y el Centro Histórico es una de las zonas que más conocemos. Hemos montado desde galas corporativas en salones del siglo XVIII hasta bodas en azoteas con vista al Zócalo y presentaciones de marca en patios coloniales. Cada espacio del Centro tiene particularidades únicas, y nosotros sabemos exactamente cómo trabajar con ellas.</p>
+
+      <h2>Iluminación en el Centro Histórico: Lo Que Necesitas Saber</h2>
+
+      <p>Hacer un evento en un edificio histórico no es lo mismo que hacerlo en un salón convencional. Los inmuebles catalogados por el <strong>INAH</strong> (Instituto Nacional de Antropología e Historia) tienen restricciones estrictas sobre lo que puedes y no puedes hacer con su estructura. No puedes perforar muros de cantera para colgar truss. No puedes anclar estructuras a pisos de mosaico original. No puedes fijar nada a columnas protegidas ni a arcos centenarios. Y sin embargo, necesitas colgar luminarias, montar cabezas móviles y distribuir equipo por todo el espacio.</p>
+
+      <p>Nosotros resolvemos esto con <strong>sistemas de montaje completamente no invasivos</strong>. Utilizamos truss autoportante con bases contrapesadas que sostienen cabezas móviles y barras LED sin tocar la estructura del edificio. Los uplights inalámbricos que usamos funcionan con batería recargable —no necesitan cables de alimentación— así que simplemente se colocan en el piso junto a las columnas o muros que quieras bañar con color. Para las guirnaldas, tendemos líneas de acero sujetas a puntos de apoyo autorizados por el venue, sin clavar ni perforar nada.</p>
+
+      <p>El otro tema crítico es la <strong>logística de acceso</strong>. Las calles del Centro Histórico son angostas, muchas son peatonales y hay restricciones de horario para vehículos de carga. No puedes llegar con una camioneta de 3.5 toneladas a las 7 de la tarde a la calle Madero. Nosotros coordinamos los horarios de carga y descarga con cada venue, usamos vehículos compactos cuando es necesario y conocemos los accesos de servicio de los principales edificios. Esa logística la tenemos resuelta porque la hemos recorrido decenas de veces.</p>
+
+      <h2>Los Venues Más Populares del Centro Histórico</h2>
+
+      <p>El <strong>Palacio de Minería</strong> es probablemente el venue más impresionante del Centro para galas y eventos corporativos de gran formato. Su patio central con columnas neoclásicas y doble altura es un espacio que se transforma con iluminación arquitectónica. Hemos bañado esas columnas de mármol con uplights ámbar y dorado para cenas de gala, y el efecto es cinematográfico. El Salón de Actos, con su techo pintado y candelabros originales, requiere un enfoque de iluminación sutil que complemente sin competir.</p>
+
+      <p>El <strong>Casino Español</strong> sobre calle Isabel La Católica ofrece salones con decoración ecléctica del siglo XIX: vitrales, molduras doradas, techos artesonados y pisos de mármol. Para eventos aquí, trabajamos con temperaturas de color cálidas que armonizan con los acabados originales. Las cabezas móviles las montamos en puntos específicos donde el truss autoportante no interfiere con la circulación ni con las líneas visuales del espacio.</p>
+
+      <p>El <strong>Hotel Zócalo Central</strong> y sus terrazas son un clásico para cócteles, lanzamientos de producto y celebraciones con la Catedral Metropolitana de fondo. En azoteas como esta, las <a href="/servicios/guirnaldas/">guirnaldas con focos Edison</a> crean un techo luminoso que enmarca la vista sin obstruirla, mientras que la <a href="/servicios/iluminacion-arquitectonica/">iluminación arquitectónica</a> resalta los muros perimetrales.</p>
+
+      <p>El <strong>Antiguo Colegio de San Ildefonso</strong> y el <strong>Ex Teresa Arte Actual</strong> son venues que se prestan para eventos culturales, presentaciones editoriales y experiencias inmersivas. Sus muros de piedra y bóvedas antiguas responden de manera espectacular a la iluminación con <a href="/servicios/city-color/">city colors</a> y wash de color que transforman la percepción del espacio por completo.</p>
+
+      <p>Las <strong>azoteas del Centro Histórico</strong> sobre las calles 5 de Mayo, Madero, República de Uruguay y Donceles se han convertido en los espacios más buscados para eventos privados. La combinación de vista panorámica al Zócalo, la Catedral y el Palacio de Bellas Artes con una buena producción de iluminación genera una experiencia que ningún salón cerrado puede igualar.</p>
+
+      <h2>Qué Servicios Se Contratan Más en el Centro</h2>
+
+      <p>La naturaleza de los venues del Centro Histórico define qué tipo de iluminación funciona mejor. Después de cientos de montajes en la zona, estos son los servicios que más nos solicitan:</p>
+
+      <ul>
+        <li><strong>Uplights LED inalámbricos:</strong> El servicio más solicitado para edificios históricos. Sin cables, sin montaje invasivo, se colocan en minutos y transforman columnas, arcos y muros con colores personalizados. Funcionan con batería de larga duración y se controlan por DMX inalámbrico desde nuestra consola.</li>
+        <li><strong><a href="/servicios/cabezas-moviles/">Cabezas móviles beam y spot</a>:</strong> Para eventos que necesitan un show visual potente. Las montamos en truss autoportante y programamos secuencias que van desde iluminación ambiental elegante hasta shows de luz completos para la pista de baile. En techos abovedados, los haces de las cabezas beam crean efectos geométricos impresionantes.</li>
+        <li><strong><a href="/servicios/gobos/">Gobos personalizados</a>:</strong> Proyección de logotipos, monogramas o textos sobre muros, pisos y techos. Para galas corporativas en el Centro Histórico, los gobos son imprescindibles: proyectar el logo de tu empresa sobre una pared de cantera del siglo XVIII es un statement visual que no se olvida.</li>
+        <li><strong><a href="/servicios/iluminacion-arquitectonica/">Iluminación arquitectónica</a>:</strong> City colors y wash LED de alta potencia para bañar fachadas, columnas y arcos con color. Es el servicio que más impacto visual genera en venues históricos porque revela detalles arquitectónicos que normalmente pasan desapercibidos.</li>
+      </ul>
+
+      <p>Todos estos servicios se pueden combinar en un paquete integral o contratar individualmente según el presupuesto y las necesidades del evento. Nosotros recomendamos la combinación que mejor funcione para el venue específico donde se realizará tu evento.</p>
+
+      <h2>Galas y Eventos Corporativos Premium</h2>
+
+      <p>El Centro Histórico es el epicentro de las galas corporativas más importantes de la ciudad. Instituciones financieras, embajadas, firmas de abogados, marcas de lujo y organizaciones culturales eligen los palacios y salones del Centro para sus eventos de más alto nivel. La razón es simple: ningún otro lugar en la CDMX ofrece ese peso histórico y esa elegancia arquitectónica como telón de fondo.</p>
+
+      <p>Para estos eventos, el diseño de iluminación tiene que ser <strong>sofisticado sin ser excesivo</strong>. No se trata de llenar el espacio de luces de colores; se trata de usar la luz para realzar la arquitectura, dirigir la atención a los puntos clave del evento y crear una atmósfera que comunique prestigio. Trabajamos con paletas de color cuidadosamente seleccionadas: dorados, ámbar, blanco cálido y toques de color institucional para reforzar la identidad de marca.</p>
+
+      <p>Los <a href="/servicios/gobos/">gobos personalizados</a> son un recurso que usamos en prácticamente toda gala corporativa en el Centro. Proyectar el logotipo de la empresa en una pared de cantera labrada, en el piso del patio principal o en la bóveda del techo genera un impacto visual que las pantallas LED no pueden replicar. Es una integración entre la marca y el espacio histórico que funciona de manera extraordinaria en fotografías y video.</p>
+
+      <p>Para cenas de gala con servicio de mesa, programamos escenas de iluminación por momentos: luz cálida y tenue durante la cena para favorecer la conversación, iluminación más intensa para los discursos y premiaciones, y transición a iluminación dinámica cuando inicia el entretenimiento. Todo controlado desde nuestra consola por un técnico que opera en tiempo real según el flujo del evento.</p>
+
+      <p>También manejamos la iluminación de <strong>escenario y podium</strong> para presentaciones ejecutivas. Luz frontal calibrada para que el presentador se vea profesional tanto en persona como en transmisión, contraluces para separar al ponente del fondo y pantalla LED o proyección con brillo suficiente para competir con la iluminación ambiental. En venues del Centro donde la iluminación natural puede filtrar por vitrales o ventanales altos, ajustamos la potencia de nuestros equipos para compensar y mantener la visibilidad óptima.</p>
+
+      <h2>Preguntas Frecuentes</h2>
+
+      <h3>¿Pueden montar iluminación en edificios históricos del Centro?</h3>
+      <p>Sí. Utilizamos sistemas de montaje no invasivos: truss con bases contrapesadas, clamps de seguridad y uplights inalámbricos de batería. No perforamos ni fijamos nada a muros o techos protegidos por el INAH. Conocemos las restricciones de los principales venues del Centro y adaptamos cada montaje a sus requerimientos específicos.</p>
+
+      <h3>¿Cuánto cuesta la iluminación para un evento en el Centro Histórico?</h3>
+      <p>Desde $6,000 MXN para iluminación ambiental con uplights LED hasta $35,000+ MXN para montajes completos con cabezas móviles, gobos personalizados y efectos especiales. Los precios varían según el venue, el tamaño del evento y los servicios requeridos. Envíanos los detalles por <a href="https://wa.me/5215530682988">WhatsApp</a> y te mandamos una cotización detallada.</p>
+
+      <h3>¿Cómo manejan la logística de carga en el Centro Histórico?</h3>
+      <p>Coordinamos horarios de carga y descarga con cada venue. Usamos vehículos compactos para calles peatonales y angostas. Conocemos los accesos de servicio de los principales edificios del Centro y planificamos la ruta de ingreso con anticipación para que el montaje arranque sin retrasos.</p>
+
+      <h3>¿Ofrecen gobos personalizados para eventos corporativos?</h3>
+      <p>Sí. Proyectamos logotipos y textos personalizados en muros, pisos y techos mediante gobos en cabezas móviles. Ideal para lanzamientos de producto, galas corporativas y eventos de marca en el Centro Histórico. El gobo se fabrica a medida con tu diseño y queda listo en pocos días.</p>
+
+      <div style="text-align:center; margin: var(--space-8) 0;">
+        <a href="/contacto/" class="btn btn-primary btn-lg">Cotiza tu iluminación para evento en el Centro Histórico →</a>
+      </div>
+
+      <h2>Zonas Cercanas que También Atendemos</h2>
+
+      <p>Si tu evento es en una alcaldía o zona cercana al Centro Histórico, también tenemos cobertura completa:</p>
+
+      <ul>
+        <li><a href="/blog/iluminacion-eventos-polanco/">Polanco</a> — Hoteles 5 estrellas, rooftops y salones elegantes sobre Masaryk y Campos Elíseos.</li>
+        <li><a href="/blog/iluminacion-eventos-benito-juarez/">Benito Juárez</a> — Del Valle, Narvarte, WTC y terrazas urbanas.</li>
+        <li><a href="/blog/iluminacion-eventos-azcapotzalco/">Azcapotzalco</a> — Clavería, Industrial Vallejo y salones del norte de CDMX.</li>
+        <li><a href="/blog/iluminacion-eventos-gustavo-a-madero/">Gustavo A. Madero</a> — La Basílica, Lindavista, Tepeyac y colonias del norte.</li>
+      </ul>
+    </div>
+  </article>
+
+  <section class="cta-final">
+    <div class="container">
+      <h2>¿Listo para cotizar tu evento?</h2>
+      <p>Más de 3,000 eventos en CDMX y Edomex nos respaldan. Te respondemos en menos de 2 horas.</p>
+      <div class="cta-btns">
+        <a href="/contacto/" class="btn btn-primary">Cotizar mi evento →</a>
+        <a href="https://wa.me/5215530682988" class="btn btn-whatsapp">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
