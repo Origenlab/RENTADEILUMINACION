@@ -1,74 +1,249 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bocinas para Eventos | REDEIL CDMX";
-const description = "Renta de bocinas y sonido profesional para eventos en CDMX. Equipos de audio, line array y sistemas de sonido para bodas, fiestas y conciertos. REDEIL.";
+const title = "Renta de Bocinas y Audio para Eventos CDMX | REDEIL";
+const description = "Bocinas JBL, QSC y sistemas line array para bodas, fiestas y corporativos en CDMX. Técnico de audio incluido. Desde $4,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bocinas y Sonido Profesional para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Bocinas y Audio Profesional para Eventos",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de renta de bocinas JBL, QSC y sistemas line array para bodas, fiestas y eventos corporativos en CDMX y Estado de México.",
+    "areaServed": [
+      { "@type": "City", "name": "Ciudad de México" },
+      { "@type": "State", "name": "Estado de México" }
+    ],
+    "serviceType": "Renta de Bocinas y Audio Profesional",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de bocinas, sistemas de sonido profesional y line array para bodas, fiestas, conciertos y eventos corporativos en la Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bocinas y Sonido Profesional"
-});
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Cuántas bocinas necesito para mi evento?", "acceptedAnswer": { "@type": "Answer", "text": "Para eventos de hasta 80 personas en salón cerrado, 2 bocinas JBL PRX + 1 subwoofer son suficientes. Para 200 personas, 4 bocinas + 2 subs. Para 500+, usamos sistemas line array. Te asesoramos según las dimensiones de tu venue." }},
+      { "@type": "Question", "name": "¿El técnico de audio está incluido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. Todos nuestros paquetes incluyen un técnico de audio que llega horas antes para montar, ecualizar el equipo al espacio y operar el sonido durante todo el evento." }},
+      { "@type": "Question", "name": "¿Puedo conectar mi playlist de Spotify?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Conectamos tu celular o laptop vía Bluetooth, AUX o USB a la mezcladora. También aceptamos playlists compartidas antes del evento para tenerlas listas." }},
+      { "@type": "Question", "name": "¿Incluyen micrófonos inalámbricos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los paquetes incluyen micrófonos Shure inalámbricos — de mano para brindis, de solapa para conferencias. Pedimos 2 en el paquete básico y hasta 4 en los premium." }},
+      { "@type": "Question", "name": "¿Sirve para eventos al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros equipos funcionan en jardines, terrazas, haciendas y cualquier espacio exterior. Si el venue no tiene corriente suficiente, llevamos planta de luz." }},
+      { "@type": "Question", "name": "¿Se puede combinar audio con DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Claro. Si contratas el equipo de audio y después decides agregar DJ, combinamos con precio especial. O puedes contratar el paquete DJ que ya incluye todo el equipo." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "DJ para Fiestas y Bodas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional en cabina para eventos CDMX", description: "DJ con consola Pioneer y repertorio adaptado. El complemento perfecto para el equipo de audio.", link: "/servicios/bocinas-djs/" },
+  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio profesional para primer baile de boda", description: "Equipo dimensionado para ceremonia + recepción + fiesta. Los tres momentos de tu boda cubiertos.", link: "/servicios/bocinas-bodas/" },
+  { title: "Audio para Conferencias", image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif", alt: "Audio cristalino para conferencia ejecutiva", description: "Sonido cristalino para presentaciones. Micrófonos Shure, bocinas de línea y mezcladoras Yamaha.", link: "/servicios/bocinas-conferencias/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Show de luces para complementar audio", description: "Combina audio profesional + show de luces DMX. El paquete completo que transforma cualquier evento.", link: "/servicios/cabezas-moviles/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Eventos" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Bocinas para Eventos en CDMX"
-      subtitle="Sonido profesional que garantiza la mejor experiencia auditiva en tu evento"
-      introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido profesional para todo tipo de eventos en la Ciudad de México. Desde bodas íntimas hasta conciertos masivos, contamos con el equipo de audio adecuado para cubrir las necesidades acústicas de cada espacio."
-      introParagraph2="Nuestro inventario incluye bocinas activas, sistemas line array, subwoofers, micrófonos y mezcladoras de las mejores marcas del mercado. Cada evento es atendido por técnicos de audio que se encargan del montaje, la ecualización y la operación del equipo durante toda tu celebración."
+
+    <Hero
+      title="Renta de Bocinas y Audio Profesional para Eventos en CDMX"
+      subtitle="Bocinas JBL y QSC con técnico de audio incluido. Desde 50 hasta 2,000 personas. Desde $4,000 + IVA."
+      introParagraph1='Hay una diferencia enorme entre "se oye" y "se siente". Un par de bocinas baratas hacen que la música suene. Un sistema de audio profesional hace que la música se sienta en el pecho, que los votos de la boda se escuchen hasta la última fila y que el bajo del DJ mueva la pista. En <strong>REDEIL</strong> llevamos 30 años rentando equipo de audio <strong>JBL</strong> (PRX, VTX, EON), <strong>QSC</strong> (K.2, KLA) y <strong>Electro-Voice</strong> para eventos de 50 a 2,000+ personas en CDMX y Estado de México.'
+      introParagraph2='Cada renta incluye el equipo dimensionado para tu espacio, micrófonos inalámbricos <strong>Shure</strong>, mezcladora <strong>Yamaha</strong>, subwoofers, cableado profesional, y un técnico de audio que llega horas antes para montar, ecualizar al venue y operar el sonido durante todo el evento. Bodas con ceremonia + recepción + fiesta, XV años con vals y hora loca, corporativos con ponencia y coctel, fiestas privadas con playlist y karaoke — cada tipo de evento tiene su configuración ideal y nosotros la conocemos.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Equipo de audio profesional para cada ocasión"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="El sonido es un elemento fundamental en cualquier evento. Una buena calidad de audio asegura que la música se escuche con claridad, que los discursos lleguen a todos los asistentes y que la atmósfera de la celebración sea la adecuada. En REDEIL entendemos esta importancia y ofrecemos soluciones de sonido a la medida."
-          paragraph2="Para bodas y eventos sociales, proporcionamos sistemas de sonido que cubren tanto la ceremonia como la recepción y la fiesta. Nuestros equipos incluyen bocinas de alta fidelidad, micrófonos inalámbricos para ceremonias y brindis, y subwoofers para la pista de baile. Para conciertos y eventos masivos, disponemos de sistemas line array de gran potencia con cobertura uniforme."
+
+    <CtaBar
+      headline="¿Para qué tipo de evento necesitas audio?"
+      items={[
+        { label: "Bodas", href: "/servicios/bocinas-bodas/", icon: "sonido" },
+        { label: "DJ Profesional", href: "/servicios/bocinas-djs/", icon: "sonido" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Equipo de audio para cada escala de evento"
+          subtitle="Desde una sala para 50 personas hasta un concierto de 2,000."
+          paragraph1="No rentamos bocinas genéricas — dimensionamos el equipo según el tamaño del espacio, la cantidad de personas y el tipo de evento. Un salón cerrado de bodas no necesita lo mismo que un jardín al aire libre o un auditorio de conferencias."
+          paragraph2="Nuestro técnico de audio ecualiza cada sistema al venue específico. El resultado: sonido limpio, potente y sin distorsión a cualquier volumen. Eso es lo que diferencia el audio profesional del equipo rentado sin operador."
         />
-        <p>Cada montaje de sonido en CDMX es diseñado según las dimensiones del espacio, la cantidad de asistentes y el tipo de evento. Nuestro equipo técnico realiza pruebas de audio previas al evento para garantizar una experiencia sonora impecable de principio a fin.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales para evento masivo" },
+          { src: "/img/bocinas/renta-bocinas-line-array-concierto.avif", alt: "Sistema line array JBL para concierto" },
+          { src: "/img/bocinas/sonido-profesional-concierto-estadio.avif", alt: "Sonido profesional en concierto de estadio" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-cantante-mezcladora-jbl.avif", alt: "Banda con cantante y mezcladora JBL en boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif", alt: "Line array y consola Pioneer DJ en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-descarga-equipo-salon-qsc-k12.avif", alt: "Descarga de equipo QSC K12 en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-brindis-microfono-salon.avif", alt: "Brindis con micrófono en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-instalacion-equipo-cases.avif", alt: "Instalación de equipo de audio con cases profesionales" },
+          { src: "/img/bocinas-fiestas/bocinas-amplificadas-fiestas-jardines.avif", alt: "Bocinas amplificadas para fiesta en jardín" },
+          { src: "/img/bocinas-fiestas/bocinas-grandes-eventos-masivos.avif", alt: "Bocinas grandes para eventos masivos" },
+          { src: "/img/bocinas-fiestas/audio-eventos-corporativos-conferencias.avif", alt: "Audio para eventos corporativos y conferencias" },
+          { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido para conferencias empresariales" },
+          { src: "/img/bocinas-djs/dj-para-eventos-equipo-sonido-luces.avif", alt: "DJ para eventos con equipo de sonido y luces" },
+          { src: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif", alt: "DJ con cabina profesional en evento CDMX" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-consola-pioneer-salon.avif", alt: "Consola Pioneer DJ en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-playa-instalacion-jbl-blancas.avif", alt: "Instalación de bocinas JBL blancas en boda de playa" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Bocinas y Sonido" subtitle="Montajes de audio profesional en eventos reales">
-      <figure class="gallery-item">
-        <img src="/img/bocinas/bocinas-profesionales-evento-masivo.avif" alt="Bocinas profesionales instaladas para evento masivo al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas/sonido-profesional-concierto-estadio.avif" alt="Sistema de sonido profesional montado para concierto en estadio" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas/renta-bocinas-line-array-concierto.avif" alt="Bocinas line array rentadas para concierto con iluminación escénica" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-brindis-microfono-salon.avif" alt="Micrófono y bocinas rentadas para brindis en salón de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif" alt="Sistema line array y equipo Pioneer DJ instalado en salón de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-instalacion-equipo-cases.avif" alt="Instalación de equipo de sonido con cases profesionales en boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif" alt="Montaje de bocinas en tripié bajo carpa para boda en playa" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-descarga-equipo-salon-qsc-k12.avif" alt="Descarga de equipo de sonido QSC en salón para montaje de boda" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Audio Profesional"
+          subtitle="4 niveles según la cantidad de personas. Técnico incluido en todos."
+          paragraph1="Cada paquete incluye bocinas, subwoofers, micrófonos inalámbricos Shure, mezcladora, cableado, transporte, montaje, ecualización al venue, operación durante el evento y desmontaje. Sin costos ocultos."
+          paragraph2="¿Tu evento necesita algo diferente? Armamos configuraciones a la medida. Mándanos las dimensiones del venue y la cantidad de invitados."
+        />
+        <PricingCards packages={[
+          {
+            name: "Básico — hasta 80 personas",
+            price: "$4,000",
+            priceNote: "+ IVA",
+            description: "Audio para salones pequeños, reuniones y fiestas íntimas. Sonido limpio y claro sin sobredimensionar.",
+            features: [
+              { text: "2 bocinas JBL PRX activas", included: true },
+              { text: "1 subwoofer QSC", included: true },
+              { text: "2 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora + conexión BT/AUX", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Line array", included: false },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar audio básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Estándar — hasta 200 personas",
+            price: "$7,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El más pedido para bodas y XV años. Cubre ceremonia + recepción + fiesta con potencia de sobra.",
+            features: [
+              { text: "4 bocinas JBL PRX/QSC K.2", included: true },
+              { text: "2 subwoofers", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora Yamaha TF", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas, XV años, galas", included: true },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar audio estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Premium — hasta 500 personas",
+            price: "$12,000",
+            priceNote: "+ IVA",
+            description: "Sistema line array para venues grandes. Cobertura uniforme en todo el espacio sin puntos muertos.",
+            features: [
+              { text: "Sistema line array JBL VTX/QSC KLA", included: true },
+              { text: "4 subwoofers de alta potencia", included: true },
+              { text: "6 micrófonos Shure ULXD", included: true },
+              { text: "Mezcladora Yamaha TF + procesador", included: true },
+              { text: "Técnico de audio + asistente", included: true },
+              { text: "Ecualización profesional al venue", included: true },
+              { text: "Ideal para: haciendas, salones grandes", included: true },
+              { text: "Monitors de escenario incluidos", included: true },
+            ],
+            ctaLabel: "Cotizar audio premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción — 500+ personas",
+            price: "$20,000",
+            priceNote: "+ IVA",
+            description: "Producción de audio completa para conciertos, festivales y eventos masivos con ingeniería de sonido.",
+            features: [
+              { text: "Line array completo + delays", included: true },
+              { text: "Subwoofers cardioide de alta potencia", included: true },
+              { text: "Sistema de monitors de escenario", included: true },
+              { text: "Ingeniería de sonido FOH + monitors", included: true },
+              { text: "Visita técnica previa al venue", included: true },
+              { text: "Planta de luz si requerida", included: true },
+              { text: "Ideal para: conciertos, festivales, TV", included: true },
+              { text: "Grabación multipista disponible", included: true },
+            ],
+            ctaLabel: "Cotizar producción",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Audio para Eventos"
+          subtitle="Lo que nuestros clientes preguntan antes de contratar."
+          paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp y respondemos en minutos."
+          paragraph2="Cada venue tiene sus particularidades acústicas — te asesoramos para que el sonido sea perfecto en tu espacio."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Cuántas bocinas necesito para mi evento?", answer: "Depende del espacio y la cantidad de personas. Para eventos de hasta 80 personas en salón cerrado, 2 bocinas JBL PRX + 1 subwoofer son suficientes. Para 200 personas, 4 bocinas + 2 subs. Para 500+, usamos sistemas line array con cobertura uniforme. Te asesoramos según las dimensiones de tu venue — mándanos fotos o medidas por WhatsApp." },
+        { question: "¿El técnico de audio viene incluido en el precio?", answer: "Sí, siempre. Todos nuestros paquetes incluyen un técnico de audio que llega 2-3 horas antes del evento para montar, ecualizar el equipo al espacio y operar el sonido durante toda la noche. No rentamos equipo sin operador — es la forma de garantizar que suene bien." },
+        { question: "¿Puedo conectar mi playlist de Spotify o Apple Music?", answer: "Sí. Conectamos tu celular o laptop vía Bluetooth, cable AUX o USB a la mezcladora. También puedes compartirnos la playlist antes del evento y la tenemos lista en un dispositivo de respaldo por si falla la conexión." },
+        { question: "¿Los micrófonos inalámbricos están incluidos?", answer: "Sí. Usamos micrófonos Shure profesionales — de mano para brindis y discursos, de solapa o diadema para conferencias. El paquete básico incluye 2 micros y los premium hasta 6. Si necesitas más, los agregamos al presupuesto." },
+        { question: "¿El equipo funciona para eventos al aire libre?", answer: "Sí. Nuestras bocinas están diseñadas para interiores y exteriores. En jardines y haciendas al aire libre, usamos más equipo para compensar la dispersión del sonido. Si el venue no tiene corriente eléctrica suficiente, llevamos planta de luz." },
+        { question: "¿Puedo combinar el audio con servicio de DJ?", answer: "Claro — es lo más pedido para bodas y XV años. Si contratas el equipo de audio y después decides agregar DJ, combinamos con precio especial. También puedes contratar directamente nuestro paquete de DJ que ya incluye equipo completo." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina con Otros Servicios"
+          subtitle="El audio es la base — agrega DJ, luces o efectos para un evento completo."
+          paragraph1="El sonido profesional cubre lo que se escucha. Pero cuando lo combinas con un DJ que lee al público, un show de luces que se sincroniza con la música y efectos especiales en los momentos clave, el resultado es un evento que la gente recuerda."
+          paragraph2="Armamos paquetes de audio + iluminación con precio especial. Cuéntanos tu evento completo."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu evento suene como debe?</h2>
+          <p>Mándanos la fecha, el venue y cuántas personas esperas. Te cotizamos el equipo exacto que necesitas en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

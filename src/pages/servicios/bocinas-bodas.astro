@@ -1,68 +1,241 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bocinas para Bodas | REDEIL CDMX";
-const description = "Renta de bocinas y sonido profesional para bodas en CDMX. Equipos de audio para ceremonia, recepción y fiesta. DJ, micrófonos y line array. REDEIL.";
+const title = "Renta de Bocinas para Bodas en CDMX | REDEIL";
+const description = "Audio profesional JBL para ceremonia, recepción y fiesta de boda en CDMX. Micrófonos para votos incluidos. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas-bodas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bocinas para Bodas",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Audio Profesional para Bodas",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio de renta de bocinas y audio profesional para bodas en CDMX. Cobertura de ceremonia, recepción y fiesta con equipos JBL y QSC.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Audio Profesional para Bodas",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de bocinas y sonido profesional para bodas en Ciudad de México. Audio para ceremonia, recepción, brindis y fiesta con DJ.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bocinas para Bodas"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El audio cubre ceremonia y fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros paquetes Boda Completa y superiores cubren los tres momentos: ceremonia al aire libre con sonido claro para los votos, recepción con micrófonos para brindis, y fiesta con potencia completa para la pista de baile." }},
+      { "@type": "Question", "name": "¿Los micrófonos para los votos están incluidos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Incluimos micrófonos inalámbricos Shure — uno para los novios y otro para el oficiante. Son de alta sensibilidad para captar la voz con claridad incluso al aire libre." }},
+      { "@type": "Question", "name": "¿Se puede tener música en vivo y DJ en la misma boda?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Montamos el equipo para que el grupo musical use las bocinas durante la cena y el DJ se conecte al mismo sistema para la fiesta. La transición es transparente — nuestro técnico maneja el cambio." }},
+      { "@type": "Question", "name": "¿Funciona en haciendas al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las haciendas son el tipo de venue donde más bodas hacemos. Usamos bocinas certificadas para exterior con mayor potencia para compensar la dispersión del sonido al aire libre. Si no hay suficiente corriente, llevamos planta de luz." }},
+      { "@type": "Question", "name": "¿El equipo coordina con mi wedding planner?", "acceptedAnswer": { "@type": "Answer", "text": "Siempre. Nuestro técnico y DJ se coordinan con el wedding planner y el MC antes del evento para definir la secuencia de momentos, canciones clave, señales y protocolo." }},
+      { "@type": "Question", "name": "¿Cuánto antes llega el equipo?", "acceptedAnswer": { "@type": "Answer", "text": "El equipo llega 2-3 horas antes de la ceremonia. Montamos, ecualización al espacio, pruebas de micrófono con el oficiante y coordinamos con el fotógrafo/videógrafo para que los cables no salgan en las tomas." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "DJ para Bodas", image: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-400w.avif", alt: "DJ mezclando música en boda", description: "DJ con consola Pioneer que lee la pista y coordina cada momento del evento — del vals a la hora loca.", link: "/servicios/bocinas-djs/" },
+  { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison para boda", description: "Audio + guirnaldas cálidas = boda perfecta. El sonido se siente y la luz se ve.", link: "/servicios/guirnaldas/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight en vals de boda", description: "Mientras el audio pone la canción del vals, el seguidor ilumina a los novios. Coordinación perfecta.", link: "/servicios/seguidor/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para vals de boda", description: "El DJ da la señal, la niebla cubre el piso, los novios bailan sobre nubes. El momento que todos recuerdan.", link: "/servicios/humo-bajo/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para Bodas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Bocinas para Bodas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Bocinas para Bodas en CDMX"
-      subtitle="Sonido profesional que acompaña cada momento especial de tu boda"
-      introParagraph1="En REDEIL nos especializamos en la renta de bocinas y sonido profesional para bodas en toda la Ciudad de México. Cubrimos cada etapa de tu celebración: ceremonia religiosa o civil, recepción, brindis, vals y fiesta con equipos de audio de alta fidelidad."
-      introParagraph2="Nuestros paquetes de sonido para bodas incluyen bocinas activas, subwoofers, micrófonos inalámbricos para votos y discursos, mezcladoras digitales y operadores de audio que garantizan una experiencia sonora impecable durante toda la celebración."
+
+    <Hero
+      title="Renta de Bocinas y Audio para Bodas en CDMX"
+      subtitle="Sonido cristalino para los votos, potencia para la pista, micrófonos para cada brindis. JBL y QSC. Desde $3,500 + IVA."
+      introParagraph1='Una boda tiene tres momentos acústicos completamente diferentes y si el equipo de audio no los cubre los tres, algo va a fallar. La ceremonia necesita claridad absoluta — que los votos se escuchen hasta la última silla del jardín. La recepción necesita micrófonos para brindis que capten la voz del papá nervioso sin feedback. Y la fiesta necesita potencia real — bajo que se sienta en el pecho, agudos que no distorsionen a volumen alto. En <strong>REDEIL</strong> llevamos más de 30 años sonorizando bodas en la CDMX con equipo <strong>JBL PRX</strong>, <strong>QSC K.2</strong> y micrófonos <strong>Shure</strong> inalámbricos.'
+      introParagraph2='El servicio cubre desde la ceremonia civil o religiosa hasta el último baile de la noche. Nuestro técnico de audio llega 2-3 horas antes, monta el equipo, lo ecualiza al espacio específico de tu venue — porque un jardín abierto no suena igual que un salón cerrado — y opera el sonido en vivo durante todo el evento. Se coordina con el wedding planner, el MC, el DJ, el fotógrafo y el videógrafo para que cada momento suene perfecto y los cables no salgan en las fotos. Haciendas, jardines, salones, hoteles y terrazas en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Sonido perfecto para cada momento de tu boda"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Una boda tiene múltiples momentos que requieren atención sonora diferente: la música suave durante la ceremonia, la claridad del micrófono para los votos y brindis, la ambientación durante la cena y la potencia en la pista de baile. En REDEIL diseñamos el montaje de audio considerando cada uno de estos momentos."
-          paragraph2="Trabajamos con equipos profesionales de marcas como QSC, JBL y Pioneer que aseguran nitidez y potencia en cualquier tipo de venue. Ya sea un jardín al aire libre, una hacienda colonial o un salón de banquetes, adaptamos la configuración de bocinas para lograr cobertura uniforme en todo el espacio."
+
+    <CtaBar
+      headline="¿Qué necesitas para tu boda?"
+      items={[
+        { label: "DJ para Bodas", href: "/servicios/bocinas-djs/", icon: "sonido" },
+        { label: "Iluminación Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Audio para cada momento de tu boda"
+          subtitle="Ceremonia, recepción y fiesta — tres ambientes, un solo equipo."
+          paragraph1="Las fotos capturan cómo se vio tu boda. El audio determina cómo se sintió. Cuando los votos se escuchan claro y el bajo del DJ hace temblar la pista, los invitados no están viendo un evento — están viviendo uno."
+          paragraph2="Cada montaje se diseña para cubrir los tres momentos sin que el técnico tenga que mover equipo entre ceremonia y recepción. Si tu boda tiene ambos espacios separados, montamos dos sets independientes."
         />
-        <p>Nuestro servicio incluye montaje previo al evento, pruebas de sonido, operación técnica durante la boda y desmontaje al finalizar. Cubrimos bodas en toda la CDMX y zona metropolitana con puntualidad y profesionalismo.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-romantico.avif", alt: "Primer baile romántico de novios con audio profesional" },
+          { src: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-hacienda-arcos-audio.avif", alt: "Audio para ceremonia de boda en hacienda con arcos" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados.avif", alt: "Brindis con discurso en boda con micrófonos profesionales" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-cabina-blanca-flores.avif", alt: "DJ con cabina blanca decorada con flores en boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-entrada-novios-humo-dj.avif", alt: "Entrada de novios con humo y DJ en boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-fiesta-confeti-chispas-dj.avif", alt: "Fiesta de boda con confeti y chispas en pista de DJ" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-banda-jazz-consola-salon.avif", alt: "Banda de jazz con consola en salón de boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-dj-consola-mesa-novios.avif", alt: "DJ con consola junto a mesa de novios" },
+          { src: "/img/bocinas-bodas/renta-bocinas-ceremonia-boda-jardin-guitarrista.avif", alt: "Guitarrista en ceremonia de boda en jardín" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-rustica-dj-ladrillo-jbl.avif", alt: "DJ con bocinas JBL en boda rústica de ladrillo" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-salon-qsc-truss-luces.avif", alt: "Salón de boda con bocinas QSC, truss y luces" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif", alt: "Montaje de bocinas en tripié bajo carpa para boda en playa" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-baile-padre-hija-iluminacion.avif", alt: "Baile padre e hija con iluminación profesional en boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-corte-pastel-animador-microfono.avif", alt: "Corte de pastel con animador y micrófono en boda" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-salon-ambar.avif", alt: "Primer baile en salón con iluminación ámbar" },
+          { src: "/img/bocinas-bodas/renta-bocinas-boda-stack-qsc-subwoofer-escenario.avif", alt: "Stack de bocinas QSC con subwoofer en escenario de boda" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Sonido para Bodas" subtitle="Montajes de audio en bodas reales en la Ciudad de México">
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-romantico.avif" alt="Primer baile de novios con sonido profesional y ambiente romántico en salón" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-brindis-discurso-invitados.avif" alt="Brindis y discurso con micrófono profesional durante recepción de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-dj-cabina-blanca-flores.avif" alt="DJ con cabina blanca decorada con flores en boda elegante" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-salon-line-array-pioneer-dj.avif" alt="Sistema line array y equipo Pioneer DJ instalado en salón de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-boda-playa-montaje-tripie-carpa.avif" alt="Montaje de bocinas en tripié bajo carpa para boda en playa" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-bodas/renta-bocinas-ceremonia-boda-jardin-guitarrista.avif" alt="Ceremonia de boda en jardín con guitarrista y sonido profesional" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Audio para Bodas"
+          subtitle="Desde la ceremonia sola hasta producción completa con DJ y luces."
+          paragraph1="Cada paquete incluye bocinas, subwoofers, micrófonos Shure inalámbricos, mezcladora, técnico de audio, transporte, montaje, ecualización al venue y desmontaje. El técnico coordina con tu wedding planner y MC."
+          paragraph2="No sabes qué paquete necesitas? Mándanos fotos del venue y el número de invitados. Te decimos exactamente qué equipo es el correcto."
+        />
+        <PricingCards packages={[
+          {
+            name: "Solo Ceremonia",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Audio para la ceremonia civil o religiosa. Votos claros en cada silla del jardín, la capilla o el salón.",
+            features: [
+              { text: "2 bocinas JBL portátiles", included: true },
+              { text: "2 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora + conexión para músicos", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: ceremonia civil, religiosa, jardín", included: true },
+              { text: "Subwoofer para fiesta", included: false },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar ceremonia",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Boda Completa — ceremonia + fiesta",
+            price: "$7,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "Todo el audio de tu boda cubierto: ceremonia con votos claros + recepción con micros para brindis + pista con bajo potente.",
+            features: [
+              { text: "4 bocinas JBL PRX / QSC K.2", included: true },
+              { text: "2 subwoofers para pista de baile", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora Yamaha + Bluetooth", included: true },
+              { text: "Técnico de audio toda la noche", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: boda 100-200 invitados", included: true },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar boda completa",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Boda con DJ",
+            price: "$11,000",
+            priceNote: "+ IVA",
+            description: "Audio completo + DJ profesional con consola Pioneer. Coordinación total con MC y wedding planner.",
+            features: [
+              { text: "DJ con consola Pioneer DDJ", included: true },
+              { text: "4-6 bocinas + 2 subwoofers", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Coordinación MC + wedding planner", included: true },
+              { text: "Repertorio personalizado", included: true },
+              { text: "6-8 horas de operación", included: true },
+              { text: "Ideal para: bodas completas con fiesta", included: true },
+              { text: "Cabina decorativa opcional", included: true },
+            ],
+            ctaLabel: "Cotizar boda con DJ",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Producción Boda Premium",
+            price: "$22,000",
+            priceNote: "+ IVA",
+            description: "DJ + audio line array + cabezas móviles + humo bajo + seguidor. La producción completa que transforma tu boda.",
+            features: [
+              { text: "DJ profesional toda la noche", included: true },
+              { text: "Line array para 200+ invitados", included: true },
+              { text: "8 cabezas móviles con operador DMX", included: true },
+              { text: "Humo bajo para el vals", included: true },
+              { text: "Seguidor de luz para primer baile", included: true },
+              { text: "Coordinación total con tu equipo", included: true },
+              { text: "Visita previa al venue", included: true },
+              { text: "Ideal para: bodas premium, haciendas", included: true },
+            ],
+            ctaLabel: "Cotizar producción premium",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Audio para Bodas"
+          subtitle="Lo que las parejas preguntan antes de reservar."
+          paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp. Respondemos en minutos."
+          paragraph2="Cada boda es diferente — te asesoramos según tu venue, invitados y presupuesto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El audio cubre la ceremonia y la fiesta?", answer: "Sí. Los paquetes Boda Completa y superiores cubren todo: ceremonia con sonido claro para los votos, recepción con micrófonos para brindis y discursos, y fiesta con potencia completa para la pista de baile. Si la ceremonia y la recepción están en espacios separados, montamos dos sets." },
+        { question: "¿Los micrófonos para los votos están incluidos?", answer: "Sí. Usamos micrófonos Shure inalámbricos — uno para los novios y otro para el oficiante. Son de alta sensibilidad para captar la voz con claridad incluso en ceremonias al aire libre con viento. El técnico se encarga de que todo se escuche perfecto." },
+        { question: "¿Se puede tener banda en vivo y DJ la misma noche?", answer: "Sí — es muy común en bodas grandes. Montamos el equipo para que la banda use las bocinas durante la cena y el DJ se conecte al mismo sistema para la fiesta. El técnico maneja la transición sin pausas ni problemas técnicos." },
+        { question: "¿Funciona en haciendas al aire libre?", answer: "Las haciendas son donde más bodas hacemos. Usamos bocinas con mayor potencia para compensar la dispersión del sonido en espacios abiertos. En la ceremonia del jardín usamos bocinas discretas cerca de los invitados, y para la fiesta subimos la potencia con subs." },
+        { question: "¿Coordinan con el fotógrafo para ocultar cables?", answer: "Sí. Nuestro técnico se coordina con el fotógrafo y videógrafo para que los cables, tripies y equipo estén fuera de las tomas principales. Usamos canaletas y cableado negro que se disimula en el piso." },
+        { question: "¿Cuánto antes deben llegar al venue?", answer: "El equipo llega 2-3 horas antes de la ceremonia. Montaje, ecualización al espacio, prueba de micrófonos con el oficiante y coordinación con MC/wedding planner. Todo está listo y probado mucho antes de que lleguen los invitados." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina Audio con Iluminación"
+          subtitle="El sonido se siente — la luz se ve. Juntos, crean la boda perfecta."
+          paragraph1="Cuando el DJ da la señal del vals, el operador del humo bajo activa la niebla, el seguidor enciende el spotlight y los novios caminan a la pista cubierta de nubes. Eso solo pasa cuando audio e iluminación son del mismo proveedor."
+          paragraph2="Armamos paquetes de audio + iluminación con precio especial para bodas."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu boda suene como la imaginaste?</h2>
+          <p>Mándanos fotos del venue, la fecha y el número de invitados. Te decimos exactamente qué equipo necesitas y cuánto cuesta.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

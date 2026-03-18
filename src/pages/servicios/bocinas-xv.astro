@@ -1,68 +1,241 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bocinas para XV Años | REDEIL CDMX";
-const description = "Renta de bocinas y sonido profesional para XV años en CDMX. Audio para vals, chambelanes, brindis y fiesta. Equipos QSC, JBL y DJ profesional. REDEIL.";
+const title = "DJ y Bocinas para XV Años en CDMX | REDEIL";
+const description = "DJ profesional + audio JBL para XV años en CDMX. Vals, coreografía y hora loca con repertorio adaptado. Desde $4,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas-xv/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bocinas para XV Años",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "DJ y Audio Profesional para XV Años",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "DJ profesional y audio JBL para XV años en CDMX. Vals con papá, coreografía con chambelanes, hora loca. Repertorio adaptado a quinceañeras.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "DJ y Audio para XV Años",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de bocinas y sonido profesional para fiestas de XV años en Ciudad de México. Audio para vals, chambelanes, coronación y fiesta.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bocinas para XV Años"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El DJ conoce el protocolo de XV años?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestros DJs llevan años en XV años y conocen la secuencia completa: entrada, vals con papá, cambio de zapatillas, vals con chambelanes, hora loca, brindis. Coordinan con el MC y el coreógrafo para que cada momento tenga su canción exacta." }},
+      { "@type": "Question", "name": "¿El DJ coordina con el coreógrafo de los chambelanes?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, siempre. El DJ necesita las canciones exactas de la coreografía, los tiempos de entrada y las señales de cambio. Se reúne con el coreógrafo antes del evento para ensayar la secuencia." }},
+      { "@type": "Question", "name": "¿Cuánto dura el servicio de DJ para XV años?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete estándar cubre 6 horas — desde el inicio de la recepción hasta la fiesta. Para eventos más largos o con ceremonia religiosa antes, ajustamos las horas y el precio." }},
+      { "@type": "Question", "name": "¿Qué géneros musicales maneja para XV años?", "acceptedAnswer": { "@type": "Answer", "text": "De todo: desde valses clásicos y boleros para el momento con papá, hasta reggaetón, electrónica, cumbia y pop para la hora loca. El DJ adapta el repertorio a lo que le gusta a la quinceañera y a lo que bailan los invitados." }},
+      { "@type": "Question", "name": "¿Incluye micrófonos para el brindis?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Todos los paquetes incluyen micrófonos Shure inalámbricos para brindis, discursos y el MC. El técnico se asegura de que cada persona que hable se escuche claro." }},
+      { "@type": "Question", "name": "¿Se puede combinar con luces neón o UV?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, es la tendencia más fuerte en XV años. DJ + luces UV para glow party. Armamos paquetes combinados de audio + iluminación neón con precio especial." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Luces Neón y UV", image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif", alt: "Glow party con luces neón UV para XV años", description: "La tendencia en XV años: glow party con UV. DJ + luces neón = la fiesta que todos van a recordar.", link: "/servicios/luces-neon/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight para vals de quinceañera", description: "Spotlight siguiendo a la quinceañera en el vals con papá y en la coreografía. El momento más emotivo.", link: "/servicios/seguidor/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para vals de XV años", description: "La quinceañera bailando sobre nubes con sus chambelanes. El efecto que hace llorar a las mamás.", link: "/servicios/humo-bajo/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti en fiesta de XV años", description: "Explosión de confeti en el momento de la hora loca. El momento más fotografiado después del vals.", link: "/servicios/confeti/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para XV Años" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "XV Años" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Bocinas para XV Años en CDMX"
-      subtitle="Sonido profesional para cada momento especial de la quinceañera"
-      introParagraph1="En REDEIL ofrecemos renta de bocinas y sonido profesional especializado en fiestas de XV años en la Ciudad de México. Cubrimos cada momento de la celebración: la entrada triunfal, el vals con papá, la coreografía de chambelanes, la coronación, el brindis y la fiesta con equipo de audio de primera calidad."
-      introParagraph2="Nuestros paquetes incluyen bocinas QSC y JBL, subwoofers, micrófonos inalámbricos para la ceremonia, mezcladoras digitales y DJ profesional. Cada montaje es diseñado para el venue específico, asegurando cobertura de sonido perfecta en salones, jardines y haciendas."
+
+    <Hero
+      title="DJ y Audio Profesional para XV Años en CDMX"
+      subtitle="DJ + bocinas JBL + coordinación completa para vals, coreografía y hora loca. Desde $4,500 + IVA."
+      introParagraph1='Los XV años tienen una coreografía sonora que ningún otro evento tiene. Arranca con la entrada triunfal y la canción que eligió la quinceañera hace meses. Sigue el vals con papá — emotivo, suave, con la voz del cantante quebrándose en las bocinas. Después el vals con chambelanes, la coreografía ensayada durante semanas con cambios de canción exactos al segundo. La hora loca, el brindis, la liga, el ramo. Cada momento tiene su canción y su energía. Nuestros DJs en <strong>REDEIL</strong> llevan años en XV años de la CDMX — conocen el protocolo de memoria.'
+      introParagraph2='El paquete incluye DJ con consola <strong>Pioneer</strong>, bocinas <strong>JBL</strong> dimensionadas al salón, subwoofers para la pista, micrófonos <strong>Shure</strong> inalámbricos para brindis y MC, y coordinación completa con el coreógrafo de los chambelanes. El DJ llega con la playlist armada según los gustos de la quinceañera — pero también sabe leer al público e improvisar cuando la fiesta lo pide. Salones, jardines, haciendas y terrazas en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Audio profesional para una fiesta de XV años perfecta"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Una fiesta de XV años es una celebración llena de momentos emotivos y festivos que requieren un sonido impecable. Desde la entrada de la quinceañera con música emotiva, pasando por el vals padre-hija, la coreografía de chambelanes y la coronación, hasta la fiesta libre con los éxitos del momento. En REDEIL nos aseguramos de que cada momento suene perfecto."
-          paragraph2="Trabajamos con equipos profesionales de alta potencia que cubren salones grandes y jardines al aire libre. Nuestros montajes incluyen sistemas de line array para venues amplios, bocinas en columna para salones medianos y sistemas compactos de alta fidelidad para espacios íntimos. Cada configuración se adapta a las necesidades específicas del evento."
+
+    <CtaBar
+      headline="¿Qué necesitas para los XV años?"
+      items={[
+        { label: "DJ Profesional", href: "/servicios/bocinas-djs/", icon: "sonido" },
+        { label: "Glow Party UV", href: "/servicios/luces-neon/", icon: "iluminacion" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="XV años reales con audio profesional"
+          subtitle="Vals, chambelanes, hora loca — cada momento suena como debe."
+          paragraph1="No hay nada más frustrante que una coreografía ensayada durante semanas donde la música se corta o el DJ no da la señal a tiempo. Nuestros DJs ensayan la secuencia musical con el coreógrafo antes del evento — cada cambio de canción, cada entrada, cada silencio."
+          paragraph2="El resultado: una coreografía que fluye perfecta, un vals que hace llorar a papá, y una hora loca que no deja a nadie sentado."
         />
-        <p>Nuestro equipo de DJs tiene amplia experiencia en XV años y conoce la secuencia típica de la celebración, coordinándose con el maestro de ceremonias para que cada transición musical sea fluida y profesional. Cubrimos eventos en toda la CDMX y zona metropolitana.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif", alt: "Chambelanes bailando con bocinas JBL en XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-vestido-rosa.avif", alt: "Quinceañera con vestido rosa bailando con chambelanes" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-chambelanes-escenario.avif", alt: "Coreografía de chambelanes en escenario de XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coronacion-tiara-flores-bocinas.avif", alt: "Coronación con tiara y flores en XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-chambelanes-dj.avif", alt: "Baile sorpresa de chambelanes con DJ" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-sorpresa-escenario-monitores.avif", alt: "Baile sorpresa en escenario con monitores" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-coreografia-vestido-magenta-jbl.avif", alt: "Coreografía con vestido magenta y bocinas JBL" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-madre-hija-dj-flores.avif", alt: "Baile madre e hija con DJ y flores" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-baile-madre-hija-dj-rosa.avif", alt: "Baile emotivo madre e hija con iluminación rosa" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif", alt: "Vals padre e hija con DJ en salón" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif", alt: "Fiesta de XV años con line array QSC y DJ" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-humo-bajo.avif", alt: "Entrada de quinceañera por escalera con humo bajo" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-pista-baile-line-array.avif", alt: "Pista de baile con line array en XV años" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-qsc-salon.avif", alt: "Vals padre e hija con bocinas QSC en salón" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-show-baile-teatro-monitores.avif", alt: "Show de baile con monitores de escenario" },
+          { src: "/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-invitados-qsc-luces.avif", alt: "Fiesta con invitados bailando y bocinas QSC con luces" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Sonido para XV Años" subtitle="Montajes de audio en fiestas de quinceañera reales">
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon.avif" alt="Vals padre-hija en XV años con sonido profesional DJ en salón elegante" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-baile-chambelanes-dorados-jbl.avif" alt="Baile de chambelanes en XV años con bocinas JBL profesionales" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-entrada-escalera-dj-subwoofer.avif" alt="Entrada triunfal de quinceañera por escalera con DJ y subwoofer" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-coronacion-tiara-flores-bocinas.avif" alt="Coronación de quinceañera con tiara y flores acompañada de sonido profesional" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-fiesta-line-array-qsc-dj.avif" alt="Fiesta de XV años con sistema line array QSC y DJ profesional" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-xv/renta-bocinas-xv-anos-mariachi-hacienda-luces.avif" alt="Mariachi en hacienda con luces y sonido profesional en XV años" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Audio y DJ para XV Años"
+          subtitle="Desde audio solo hasta producción completa con DJ, luces y efectos."
+          paragraph1="Cada paquete incluye equipo de audio dimensionado al salón, micrófonos Shure inalámbricos, técnico de audio, transporte, montaje y desmontaje. Los paquetes con DJ incluyen consola Pioneer y coordinación con MC y coreógrafo."
+          paragraph2="¿Quieres agregar luces neón, humo bajo o confeti? Armamos el paquete completo para XV años con precio especial."
+        />
+        <PricingCards packages={[
+          {
+            name: "Solo Audio — sin DJ",
+            price: "$4,500",
+            priceNote: "+ IVA",
+            description: "Audio profesional con técnico. Conectas tu playlist o la del MC. Ideal si ya tienes DJ o músico externo.",
+            features: [
+              { text: "4 bocinas JBL PRX", included: true },
+              { text: "2 subwoofers", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora + conexión BT/AUX", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "DJ profesional", included: false },
+              { text: "Coordinación coreógrafo", included: false },
+            ],
+            ctaLabel: "Cotizar solo audio",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "XV con DJ — 6 horas",
+            price: "$8,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El más pedido. DJ + audio completo + coordinación con MC y coreógrafo. Cubre vals, chambelanes y hora loca.",
+            features: [
+              { text: "DJ con consola Pioneer DDJ", included: true },
+              { text: "4-6 bocinas + 2 subwoofers", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Coordinación con MC y coreógrafo", included: true },
+              { text: "Repertorio personalizado", included: true },
+              { text: "6 horas de operación", included: true },
+              { text: "Ideal para: XV años completos", included: true },
+              { text: "Iluminación incluida", included: false },
+            ],
+            ctaLabel: "Cotizar XV con DJ",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "XV Premium — DJ + cabina + luces",
+            price: "$14,000",
+            priceNote: "+ IVA",
+            description: "DJ + cabina decorativa + PAR LED de colores en la pista. La quinceañera tiene su propia discoteca.",
+            features: [
+              { text: "DJ con consola + cabina decorativa", included: true },
+              { text: "Equipo completo para 200+ personas", included: true },
+              { text: "8 PAR LED de color en la pista", included: true },
+              { text: "Coordinación completa con MC", included: true },
+              { text: "8 horas de operación", included: true },
+              { text: "Ideal para: XV años premium", included: true },
+              { text: "Humo bajo para vals", included: false },
+              { text: "Cabezas móviles", included: false },
+            ],
+            ctaLabel: "Cotizar XV premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "XV Producción Total",
+            price: "$22,000",
+            priceNote: "+ IVA",
+            description: "DJ + line array + cabezas móviles + humo bajo + luces UV. La producción completa que hace historia.",
+            features: [
+              { text: "DJ profesional toda la noche", included: true },
+              { text: "Line array para salones grandes", included: true },
+              { text: "8 cabezas móviles con operador DMX", included: true },
+              { text: "Humo bajo para el vals", included: true },
+              { text: "Barras UV para glow party", included: true },
+              { text: "Seguidor de luz para la quinceañera", included: true },
+              { text: "Coordinación total producción", included: true },
+              { text: "Visita previa al venue", included: true },
+            ],
+            ctaLabel: "Cotizar producción total",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Audio para XV Años"
+          subtitle="Lo que las familias preguntan antes de contratar."
+          paragraph1="Si tu duda no está aquí, mándanos un mensaje por WhatsApp."
+          paragraph2="Cada XV años son diferentes — te asesoramos según el salón, los invitados y lo que quiere la festejada."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El DJ conoce el protocolo completo de XV años?", answer: "Sí. Nuestros DJs llevan años en XV años y conocen la secuencia de memoria: entrada triunfal, vals con papá, cambio de zapatillas, vals con chambelanes, brindis, hora loca, ramo, liga. Coordinan cada momento con el MC y el coreógrafo para que la música sea exacta al segundo." },
+        { question: "¿El DJ coordina con el coreógrafo de los chambelanes?", answer: "Siempre. El DJ necesita las canciones exactas de la coreografía, los tiempos de entrada, los cambios de ritmo y las señales. Se reúne con el coreógrafo antes del evento — idealmente en un ensayo — para practicar la secuencia musical completa." },
+        { question: "¿Qué géneros musicales maneja para XV años?", answer: "Desde valses clásicos y boleros para el momento con papá, hasta reggaetón, electrónica, cumbia, K-pop y pop para la hora loca. El DJ arma la playlist con las canciones favoritas de la quinceañera y ajusta en vivo según cómo responda la pista." },
+        { question: "¿Se puede combinar con luces neón o glow party?", answer: "Sí — es la tendencia más fuerte en XV años. DJ + barras UV + accesorios fluorescentes = glow party. También combinamos con cabezas móviles, humo bajo para el vals y confeti. Armamos paquetes completos con precio especial." },
+        { question: "¿Cuánto dura el servicio?", answer: "El paquete estándar cubre 6 horas — desde la recepción hasta la fiesta. Para XV años con ceremonia religiosa antes o eventos más largos, ajustamos las horas. La mayoría de los XV años duran 5-7 horas desde que llegan los invitados." },
+        { question: "¿Incluye micrófonos para brindis y discursos?", answer: "Sí. Todos los paquetes incluyen micrófonos Shure inalámbricos para el MC, los brindis del papá y la mamá, y cualquier discurso. El técnico se asegura de que cada persona que hable se escuche claro en todo el salón." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina DJ con Iluminación y Efectos"
+          subtitle="XV años que se sienten como concierto."
+          paragraph1="El DJ controla la energía con música. Las luces neón crean el escenario visual. El humo bajo convierte el vals en un momento de película. El confeti explota en la hora loca. Cuando todo viene del mismo proveedor, la coordinación es perfecta."
+          paragraph2="Armamos paquetes completos de audio + luces + efectos con precio especial para XV años."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista para los XV años que tu hija merece?</h2>
+          <p>Cuéntanos la fecha, el salón, el número de invitados y qué quiere la festejada. Le armamos la producción perfecta.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

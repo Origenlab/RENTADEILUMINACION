@@ -1,68 +1,241 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de DJ para Eventos | REDEIL CDMX";
-const description = "Renta de DJ profesional para eventos en CDMX. DJ para bodas, fiestas, XV años y corporativos con equipo de sonido, luces y cabina profesional. REDEIL.";
+const title = "DJ para Fiestas, Bodas y Eventos en CDMX | REDEIL";
+const description = "DJ profesional con consola Pioneer y repertorio adaptado para bodas, XV años y fiestas en CDMX. Equipo de sonido incluido. Desde $5,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas-djs/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de DJ para Eventos",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "DJ Profesional para Fiestas y Bodas",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Servicio profesional de DJ para bodas, XV años y fiestas en CDMX. Consola Pioneer, equipo de sonido JBL y repertorio adaptado a cada evento.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "DJ para Eventos",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de DJ profesional para eventos en Ciudad de México. DJ para bodas, fiestas, XV años y eventos corporativos con equipo completo.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de DJ para Eventos"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El DJ trae su propio equipo de sonido?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestro DJ llega con consola Pioneer DDJ, bocinas JBL/QSC, subwoofer, micrófonos inalámbricos y todo lo necesario. Si ya tienes equipo contratado, también se adapta." }},
+      { "@type": "Question", "name": "¿Puedo pedir canciones específicas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Antes del evento te pedimos una lista de canciones imprescindibles y otra de canciones prohibidas. El DJ arma la playlist alrededor de tus gustos y lee al público en vivo." }},
+      { "@type": "Question", "name": "¿El DJ coordina con el maestro de ceremonias?", "acceptedAnswer": { "@type": "Answer", "text": "Siempre. El DJ se reúne con el MC antes del evento para coordinar los momentos clave: entrada, vals, brindis, hora loca, ramo. Cada momento tiene su canción y su señal." }},
+      { "@type": "Question", "name": "¿Qué géneros musicales maneja?", "acceptedAnswer": { "@type": "Answer", "text": "Todos. Desde boleros y cumbias para bodas tradicionales, hasta reggaetón, electrónica y pop para la hora loca. También manejan rock clásico, salsa, bachata y sets lounge para coctel." }},
+      { "@type": "Question", "name": "¿Puedo contratar DJ sin equipo de sonido extra?", "acceptedAnswer": { "@type": "Answer", "text": "Todos nuestros paquetes de DJ incluyen equipo de sonido. Pero si el venue ya tiene audio, nuestro DJ llega solo con consola y se conecta al sistema existente." }},
+      { "@type": "Question", "name": "¿Con cuánta anticipación debo reservar al DJ?", "acceptedAnswer": { "@type": "Answer", "text": "Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero, mayo-junio) los DJs se agotan rápido. Para fechas en sábado, reservar con un mes de anticipación." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Sistema de audio profesional para eventos", description: "Si necesitas solo el equipo de audio sin DJ. Bocinas JBL, QSC y técnico de audio incluido.", link: "/servicios/bocinas/" },
+  { title: "Bocinas para Bodas", image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif", alt: "Audio para primer baile de boda", description: "Paquete completo para bodas: ceremonia + recepción + fiesta. DJ incluido en el paquete Boda con DJ.", link: "/servicios/bocinas-bodas/" },
+  { title: "Cabezas Móviles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Show de luces sincronizado con DJ", description: "Show de luces DMX que se sincroniza con el DJ. Los beams se mueven al ritmo de la música.", link: "/servicios/cabezas-moviles/" },
+  { title: "Humo Bajo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo bajo para vals con DJ", description: "El DJ coordina el vals mientras la niebla cubre el piso. El combo más emotivo para bodas.", link: "/servicios/humo-bajo/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "DJ para Eventos" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "DJ para Fiestas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de DJ para Eventos en CDMX"
-      subtitle="DJ profesional con equipo de sonido y luces para hacer inolvidable tu evento"
-      introParagraph1="En REDEIL ofrecemos servicio de DJ profesional para todo tipo de eventos en la Ciudad de México. Nuestros DJs cuentan con amplia experiencia en bodas, fiestas, XV años, eventos corporativos y celebraciones privadas, adaptando la música al estilo y ambiente de cada ocasión."
-      introParagraph2="El servicio incluye DJ con equipo completo: consola profesional Pioneer, bocinas de alta potencia, subwoofers, micrófonos para animación, cabina DJ y luces básicas. Nos encargamos del montaje, la ambientación musical y la animación durante todo tu evento."
+
+    <Hero
+      title="DJ Profesional para Fiestas y Bodas en CDMX"
+      subtitle="Consola Pioneer DDJ + bocinas JBL + repertorio adaptado a tu evento. Desde $5,000 + IVA."
+      introParagraph1='Un buen DJ no solo pone música — lee al público, controla la energía del salón, sabe cuándo subir y cuándo bajar. Sabe que después del brindis emotivo viene una balada suave antes de explotar con la hora loca. En <strong>REDEIL</strong> nuestros DJs llevan más de 10 años en eventos — bodas, XV años, corporativos y fiestas privadas. Trabajan con consola <strong>Pioneer DDJ</strong>, repertorio que va desde boleros hasta electrónica, y la capacidad de improvisar cuando la pista lo pide.'
+      introParagraph2='El DJ llega con equipo completo: consola profesional, bocinas <strong>JBL</strong> o <strong>QSC</strong> dimensionadas al espacio, subwoofer, micrófonos <strong>Shure</strong> inalámbricos para brindis y MC. Se coordina con el wedding planner, el maestro de ceremonias y el equipo de iluminación para que cada momento tenga la canción correcta, la luz correcta y la energía correcta. Bodas, XV años, galas corporativas y fiestas privadas en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="DJ profesional que marca el ritmo de tu celebración"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="Un buen DJ no solo pone música: lee al público, crea atmósferas y guía los momentos clave de tu evento. En REDEIL nuestros DJs tienen experiencia en todo tipo de celebraciones y manejan géneros variados, desde música romántica para vals y primer baile hasta los éxitos más actuales para la pista de baile."
-          paragraph2="Trabajamos con equipo de última generación de marcas como Pioneer, QSC y JBL. Cada DJ llega con su consola profesional, bocinas, subwoofer, micrófono para animación y cabina. Para eventos que requieren mayor producción, podemos agregar luces, pantallas LED y efectos especiales."
+
+    <CtaBar
+      headline="¿Para qué evento necesitas DJ?"
+      items={[
+        { label: "Bodas", href: "/servicios/bocinas-bodas/", icon: "sonido" },
+        { label: "XV Años", href: "/servicios/bocinas-xv/", icon: "sonido" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="DJ en acción — bodas, fiestas y eventos reales"
+          subtitle="El DJ que lee al público y controla la energía de la noche."
+          paragraph1="Cada foto es de un evento real donde nuestro DJ hizo la diferencia. La pista llena, los invitados bailando, la energía en su punto — eso no se logra poniendo una playlist de Spotify en modo shuffle. Se logra con un profesional que sabe leer el ambiente."
+          paragraph2="Nuestros DJs se adaptan a cualquier público y tipo de evento. No imponen su estilo — construyen la noche alrededor de lo que el cliente quiere y lo que la pista necesita."
         />
-        <p>Cubrimos eventos en salones, jardines, haciendas, terrazas, rooftops y cualquier venue en la CDMX y zona metropolitana. Nuestros DJs llegan con anticipación para montar y hacer pruebas de sonido, garantizando un inicio puntual.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif", alt: "DJ mezclando música en boda" },
+          { src: "/img/bocinas-djs/dj-para-bodas-recepcion-baile.avif", alt: "DJ en recepción de boda con baile" },
+          { src: "/img/bocinas-djs/dj-para-bodas-vals-primer-baile.avif", alt: "DJ coordinando vals y primer baile" },
+          { src: "/img/bocinas-djs/dj-para-eventos-bailando-gente.avif", alt: "Público bailando en evento con DJ" },
+          { src: "/img/bocinas-djs/dj-para-eventos-boda-hacienda.avif", alt: "DJ en boda de hacienda" },
+          { src: "/img/bocinas-djs/dj-para-eventos-fiesta-empresa.avif", alt: "DJ en fiesta corporativa de empresa" },
+          { src: "/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif", alt: "DJ con pista de baile iluminada" },
+          { src: "/img/bocinas-djs/dj-para-eventos-musica-latina.avif", alt: "DJ poniendo música latina en evento" },
+          { src: "/img/bocinas-djs/dj-para-eventos-salon-banquetes.avif", alt: "DJ en salón de banquetes" },
+          { src: "/img/bocinas-djs/dj-para-eventos-terraza-rooftop.avif", alt: "DJ en terraza rooftop de evento" },
+          { src: "/img/bocinas-djs/dj-para-eventos-karaoke-animacion.avif", alt: "DJ con karaoke y animación" },
+          { src: "/img/bocinas-djs/dj-para-eventos-privados-exclusivos.avif", alt: "DJ en fiesta privada exclusiva" },
+          { src: "/img/bocinas-djs/dj-para-eventos-musica-electronica.avif", alt: "DJ poniendo música electrónica" },
+          { src: "/img/bocinas-djs/dj-para-eventos-jardin-terraza.avif", alt: "DJ en evento de jardín y terraza" },
+          { src: "/img/bocinas-djs/dj-para-eventos-sociales-celebraciones.avif", alt: "DJ en celebración social" },
+          { src: "/img/bocinas-djs/dj-para-eventos-fiesta-memorable.avif", alt: "DJ creando una fiesta memorable" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de DJ para Eventos" subtitle="DJs profesionales en eventos reales en la Ciudad de México">
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional.avif" alt="DJ profesional con cabina completa en evento en CDMX" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento.avif" alt="DJ mezclando música durante recepción de boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-profesional-consola-pioneer-cdj.avif" alt="DJ profesional operando consola Pioneer CDJ en evento" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-para-eventos-pista-iluminada.avif" alt="DJ animando pista de baile iluminada durante fiesta" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-para-bodas-vals-primer-baile.avif" alt="DJ acompañando el vals y primer baile en boda" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-djs/dj-profesional-cabina-led-neon.avif" alt="DJ profesional con cabina LED neón en fiesta nocturna" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de DJ"
+          subtitle="4 niveles — desde el vals hasta producción completa con luces y efectos."
+          paragraph1="Cada paquete incluye al DJ, consola Pioneer, equipo de audio dimensionado al espacio, micrófonos inalámbricos, transporte, montaje y desmontaje. El DJ llega 2 horas antes para montar, probar y coordinar con el MC."
+          paragraph2="¿Quieres agregar iluminación o efectos especiales? Armamos el paquete completo con precio especial."
+        />
+        <PricingCards packages={[
+          {
+            name: "DJ Básico — 4 horas",
+            price: "$5,000",
+            priceNote: "+ IVA",
+            description: "DJ + equipo de sonido para fiestas privadas y eventos de hasta 100 personas. 4 horas de música.",
+            features: [
+              { text: "DJ con consola Pioneer DDJ", included: true },
+              { text: "2 bocinas JBL + 1 subwoofer", included: true },
+              { text: "2 micrófonos Shure inalámbricos", included: true },
+              { text: "Repertorio adaptado a tu evento", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "4 horas de operación", included: true },
+              { text: "Cabina decorativa", included: false },
+              { text: "Iluminación incluida", included: false },
+            ],
+            ctaLabel: "Cotizar DJ básico",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "DJ Estándar — 6 horas",
+            price: "$8,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El más pedido para bodas y XV años. DJ + audio completo + coordinación con MC para todos los momentos.",
+            features: [
+              { text: "DJ con consola Pioneer profesional", included: true },
+              { text: "4 bocinas JBL/QSC + 2 subwoofers", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Coordinación con MC y wedding planner", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "6 horas de operación", included: true },
+              { text: "Ideal para: bodas, XV años, galas", included: true },
+              { text: "Cabina decorativa", included: false },
+            ],
+            ctaLabel: "Cotizar DJ estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "DJ Premium — 8 horas",
+            price: "$12,000",
+            priceNote: "+ IVA",
+            description: "DJ + cabina decorativa + iluminación LED básica. El paquete que transforma la pista sin contratar luces aparte.",
+            features: [
+              { text: "DJ con consola Pioneer + cabina blanca", included: true },
+              { text: "Equipo de audio completo para 200+ personas", included: true },
+              { text: "4 PAR LED de color en la pista", included: true },
+              { text: "Coordinación completa con MC", included: true },
+              { text: "8 horas de operación", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: bodas premium, corporativos", included: true },
+              { text: "Cabezas móviles incluidas", included: false },
+            ],
+            ctaLabel: "Cotizar DJ premium",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "DJ Producción — evento completo",
+            price: "$18,000",
+            priceNote: "+ IVA",
+            description: "DJ + line array + 8 cabezas móviles + humo escénico. La producción completa de audio + luces + efectos.",
+            features: [
+              { text: "DJ profesional toda la noche", included: true },
+              { text: "Line array para 300+ personas", included: true },
+              { text: "8 cabezas móviles con operador DMX", included: true },
+              { text: "Humo escénico para la pista", included: true },
+              { text: "Cabina decorativa premium", included: true },
+              { text: "Coordinación total con producción", included: true },
+              { text: "Ideal para: mega fiestas, festivales", included: true },
+              { text: "Visita previa al venue", included: true },
+            ],
+            ctaLabel: "Cotizar producción completa",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre el DJ"
+          subtitle="Lo que todos preguntan antes de contratar."
+          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
+          paragraph2="Nuestro DJ se adapta a cualquier tipo de evento — cuéntanos qué tienes en mente."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El DJ trae su propio equipo de sonido?", answer: "Sí. Llega con consola Pioneer DDJ, bocinas JBL o QSC dimensionadas al espacio, subwoofer, micrófonos Shure inalámbricos y todo el cableado. Si el venue ya tiene sistema de audio, nuestro DJ se conecta al existente sin problema." },
+        { question: "¿Puedo pedir canciones específicas?", answer: "Claro. Antes del evento te pedimos dos listas: las canciones que SÍ quieres (imprescindibles para el vals, hora loca, etc.) y las que NO quieres. El DJ construye la noche alrededor de tus preferencias y lee al público en vivo para ajustar." },
+        { question: "¿El DJ coordina con el maestro de ceremonias?", answer: "Siempre. Se reúnen antes del evento para definir la secuencia de momentos: entrada, vals, brindis, pastel, ramo, hora loca. Cada momento tiene su canción asignada y una señal acordada entre DJ y MC." },
+        { question: "¿Qué géneros musicales maneja?", answer: "Todos. Desde boleros y cumbias clásicas para la cena, hasta reggaetón, electrónica y pop para la hora loca. También salsa, bachata, rock clásico, oldies, música lounge para coctel y sets de DJ para fiestas electrónicas." },
+        { question: "¿El DJ puede hacer karaoke?", answer: "Sí. Tenemos equipo de karaoke con pantalla y catálogo de miles de canciones. Es un servicio que se agrega al paquete del DJ — muy popular en posadas, cumpleaños y fiestas privadas." },
+        { question: "¿Con cuánta anticipación debo reservar al DJ?", answer: "Idealmente 2-4 semanas antes. En temporada alta de bodas (noviembre-enero, mayo-junio) los sábados se agotan rápido. Para garantizar tu fecha, reserva con un mes de anticipación." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Combina DJ con Otros Servicios"
+          subtitle="El DJ pone la música — agrega las luces y los efectos."
+          paragraph1="Un DJ que coordina con el operador de cabezas móviles sincroniza los beams al ritmo de la música. Un DJ que coordina con el operador de humo bajo activa la niebla exactamente cuando empieza el vals. Eso solo pasa cuando todo el equipo es del mismo proveedor."
+          paragraph2="Armamos paquetes de DJ + luces + efectos con precio especial."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Listo para que tu fiesta tenga DJ profesional?</h2>
+          <p>Cuéntanos la fecha, el tipo de evento y tus gustos musicales. Te presentamos al DJ ideal para tu celebración.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

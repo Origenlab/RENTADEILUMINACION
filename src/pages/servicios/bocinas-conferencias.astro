@@ -1,68 +1,241 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bocinas para Conferencias | REDEIL CDMX";
-const description = "Renta de bocinas y sonido profesional para conferencias, seminarios y eventos corporativos en CDMX. Audio claro para presentaciones y ponencias. REDEIL.";
+const title = "Renta de Audio para Conferencias en CDMX | REDEIL";
+const description = "Bocinas, micrófonos Shure y mezcladoras Yamaha para conferencias y presentaciones en CDMX. Sonido cristalino. Desde $3,500 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas-conferencias/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bocinas para Conferencias",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Audio para Conferencias y Presentaciones",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Audio profesional para conferencias, seminarios y presentaciones corporativas en CDMX. Micrófonos Shure, bocinas Bose/JBL y mezcladoras Yamaha.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Audio para Conferencias",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de bocinas y sonido profesional para conferencias, seminarios, congresos y eventos corporativos en Ciudad de México.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bocinas para Conferencias"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿El audio funciona con la presentación de PowerPoint?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Conectamos la laptop del ponente a la mezcladora para que el audio de videos y presentaciones salga por las bocinas con calidad profesional. También conectamos el proyector si lo necesitas." }},
+      { "@type": "Question", "name": "¿Qué tipo de micrófonos usan para conferencias?", "acceptedAnswer": { "@type": "Answer", "text": "Micrófonos Shure profesionales. Para ponentes: solapa (lavalier) o diadema. Para paneles: micrófonos de cuello de ganso en la mesa. Para preguntas del público: micrófono de mano inalámbrico. Todo según el formato del evento." }},
+      { "@type": "Question", "name": "¿Se puede grabar el audio de la conferencia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Sacamos una línea de audio directo de la mezcladora para grabación. También podemos enviar audio limpio al streaming si la conferencia es híbrida (presencial + online)." }},
+      { "@type": "Question", "name": "¿Funciona en salones de hotel?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajamos frecuentemente en hoteles de CDMX — Camino Real, Hilton, Marriott, Fiesta Americana. Conocemos las restricciones de montaje de cada cadena hotelera y nos adaptamos a sus tiempos." }},
+      { "@type": "Question", "name": "¿Cuánto antes deben llegar al venue?", "acceptedAnswer": { "@type": "Answer", "text": "2-3 horas antes. Montaje, ecualización al salón, prueba de cada micrófono con el ponente y coordinación con el equipo de producción. Todo probado antes de que llegue la audiencia." }},
+      { "@type": "Question", "name": "¿Cubren conferencias híbridas (presencial + streaming)?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Sacamos audio limpio de la mezcladora para la plataforma de streaming (Zoom, Teams, YouTube Live). El audio llega nítido tanto a los presentes como a los conectados remotamente." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "Audio para Eventos", image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif", alt: "Audio profesional para eventos", description: "Si tu conferencia incluye una cena de gala o coctel, combinamos audio de conferencia + audio de evento.", link: "/servicios/bocinas/" },
+  { title: "Gobos con Logo", image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif", alt: "Proyección de logo corporativo", description: "Proyecta el logo de tu empresa en la pared del escenario. Branding visual que complementa el audio.", link: "/servicios/gobos/" },
+  { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Spotlight para ponente", description: "Spotlight profesional siguiendo al ponente en el escenario. El complemento visual para conferencias de gala.", link: "/servicios/seguidor/" },
+  { title: "City Light", image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif", alt: "Iluminación para salón", description: "PAR LED para ambientar el salón de la conferencia. Colores corporativos en las paredes.", link: "/servicios/city-light/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para Conferencias" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Audio para Conferencias" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Bocinas para Conferencias en CDMX"
-      subtitle="Audio profesional que garantiza claridad en cada ponencia y presentación"
-      introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido profesional para conferencias, seminarios, congresos y eventos corporativos en la Ciudad de México. Nuestros equipos están diseñados para lograr inteligibilidad de voz perfecta en auditorios, salones de hotel y centros de convenciones."
-      introParagraph2="Cada montaje incluye bocinas de rango completo, micrófonos de solapa e inalámbricos, mezcladoras digitales y técnicos de audio que se encargan de la operación durante todo el evento. Garantizamos que cada palabra llegue con claridad a todos los asistentes."
+
+    <Hero
+      title="Renta de Audio para Conferencias y Presentaciones en CDMX"
+      subtitle="Sonido cristalino para que cada palabra se escuche. Micrófonos Shure, bocinas Bose/JBL, mezcladoras Yamaha. Desde $3,500 + IVA."
+      introParagraph1='En una conferencia, si el ponente no se escucha claro en la última fila, la presentación fracasa — sin importar qué tan bueno sea el contenido. La diferencia entre "se oye" y "se entiende cada palabra" es un sistema de audio diseñado específicamente para voz humana: ecualización de frecuencias de voz, compresión para mantener volumen constante y micrófonos que captan la voz sin el ruido del salón. En <strong>REDEIL</strong> instalamos audio de conferencia con equipos <strong>Bose</strong>, <strong>JBL</strong> de línea y micrófonos <strong>Shure</strong> profesionales — el mismo nivel que usan los congresos de la CDMX.'
+      introParagraph2='Nuestro técnico de audio llega 2-3 horas antes, monta el equipo, ecualiza al salón específico (porque un salón de hotel no suena igual que un auditorio) y hace pruebas de micrófono con cada ponente. Durante la conferencia, opera la mezcladora <strong>Yamaha TF</strong> en vivo — ajustando niveles según quién habla, silenciando micrófonos cuando no se usan y enviando audio limpio para grabación o streaming. Salas de juntas, hoteles, centros de convenciones, auditorios y foros en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Sonido claro y profesional para eventos corporativos"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="En una conferencia, la calidad del audio es fundamental para que el mensaje llegue con claridad a cada asistente. Un sistema de sonido mal configurado puede arruinar una presentación importante, generar fatiga auditiva y restar profesionalismo al evento. En REDEIL entendemos estas necesidades y ofrecemos soluciones de audio a la medida."
-          paragraph2="Nuestro inventario incluye bocinas de alta definición, sistemas de line array para auditorios grandes, micrófonos de solapa para ponentes, micrófonos de mano para sesiones de preguntas y respuestas, y mezcladoras digitales con procesamiento de voz. Cada equipo es seleccionado según las dimensiones del espacio y el número de asistentes."
+
+    <CtaBar
+      headline="¿Qué formato tiene tu conferencia?"
+      items={[
+        { label: "Audio Eventos", href: "/servicios/bocinas/", icon: "sonido" },
+        { label: "Gobos con Logo", href: "/servicios/gobos/", icon: "iluminacion" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Audio para conferencias y eventos corporativos"
+          subtitle="Cada palabra del ponente se escucha clara hasta la última fila."
+          paragraph1="No es lo mismo sonorizar una fiesta que una conferencia. En una fiesta quieres potencia y bajo. En una conferencia quieres inteligibilidad — que cada sílaba del ponente llegue clara a las 300 personas del auditorio sin eco, sin feedback y sin que la gente de atrás tenga que adivinar lo que dijo."
+          paragraph2="Nuestros técnicos están entrenados en audio para voz. Ecualizan las frecuencias de la voz humana, aplican compresión para mantener volumen constante y posicionan las bocinas para cobertura uniforme sin puntos muertos."
         />
-        <p>Cubrimos conferencias en hoteles, centros de convenciones, universidades, salas de capacitación y auditorios en toda la CDMX y zona metropolitana. Nuestro equipo técnico realiza pruebas de audio previas para asegurar cobertura uniforme.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas-conferencias/alquiler-equipo-sonido-conferencias-empresas.avif", alt: "Equipo de sonido para conferencia empresarial" },
+          { src: "/img/bocinas-conferencias/alquiler-sonido-profesional-conferencias-cdmx.avif", alt: "Sonido profesional para conferencia en CDMX" },
+          { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif", alt: "Bocinas profesionales para conferencia empresarial" },
+          { src: "/img/bocinas-conferencias/alquiler-bocinas-para-conferencias-y-seminarios.avif", alt: "Bocinas para conferencias y seminarios" },
+          { src: "/img/bocinas-conferencias/bocinas-en-renta-para-foros-y-paneles.avif", alt: "Bocinas para foros y paneles de discusión" },
+          { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-hoteles-salones.avif", alt: "Bocinas para conferencia en hotel" },
+          { src: "/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif", alt: "Bocinas para sala de juntas" },
+          { src: "/img/bocinas-conferencias/bocinas-en-renta-para-cursos-y-diplomados.avif", alt: "Bocinas para cursos y diplomados" },
+          { src: "/img/bocinas-conferencias/alquiler-bocinas-eventos-corporativos-premium.avif", alt: "Audio para evento corporativo premium" },
+          { src: "/img/bocinas-conferencias/renta-bocinas-conferencias-lanzamientos-productos.avif", alt: "Audio para lanzamiento de productos" },
+          { src: "/img/bocinas-conferencias/alquiler-bocinas-para-ruedas-de-prensa.avif", alt: "Audio para rueda de prensa" },
+          { src: "/img/bocinas-conferencias/alquiler-bocinas-para-eventos-institucionales.avif", alt: "Audio para evento institucional" },
+          { src: "/img/bocinas-conferencias/bocinas-en-renta-seminarios-y-talleres.avif", alt: "Bocinas para seminarios y talleres" },
+          { src: "/img/bocinas-conferencias/alquiler-de-bocinas-exposiciones-ferias.avif", alt: "Audio para exposiciones y ferias" },
+          { src: "/img/bocinas-conferencias/renta-bocinas-eventos-corporativos-networking.avif", alt: "Audio para networking corporativo" },
+          { src: "/img/bocinas-conferencias/bocinas-en-renta-para-conferencias-ejecutivas.avif", alt: "Bocinas para conferencia ejecutiva" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Sonido para Conferencias" subtitle="Montajes de audio en eventos corporativos reales">
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo.avif" alt="Bocinas profesionales instaladas en salón ejecutivo para conferencia corporativa" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/alquiler-bocinas-conferencias-sala-juntas.avif" alt="Sistema de audio profesional en sala de juntas para conferencia empresarial" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/renta-sonido-conferencias-auditorio-profesional.avif" alt="Sonido profesional montado en auditorio para conferencia magistral" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/renta-bocinas-conferencias-empresariales-profesional.avif" alt="Montaje de bocinas profesionales para conferencia empresarial" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/renta-de-bocinas-conferencias-centro-convenciones.avif" alt="Sistema de sonido en centro de convenciones para congreso" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-conferencias/alquiler-bocinas-eventos-corporativos-premium.avif" alt="Equipo de audio premium instalado para evento corporativo" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Audio para Conferencias"
+          subtitle="Desde una sala de juntas hasta un congreso de 1,000 personas."
+          paragraph1="Cada paquete incluye bocinas, micrófonos Shure profesionales (solapa, diadema o de mano según necesites), mezcladora, técnico de audio, transporte, montaje y desmontaje. El técnico hace pruebas con cada ponente antes del evento."
+          paragraph2="¿Tu conferencia es híbrida con streaming? Incluimos salida de audio limpio para la plataforma online."
+        />
+        <PricingCards packages={[
+          {
+            name: "Sala de Juntas — hasta 30",
+            price: "$3,500",
+            priceNote: "+ IVA",
+            description: "Audio para reuniones ejecutivas, capacitaciones y juntas de consejo. Sonido claro y discreto.",
+            features: [
+              { text: "2 bocinas Bose/JBL compactas", included: true },
+              { text: "2 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora con entrada para laptop", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: juntas, capacitaciones, salas", included: true },
+              { text: "Salida para streaming", included: false },
+              { text: "Grabación de audio", included: false },
+            ],
+            ctaLabel: "Cotizar sala de juntas",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Conferencia — hasta 100",
+            price: "$6,000",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El estándar para conferencias empresariales. 4 micrófonos, salida para streaming y técnico dedicado.",
+            features: [
+              { text: "4 bocinas JBL de línea", included: true },
+              { text: "4 micrófonos Shure (solapa + mano)", included: true },
+              { text: "Mezcladora Yamaha TF", included: true },
+              { text: "Salida de audio para streaming", included: true },
+              { text: "Técnico de audio dedicado", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: conferencias, paneles, seminarios", included: true },
+              { text: "Grabación multipista", included: false },
+            ],
+            ctaLabel: "Cotizar conferencia",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Auditorio — hasta 300",
+            price: "$10,000",
+            priceNote: "+ IVA",
+            description: "Sistema de audio para auditorios y salones grandes. Line array + múltiples micrófonos + grabación.",
+            features: [
+              { text: "Sistema line array JBL/QSC", included: true },
+              { text: "6 micrófonos Shure ULXD", included: true },
+              { text: "Mezcladora Yamaha TF + procesador", included: true },
+              { text: "Salida streaming + grabación", included: true },
+              { text: "Técnico de audio + asistente", included: true },
+              { text: "Monitors de escenario para ponentes", included: true },
+              { text: "Ideal para: auditorios, foros, galas", included: true },
+              { text: "Ecualización profesional al espacio", included: true },
+            ],
+            ctaLabel: "Cotizar auditorio",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Congreso — 300+",
+            price: "$16,000",
+            priceNote: "+ IVA",
+            description: "Producción de audio completa para congresos, convenciones y eventos de gran escala con grabación multipista.",
+            features: [
+              { text: "Line array completo + delays", included: true },
+              { text: "8+ micrófonos profesionales", included: true },
+              { text: "Sistema de grabación multipista", included: true },
+              { text: "Audio para streaming HD", included: true },
+              { text: "Ingeniería de sonido FOH", included: true },
+              { text: "Equipo completo de técnicos", included: true },
+              { text: "Visita técnica previa al venue", included: true },
+              { text: "Ideal para: congresos, convenciones, expo", included: true },
+            ],
+            ctaLabel: "Cotizar congreso",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Audio para Conferencias"
+          subtitle="Lo que los organizadores preguntan antes de contratar."
+          paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp."
+          paragraph2="Cada conferencia tiene su formato — te asesoramos según el venue y las necesidades técnicas."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿El audio funciona con la presentación de PowerPoint?", answer: "Sí. Conectamos la laptop del ponente a la mezcladora para que el audio de videos y presentaciones salga por las bocinas con calidad profesional. Usamos un splitter HDMI para que la imagen vaya al proyector y el audio a la mezcladora simultáneamente." },
+        { question: "¿Qué tipo de micrófonos usan para conferencias?", answer: "Depende del formato. Para ponentes: solapa (lavalier) o diadema — las manos quedan libres para la presentación. Para paneles: cuello de ganso en la mesa. Para preguntas del público: micrófono de mano inalámbrico. Todo Shure profesional." },
+        { question: "¿Se puede grabar el audio de la conferencia?", answer: "Sí. Sacamos una línea de audio directo de la mezcladora para grabación en formato WAV de alta calidad. Para producciones que necesitan editar después, ofrecemos grabación multipista donde cada micrófono se graba por separado." },
+        { question: "¿Cubren conferencias híbridas con streaming?", answer: "Sí. Enviamos audio limpio de la mezcladora a la plataforma de streaming — Zoom, Teams, YouTube Live, Webex. El audio llega nítido tanto a los presentes como a los conectados. El técnico monitorea ambas señales." },
+        { question: "¿Funcionan en hoteles de CDMX?", answer: "Trabajamos frecuentemente en hoteles — Camino Real, Hilton, Marriott, Fiesta Americana, W, St. Regis. Conocemos las restricciones de montaje de cada cadena (tiempos, accesos, limitaciones técnicas) y nos adaptamos sin problema." },
+        { question: "¿El técnico prueba con cada ponente antes del evento?", answer: "Sí, siempre. Llegamos 2-3 horas antes para montar y ecualizar. 30 minutos antes del inicio, probamos cada micrófono con el ponente asignado — ajustamos nivel, ecualizamos a su tono de voz y le explicamos cómo usarlo." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Complementa tu Conferencia"
+          subtitle="Audio + branding visual + iluminación profesional."
+          paragraph1="Una conferencia memorable no es solo audio — es la imagen del logo proyectado en la pared, las luces corporativas en el salón y el spotlight siguiendo al CEO en el escenario."
+          paragraph2="Armamos paquetes de audio + iluminación corporativa con precio especial."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Tu conferencia necesita sonido profesional?</h2>
+          <p>Mándanos la fecha, el venue, el formato y el número de asistentes. Te cotizamos el equipo exacto en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>

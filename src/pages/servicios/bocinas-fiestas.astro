@@ -1,68 +1,241 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Hero from "../../components/Hero.astro";
-import GallerySection from "../../components/GallerySection.astro";
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import PricingCards from '../../components/PricingCards.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
-const title = "Renta de Bocinas para Fiestas | REDEIL CDMX";
-const description = "Renta de bocinas y sonido profesional para fiestas en CDMX. Audio potente para cumpleaños, graduaciones, posadas, baby showers y fiestas privadas. REDEIL.";
+const title = "Renta de Bocinas para Fiestas en CDMX | REDEIL";
+const description = "Bocinas JBL y QSC para cumpleaños, graduaciones, posadas y fiestas privadas en CDMX. Técnico incluido. Desde $3,000 + IVA.";
 const canonical = "https://rentadeiluminacion.com/servicios/bocinas-fiestas/";
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Renta de Bocinas para Fiestas",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com",
-    "telephone": "+525530682988",
-    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Bocinas para Fiestas Privadas",
+    "provider": { "@type": "LocalBusiness", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressRegion": "CDMX", "addressCountry": "MX" }
+    },
+    "description": "Renta de bocinas y audio profesional para cumpleaños, graduaciones, posadas y fiestas privadas en CDMX. Equipos JBL y QSC con técnico incluido.",
+    "areaServed": [{ "@type": "City", "name": "Ciudad de México" }, { "@type": "State", "name": "Estado de México" }],
+    "serviceType": "Renta de Bocinas para Fiestas",
+    "priceRange": "$$"
   },
-  "description": "Servicio de renta de bocinas y sonido profesional para fiestas en Ciudad de México. Audio para cumpleaños, graduaciones, posadas y celebraciones privadas.",
-  "areaServed": { "@type": "City", "name": "Ciudad de México" },
-  "serviceType": "Renta de Bocinas para Fiestas"
-});
+  {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿Puedo conectar mi celular por Bluetooth?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Conectamos tu celular vía Bluetooth, AUX o USB. Funciona con Spotify, Apple Music, YouTube Music o cualquier app. El técnico se asegura de que el volumen y la ecualización sean correctos." }},
+      { "@type": "Question", "name": "¿Las bocinas funcionan al aire libre?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Nuestras bocinas JBL y QSC funcionan en jardines, terrazas, rooftops y cualquier espacio exterior. Usamos más potencia para compensar la dispersión del sonido al aire libre." }},
+      { "@type": "Question", "name": "¿Incluyen micrófono para karaoke?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, si lo solicitas. Todos los paquetes incluyen micrófonos inalámbricos que puedes usar para karaoke, discursos o dinámicas. También tenemos equipo de karaoke con pantalla y catálogo de canciones." }},
+      { "@type": "Question", "name": "¿Cuántas bocinas necesito para mi fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Para fiestas de hasta 50 personas, 2 bocinas son suficientes. Para 150 personas, 4 bocinas + subwoofer. Para 300+, usamos 6 bocinas o line array. Te asesoramos según tu espacio." }},
+      { "@type": "Question", "name": "¿Sirve para posadas y fiestas de oficina?", "acceptedAnswer": { "@type": "Answer", "text": "Sí — hacemos muchas posadas navideñas y fiestas de fin de año para empresas. Desde la música ambiental durante la cena hasta la hora loca con karaoke y DJ." }},
+      { "@type": "Question", "name": "¿El técnico se queda durante toda la fiesta?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El técnico de audio está presente desde el montaje hasta el desmontaje. Ajusta el volumen, resuelve cualquier problema técnico y se asegura de que el sonido esté perfecto toda la noche." }}
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  { title: "DJ para Fiestas", image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif", alt: "DJ profesional para fiestas", description: "Si quieres que alguien controle la música y lea al público, agrega DJ al paquete de audio.", link: "/servicios/bocinas-djs/" },
+  { title: "Bola Disco", image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif", alt: "Bola disco para fiesta", description: "Audio + bola disco = fiesta retro instantánea. Funciona para cualquier cumpleaños o posada.", link: "/servicios/bola-disco/" },
+  { title: "Máquina de Humo", image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif", alt: "Humo para fiesta", description: "El humo convierte la pista en un escenario de concierto. Combo perfecto con audio y luces.", link: "/servicios/maquina-humo/" },
+  { title: "Confeti", image: "/img/maquina-de-papelitos/confeti-dorado-primer-baile-novios-romantico-400w.avif", alt: "Confeti para fiesta", description: "Explosión de confeti para el momento cumbre. Cumpleaños, graduaciones y posadas.", link: "/servicios/confeti/" },
+];
 ---
+
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
-  <Fragment slot="breadcrumbs">
-  <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios/" }, { label: "Bocinas para Fiestas" }]} />
+
+<Fragment slot="breadcrumbs">
+  <Breadcrumbs items={[
+    { label: "Inicio", href: "/" },
+    { label: "Sonido y DJ", href: "/servicios/sonido/" },
+    { label: "Bocinas para Fiestas" }
+  ]} />
 </Fragment>
-<Hero
-      title="Renta de Bocinas para Fiestas en CDMX"
-      subtitle="Sonido potente y profesional para que tu fiesta sea inolvidable"
-      introParagraph1="En REDEIL ofrecemos renta de bocinas y sistemas de sonido para todo tipo de fiestas en la Ciudad de México. Ya sea un cumpleaños, graduación, posada navideña, baby shower o fiesta privada, contamos con el equipo de audio perfecto para cada celebración."
-      introParagraph2="Nuestro catálogo incluye bocinas amplificadas, subwoofers, sistemas bluetooth, karaoke y equipos de DJ. Ofrecemos paquetes con y sin operador técnico, adaptándonos al presupuesto y necesidades de cada cliente en CDMX y zona metropolitana."
+
+    <Hero
+      title="Renta de Bocinas para Fiestas Privadas en CDMX"
+      subtitle="Audio JBL y QSC para cumpleaños, graduaciones, posadas y cualquier celebración. Técnico incluido. Desde $3,000 + IVA."
+      introParagraph1='No importa si es un cumpleaños de 30 personas en la terraza o una graduación de 400 en un jardín — la música es lo que convierte una reunión en una fiesta. Y la diferencia entre una bocina Bluetooth de casa y un par de <strong>JBL PRX</strong> con subwoofer es la diferencia entre "se oye" y "se siente". En <strong>REDEIL</strong> dimensionamos el equipo de audio para que tu fiesta suene perfecto sin que sobren bocinas que nadie necesita ni falte potencia cuando la pista se llena.'
+      introParagraph2='El servicio incluye bocinas <strong>JBL</strong> o <strong>QSC</strong>, subwoofer si el paquete lo requiere, conexión Bluetooth para tu playlist de Spotify, micrófonos inalámbricos <strong>Shure</strong> para discursos o karaoke, y un técnico de audio que monta, ecualiza al espacio y opera el equipo toda la noche. Cumpleaños, graduaciones, posadas navideñas, despedidas, aniversarios, pool parties y reuniones familiares en toda la CDMX y Estado de México.'
     />
-    <section class="service-detail">
-      <SectionHeader
-          title="Audio profesional para todo tipo de fiestas"
-          subtitle="Instalación profesional incluida en CDMX y Edomex."
-          paragraph1="La música es el alma de cualquier fiesta, y un buen sistema de sonido hace la diferencia entre una celebración memorable y una que pasa desapercibida. En REDEIL ofrecemos equipos de audio profesional que garantizan potencia, claridad y la energía necesaria para mantener la pista de baile llena toda la noche."
-          paragraph2="Para fiestas pequeñas e íntimas, ofrecemos bocinas amplificadas portátiles con conexión bluetooth y micrófono para karaoke. Para celebraciones medianas y grandes, disponemos de sistemas de sonido con subwoofer, mezcladoras y micrófonos inalámbricos. También contamos con paquetes de DJ completo para fiestas que requieren animación profesional."
+
+    <CtaBar
+      headline="¿Qué tipo de fiesta estás organizando?"
+      items={[
+        { label: "DJ para Fiesta", href: "/servicios/bocinas-djs/", icon: "sonido" },
+        { label: "Audio Eventos", href: "/servicios/bocinas/", icon: "sonido" },
+        { label: "Todo el sonido", href: "/servicios/sonido/", icon: "sonido" },
+        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
+      ]}
+    />
+
+    <section class="services-section">
+      <div class="container">
+        <SectionHeader
+          title="Audio para fiestas de todos los tamaños"
+          subtitle="Desde una reunión en terraza hasta una graduación de 400 personas."
+          paragraph1="La música define la fiesta. Cuando el bajo se siente en el pecho y la canción correcta empieza en el momento correcto, la gente se para a bailar sin que nadie se lo pida. Eso no pasa con una bocina Bluetooth — pasa con audio profesional."
+          paragraph2="Nuestro técnico calibra el volumen según el espacio y los vecinos. A las 8pm suave para la cena, a las 10pm sube para la fiesta. Sin quejas, sin distorsión, sin problemas."
         />
-        <p>Realizamos montajes en casas, jardines, terrazas, salones, rooftops y cualquier espacio en la CDMX. Nuestro equipo llega con anticipación para instalar y probar el sonido, asegurando que todo esté listo para cuando lleguen tus invitados.</p>
+        <Gallery4x4 images={[
+          { src: "/img/bocinas-fiestas/bocinas-amplificadas-fiestas-jardines.avif", alt: "Bocinas amplificadas para fiesta en jardín" },
+          { src: "/img/bocinas-fiestas/alquiler-altavoces-fiestas-piscina.avif", alt: "Altavoces para fiesta en piscina" },
+          { src: "/img/bocinas-fiestas/bocinas-fiestas-ano-nuevo-celebracion.avif", alt: "Bocinas para fiesta de año nuevo" },
+          { src: "/img/bocinas-fiestas/bocinas-karaoke-fiestas-familiares.avif", alt: "Bocinas para karaoke en fiesta familiar" },
+          { src: "/img/bocinas-fiestas/alquiler-altavoces-eventos-terraza.avif", alt: "Altavoces para evento en terraza" },
+          { src: "/img/bocinas-fiestas/alquiler-bocinas-fiestas-navidad.avif", alt: "Bocinas para fiesta navideña" },
+          { src: "/img/bocinas-fiestas/bocinas-eventos-cocktail-recepcion.avif", alt: "Bocinas para coctel y recepción" },
+          { src: "/img/bocinas-fiestas/bocinas-eventos-neon-glow.avif", alt: "Bocinas para evento neón glow" },
+          { src: "/img/bocinas-fiestas/equipo-audio-cumpleanos-reuniones.avif", alt: "Equipo de audio para cumpleaños" },
+          { src: "/img/bocinas-fiestas/bocinas-grandes-eventos-masivos.avif", alt: "Bocinas para eventos masivos" },
+          { src: "/img/bocinas-fiestas/alquiler-parlantes-fiestas-roof-top.avif", alt: "Parlantes para fiesta en rooftop" },
+          { src: "/img/bocinas-fiestas/alquiler-bocinas-eventos-rusticos.avif", alt: "Bocinas para evento rústico" },
+          { src: "/img/bocinas-fiestas/bocinas-inalambricas-fiestas-casa.avif", alt: "Bocinas inalámbricas para fiesta en casa" },
+          { src: "/img/bocinas-fiestas/bocinas-profesionales-fiestas-noche.avif", alt: "Bocinas profesionales para fiesta nocturna" },
+          { src: "/img/bocinas-fiestas/equipo-audio-celebraciones-especiales.avif", alt: "Equipo de audio para celebraciones especiales" },
+          { src: "/img/bocinas-fiestas/alquiler-sonido-aniversarios-celebraciones.avif", alt: "Sonido para aniversarios y celebraciones" },
+        ]} />
       </div>
     </section>
-    <GallerySection title="Galería de Sonido para Fiestas" subtitle="Montajes de audio en fiestas y celebraciones reales">
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales.avif" alt="Bocinas profesionales montadas para fiesta con pista de baile iluminada" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/bocinas-profesionales-fiestas-noche.avif" alt="Sistema de sonido profesional en fiesta nocturna con luces" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/alquiler-altavoces-fiestas-piscina.avif" alt="Altavoces profesionales en fiesta junto a piscina al aire libre" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/equipo-sonido-eventos-elegantes.avif" alt="Equipo de sonido elegante montado para celebración formal" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/renta-bocinas-baby-shower.avif" alt="Bocinas rentadas para baby shower con decoración festiva" width="800" height="533" loading="lazy">
-      </figure>
-      <figure class="gallery-item">
-        <img src="/img/bocinas-fiestas/sistema-audio-graduaciones-eventos.avif" alt="Sistema de audio profesional instalado para fiesta de graduación" width="800" height="533" loading="lazy">
-      </figure>
-    </GallerySection>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Paquetes de Audio para Fiestas"
+          subtitle="4 niveles según cuánta gente va a tu fiesta. Técnico incluido."
+          paragraph1="Cada paquete incluye bocinas, conexión Bluetooth/AUX, micrófonos inalámbricos si los necesitas, técnico de audio, transporte, montaje y desmontaje. El técnico ajusta el volumen según los vecinos y el momento de la noche."
+          paragraph2="¿Tu fiesta es diferente? Mándanos cuántas personas esperan y el tipo de espacio — te armamos la propuesta exacta."
+        />
+        <PricingCards packages={[
+          {
+            name: "Fiesta Pequeña — hasta 50",
+            price: "$3,000",
+            priceNote: "+ IVA",
+            description: "Para reuniones en casa, terraza o rooftop. Sonido limpio sin exceso. Perfecto para cumpleaños íntimos.",
+            features: [
+              { text: "2 bocinas JBL compactas", included: true },
+              { text: "Conexión Bluetooth + AUX", included: true },
+              { text: "1 micrófono inalámbrico", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: cumpleaños, reuniones, cenas", included: true },
+              { text: "Subwoofer", included: false },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar fiesta pequeña",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Fiesta Estándar — hasta 150",
+            price: "$5,500",
+            priceNote: "+ IVA",
+            badge: "Más popular",
+            highlight: true,
+            description: "El más pedido para graduaciones, posadas y fiestas de cumpleaños grandes. Audio con potencia para la pista.",
+            features: [
+              { text: "4 bocinas JBL PRX / QSC", included: true },
+              { text: "1 subwoofer para bajo", included: true },
+              { text: "2 micrófonos Shure inalámbricos", included: true },
+              { text: "Conexión Bluetooth + AUX + USB", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: graduaciones, posadas, cumpleaños", included: true },
+              { text: "DJ incluido", included: false },
+            ],
+            ctaLabel: "Cotizar fiesta estándar",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Fiesta Grande — hasta 300",
+            price: "$8,500",
+            priceNote: "+ IVA",
+            description: "Para jardines, salones y fiestas con pista de baile seria. 6 bocinas con potencia de sobra.",
+            features: [
+              { text: "6 bocinas JBL / QSC", included: true },
+              { text: "2 subwoofers de alta potencia", included: true },
+              { text: "4 micrófonos Shure inalámbricos", included: true },
+              { text: "Mezcladora Yamaha + Bluetooth", included: true },
+              { text: "Técnico de audio incluido", included: true },
+              { text: "Transporte + montaje + desmontaje", included: true },
+              { text: "Ideal para: fiestas grandes, jardines", included: true },
+              { text: "Karaoke con pantalla disponible", included: true },
+            ],
+            ctaLabel: "Cotizar fiesta grande",
+            ctaHref: "/contacto/",
+          },
+          {
+            name: "Mega Fiesta — 300+",
+            price: "$14,000",
+            priceNote: "+ IVA",
+            description: "Producción completa con line array para fiestas masivas, festivales privados y eventos de empresa.",
+            features: [
+              { text: "Sistema line array JBL/QSC", included: true },
+              { text: "Subwoofers de producción", included: true },
+              { text: "6 micrófonos inalámbricos", included: true },
+              { text: "Mezcladora Yamaha TF + procesador", included: true },
+              { text: "Técnico + asistente de audio", included: true },
+              { text: "Planta de luz disponible", included: true },
+              { text: "Ideal para: festivales, empresas, mega fiestas", included: true },
+              { text: "DJ y cabezas móviles combinables", included: true },
+            ],
+            ctaLabel: "Cotizar mega fiesta",
+            ctaHref: "/contacto/",
+          },
+        ]} />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <SectionHeader
+          title="Preguntas sobre Bocinas para Fiestas"
+          subtitle="Lo que nuestros clientes preguntan antes de contratar."
+          paragraph1="Si tu duda no está aquí, escríbenos por WhatsApp."
+          paragraph2="Cada fiesta es diferente — te asesoramos según tu espacio y presupuesto."
+        />
+      </div>
+      <FaqSection items={[
+        { question: "¿Puedo conectar mi celular por Bluetooth?", answer: "Sí. Conectamos tu celular vía Bluetooth, cable AUX o USB a la mezcladora. Funciona con Spotify, Apple Music, YouTube Music o cualquier app. El técnico ajusta la ecualización para que se oiga profesional — no como un celular sonando en una lata." },
+        { question: "¿Las bocinas funcionan en jardines y terrazas?", answer: "Sí. Nuestras bocinas JBL y QSC están diseñadas para interiores y exteriores. En espacios al aire libre usamos más potencia para compensar la dispersión. Si tu terraza tiene vecinos sensibles al ruido, el técnico calibra el volumen con cuidado." },
+        { question: "¿Incluyen micrófono para karaoke?", answer: "Sí. Los micrófonos inalámbricos Shure que incluimos sirven para karaoke, discursos y dinámicas. Si quieres karaoke con pantalla y catálogo de canciones, lo agregamos al paquete." },
+        { question: "¿Sirve para posadas y fiestas de oficina?", answer: "Sí — hacemos muchas posadas navideñas y fiestas de fin de año corporativas. Desde música ambiental durante la cena hasta hora loca con karaoke. También manejamos fiestas temáticas, Halloween y día del niño." },
+        { question: "¿Cuántas bocinas necesito para mi fiesta?", answer: "Para 50 personas o menos, 2 bocinas. Para 100-150, 4 bocinas + sub. Para 200-300, 6 bocinas + 2 subs. Para 300+, line array. Mándanos el número de invitados y fotos del espacio y te decimos exactamente qué necesitas." },
+        { question: "¿El técnico se queda durante toda la fiesta?", answer: "Sí. El técnico monta, ecualiza, opera el audio toda la noche y desmonta al final. Ajusta el volumen según el momento — suave para la cena, fuerte para el baile — y resuelve cualquier problema técnico al instante." },
+      ]} />
+    </section>
+
+    <section class="services-section services-alt">
+      <div class="container">
+        <SectionHeader
+          title="Agrega Diversión a tu Fiesta"
+          subtitle="El audio es la base — dale el wow factor."
+          paragraph1="Las bocinas ponen la música. El DJ lee al público. La bola disco llena la pista de destellos. El humo convierte el baile en un concierto. Todo junto crea una fiesta que nadie quiere que termine."
+          paragraph2="Armamos paquetes de audio + efectos con precio especial para cualquier tipo de fiesta."
+        />
+        <div class="services-grid">
+          {serviciosRelacionados.map((s) => (
+            <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>¿Lista la música para tu fiesta?</h2>
+          <p>Dinos cuántas personas esperan, el tipo de espacio y qué tienes en mente. Te cotizamos en minutos.</p>
+          <div class="cta-buttons">
+            <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+            <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </BaseLayout>
