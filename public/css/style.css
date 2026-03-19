@@ -274,7 +274,7 @@ address {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: calc(36px + 70px + 1rem); /* topbar + header + spacing */
+  padding-top: calc(var(--topbar-height, 36px) + var(--header-height, 100px) + 2rem);
   padding-bottom: 3rem;
   overflow: hidden;
   background: var(--color-secondary, #1a1a2e);
@@ -923,7 +923,7 @@ section {
 
   .hero {
     min-height: auto;
-    padding-top: calc(36px + var(--header-height, 70px) + 1rem);
+    padding-top: calc(var(--topbar-height, 56px) + var(--header-height, 70px) + 1.5rem);
     padding-bottom: 2rem;
   }
 
@@ -1020,7 +1020,7 @@ section {
 
   /* Hero móvil pequeño */
   .hero {
-    padding-top: calc(36px + var(--header-height, 70px) + 0.75rem);
+    padding-top: calc(var(--topbar-height, 64px) + var(--header-height, 70px) + 1.25rem);
     padding-bottom: 1rem;
   }
 
@@ -2038,7 +2038,7 @@ section {
    ══════════════════════════════════════ */
 .hdr-stack {
   position: fixed;
-  top: 36px; /* topbar height */
+  top: var(--topbar-height, 36px);
   left: 0;
   right: 0;
   z-index: 9999;

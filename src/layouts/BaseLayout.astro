@@ -153,6 +153,23 @@ import Footer from '../components/Footer.astro';
   {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup} />}
   {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
+  <!-- Measure TopBar height dynamically for hero padding -->
+  <script is:inline>
+    (function(){
+      function setTopbarHeight(){
+        var tb = document.querySelector('.topbar');
+        var h = tb ? tb.offsetHeight : 36;
+        document.documentElement.style.setProperty('--topbar-height', h + 'px');
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setTopbarHeight);
+      } else {
+        setTopbarHeight();
+      }
+      window.addEventListener('resize', setTopbarHeight, {passive:true});
+    })();
+  </script>
+
   <!-- ExactDN CDN — rewrite image paths to CDN in production -->
   <script is:inline>
     (function(){

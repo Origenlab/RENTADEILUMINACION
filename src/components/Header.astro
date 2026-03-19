@@ -587,10 +587,14 @@ function isActive(href: string, children?: { href: string }[]): boolean {
 
     /* ── Scroll: hide topbar, add shadow ── */
     if (hdr && hdr.dataset.scroll === 'true') {
-      var topbarH = topbar ? topbar.offsetHeight : 0;
       var stack = document.querySelector('.hdr-stack');
 
+      function getTopbarH() {
+        return topbar ? topbar.offsetHeight : 0;
+      }
+
       window.addEventListener('scroll', function () {
+        var topbarH = getTopbarH();
         var y = window.pageYOffset || document.documentElement.scrollTop;
         if (y > topbarH) {
           hdr.classList.add('hdr--scrolled');
