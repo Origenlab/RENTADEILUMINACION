@@ -26,7 +26,9 @@ jobs:
           node-version: "20"
           cache: npm
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: |
+          rm -f package-lock.json
+          npm install --prefer-offline || npm install
       - name: Build
         run: npm run build
       - name: Upload artifact
