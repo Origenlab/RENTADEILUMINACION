@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-19:00"
 rating: 4.6
 resenas: 88
 servicios:
-  - "Audio profesional para eventos"
-  - "Bocinas y subwoofers"
+  - "Bocinas activas y subwoofers"
   - "Micrófonos inalámbricos"
   - "Consolas mezcladoras"
+  - "Amplificadores de potencia"
   - "Equipo para DJ"
-  - "Servicio técnico"
+  - "Servicio técnico y reparaciones"
 activo: true
 ---
 
-Audio-Bea es una tienda de audio profesional destacada en Ciudad Nezahualcóyotl con una calificación de 4.6 estrellas en más de 80 reseñas. Su presencia en "Neza" la convierte en la referencia de audio para toda la zona oriente del Estado de México, atendiendo a músicos, DJs y organizadores de eventos que buscan equipo de calidad sin necesidad de trasladarse a la Ciudad de México.
+Audio-Bea es una tienda de audio profesional bien establecida en Ciudad Nezahualcóyotl con 4.6 estrellas en más de 80 reseñas. Su presencia en el corazón de "Neza" la convierte en el punto de referencia de audio para toda la zona oriente del Estado de México, siendo una opción muy valorada por músicos, DJs y organizadores de eventos que prefieren no desplazarse hasta la Ciudad de México.
 
-La tienda maneja un catálogo sólido de equipo de audio para eventos: bocinas activas y pasivas, subwoofers de potencia, micrófonos inalámbricos de diferentes rangos, consolas mezcladoras y equipo para DJ. Su foco en el mercado local les permite ofrecer un servicio personalizado y conocer las necesidades específicas de los eventos en la zona.
+El catálogo de la tienda cubre las necesidades de quienes trabajan con sonido en eventos: bocinas activas y pasivas de diferentes potencias, subwoofers, micrófonos inalámbricos de varios rangos de precio, consolas de mezcla analógicas y digitales, y equipo específico para DJ como controladores y reproductores. Su inventario se orienta al mercado local y suele tener disponibilidad de los modelos más comunes.
 
-Una característica que destacan sus clientes es el servicio técnico: Audio-Bea puede reparar y dar mantenimiento al equipo de audio, lo que es muy valioso para técnicos de sonido y empresas de eventos que necesitan mantener su inventario en óptimas condiciones. Los tiempos de respuesta son generalmente buenos y los precios del servicio técnico son accesibles.
+Lo que distingue a Audio-Bea de otras tiendas de la zona es su servicio técnico. El local realiza reparaciones y mantenimiento preventivo de equipo de audio, algo muy apreciado por técnicos de sonido y pequeñas empresas de eventos que necesitan mantener su inventario en condiciones óptimas sin tener que ir a talleres especializados de la ciudad.
 
-Si tu evento en Nezahualcóyotl o el oriente del Estado de México necesita iluminación profesional, en REDEIL cubrimos toda la zona metropolitana. Renta de iluminación para bodas, quinceañeras y eventos corporativos con instalación incluida. Contáctanos al 55 3068 2988.
+Para eventos en Nezahualcóyotl o el oriente del Estado de México que requieran iluminación profesional, REDEIL cubre toda la zona metropolitana. Ofrecemos renta de equipo de iluminación para bodas, quinceañeras y eventos corporativos con instalación incluida. Contáctanos al 55 3068 2988 para cotizar.

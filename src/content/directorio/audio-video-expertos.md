@@ -11,19 +11,19 @@ horario: "Lun-Vie 09:00-18:00"
 rating: 4.5
 resenas: 49
 servicios:
-  - "Sistemas de audio y video"
+  - "Sistemas integrados de audio y video"
   - "Videoconferencia y telepresencia"
-  - "Pantallas y proyectores"
-  - "Sistemas de sonido para salas"
-  - "Integración AV"
-  - "Mantenimiento de sistemas"
+  - "Pantallas y proyectores profesionales"
+  - "Sonido para salas corporativas"
+  - "Integración y programación AV"
+  - "Mantenimiento de sistemas instalados"
 activo: true
 ---
 
-Audio Video Expertos y Soluciones es una empresa de integración audiovisual con enfoque en soluciones completas para empresas e instituciones. Con una calificación de 4.5 estrellas, atiende principalmente al sector corporativo, ofreciendo sistemas de audio y video de alto rendimiento para salas de juntas, auditorios y espacios de videoconferencia.
+Audio Video Expertos y Soluciones es una empresa de integración audiovisual enfocada en el sector corporativo, con una calificación de 4.5 estrellas entre sus clientes. Su ubicación en Polanco refleja su perfil de clientela: empresas, hoteles y corporativos que necesitan soluciones AV completas y profesionales, no solo la compra de un equipo aislado.
 
-La empresa se especializa en la integración de sistemas AV complejos: desde la instalación de pantallas profesionales y proyectores hasta la configuración de sistemas de videoconferencia para grandes instalaciones. Su expertise en sistemas de sonido para salas incluye el diseño acústico, la selección de equipos y la programación de sistemas de control centralizado.
+El trabajo de la empresa va desde el diseño del sistema hasta la instalación, configuración y puesta en marcha. Se especializan en salas de juntas con sistemas de videoconferencia, auditorios corporativos con sonido distribuido, y espacios de presentación que requieren pantallas de alta resolución integradas con sistemas de control centralizado. Trabajan con marcas líderes del sector como Crestron, Biamp, Extron y similares.
 
-Audio Video Expertos trabaja con marcas líderes del sector como Crestron, Biamp, Extron y otras marcas de referencia en integración AV. Su equipo de ingenieros puede diseñar soluciones a medida para proyectos de cualquier escala, desde una pequeña sala de reuniones hasta un centro de convenciones.
+Un aspecto que valoran sus clientes es la capacidad de Audio Video Expertos para entender los requerimientos específicos de cada espacio antes de proponer una solución. No proponen el mismo sistema para una sala de juntas que para un auditorio de 500 personas: el análisis previo de las condiciones acústicas, el flujo de usuarios y los requisitos técnicos forma parte de su proceso de trabajo.
 
-Si tu empresa organiza eventos y necesita iluminación profesional para complementar los sistemas de audio y video, en REDEIL ofrecemos renta de equipo de iluminación escénica para eventos corporativos, congresos y lanzamientos en CDMX. Nuestro equipo técnico se coordina con cualquier proveedor de AV para una producción integral.
+Para empresas que organizan eventos y necesitan complementar sus sistemas de audio y video con iluminación profesional, REDEIL ofrece renta de equipo de iluminación escénica para eventos corporativos, congresos y lanzamientos en CDMX. Nuestro equipo se coordina con cualquier proveedor AV para una producción técnicamente integrada.

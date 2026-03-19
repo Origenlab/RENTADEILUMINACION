@@ -11,19 +11,19 @@ horario: "Lun-Vie 09:00-18:00"
 rating: 4.3
 resenas: 321
 servicios:
-  - "Iluminación profesional para eventos"
-  - "Equipos de iluminación escénica"
-  - "Cabezas móviles y scanners"
-  - "Controladores DMX"
-  - "Iluminación arquitectónica"
-  - "Instalaciones permanentes"
+  - "Cabezas móviles y scanners profesionales"
+  - "Controladores DMX de cabina"
+  - "Iluminación escénica (wash, beam, spot)"
+  - "Iluminación arquitectónica LED"
+  - "Instalaciones de iluminación permanentes"
+  - "Distribución de marcas como Chauvet, ADJ y Robe"
 activo: true
 ---
 
-Steelpro Technologies es una empresa especializada en iluminación profesional para eventos y espectáculos, con más de 320 reseñas y una calificación de 4.3 estrellas en Google Maps. Su enfoque técnico y la calidad de los productos que distribuye la posicionan como una referencia para productoras, técnicos de iluminación y empresas de eventos en CDMX.
+Steelpro Technologies es una empresa con presencia sólida en el mercado de iluminación profesional para eventos y espectáculos en CDMX, con más de 320 reseñas y 4.3 estrellas en Google Maps. Su catálogo está orientado al técnico y al productor de eventos que necesita equipo de iluminación escénica de calidad real, no solo opciones decorativas básicas.
 
-La empresa maneja equipo de iluminación escénica de primer nivel: cabezas móviles, wash, beam y spot de marcas como Chauvet, Robe y ADJ. También distribuyen controladores DMX profesionales, gradadores y soluciones de conectividad para sistemas de iluminación complejos. Su catálogo está pensado para quienes entienden de iluminación técnica.
+La empresa distribuye marcas reconocidas en la industria del espectáculo: Chauvet Professional y DJ, Robe Lighting, ADJ, y otras marcas de referencia en el mercado de iluminación escénica. Su inventario incluye cabezas móviles de beam, wash y spot de diferentes potencias, scanners para efectos de haz, controladores DMX de 16 y 24 canales para producciones complejas, y accesorios como casetons, cables DMX y soportes de aluminio.
 
-Una de las especialidades de Steelpro es la iluminación arquitectónica, con soluciones para fachadas, interiores comerciales y espacios de entretenimiento. Si tienes un proyecto de instalación permanente en un hotel, club o espacio de eventos, su equipo técnico puede asesorarte en el diseño y la selección del equipo adecuado.
+Una línea importante del trabajo de Steelpro es la iluminación arquitectónica permanente para hoteles, restaurantes, clubs y espacios comerciales. Pueden diseñar e instalar sistemas de iluminación LED para fachadas y espacios interiores que requieran un resultado estético de alto nivel con durabilidad a largo plazo. Su equipo técnico tiene experiencia en instalaciones de diferente escala y complejidad.
 
-Si prefieres rentar equipo de iluminación profesional en lugar de comprarlo, en REDEIL ofrecemos exactamente eso: renta de iluminación con instalación y operación incluida para bodas, eventos corporativos y espectáculos en CDMX y Estado de México. Sin inversión inicial, solo pagas por el evento.
+Si prefieres rentar equipo de iluminación profesional para un evento específico en lugar de comprarlo, REDEIL ofrece exactamente eso: renta con instalación y operación incluida para bodas, eventos corporativos y espectáculos en CDMX y Estado de México. Sin inversión inicial. Tel: 55 3068 2988.

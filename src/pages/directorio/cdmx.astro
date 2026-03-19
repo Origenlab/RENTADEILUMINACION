@@ -2,19 +2,35 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DirectoryCard from '../../components/DirectoryCard.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import FaqSection from '../../components/FaqSection.astro';
 
 const empresas = await getCollection('directorio', ({ data }) =>
   data.activo !== false && data.zona === 'cdmx'
 );
 empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
+
+// Conteo por categoría
+const conteo: Record<string, number> = {};
+for (const e of empresas) {
+  conteo[e.data.categoria] = (conteo[e.data.categoria] ?? 0) + 1;
+}
+
+const categoriaLabel: Record<string, string> = {
+  audio: 'Audio Profesional',
+  iluminacion: 'Iluminación',
+  'audio-video': 'Audio & Video',
+  dj: 'DJ',
+  efectos: 'Efectos',
+};
 ---
 
 <BaseLayout
   title="Tiendas de Audio e Iluminación en CDMX | Directorio de Proveedores"
-  description="Directorio de las mejores tiendas de audio, iluminación y equipo para eventos en Ciudad de México. Calificaciones, datos de contacto y ubicaciones."
+  description="Directorio de las mejores tiendas de audio, iluminación y equipo para eventos en Ciudad de México. Calificaciones verificadas en Google Maps, datos de contacto y ubicaciones."
   canonical="https://rentadeiluminacion.com/directorio/cdmx/"
 >
   <Breadcrumbs
@@ -28,42 +44,129 @@ empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
 
   <Hero
     title="Tiendas de Audio e Iluminación en Ciudad de México"
-    subtitle="Los mejores proveedores de equipo para eventos en CDMX"
-    introParagraph1="Guía de las tiendas mejor calificadas en <strong>Ciudad de México</strong> para comprar equipo de audio, iluminación, sonido y efectos especiales para eventos."
-    introParagraph2="Si prefieres no comprar y rentar el equipo para tu evento, <strong>REDEIL</strong> te lo lleva e instala en toda la CDMX. Contáctanos para cotizar."
+    subtitle={`Directorio de ${empresas.length} proveedores verificados en CDMX`}
+    introParagraph1={`Guía completa de las tiendas mejor calificadas en <strong>Ciudad de México</strong> para comprar equipo de audio, iluminación, sonido y efectos especiales para eventos. Calificaciones y datos verificados en Google Maps.`}
+    introParagraph2={`Si prefieres no comprar y rentar el equipo para tu evento, <strong>REDEIL</strong> te lo lleva e instala en toda la CDMX. Iluminación profesional, sonido, efectos especiales — con instalación incluida. Contáctanos para cotizar.`}
     cotizarHref="/contacto/"
     whatsappText="Hola%20REDEIL%2C%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento%20en%20CDMX"
   />
 
-  <section class="dir-section">
-    <div class="container">
-      <div class="dir-header">
-        <SectionHeader
-          title={`${empresas.length} Proveedores en Ciudad de México`}
-          paragraph1="Tiendas especializadas en venta de equipo de audio, iluminación y sonido para eventos en CDMX."
-          paragraph2="Calificaciones basadas en reseñas reales de Google Maps."
-        />
-        <a href="/directorio/estado-de-mexico/" class="dir-zone-link">Ver Edomex →</a>
-      </div>
+  <!-- CtaBar: categorías del directorio -->
+  <CtaBar
+    headline="Explora por categoría de equipo"
+    items={[
+      { label: `Audio (${conteo.audio ?? 0})`, href: '#dir-grid', icon: 'sonido' },
+      { label: `Iluminación (${conteo.iluminacion ?? 0})`, href: '#dir-grid', icon: 'iluminacion' },
+      { label: `Audio & Video (${conteo['audio-video'] ?? 0})`, href: '#dir-grid', icon: 'iluminacion' },
+      { label: 'Cotizar Renta', href: '/contacto/', icon: 'cotizar' },
+    ]}
+  />
 
-      <div class="services-grid">
-        {empresas.map(empresa => (
-          <DirectoryCard
-            nombre={empresa.data.nombre}
-            categoria={empresa.data.categoria}
-            zona={empresa.data.zona}
-            alcaldia_municipio={empresa.data.alcaldia_municipio}
-            telefono={empresa.data.telefono}
-            rating={empresa.data.rating}
-            resenas={empresa.data.resenas}
-            slug={empresa.slug}
+  <!-- ── Grid + Sidebar ── -->
+  <section class="dir-section" id="dir-grid">
+    <div class="container">
+      <div class="dir-layout">
+
+        <!-- Grid principal -->
+        <div class="dir-grid-wrap">
+          <SectionHeader
+            title={`${empresas.length} Proveedores en Ciudad de México`}
+            paragraph1="Tiendas especializadas en venta de equipo de audio, iluminación y sonido para eventos en CDMX."
+            paragraph2="Calificaciones basadas en reseñas reales de Google Maps. Actualizadas regularmente."
           />
-        ))}
+
+          <div class="dir-grid">
+            {empresas.map(empresa => (
+              <DirectoryCard
+                nombre={empresa.data.nombre}
+                categoria={empresa.data.categoria}
+                zona={empresa.data.zona}
+                alcaldia_municipio={empresa.data.alcaldia_municipio}
+                telefono={empresa.data.telefono}
+                rating={empresa.data.rating}
+                resenas={empresa.data.resenas}
+                slug={empresa.slug}
+              />
+            ))}
+          </div>
+        </div>
+
+        <!-- Sidebar sticky -->
+        <aside class="dir-sidebar">
+
+          <!-- Categorías con conteo -->
+          <div class="dir-sidebar__card">
+            <h3 class="dir-sidebar__title">Categorías disponibles</h3>
+            <ul class="dir-sidebar__cats">
+              {Object.entries(conteo).map(([cat, count]) => (
+                <li class="dir-sidebar__cat">
+                  <span class="dir-sidebar__cat-name">{categoriaLabel[cat] ?? cat}</span>
+                  <span class="dir-sidebar__cat-count">{count}</span>
+                </li>
+              ))}
+              <li class="dir-sidebar__cat dir-sidebar__cat--total">
+                <span class="dir-sidebar__cat-name">Total</span>
+                <span class="dir-sidebar__cat-count">{empresas.length}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA REDEIL -->
+          <div class="dir-sidebar__cta">
+            <p class="dir-sidebar__cta-label">¿Prefieres rentar?</p>
+            <h4 class="dir-sidebar__cta-title">Renta con instalación incluida</h4>
+            <p class="dir-sidebar__cta-desc">REDEIL lleva, instala y opera el equipo en tu evento en CDMX. Sin inversión inicial.</p>
+            <a href="https://wa.me/525530682988?text=Hola%20REDEIL%2C%20quiero%20cotizar%20para%20mi%20evento%20en%20CDMX" target="_blank" rel="noopener noreferrer" class="dir-sidebar__wa-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              55 3068 2988
+            </a>
+            <a href="/servicios/" class="dir-sidebar__servicios-link">Ver servicios de renta →</a>
+          </div>
+
+          <!-- Link a Edomex -->
+          <div class="dir-sidebar__zona">
+            <p class="dir-sidebar__zona-label">¿Buscas proveedores en Estado de México?</p>
+            <a href="/directorio/estado-de-mexico/" class="dir-sidebar__zona-link">Ver directorio Edomex →</a>
+          </div>
+
+        </aside>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ── FAQ ── -->
+  <section class="dir-faq">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas frecuentes sobre proveedores de audio e iluminación en CDMX"
+        paragraph1="Todo lo que necesitas saber antes de comprar equipo de audio, iluminación o efectos para tu evento en la Ciudad de México."
+      />
+    </div>
+    <FaqSection
+      items={[
+        {
+          question: "¿Cuáles son las mejores tiendas de audio en el Centro Histórico de CDMX?",
+          answer: "La zona del Centro Histórico —especialmente las calles Uruguay, Mesones y Salvador El Seco— concentra varias tiendas especializadas en audio profesional. Esquema Musical, Audio Mundo Salvador 30 y otras opciones del directorio se ubican en esta zona, con fácil acceso en Metro o Metrobús."
+        },
+        {
+          question: "¿Es mejor comprar o rentar equipo de iluminación para un evento?",
+          answer: "Para eventos únicos como bodas o XV años, la renta es casi siempre la mejor opción: evitas la inversión inicial, el transporte, el almacenamiento y el mantenimiento. Para organizadores con más de 8-10 eventos por año, la compra puede comenzar a convenir. REDEIL ofrece renta de equipo profesional con instalación incluida para cualquier tipo de evento en CDMX."
+        },
+        {
+          question: "¿Qué tipo de equipo puedo encontrar en las tiendas del directorio?",
+          answer: "El directorio cubre cuatro categorías principales: audio profesional (bocinas, micrófonos, consolas, amplificadores), iluminación para eventos (LEDs, cabezas móviles, láseres, guirnaldas), sistemas de audio y video integrado, y equipo específico para DJs. La mayoría de tiendas se ubica en CDMX, con cobertura en toda la zona metropolitana."
+        },
+        {
+          question: "¿REDEIL puede complementar el equipo que compré en una tienda del directorio?",
+          answer: "Sí, perfectamente. Si ya cuentas con parte del equipo técnico pero necesitas iluminación profesional o efectos especiales para tu evento, REDEIL puede proveer exactamente lo que te falta: cabezas móviles, láseres, humo bajo, confeti, pantallas LED y más. Contáctanos al 55 3068 2988 para coordinar."
+        },
+      ]}
+      waMessage="Hola REDEIL, encontré el directorio y quiero cotizar equipo para mi evento en CDMX."
+    />
+  </section>
+
+  <!-- ── CTA final ── -->
   <section class="dir-cta">
     <div class="container">
       <div class="dir-cta__box">
@@ -71,44 +174,203 @@ empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
           <h2 class="dir-cta__title">¿Prefieres rentar equipo para tu evento en CDMX?</h2>
           <p class="dir-cta__desc">REDEIL renta iluminación profesional con instalación incluida. Cabezas móviles, láseres, pantallas LED, efectos especiales y sonido. Cubrimos toda la Ciudad de México y Estado de México.</p>
         </div>
-        <a href="/contacto/" class="dir-cta__btn">Cotizar mi evento →</a>
+        <div class="dir-cta__btns">
+          <a href="/contacto/" class="dir-cta__btn">Cotizar mi evento →</a>
+          <a href="/directorio/estado-de-mexico/" class="dir-cta__btn dir-cta__btn--outline">Ver Edomex →</a>
+        </div>
       </div>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
-  .dir-section { padding: 4rem 0; }
-
-  .dir-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+  /* ── Section layout ── */
+  .dir-section {
+    padding: 4rem 0;
+    background: var(--c-bg, #FEFDFB);
   }
 
-  .dir-zone-link {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary, #2C5530);
-    text-decoration: none;
-    white-space: nowrap;
-    align-self: flex-end;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--c-border, #E7E0D8);
-    border-radius: 8px;
-    background: #fff;
+  .dir-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    align-items: start;
   }
 
+  /* ── Grid ── */
   .dir-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .dir-cta { padding: 3rem 0; background: var(--c-bg-alt, #F7F4F0); }
+  /* ── Sidebar ── */
+  .dir-sidebar {
+    position: sticky;
+    top: calc(var(--header-height, 70px) + 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .dir-sidebar__card {
+    background: #fff;
+    border: 1px solid var(--c-border, #E7E0D8);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .dir-sidebar__title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--c-text, #1C1917);
+    margin: 0 0 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--c-border, #E7E0D8);
+  }
+
+  .dir-sidebar__cats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dir-sidebar__cat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--c-text, #1C1917);
+    padding: 0.375rem 0;
+    border-bottom: 1px solid var(--c-border, #E7E0D8);
+  }
+
+  .dir-sidebar__cat:last-child {
+    border-bottom: 0;
+  }
+
+  .dir-sidebar__cat--total .dir-sidebar__cat-name {
+    font-weight: 700;
+  }
+
+  .dir-sidebar__cat-count {
+    background: var(--color-primary, #ff5722);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.125rem 0.5rem;
+    border-radius: 20px;
+  }
+
+  /* Sidebar CTA */
+  .dir-sidebar__cta {
+    background: var(--color-secondary, #1a1a2e);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .dir-sidebar__cta-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.5);
+    margin: 0 0 0.375rem;
+  }
+
+  .dir-sidebar__cta-title {
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .dir-sidebar__cta-desc {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .dir-sidebar__wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #25D366;
+    color: #fff;
+    font-family: var(--font-primary, 'Montserrat', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .dir-sidebar__servicios-link {
+    display: block;
+    text-align: center;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+  }
+
+  .dir-sidebar__servicios-link:hover {
+    color: #fff;
+  }
+
+  /* Sidebar zona link */
+  .dir-sidebar__zona {
+    background: #fff;
+    border: 1px solid var(--c-border, #E7E0D8);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .dir-sidebar__zona-label {
+    font-size: 0.8125rem;
+    color: var(--c-text-muted, #78716C);
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+  }
+
+  .dir-sidebar__zona-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary, #ff5722);
+    text-decoration: none;
+  }
+
+  .dir-sidebar__zona-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ── FAQ ── */
+  .dir-faq {
+    padding: 4rem 0;
+    background: var(--c-bg-alt, #F7F4F0);
+  }
+
+  .dir-faq .container {
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── CTA final ── */
+  .dir-cta {
+    padding: 3rem 0;
+    background: var(--c-bg, #FEFDFB);
+  }
 
   .dir-cta__box {
     background: var(--color-secondary, #1a1a2e);
@@ -134,7 +396,14 @@ empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
     color: rgba(255,255,255,0.8);
     line-height: 1.7;
     margin: 0;
-    max-width: 540px;
+    max-width: 520px;
+  }
+
+  .dir-cta__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .dir-cta__btn {
@@ -148,16 +417,43 @@ empresas.sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0));
     text-decoration: none;
     border-radius: 8px;
     white-space: nowrap;
-    flex-shrink: 0;
+    text-align: center;
   }
 
+  .dir-cta__btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .dir-grid { grid-template-columns: repeat(2, 1fr); }
+    .dir-layout {
+      grid-template-columns: 1fr;
+    }
+    .dir-sidebar {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .dir-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dir-sidebar {
+      grid-template-columns: 1fr;
+    }
+    .dir-cta__box {
+      padding: 2rem 1.5rem;
+    }
+    .dir-cta__title { font-size: 1.125rem; }
   }
 
   @media (max-width: 640px) {
     .dir-grid { grid-template-columns: 1fr; }
-    .dir-cta__box { padding: 2rem 1.5rem; }
-    .dir-cta__title { font-size: 1.125rem; }
+    .dir-cta__btns { flex-direction: row; flex-wrap: wrap; }
   }
 </style>

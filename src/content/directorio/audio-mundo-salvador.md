@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-19:00"
 rating: 4.1
 resenas: 502
 servicios:
-  - "Venta de bocinas profesionales"
-  - "Venta de amplificadores"
-  - "Venta de mezcladoras"
+  - "Bocinas profesionales"
+  - "Amplificadores de potencia"
+  - "Consolas mezcladoras"
   - "Cables y accesorios de audio"
   - "Equipos de audio comercial"
   - "Instalación de sistemas de audio"
 activo: true
 ---
 
-Ubicada en el corazón del Centro Histórico de la Ciudad de México, Audio Mundo Salvador 30 es una de las tiendas de referencia para quienes buscan equipo de audio profesional en CDMX. Con más de 500 reseñas en Google Maps y una calificación sólida, ha ganado la confianza de DJ's, empresas de eventos y técnicos de sonido a lo largo de los años.
+Audio Mundo Salvador 30 se ubica en una de las calles más conocidas del gremio audiovisual del Centro Histórico: la calle Salvador El Seco, donde se concentra una buena parte de la oferta de equipo de audio en CDMX. Con más de 500 reseñas en Google Maps y una calificación de 4.1 estrellas, es una referencia consolidada para DJs, técnicos de sonido y organizadores de eventos que buscan equipo sin necesidad de ir a tiendas departamentales.
 
-Su catálogo incluye bocinas profesionales de marcas reconocidas, amplificadores de potencia, consolas mezcladoras, cables y accesorios de todo tipo. Atienden tanto a clientes que buscan equipos para uso doméstico como a profesionales del sector de audio, lo que los convierte en un punto de encuentro para toda la industria del sonido en CDMX.
+Su inventario incluye bocinas de marcas reconocidas en diferentes rangos de potencia, amplificadores, consolas mezcladoras analógicas y digitales, cables profesionales de diferentes tipos y longitudes, y conectores especializados difíciles de encontrar en tiendas genéricas. Atienden tanto a clientes que compran un equipo completo como a técnicos que necesitan reponer un componente específico o un accesorio.
 
-La tienda se distingue por su amplia variedad de productos en un solo lugar. Desde el técnico de sonido que necesita reponer cables especializados, hasta el organizador de eventos que requiere una bocina de gran potencia para una boda o conferencia: en Audio Mundo Salvador 30 suelen encontrar lo que buscan sin necesidad de visitar múltiples locales.
+La variedad es uno de los puntos fuertes de la tienda: si buscas una bocina de 15 pulgadas para un evento mediano, cables de micrófono de longitudes específicas o conectores XLR de calidad, es bastante probable que los encuentres aquí. El personal tiene experiencia práctica en el sector y puede orientarte sobre compatibilidades técnicas entre equipos de diferentes marcas.
 
-Si tu evento ya tiene al equipo técnico cubierto pero necesitas renta de iluminación y sonido con instalación incluida, en REDEIL podemos complementar tu producción con iluminación profesional, pantallas LED y efectos especiales. Nosotros llevamos todo e instalamos.
+Si tu evento requiere renta de iluminación para complementar el sistema de audio, REDEIL ofrece equipo profesional con instalación incluida en CDMX. Cabezas móviles, láseres, efectos especiales y pantallas LED, todo con personal técnico que se encarga del montaje y desmontaje. Contáctanos al 55 3068 2988.

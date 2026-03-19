@@ -11,19 +11,19 @@ horario: "Lun-Vie 09:00-18:00"
 rating: 4.7
 resenas: 43
 servicios:
-  - "Ingeniería de audio profesional"
-  - "Diseño de sistemas de sonido"
-  - "Instalación de sistemas de audio"
-  - "Acústica y tratamiento acústico"
-  - "Consultoría en audio profesional"
-  - "Mantenimiento de sistemas"
+  - "Diseño de sistemas de sonido personalizados"
+  - "Instalación de audio en auditorios y teatros"
+  - "Consultoría acústica y tratamiento acústico"
+  - "Sistemas de audio para salas corporativas"
+  - "Integración con sistemas de control"
+  - "Mantenimiento preventivo y correctivo"
 activo: true
 ---
 
-Forest Ingeniería en Audio es una empresa que lleva la palabra "ingeniería" en su nombre y lo respalda con hechos: calificación de 4.7 estrellas entre sus clientes, quienes destacan la solidez técnica y el rigor profesional de su equipo. Esta empresa no simplemente vende equipo de audio; diseña, instala y optimiza sistemas de sonido para que funcionen de manera óptima en cada espacio específico.
+Forest Ingeniería en Audio pone el énfasis en la palabra "ingeniería", y sus clientes confirman que no es solo marketing: la empresa obtiene una calificación de 4.7 estrellas precisamente porque aborda el audio como una disciplina técnica, no como una simple venta de equipos. Su modelo de trabajo parte del análisis del espacio y los requerimientos antes de proponer cualquier solución.
 
-El enfoque de Forest Ingeniería es la consultoría y el diseño integral: antes de proponer cualquier solución, analizan las características acústicas del espacio, el uso previsto y los requerimientos técnicos del cliente. Esto resulta en instalaciones de audio que realmente suenan bien, no solo en papel sino en la realidad del espacio donde operan.
+La empresa trabaja principalmente en proyectos de instalación permanente: auditorios universitarios y corporativos, teatros, salas de conferencias, estudios de grabación y espacios de entretenimiento. El proceso incluye el diseño acústico del espacio, la selección de equipos según las características de cada ambiente, y la instalación con ajuste fino del sistema una vez montado. Esto garantiza que el resultado sonoro sea real, no solo teórico.
 
-Sus proyectos incluyen instalaciones en auditorios, teatros, salas de juntas, estudios de grabación y espacios de entretenimiento. También ofrecen servicios de tratamiento acústico, que es un aspecto frecuentemente subestimado pero crucial para el resultado final de cualquier instalación de audio.
+Ubicados en Del Valle, Benito Juárez, trabajan principalmente con clientes del sector corporativo, educativo y cultural que valoran la solidez técnica por encima del precio. También ofrecen tratamiento acústico —paneles, difusores, absorbentes— para mejorar las condiciones sonoras de espacios existentes que presentan problemas de reverberación o reflexiones indeseadas.
 
-Si tu proyecto necesita tanto el sistema de audio como la iluminación, REDEIL puede ser tu socio para la parte de iluminación. Ofrecemos renta e instalación de equipo de iluminación profesional para todo tipo de eventos en CDMX, con personal técnico experimentado.
+Si tu proyecto necesita tanto audio como iluminación, REDEIL puede ser tu socio para la parte de iluminación profesional. Ofrecemos renta de equipo de iluminación escénica con instalación para todo tipo de eventos en CDMX, con coordinación técnica flexible para trabajar junto a cualquier integrador de audio. Tel: 55 3068 2988.

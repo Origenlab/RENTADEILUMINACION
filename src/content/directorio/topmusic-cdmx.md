@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-19:00"
 rating: 4.3
 resenas: 1176
 servicios:
-  - "Instrumentos musicales"
-  - "Equipo de audio para eventos"
-  - "Bocinas y amplificadores"
-  - "Micrófonos inalámbricos"
-  - "Accesorios para músicos"
-  - "Equipo de estudio"
+  - "Instrumentos musicales (guitarras, percusión, vientos)"
+  - "Bocinas y sistemas de PA para eventos"
+  - "Micrófonos inalámbricos profesionales"
+  - "Consolas mezcladoras"
+  - "Equipo de estudio (interfaces, monitores)"
+  - "Accesorios y pedales para músicos"
 activo: true
 ---
 
-TopMusic CDMX se ha consolidado como una de las tiendas de audio e instrumentos más reconocidas en la Ciudad de México, acumulando más de 1,100 reseñas positivas en Google Maps. Su propuesta cubre tanto el mundo del músico profesional como las necesidades de quienes organizan eventos y requieren equipos de sonido confiables.
+TopMusic CDMX es una tienda con más de 1,100 reseñas en Google Maps, lo que la convierte en una de las más consultadas para compras de audio e instrumentos en la zona de Jardín Balbuena, Venustiano Carranza. Su catálogo amplio y su accesibilidad desde la zona oriente y el centro de la ciudad explican el flujo constante de clientes que recibe.
 
-El inventario de TopMusic abarca desde instrumentos de cuerda y percusión hasta equipos de audio de alto rendimiento para uso en vivo. Sus consolas mezcladoras, bocinas de escenario y sistemas de monitoreo son elegidos frecuentemente por bandas, DJs y productores de eventos que buscan calidad sin comprometer el presupuesto.
+La propuesta de TopMusic abarca tanto el mundo del músico profesional como el del organizador de eventos. En instrumentos musicales tienen guitarras eléctricas y acústicas, baterías, percusión, teclados y una variedad de accesorios. En audio, el inventario incluye bocinas de escenario de diferentes potencias, micrófonos inalámbricos, consolas mezcladoras analógicas y digitales, y equipo de estudio para producción musical.
 
-Una de las ventajas de TopMusic es la atención especializada: sus vendedores tienen conocimiento técnico real y pueden asesorarte sobre qué sistema de sonido es más adecuado según el tipo de evento, el espacio y el número de asistentes. También manejan equipo de estudio para grabación profesional.
+Los vendedores de TopMusic tienen conocimiento técnico real del sector y pueden asesorarte sobre la solución más adecuada según el tipo de evento, el tamaño del espacio y el número de personas. Si necesitas un sistema de sonido para una boda de 150 personas en jardín o para una conferencia corporativa con amplificación distribuida, aquí puedes obtener una recomendación pertinente y honesta.
 
-Si tu producción necesita iluminación para complementar el sonido, recuerda que en REDEIL rentamos equipo de iluminación profesional, cabezas móviles, efectos especiales y pantallas LED. Nosotros nos encargamos del montaje y desmontaje para que tú solo te preocupes por el evento.
+Para complementar el audio de tu evento con iluminación profesional, REDEIL renta equipo de iluminación, cabezas móviles, efectos especiales y pantallas LED. Nosotros nos encargamos del montaje y desmontaje para que solo te preocupes por el evento. Tel: 55 3068 2988.

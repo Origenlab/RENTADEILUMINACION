@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-19:00"
 rating: 4.3
 resenas: 74
 servicios:
-  - "Venta de cañones láser"
-  - "Luces LED de efectos"
-  - "Iluminación para discotecas"
-  - "Efectos de luz para eventos"
-  - "Láseres RGB profesionales"
-  - "Controladores de efectos"
+  - "Cañones láser RGB profesionales"
+  - "Luces LED de efectos (strobes, scanners)"
+  - "Iluminación para discotecas y clubs"
+  - "Efectos de luz para eventos y fiestas"
+  - "Controladores DMX para efectos"
+  - "Asesoría en seguridad en uso de láseres"
 activo: true
 ---
 
-Laser&LED es una tienda especializada en dos tecnologías que transforman cualquier evento: los cañones láser y las luces LED de efectos. Con una calificación de 4.3 estrellas, atiende a organizadores de eventos, técnicos de iluminación y propietarios de negocios de entretenimiento que buscan el efecto visual de los láseres sin comprometer la calidad ni la seguridad.
+Laser&LED es una tienda especializada en los dos tipos de efecto visual que más impacto tienen en cualquier evento: los cañones láser y las luces LED de efectos. Con 4.3 estrellas en más de 70 reseñas, atiende a un perfil de cliente que sabe lo que quiere: propietarios de clubs y bares, técnicos de iluminación, y organizadores de eventos que buscan equipo de efectos para crear experiencias visuales memorables.
 
-El catálogo de Laser&LED incluye láseres RGB de diferentes potencias, desde opciones económicas para pequeñas fiestas hasta equipos de alta potencia para producciones más grandes. También manejan efectos LED de todo tipo: secuencias de color, strobes, scanners y wash que pueden sincronizarse con música mediante controladores DMX o de forma automática.
+El catálogo de Laser&LED incluye láseres RGB de diferentes potencias —desde opciones de clase IIIa para pequeños espacios hasta equipos de mayor potencia para producciones más grandes— con patrones programables y opciones de control remoto o DMX. También tienen efectos LED de todo tipo: strobes de alta velocidad para coreografías de luz, scanners para efectos de haz móvil, y luces de discoteca con patrones automáticos.
 
-Una ventaja importante de esta tienda es el conocimiento técnico sobre seguridad en el uso de láseres. No todos los láseres son iguales ni seguros para todos los contextos: Laser&LED puede orientarte sobre la clase de láser adecuada para tu aplicación y las distancias de seguridad que debes mantener en diferentes tipos de eventos.
+Un aspecto importante y diferencial de esta tienda es el conocimiento técnico sobre seguridad en el uso de láseres. No todos los láseres son legales ni seguros para todos los contextos: existen regulaciones sobre la potencia máxima permitida según el tipo de evento y el público. En Laser&LED pueden asesorarte sobre la clasificación del láser adecuado para tu aplicación y las distancias de seguridad que debes mantener.
 
-Si necesitas láseres y efectos LED de alta potencia para tu evento pero no quieres invertir en la compra del equipo, en REDEIL rentamos cañones láser, máquinas de efectos y iluminación profesional para eventos en CDMX. Nuestro personal técnico opera el equipo con total seguridad.
+Para eventos donde necesitas que los láseres sean operados por técnicos certificados con equipo de alta potencia, REDEIL renta cañones láser y efectos LED profesionales con personal técnico incluido para eventos en CDMX. Tel: 55 3068 2988.

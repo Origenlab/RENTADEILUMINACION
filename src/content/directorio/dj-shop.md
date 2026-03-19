@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-20:00"
 rating: 4.6
 resenas: 283
 servicios:
-  - "Equipo profesional para DJ"
-  - "Controladores y platos de vinilo"
+  - "Controladores DJ (Pioneer, Native Instruments, Rane)"
+  - "Reproductores CDJ y giradiscos"
   - "Consolas DJ digitales"
-  - "Auriculares profesionales"
-  - "Software y licencias DJ"
-  - "Iluminación para DJ"
+  - "Auriculares profesionales para DJ"
+  - "Software y licencias para DJ"
+  - "Iluminación básica para DJ"
 activo: true
 ---
 
-DJ Shop es la referencia en equipo para DJs en la Ciudad de México, con una impresionante calificación de 4.6 estrellas en más de 280 reseñas. Esta tienda está completamente enfocada en las necesidades del DJ profesional y semiprofesional, ofreciendo desde controladores básicos hasta equipos de alto rendimiento para clubs y festivales.
+DJ Shop es la tienda de referencia en equipo para DJs en el Centro Histórico de CDMX, con 4.6 estrellas en más de 280 reseñas. Aquí el foco está puesto exclusivamente en las necesidades del DJ profesional y semiprofesional: desde el DJ que está armando su primer setup hasta el profesional de club o festival que busca actualizar su equipo a las últimas especificaciones.
 
-El catálogo de DJ Shop incluye controladores de las marcas más reconocidas del sector: Pioneer DJ, Native Instruments, Rane, entre otras. También manejan platos de vinilo y reproductores CDJ para los DJs más exigentes que prefieren el equipo tradicional de cabina. Sus asesores son, en muchos casos, DJs activos o técnicos con experiencia real en el mundo de los eventos.
+El catálogo incluye controladores de las marcas más relevantes del sector: Pioneer DJ (DDJ, XDJ, CDJ), Native Instruments (Traktor Kontrol), Rane y otras marcas de referencia. También manejan platos de vinilo para los DJs más tradicionales y giradiscos profesionales. Los asesores de la tienda son —en muchos casos— DJs activos con experiencia real en cabina, lo que hace que las recomendaciones tengan sentido práctico real.
 
-Además del equipo principal, DJ Shop cuenta con una buena selección de accesorios: auriculares profesionales, fundas y maletas para transporte, interfaces de audio, software y licencias. También tienen opciones de iluminación básica para DJ, aunque para producciones de mayor escala siempre conviene complementar con equipo especializado.
+Además del equipo principal, DJ Shop tiene buena selección de accesorios: auriculares de monitoreo de marcas como Sennheiser, Audio-Technica y Pioneer, fundas y maletas para transporte de equipo, interfaces de audio USB y controladores MIDI. También manejan licencias de software como Serato, Rekordbox y Traktor. La tienda está bien surtida para que un DJ pueda armar su setup completo en una sola visita.
 
-Si eres DJ y necesitas iluminación profesional para tus eventos más grandes, REDEIL puede ayudarte. Rentamos cabezas móviles, cañones láser, efectos LED y todo el equipo que necesitas para crear un show de luz completo. Nosotros instalamos y tú te enfocas en la música.
+Si necesitas iluminación profesional para tus eventos —cabezas móviles, láseres, efectos LED, strobes— REDEIL renta equipo de iluminación completo para DJs y productoras. Nosotros instalamos y tú te concentras en la música. Ideal para eventos donde la producción de luz marca la diferencia. Tel: 55 3068 2988.

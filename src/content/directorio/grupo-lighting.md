@@ -2,7 +2,7 @@
 nombre: "Grupo Lighting"
 categoria: "iluminacion"
 zona: "cdmx"
-alcaldia_municipio: "Naucalpan / Miguel Hidalgo"
+alcaldia_municipio: "Miguel Hidalgo"
 direccion: "Av. Ingenieros Militares 45, Lomas de Sotelo, Ciudad de México"
 telefono: "55 5395 8899"
 facebook: ""
@@ -11,19 +11,19 @@ horario: "Lun-Vie 09:00-18:00"
 rating: 4.2
 resenas: 93
 servicios:
-  - "Iluminación profesional"
+  - "Iluminación profesional para eventos"
   - "Sistemas de iluminación escénica"
   - "Soluciones de iluminación corporativa"
   - "Proyectos de iluminación arquitectónica"
-  - "Instalaciones de iluminación"
+  - "Instalaciones de iluminación permanentes"
   - "Distribución de marcas especializadas"
 activo: true
 ---
 
-Grupo Lighting es una empresa dedicada a la iluminación profesional con enfoque en proyectos corporativos y escénicos. Con una calificación de 4.2 estrellas, atiende principalmente a empresas del sector de eventos, hoteles y espacios comerciales que requieren soluciones de iluminación técnica con respaldo profesional.
+Grupo Lighting es una empresa especializada en iluminación profesional con enfoque en proyectos de mayor envergadura: eventos corporativos, instalaciones permanentes en hoteles y centros de convenciones, y proyectos de iluminación arquitectónica. Con 4.2 estrellas en Google Maps, atiende principalmente a empresas del sector de eventos y hospitalidad que requieren soluciones técnicas con respaldo profesional.
 
-La empresa ofrece una gama completa de soluciones: desde la consultoría y el diseño de sistemas de iluminación hasta la distribución de equipo y la instalación. Trabajan con marcas reconocidas en el sector de la iluminación profesional y pueden asesorar en proyectos de diferentes escalas, desde pequeñas salas de eventos hasta auditorios y espacios abiertos.
+La propuesta de Grupo Lighting va más allá de la simple venta de luminarias. Ofrecen consultoría para el diseño de sistemas de iluminación —considerando la temperatura de color, la intensidad y el control necesario para cada espacio— así como la instalación y puesta en marcha. Trabajan con marcas reconocidas en el sector profesional y pueden asesorar en proyectos desde una pequeña sala de eventos hasta un gran auditorio.
 
-Grupo Lighting tiene experiencia en proyectos de iluminación arquitectónica, donde la estética y la eficiencia energética son prioritarias. También conocen bien las necesidades del sector de eventos y pueden recomendar el equipo adecuado según el tipo de producción, el aforo y las condiciones del espacio.
+Su experiencia en iluminación arquitectónica es un diferencial importante: saben cómo iluminar fachadas, espacios de circulación y áreas de recepción de hoteles y edificios corporativos para lograr el efecto visual deseado con eficiencia energética. Para el sector de eventos, tienen conocimiento de los sistemas de control DMX y las opciones de automatización que permiten crear shows de luz sincronizados.
 
-Si necesitas renta de iluminación profesional para tu próximo evento en lugar de comprar el equipo, en REDEIL somos tu aliado. Ofrecemos paquetes completos de iluminación para bodas, eventos corporativos, conciertos y espectáculos en CDMX y Estado de México.
+Si necesitas renta de equipo de iluminación profesional para un evento puntual en lugar de comprar, REDEIL es la opción complementaria: renta de cabezas móviles, láseres, efectos especiales y pantallas LED para bodas, eventos corporativos y conciertos en CDMX y Estado de México, con instalación incluida. Tel: 55 3068 2988.

@@ -11,19 +11,19 @@ horario: "Lun-Sáb 10:00-20:00"
 rating: 4.3
 resenas: 2354
 servicios:
-  - "Venta de instrumentos musicales"
-  - "Equipo de audio profesional"
-  - "Micrófonos y accesorios"
-  - "Consolas de mezcla"
-  - "Sistemas de PA"
-  - "Equipo para DJ"
+  - "Instrumentos musicales de todas las familias"
+  - "Bocinas y sistemas de PA para eventos"
+  - "Micrófonos profesionales y de estudio"
+  - "Consolas de mezcla analógicas y digitales"
+  - "Equipo para DJ (controladores, reproductores)"
+  - "Taller de reparación y servicio"
 activo: true
 ---
 
-Music Club CDMX es una de las tiendas de instrumentos y equipo de audio más populares de la Ciudad de México, con más de 2,300 reseñas en Google Maps que hablan por sí solas. Su amplio catálogo cubre desde guitarras y teclados hasta sistemas de sonido profesional para eventos, lo que la convierte en una opción muy completa para músicos y profesionales del audio.
+Music Club CDMX es una de las tiendas de audio e instrumentos con mayor volumen de reseñas en la Ciudad de México: más de 2,300 valoraciones en Google Maps que la convierten en una de las referencias más consultadas del sector. Su ubicación sobre el Eje Central en el Centro Histórico facilita el acceso desde cualquier punto de la ciudad y contribuye a su flujo constante de clientes.
 
-El local se destaca por la variedad de marcas que maneja: puedes encontrar desde equipos de entrada hasta líneas profesionales de renombre internacional. Su equipo de asesores conoce bien los productos y puede orientar tanto al músico aficionado que busca su primer instrumento como al técnico de sonido que necesita actualizar su sistema de PA para eventos de mayor escala.
+El catálogo de Music Club CDMX combina instrumentos musicales de toda clase —guitarras, teclados, baterías, vientos, cuerdas— con equipo de audio profesional para eventos. En la parte de audio, manejan bocinas de escenario de diferentes potencias, consolas mezcladoras, micrófonos dinámicos y de condensador, sistemas de monitoreo y accesorios. La variedad de marcas disponibles cubre desde opciones económicas de entrada hasta líneas profesionales reconocidas internacionalmente.
 
-Music Club CDMX también cuenta con un servicio de taller y mantenimiento de instrumentos, lo cual es un valor añadido importante para artistas que trabajan de forma continua. Los tiempos de atención suelen ser razonables y el inventario se mantiene bien surtido incluso en temporadas altas.
+El equipo de vendedores tiene conocimiento técnico real y puede orientar tanto al músico aficionado como al técnico de sonido profesional. También cuentan con taller de servicio para reparaciones de instrumentos y equipo de audio, lo que agrega valor especialmente para músicos que trabajan de forma continua y necesitan tener su equipo en óptimas condiciones.
 
-Si después de comprar tu equipo necesitas complementar con renta de iluminación para el evento, en REDEIL ofrecemos paquetes completos de iluminación profesional, efectos especiales y pantallas LED con instalación incluida en CDMX y Estado de México.
+Si después de equipar tu producción musical necesitas iluminación para el evento, REDEIL ofrece paquetes completos de iluminación profesional, efectos especiales y pantallas LED con instalación incluida en CDMX y Estado de México. Tel: 55 3068 2988.
