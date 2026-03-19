@@ -45,9 +45,9 @@ const servicios = [
 
     <Hero
       title="Renta de Iluminación Profesional para Eventos en CDMX"
-      subtitle="11 tipos de luces profesionales con instalación incluida. Equipo Martin Professional, Chauvet y Elation."
-      introParagraph1='En <strong>REDEIL</strong> diseñamos la iluminación para cada tipo de evento — desde una boda íntima en jardín con guirnaldas vintage y luz cálida, hasta un evento corporativo en hotel con luces LED, cabezas móviles DMX y uplighting arquitectónico. Nuestro catálogo incluye 11 servicios de iluminación profesional en CDMX y Estado de México.'
-      introParagraph2='Trabajamos con luminarias de <strong>Martin Professional</strong>, <strong>Chauvet</strong> y <strong>Elation</strong> — equipo profesional que también se usa en conciertos y producciones de televisión. Cada renta incluye transporte, instalación profesional incluida, operación durante el evento y desmontaje al finalizar. Nuestro equipo técnico se encarga de todo para que tú solo disfrutes. Cotiza gratis por WhatsApp.'
+      subtitle="13 servicios de iluminación con instalación incluida. Equipo Martin Professional, Chauvet y Elation."
+      introParagraph1='La iluminación define cómo se ve y cómo se siente un evento. No es decoración — es lo que hace que una hacienda se vea imponente, que la pista de baile funcione, que las fotos salgan bien. En <strong>REDEIL</strong> manejamos 13 tipos de iluminación: guirnaldas Edison, uplighting arquitectónico, cabezas móviles DMX, seguidor, gobos, cascadas LED, sky tracker, luces UV, city color y más. Cada uno resuelve algo distinto.'
+      introParagraph2='Trabajamos con <strong>Martin Professional</strong>, <strong>Chauvet</strong> y <strong>Elation</strong> — el mismo equipo que se usa en conciertos y televisión. Lo que cambia es cómo se programa: no es lo mismo iluminar un salón de 200m² que un jardín abierto donde la luz se pierde. Nuestro técnico llega horas antes, monta, ecualiza la luz al espacio y opera todo durante el evento. Transporte, instalación, operación y desmontaje van incluidos.'
     />
 
     <CtaBar
@@ -63,10 +63,10 @@ const servicios = [
     <section class="services-section">
       <div class="container">
         <SectionHeader
-          title="Nuestro Catálogo de Iluminación"
-          subtitle="13 servicios con equipo profesional e instalación incluida."
-          paragraph1="Cada tipo de luz crea una atmósfera diferente. Las guirnaldas Edison aportan calidez a una boda en jardín, las cabezas móviles convierten una pista de baile en un show de luces, el seguidor convierte el vals en un momento cinematográfico."
-          paragraph2="Nuestros técnicos te asesoran sobre qué equipo funciona mejor para tu espacio y tipo de evento. Haciendas, salones, terrazas, jardines — cada venue tiene su combinación de luces ideal. La mayoría de bodas y XV años combinan 3-5 tipos de iluminación."
+          title="Catálogo de Iluminación"
+          subtitle="13 servicios — cada uno resuelve algo distinto en tu evento."
+          paragraph1="Las guirnaldas dan calidez a un jardín. El uplighting convierte una fachada de cantera en el fondo de todas las fotos. Las cabezas móviles arman el show en la pista. El seguidor convierte el vals en cine. Los gobos proyectan los nombres de los novios en la pista. No necesitas todo — necesitas los correctos para tu espacio."
+          paragraph2="La mayoría de bodas llevan 3 a 5 tipos de iluminación. Para XV años el paquete más común incluye cabezas móviles, seguidor y luces UV para la hora loca. Te ayudamos a elegir lo que realmente funciona en tu venue."
         />
         <div class="services-grid">
           {servicios.map((s) => (
@@ -80,24 +80,26 @@ const servicios = [
       <div class="container">
         <SectionHeader
           title="Preguntas sobre Iluminación"
-          subtitle="Lo que nuestros clientes preguntan antes de reservar."
-          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
-          paragraph2="Cada evento es diferente — por eso armamos propuestas personalizadas según tu espacio, fecha y presupuesto."
+          subtitle="Lo que nos preguntan por WhatsApp antes de apartar fecha."
+          paragraph1="Si tu duda no está aquí, mándanos mensaje y te contestamos en minutos."
+          paragraph2=""
         />
       </div>
       <FaqSection items={[
-        { question: "¿Qué tipo de iluminación recomiendan para una boda en jardín?", answer: "Para bodas al aire libre, las guirnaldas Edison son el número uno — crean un ambiente cálido y romántico. Las complementamos con uplighting arquitectónico en fachadas y gobos con los nombres de los novios. Para el vals, un seguidor profesional hace toda la diferencia." },
-        { question: "¿Cuántas luces necesito para mi evento?", answer: "Depende del tamaño del espacio y el efecto que quieras lograr. En una visita previa o con las medidas de tu venue, nuestro equipo te recomienda la cantidad exacta. No vendemos de más — lo que cotizamos es lo que realmente necesitas." },
-        { question: "¿La instalación está incluida en el precio?", answer: "Sí, siempre. Todos nuestros servicios incluyen transporte, instalación profesional, operación durante el evento y desmontaje. Nuestro staff llega horas antes para que todo esté listo cuando lleguen tus invitados." },
-        { question: "¿Puedo combinar varios tipos de iluminación?", answer: "Claro, es lo más recomendable. La mayoría de nuestros clientes combinan 2-4 tipos de luces. Por ejemplo: guirnaldas + uplighting + seguidor + humo bajo para una boda completa. Te armamos un paquete con precio especial." },
+        { question: "¿Qué iluminación funciona para una boda en jardín?", answer: "Guirnaldas Edison para la zona de mesas — es lo que da el ambiente cálido en las fotos. Uplighting en la fachada o los árboles si el venue tiene arquitectura interesante. Seguidor para el vals. Y si hay pista techada, cabezas móviles para la fiesta. Esa combinación cubre el 90% de las bodas en jardín que hacemos." },
+        { question: "¿Cuántas luces necesito?", answer: "Depende del espacio. Un jardín de 300m² necesita más uplighting que un salón cerrado de 150m². Si nos mandas las medidas del venue o fotos por WhatsApp, te decimos la cantidad exacta. No cotizamos de más — si con 8 reflectores se cubre, no te ponemos 12." },
+        { question: "¿La instalación va incluida?", answer: "Sí, siempre. Transporte, montaje, operación durante el evento y desmontaje al final. Nuestro equipo llega 4-6 horas antes. Tú no tocas nada." },
+        { question: "¿Se pueden combinar varios tipos de luz?", answer: "Sí, y es lo normal. Una boda promedio lleva 3-5 tipos: guirnaldas + uplighting + seguidor + cabezas móviles. Para XV años lo más pedido es cabezas móviles + seguidor + luz UV para la hora loca. Armamos paquete con precio especial cuando combinas." },
+        { question: "¿Qué pasa si llueve y mi evento es en jardín?", answer: "Las guirnaldas son IP65 — aguantan lluvia. El uplighting inalámbrico también. Las cabezas móviles y el seguidor necesitan techo o carpa. Si tu venue tiene plan B techado, movemos el equipo. Por eso llegamos con tiempo de sobra." },
+        { question: "¿Puedo elegir colores específicos para la iluminación?", answer: "Sí. Con LED programamos cualquier color al código HEX de tu paleta. Si tu wedding planner tiene un moodboard con colores específicos, igualamos. El técnico ajusta en sitio porque el color se ve distinto en cantera que en muro blanco." },
       ]} />
     </section>
 
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
-          <h2>¿Listo para iluminar tu evento?</h2>
-          <p>Cuéntanos la fecha, el lugar y qué tienes en mente. Te armamos una propuesta de iluminación a tu medida.</p>
+          <h2>¿Necesitas iluminación para tu evento?</h2>
+          <p>Mándanos la fecha, el venue y el tipo de evento. Te decimos qué luces funcionan para tu espacio y cuánto cuesta.</p>
           <div class="cta-buttons">
             <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
             <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>

@@ -68,9 +68,9 @@ const servicios = [
 
     <Hero
       title="Renta de Sonido y DJ para Eventos en CDMX"
-      subtitle="Audio profesional JBL y QSC con técnico incluido. Desde 50 hasta 2,000+ personas."
-      introParagraph1='No hay fiesta sin buen sonido — y hay una diferencia enorme entre "se oye" y "se siente". En <strong>REDEIL</strong> ofrecemos renta de audio profesional con bocinas <strong>JBL</strong> y sistemas <strong>QSC</strong> para cualquier tipo de evento en CDMX. Desde una presentación corporativa donde cada palabra importa, hasta una fiesta de XV años donde necesitas que el bajo se sienta en el pecho.'
-      introParagraph2='Nuestro servicio de renta de sonido incluye equipo de audio profesional, consola, DJ para fiestas, micrófonos inalámbricos y producción completa. Armamos paquetes personalizados para bodas, eventos empresariales, fiestas privadas, posadas y cualquier celebración. Atendemos toda la CDMX y Estado de México con plantas de luz disponibles para eventos al aire libre.'
+      subtitle="Audio JBL y QSC con técnico incluido. Desde 50 hasta 2,000+ personas."
+      introParagraph1='La diferencia entre "se oye" y "se siente" es el equipo y quién lo opera. Un par de bocinas Bluetooth en un jardín de 200 personas no va a funcionar — el sonido se pierde en el aire libre, el bajo desaparece, y a las 11pm los vecinos se quejan del agudo. En <strong>REDEIL</strong> dimensionamos el audio al espacio: bocinas <strong>JBL PRX</strong> para fiestas de hasta 150 personas, sistemas <strong>QSC</strong> line array para 200+, y subwoofers dedicados cuando necesitas que el bajo se sienta.'
+      introParagraph2='El técnico de audio llega 2-3 horas antes, ecualiza al venue específico (un salón de mármol rebota diferente que uno alfombrado), y se queda durante todo el evento. Si necesitas DJ, llega con consola <strong>Pioneer CDJ-2000NXS2</strong> y repertorio adaptado a tu protocolo. Si solo necesitas bocinas para tu playlist de Spotify, también. Transporte, montaje y desmontaje incluidos.'
     />
 
     <CtaBar
@@ -87,10 +87,10 @@ const servicios = [
     <section class="services-section">
       <div class="container">
         <SectionHeader
-          title="Sonido Profesional para Cada Tipo de Evento"
-          subtitle="Bocinas JBL, sistemas line array, DJ y producción de audio."
-          paragraph1="No es lo mismo una ceremonia de boda donde necesitas claridad absoluta en los votos, que una pista de baile donde quieres que el bajo se sienta en el pecho. Tampoco es igual una conferencia donde cada palabra del ponente importa, que una fiesta de XV donde el DJ tiene que prender al salón entero."
-          paragraph2="Por eso no rentamos bocinas genéricas — dimensionamos el equipo para tu espacio y tipo de evento. Nuestro técnico de audio está presente todo el tiempo para que cada momento suene perfecto."
+          title="Audio Profesional en Acción"
+          subtitle="Así se ve el equipo montado en eventos reales."
+          paragraph1="Un line array JBL en salón de bodas. Una cabina Pioneer en la pista. Bocinas QSC en jardín con subwoofer. El equipo cambia según el evento, pero el técnico siempre está ahí ajustando niveles en tiempo real."
+          paragraph2="Estas fotos son de montajes nuestros — no de catálogo de fabricante."
         />
         <Gallery4x4 images={[
           { src: "/img/bocinas/bocinas-profesionales-evento-masivo.avif", alt: "Bocinas profesionales para evento masivo" },
@@ -118,9 +118,9 @@ const servicios = [
       <div class="container">
         <SectionHeader
           title="Equipo de Audio Profesional"
-          subtitle="7 servicios de sonido con equipo JBL, QSC, Shure y técnico incluido."
-          paragraph1="Cada evento tiene necesidades de audio diferentes. Una ceremonia de boda necesita claridad absoluta para que los votos lleguen hasta la última silla. Una pista de baile necesita que el bajo se sienta en el pecho. Una conferencia necesita que cada palabra del ponente sea inteligible sin feedback ni ruido de fondo."
-          paragraph2="Por eso no rentamos bocinas genéricas — dimensionamos el sistema al espacio y al tipo de evento. Nuestro técnico de audio llega 2-3 horas antes, ecualiza el sistema al venue específico y está presente durante todo el evento para que cada momento suene perfecto."
+          subtitle="7 servicios de sonido — cada uno dimensionado a tu tipo de evento."
+          paragraph1="Una ceremonia de boda necesita claridad en los votos, no potencia. Una pista de baile necesita bajo y volumen. Una conferencia necesita que el ponente se entienda en la última fila sin feedback. Son tres problemas de audio completamente distintos y se resuelven con equipo diferente."
+          paragraph2="El técnico ecualiza al venue: un salón con piso de mármol y techo alto rebota el sonido diferente que uno alfombrado con plafón bajo. Por eso no mandamos bocinas y ya — siempre va un técnico que ajusta en sitio."
         />
         <div class="services-grid">
           {servicios.map((s) => (
@@ -135,17 +135,18 @@ const servicios = [
       <div class="container">
         <SectionHeader
           title="Preguntas sobre Sonido y DJ"
-          subtitle="Lo que nuestros clientes preguntan antes de reservar."
-          paragraph1="Si tienes otra duda, escríbenos por WhatsApp y te respondemos en minutos."
-          paragraph2="Armamos propuestas personalizadas según el tamaño de tu evento, el venue y tu presupuesto."
+          subtitle="Lo que nos preguntan por WhatsApp antes de apartar fecha."
+          paragraph1="Si tu duda no está aquí, mándanos mensaje y te contestamos en minutos."
+          paragraph2=""
         />
       </div>
       <FaqSection items={[
-        { question: "¿Cuántas bocinas necesito para mi evento?", answer: "Depende del espacio y la cantidad de personas. Para eventos de hasta 100 personas en salón cerrado, un par de bocinas JBL PRX es suficiente. Para 200+, usamos sistemas line array. Te asesoramos según las dimensiones de tu venue." },
-        { question: "¿El DJ trae su propio equipo de sonido?", answer: "Sí. Nuestro DJ llega con consola profesional, bocinas, subwoofer y todo lo necesario. Si ya tienes equipo de sonido contratado, también puede trabajar con tu setup existente." },
-        { question: "¿Puedo rentar solo las bocinas sin DJ?", answer: "Claro. Muchos clientes rentan solo el equipo de audio con técnico. Conectamos tu playlist de Spotify, tu laptop o el micrófono que necesites. El técnico se encarga de que todo suene bien." },
-        { question: "¿Incluyen micrófonos para la ceremonia?", answer: "Sí, incluimos micrófonos inalámbricos profesionales. Para bodas, normalmente usamos 2: uno para los votos y otro para el oficiante. Para conferencias, hasta 4 micrófonos según necesidad." },
-        { question: "¿Cubren eventos al aire libre?", answer: "Sí. Tenemos equipos diseñados para exteriores con la potencia necesaria para espacios abiertos. Si no hay toma eléctrica, incluimos planta de luz sin costo adicional." },
+        { question: "¿Cuántas bocinas necesito?", answer: "Para salón cerrado hasta 100 personas, un par de JBL PRX315 es suficiente. De 100 a 200, agregamos subwoofer. Arriba de 200 personas o en jardín abierto, usamos line array. Mándanos las medidas de tu espacio y el número de invitados y te decimos exacto." },
+        { question: "¿El DJ trae su propio equipo?", answer: "Sí. Llega con consola Pioneer, bocinas, sub y todo montado. Si ya contrataste audio aparte, también puede trabajar con tu equipo — solo necesita una entrada auxiliar o línea." },
+        { question: "¿Puedo rentar bocinas sin DJ?", answer: "Sí. Muchos clientes rentan solo el audio con técnico. Conectamos tu celular por Bluetooth o cable, tu laptop, o los micrófonos que necesites. El técnico se encarga de los niveles y de que no haya feedback." },
+        { question: "¿Qué pasa con el sonido en jardín abierto?", answer: "En exterior el sonido se pierde — no hay paredes que lo contengan. Necesitas más potencia que en salón cerrado, y subwoofer dedicado porque el bajo es lo primero que desaparece al aire libre. También orientamos las bocinas para minimizar la fuga hacia vecinos." },
+        { question: "¿Incluyen micrófonos para la ceremonia?", answer: "Sí. Para bodas usamos 2 micrófonos inalámbricos Shure: uno para los votos y otro para el oficiante. Para conferencias podemos incluir hasta 4. Son UHF — no se interfieren con el WiFi del venue ni con otras señales." },
+        { question: "¿Qué pasa si no hay electricidad en el venue?", answer: "Llevamos planta de luz. Es común en jardines y haciendas. La planta la colocamos alejada para que no se escuche el motor, y cableamos hasta el equipo. Va incluida cuando el venue no tiene instalación eléctrica suficiente." },
       ]} />
     </section>
 
@@ -153,8 +154,8 @@ const servicios = [
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
-          <h2>¿Listo para que tu evento suene increíble?</h2>
-          <p>Cuéntanos la fecha, el lugar y cuántas personas esperas. Te armamos una propuesta de audio a tu medida.</p>
+          <h2>¿Necesitas audio para tu evento?</h2>
+          <p>Mándanos la fecha, el venue, cuántas personas esperas y si necesitas DJ o solo bocinas. Te cotizamos el mismo día.</p>
           <div class="cta-buttons">
             <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
             <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
