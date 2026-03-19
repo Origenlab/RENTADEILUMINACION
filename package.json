@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.3.1",
-    "@rollup/rollup-linux-arm64-gnu": "^4.59.0",
     "astro": "^5.7.10",
     "gray-matter": "^4.0.3"
   },
