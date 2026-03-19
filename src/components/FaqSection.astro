@@ -94,45 +94,25 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
   document.getElementById('openDmchampChat').addEventListener('click', function() {
     var opened = false;
 
-    // 1. Intentar abrir via WhatsAIChat (DMChamp API)
-    if (window.WhatsAIChat && typeof window.WhatsAIChat.open === 'function') {
-      window.WhatsAIChat.open();
+    // 1. Buscar el botón burbuja del widget DMChamp (clase wai-chat-bubble)
+    var bubble = document.querySelector('.wai-chat-bubble');
+    if (bubble) {
+      bubble.click();
       opened = true;
     }
 
-    // 2. Buscar el botón flotante del widget y clickearlo
+    // 2. Buscar el contenedor del widget DMChamp
     if (!opened) {
-      var selectors = [
-        '.whatsai-chat-button', '.whatsai-btn', '.chat-widget-btn',
-        '[class*="whatsai"]', '[id*="whatsai"]',
-        '[class*="chat-bubble"]', '[class*="chat-launcher"]',
-        'button[class*="widget"]', 'div[class*="launcher"]'
-      ];
-      for (var i = 0; i < selectors.length; i++) {
-        var el = document.querySelector(selectors[i]);
-        if (el && el !== document.getElementById('openDmchampChat')) {
-          el.click();
-          opened = true;
-          break;
-        }
+      var container = document.querySelector('.wai-widget-container');
+      if (container) {
+        var btn = container.querySelector('svg') || container.firstElementChild;
+        if (btn) { btn.click(); opened = true; }
       }
     }
 
-    // 3. Buscar iframe de DMChamp
+    // 3. Fallback: WhatsApp directo
     if (!opened) {
-      var iframes = document.querySelectorAll('iframe');
-      for (var j = 0; j < iframes.length; j++) {
-        if (iframes[j].src && (iframes[j].src.indexOf('dmchamp') !== -1 || iframes[j].src.indexOf('whatsai') !== -1)) {
-          iframes[j].parentElement.click();
-          opened = true;
-          break;
-        }
-      }
-    }
-
-    // 4. Fallback: WhatsApp directo
-    if (!opened) {
-      window.open('https://wa.me/5530682988?text=Hola%20REDEIL%2C%20vine%20del%20sitio%20y%20tengo%20una%20duda%20sobre%20iluminaci%C3%B3n.', '_blank');
+      window.open('https://wa.me/5530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminaci%C3%B3n%20para%20mi%20evento.', '_blank');
     }
   });
 </script>
