@@ -150,6 +150,27 @@ import Footer from '../components/Footer.astro';
   <link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <style is:global>
+    /* TruConversion Microsurvey - Tema REDEIL */
+    #ti-poke-ct #ti-poke-co { background-color: #1a1a2e !important; }
+    #ti-poke-ct .opener { background-color: #1a1a2e !important; }
+    #ti-poke-ct .header { background-color: #0f0f1a !important; color: #ffffff !important; }
+    #ti-poke-ct .separator { border-color: #0a0a12 !important; }
+    #ti-poke-ct .separator .inner { border-color: #2a2a40 !important; }
+    #ti-poke-ct .body li { color: #ffffff !important; background-color: #1f1f36 !important; }
+    #ti-poke-ct .body li label.ti-poke-radio { color: #ffffff !important; }
+    #ti-poke-ct .body ul li:hover,
+    #ti-poke-ct .body ul li.active { background-color: #ff5722 !important; }
+    #ti-poke-ct .footer .arrow { border-left-color: #1a1a2e !important; }
+    #ti-poke-ct .footer .cta-link,
+    #ti-poke-ct .footer .cta-link-m { background-color: #ff5722 !important; color: #ffffff !important; }
+    #ti-poke-ct .footer .cta-link:hover,
+    #ti-poke-ct .footer .cta-link-m:hover { background-color: #e64a19 !important; }
+    #ti-poke-ct .body .main-txt.thanku .tick { background-color: #0f0f1a !important; border-color: #ff5722 !important; }
+    /* Ocultar logo de TruConversion */
+    #ti-poke-brand { display: none !important; }
+  </style>
+
   {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup} />}
   {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
@@ -230,5 +251,38 @@ import Footer from '../components/Footer.astro';
       Cotizar Gratis
     </a>
   </div>
+
+  <!-- TruConversion Microsurvey — Traducción al español -->
+  <script>
+    (function() {
+      function translateWidget() {
+        document.querySelectorAll('#ti-poke-ct h5').forEach(function(h5) {
+          if (h5.textContent!.trim() === 'What did you come to the site to do?') {
+            h5.textContent = '¿Qué te trajo por aquí hoy?';
+          }
+        });
+        document.querySelectorAll('#ti-poke-ct .cta-link, #ti-poke-ct .cta-link-m').forEach(function(btn) {
+          var t = btn.textContent!.trim();
+          if (t === 'Send' || t === 'SEND') btn.textContent = 'Enviar';
+        });
+        document.querySelectorAll('#ti-poke-ct .thanku').forEach(function(el) {
+          if (el.textContent!.includes('Thank you!'))
+            el.textContent = el.textContent!.replace('Thank you!', '¡Gracias por tu respuesta!');
+        });
+      }
+      function startObserver() {
+        var widget = document.getElementById('ti-poke-ct');
+        if (widget) {
+          translateWidget();
+          new MutationObserver(translateWidget).observe(widget, { childList: true, subtree: true });
+        } else {
+          setTimeout(startObserver, 500);
+        }
+      }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', startObserver)
+        : startObserver();
+    })();
+  </script>
 </body>
 </html>
