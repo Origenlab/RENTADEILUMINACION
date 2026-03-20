@@ -289,5 +289,55 @@ import Footer from '../components/Footer.astro';
   </script>
   <!-- DMChamp Chat Widget – Bot IA REDEIL -->
   <script is:inline src="https://api.dmchamp.com/v1/chat-widget/839dJWqflftn08zaazil"></script>
+  <!-- DMChamp i18n — traducir textos del widget al español via MutationObserver -->
+  <script is:inline>
+  (function() {
+    function translateDMChamp() {
+      const translations = {
+        "Hi there! 👋 How can we help you today?": "¡Hola! 👋 ¿En qué podemos ayudarte?",
+        "Let's chat": "Chatear ahora",
+        "Maybe later": "Quizás después",
+        "I need more info": "Necesito más información",
+        "Online": "En línea",
+        "Sound": "Sonido",
+        "Notifications": "Notificaciones",
+        "Clear conversation": "Limpiar conversación",
+        "Type a message...": "Escribe un mensaje..."
+      };
+
+      function replaceText(element) {
+        if (!element) return;
+        element.querySelectorAll('*').forEach(function(el) {
+          if (el.children.length === 0 && el.textContent) {
+            var trimmed = el.textContent.trim();
+            if (translations[trimmed]) {
+              el.textContent = translations[trimmed];
+            }
+          }
+          if (el.placeholder && translations[el.placeholder]) {
+            el.placeholder = translations[el.placeholder];
+          }
+        });
+      }
+
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function() {
+          var widget = document.querySelector('.wai-widget-container, [class*="wai-"]');
+          if (widget) {
+            replaceText(widget);
+          }
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', translateDMChamp);
+    } else {
+      translateDMChamp();
+    }
+  })();
+  </script>
 </body>
 </html>
