@@ -292,50 +292,73 @@ import Footer from '../components/Footer.astro';
   <!-- DMChamp i18n — traducir textos del widget al español via MutationObserver -->
   <script is:inline>
   (function() {
-    function translateDMChamp() {
-      const translations = {
-        "Hi there! 👋 How can we help you today?": "¡Hola! 👋 ¿En qué podemos ayudarte?",
-        "Let's chat": "Chatear ahora",
-        "Maybe later": "Quizás después",
-        "I need more info": "Necesito más información",
-        "Online": "En línea",
-        "Sound": "Sonido",
-        "Notifications": "Notificaciones",
-        "Clear conversation": "Limpiar conversación",
-        "Type a message...": "Escribe un mensaje..."
-      };
+    var translations = {
+      "Hi there! 👋 How can we help you today?": "¡Hola! 👋 ¿En qué podemos ayudarte?",
+      "Let's chat": "Chatear ahora",
+      "Maybe later": "Quizás después",
+      "I need more info": "Necesito más información",
+      "Online": "En línea",
+      "Sound": "Sonido",
+      "Notifications": "Notificaciones",
+      "Clear conversation": "Limpiar conversación",
+      "Type a message...": "Escribe un mensaje...",
+      "Send a message...": "Escribe un mensaje...",
+      "Type your message...": "Escribe un mensaje...",
+      "Send": "Enviar",
+      "Close": "Cerrar",
+      "Powered by": "Desarrollado por"
+    };
 
-      function replaceText(element) {
-        if (!element) return;
-        element.querySelectorAll('*').forEach(function(el) {
-          if (el.children.length === 0 && el.textContent) {
-            var trimmed = el.textContent.trim();
-            if (translations[trimmed]) {
-              el.textContent = translations[trimmed];
-            }
+    function translateAll() {
+      // Buscar en TODO el body — no depender de selectores específicos del widget
+      var allElements = document.body.querySelectorAll('*');
+      for (var i = 0; i < allElements.length; i++) {
+        var el = allElements[i];
+        // Traducir texto visible (solo nodos hoja)
+        if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+          var trimmed = el.textContent.trim();
+          if (translations[trimmed]) {
+            el.textContent = translations[trimmed];
           }
-          if (el.placeholder && translations[el.placeholder]) {
-            el.placeholder = translations[el.placeholder];
+        }
+        // Traducir placeholders
+        if (el.placeholder && translations[el.placeholder]) {
+          el.placeholder = translations[el.placeholder];
+        }
+        // Traducir aria-label
+        if (el.getAttribute && el.getAttribute('aria-label')) {
+          var ariaLabel = el.getAttribute('aria-label').trim();
+          if (translations[ariaLabel]) {
+            el.setAttribute('aria-label', translations[ariaLabel]);
           }
-        });
+        }
+        // Traducir title
+        if (el.title && translations[el.title.trim()]) {
+          el.title = translations[el.title.trim()];
+        }
       }
+    }
 
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function() {
-          var widget = document.querySelector('.wai-widget-container, [class*="wai-"]');
-          if (widget) {
-            replaceText(widget);
-          }
-        });
-      });
+    // Observer que traduce cada vez que el DOM cambia
+    var observer = new MutationObserver(function() {
+      translateAll();
+    });
 
-      observer.observe(document.body, { childList: true, subtree: true });
+    function init() {
+      observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+      // Traducir periódicamente los primeros 10 segundos (por si el widget carga tarde)
+      var count = 0;
+      var interval = setInterval(function() {
+        translateAll();
+        count++;
+        if (count >= 20) clearInterval(interval);
+      }, 500);
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', translateDMChamp);
+      document.addEventListener('DOMContentLoaded', init);
     } else {
-      translateDMChamp();
+      init();
     }
   })();
   </script>
