@@ -16,9 +16,6 @@ cta:
   href: "/contacto/"
 
 nav:
-  - label: "Inicio"
-    href: "/"
-
   - label: "Iluminación"
     href: "/servicios/iluminacion/"
     children:
@@ -78,9 +75,6 @@ nav:
         href: "/servicios/pantalla-inflable/"
       - label: "Podium"
         href: "/servicios/podiums/"
-
-  - label: "Directorio"
-    href: "/directorio/"
 
   - label: "Nosotros"
     href: "/nosotros/"
