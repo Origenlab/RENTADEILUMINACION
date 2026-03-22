@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Iztapalapa | Bodas y XV Años | REDEIL";
+const description = "Renta de iluminación para bodas y XV años en Iztapalapa. Guirnaldas, luces y sonido. Especialización en salones populares y quintas. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/iztapalapa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Iztapalapa",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Iztapalapa",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Iztapalapa",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3526, "longitude": -99.0721}
+      },
+      {
+        "@type": "Place",
+        "name": "Peñaloza",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3452, "longitude": -99.0631}
+      },
+      {
+        "@type": "Place",
+        "name": "Presidentes",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3384, "longitude": -99.0703}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas, XV años y eventos en Iztapalapa. Especialización en salones populares, gardenias y quintas. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Iztapalapa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Iztapalapa, Peñaloza, Presidentes y alrededores. Salones, quintas, gardenias, patios. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Iztapalapa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Iztapalapa tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen cobertura en las quintas y gardenias de Iztapalapa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos la mayoría de quintas y gardenias de la zona. Hemos iluminado XV años y bodas en todos los salones principales. Consulta por tu venue específico."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda Iztapalapa.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Iztapalapa" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Iztapalapa"
+    subtitle="Especialización en XV años, bodas y eventos familiares. Quintas, salones populares, gardenias. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Iztapalapa"
+    introParagraph1='Iztapalapa es el corazón de las fiestas familiares en la zona oriente. XV años monumentales, bodas amplias, despedidas de soltero con estilo — eventos que requieren iluminación profesional en salones populares y quintas. <strong>REDEIL lleva 30 años transformando espacios en Iztapalapa</strong>. Quintas del Pedregal, salones de la Nueva Santa María, gardenias de Presidentes — sabemos qué tipo de iluminación funciona en cada tipo de evento. Luces que no afecten el presupuesto pero que hagan impacto visual. 300+ eventos al año en Iztapalapa.'
+    introParagraph2='Los XV años de Iztapalapa son legendarios. Guirnaldas envolviendo el techo, luces neón personalizadas con el nombre, uplighting en colores coordinados con el tema del evento, DJ lighting sincronizado. Eso es lo que montamos. Las familias confían en nosotros porque conocemos el valor que representa cada evento. Bodas amplias con 200+ invitados en salones de fiesta — equipo profesional que monta en tiempo récord y dejamos el espacio perfecto. Precio transparente: no cobramos cargos ocultos. Llegamos 4 horas antes, montamos en 2-3 horas, todo probado.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Iztapalapa</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">300+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Iztapalapa -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Iztapalapa"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Iztapalapa."
+        paragraph1="El 70% de nuestros eventos en Iztapalapa son XV años. Sabemos exactamente qué iluminación hace que un salón de fiestas se vea de otro nivel. Guirnaldas colgadas en el techo, luces neón con el nombre de la quinceañera, uplighting en colores del tema, efectos especiales en la pista. Cada detalle cuenta."
+        paragraph2="Logística propia, equipo entrenado. Colocamos guirnaldas, uplighting, efectos especiales en tiempo récord. Eso te deja tranquilo — no hay estrés de última hora. Salones populares, quintas, gardenias. Sabemos dónde van los postes, cómo distribuir el equipo sin causar problemas estructurales."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en XV Años</h3>
+          <p>70% de nuestros montajes son XV años. Sabemos qué iluminación transforma un salón en fiesta de lujo.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil que te deja tranquilo. No hay estrés de última hora.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Conocimiento de Salones</h3>
+          <p>Conocemos quintas, gardenias y salones populares. Sabemos cómo iluminar cada tipo de espacio.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Bodas Amplias</h3>
+          <p>Eventos de 200+ invitados. Guirnaldas, uplighting, DJ lighting. Sistema completo de iluminación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Iztapalapa."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Iztapalapa"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Iztapalapa?",
+        answer: "Cubrimos todo Iztapalapa, Peñaloza, Presidentes y alrededores. Salones, quintas, gardenias, patios. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Iztapalapa?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Iztapalapa tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Tienen cobertura en las quintas y gardenias de Iztapalapa?",
+        answer: "Sí. Conocemos la mayoría de quintas y gardenias de la zona. Hemos iluminado XV años y bodas en todos los salones principales. Consulta por tu venue específico."
+      },
+      {
+        question: "¿Cómo funcionan las guirnaldas bajo lluvia?",
+        answer: "IP65 certificado. Lluvia directa, humedad, cambios de temperatura. Todo resistido. Junio a agosto, los meses de lluvia, siguen siendo nuestros meses activos en Iztapalapa."
+      },
+      {
+        question: "¿Puedo solicitar iluminación específica para mi XV años?",
+        answer: "Sí. Personalización total. Luces neón con el nombre, colores coordinados con el tema, efectos sincronizados. Mándanos una foto del salón y te hacemos propuesta en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 2-3 semanas. Iztapalapa en temporada alta (noviembre-enero, mayo-julio) se llena rápido. Entre antes reserves, mejor."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Iztapalapa?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Iztapalapa" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

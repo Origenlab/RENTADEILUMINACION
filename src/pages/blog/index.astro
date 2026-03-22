@@ -1,666 +1,351 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import CtaBar from '../../components/CtaBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import BlogSidebar from '../../components/BlogSidebar.astro';
-import { blogArticles, buildCategories, getPopularArticles, ARTICLES_PER_PAGE, getTotalPages } from '../../data/blog-articles';
 
-const title = "Blog de Iluminación para Eventos | REDEIL CDMX";
-const description = "Guías, consejos y tendencias de iluminación profesional para bodas, XV años, corporativos y fiestas en CDMX. 30+ años de experiencia.";
-const canonical = "https://rentadeiluminacion.com/blog/";
+const SITE_URL = 'https://rentadeiluminacion.com';
+const title = 'Blog de Iluminación para Eventos CDMX | REDEIL';
+const description = 'Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX. 30 años de experiencia. REDEIL.';
+const canonical = 'https://rentadeiluminacion.com/blog/';
 
-const categories = buildCategories();
-const popularArticles = getPopularArticles();
-const totalPages = getTotalPages();
-
-// Página 1: primer artículo destacado + 11 artículos
-const featured = blogArticles[0];
-const pageArticles = blogArticles.slice(1, ARTICLES_PER_PAGE);
-
-// Category map for pills
-const catMap = new Map<string, number>();
-blogArticles.forEach(a => {
-  catMap.set(a.category, (catMap.get(a.category) || 0) + 1);
-});
-
-const categoryOrder = ["Bodas", "XV Años", "Guirnaldas", "Luces Neón", "Equipos", "Efectos", "Sonido", "Corporativo", "Guía", "Comparativas", "Paquetes", "Temporadas", "Zonas"];
-
-const ctaBarItems = categories.map(cat => ({
-  label: cat.name,
-  href: `/blog/?cat=${cat.slug}`,
-}));
-
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blog de Iluminación para Eventos — REDEIL",
-  "description": description,
-  "url": canonical,
-  "publisher": {
-    "@type": "Organization",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com"
+const articles = [
+  {
+    title: 'Iluminación para Bodas en CDMX 2026: La Guía Completa',
+    description: 'Los 4 tipos esenciales, precios reales y cuándo reservar. Todo lo que usan los wedding planners.',
+    slug: 'iluminacion-para-bodas-cdmx-2026',
+    category: 'Bodas',
+    image: '/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif',
+    imageAlt: 'Guirnaldas Edison iluminando boda en hacienda CDMX'
+  },
+  {
+    title: 'Guirnaldas para Eventos en Exterior: Guía Definitiva',
+    description: 'Edison vs LED, fórmula de metros, puntos de anclaje y los 3 errores más caros.',
+    slug: 'guirnaldas-para-eventos-exterior-guia',
+    category: 'Guirnaldas',
+    image: '/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif',
+    imageAlt: 'Guirnaldas para jardín en evento exterior CDMX'
+  },
+  {
+    title: 'Sky Tracker: Todo lo que Debes Saber Antes de Rentarlo',
+    description: 'Qué es, dónde funciona, cuántos necesitas y cuánto cuesta. Sin rodeos.',
+    slug: 'sky-tracker-renta-cdmx-todo-lo-que-debes-saber',
+    category: 'Efectos',
+    image: '/img/sky-tracker/sky-tracker-evento-cdmx-noche.avif',
+    imageAlt: 'Sky tracker iluminando cielo en evento CDMX'
+  },
+  {
+    title: 'Efectos Especiales para XV Años: Bengalas, CO2 y Cascadas LED',
+    description: 'Cuáles son seguros en interiores, cuánto cuestan y la combinación perfecta por presupuesto.',
+    slug: 'efectos-especiales-xv-anos-bengalas-co2-cascadas',
+    category: 'XV Años',
+    image: '/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif',
+    imageAlt: 'Cascadas LED y efectos especiales para XV años'
+  },
+  {
+    title: 'Sonido Profesional para Eventos en CDMX',
+    description: 'Bocinas, micrófonos, DJ: qué equipo necesitas y precios reales según tamaño del evento.',
+    slug: 'sonido-profesional-eventos-bocinas-dj-cdmx',
+    category: 'Sonido',
+    image: '/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif',
+    imageAlt: 'DJ profesional en boda CDMX con equipo de sonido'
+  },
+  {
+    title: 'Renta de Iluminación para Eventos en Tlalpan CDMX',
+    description: 'Haciendas, jardines y quintas: iluminación profesional con 30 años en la zona.',
+    slug: 'iluminacion-eventos-tlalpan',
+    category: 'Zonas',
+    image: '/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif',
+    imageAlt: 'Iluminación para eventos en Tlalpan CDMX'
   }
-});
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: SITE_URL
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: canonical
+    }
+  ]
+};
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: title,
+  description: description,
+  url: canonical,
+  publisher: {
+    '@type': 'Organization',
+    name: 'REDEIL',
+    url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/img/logo.avif`
+    }
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SITE_URL}/blog/${article.slug}/`,
+      name: article.title,
+      description: article.description,
+      image: `${SITE_URL}${article.image}`
+    }))
+  }
+};
+
+const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaMarkup={structuredData}
+>
   <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Blog" }]} />
+    <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Blog' }]} />
   </Fragment>
 
   <Hero
-    title="Blog de Iluminación para Eventos"
-    subtitle="Guías prácticas, precios reales y consejos de nuestro equipo técnico con más de 30 años de experiencia."
-    introParagraph1="En REDEIL compartimos más de 30 años de experiencia en iluminación para eventos. Cada artículo está escrito por nuestro equipo técnico con base en situaciones reales de bodas, XV años y corporativos en CDMX y Zona Metropolitana."
-    introParagraph2="Encontrarás información concreta sobre precios, metros de guirnaldas, diferencias entre equipos, efectos especiales y todo lo que necesitas saber para tomar la mejor decisión para tu evento. Sin tecnicismos innecesarios, con datos reales."
+    title="Blog REDEIL: Guías de Iluminación y Efectos para tus Eventos"
+    subtitle="Consejos, precios reales y soluciones técnicas de nuestro equipo con 30 años de experiencia."
+    introParagraph1="En REDEIL compartimos 30 años de experiencia en iluminación profesional para bodas, XV años, corporativos y eventos en CDMX. Cada guía está escrita por nuestro equipo técnico con base en situaciones reales."
+    introParagraph2="Encontrarás información práctica sobre equipos, precios, metros de guirnaldas, efectos especiales y todo lo que necesitas para tomar la mejor decisión para tu evento."
   />
 
-  <CtaBar
-    headline="Explora por categoría"
-    items={ctaBarItems}
-  />
-
-  {/* ──── ARTÍCULO DESTACADO ──── */}
-  <section class="blog-featured">
-    <div class="container">
-      <a href={`/blog/${featured.slug}/`} class="bf">
-        <div class="bf__img">
-          <img src={featured.img} alt={featured.title} loading="eager" width="800" height="450" />
-          <span class="bf__badge">Destacado</span>
-          <span class="bf__cat">{featured.category}</span>
-        </div>
-        <div class="bf__body">
-          <h2 class="bf__title">{featured.title}</h2>
-          <p class="bf__excerpt">{featured.excerpt}</p>
-          <span class="bf__cta">Leer artículo completo →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  {/* ──── PILLS DE CATEGORÍAS ──── */}
-  <section class="blog-filters">
-    <div class="container">
-      <div class="bf-pills" id="categoryPills">
-        <button class="bf-pill bf-pill--active" data-cat="all">Todos</button>
-        {categoryOrder.filter(c => catMap.has(c)).map(cat => (
-          <button class="bf-pill" data-cat={cat}>{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></button>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ──── GRID + SIDEBAR ──── */}
-  <section class="blog-main">
-    <div class="container blog-main__layout">
-      <div class="blog-main__content">
-        <div class="blog-grid" id="blogGrid">
-          {pageArticles.map(article => (
-            <article class="bc" data-category={article.category}>
-              <a href={`/blog/${article.slug}/`} class="bc__img-link">
-                <div class="bc__img">
-                  <img src={article.img} alt={article.title} loading="lazy" width="600" height="338" />
-                  <span class="bc__cat">{article.category}</span>
-                </div>
-              </a>
-              <div class="bc__body">
-                <h2 class="bc__title">
-                  <a href={`/blog/${article.slug}/`}>{article.title}</a>
-                </h2>
-                <p class="bc__desc">{article.excerpt}</p>
-                <a href={`/blog/${article.slug}/`} class="bc__link">
-                  Leer artículo <span aria-hidden="true">→</span>
+  <main>
+    <!-- Articles Grid -->
+    <section class="blog-articles">
+      <div class="container">
+        <div class="articles-grid">
+          {articles.map((article) => (
+            <article class="article-card">
+              <div class="article-card__image-wrapper">
+                <img
+                  src={article.image}
+                  alt={article.imageAlt}
+                  class="article-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="240"
+                />
+              </div>
+              
+              <div class="article-card__content">
+                <span class="article-card__category">{article.category}</span>
+                <h2 class="article-card__title">{article.title}</h2>
+                <p class="article-card__description">{article.description}</p>
+                
+                <a href={`/blog/${article.slug}/`} class="article-card__link">
+                  Leer artículo →
                 </a>
               </div>
             </article>
           ))}
         </div>
+      </div>
+    </section>
 
-        {/* ──── PAGINACIÓN ──── */}
-        <nav class="pagination" aria-label="Páginas del blog">
-          <span class="pagination__prev pagination__prev--disabled" aria-disabled="true">« Anterior</span>
-          <div class="pagination__pages">
-            <span class="pagination__page pagination__page--active" aria-current="page">1</span>
-            {Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map(p => (
-              <a href={`/blog/pagina/${p}/`} class="pagination__page">{p}</a>
-            ))}
+    <!-- CTA Final -->
+    <section class="blog-cta">
+      <div class="container">
+        <div class="blog-cta__inner">
+          <h2>¿Listo para cotizar tu evento?</h2>
+          <p>Nuestro equipo técnico responde en máximo 2 horas.</p>
+          <div class="blog-cta__buttons">
+            <a
+              href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Cotizar por WhatsApp →
+            </a>
           </div>
-          {totalPages > 1 && (
-            <a href="/blog/pagina/2/" class="pagination__next">Siguiente »</a>
-          )}
-        </nav>
+        </div>
       </div>
-
-      <aside class="blog-main__sidebar">
-        <BlogSidebar
-          categories={categories}
-          popularArticles={popularArticles}
-        />
-      </aside>
-    </div>
-  </section>
-
-  {/* ──── CTA FINAL ──── */}
-  <section class="blog-cta-final">
-    <div class="container blog-cta-final__inner">
-      <h2>¿No encuentras lo que buscas?</h2>
-      <p>Nuestro equipo técnico tiene la respuesta. Cotiza sin compromiso o pregúntanos directamente por WhatsApp.</p>
-      <div class="blog-cta-final__btns">
-        <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Gratis →</a>
-        <a href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminación." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">WhatsApp</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </BaseLayout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const pills = document.querySelectorAll('.bf-pill');
-    const cards = document.querySelectorAll('#blogGrid .bc');
-
-    let activeCat = 'all';
-
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('bf-pill--active'));
-        pill.classList.add('bf-pill--active');
-        activeCat = (pill as HTMLElement).dataset.cat || 'all';
-        filterCards();
-      });
-    });
-
-    function filterCards() {
-      cards.forEach(card => {
-        const el = card as HTMLElement;
-        const cat = el.dataset.category || '';
-        const matchesCat = activeCat === 'all' || cat === activeCat;
-        el.style.display = matchesCat ? '' : 'none';
-      });
-    }
-  });
-</script>
-
 <style>
-  /* ──────────────────────────────────────────
-     FEATURED ARTICLE
-     ────────────────────────────────────────── */
-  .blog-featured {
-    background: #f8f9fa;
-    padding: 2.5rem 0;
-  }
-
-  .bf {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 0;
-    text-decoration: none;
-    color: inherit;
+  .blog-articles {
+    padding: var(--space-12) 0;
     background: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e9ecef;
   }
 
-  .bf__img {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
   }
 
-  .bf__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .bf__badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--color-secondary, #1a1a2e);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-  }
-
-  .bf__cat {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    background: var(--color-primary, #ff5722);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-  }
-
-  .bf__body {
-    padding: 2.5rem;
+  .article-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-
-  .bf__title {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 700;
-    color: var(--color-secondary, #1a1a2e);
-    line-height: 1.25;
-    margin: 0 0 1rem;
-  }
-
-  .bf__excerpt {
-    font-size: 0.9375rem;
-    color: #6c757d;
-    line-height: 1.7;
-    margin: 0 0 1.5rem;
-  }
-
-  .bf__cta {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary, #ff5722);
-  }
-
-  .bf:hover .bf__cta {
-    color: #c44d00;
-  }
-
-  /* ──────────────────────────────────────────
-     CATEGORY PILLS
-     ────────────────────────────────────────── */
-  .blog-filters {
-    padding: 1.5rem 0;
-    background: #fff;
-    border-bottom: 1px solid #e9ecef;
-    position: sticky;
-    top: calc(36px + 70px);
-    z-index: 50;
-  }
-
-  .bf-pills {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0.25rem;
-  }
-
-  .bf-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .bf-pill {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.5rem 1rem;
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 100px;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: #495057;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-
-  .bf-pill:hover {
-    border-color: var(--color-primary, #ff5722);
-    color: var(--color-primary, #ff5722);
-  }
-
-  .bf-pill--active {
-    background: var(--color-primary, #ff5722);
-    border-color: var(--color-primary, #ff5722);
-    color: #fff;
-  }
-
-  .bf-pill--active:hover {
-    color: #fff;
-  }
-
-  .bf-pill__count {
-    font-size: 0.7rem;
-    opacity: 0.7;
-  }
-
-  .bf-pill--active .bf-pill__count {
-    opacity: 0.9;
-  }
-
-  /* ──────────────────────────────────────────
-     MAIN LAYOUT: GRID + SIDEBAR
-     ────────────────────────────────────────── */
-  .blog-main {
-    padding: 3rem 0;
-    background: #fff;
-  }
-
-  .blog-main__layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .blog-main__sidebar {
-    position: sticky;
-    top: calc(36px + 70px + 60px + 1.5rem);
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
-  }
-
-  /* ──────────────────────────────────────────
-     BLOG CARDS
-     ────────────────────────────────────────── */
-  .bc {
     background: #fff;
     border: 1px solid #e9ecef;
     border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
-  .bc__img-link {
-    display: block;
-    position: relative;
+  .article-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
   }
 
-  .bc__img {
-    aspect-ratio: 16 / 9;
+  .article-card__image-wrapper {
     overflow: hidden;
-    position: relative;
+    height: 200px;
+    background: #f0f0f0;
   }
 
-  .bc__img img {
+  .article-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
     display: block;
   }
 
-  .bc__cat {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    background: var(--color-primary, #ff5722);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
+  .article-card:hover .article-card__image {
+    transform: scale(1.05);
   }
 
-  .bc__body {
-    padding: 1.25rem;
+  .article-card__content {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    padding: 1.5rem;
+    flex-grow: 1;
   }
 
-  .bc__title {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.9375rem;
+  .article-card__category {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.65rem;
     font-weight: 700;
-    color: var(--color-secondary, #1a1a2e);
-    margin: 0 0 0.625rem;
-    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ff5722;
+    background: rgba(255, 87, 34, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
   }
 
-  .bc__title a {
-    text-decoration: none;
-    color: inherit;
+  .article-card__title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+    flex-grow: 1;
   }
 
-  .bc__title a:hover {
-    color: var(--color-primary, #ff5722);
-  }
-
-  .bc__desc {
+  .article-card__description {
     font-size: 0.875rem;
     color: #6c757d;
-    line-height: 1.65;
-    flex: 1;
     margin: 0 0 1rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .bc__link {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-primary, #ff5722);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .bc__link:hover {
-    color: #c44d00;
-  }
-
-  /* ──────────────────────────────────────────
-     PAGINACIÓN
-     ────────────────────────────────────────── */
-  .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  .pagination__prev,
-  .pagination__next {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary, #ff5722);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-primary, #ff5722);
-    border-radius: 6px;
-  }
-
-  .pagination__prev--disabled {
-    color: #adb5bd;
-    border-color: #dee2e6;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .pagination__prev:not(.pagination__prev--disabled):hover,
-  .pagination__next:hover {
-    background: var(--color-primary, #ff5722);
-    color: #fff;
-  }
-
-  .pagination__pages {
-    display: flex;
-    gap: 0.35rem;
-  }
-
-  .pagination__page {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #495057;
-  }
-
-  .pagination__page--active {
-    background: var(--color-primary, #ff5722);
-    border-color: var(--color-primary, #ff5722);
-    color: #fff;
-  }
-
-  .pagination__page:not(.pagination__page--active):hover {
-    border-color: var(--color-primary, #ff5722);
-    color: var(--color-primary, #ff5722);
-  }
-
-  /* ──────────────────────────────────────────
-     CTA FINAL
-     ────────────────────────────────────────── */
-  .blog-cta-final {
-    background: var(--color-primary, #ff5722);
-    padding: 3.5rem 0;
-  }
-
-  .blog-cta-final__inner {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-
-  .blog-cta-final h2 {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    color: #fff;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin: 0 0 0.75rem;
-  }
-
-  .blog-cta-final p {
-    color: rgba(255,255,255,0.9);
-    font-size: 1rem;
     line-height: 1.6;
-    margin: 0 0 2rem;
   }
 
-  .blog-cta-final__btns {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  .article-card__link {
+    display: inline-block;
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
   }
 
-  .blog-cta-final .btn-primary {
-    background: #fff;
-    color: var(--color-primary, #ff5722);
-    border-color: #fff;
-    box-shadow: none;
-  }
-
-  .blog-cta-final .btn-primary:hover {
-    background: #f0f0f0;
+  .article-card__link:hover {
     color: #c44d00;
   }
 
-  .blog-cta-final .btn-outline {
+  /* CTA Section */
+  .blog-cta {
+    background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+    padding: 4rem 0;
+    color: #fff;
+  }
+
+  .blog-cta__inner {
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .blog-cta h2 {
+    font-size: clamp(1.5rem, 3vw, 2.125rem);
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+  }
+
+  .blog-cta p {
+    font-size: 1.0625rem;
+    margin: 0 0 2rem;
+    opacity: 0.95;
+  }
+
+  .blog-cta__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .blog-cta .btn-primary {
+    background: #fff;
+    color: #ff5722;
+    border: 2px solid #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .blog-cta .btn-primary:hover {
     background: transparent;
     color: #fff;
-    border-color: rgba(255,255,255,0.5);
   }
 
-  .blog-cta-final .btn-outline:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: #fff;
-    color: #fff;
-  }
-
-  /* ──────────────────────────────────────────
-     RESPONSIVE
-     ────────────────────────────────────────── */
-  @media (max-width: 1200px) {
-    .blog-main__layout {
-      grid-template-columns: 1fr 280px;
-      gap: 2rem;
+  @media (max-width: 768px) {
+    .blog-articles {
+      padding: 3rem 0;
     }
 
-    .blog-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .bf {
+    .articles-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
-    .bf__img {
-      aspect-ratio: 16 / 9;
-    }
-
-    .bf__body {
-      padding: 1.75rem;
-    }
-  }
-
-  @media (max-width: 960px) {
-    .blog-main__layout {
-      grid-template-columns: 1fr;
-    }
-
-    .blog-main__sidebar {
-      position: static;
-    }
-
-    .blog-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .blog-featured {
-      padding: 1.5rem 0;
-    }
-
-    .bf__body {
-      padding: 1.25rem;
-    }
-
-    .bf__title {
-      font-size: 1.125rem;
-    }
-
-    .blog-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .blog-main {
-      padding: 2rem 0;
-    }
-
-    .blog-cta-final {
+    .blog-cta {
       padding: 2.5rem 0;
+    }
+
+    .blog-cta h2 {
+      font-size: 1.5rem;
+    }
+
+    .blog-cta p {
+      font-size: 1rem;
     }
   }
 </style>
