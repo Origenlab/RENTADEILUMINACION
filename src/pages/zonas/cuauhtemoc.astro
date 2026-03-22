@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Cuauhtémoc | Bodas Corporativas | REDEIL";
+const description = "Renta de iluminación en Cuauhtémoc. Centro histórico, salones art deco, hoteles. Especialización en eventos corporativos. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/cuauhtemoc/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Cuauhtémoc",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Cuauhtémoc",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Cuauhtémoc",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4326, "longitude": -99.1343}
+      },
+      {
+        "@type": "Place",
+        "name": "Roma",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4240, "longitude": -99.1663}
+      },
+      {
+        "@type": "Place",
+        "name": "Centro Histórico",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4326, "longitude": -99.1343}
+      }
+    ],
+    "description": "Renta de iluminación profesional en Cuauhtémoc. Especialización en centro histórico, salones art deco, hoteles y eventos corporativos. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Cuauhtémoc?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Cuauhtémoc, Centro Histórico, Roma y alrededores. Hoteles, salones art deco, espacios corporativos. Transporte incluido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un evento corporativo en Cuauhtémoc?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un evento corporativo básico arranca desde $7,500. Bodas y eventos completos en hoteles, $18,000+. Cotiza por WhatsApp con detalles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Cuauhtémoc tarda 2-3 horas en montar un evento. Llegamos 4 horas antes para coordinación con el hotel o salón."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen experiencia en hoteles de Cuauhtémoc?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. 30 años iluminando hoteles, salones art deco y espacios corporativos del centro. Coordinación perfecta con gerentes de eventos hoteleros."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes. Perfectas para eventos corporativos en salones art deco.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Logos corporativos, nombres, frases. Neón personalizado para cena de gala, lanzamientos de producto.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones, colores sincronizados, efectos especiales. Producción profesional de show.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces reactivas. Sistema completo para eventos corporativos.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Cuauhtémoc" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Cuauhtémoc"
+    subtitle="Centro histórico, salones art deco, hoteles corporativos. Eventos de nivel, bodas en espacios emblemáticos. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuauhtemoc"
+    introParagraph1='Cuauhtémoc es sinónimo de eventos corporativos de alto nivel. Centro histórico, salones art deco, hoteles con carisma — espacios que requieren iluminación sofisticada. <strong>REDEIL lleva 30 años iluminando eventos en Cuauhtémoc</strong>. Cenas de gala en hoteles 5 estrellas, bodas en salones históricos, lanzamientos de producto, eventos corporativos de empresas Fortune 500. Sabemos cómo coordinar con gerentes de eventos hoteleros, respetar protocolos, ejecutar sin improvisaciones. 310+ eventos al año en Cuauhtémoc.'
+    introParagraph2='Los eventos de Cuauhtémoc son eventos de protocolo. Cada luz tiene significado — marca la entrada del novio, destaca la mesa de honor, ilumina el escenario. Art deco requiere respeto — guirnaldas que no rompan la estética, uplighting que remarque sin competir, proyecciones que complementen. El equipo lleva 30 años entendiendo estos lenguajes. Coordinamos con coordinadores de eventos, respetamos regulaciones de hoteles, ejecutamos con perfeccionismo. Transporte incluido. Montaje ágil. Precio transparente.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Cuauhtémoc</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">310+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Cuauhtémoc -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Cuauhtémoc"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Cuauhtémoc."
+        paragraph1="El 80% de nuestros eventos en Cuauhtémoc son corporativos — cenas de gala, bodas de nivel, lanzamientos de producto. Sabemos qué iluminación corresponde a cada tipo de evento. Art deco requiere respeto. Hotel requiere coordinación. Eso es lo que hacemos."
+        paragraph2="Somos el proveedor preferido de hoteles y coordinadores de eventos. Protocolos claros, comunicación fluida, montaje sin drama. Logística propia, equipo entrenado en eventos de nivel. Eso te deja tranquilo — tu evento funciona como está planeado."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Eventos Corporativos</h3>
+          <p>80% de nuestros eventos son corporativos. Sabemos protocolo, confidencialidad y profundidad técnica.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Hoteles y Salones</h3>
+          <p>Proveedor preferido de hoteles 5 estrellas. Coordinación perfecta con gerentes de eventos.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Respeto por Art Deco</h3>
+          <p>Especialización en iluminación para espacios históricos. Zero daños. Estética respetada.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Iluminación de Protocolo</h3>
+          <p>Guirnaldas elegantes, uplighting estratégico, proyecciones coordinadas. Profundidad técnica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Cuauhtémoc."
+        paragraph1="Cada servicio se adapta a tu evento corporativo. Servicios múltiples con descuento. Presupuesto formal para eventos de nivel."
+        paragraph2="Cotiza por WhatsApp con brief del evento. Respuesta rápida, profesional."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Cuauhtémoc"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Cuauhtémoc?",
+        answer: "Cubrimos Cuauhtémoc, Centro Histórico, Roma y alrededores. Hoteles, salones, espacios corporativos. Transporte incluido."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un evento corporativo en Cuauhtémoc?",
+        answer: "Un evento corporativo básico arranca desde $7,500. Bodas y eventos completos en hoteles, $18,000+. Presupuesto formal en 24h."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Cuauhtémoc tarda 2-3 horas. Llegamos 4 horas antes para coordinación con gerente de eventos del hotel."
+      },
+      {
+        question: "¿Son el proveedor oficial de algún hotel?",
+        answer: "Trabajamos con la mayoría de hoteles 5 estrellas de Cuauhtémoc como proveedor preferido. Coordinación fluida, facturación, protocolos establecidos."
+      },
+      {
+        question: "¿Respetan la arquitectura art deco?",
+        answer: "Sí. 30 años de experiencia en espacios históricos. Zero daños garantizado. Iluminación que complementa, no compite."
+      },
+      {
+        question: "¿Puedo solicitar propuestas personalizadas?",
+        answer: "Sí. Brief detallado → propuesta formal en 24h. Renders disponibles para eventos de nivel."
+      },
+      {
+        question: "¿Qué incluye el servicio completo?",
+        answer: "Traslado de equipo, montaje profesional, coordinación con hotel, pruebas, operación durante evento, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 4-6 semanas. Cuauhtémoc tiene alta demanda en temporada alta. Hoteles pueden tener restricciones previas."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento corporativo en Cuauhtémoc?</h2>
+        <p>Mándanos detalles y fotos por WhatsApp. Presupuesto formal, coordinación hotelera, ejecución impecable.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuauhtemoc" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

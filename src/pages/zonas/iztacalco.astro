@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Iztacalco | XV Años y Bodas | REDEIL";
+const description = "Renta de iluminación en Iztacalco. Salones de fiestas, XV años, bodas en zona oriente. Transporte e instalación incluidos. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/iztacalco/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Iztacalco",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Iztacalco",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Iztacalco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3673, "longitude": -99.0867}
+      },
+      {
+        "@type": "Place",
+        "name": "Pantitlán",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4149, "longitude": -99.0707}
+      },
+      {
+        "@type": "Place",
+        "name": "Tláhuac",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2854, "longitude": -99.0704}
+      }
+    ],
+    "description": "Renta de iluminación profesional en Iztacalco. Especialización en salones de fiestas, XV años y bodas en zona oriente CDMX. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Iztacalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Iztacalco, Pantitlán, Tláhuac y alrededores. Salones de fiestas, patios, espacios de zona oriente. Transporte incluido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Iztacalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Iztacalco tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Conocen los salones de fiestas de Iztacalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos los principales salones y espacios de la zona. Hemos iluminado XV años y bodas en todos los venues."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda Iztacalco.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Iztacalco" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Iztacalco"
+    subtitle="XV años, bodas y eventos familiares en zona oriente. Salones de fiestas, espacios populares. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Iztacalco"
+    introParagraph1='Iztacalco es la zona de celebraciones familiares por excelencia — XV años memorables, bodas con familias extendidas, eventos que requieren iluminación profesional pero accesible. <strong>REDEIL lleva 30 años iluminando eventos en Iztacalco</strong>. Salones de fiestas, patios, espacios populares — sabemos exactamente qué iluminación transforma un salón en fiesta. Luces que hacen impacto visual sin romper presupuesto. 310+ eventos al año en zona oriente.'
+    introParagraph2='Los XV años de Iztacalco son XV años legendarios. Guirnaldas, luces neón con el nombre, uplighting coordinado, DJ lighting sincronizado — eso es lo que esperan. Bodas amplias con 180+ invitados. El equipo llega 4 horas antes, monta en 2-3 horas, todo probado antes de que empiece la fiesta. Precio transparente: no cobramos cargos ocultos. Transporte incluido. Montaje ágil. Equipo profesional que respeta tu evento.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Iztacalco</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">310+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Iztacalco -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Iztacalco"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Iztacalco."
+        paragraph1="El 72% de nuestros eventos en Iztacalco son XV años. Sabemos exactamente qué iluminación hace que un salón de fiestas sea memorableintroduction — guirnaldas colgadas, luces neón personalizadas, uplighting en colores del tema, efectos sincronizados. Cada detalle cuenta."
+        paragraph2="Logística propia, equipo entrenado. Colocamos equipos en tiempo récord. Eso te deja tranquilo — no hay estrés de última hora. Salones conocidos, espacios familiares. Sabemos dónde van los postes, cómo distribuir el equipo sin problemas."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>XV Años Especial</h3>
+          <p>72% de nuestros eventos son XV años. Sabemos exactamente qué iluminación es memorableantroduction.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil que te deja tranquilo. Sin drama.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Salones Conocidos</h3>
+          <p>Conocemos los principales salones de Iztacalco. Hemos iluminado XV años en todos los espacios.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Precio Accesible</h3>
+          <p>Iluminación profesional sin romper presupuesto. Descuentos en servicios múltiples.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Iztacalco."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Iztacalco"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Iztacalco?",
+        answer: "Cubrimos Iztacalco, Pantitlán, Tláhuac y alrededores. Salones, patios, espacios populares. Transporte incluido."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Iztacalco?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Iztacalco tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Conocen los salones de fiestas de Iztacalco?",
+        answer: "Sí. Conocemos los principales salones y espacios. Hemos iluminado XV años y bodas en todos los venues de la zona."
+      },
+      {
+        question: "¿Cómo funcionan las guirnaldas bajo lluvia?",
+        answer: "IP65 certificado. Lluvia directa, humedad, cambios de temperatura. Todo resistido. Seguimos operativos en junio-agosto."
+      },
+      {
+        question: "¿Puedo solicitar iluminación específica para mi XV años?",
+        answer: "Sí. Personalización total. Luces neón con el nombre, colores coordinados, efectos sincronizados. Mándanos foto del salón y te hacemos propuesta en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 2-3 semanas. Iztacalco en temporada alta (mayo-julio, noviembre-enero) se llena rápido. Entre antes reserves, mejor."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Iztacalco?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Iztacalco" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

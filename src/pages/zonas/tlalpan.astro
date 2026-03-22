@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Tlalpan | Bodas y Eventos | REDEIL";
+const description = "Renta de iluminación para bodas y eventos en Tlalpan. Especialización en haciendas, jardines y espacios premium. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/tlalpan/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Tlalpan",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Tlalpan",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Tlalpan",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2908, "longitude": -99.1726}
+      },
+      {
+        "@type": "Place",
+        "name": "Fuentes de Pedregal",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3616, "longitude": -99.1897}
+      },
+      {
+        "@type": "Place",
+        "name": "Ajusco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2400, "longitude": -99.1850}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas y eventos en Tlalpan. Especialización en haciendas, jardines premium y espacios de lujo. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Tlalpan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Tlalpan, Fuentes de Pedregal, Ajusco y alrededores. Haciendas, jardines, patios. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Tlalpan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. Bodas en haciendas con múltiples servicios, $18,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Tlalpan tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra para preparación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen cobertura garantizada en haciendas de Tlalpan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos las principales haciendas y espacios premium de Tlalpan. Experiencia instalando en arquitectura histórica y moderna."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda Tlalpan.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Tlalpan" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Tlalpan"
+    subtitle="Especialización en haciendas, jardines premium y eventos de lujo. Iluminación profesional para bodas memorables. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Tlalpan"
+    introParagraph1='Tlalpan es sinónimo de bodas de lujo. Haciendas centenarias, jardines frondosos, arquitectura de ensueño — los espacios requieren iluminación que honre la belleza del lugar. <strong>REDEIL lleva 30 años iluminando eventos en Tlalpan</strong>. Haciendas históricas, jardines premium, patios de casas coloniales — sabemos exactamente cómo iluminar sin dañar fachadas, sin competir con la arquitectura. 280+ eventos al año en Tlalpan.'
+    introParagraph2='Las bodas de Tlalpan son bodas cuidadosas. Cada detalle importa porque la competencia estética es alta. Guirnaldas que envuelven las columnas sin dañarlas, luces que se integran con la vegetación, uplighting que resalta arquitectura sin ser invasivo, gobo con monograma proyectado discretamente. El equipo lleva 30 años entendiendo estos matices. Llegamos 4 horas antes, coordinamos con arquitectos del evento si es necesario, montamos en 2-3 horas sin prisa. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Tlalpan</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">280+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Tlalpan -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Tlalpan"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Tlalpan."
+        paragraph1="El 75% de nuestros eventos en Tlalpan son bodas de lujo. Sabemos cómo iluminar sin competir — guirnaldas elegantes, luces sutiles, efectos que respetan la arquitectura. Haciendas centenarias, jardines premium, patios coloniales. Cada venue es sagrado. Respetamos eso."
+        paragraph2="Logística propia, equipo entrenado en espacios delicados. No tocamos nada sin permiso, coordinamos con los arquitectos del evento, instalamos con cuidado. Eso te deja tranquilo — no hay riesgo de daños. Somos los expertos en Tlalpan de hace 30 años."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Bodas de Lujo</h3>
+          <p>75% de nuestros eventos son bodas premium. Sabemos iluminar sin competir con la arquitectura.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación Cuidadosa</h3>
+          <p>Coordinamos con arquitectos del evento. Zero daños a espacios históricos. Montaje profesional y respetuoso.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Conocimiento de Haciendas</h3>
+          <p>30 años en Tlalpan. Conocemos cada hacienda, cada jardín, cada patio colonial por nombre.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Iluminación Premium</h3>
+          <p>Guirnaldas elegantes, uplighting discreto, efectos especiales. Sistema de iluminación de lujo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Tlalpan."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Tlalpan"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Tlalpan?",
+        answer: "Cubrimos todo Tlalpan, Fuentes de Pedregal, Ajusco y alrededores. Haciendas, jardines, patios. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Tlalpan?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. Bodas en haciendas con múltiples servicios, $18,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Tlalpan tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo para coordinación y pruebas."
+      },
+      {
+        question: "¿Tienen cobertura garantizada en haciendas de Tlalpan?",
+        answer: "Sí. Conocemos las principales haciendas y espacios premium de Tlalpan. Experiencia instalando en arquitectura histórica. Cero daños garantizado."
+      },
+      {
+        question: "¿Cómo manejan la iluminación sin dañar fachadas históricas?",
+        answer: "Coordinamos con arquitectos del evento, usamos sistemas no invasivos, estudiamos cada fachada. 30 años de experiencia respetuosa en Tlalpan."
+      },
+      {
+        question: "¿Puedo solicitar iluminación específica para mi boda?",
+        answer: "Sí. Personalización total. Mándanos fotos de tu venue y tu visión. Te hacemos propuesta adaptada en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, coordinación con el venue, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 4-6 semanas. Tlalpan en temporada alta (noviembre-enero, mayo-junio) se llena rápido. Haciendas populares pueden requerir más anticipación."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu boda en Tlalpan?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Iluminación de lujo, cuidado profesional, cero daños.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Tlalpan" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Miguel Hidalgo | Bodas de Lujo | REDEIL";
+const description = "Renta de iluminación en Miguel Hidalgo. Lomas, Polanco, jardines premium. Especialización en bodas de lujo. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/miguel-hidalgo/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Miguel Hidalgo",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Miguel Hidalgo",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Miguel Hidalgo",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4000, "longitude": -99.1864}
+      },
+      {
+        "@type": "Place",
+        "name": "Lomas",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4060, "longitude": -99.2238}
+      },
+      {
+        "@type": "Place",
+        "name": "Polanco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4327, "longitude": -99.1966}
+      }
+    ],
+    "description": "Renta de iluminación profesional en Miguel Hidalgo. Especialización en Lomas, Polanco, jardines premium y bodas de lujo. Transporte e instalación incluidos.",
+    "priceRange": "$$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Miguel Hidalgo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Miguel Hidalgo, Lomas, Polanco y alrededores. Jardines premium, patios de lujo, espacios exclusivos. Transporte incluido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Lomas o Polanco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda premium arranca desde $12,000. Bodas de lujo con múltiples servicios, $25,000+. Presupuesto formal a medida de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Miguel Hidalgo tarda 2-3 horas. Llegamos 4-5 horas antes para coordinación y ajustes detallados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen experiencia en jardines premium de Lomas y Polanco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. 30 años iluminando bodas de lujo en los jardines más exclusivos. Experiencia en arquitectura premium, iluminación sofisticada."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage premium, cableado IP65. Elegancia en bodas de lujo de Lomas y Polanco.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Neón de diseño personalizado, colores sofisticados. Impacto visual premium para bodas de lujo.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones de precisión, colores coordinados, efectos cinematográficos. Producción de nivel.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido premium + luces reactivas de precisión. Sistema de producción de nivel internacional.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Miguel Hidalgo" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Miguel Hidalgo"
+    subtitle="Bodas de lujo en Lomas y Polanco. Jardines premium, espacios exclusivos. Iluminación sofisticada. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Miguel%20Hidalgo"
+    introParagraph1='Miguel Hidalgo es la zona de bodas de lujo. Lomas, Polanco, jardines con vista a la ciudad — espacios que requieren iluminación de nivel internacional. <strong>REDEIL lleva 30 años iluminando bodas premium en Miguel Hidalgo</strong>. Sabemos iluminar arquitectura moderna y clásica. Conocemos cada jardín, cada terraza, cada patio exclusivo. Coordinamos con Wedding Planners internacionales, respetamos estándares de lujo, ejecutamos con perfeccionismo. 270+ eventos al año en zona premium.'
+    introParagraph2='Las bodas de Miguel Hidalgo son bodas de clase mundial. Cada detalle importa porque todo está bajo escrutinio. Guirnaldas sofisticadas, uplighting coordinado con arquitectura, gobos personalizados con el monograma, proyecciones cinematográficas. DJ lighting sincronizado con música live. El equipo lleva 30 años entendiendo estos estándares de lujo. Coordinamos con arquitectos, respetamos regulaciones, ejecutamos sin improvisaciones. Transporte incluido. Montaje impecable. Precio premium, justificado.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Miguel Hidalgo</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">270+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Miguel Hidalgo -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Miguel Hidalgo"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Miguel Hidalgo."
+        paragraph1="El 85% de nuestros eventos en Miguel Hidalgo son bodas premium. Sabemos iluminar sin competir con la arquitectura — guirnaldas sofisticadas, uplighting estratégico, proyecciones cinematográficas. Cada detalle cuenta porque el estándar es alto."
+        paragraph2="Somos el proveedor preferido de Wedding Planners internacionales. Coordinación fluida, ejecución impecable, referencias de nivel. Equipo entrenado en eventos de clase mundial. Eso te deja tranquilo — tu boda es producción, no evento."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Bodas de Lujo</h3>
+          <p>85% de nuestros eventos son bodas premium. Sabemos el estándar de Lomas y Polanco.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Wedding Planners Internacionales</h3>
+          <p>Proveedor preferido de coordinadores de nivel. Presupuestos formales, referencias, coordinación fluida.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Jardines Premium</h3>
+          <p>30 años iluminando los espacios más exclusivos. Conocemos cada detalle de arquitectura.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Producción de Clase Mundial</h3>
+          <p>Guirnaldas sofisticadas, uplighting de precisión, proyecciones cinematográficas. Sistema de producción premium.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Miguel Hidalgo."
+        paragraph1="Cada servicio está calibrado para bodas premium. Servicios múltiples con coordinación perfecta."
+        paragraph2="Cotiza por WhatsApp con brief de tu boda. Presupuesto formal, propuesta en 24h."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Miguel Hidalgo"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta inmediata."
+        paragraph2="Cada boda es única — por eso hacemos propuestas personalizadas."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Miguel Hidalgo?",
+        answer: "Cubrimos Miguel Hidalgo, Lomas, Polanco y alrededores. Transporte incluido en toda la zona de cobertura."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Lomas o Polanco?",
+        answer: "Una boda premium arranca desde $12,000. Bodas de lujo con múltiples servicios, $25,000+. Presupuesto formal a medida."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Miguel Hidalgo tarda 2-3 horas. Llegamos 4-5 horas antes para coordinación y ajustes detallados."
+      },
+      {
+        question: "¿Trabajan con Wedding Planners internacionales?",
+        answer: "Sí. Somos proveedor preferido de coordinadores de nivel internacional. Coordinación fluida, referencias, presupuestos formales."
+      },
+      {
+        question: "¿Tienen experiencia en espacios arquitectónicos exclusivos?",
+        answer: "Sí. 30 años iluminando los jardines y espacios más exclusivos. Experiencia en arquitectura moderna y clásica de nivel."
+      },
+      {
+        question: "¿Puedo solicitar propuestas personalizadas?",
+        answer: "Sí. Brief detallado → propuesta formal con renders en 24 horas. Diseño personalizado para cada boda."
+      },
+      {
+        question: "¿Qué incluye el servicio completo?",
+        answer: "Traslado de equipo premium, montaje profesional, coordinación detallada, pruebas exhaustivas, operación durante el evento, desmontaje cuidadoso. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 8-12 semanas. Bodas en Lomas y Polanco requieren coordinación extensa. Planificación temprana = mejor resultado."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para crear una boda extraordinaria en Miguel Hidalgo?</h2>
+        <p>Mándanos brief de tu boda por WhatsApp. Propuesta personalizada, coordinación profesional, producción de clase mundial.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Miguel%20Hidalgo" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Venustiano Carranza | Bodas y XV Años | REDEIL";
+const description = "Renta de iluminación en Venustiano Carranza. Zona oriente CDMX, aeropuerto, salones tradicionales. Transporte e instalación. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/venustiano-carranza/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Venustiano Carranza",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Venustiano Carranza",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Venustiano Carranza",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4372, "longitude": -99.0631}
+      },
+      {
+        "@type": "Place",
+        "name": "Aeropuerto",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4361, "longitude": -99.0720}
+      },
+      {
+        "@type": "Place",
+        "name": "Terminal Aérea",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4361, "longitude": -99.0720}
+      }
+    ],
+    "description": "Renta de iluminación profesional en Venustiano Carranza. Especialización en zona oriente, aeropuerto y salones tradicionales. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Venustiano Carranza?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Venustiano Carranza, zona aeropuerto y alrededores. Salones, patios, espacios tradicionales. Transporte incluido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Venustiano Carranza?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Venustiano Carranza tarda 2-3 horas. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Conocen los salones de la zona aeropuerto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos los principales salones cercanos al aeropuerto. Experiencia en eventos con logística diferente."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Venustiano Carranza" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Venustiano Carranza"
+    subtitle="Zona oriente CDMX, aeropuerto, salones tradicionales. XV años y bodas. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Venustiano%20Carranza"
+    introParagraph1='Venustiano Carranza es la zona oriente estratégica — cerca del aeropuerto, salones tradicionales, eventos familiares de amplitud. <strong>REDEIL lleva 30 años iluminando eventos en Venustiano Carranza</strong>. Sabemos cómo coordinar logística en zona aeropuerto, cómo iluminar salones populares con presencia. Luces que funcionan a cualquier hora, en cualquier tipo de espacio. 300+ eventos al año en zona oriente.'
+    introParagraph2='Los eventos de Venustiano Carranza son eventos de logística — muchos invitados viajando, horarios ajustados, espacios que requieren flexibilidad. El equipo llega 4 horas antes, monta en 2-3 horas, se adapta a cambios de última hora. Precio transparente: no cobramos cargos ocultos. Transporte incluido. Montaje ágil. Equipo profesional que entiende la zona oriente.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Zona Oriente</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">300+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Venustiano Carranza -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Venustiano Carranza"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Venustiano Carranza."
+        paragraph1="30 años iluminando eventos en zona oriente. Salones tradicionales, espacios con logística diferente, invitados viajando. Sabemos exactamente qué iluminación funciona en cada tipo de evento. Guirnaldas, luces neón, uplighting coordinado. Cada detalle cuenta."
+        paragraph2="Logística propia, equipo flexible. Nos adaptamos a cambios de última hora, respetamos horarios ajustados, ejecutamos sin drama. Eso te deja tranquilo — tu evento funciona como está planeado."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Experiencia en Zona Oriente</h3>
+          <p>30 años iluminando eventos en Venustiano Carranza. Conocemos cada salón y espacio de la zona.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil que te deja tranquilo. Sin drama.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Salones Tradicionales</h3>
+          <p>Especialización en espacios convencionales. Sabemos cómo iluminar sin complicaciones.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Flexibilidad y Adaptación</h3>
+          <p>Nos ajustamos a cambios de última hora. Logística oriente, horarios variables, evento garantizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Venustiano Carranza."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Venustiano Carranza"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Venustiano Carranza?",
+        answer: "Cubrimos Venustiano Carranza, zona aeropuerto y alrededores. Salones, patios, espacios tradicionales. Transporte incluido."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Venustiano Carranza?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. Bodas amplias con múltiples servicios, $15,000+. Cotiza por WhatsApp."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Venustiano Carranza tarda 2-3 horas. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Conocen los salones de la zona aeropuerto?",
+        answer: "Sí. Conocemos los principales salones cercanos al aeropuerto. Experiencia en eventos con logística diferente y horarios variables."
+      },
+      {
+        question: "¿Se adaptan a cambios de última hora?",
+        answer: "Sí. Equipo flexible, logística ágil. Nos adaptamos a cambios de horarios y detalles sin problemas."
+      },
+      {
+        question: "¿Puedo solicitar iluminación específica para mi XV años?",
+        answer: "Sí. Personalización total. Mándanos foto del salón y te hacemos propuesta en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 2-3 semanas. En temporada alta (mayo-julio, noviembre-enero) la demanda es alta. Entre antes reserves, mejor disponibilidad."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Venustiano Carranza?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Venustiano%20Carranza" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Álvaro Obregón | Bodas Corporativas | REDEIL";
+const description = "Renta de iluminación en Álvaro Obregón. Santa Fe, Pedregal, jardines amplios. Especialización en bodas corporativas y eventos de lujo. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/alvaro-obregon/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Álvaro Obregón",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Álvaro Obregón",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Álvaro Obregón",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3762, "longitude": -99.2083}
+      },
+      {
+        "@type": "Place",
+        "name": "Santa Fe",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3578, "longitude": -99.2683}
+      },
+      {
+        "@type": "Place",
+        "name": "Pedregal",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3401, "longitude": -99.2223}
+      }
+    ],
+    "description": "Renta de iluminación profesional en Álvaro Obregón. Especialización en Santa Fe, Pedregal, jardines amplios y bodas corporativas. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Álvaro Obregón?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Álvaro Obregón, Santa Fe, Pedregal y alrededores. Jardines amplios, patios premium, espacios corporativos. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda corporativa en Álvaro Obregón?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda corporativa básica arranca desde $8,000. Bodas completas en Pedregal o Santa Fe con múltiples servicios, $22,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Álvaro Obregón tarda 2-3 horas en montar un evento. Llegamos 4 horas antes con protocolos corporativos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen experiencia en eventos corporativos de Santa Fe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. 30 años iluminando eventos corporativos en Santa Fe, Pedregal y jardines amplios. Somos el proveedor de confianza de empresas y familias de la zona."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. Elegancia en cualquier boda corporativa o evento.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, logos corporativos, frases. Neón de colores ámbar, rosa, azul, blanco. Impacto visual premium.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. Producción profesional de escenario.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de producción.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Álvaro Obregón" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Álvaro Obregón"
+    subtitle="Bodas corporativas, eventos premium en Santa Fe y Pedregal. Jardines amplios, espacios de lujo. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Alvaro%20Obregon"
+    introParagraph1='Álvaro Obregón es la zona de bodas corporativas y eventos de lujo por excelencia. Santa Fe, Pedregal, jardines amplios con arquitectura moderna — espacios que requieren iluminación sofisticada. <strong>REDEIL lleva 30 años iluminando eventos en Álvaro Obregón</strong>. Bodas de ejecutivos, eventos corporativos, despedidas de soltero de nivel. Sabemos exactamente cómo coordinar iluminación con diseñadores, coordinadores de eventos y arquitectos. 290+ eventos al año en la zona.'
+    introParagraph2='Las bodas de Álvaro Obregón son bodas de nivel. Cada detalle está cuidado — desde la invitación hasta la iluminación final. Guirnaldas en patios de Pedregal, uplighting coordinado con la paleta cromática, gobo con el monograma de la familia proyectado en entrada. DJ lighting sincronizado con música live. El equipo lleva 30 años entendiendo estos estándares. Coordinamos con Wedding Planners, respetamos protocolos corporativos, ejecutamos sin improviso. Transporte incluido. Montaje ágil. Precio transparente.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Álvaro Obregón</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">290+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Álvaro Obregón -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Álvaro Obregón"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Álvaro Obregón."
+        paragraph1="El 65% de nuestros eventos en Álvaro Obregón son bodas corporativas o de familias empresariales. Sabemos exactamente qué iluminación se espera en Santa Fe, Pedregal, jardines premium. Sofisticación sin exceso. Impacto visual coordinado. Cada detalle cuenta."
+        paragraph2="Coordinamos con Wedding Planners, respetamos protocolos corporativos, trabajamos con diseñadores de interiores. Logística propia, equipo entrenado en eventos de nivel. Eso te deja tranquilo — no hay inconvenientes. Montaje profesional, sin improvisaciones."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Bodas Corporativas</h3>
+          <p>65% de nuestros eventos son bodas de ejecutivos. Sabemos el nivel de sofisticación esperado.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Coordinación Profesional</h3>
+          <p>Trabajamos con Wedding Planners, diseñadores, arquitectos. Protocolo corporativo completo.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Santa Fe y Pedregal</h3>
+          <p>30 años iluminando los espacios premium de la zona. Conocemos cada venue y sus requerimientos.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Iluminación Sofisticada</h3>
+          <p>Guirnaldas elegantes, uplighting coordinado, gobos personalizados. Sistema de iluminación premium.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Álvaro Obregón."
+        paragraph1="Cada servicio se adapta a tu evento. Combinaciones personalizadas para bodas corporativas. Descuentos en servicios múltiples."
+        paragraph2="Cotiza por WhatsApp con detalles y fotos. Respuesta rápida, presupuesto formal."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Álvaro Obregón"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Álvaro Obregón?",
+        answer: "Cubrimos Álvaro Obregón, Santa Fe, Pedregal y alrededores. Transporte incluido en toda la zona. Protocolo corporativo disponible."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda corporativa en Álvaro Obregón?",
+        answer: "Una boda corporativa básica arranca desde $8,000. Bodas completas en Pedregal o Santa Fe con múltiples servicios, $22,000+. Presupuesto formal en 24h."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Álvaro Obregón tarda 2-3 horas en montar un evento. Llegamos 4 horas antes con tiempo para coordinación."
+      },
+      {
+        question: "¿Trabajas con Wedding Planners?",
+        answer: "Sí. Somos el proveedor preferido de planificadores de eventos en la zona. Coordinación fluida, protocolos corporativos, presupuestos formales."
+      },
+      {
+        question: "¿Tienen experiencia en eventos corporativos de Santa Fe?",
+        answer: "Sí. 30 años iluminando eventos corporativos. Cena de gala, lanzamientos de producto, bodas de ejecutivos. Protocolo empresarial garantizado."
+      },
+      {
+        question: "¿Puedo solicitar iluminación personalizada?",
+        answer: "Sí. Personalización total. Mándanos brief con tu visión. Hacemos propuesta en 24 horas, con render o descripción detallada."
+      },
+      {
+        question: "¿Qué incluye el servicio completo?",
+        answer: "Traslado de equipo, montaje profesional, coordinación con tu equipo, pruebas, operación durante el evento, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 4-6 semanas. Álvaro Obregón, especialmente Santa Fe, tiene alta demanda. Temporada alta puede requerir mayor anticipación."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu boda corporativa en Álvaro Obregón?</h2>
+        <p>Mándanos detalles de tu evento por WhatsApp. Presupuesto formal, coordinación profesional, ejecución impecable.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Alvaro%20Obregon" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
