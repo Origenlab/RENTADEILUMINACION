@@ -120,6 +120,20 @@ import Footer from '../components/Footer.astro';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Critical CSS Inline (LCP optimization) -->
+  <style>
+    :root {
+      --color-primary: #1a1a2e;
+      --color-secondary: #0f0f1a;
+      --color-accent: #ff5722;
+      --font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-family); color: var(--color-primary); background: #ffffff; }
+    main { display: block; }
+  </style>
+
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="author" content="REDEIL">
@@ -144,6 +158,7 @@ import Footer from '../components/Footer.astro';
   <link rel="apple-touch-icon" href="/icon.png">
   <meta name="theme-color" content="#1a1a2e">
 
+  <!-- Critical Font Preloads for LCP -->
   <link rel="preload" href="/fonts/montserrat-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/open-sans-400.woff2" as="font" type="font/woff2" crossorigin>

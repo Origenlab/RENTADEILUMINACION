@@ -33,8 +33,39 @@ const schemaMarkup = JSON.stringify([
         "addressLocality": "Ciudad de México",
         "addressRegion": "CDMX",
         "addressCountry": "MX"
-      }
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
     },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Coyoacán",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3438, "longitude": -99.1637}
+      },
+      {
+        "@type": "Place",
+        "name": "San Ángel",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3616, "longitude": -99.1897}
+      },
+      {
+        "@type": "Place",
+        "name": "Tlalpan",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2908, "longitude": -99.1726}
+      }
+    ],
     "description": "Renta de iluminación profesional para bodas, XV años y eventos en Coyoacán, San Ángel y Tlalpan. Especialización en haciendas y jardines. Transporte e instalación incluidos.",
     "priceRange": "$$"
   },
