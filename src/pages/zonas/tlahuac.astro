@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Tláhuac | XV Años Masivos | REDEIL";
+const description = "Renta de iluminación para XV años masivos en Tláhuac. Salones de fiestas, bodas tradicionales. Especialización en eventos populares. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/tlahuac/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Tláhuac",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Tláhuac",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Tláhuac",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2445, "longitude": -98.9589}
+      },
+      {
+        "@type": "Place",
+        "name": "Iztapalapa",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3457, "longitude": -99.0576}
+      },
+      {
+        "@type": "Place",
+        "name": "Xochimilco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2737, "longitude": -99.0964}
+      }
+    ],
+    "description": "Renta de iluminación profesional para XV años masivos en Tláhuac. Especialización en salones de fiestas y bodas tradicionales. Equipo adaptado a eventos populares grandes. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Tláhuac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Tláhuac, salones de fiestas, espacios comunitarios, patios privados. Transporte incluido en toda la zona oriente-sur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de eventos son más comunes en Tláhuac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XV años masivos (300+ invitados) y bodas tradicionales. Tláhuac es zona de eventos populares y familiares grandes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un XV años masivo en Tláhuac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XV años (300+ invitados) con iluminación completa arrancan desde $12,000. Con múltiples servicios $18,000+. Cotiza detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen experiencia con 300+ invitados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Tláhuac es zona de XV años populares. Hemos montado eventos con 500+ invitados. Guirnaldas, luces neón, cabezas móviles, sonido — todo coordinado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación en salones de Tláhuac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Tláhuac tarda 2-3 horas en montar un evento estándar. Para eventos masivos, calculamos 3-4 horas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo combinar iluminación con DJ y sonido?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Paquete completo: iluminación + bocinas + DJ lighting. Sincronización perfecta. Precio combo más económico."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 3-4 semanas. Tláhuac en temporada alta (marzo-junio) se llena rápido. Reserva lo antes posible."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando salón para XV años",
+    description: "Focos LED o vintage IP65. Base del ambiente. Perfectas para salones de fiestas. Instalación en 30 minutos.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon con nombre de XV años",
+    description: "Nombres, edades, frases. Luces neón de colores. El protagonista visual de la fiesta. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile masiva",
+    description: "Proyecciones animadas, colores dinámicos, efectos que reaccionan a la música. Transforma pista en espacio de escenario.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting Completo",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido e iluminación profesional",
+    description: "Sonido profesional + luces sincronizadas. Sistema completo para eventos masivos. Pista de baile profesional.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Tláhuac" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Tláhuac"
+    subtitle="Especialización en XV años masivos y bodas tradicionales. Más de 350 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20XV%20anos%20en%20Tlahuac"
+    introParagraph1='Tláhuac es la zona de XV años masivos y bodas populares del oriente-sur de CDMX. Salones de fiestas, espacios comunitarios, patios privados adaptados. <strong>REDEIL lleva 30 años iluminando eventos en Tláhuac</strong>. 350+ eventos al año en la zona. XV años con 300+ invitados, bodas de 250+ personas, eventos familiares grandes. No es suerte — es experiencia específica en lo que funciona en Tláhuac.'
+    introParagraph2='Somos los que arman pistas de baile profesionales en salones populares. Los que cuelgan guirnaldas de lado a lado. Los que sincronizamos luces neón, cabezas móviles y sonido en eventos masivos. El equipo entiende Tláhuac. Montaje ágil, profesional, sin detalles perdidos. El equipo llega 4 horas antes. Monta en 2-3 horas. Prueba completa de iluminación, sonido, luces neón. Eso te deja tranquilo — el evento sale perfecto.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Tláhuac</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">500+</span>
+          <span class="stat-label-enhanced">Max Invitados Montados</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Tláhuac -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Tláhuac"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Tláhuac."
+        paragraph1="Tláhuac es zona de eventos masivos. 80% de nuestros montajes aquí son XV años. Sabemos qué iluminación convierte un salón tradicional en pista de escenario profesional. Guirnaldas, luces neón, cabezas móviles, sonido — todo coordinado."
+        paragraph2="Experiencia en eventos de 300-500+ invitados. Montaje ágil, coordinado, sin detalles perdidos. Salones que conocemos de memoria. Equipo que sabe instalación rápida pero profesional. Eso es lo que pagás."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en XV Años Masivos</h3>
+          <p>80% de nuestros montajes aquí son XV años. Sabemos transformar salones en pistas de escenario profesional.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Eventos de 300-500+ Invitados</h3>
+          <p>Experiencia en eventos masivos. Montaje coordinado, sincronizado, sin errores ni detalles perdidos.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Paquetes Completos Adaptados</h3>
+          <p>Iluminación + DJ lighting + luces neón + cabezas móviles. Todo coordina, todo funciona, precio combo económico.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Montaje Rápido y Profesional</h3>
+          <p>2-3 horas en salones estándar. Equipo entrenado en instalación ágil. Tláhuac es nuestra zona de especialidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Tláhuac."
+        paragraph1="Cada servicio adaptado a eventos masivos. Combinaciones de servicios generan paquetes más económicos."
+        paragraph2="Cotiza por WhatsApp con detalles de tu evento. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Tláhuac"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada evento es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Tláhuac?",
+        answer: "Cubrimos todo Tláhuac, salones de fiestas, espacios comunitarios, patios privados. Transporte incluido en toda la zona oriente-sur."
+      },
+      {
+        question: "¿Qué tipo de eventos son más comunes en Tláhuac?",
+        answer: "XV años masivos (300+ invitados) y bodas tradicionales. Tláhuac es zona de eventos populares y familiares grandes."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un XV años masivo en Tláhuac?",
+        answer: "XV años (300+ invitados) con iluminación completa arrancan desde $12,000. Con múltiples servicios $18,000+."
+      },
+      {
+        question: "¿Tienen experiencia con 300+ invitados?",
+        answer: "Sí. Tláhuac es zona de XV años populares. Hemos montado eventos con 500+ invitados. Guirnaldas, luces neón, cabezas móviles, sonido — todo coordinado."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación en salones?",
+        answer: "Nuestro equipo en Tláhuac tarda 2-3 horas en montar un evento estándar. Para eventos masivos, calculamos 3-4 horas."
+      },
+      {
+        question: "¿Puedo combinar iluminación con DJ y sonido?",
+        answer: "Sí. Paquete completo: iluminación + bocinas + DJ lighting. Sincronización perfecta. Precio combo más económico."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 3-4 semanas. Tláhuac en temporada alta se llena rápido. Reserva lo antes posible."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Tláhuac?</h2>
+        <p>Mándanos fotos de tu salón por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Tlahuac" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Xochimilco | Eventos Únicos en Trajineras | REDEIL";
+const description = "Renta de iluminación para bodas en Xochimilco. Chinampas, trajineras, jardines flotantes. Eventos únicos al aire libre. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/xochimilco/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Xochimilco",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Xochimilco",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Xochimilco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2737, "longitude": -99.0964}
+      },
+      {
+        "@type": "Place",
+        "name": "Tláhuac",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2445, "longitude": -98.9589}
+      },
+      {
+        "@type": "Place",
+        "name": "Milpa Alta",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.1847, "longitude": -99.0289}
+      }
+    ],
+    "description": "Renta de iluminación profesional para eventos únicos en Xochimilco. Especialización en bodas en chinampas, trajineras y jardines flotantes. Eventos al aire libre y al agua. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Xochimilco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Xochimilco, chinampas, trajineras, jardines flotantes. Especialización en eventos al agua. Transporte incluido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo adaptan la iluminación a eventos en trajineras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Iluminación flotante, resistente al agua, sistemas de amarre seguros en trajineras. Creamos ambientes mágicos sobre el agua."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de eventos son más comunes en Xochimilco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bodas en chinampas, celebraciones en trajineras, eventos románticos al aire libre. Xochimilco es destino de bodas únicas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es complicado montar iluminación en chinampas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Nuestro equipo tiene experiencia específica montando en chinampas. Sabemos dónde anclar, cómo proteger equipo de agua, estrategia diferente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Xochimilco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bodas en chinampas arrancan desde $10,000. Eventos premium con múltiples trajineras, $22,000+. Cotiza con detalles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funcionan las guirnaldas en humedad alta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. IP65 certificado, sistemas sellados, protección contra humedad y agua. Xochimilco es zona húmeda — estamos preparados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 4-6 semanas. Xochimilco es destino premium para bodas únicas — planifica con tiempo."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas Resistentes al Agua",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison sobre trajineras",
+    description: "IP65 certificado, sistemas sellados, cableado resistente a humedad. Perfectas para eventos al agua en Xochimilco.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Iluminación Flotante en Chinampas",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Iluminación flotante en chinampa",
+    description: "Sistemas de iluminación adaptados a chinampas. Anclajes seguros, protección contra agua, ambiencia mágica.",
+    link: "/servicios/sky-tracker/"
+  },
+  {
+    title: "Proyecciones Aéreas Románticas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Proyecciones románticas en evento al agua",
+    description: "Sky tracker con proyecciones sutiles. Efectos románticos que reflejan sobre el agua. Ambiencia única.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Sonido Profesional Waterproof",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Bocinas resistentes al agua en Xochimilco",
+    description: "Sonido de alta calidad, resistente a humedad. Música clara en eventos al aire libre y al agua.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Xochimilco" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Xochimilco"
+    subtitle="Especialización en bodas únicas: chinampas, trajineras, jardines flotantes. Más de 350 eventos iluminados en la zona."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Xochimilco"
+    introParagraph1='Xochimilco es la zona de bodas únicas del sur de CDMX. Chinampas ancestrales, trajineras románticas, jardines flotantes sobre agua. <strong>REDEIL lleva 30 años iluminando eventos en Xochimilco</strong>. Aquí no usamos iluminación convencional — usamos sistemas adaptados al agua. Guirnaldas flotantes, proyecciones que reflejan sobre agua, sistemas de amarre seguros en trajineras. Creamos ambientes mágicos.'
+    introParagraph2='Somos los que entienden Xochimilco. Los que saben montar en chinampas sin dañar arquitectura ancestral. Los que crean iluminación que refleja sobre el agua. Los que adaptan equipo a humedad extrema. Equipo entrenado en eventos al agua. Montaje discreto pero impactante. Transporte a zonas de acceso difícil — no es problema. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Xochimilco</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Resistencia al Agua</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas en Chinampas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Eventos en Trajineras", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Celebraciones Únicas", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Xochimilco -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Xochimilco"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación para eventos únicos en Xochimilco."
+        paragraph1="Xochimilco es zona de bodas únicas. Chinampas, trajineras, agua. Aquí la iluminación no es complementaria — es transformadora. Sistemas adaptados al agua, proyecciones que reflejan, ambientes mágicos. Sabemos crear experiencias memorables."
+        paragraph2="Experiencia específica en eventos al agua. Equipo resistente a humedad extrema, sistemas de amarre seguros, protección contra agua. Conocemos Xochimilco de memoria — sus chinampas, sus trajineras, sus patrones de viento y agua."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en Eventos al Agua</h3>
+          <p>Chinampas, trajineras, jardines flotantes. Sistemas de iluminación adaptados específicamente a Xochimilco.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Equipo Resistente a Humedad Extrema</h3>
+          <p>IP65 certificado, sistemas sellados, protección contra agua. Xochimilco es zona húmeda — estamos preparados.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Ambiencia Mágica y Romántica</h3>
+          <p>Proyecciones que reflejan sobre agua, guirnaldas flotantes, efectos que danzan con elementos naturales.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Logística Especializada en Agua</h3>
+          <p>Transporte a zonas de agua, sistemas de amarre seguros, equipo que entiende riesgos y beneficios del lugar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Xochimilco."
+        paragraph1="Cada servicio adaptado a eventos al agua. Combinaciones generan paquetes más económicos porque compartimos equipo."
+        paragraph2="Cotiza por WhatsApp con fotos de tu chinampa o trajinera. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Xochimilco"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada evento al agua es único — por eso hacemos propuestas personalizadas."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Xochimilco?",
+        answer: "Cubrimos todo Xochimilco, chinampas, trajineras, jardines flotantes. Especialización en eventos al agua. Transporte incluido."
+      },
+      {
+        question: "¿Cómo adaptan la iluminación a eventos en trajineras?",
+        answer: "Iluminación flotante, resistente al agua, sistemas de amarre seguros en trajineras. Creamos ambientes mágicos sobre el agua."
+      },
+      {
+        question: "¿Qué tipo de eventos son más comunes en Xochimilco?",
+        answer: "Bodas en chinampas, celebraciones en trajineras, eventos románticos al aire libre. Xochimilco es destino de bodas únicas."
+      },
+      {
+        question: "¿Es complicado montar iluminación en chinampas?",
+        answer: "No. Nuestro equipo tiene experiencia específica montando en chinampas. Sabemos dónde anclar, cómo proteger equipo de agua, estrategia diferente."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Xochimilco?",
+        answer: "Bodas en chinampas arrancan desde $10,000. Eventos premium con múltiples trajineras, $22,000+."
+      },
+      {
+        question: "¿Funcionan las guirnaldas en humedad alta?",
+        answer: "Sí. IP65 certificado, sistemas sellados, protección contra humedad y agua. Xochimilco es zona húmeda — estamos preparados."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado a zona de agua, montaje en chinampas/trajineras, sistemas de amarre seguros, pruebas, operación, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 4-6 semanas. Xochimilco es destino premium — planifica con tiempo."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu boda en Xochimilco?</h2>
+        <p>Mándanos fotos de tu chinampa o trajinera por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Xochimilco" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

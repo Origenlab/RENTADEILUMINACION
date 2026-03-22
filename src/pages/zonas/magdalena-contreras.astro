@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Magdalena Contreras | Bodas Íntimas | REDEIL";
+const description = "Renta de iluminación para bodas íntimas en Magdalena Contreras. Jardines con vista, áreas boscosas. Especialización en eventos elegantes. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/magdalena-contreras/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Magdalena Contreras",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Magdalena Contreras",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Magdalena Contreras",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2957, "longitude": -99.2254}
+      },
+      {
+        "@type": "Place",
+        "name": "Cuajimalpa",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3576, "longitude": -99.2890}
+      },
+      {
+        "@type": "Place",
+        "name": "Álvaro Obregón",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3960, "longitude": -99.1997}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas íntimas en Magdalena Contreras. Especialización en jardines con vista, áreas boscosas y eventos elegantes. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Magdalena Contreras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Magdalena Contreras, zonas boscosas, jardines privados y haciendas. Transporte incluido en toda la zona sur-poniente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de eventos son más comunes en Magdalena Contreras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bodas íntimas, ceremonias al aire libre, eventos elegantes. Los jardines con vista de Magdalena Contreras son perfectos para iluminación sutil pero impactante."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo adaptan la iluminación a jardines con vista?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trabajamos con uplighting sutil, guirnaldas que no compitan con la vista natural, proyecciones sutiles. La iluminación resalta, no oculta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es complicado montar en áreas boscosas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Nuestro equipo tiene experiencia montando en terrenos irregulares, arboles, pendientes. Sabemos cómo adaptar instalaciones sin dañar naturaleza."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda íntima en Magdalena Contreras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bodas íntimas (50-150 invitados) arrancan desde $8,000. Bodas premium con múltiples servicios, $18,000+. Cotiza con detalles de tu jardín."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funcionan las guirnaldas en climas fríos y húmedos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. IP65 certificado. Magdalena Contreras es zona fresca y húmeda — nuestro equipo está preparado para eso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 4-6 semanas. Los jardines de Magdalena Contreras son lugares premium — reserva con tiempo."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando jardín con vista",
+    description: "Focos LED o vintage IP65, cableado resistente. Perfectas para jardines. Resaltan sin competir con vistas naturales.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Sky Tracker — Proyecciones Aéreas",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Sky tracker iluminando área boscosa",
+    description: "Proyecciones sutiles en árboles, colinas. Efectos dinámicos que respetan la naturaleza del lugar.",
+    link: "/servicios/sky-tracker/"
+  },
+  {
+    title: "Uplighting y Efectos Subtiles",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Uplighting en zona boscosa",
+    description: "Iluminación de bajo perfil. Resalta arquitectura y naturaleza sin exceso. Perfecto para bodas elegantes.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Sonido Ambiental Premium",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sonido profesional discreto para boda íntima",
+    description: "Sonido de alta calidad, sin exceso. Música ambiental que complementa el evento elegante.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Magdalena Contreras" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Magdalena Contreras"
+    subtitle="Especialización en bodas íntimas y elegantes. Jardines con vista, áreas boscosas. Más de 350 eventos iluminados en la zona."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Magdalena%20Contreras"
+    introParagraph1='Magdalena Contreras es la zona de bodas íntimas y elegantes del sur de CDMX. Jardines con vista panorámica, áreas boscosas, espacios que respiran naturaleza. <strong>REDEIL lleva 30 años iluminando eventos en Magdalena Contreras</strong>. Aquí no usamos la iluminación para competir — la usamos para resaltar. Guirnaldas sutiles, efectos dinámicos que respetan la vista, proyecciones aéreas que danzan con la arquitectura natural.'
+    introParagraph2='Somos los que entienden que en Magdalena Contreras, menos es más. Los que saben montar en terrenos irregulares, árboles centenarios, pendientes. Los que adaptan iluminación sin dañar naturaleza. El equipo lleva experiencia específica en bodas de 50-150 invitados. Montaje discreto pero impactante. Transporte a zona de altura y difícil acceso — no es problema. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Magdalena Contreras</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2-3h</span>
+          <span class="stat-label-enhanced">Instalación en Terreno Irregular</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas Íntimas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Jardines y Haciendas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Eventos Elegantes", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Magdalena Contreras -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Magdalena Contreras"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación para bodas elegantes en Magdalena Contreras."
+        paragraph1="Magdalena Contreras es zona de bodas íntimas y elegantes. Sabemos que aquí la iluminación no es protagonista — es complementaria. Guirnaldas sutiles, uplighting discreto, proyecciones que danzan con la arquitectura natural. Menos es más."
+        paragraph2="Experiencia en terrenos complejos: árboles, pendientes, altura. Nuestro equipo entiende cómo adaptar instalaciones sin dañar naturaleza. Colocamos cables, postes y guirnaldas respetando cada árbol, cada vista, cada detalle. Eso es lo que pagás — conocimiento específico de zonas boscosas."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Iluminación Elegante y Sutil</h3>
+          <p>Aquí la iluminación complementa, no compite. Guirnaldas sutiles, uplighting discreto, efectos que resaltan sin exceso.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Experiencia en Terrenos Complejos</h3>
+          <p>Montaje en árboles, pendientes, zonas de difícil acceso. Nuestro equipo entiende Magdalena Contreras.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Especialización en Bodas Íntimas</h3>
+          <p>50-150 invitados, eventos elegantes. Sabemos crear ambientes memorizables sin exceso visual.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Respeto por la Naturaleza</h3>
+          <p>Transporte a zonas de altura, instalación que respeta árboles y paisaje. Cero daño a espacios naturales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Magdalena Contreras."
+        paragraph1="Cada servicio adaptado a elegancia. Combinaciones de servicios generan paquetes más económicos porque compartimos traslado y equipo."
+        paragraph2="Cotiza por WhatsApp con fotos de tu jardín. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Magdalena Contreras"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada jardín es único — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Magdalena Contreras?",
+        answer: "Cubrimos todo Magdalena Contreras, zonas boscosas, jardines privados y haciendas. Transporte incluido en toda la zona sur-poniente."
+      },
+      {
+        question: "¿Qué tipo de eventos son más comunes en Magdalena Contreras?",
+        answer: "Bodas íntimas, ceremonias al aire libre, eventos elegantes. Los jardines con vista de Magdalena Contreras son perfectos para iluminación sutil pero impactante."
+      },
+      {
+        question: "¿Cómo adaptan la iluminación a jardines con vista?",
+        answer: "Trabajamos con uplighting sutil, guirnaldas que no compitan con la vista natural, proyecciones sutiles. La iluminación resalta, no oculta."
+      },
+      {
+        question: "¿Es complicado montar en áreas boscosas?",
+        answer: "No. Nuestro equipo tiene experiencia montando en terrenos irregulares, árboles, pendientes. Sabemos cómo adaptar instalaciones sin dañar naturaleza."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda íntima en Magdalena Contreras?",
+        answer: "Bodas íntimas (50-150 invitados) arrancan desde $8,000. Bodas premium con múltiples servicios, $18,000+."
+      },
+      {
+        question: "¿Funcionan las guirnaldas en climas fríos y húmedos?",
+        answer: "Sí. IP65 certificado. Magdalena Contreras es zona fresca y húmeda — nuestro equipo está preparado para eso."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado a zona de altura, montaje profesional en terrenos complejos, pruebas, operación, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 4-6 semanas. Los jardines de Magdalena Contreras son lugares premium — reserva con tiempo."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu boda en Magdalena Contreras?</h2>
+        <p>Mándanos fotos de tu jardín por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20boda%20en%20Magdalena%20Contreras" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Azcapotzalco | Bodas y XV Años | REDEIL";
+const description = "Renta de iluminación para bodas y XV años en Azcapotzalco. Guirnaldas, luces y sonido. Especialización en salones tradicionales. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/azcapotzalco/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Azcapotzalco",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Azcapotzalco",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Azcapotzalco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4831, "longitude": -99.1444}
+      },
+      {
+        "@type": "Place",
+        "name": "Álvaro Obregón",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3960, "longitude": -99.1997}
+      },
+      {
+        "@type": "Place",
+        "name": "Gustavo A. Madero",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.4850, "longitude": -99.0750}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas, XV años y eventos en Azcapotzalco. Especialización en salones tradicionales, bodas masivas y eventos corporativos. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Azcapotzalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Azcapotzalco, norte de CDMX y zonas aledañas. Salones, patios, jardines y espacios industriales adaptados. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Azcapotzalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. XV años con iluminación completa $12,000+. Bodas masivas con múltiples servicios, $20,000+. Cotiza con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación en salones de Azcapotzalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Azcapotzalco tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes para pruebas completas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen experiencia en XV años masivos en Azcapotzalco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Azcapotzalco es zona de XV años populares. Hemos iluminado eventos con 300+ invitados. Guirnaldas, luces neón, efectos dinámicos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo combinar iluminación con DJ y sonido?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Paquete completo: iluminación + bocinas + DJ lighting. Sincronización perfecta. Precio combo más económico que por separado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué venues famosos de Azcapotzalco conocen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Conocemos salones tradicionales de la zona. Espacios industriales, salones comunitarios, patios privados. Hemos montado en Azcapotzalco desde hace 20+ años."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 3-4 semanas. Azcapotzalco en temporada alta se llena rápido. Reserva lo antes posible para garantizar disponibilidad."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando salón para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. Base del ambiente en cualquier boda o XV años.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para XV años",
+    description: "Nombres, iniciales, frases personalizadas. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años masivos.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto profesional que transforma cualquier salón.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación sincronizados.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Azcapotzalco" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Azcapotzalco"
+    subtitle="Especialización en XV años y bodas populares. Más de 350 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Azcapotzalco"
+    introParagraph1='Azcapotzalco es la zona de XV años y bodas populares del norte de CDMX. Salones tradicionales, patios amplios, espacios industriales que se transforman. <strong>REDEIL lleva 30 años iluminando eventos en Azcapotzalco</strong>. 350+ eventos al año en la zona norte. Conocemos cada salón, cada patio, cada espacio disponible. No es suerte — es logística propia, equipo entrenado, y experiencia profunda en lo que funciona en Azcapotzalco.'
+    introParagraph2='Somos los que cuelgan guirnaldas en salones tradicionales. Los que iluminan XV años con 300+ invitados sin que falle un foco. Los que transforman espacios industriales en lugares de fiesta. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado antes de que lleguen los invitados. Precio transparente: no cobramos cargos ocultos. Bodas, XV años, eventos corporativos — todo sale perfecto.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Azcapotzalco</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Azcapotzalco -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Azcapotzalco"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Azcapotzalco."
+        paragraph1="Más del 70% de nuestros montajes en Azcapotzalco son XV años. Sabemos qué iluminación convierte un salón tradicional en un lugar de fiesta memorable. Guirnaldas en techos, luces neón personalizadas, efectos dinámicos en la pista."
+        paragraph2="Logística propia, equipo entrenado en montajes rápidos. Azcapotzalco es zona de eventos populares — trabajamos con salones que requieren instalación ágil. Colocamos guirnaldas, proyecciones, efectos especiales sin complicaciones. Eso te deja tranquilo."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en XV Años</h3>
+          <p>Más del 70% de nuestros montajes son XV años. Sabemos transformar salones en espacios de fiesta.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación Ágil</h3>
+          <p>Montaje rápido y eficiente. 2-3 horas en salones estándar. Sin complicaciones ni estrés.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Experiencia en Salones Populares</h3>
+          <p>Conocemos los salones tradicionales de Azcapotzalco. Sabemos cómo adaptar iluminación a cada espacio.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Paquetes Accesibles</h3>
+          <p>Opciones desde $6,500 para XV años básicos. Combina guirnaldas, luces neón y efectos dinámicos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Azcapotzalco."
+        paragraph1="Cada servicio se adapta a tu evento. Combina varios servicios y el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Azcapotzalco"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada evento es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Azcapotzalco?",
+        answer: "Cubrimos todo Azcapotzalco, norte de CDMX y zonas aledañas. Salones, patios, jardines y espacios industriales adaptados. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Azcapotzalco?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. XV años con iluminación completa $12,000+. Bodas masivas con múltiples servicios, $20,000+."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación en salones de Azcapotzalco?",
+        answer: "Nuestro equipo en Azcapotzalco tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes para pruebas completas."
+      },
+      {
+        question: "¿Tienen experiencia en XV años masivos?",
+        answer: "Sí. Azcapotzalco es zona de XV años populares. Hemos iluminado eventos con 300+ invitados. Guirnaldas, luces neón, efectos dinámicos."
+      },
+      {
+        question: "¿Puedo combinar iluminación con DJ y sonido?",
+        answer: "Sí. Paquete completo: iluminación + bocinas + DJ lighting. Sincronización perfecta. Precio combo más económico que por separado."
+      },
+      {
+        question: "¿Qué venues de Azcapotzalco conocen?",
+        answer: "Conocemos salones tradicionales de la zona. Espacios industriales, salones comunitarios, patios privados. Llevamos 20+ años montando en Azcapotzalco."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 3-4 semanas. Azcapotzalco en temporada alta se llena rápido. Reserva lo antes posible."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Azcapotzalco?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Azcapotzalco" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

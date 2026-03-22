@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+const title = "Zonas de Cobertura REDEIL | CDMX y Estado de México";
+const description = "REDEIL cubre todas las alcaldías de CDMX y municipios Edomex. 30 años iluminando eventos en la zona metropolitana. Cobertura completa: bodas, XV años, corporativos.";
+const canonical = "https://rentadeiluminacion.com/zonas/";
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Zonas de Cobertura REDEIL",
+  "description": "REDEIL cubre todas las alcaldías de CDMX y municipios Edomex. 30 años iluminando eventos en la zona metropolitana.",
+  "url": "https://rentadeiluminacion.com/zonas/",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com",
+    "telephone": "+525530682988",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Ciudad de México",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Coyoacán" },
+          { "@type": "AdministrativeArea", "name": "Benito Juárez" },
+          { "@type": "AdministrativeArea", "name": "Cuauhtémoc" },
+          { "@type": "AdministrativeArea", "name": "Miguel Hidalgo" },
+          { "@type": "AdministrativeArea", "name": "Polanco" },
+          { "@type": "AdministrativeArea", "name": "Álvaro Obregón" },
+          { "@type": "AdministrativeArea", "name": "Tlalpan" },
+          { "@type": "AdministrativeArea", "name": "Azcapotzalco" },
+          { "@type": "AdministrativeArea", "name": "Gustavo A. Madero" },
+          { "@type": "AdministrativeArea", "name": "Iztacalco" },
+          { "@type": "AdministrativeArea", "name": "Iztapalapa" },
+          { "@type": "AdministrativeArea", "name": "Magdalena Contreras" },
+          { "@type": "AdministrativeArea", "name": "Milpa Alta" },
+          { "@type": "AdministrativeArea", "name": "Tláhuac" },
+          { "@type": "AdministrativeArea", "name": "Xochimilco" },
+          { "@type": "AdministrativeArea", "name": "Venustiano Carranza" }
+        ]
+      },
+      {
+        "@type": "City",
+        "name": "Estado de México",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Naucalpan" },
+          { "@type": "AdministrativeArea", "name": "Tlalnepantla" },
+          { "@type": "AdministrativeArea", "name": "Ecatepec" },
+          { "@type": "AdministrativeArea", "name": "Nezahualcóyotl" }
+        ]
+      }
+    ]
+  }
+});
+
+const zonas = [
+  // CDMX
+  {
+    name: "Coyoacán",
+    href: "/zonas/coyoacan/",
+    region: "CDMX Sur",
+    description: "Haciendas coloniales, jardines románticos, bodas elegantes.",
+    keyword: "Renta iluminación Coyoacán"
+  },
+  {
+    name: "Benito Juárez",
+    href: "/zonas/benito-juarez/",
+    region: "CDMX Centro",
+    description: "Zona financiera, salones corporativos, eventos premium.",
+    keyword: "Renta iluminación Benito Juárez"
+  },
+  {
+    name: "Cuauhtémoc",
+    href: "/zonas/cuauhtemoc/",
+    region: "CDMX Centro",
+    description: "Centro histórico, eventos corporativos, salones modernos.",
+    keyword: "Renta iluminación Cuauhtémoc"
+  },
+  {
+    name: "Miguel Hidalgo",
+    href: "/zonas/miguel-hidalgo/",
+    region: "CDMX Centro-Poniente",
+    description: "Polanco, Lomas, bodas de lujo, eventos premium.",
+    keyword: "Renta iluminación Miguel Hidalgo"
+  },
+  {
+    name: "Polanco",
+    href: "/zonas/polanco/",
+    region: "CDMX Poniente",
+    description: "Zona residencial premium, bodas de lujo absoluto.",
+    keyword: "Renta iluminación Polanco"
+  },
+  {
+    name: "Álvaro Obregón",
+    href: "/zonas/alvaro-obregon/",
+    region: "CDMX Poniente",
+    description: "San Ángel, La Paz, bodas en haciendas, eventos elegantes.",
+    keyword: "Renta iluminación Álvaro Obregón"
+  },
+  {
+    name: "Tlalpan",
+    href: "/zonas/tlalpan/",
+    region: "CDMX Sur",
+    description: "Zona residencial, haciendas, bodas campestres.",
+    keyword: "Renta iluminación Tlalpan"
+  },
+  {
+    name: "Azcapotzalco",
+    href: "/zonas/azcapotzalco/",
+    region: "CDMX Norte",
+    description: "Zona industrial, XV años populares, salones tradicionales.",
+    keyword: "Renta iluminación Azcapotzalco"
+  },
+  {
+    name: "Gustavo A. Madero",
+    href: "/zonas/gustavo-a-madero/",
+    region: "CDMX Norte",
+    description: "Zona residencial popular, XV años, eventos familiares.",
+    keyword: "Renta iluminación Gustavo A. Madero"
+  },
+  {
+    name: "Iztacalco",
+    href: "/zonas/iztacalco/",
+    region: "CDMX Centro-Este",
+    description: "Zona popular, salones de fiestas, XV años masivos.",
+    keyword: "Renta iluminación Iztacalco"
+  },
+  {
+    name: "Iztapalapa",
+    href: "/zonas/iztapalapa/",
+    region: "CDMX Este",
+    description: "Zona más poblada, XV años, bodas populares.",
+    keyword: "Renta iluminación Iztapalapa"
+  },
+  {
+    name: "Magdalena Contreras",
+    href: "/zonas/magdalena-contreras/",
+    region: "CDMX Sur",
+    description: "Jardines con vista, áreas boscosas, bodas íntimas elegantes.",
+    keyword: "Renta iluminación Magdalena Contreras"
+  },
+  {
+    name: "Milpa Alta",
+    href: "/zonas/milpa-alta/",
+    region: "CDMX Sur Rural",
+    description: "Zona rural, haciendas, eventos campestres amplios.",
+    keyword: "Renta iluminación Milpa Alta"
+  },
+  {
+    name: "Tláhuac",
+    href: "/zonas/tlahuac/",
+    region: "CDMX Oriente-Sur",
+    description: "Salones de fiestas, XV años masivos, bodas tradicionales.",
+    keyword: "Renta iluminación Tláhuac"
+  },
+  {
+    name: "Xochimilco",
+    href: "/zonas/xochimilco/",
+    region: "CDMX Sur",
+    description: "Chinampas, trajineras, bodas únicas al agua.",
+    keyword: "Renta iluminación Xochimilco"
+  },
+  {
+    name: "Venustiano Carranza",
+    href: "/zonas/venustiano-carranza/",
+    region: "CDMX Este",
+    description: "Zona industrial-residencial, eventos populares.",
+    keyword: "Renta iluminación Venustiano Carranza"
+  },
+  // Estado de México
+  {
+    name: "Naucalpan",
+    href: "/zonas/naucalpan/",
+    region: "Edomex Poniente",
+    description: "Salones corporativos, country clubs, bodas premium.",
+    keyword: "Renta iluminación Naucalpan"
+  },
+  {
+    name: "Tlalnepantla",
+    href: "/zonas/tlalnepantla/",
+    region: "Edomex Norte",
+    description: "Zona industrial-residencial, acceso fácil, eventos populares.",
+    keyword: "Renta iluminación Tlalnepantla"
+  },
+  {
+    name: "Ecatepec",
+    href: "/zonas/ecatepec/",
+    region: "Edomex Norte",
+    description: "Zona residencial poblada, XV años, bodas populares.",
+    keyword: "Renta iluminación Ecatepec"
+  },
+  {
+    name: "Nezahualcóyotl",
+    href: "/zonas/nezahualcoyotl/",
+    region: "Edomex Este",
+    description: "Zona residencial, eventos populares, salones de fiestas.",
+    keyword: "Renta iluminación Nezahualcóyotl"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación: Cobertura Completa CDMX y Estado de México"
+    subtitle="30 años iluminando eventos en la zona metropolitana. Cobertura garantizada en todas las alcaldías de CDMX y municipios principales del Edomex."
+    whatsappText="Hola,%20necesito%20cotizar%20iluminacion%20para%20mi%20evento"
+    introParagraph1='<strong>REDEIL cubre toda la zona metropolitana.</strong> No importa dónde esté tu evento — Coyoacán, Polanco, Azcapotzalco, Xochimilco, Naucalpan, o cualquier otra alcaldía de CDMX y municipios del Estado de México. Tenemos equipo especializado para cada zona. 30 años, 350+ eventos al año, logística propia.'
+    introParagraph2='Cada zona tiene características diferentes. Bodas rurales en Milpa Alta, eventos al agua en Xochimilco, XV años masivos en Tláhuac, bodas premium en Polanco. Sabemos adaptar iluminación a cada lugar. Eso es lo que pagás — experiencia específica de 30 años.'
+  />
+
+  <CtaBar
+    headline="¿Necesitas iluminación en tu zona?"
+    items={[
+      { label: "Ver todas las zonas", href: "#zonas", icon: "iluminacion" },
+      { label: "Cotiza por WhatsApp", href: "https://wa.me/525530682988", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Zonas Grid -->
+  <section id="zonas" class="zonas-section">
+    <div class="container">
+      <SectionHeader
+        title="Zonas de Cobertura"
+        subtitle="20 zonas en CDMX y Estado de México. Selecciona tu zona para conocer detalles específicos, precios y especialidades."
+        paragraph1="Cada zona tiene características únicas. Haz clic en tu zona para ver qué tipo de eventos montamos, precios, y cómo nos adaptamos a tu espacio específico."
+        paragraph2="¿No ves tu zona? Escríbenos por WhatsApp — probablemente también cubrimos tu área. Tenemos logística en toda la zona metropolitana."
+      />
+      
+      <!-- CDMX -->
+      <div class="zona-category">
+        <h2 class="zona-category-title">Ciudad de México (CDMX)</h2>
+        <div class="zonas-grid">
+          {zonas.filter(z => z.region.includes("CDMX")).map((zona) => (
+            <a href={zona.href} class="zona-card">
+              <div class="zona-card-content">
+                <h3>{zona.name}</h3>
+                <p class="zona-region">{zona.region}</p>
+                <p class="zona-description">{zona.description}</p>
+                <p class="zona-keyword">{zona.keyword}</p>
+              </div>
+              <div class="zona-arrow">→</div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Estado de México -->
+      <div class="zona-category">
+        <h2 class="zona-category-title">Estado de México (Edomex)</h2>
+        <div class="zonas-grid">
+          {zonas.filter(z => z.region.includes("Edomex")).map((zona) => (
+            <a href={zona.href} class="zona-card">
+              <div class="zona-card-content">
+                <h3>{zona.name}</h3>
+                <p class="zona-region">{zona.region}</p>
+                <p class="zona-description">{zona.description}</p>
+                <p class="zona-keyword">{zona.keyword}</p>
+              </div>
+              <div class="zona-arrow">→</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años de Experiencia</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">20</span>
+          <span class="stat-label-enhanced">Zonas de Cobertura</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Metropolitana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios por Zona -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="¿Qué Ofrecemos en Cada Zona?"
+        subtitle="Sin importar dónde esté tu evento, ofrecemos los mismos servicios de calidad."
+        paragraph1="Iluminación completa: guirnaldas, luces neón, cabezas móviles, sonido, DJ lighting. Todo coordinado, todo funciona."
+        paragraph2="Cada zona tiene especialidades — bodas rurales en Milpa Alta, eventos premium en Polanco, XV años masivos en Tláhuac. Cotiza con nosotros y te mostramos opciones específicas para tu zona."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Guirnaldas Edison</h3>
+          <p>Focos LED o vintage, IP65, resistentes a lluvia. La base del ambiente en cualquier evento.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Luces Neón Personalizadas</h3>
+          <p>Nombres, frases, colores. El protagonista visual de bodas y XV años.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Cabezas Móviles y Sky Tracker</h3>
+          <p>Proyecciones dinámicas, efectos especiales, colores sincronizados con música.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Sonido e Iluminación DJ</h3>
+          <p>Sistema profesional de sonido + luces que reaccionan a la música.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento?</h2>
+        <p>Selecciona tu zona arriba, o escríbenos por WhatsApp. Te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20necesito%20cotizar%20iluminacion%20para%20mi%20evento" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .zona-category {
+    margin-bottom: 4rem;
+  }
+
+  .zona-category-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .zonas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .zona-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .zona-card:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.15);
+  }
+
+  .zona-card-content {
+    flex: 1;
+  }
+
+  .zona-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-primary);
+  }
+
+  .zona-region {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0.25rem 0;
+    font-weight: 600;
+  }
+
+  .zona-description {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin: 0.75rem 0;
+  }
+
+  .zona-keyword {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    margin: 0.5rem 0 0 0;
+    font-style: italic;
+  }
+
+  .zona-arrow {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .zona-card:hover .zona-arrow {
+    transform: translateX(4px);
+  }
+</style>

@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Milpa Alta | Eventos Campestres y Haciendas | REDEIL";
+const description = "Renta de iluminación para eventos campestres en Milpa Alta. Jardines amplios, haciendas, bodas rurales. Especialización en espacios grandes. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/milpa-alta/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Milpa Alta",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Milpa Alta",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Milpa Alta",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.1847, "longitude": -99.0289}
+      },
+      {
+        "@type": "Place",
+        "name": "Tláhuac",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2445, "longitude": -98.9589}
+      },
+      {
+        "@type": "Place",
+        "name": "Xochimilco",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.2737, "longitude": -99.0964}
+      }
+    ],
+    "description": "Renta de iluminación profesional para eventos campestres en Milpa Alta. Especialización en haciendas, jardines amplios y bodas rurales. Equipo adaptado a espacios grandes. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Milpa Alta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Milpa Alta, haciendas rurales, espacios campestres amplios. Transporte incluido en toda la zona sur rural."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué hace diferente a Milpa Alta en términos de iluminación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Espacios amplios, al aire libre, sin techos. Requiere mayor proyección de luz, cables más largos, estrategia diferente. Nuestro equipo está especializado en eso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánta cobertura de luz necesita un jardín de Milpa Alta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende del tamaño. Un jardín de 500m² requiere 8-12 guirnaldas + uplighting + efectos. Cotiza con dimensiones de tu espacio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo iluminar una hacienda completa en Milpa Alta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Haciendas de Milpa Alta son nuestras. Iluminamos todo: entrada, jardín, pista, zona de ceremonia. Proyecto integral."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un evento campestre en Milpa Alta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eventos campestres arrancan desde $12,000 (espacio mediano). Haciendas completas $25,000+. Depende del tamaño y servicios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo manejan el viento y la lluvia en espacios abiertos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IP65 certificado + anclajes sólidos. Nuestro equipo calcula cargas de viento, asegura guirnaldas, garantiza estabilidad incluso en lluvia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 6-8 semanas. Las haciendas de Milpa Alta son lugares premium y de difícil acceso — planifica con tiempo."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas Profesionales Largas",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas extensas iluminando hacienda",
+    description: "Cables de 50-100 metros, múltiples tramos. Para espacios amplios, jardines grandes, haciendas extensas.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Sky Tracker — Proyecciones Amplias",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Sky tracker cubriendo área grande",
+    description: "Proyecciones dinámicas que cubren áreas grandes. Efectos especiales visibles desde distancia.",
+    link: "/servicios/sky-tracker/"
+  },
+  {
+    title: "Uplighting Distribuido",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Uplighting iluminando hacienda",
+    description: "Múltiples focos estratégicamente distribuidos. Iluminación uniforme en espacios grandes.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Sonido Profesional Campestre",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido para evento al aire libre",
+    description: "Bocinas de alcance largo para espacios abiertos. Música clara incluso en jardines amplios.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Milpa Alta" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Milpa Alta"
+    subtitle="Especialización en eventos campestres y haciendas. Jardines amplios, espacios al aire libre. Más de 350 eventos iluminados en la zona."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20campestre%20en%20Milpa%20Alta"
+    introParagraph1='Milpa Alta es la zona de haciendas y eventos campestres del sur rural de CDMX. Espacios amplios, jardines que respiran, haciendas coloniales rodeadas de naturaleza. <strong>REDEIL lleva 30 años iluminando eventos en Milpa Alta</strong>. Aquí no trabajamos con cables cortos — trabajamos con proyección de luz estratégica. Guirnaldas de 50-100 metros, múltiples postes, iluminación que alcanza a todos. 350+ eventos al año en la zona sur.'
+    introParagraph2='Somos los que arman haciendas completas. Los que cuelgan guirnaldas desde la entrada hasta el jardín de ceremonia. Los que manejan vientos, lluvia, altura. Logística especializada para Milpa Alta: transporte a zonas de difícil acceso, equipo pesado, instalación que requiere múltiples jornadas. El equipo entiende espacios campestres. Calcula cargas, asegura anclajes, garantiza estabilidad en lluvia. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Milpa Alta</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100m+</span>
+          <span class="stat-label-enhanced">Alcance de Cables</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas Campestres", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Haciendas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Eventos Rurales", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Milpa Alta -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Milpa Alta"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación para haciendas en Milpa Alta."
+        paragraph1="Milpa Alta requiere especialización. Espacios amplios, al aire libre, sin techos. No es lo mismo que salones. Requiere proyección de luz estratégica, cables largos, múltiples postes, cálculo de cargas de viento. Nuestro equipo entiende eso."
+        paragraph2="Haciendas coloniales, jardines de 500-2,000m², espacios campestres. Conocemos cada hacienda de Milpa Alta. Sabemos dónde van los postes, cómo distribuir luz sin áreas oscuras, cómo manejar terrenos irregulares. Eso es especialización."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Proyección de Luz Estratégica</h3>
+          <p>Espacios amplios requieren cálculo diferente. Cables de 50-100m, múltiples postes, cobertura completa.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Especialización en Haciendas</h3>
+          <p>Conocemos cada hacienda de Milpa Alta. Instalación que respeta arquitectura colonial y espacios naturales.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Manejo de Condiciones Extremas</h3>
+          <p>Viento, lluvia, altura, terrenos irregulares. Equipo especializado en espacios campestres.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Logística Rural Adaptada</h3>
+          <p>Transporte a zonas de difícil acceso. Equipo pesado, múltiples jornadas. Nada es complicado para nosotros.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación para espacios amplios en Milpa Alta."
+        paragraph1="Cada servicio adaptado a espacios grandes. Combinaciones generan paquetes más económicos porque compartimos equipo y traslado."
+        paragraph2="Cotiza por WhatsApp con dimensiones de tu hacienda o jardín. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Milpa Alta"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada hacienda es única — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Milpa Alta?",
+        answer: "Cubrimos todo Milpa Alta, haciendas rurales, espacios campestres amplios. Transporte incluido en toda la zona sur rural."
+      },
+      {
+        question: "¿Qué hace diferente a Milpa Alta en términos de iluminación?",
+        answer: "Espacios amplios, al aire libre, sin techos. Requiere mayor proyección de luz, cables más largos, estrategia diferente. Nuestro equipo está especializado en eso."
+      },
+      {
+        question: "¿Cuánta cobertura de luz necesita un jardín de Milpa Alta?",
+        answer: "Depende del tamaño. Un jardín de 500m² requiere 8-12 guirnaldas + uplighting + efectos. Cotiza con dimensiones de tu espacio."
+      },
+      {
+        question: "¿Puedo iluminar una hacienda completa?",
+        answer: "Sí. Haciendas de Milpa Alta son nuestras. Iluminamos todo: entrada, jardín, pista, zona de ceremonia. Proyecto integral."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un evento campestre en Milpa Alta?",
+        answer: "Eventos campestres arrancan desde $12,000 (espacio mediano). Haciendas completas $25,000+. Depende del tamaño y servicios."
+      },
+      {
+        question: "¿Cómo manejan el viento y la lluvia en espacios abiertos?",
+        answer: "IP65 certificado + anclajes sólidos. Nuestro equipo calcula cargas de viento, asegura guirnaldas, garantiza estabilidad incluso en lluvia."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado a zona rural, montaje profesional, pruebas, operación, desmontaje. Cero cargos ocultos. Equipo especializado en haciendas."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 6-8 semanas. Las haciendas de Milpa Alta son lugares premium — planifica con tiempo."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento campestre en Milpa Alta?</h2>
+        <p>Mándanos fotos de tu hacienda o jardín por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20campestre%20en%20Milpa%20Alta" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

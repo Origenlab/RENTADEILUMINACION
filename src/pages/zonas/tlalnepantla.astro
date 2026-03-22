@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Tlalnepantla | Bodas Populares | REDEIL";
+const description = "Renta de iluminación para bodas y XV años en Tlalnepantla, Estado de México. Acceso fácil, zona industrial y residencial. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/tlalnepantla/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Tlalnepantla",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Tlalnepantla",
+      "addressRegion": "Estado de México"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Tlalnepantla",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.5407, "longitude": -99.1963}
+      },
+      {
+        "@type": "Place",
+        "name": "Atizapán",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.5505, "longitude": -99.2237}
+      },
+      {
+        "@type": "Place",
+        "name": "Tultitlán",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.6278, "longitude": -99.1792}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas y XV años en Tlalnepantla. Especialización en eventos populares, zona industrial y residencial del norte de Edomex. Acceso fácil, logística rápida. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Tlalnepantla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos Tlalnepantla, Atizapán, Tultitlán y toda la zona norte del Estado de México. Salones populares, patios, espacios comunitarios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de eventos son más comunes en Tlalnepantla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XV años populares, bodas masivas, eventos familiares. Tlalnepantla es zona de eventos accesibles y bien comunicada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un evento en Tlalnepantla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XV años con iluminación básica arrancan desde $6,500. Bodas con servicios completos $12,000+. Acceso fácil = costos menores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación en Tlalnepantla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Tlalnepantla tarda 2-3 horas en montar un evento estándar. Acceso fácil = montaje rápido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen salones conocidos en Tlalnepantla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos los salones populares de Tlalnepantla. Espacios modulares, patios amplios, instalaciones que funcionan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es fácil el acceso para transporte?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Tlalnepantla está bien comunicada, acceso fácil desde CDMX. Transporte rápido, logística ágil = costos menores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Con cuánta anticipación debo reservar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Idealmente 2-3 semanas. Tlalnepantla tiene buena disponibilidad porque está bien comunicada. Acceso fácil = más opciones."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas Económicas",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison en salón de Tlalnepantla",
+    description: "Focos LED o vintage IP65. La base del ambiente. Económicas, duraderas, perfectas para eventos populares.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Populares",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon en XV años",
+    description: "Nombres, edades, frases. Luces neón de colores. El protagonista visual de la fiesta. Muy solicitado.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles Básicas",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles en salón",
+    description: "Proyecciones dinámicas, colores que cambian, efectos que transforman la pista de baile.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional",
+    description: "Sonido profesional + luces sincronizadas. Paquete completo a precio accesible.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Tlalnepantla" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Tlalnepantla"
+    subtitle="Especialización en bodas y XV años populares. Acceso fácil, zona bien comunicada. Más de 350 eventos iluminados en la zona."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Tlalnepantla"
+    introParagraph1='Tlalnepantla es la zona de eventos accesibles y bien comunicada del norte del Estado de México. Salones populares, patios amplios, espacios que funcionan. <strong>REDEIL lleva 30 años iluminando eventos en Tlalnepantla y Edomex norte</strong>. XV años masivos, bodas populares, eventos familiares grandes. Acceso fácil = logística rápida = costos menores. 350+ eventos al año en la zona norte.'
+    introParagraph2='Somos los que montamos iluminación rápida pero profesional en Tlalnepantla. Los que conocemos cada salón popular de la zona. Los que adaptamos paquetes a presupuestos accesibles sin perder calidad. Equipo entrenado en montajes ágiles. Transporte desde CDMX es rápido porque Tlalnepantla está bien comunicada. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado y funcionando. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Edomex</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Acceso Rápido</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "Eventos Familiares", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Tlalnepantla -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Tlalnepantla"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Tlalnepantla."
+        paragraph1="Tlalnepantla es zona de eventos populares y bien comunicada. Sabemos adaptar iluminación a presupuestos accesibles sin perder calidad. Montaje ágil, servicios coordinados, paquetes que funcionan."
+        paragraph2="Acceso fácil desde CDMX. Logística ágil. Conocemos cada salón popular de Tlalnepantla. Equipo entrenado en montajes rápidos. Eso se traduce en costos menores para ti."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en Eventos Populares</h3>
+          <p>XV años masivos, bodas populares. Sabemos transformar salones a presupuestos accesibles.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Acceso Fácil y Rápido</h3>
+          <p>Tlalnepantla está bien comunicada. Logística ágil = transporte rápido = costos menores.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Montaje Ágil Profesional</h3>
+          <p>2-3 horas en salones estándar. Equipo entrenado. Sin complicaciones, sin estrés.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Paquetes Accesibles</h3>
+          <p>Opciones desde $6,500. Combina servicios y baja el costo. Sin calidad comprometida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Tlalnepantla."
+        paragraph1="Cada servicio adaptado a presupuestos accesibles. Combinaciones de servicios generan paquetes más económicos."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Tlalnepantla"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada evento es diferente — por eso hacemos propuestas adaptadas."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Tlalnepantla?",
+        answer: "Cubrimos Tlalnepantla, Atizapán, Tultitlán y toda la zona norte del Estado de México. Salones populares, patios, espacios comunitarios."
+      },
+      {
+        question: "¿Qué tipo de eventos son más comunes en Tlalnepantla?",
+        answer: "XV años populares, bodas masivas, eventos familiares. Tlalnepantla es zona de eventos accesibles y bien comunicada."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un evento en Tlalnepantla?",
+        answer: "XV años con iluminación básica arrancan desde $6,500. Bodas con servicios completos $12,000+. Acceso fácil = costos menores."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación en Tlalnepantla?",
+        answer: "Nuestro equipo en Tlalnepantla tarda 2-3 horas en montar un evento estándar. Acceso fácil = montaje rápido."
+      },
+      {
+        question: "¿Tienen salones conocidos en Tlalnepantla?",
+        answer: "Sí. Conocemos los salones populares de Tlalnepantla. Espacios modulares, patios amplios, instalaciones que funcionan."
+      },
+      {
+        question: "¿Es fácil el acceso para transporte?",
+        answer: "Sí. Tlalnepantla está bien comunicada, acceso fácil desde CDMX. Transporte rápido, logística ágil = costos menores."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado desde CDMX (acceso rápido), montaje profesional, pruebas, operación, desmontaje. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 2-3 semanas. Tlalnepantla tiene buena disponibilidad porque está bien comunicada. Acceso fácil = más opciones."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Tlalnepantla?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Tlalnepantla" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
