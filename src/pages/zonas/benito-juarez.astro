@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Benito Juárez | Centro CDMX | REDEIL";
+const description = "Renta iluminación Benito Juárez, Centro CDMX. Rápido, accesible, profesional. 400+ eventos/año. Montaje 2 horas. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/benito-juarez/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Benito Juárez",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Benito Juárez",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      }
+    },
+    "description": "Renta de iluminación profesional para eventos en Benito Juárez, Centro CDMX, Reforma, Roma, Condesa. Respuesta rápida. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura en Benito Juárez?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Centro histórico, Paseo de la Reforma, Zona Rosa, Juárez, Roma, Condesa, Escandón, Doctores, Hipódromo. Todo accesible en máximo 20 minutos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un evento en Benito Juárez?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Desde $3,500 (guirnaldas básicas). Boda completa: $9,000-15,000. XV años con luces y sonido: $7,000-12,000. Cotiza por WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Pueden montar en azoteas y departamentos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Azoteas, patios, departamentos. Adaptamos el montaje. Cuidado máximo con estructuras, sin dañar pisos ni paredes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de respuesta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "30 minutos. Escribes por WhatsApp, te llamamos en 30. Visitamos el lugar ese mismo día si es posible."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Iluminación Básica — Guirnaldas",
+    image: "/img/guirnaldas/guirnaldas-led-fiestas-cdmx.avif",
+    alt: "Guirnaldas LED para fiestas en CDMX",
+    description: "Focos Edison, cableado IP65. Ideal para XV años, bodas íntimas. Desde $3,500.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para evento",
+    description: "Nombres, iniciales, frases. Luces neón de colores. Opción premium asequible.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Bocinas y Sonido",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional",
+    description: "Sistema de audio profesional para salones, departamentos, patios. Calidad de concierto.",
+    link: "/servicios/bocinas-djs/"
+  },
+  {
+    title: "Efectos Especiales — Cabezas Móviles",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles para evento",
+    description: "Luces animadas, colores sincronizados. Transforma cualquier salón en espacio de fiesta.",
+    link: "/servicios/cabezas-moviles/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Benito Juárez" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Benito Juárez"
+    subtitle="Centro de CDMX. Cobertura rápida, presupuesto accesible, montaje en 2 horas. Cotiza al instante."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Benito%20Juárez"
+    introParagraph1='Benito Juárez es el corazón de CDMX. Centro histórico, Paseo de la Reforma, zonas residenciales densas, salones accesibles. Aquí acontecen 400+ eventos al año — y <strong>REDEIL ilumina la mayoría</strong>. No porque seamos mágicos, sino porque estamos a la vuelta. Equipo base en zona céntrica. Respuesta rápida. Presupuesto realista. Montaje en 2 horas máximo.'
+    introParagraph2='Bodas en salones de Juárez, XV años en la Roma, corporativos en Reforma, fiestas en departamentos del Paseo. Cada evento es diferente pero el patrón es el mismo: llamas, nosotros respondemos en 30 minutos, visitamos el lugar, cotizamos, confirmamos, montamos. Sin trámites, sin demoras. ¿Por qué elegirnos en Benito Juárez? Proximidad. Nuestro equipo está aquí. Cobertura garantizada sin traslado de 2+ horas. Presupuesto sincero. Montaje ágil en promedio 2-3 horas.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">400+</span>
+          <span class="stat-label-enhanced">Eventos/Año en Zona</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30min</span>
+          <span class="stat-label-enhanced">Tiempo de Respuesta</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Montaje Ágil</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">$$$</span>
+          <span class="stat-label-enhanced">Presupuesto Accesible</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Qué tipo de evento tienes en Benito Juárez?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza al Instante", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Benito Juárez -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Benito Juárez"
+        subtitle="4 razones por las que REDEIL es la mejor opción para tu evento en el centro."
+        paragraph1="Equipo base en zona céntrica. Respuesta en 30 minutos. Montaje en 2 horas. Cobertura garantizada sin demoras. Costos honestos. No cobramos caro por estar en centro. Paquetes básicos desde $3,500."
+        paragraph2="Salones, azoteas, departamentos, patios. Cualquier tipo de espacio en el centro, adaptamos el montaje. Hablas con el mismo equipo que va a montar. Sin intermediarios. Preguntas técnicas, respuestas directas. Cambios en el último minuto, resolvemos."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Proximidad y Velocidad</h3>
+          <p>Equipo base en zona céntrica. Respuesta en 30 minutos. Montaje en 2 horas. Cobertura garantizada.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Presupuesto Accesible</h3>
+          <p>Costos honestos. No inflamos precios por zona céntrica. Desde $3,500.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Flexibilidad de Espacios</h3>
+          <p>Salones, azoteas, departamentos, patios. Adaptamos a cualquier tipo de espacio.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Atención Directa</h3>
+          <p>Hablas con el equipo que va a montar. Sin intermediarios. Preguntas directas, respuestas directas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Disponibles"
+        subtitle="Las 4 soluciones de iluminación más populares en Benito Juárez."
+        paragraph1="Cada paquete se ajusta a tu evento y presupuesto. Combina servicios y el precio baja."
+        paragraph2="Cotiza por WhatsApp con fotos de tu espacio. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas Frecuentes — Benito Juárez"
+        subtitle="Lo que todos preguntan cuando cotizan en el centro."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es exactamente la cobertura en Benito Juárez?",
+        answer: "Centro histórico, Paseo de la Reforma, Zona Rosa, Juárez, Roma, Condesa, Escandón, Doctores, Hipódromo. Todo accesible en máximo 20 minutos desde nuestra base."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un evento en Benito Juárez?",
+        answer: "Desde $3,500 (guirnaldas básicas para 30 personas). Boda completa con iluminación múltiple: $9,000-15,000. XV años con luces y sonido: $7,000-12,000."
+      },
+      {
+        question: "¿Pueden montar en azoteas y departamentos?",
+        answer: "Sí. Azoteas, patios, departamentos. Adaptamos el montaje al espacio. Cuidado máximo con estructuras, sin dañar pisos ni paredes."
+      },
+      {
+        question: "¿Cuál es el tiempo de respuesta?",
+        answer: "30 minutos. Escribes por WhatsApp, te llamamos en 30. Visitamos el lugar ese mismo día si es posible, cotizamos en 2 horas."
+      },
+      {
+        question: "¿Qué sucede si llueve?",
+        answer: "Todo nuestro cableado es IP65. Lluvia, humedad, nada es problema. Julio y agosto (meses lluviosos), nuestros meses más ocupados en Benito Juárez."
+      },
+      {
+        question: "¿Pueden hacer cambios el día del evento?",
+        answer: "Sí. El equipo llega 4 horas antes. Si quieres ajustar colores, mover luces, agregar un efecto, lo hacemos. Flexibilidad total."
+      },
+      {
+        question: "¿Ofrecen planes de pago?",
+        answer: "Sí. 50% anticipo, 50% al confirmar todo. O pago completo el día del evento, según prefieras. Sin sorpresas."
+      },
+      {
+        question: "¿A quién le hablo si tengo urgencia?",
+        answer: "Llama directo al 55 3068 2988. No contestadora. Hablás con el equipo. Urgencias, eventos de última hora, nos encanta."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para cotizar tu evento en Benito Juárez?</h2>
+        <p>Escríbenos por WhatsApp. Respuesta en minutos. Sin demoras, sin sorpresas.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Benito%20Juárez" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Coyoacán | Bodas y XV Años | REDEIL";
+const description = "Renta de iluminación para bodas y XV años en Coyoacán. Guirnaldas, luces y sonido. Instalación en 2h. 350+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/coyoacan/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Coyoacán",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Coyoacán",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      }
+    },
+    "description": "Renta de iluminación profesional para bodas, XV años y eventos en Coyoacán, San Ángel y Tlalpan. Especialización en haciendas y jardines. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Coyoacán?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Coyoacán, San Ángel, Tlalpan y alrededores. Haciendas, jardines, salones, patios. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Coyoacán?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $6,500. Bodas completas con múltiples servicios, $18,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Coyoacán tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen cobertura garantizada en los venues de Coyoacán?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Hacienda San Ángel, Museo de Arte Moderno, Biblioteca Vasconcelos, Aldea de Coapa, Hogar Sacromonte — los conocemos todos."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda Coyoacán.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Coyoacán" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Coyoacán"
+    subtitle="Especialización en bodas y XV años. Más de 350 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Coyoacan"
+    introParagraph1='Coyoacán es la zona de bodas y XV años por excelencia. Haciendas coloniales, jardines románticos, patios bohemios — los espacios que cuelga la iluminación hacen la diferencia. <strong>REDEIL lleva 30 años iluminando eventos en Coyoacán</strong>. Bodas en la Hacienda San Ángel, XV años en el Jardín Botánico, recepciones en casas coloniales de San Ángel, Plaza Hidalgo. Conocemos cada venue, cada patio, cada fachada. 350+ eventos al año en Coyoacán. No es suerte — es conocimiento del terreno + equipo propio + experiencia.'
+    introParagraph2='Somos los que montamos las guirnaldas sobre las columnas de las haciendas. Los que iluminan la primera danza en el jardín. Los que proyectan el monograma de los novios en la pista. ¿Cuáles son los venues que más montamos? Hacienda San Ángel, Museo de Arte Moderno, Biblioteca Vasconcelos, Museo Anahuacalli, Aldea de Coapa, Hogar Sacromonte. Cada uno requiere estrategia diferente. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado antes de que lleguen los invitados. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">30+</span>
+          <span class="stat-label-enhanced">Años en Coyoacán</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">350+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Coyoacán -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Coyoacán"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Coyoacán."
+        paragraph1="Más del 60% de nuestros montajes en Coyoacán son bodas. Sabemos qué iluminación hace que una ceremonia al aire libre sea memorable. Guirnaldas en el techo, gobo con monograma en la pista, cascadas LED detrás de los novios. Cada detalle cuenta."
+        paragraph2="Logística propia, equipo entrenado. Colocamos guirnaldas, uplighting, efectos especiales en tiempo récord. Eso te deja tranquilo — no hay estrés de última hora. Haciendas, jardines, patios coloniales. Sabemos dónde van los postes, cómo distribuir guirnaldas sin dañar fachadas históricas."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en Bodas</h3>
+          <p>Más del 60% de nuestros montajes son bodas. Sabemos qué iluminación hace que una ceremonia al aire libre sea memorable.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil que te deja tranquilo. No hay estrés de última hora.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Conocimiento de Venues</h3>
+          <p>Conocemos cada hacienda, jardín y patio colonial. Sabemos cómo iluminar sin dañar arquitectura histórica.</p>
+        </div>
+        <div class="feature-card">
+          <h3>XV Años Full Iluminación</h3>
+          <p>Guirnaldas + bocinas + luces neón + DJ lighting. Transformamos cualquier salón en espacio de fiesta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Coyoacán."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Coyoacán"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Coyoacán?",
+        answer: "Cubrimos todo Coyoacán, San Ángel, Tlalpan y alrededores. Haciendas, jardines, salones, patios. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Coyoacán?",
+        answer: "Una boda básica con guirnaldas arranca desde $6,500. Bodas completas con múltiples servicios, $18,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Coyoacán tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Tienen cobertura garantizada en todos los venues de Coyoacán?",
+        answer: "Sí. Hacienda San Ángel, Museo de Arte Moderno, Biblioteca Vasconcelos, Aldea de Coapa, Hogar Sacromonte — los conocemos todos. Tenemos permisos y coordinación previa con cada venue."
+      },
+      {
+        question: "¿Cómo funcionan las guirnaldas bajo lluvia?",
+        answer: "IP65 certificado. Lluvia directa, humedad, cambios de temperatura. Todo resistido. Julio y agosto, los meses más lluviosos, nuestros meses más activos en Coyoacán."
+      },
+      {
+        question: "¿Puedo solicitar iluminación específica para mi XV años?",
+        answer: "Sí. Personalización total. Luces neón con el nombre, colores coordinados, efectos sincronizados. Mándanos una foto del salón y te hacemos propuesta en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 3-4 semanas. Coyoacán en temporada alta (noviembre-enero, mayo-junio) se llena rápido. Entre antes reserves, mejor."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Coyoacán?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Coyoacan" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

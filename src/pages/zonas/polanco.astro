@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Polanco | Eventos Corporativos | REDEIL";
+const description = "Renta de iluminación para eventos corporativos en Polanco CDMX. Equipamiento premium. Diseño profesional. 200+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/polanco/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Polanco",
+    "serviceType": "Iluminación Corporativa Profesional",
+    "areaServed": {
+      "@type": "City",
+      "name": "Polanco",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      }
+    },
+    "description": "Renta de iluminación profesional para eventos corporativos, lanzamientos de marca y galas en Polanco, Lomas de Chapultepec y Bosques de las Lomas.",
+    "priceRange": "$$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué tipo de eventos corporativos cubre REDEIL en Polanco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Todo: lanzamientos de producto, convenciones, galas empresariales, cenas de ejecutivos, premios anuales. Si es corporativo y requiere iluminación, lo hacemos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el presupuesto para iluminar un evento corporativo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evento básico (uplighting + escenario): $8,000+. Evento con gobos personalizados y seguidor: $18,000+. Grandes producciones, cotizamos a la medida."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Realizan visitas previas al venue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, obligatorio para eventos corporativos. Visitamos el salón, medimos, analizamos tomas de corriente. Te mandamos propuesta visual con diagrama."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Pueden incorporar la identidad visual de mi empresa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Totalmente. Gobos con logo, colores corporativos en uplighting, diseño coherente con tu identidad. Mándanos el logo y los colores."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Proyectores HMI — Spotlight Ejecutivo",
+    image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif",
+    alt: "Seguidor de luz HMI profesional",
+    description: "Seguidor de luz de alta potencia (1200W). Ilumina al CEO, genera dramatismo, comunica importancia.",
+    link: "/servicios/seguidor/"
+  },
+  {
+    title: "Gobos Corporativos — Logo Proyectado",
+    image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif",
+    alt: "Gobo proyectando logo corporativo",
+    description: "Tu logo proyectado en el escenario, fotocall, paredes. Personalización total, diseño previo incluido.",
+    link: "/servicios/gobos/"
+  },
+  {
+    title: "Uplighting Arquitectónico",
+    image: "/img/iluminacion/uplighting-corporativo-salón.avif",
+    alt: "Uplighting iluminando columnas de salón",
+    description: "Iluminación de columnas, paredes, escenario. Colores corporativos, coordinado, profesional.",
+    link: "/servicios/iluminacion/"
+  },
+  {
+    title: "Bocinas Profesionales — Sistema Audio",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido de conferencia, presentaciones, música ambiente. Equipamiento de grado profesional.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Polanco" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Polanco"
+    subtitle="Eventos corporativos, galas, lanzamientos de marca. Iluminación de lujo con equipamiento premium. Instalación profesional."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20corporativo%20en%20Polanco"
+    introParagraph1='Polanco es donde ocurren los eventos que importan. Lanzamientos de marca, galas corporativas, convenciones de ejecutivos, recepciones VIP. La iluminación aquí no es solo decoración — es estrategia. Un reflector en el logo de la empresa. Luz especial en el podio. Diseño de escena arquitectónico que comunica profesionalismo. <strong>REDEIL es el proveedor de iluminación en Polanco</strong>. Hoteles Intercontinental, Four Seasons, Presidente. Salones JW Marriott, Reforma 222, Hilton.'
+    introParagraph2='No porque seamos los más baratos — sino porque somos los más confiables. Un evento corporativo no se repite. Tienes una oportunidad. Nosotros la hacemos perfecta. 200+ eventos corporativos al año. Cada uno con su propio diseño de iluminación. Un reflector HMI de 1200W siguiendo al CEO. Gobo con el logotipo. Uplighting coordinado con los colores corporativos. Equipamiento premium, técnicos certificados, retraso cero. El evento comienza a la hora exacta.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">200+</span>
+          <span class="stat-label-enhanced">Eventos Corporativos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">Fortune 500</span>
+          <span class="stat-label-enhanced">Clientes Premium</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Polanco</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">0</span>
+          <span class="stat-label-enhanced">Retrasos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Qué tipo de evento corporativo tienes?"
+    items={[
+      { label: "Lanzamiento de Marca", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Gala Empresarial", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Convención", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Solicita Presupuesto", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Polanco -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Polanco"
+        subtitle="4 razones por las que REDEIL es tu proveedor de iluminación corporativa."
+        paragraph1="Proyectores HMI, cabezas móviles profesionales, gobos personalizados con tu logo, cableado de alta potencia. Nada improvisado. 200+ eventos corporativos al año. Sabemos qué espera un ejecutivo de una presentación."
+        paragraph2="Timing perfecto, iluminación que refuerza el mensaje, cero fallos técnicos. Entrega a tiempo, pruebas previas, respaldo técnico durante el evento. Iluminación que no es bonita sino estratégica. Reflejas el logo, subrayas mensajes clave, creas atmósfera de profesionalismo."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Equipamiento Premium</h3>
+          <p>Proyectores HMI, gobos personalizados, cableado de alta potencia. Nada improvisado.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Experiencia Corporativa</h3>
+          <p>200+ eventos corporativos al año. Sabemos qué espera un ejecutivo de una presentación.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Logística Impecable</h3>
+          <p>Entrega a tiempo, pruebas previas, respaldo técnico durante el evento. Sin sorpresas.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Diseño Arquitectónico</h3>
+          <p>Iluminación estratégica que comunica. Reflejas el logo, subrayas mensajes clave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Corporativos"
+        subtitle="Las 4 soluciones de iluminación más solicitadas para eventos en Polanco."
+        paragraph1="Cada servicio se personaliza según tu evento. Combina varios servicios y el precio baja por compartir traslado y operador."
+        paragraph2="Cotiza por WhatsApp. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación Corporativa en Polanco"
+        subtitle="Lo que todos preguntan antes de contratar."
+        paragraph1="Si tienes otra duda específica, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada evento corporativo es único — por eso hacemos propuestas personalizadas."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Qué tipo de eventos corporativos cubren?",
+        answer: "Todo: lanzamientos de producto, convenciones, galas empresariales, cenas de ejecutivos, premios anuales, convenciones médicas. Si es corporativo y requiere iluminación, lo hacemos."
+      },
+      {
+        question: "¿Cuál es el presupuesto para un evento corporativo en Polanco?",
+        answer: "Evento básico (uplighting + iluminación de escenario): $8,000+. Evento con gobos personalizados, seguidor y diseño completo: $18,000+. Grandes producciones, cotizamos a la medida."
+      },
+      {
+        question: "¿Realizan visitas previas al venue?",
+        answer: "Sí, obligatorio para eventos corporativos. Visitamos el salón, medimos, analizamos tomas de corriente, puntos de anclaje. Te mandamos propuesta visual con diagrama de iluminación."
+      },
+      {
+        question: "¿Qué garantía tienen en eventos críticos?",
+        answer: "Respaldo técnico en sitio durante toda la duración. Si falla algo, nuestro técnico lo repara en minutos. Equipo de reemplazo disponible siempre."
+      },
+      {
+        question: "¿Pueden incorporar la identidad visual de mi empresa?",
+        answer: "Totalmente. Gobos con logo, colores corporativos en uplighting, diseño coherente con tu identidad. Mándanos el logo y los colores."
+      },
+      {
+        question: "¿Cuál es el tiempo de montaje?",
+        answer: "3-5 horas según complejidad. Llegamos con suficiente tiempo de anticipación. Pruebas incluidas. Todo funcionando 30 minutos antes de que lleguen los invitados."
+      },
+      {
+        question: "¿Ofrecen asesoría de diseño de iluminación?",
+        answer: "Sí. Nuestros técnicos son diseñadores de iluminación. Te asesoran sobre qué funciona para tu evento, qué comunica profesionalismo, qué destaca tus momentos clave."
+      },
+      {
+        question: "¿Trabajan con agencias de eventos y productoras?",
+        answer: "Sí, el 50% de nuestro negocio. Tenemos convenios con agencias top. Respuesta rápida, presupuestos competitivos, disponibilidad garantizada."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento corporativo en Polanco?</h2>
+        <p>Solicita un presupuesto. Mándanos detalles del evento y te respondemos en 24 horas con propuesta visual.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20corporativo%20en%20Polanco" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Solicita Presupuesto</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
