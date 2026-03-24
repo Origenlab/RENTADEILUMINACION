@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Atizapán de Zaragoza | Bodas en Zona Esmeralda | REDEIL";
+const description = "Renta de iluminación para bodas al aire libre en Atizapán, Zona Esmeralda y Ciudad Satélite. Guirnaldas, luces y sonido. Instalación en 2h. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/atizapan/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Atizapán de Zaragoza",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Atizapán de Zaragoza",
+      "addressRegion": "Estado de México"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Atizapán de Zaragoza",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.5587, "longitude": -99.2543}
+      },
+      {
+        "@type": "Place",
+        "name": "Zona Esmeralda",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.5320, "longitude": -99.2680}
+      },
+      {
+        "@type": "Place",
+        "name": "Ciudad Satélite",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.5098, "longitude": -99.2340}
+      }
+    ],
+    "description": "Renta de iluminación profesional para bodas al aire libre, XV años y eventos en Atizapán de Zaragoza, Zona Esmeralda, Ciudad Satélite y Lomas de Atizapán. Especialización en jardines y terrazas. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Atizapán?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Atizapán de Zaragoza, Zona Esmeralda, Ciudad Satélite, Lomas de Atizapán y alrededores. Jardines, terrazas, salones, clubes de golf. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar una boda en Zona Esmeralda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Una boda básica con guirnaldas arranca desde $7,000. Bodas completas con múltiples servicios en jardines de Zona Esmeralda, $20,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Atizapán tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con los jardines y salones de Zona Esmeralda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Jardines y salones de Zona Esmeralda, Club de Golf Bellavista, terrazas en zona boscosa — los conocemos todos. Tenemos experiencia con cada tipo de espacio en la zona."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando jardín para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier boda al aire libre en Atizapán.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Nombres de los novios, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para bodas en jardines.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional para tu evento.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Atizapán de Zaragoza" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Atizapán de Zaragoza"
+    subtitle="Bodas al aire libre en jardines y terrazas de Zona Esmeralda. Más de 120 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Atizapan"
+    introParagraph1='Atizapán es la capital de las bodas al aire libre en el norte del Valle de México. Jardines amplios en Zona Esmeralda, terrazas rodeadas de bosque, el Club de Golf Bellavista — los espacios naturales aquí son espectaculares. <strong>REDEIL lleva más de 15 años iluminando eventos en Atizapán y Zona Esmeralda</strong>. Bodas en jardines con vista a las montañas, XV años en salones de Ciudad Satélite, recepciones en terrazas boscosas de Lomas de Atizapán. Conocemos cada venue, cada jardín, cada terraza. 120+ eventos al año en la zona. Es experiencia + equipo propio + conocimiento del terreno.'
+    introParagraph2='Somos los que montamos las guirnaldas entre los árboles de los jardines de Zona Esmeralda. Los que iluminan la primera danza bajo las estrellas en terrazas con vista al bosque. Los que transforman un jardín común en un escenario mágico. ¿Venues frecuentes? Jardines y salones de Zona Esmeralda, Club de Golf Bellavista, terrazas en zona boscosa, salones en Ciudad Satélite, Lomas de Atizapán. Cada espacio requiere estrategia diferente. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado antes de que lleguen los invitados. Precio transparente: sin cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">15+</span>
+          <span class="stat-label-enhanced">Años en Atizapán</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">120+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Atizapán -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Atizapán"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Atizapán y Zona Esmeralda."
+        paragraph1="Zona Esmeralda es el epicentro de las bodas al aire libre. Jardines enormes, terrazas con vista al bosque, clima fresco. La iluminación con guirnaldas entre los árboles crea un ambiente que ningún salón cerrado puede igualar."
+        paragraph2="Logística propia para llegar a cualquier venue en Atizapán. Equipo resistente a condiciones de bosque — humedad, viento, cambios de temperatura. Todo IP65 certificado."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialistas en Jardines</h3>
+          <p>Bodas al aire libre son nuestra especialidad en Atizapán. Guirnaldas entre árboles, uplighting en jardines, iluminación que respeta el entorno natural.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil en jardines amplios y terrazas de difícil acceso.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Conocimiento de Venues</h3>
+          <p>Zona Esmeralda, Club de Golf Bellavista, terrazas boscosas, salones en Satélite. Conocemos cada espacio y sus necesidades.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Equipo para Exteriores</h3>
+          <p>IP65 certificado. Lluvia, humedad, viento nocturno — nuestro equipo resiste todo. Perfecto para eventos al aire libre en zona boscosa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Atizapán y Zona Esmeralda."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Atizapán"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Atizapán?",
+        answer: "Cubrimos todo Atizapán de Zaragoza, Zona Esmeralda, Ciudad Satélite, Lomas de Atizapán y alrededores. Jardines, terrazas, salones, clubes de golf. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar una boda en Zona Esmeralda?",
+        answer: "Una boda básica con guirnaldas arranca desde $7,000. Bodas completas con múltiples servicios en jardines de Zona Esmeralda, $20,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Atizapán tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Trabajan con los jardines y salones de Zona Esmeralda?",
+        answer: "Sí. Jardines y salones de Zona Esmeralda, Club de Golf Bellavista, terrazas en zona boscosa — los conocemos todos. Tenemos experiencia con cada tipo de espacio al aire libre en la zona."
+      },
+      {
+        question: "¿Las guirnaldas funcionan bien en jardines al aire libre?",
+        answer: "Perfecto. Certificación IP65 en todo el equipo. Lluvia, rocío, humedad nocturna, viento — todo resistido. Los jardines de Zona Esmeralda son nuestro terreno favorito para guirnaldas Edison."
+      },
+      {
+        question: "¿Pueden iluminar un evento en el Club de Golf Bellavista?",
+        answer: "Sí. Hemos montado múltiples eventos en Bellavista. Conocemos sus instalaciones, accesos y requerimientos técnicos. Coordinamos directamente con el equipo del club."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Sin importar la ubicación en Atizapán, cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 3-4 semanas. Zona Esmeralda en temporada de bodas (octubre-enero, abril-junio) se llena rápido. Los jardines más populares se reservan con meses de anticipación."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Atizapán?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Atizapan" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

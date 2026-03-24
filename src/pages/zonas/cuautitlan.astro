@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Cuautitlán Izcalli | XV Años y Fiestas | REDEIL";
+const description = "Renta de iluminación para XV años y fiestas familiares en Cuautitlán Izcalli. Guirnaldas, luces neón y sonido. Instalación en 2h. 200+ eventos/año. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/cuautitlan/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Cuautitlán Izcalli",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Cuautitlán Izcalli",
+      "addressRegion": "Estado de México"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Cuautitlán Izcalli",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.6477, "longitude": -99.2117}
+      },
+      {
+        "@type": "Place",
+        "name": "Centro Cuautitlán",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.6725, "longitude": -99.1775}
+      },
+      {
+        "@type": "Place",
+        "name": "Arboledas",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.6390, "longitude": -99.2250}
+      }
+    ],
+    "description": "Renta de iluminación profesional para XV años, bodas y fiestas familiares en Cuautitlán Izcalli, Centro Cuautitlán, Arboledas y Los Reyes Izcalli. Especialización en salones y jardines de zona metropolitana norte. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Cuautitlán Izcalli?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Cuautitlán Izcalli, Centro Cuautitlán, Arboledas, Los Reyes Izcalli y alrededores. Salones, jardines, terrazas. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar unos XV años en Cuautitlán Izcalli?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unos XV años básicos con guirnaldas arrancan desde $5,500. Paquetes completos con luces neón, bocinas y DJ lighting, $15,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Cuautitlán Izcalli tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cubren salones en zona industrial de Cuautitlán Izcalli?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Conocemos los jardines y salones de la zona industrial reconvertida, Multiplaza, terrazas residenciales en Arboledas y Los Reyes. Tenemos experiencia en cada tipo de espacio."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando jardín para fiesta",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier fiesta en Cuautitlán Izcalli.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para XV años",
+    description: "Nombres, iniciales, frases. Luces neón de colores ámbar, rosa, azul, blanco. Perfecto para XV años y cumpleaños.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Cuautitlán Izcalli" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Cuautitlán Izcalli"
+    subtitle="Especialización en XV años y fiestas familiares. Más de 200 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuautitlan%20Izcalli"
+    introParagraph1='Cuautitlán Izcalli es la zona de fiestas familiares y XV años del norte metropolitano. Salones amplios, jardines reconvertidos de zona industrial, terrazas residenciales con vistas — los espacios que necesitan iluminación profesional para transformarse. <strong>REDEIL lleva más de 20 años iluminando eventos en Cuautitlán Izcalli</strong>. XV años en salones de Centro Cuautitlán, fiestas familiares en jardines de Arboledas, recepciones en terrazas de Los Reyes Izcalli. Conocemos cada venue, cada salón, cada espacio. 200+ eventos al año en la zona norte. No es suerte — es conocimiento del terreno + equipo propio + experiencia.'
+    introParagraph2='Somos los que montamos las guirnaldas sobre las columnas de los salones. Los que iluminan el vals de XV años con luces neón personalizadas. Los que transforman un jardín común en un espacio mágico con DJ lighting. ¿Cuáles son los venues que más montamos? Jardines y salones en zona industrial reconvertida, Centro Comercial Multiplaza, terrazas residenciales en Arboledas y Los Reyes Izcalli. Cada uno requiere estrategia diferente. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado antes de que lleguen los invitados. Precio transparente: no cobramos cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">20+</span>
+          <span class="stat-label-enhanced">Años en Cuautitlán</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">200+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Cuautitlán Izcalli -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Cuautitlán Izcalli"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Cuautitlán Izcalli."
+        paragraph1="Más del 50% de nuestros montajes en Cuautitlán Izcalli son XV años y fiestas familiares. Sabemos qué iluminación transforma un salón estándar en un espacio de celebración inolvidable. Guirnaldas en el techo, luces neón con el nombre de la quinceañera, DJ lighting en la pista. Cada detalle cuenta."
+        paragraph2="Logística propia con ruta directa desde CDMX. Colocamos guirnaldas, uplighting, efectos especiales en tiempo récord. Eso te deja tranquilo — no hay estrés de última hora. Salones amplios, jardines reconvertidos, terrazas residenciales. Sabemos cómo distribuir la iluminación en cada tipo de espacio."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Especialización en XV Años</h3>
+          <p>Más del 50% de nuestros montajes son XV años. Sabemos qué iluminación hace que el vals y la fiesta sean memorables.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil que te deja tranquilo. No hay estrés de última hora.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Cobertura Zona Norte</h3>
+          <p>Cubrimos Cuautitlán Izcalli, Centro Cuautitlán, Arboledas, Los Reyes. Ruta directa, sin cargos extra por traslado.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Fiestas Familiares Completas</h3>
+          <p>Guirnaldas + bocinas + luces neón + DJ lighting. Transformamos cualquier salón o jardín en espacio de fiesta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Cuautitlán Izcalli."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Cuautitlán Izcalli"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Cuautitlán Izcalli?",
+        answer: "Cubrimos todo Cuautitlán Izcalli, Centro Cuautitlán, Arboledas, Los Reyes Izcalli y alrededores. Salones, jardines, terrazas. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar unos XV años en Cuautitlán Izcalli?",
+        answer: "Unos XV años básicos con guirnaldas arrancan desde $5,500. Paquetes completos con luces neón, bocinas y DJ lighting, $15,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Cuautitlán Izcalli tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra."
+      },
+      {
+        question: "¿Cubren salones y jardines en zona industrial reconvertida?",
+        answer: "Sí. Conocemos los jardines y salones de la zona industrial reconvertida, los espacios cerca de Multiplaza, y las terrazas residenciales. Tenemos experiencia en cada tipo de espacio de Cuautitlán Izcalli."
+      },
+      {
+        question: "¿Cómo funcionan las guirnaldas en jardines al aire libre?",
+        answer: "IP65 certificado. Lluvia directa, humedad, cambios de temperatura. Todo resistido. Nuestras guirnaldas están diseñadas para funcionar perfectamente en los jardines al aire libre de la zona norte."
+      },
+      {
+        question: "¿Pueden personalizar la iluminación para mis XV años?",
+        answer: "Sí. Personalización total. Luces neón con el nombre de la quinceañera, colores coordinados con el tema de la fiesta, efectos sincronizados para el vals. Mándanos una foto del salón y te hacemos propuesta en 24 horas."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX por autopista directo a Cuautitlán Izcalli, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 2-3 semanas. Cuautitlán Izcalli en temporada alta (noviembre-enero, mayo-junio) se llena rápido. Entre antes reserves, mejor precio y disponibilidad garantizada."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Cuautitlán Izcalli?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuautitlan%20Izcalli" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

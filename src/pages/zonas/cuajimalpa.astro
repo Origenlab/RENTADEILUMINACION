@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Gallery4x4 from '../../components/Gallery4x4.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = "Renta de Iluminación en Cuajimalpa | Eventos Corporativos y Bodas | REDEIL";
+const description = "Renta de iluminación para eventos corporativos y bodas en Cuajimalpa, Santa Fe y Bosques de las Lomas. Guirnaldas, luces y sonido. Instalación en 2h. Cotiza: 55 3068 2988";
+const canonical = "https://rentadeiluminacion.com/zonas/cuajimalpa/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Renta de Iluminación en Cuajimalpa de Morelos",
+    "serviceType": "Iluminación para Eventos",
+    "areaServed": {
+      "@type": "City",
+      "name": "Cuajimalpa de Morelos",
+      "addressRegion": "CDMX"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad de México",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "14:00"
+        }
+      ]
+    },
+    "serviceArea": [
+      {
+        "@type": "Place",
+        "name": "Cuajimalpa de Morelos",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3587, "longitude": -99.2913}
+      },
+      {
+        "@type": "Place",
+        "name": "Santa Fe",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3659, "longitude": -99.2616}
+      },
+      {
+        "@type": "Place",
+        "name": "Bosques de las Lomas",
+        "geo": {"@type": "GeoCoordinates", "latitude": 19.3852, "longitude": -99.2748}
+      }
+    ],
+    "description": "Renta de iluminación profesional para eventos corporativos, bodas y celebraciones en Cuajimalpa, Santa Fe, Bosques de las Lomas y Contadero. Especialización en salones corporativos y haciendas de montaña. Transporte e instalación incluidos.",
+    "priceRange": "$$"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la cobertura de REDEIL en Cuajimalpa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos toda Cuajimalpa, Santa Fe, Bosques de las Lomas, Contadero y alrededores hasta La Marquesa. Salones corporativos, haciendas, jardines de montaña. Transporte incluido en toda la zona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta iluminar un evento corporativo en Santa Fe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un evento corporativo básico con iluminación ambiental arranca desde $8,500. Eventos completos con múltiples servicios, $22,000+. Cotiza por WhatsApp con detalles de tu evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el tiempo de instalación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nuestro equipo en Cuajimalpa tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra para pruebas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con los salones corporativos de Santa Fe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Centro Santa Fe, salones en corporativos de Avenida Santa Fe, terrazas en torres de oficinas — los conocemos todos. Tenemos experiencia con los requerimientos técnicos de cada venue."
+        }
+      }
+    ]
+  }
+]);
+
+const serviciosRelacionados = [
+  {
+    title: "Guirnaldas de Focos Edison",
+    image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif",
+    alt: "Guirnaldas Edison iluminando hacienda para boda",
+    description: "Focos LED o vintage, cableado IP65, resistentes a lluvia. La base del ambiente en cualquier evento en Cuajimalpa.",
+    link: "/servicios/guirnaldas/"
+  },
+  {
+    title: "Luces Neon Personalizadas",
+    image: "/img/luces-neon/luces-neon-nombres-boda.avif",
+    alt: "Luces neon personalizadas para boda",
+    description: "Logos corporativos, nombres de los novios, frases. Luces neón en colores ámbar, rosa, azul, blanco. Ideales para branding de eventos.",
+    link: "/servicios/luces-neon/"
+  },
+  {
+    title: "Cabezas Móviles — Sky Tracker",
+    image: "/img/cabezas-moviles/cabezas-moviles-boda.avif",
+    alt: "Cabezas móviles iluminando pista de baile",
+    description: "Proyecciones animadas, colores sincronizados, efectos especiales. El efecto de escenario profesional para galas y cenas.",
+    link: "/servicios/cabezas-moviles/"
+  },
+  {
+    title: "Bocinas y DJ Lighting",
+    image: "/img/bocinas/bocinas-sistema-profesional.avif",
+    alt: "Sistema de sonido profesional para evento",
+    description: "Sonido profesional + luces que reaccionan a la música. Sistema completo de sonido e iluminación.",
+    link: "/servicios/bocinas-djs/"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
+
+  <Fragment slot="breadcrumbs">
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Zonas de Cobertura", href: "/zonas-de-cobertura/" },
+      { label: "Cuajimalpa de Morelos" }
+    ]} />
+  </Fragment>
+
+  <Hero
+    title="Renta de Iluminación en Cuajimalpa"
+    subtitle="Eventos corporativos en Santa Fe + bodas en haciendas de montaña. Más de 180 eventos iluminados en la zona. Transporte e instalación incluidos."
+    whatsappText="Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuajimalpa"
+    introParagraph1='Cuajimalpa es donde convergen los eventos corporativos de Santa Fe con las bodas más exclusivas en haciendas de montaña. <strong>REDEIL lleva más de 25 años iluminando eventos en Cuajimalpa y Santa Fe</strong>. Galas corporativas en las torres de Santa Fe, cenas de fin de año en terrazas con vista al bosque, bodas románticas en haciendas rodeadas de pinos. Conocemos cada salón, cada terraza, cada jardín de montaña. 180+ eventos al año en la zona. No es casualidad — es experiencia + equipo propio + conocimiento del terreno.'
+    introParagraph2='Somos los que montamos las guirnaldas en las terrazas de los corporativos de Santa Fe. Los que iluminan galas de premiación en Centro Santa Fe. Los que transforman haciendas en Contadero en escenarios de cuento. ¿Venues frecuentes? Centro Santa Fe, Bosques de las Lomas, terrazas corporativas en Av. Santa Fe, salones en Contadero, jardines camino a La Marquesa. Cada espacio requiere estrategia diferente. El equipo llega 4 horas antes. Monta en 2-3 horas. Todo probado antes de que lleguen los invitados. Precio transparente: sin cargos ocultos.'
+  />
+
+  <!-- Stats -->
+  <section class="stats-section-enhanced">
+    <div class="container">
+      <div class="stats-grid-enhanced">
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">25+</span>
+          <span class="stat-label-enhanced">Años en Cuajimalpa</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">180+</span>
+          <span class="stat-label-enhanced">Eventos/Año</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">2h</span>
+          <span class="stat-label-enhanced">Instalación Rápida</span>
+        </div>
+        <div class="stat-card-enhanced">
+          <span class="stat-number-enhanced">100%</span>
+          <span class="stat-label-enhanced">Cobertura Zona</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBar
+    headline="¿Para qué tipo de evento necesitas iluminación?"
+    items={[
+      { label: "Bodas", href: "/eventos/bodas/", icon: "iluminacion" },
+      { label: "XV Años", href: "/eventos/xv-anos/", icon: "iluminacion" },
+      { label: "Corporativos", href: "/eventos/corporativos/", icon: "iluminacion" },
+      { label: "Cotiza Ahora", href: "/contacto/", icon: "cotizar" },
+    ]}
+  />
+
+  <!-- Por qué nosotros en Cuajimalpa -->
+  <section class="services-section">
+    <div class="container">
+      <SectionHeader
+        title="Por qué Nosotros en Cuajimalpa"
+        subtitle="4 razones por las que REDEIL es el proveedor de iluminación en Cuajimalpa y Santa Fe."
+        paragraph1="Cuajimalpa combina dos mundos: el corporativo de Santa Fe y el romántico de las haciendas de montaña. Dominamos ambos. Iluminación elegante para galas de empresa, guirnaldas cálidas para bodas al aire libre entre pinos. Cada detalle importa."
+        paragraph2="Logística propia, equipo entrenado para zonas de montaña. Subimos equipo a haciendas sin acceso fácil. Conocemos las condiciones climáticas de la zona — niebla, lluvia, viento. Todo nuestro equipo es IP65, resistente a intemperie."
+      />
+      <div class="features-grid-4">
+        <div class="feature-card">
+          <h3>Expertos en Corporativos</h3>
+          <p>Galas, cenas de fin de año, lanzamientos de producto en Santa Fe. Iluminación profesional que eleva cualquier evento de empresa.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Instalación en 2 Horas</h3>
+          <p>Logística propia, equipo entrenado. Montaje ágil incluso en venues de difícil acceso en zona de montaña.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Bodas en Haciendas</h3>
+          <p>Haciendas rodeadas de bosque, jardines con vista panorámica. Sabemos cómo iluminar espacios abiertos en altura.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Equipo Resistente</h3>
+          <p>IP65 certificado. Niebla, lluvia, viento de montaña — nuestro equipo resiste todo. Cero riesgos para tu evento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section services-alt">
+    <div class="container">
+      <SectionHeader
+        title="Servicios Principales"
+        subtitle="Las 4 soluciones de iluminación más solicitadas en Cuajimalpa y Santa Fe."
+        paragraph1="Cada servicio se adapta a tu evento. Si necesitas combinar varios servicios, el precio baja porque compartimos traslado y operador."
+        paragraph2="Cotiza por WhatsApp con fotos de tu venue. Respuesta en minutos."
+      />
+      <div class="services-grid">
+        {serviciosRelacionados.map((s) => (
+          <ServiceCard title={s.title} image={s.image} alt={s.alt} description={s.description} link={s.link} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas sobre Iluminación en Cuajimalpa"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si tienes otra duda, escríbenos por WhatsApp. Respuesta en minutos."
+        paragraph2="Cada espacio es diferente — por eso hacemos propuestas a la medida."
+      />
+    </div>
+    <FaqSection items={[
+      {
+        question: "¿Cuál es la cobertura de REDEIL en Cuajimalpa?",
+        answer: "Cubrimos toda Cuajimalpa, Santa Fe, Bosques de las Lomas, Contadero y alrededores hasta La Marquesa. Salones corporativos, haciendas, jardines de montaña. Transporte incluido en toda la zona."
+      },
+      {
+        question: "¿Cuánto cuesta iluminar un evento corporativo en Santa Fe?",
+        answer: "Un evento corporativo básico con iluminación ambiental arranca desde $8,500. Eventos completos con múltiples servicios, $22,000+. Cotiza por WhatsApp con detalles de tu evento."
+      },
+      {
+        question: "¿Cuál es el tiempo de instalación?",
+        answer: "Nuestro equipo en Cuajimalpa tarda 2-3 horas en montar un evento estándar. Llegamos 4 horas antes, con tiempo de sobra para pruebas."
+      },
+      {
+        question: "¿Trabajan con los salones corporativos de Santa Fe?",
+        answer: "Sí. Centro Santa Fe, salones en corporativos de Avenida Santa Fe, terrazas en torres de oficinas, Bosques de las Lomas — los conocemos todos. Tenemos experiencia con los requerimientos técnicos de cada venue."
+      },
+      {
+        question: "¿Pueden montar iluminación en haciendas de montaña?",
+        answer: "Absolutamente. Subimos equipo a haciendas sin acceso vehicular fácil. Contamos con generadores de respaldo para zonas sin conexión eléctrica estable. Experiencia en Contadero, La Marquesa y alrededores."
+      },
+      {
+        question: "¿El equipo resiste las condiciones climáticas de Cuajimalpa?",
+        answer: "Sí. Certificación IP65 en todo el equipo. Niebla, lluvia, viento de montaña — todo resistido. Cuajimalpa es zona de lluvia frecuente y nuestro equipo está diseñado para esas condiciones."
+      },
+      {
+        question: "¿Qué incluye el servicio de transporte e instalación?",
+        answer: "Todo. Traslado de equipo desde CDMX, montaje profesional, pruebas, operación durante el evento, desmontaje al finalizar. Cero cargos ocultos, incluso en zonas de difícil acceso."
+      },
+      {
+        question: "¿Con cuánta anticipación debo reservar?",
+        answer: "Idealmente 3-4 semanas. Santa Fe en temporada de fin de año (noviembre-enero) se llena rápido con eventos corporativos. Entre antes reserves, mejor disponibilidad tendrás."
+      }
+    ]} />
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para iluminar tu evento en Cuajimalpa?</h2>
+        <p>Mándanos fotos de tu venue por WhatsApp y te cotizamos en minutos. Transporte, instalación y montaje incluidos.</p>
+        <div class="cta-buttons">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminacion%20para%20mi%20evento%20en%20Cuajimalpa" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a>
+          <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
