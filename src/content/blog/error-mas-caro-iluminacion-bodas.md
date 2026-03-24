@@ -1,5 +1,5 @@
 ---
-title: "El Error Más Caro que Cometen las Parejas con la Iluminación de su Boda"
+title: "El Error Más Caro en Iluminación de Bodas"
 description: "Después de 800 bodas, este es el error que vemos repetirse una y otra vez — y cómo evitarlo sin gastar de más."
 image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif"
 imageAlt: "Novios bailando su primer vals iluminados con seguidor profesional en salón con candil"

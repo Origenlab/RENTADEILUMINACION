@@ -1,5 +1,5 @@
 ---
-title: "XV Años con Luces Neón: Cómo Crear una Glow Party Profesional"
+title: "XV Años con Luces Neón: Guía Glow Party CDMX"
 description: "Guía paso a paso para organizar XV años con temática neón y glow party en CDMX. Qué equipo necesitas, cuánto cuesta y cómo combinar luces UV con efectos."
 image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif"
 imageAlt: "Glow party profesional con luces neón UV para XV años en CDMX"

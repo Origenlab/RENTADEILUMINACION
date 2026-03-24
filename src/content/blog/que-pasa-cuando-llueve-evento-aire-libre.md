@@ -1,5 +1,5 @@
 ---
-title: "¿Qué Pasa con la Iluminación Cuando Llueve en tu Evento al Aire Libre?"
+title: "¿Qué Pasa con la Iluminación si Llueve en tu Evento?"
 description: "La verdad sobre lluvia y equipo de iluminación profesional. Qué resiste, qué no, y cómo protegemos tu inversión en eventos al aire libre en CDMX."
 image: "/img/guirnaldas/renta-guirnaldas-boda-exterior-guirnaldas-arco-floral-07.avif"
 imageAlt: "Guirnaldas Edison para boda al aire libre con arco floral en jardín"

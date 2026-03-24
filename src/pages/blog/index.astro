@@ -2,8 +2,19 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
 
 const SITE_URL = 'https://rentadeiluminacion.com';
+
+const collectionPosts = await getCollection('blog', ({ data }) => !data.draft);
+const collectionArticles = collectionPosts.map(post => ({
+  title: post.data.title,
+  description: post.data.description,
+  slug: post.id,
+  category: post.data.category,
+  image: post.data.image,
+  imageAlt: post.data.imageAlt,
+}));
 const title = 'Blog de Iluminación para Eventos CDMX | REDEIL';
 const description = 'Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX. 30 años de experiencia. REDEIL.';
 const canonical = 'https://rentadeiluminacion.com/blog/';
@@ -160,6 +171,40 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
       </div>
     </section>
 
+    <!-- Content Collection Articles -->
+    {collectionArticles.length > 0 && (
+      <section class="blog-articles blog-articles--alt">
+        <div class="container">
+          <h2 class="blog-section-title">Más guías y comparativas</h2>
+          <div class="articles-grid">
+            {collectionArticles.map((article) => (
+              <article class="article-card">
+                <div class="article-card__image-wrapper">
+                  <img
+                    src={article.image}
+                    alt={article.imageAlt}
+                    class="article-card__image"
+                    loading="lazy"
+                    decoding="async"
+                    width="400"
+                    height="240"
+                  />
+                </div>
+                <div class="article-card__content">
+                  <span class="article-card__category">{article.category}</span>
+                  <h3 class="article-card__title">{article.title}</h3>
+                  <p class="article-card__description">{article.description}</p>
+                  <a href={`/blog/${article.slug}/`} class="article-card__link">
+                    Leer artículo →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- CTA Final -->
     <section class="blog-cta">
       <div class="container">
@@ -194,6 +239,17 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
     gap: 2rem;
   }
 
+  .blog-section-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 2rem;
+  }
+
+  .blog-articles--alt {
+    background: #f8f9fa;
+  }
+
   .article-card {
     display: flex;
     flex-direction: column;
@@ -201,12 +257,10 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
     border: 1px solid #e9ecef;
     border-radius: 12px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .article-card:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
   }
 
   .article-card__image-wrapper {
@@ -219,12 +273,7 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
     display: block;
-  }
-
-  .article-card:hover .article-card__image {
-    transform: scale(1.05);
   }
 
   .article-card__content {

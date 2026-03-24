@@ -1,10 +1,18 @@
 ---
 title: "Cómo Elegir la Iluminación Correcta Según tu Venue en CDMX"
-description: "Guía profesional para elegir iluminación de eventos según el tipo de espacio: haciendas, jardines, salones, rooftops y carpas. Con recomendaciones y precios."
+description: "Guía para elegir iluminación según tu venue: haciendas, jardines, salones, rooftops y carpas. Recomendaciones y precios."
 image: "/img/iluminacion-arquitectonica/iluminacion-arcos-coloniales-columnas-piedra-luz-calida-boda.avif"
 imageAlt: "Arcos coloniales de hacienda iluminados con uplighting profesional para boda en CDMX"
 category: "Guías"
 tags: ["iluminación para eventos", "elegir iluminación", "venues CDMX", "haciendas", "salones de eventos"]
+pubDate: "2025-11-15"
+faqItems:
+  - question: "¿Qué tipo de iluminación funciona mejor para una boda en jardín al aire libre?"
+    answer: "Para jardines al aire libre, las guirnaldas Edison son la opción más popular porque crean un techo de luz cálida que cubre todo el espacio. Se complementan con uplighting en árboles y elementos arquitectónicos. Todo el equipo debe ser IP65 (resistente a lluvia). El presupuesto arranca desde $8,000 + IVA dependiendo del tamaño del jardín."
+  - question: "¿Cómo elijo la iluminación correcta para un salón de eventos cerrado?"
+    answer: "En salones cerrados lo más importante es definir zonas: pista de baile con cabezas móviles o PAR LED, mesa de novios con cascadas LED como backdrop, y ambiente general con uplighting perimetral. La ventaja de los salones es que controlas la oscuridad total, lo que permite efectos más dramáticos con menos equipo."
+  - question: "¿Se puede iluminar un rooftop o terraza para evento nocturno?"
+    answer: "Sí, los rooftops se iluminan con guirnaldas cruzadas como techo de luz, uplighting en muros perimetrales y PAR LED para dar color. El reto principal es el viento, que mueve las guirnaldas, por eso se usan tensores reforzados. Los sky trackers funcionan espectacular en terrazas porque los haces de luz se ven contra el cielo abierto."
 draft: false
 ---
 

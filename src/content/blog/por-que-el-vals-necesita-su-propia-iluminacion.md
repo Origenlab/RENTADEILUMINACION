@@ -1,5 +1,5 @@
 ---
-title: "Por Qué el Vals Necesita su Propia Iluminación (y No la del Salón)"
+title: "Por Qué el Vals Necesita su Propia Iluminación"
 description: "El vals es el momento más emotivo de la noche. Sin iluminación dedicada, se pierde en la oscuridad. Cómo crear el vals perfecto con seguidor y humo bajo."
 image: "/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif"
 imageAlt: "Novios bailando primer vals sobre niebla baja iluminados con seguidor profesional"

@@ -15,30 +15,50 @@ const { Content, headings } = await render(post);
 
 const canonical = `https://rentadeiluminacion.com/blog/${post.slug}/`;
 
-const schemaMarkup = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": post.data.title,
-  "description": post.data.description,
-  "image": `https://rentadeiluminacion.com${post.data.image}`,
-  "author": {
-    "@type": "Organization",
-    "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "REDEIL",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://rentadeiluminacion.com/img/logo-redeil.avif"
+const schemas: Record<string, any>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "image": `https://rentadeiluminacion.com${post.data.image}`,
+    ...(post.data.pubDate ? { "datePublished": post.data.pubDate } : {}),
+    "author": {
+      "@type": "Organization",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "REDEIL",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rentadeiluminacion.com/img/logo-redeil.avif"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonical
     }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": canonical
   }
-});
+];
+
+if (post.data.faqItems && post.data.faqItems.length > 0) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.data.faqItems.map((faq: { question: string; answer: string }) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  });
+}
+
+const schemaMarkup = JSON.stringify(schemas);
 ---
 
 <BlogLayout

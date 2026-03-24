@@ -1,10 +1,18 @@
 ---
-title: "Guirnaldas Edison vs Cascadas LED para Bodas: ¿Cuál te conviene?"
-description: "Comparativa completa entre guirnaldas con focos Edison y cascadas LED para bodas en CDMX. Diferencias de precio, efecto visual, instalación y cuándo usar cada una."
+title: "Guirnaldas vs Cascadas LED: ¿Cuál Elegir para Bodas?"
+description: "Guirnaldas Edison vs cascadas LED para bodas en CDMX. Precio, efecto visual, instalación y cuándo usar cada una."
 image: "/img/guirnaldas/renta-guirnaldas-boda-patio-colonial-guirnaldas-21.avif"
 imageAlt: "Guirnaldas Edison en patio colonial para boda elegante"
 category: "Bodas"
 tags: ["guirnaldas", "cascadas LED", "iluminación para bodas", "bodas CDMX"]
+pubDate: "2025-12-05"
+faqItems:
+  - question: "¿Qué es mejor para una boda, guirnaldas Edison o cascadas LED?"
+    answer: "Depende del espacio. Las guirnaldas Edison son ideales para exteriores (jardines, patios, haciendas) porque crean un techo de luz cálida que cubre áreas grandes. Las cascadas LED funcionan mejor en interiores como backdrop detrás de la mesa de novios. En muchas bodas se usan ambas: guirnaldas en la ceremonia y cascadas en la recepción."
+  - question: "¿Cuántos metros de guirnaldas necesito para mi boda?"
+    answer: "Para una boda de 100-150 invitados en jardín, generalmente se necesitan entre 100 y 200 metros de guirnaldas Edison. La cantidad exacta depende de la distancia entre puntos de anclaje y el efecto deseado. 100 metros es lo más popular para bodas y tiene un costo desde $6,500 + IVA incluyendo instalación."
+  - question: "¿Las cascadas LED se pueden usar en exteriores?"
+    answer: "Sí se pueden usar, pero su impacto visual es mucho mayor en interiores donde la oscuridad controlada hace que las luces brillen más. En exteriores compiten con la luz ambiental y el efecto se diluye. Si tu boda es al aire libre, las guirnaldas Edison son mejor opción para el ambiente general y las cascadas se reservan para la zona de recepción techada."
 draft: false
 ---
 

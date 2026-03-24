@@ -1,10 +1,18 @@
 ---
-title: "Humo Bajo vs Máquina de Humo: No Son lo Mismo (y la Diferencia Importa)"
+title: "Humo Bajo vs Máquina de Humo: ¿Cuál Necesitas?"
 description: "El humo bajo crea nubes en el piso. La máquina de humo llena el salón. Son efectos completamente diferentes. Cuál usar según tu evento en CDMX."
 image: "/img/humo-bajo/humo-bajo-romantico-primer-baile.avif"
 imageAlt: "Primer baile de boda romántico con efecto de humo bajo creando nubes en el piso"
 category: "Consejos"
 tags: ["humo bajo", "máquina de humo", "efectos especiales bodas", "vals boda"]
+pubDate: "2025-12-10"
+faqItems:
+  - question: "¿Cuál es la diferencia entre humo bajo y máquina de humo?"
+    answer: "El humo bajo produce niebla fría que se queda pegada al piso, creando un efecto de nubes a nivel del suelo ideal para el vals. La máquina de humo convencional genera niebla caliente que sube y llena el espacio, ideal para hacer visibles los haces de cabezas móviles y láseres. Son equipos diferentes con efectos completamente opuestos."
+  - question: "¿Cuánto dura el efecto del humo bajo en una boda?"
+    answer: "El efecto del humo bajo dura entre 3 y 5 minutos por disparo, lo suficiente para cubrir un vals completo. En salones cerrados sin corrientes de aire dura más; en exteriores con viento se disipa más rápido. Se puede hacer más de un disparo durante el evento, por ejemplo para la entrada de los novios y después para el vals."
+  - question: "¿El humo bajo activa las alarmas contra incendio del salón?"
+    answer: "El humo bajo generalmente no activa alarmas porque la niebla se queda a nivel del piso, lejos de los detectores de humo que están en el techo. La máquina de humo convencional sí puede activarlas porque la niebla sube. Un proveedor profesional siempre coordina con el venue para desactivar temporalmente los sensores de la zona si es necesario."
 draft: false
 ---
 

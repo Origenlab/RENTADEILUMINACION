@@ -1,5 +1,5 @@
 ---
-title: "Lo que tu Fotógrafo de Bodas Quiere que Sepas sobre la Iluminación"
+title: "Lo que tu Fotógrafo Quiere que Sepas de Iluminación"
 description: "Tu fotógrafo puede editar color, pero no puede inventar luz. Lo que los fotógrafos profesionales recomiendan sobre iluminación para eventos en CDMX."
 image: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avif"
 imageAlt: "Baile de novios en hacienda bajo guirnaldas Edison con iluminación profesional"

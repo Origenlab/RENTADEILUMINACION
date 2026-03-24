@@ -1,10 +1,18 @@
 ---
-title: "¿Cuánto Cuesta la Renta de Luz y Sonido para Eventos en CDMX?"
+title: "¿Cuánto Cuesta Rentar Luz y Sonido en CDMX?"
 description: "Precios reales de renta de iluminación y sonido para bodas, XV años y eventos en CDMX. Desglose por servicio, paquetes y qué incluye cada uno."
 image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-salon-iluminacion-completa.avif"
 imageAlt: "Salón de boda con iluminación profesional completa — cabezas móviles, PAR LED y cascadas"
 category: "Precios"
 tags: ["renta luz y sonido", "precios iluminación eventos", "cuánto cuesta luz y sonido", "CDMX"]
+pubDate: "2025-10-20"
+faqItems:
+  - question: "¿Cuánto cuesta rentar luz y sonido para una boda en CDMX?"
+    answer: "Un paquete básico de iluminación para boda en CDMX arranca desde $8,000 + IVA e incluye uplighting perimetral y guirnaldas. Un paquete completo con cabezas móviles, cascadas LED, humo bajo y seguidor puede llegar a $35,000-$50,000 + IVA. Todos los precios incluyen equipo, transporte, instalación, operación y desmontaje."
+  - question: "¿Los precios de renta de iluminación incluyen instalación y operador?"
+    answer: "Sí, en REDEIL todos los precios incluyen transporte, instalación, operación durante el evento y desmontaje. No hay costos ocultos. El IVA se factura por separado y se indica claramente. Para eventos fuera de CDMX y Zona Metropolitana se cobra un viático adicional."
+  - question: "¿Qué paquete de luz y sonido me conviene si tengo presupuesto limitado?"
+    answer: "Con un presupuesto de $10,000 a $15,000 + IVA puedes cubrir lo esencial: guirnaldas Edison para el ambiente, PAR LED para dar color al salón y humo bajo para el vals. Lo más impactante por el menor costo son las guirnaldas (desde $3,500) y el uplighting arquitectónico (desde $6,000), que transforman completamente cualquier espacio."
 draft: false
 ---
 

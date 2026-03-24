@@ -1,10 +1,18 @@
 ---
-title: "Iluminación para Bodas en Hacienda: La Guía Completa para CDMX"
+title: "Iluminación para Bodas en Hacienda CDMX: Guía"
 description: "Todo lo que necesitas saber sobre iluminación profesional para bodas en haciendas de CDMX. Guirnaldas, uplighting, seguidor y más. Con precios reales."
 image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile.avif"
 imageAlt: "Patio de hacienda colonial con uplighting ámbar y guirnaldas Edison para boda nocturna"
 category: "Bodas"
 tags: ["bodas en hacienda", "iluminación para bodas", "haciendas CDMX", "uplighting", "guirnaldas"]
+pubDate: "2025-11-01"
+faqItems:
+  - question: "¿Cuánto cuesta iluminar una boda en hacienda en CDMX?"
+    answer: "El costo de iluminación completa para una boda en hacienda va desde $15,000 hasta $45,000 + IVA, dependiendo del número de zonas a iluminar. Una hacienda típica tiene 5 zonas (fachada, jardín, pasillos, salón y pista de baile). Lo mínimo recomendable es uplighting en fachada y guirnaldas en patio, que arrancan desde $10,000 + IVA."
+  - question: "¿Qué iluminación necesita la fachada de una hacienda para boda?"
+    answer: "La fachada se ilumina con 6 a 12 uplighters LED inalámbricos colocados al pie de los muros apuntando hacia arriba. El color más popular es ámbar cálido (2700K) que resalta la textura de la cantera y la piedra colonial. Los uplighters inalámbricos con batería son esenciales para no cruzar cables por la entrada. El costo va desde $3,500 + IVA."
+  - question: "¿Se necesita generador eléctrico para iluminar una hacienda?"
+    answer: "En muchos casos sí. Las haciendas coloniales frecuentemente no tienen suficiente capacidad eléctrica para soportar toda la iluminación profesional de una boda. Un proveedor profesional evalúa la instalación eléctrica del venue antes del evento y lleva generador de respaldo cuando es necesario, para evitar apagones durante la celebración."
 draft: false
 ---
 
