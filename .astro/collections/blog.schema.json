@@ -5,9 +5,14 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 60
         },
         "description": {
+          "type": "string",
+          "maxLength": 155
+        },
+        "pubDate": {
           "type": "string"
         },
         "image": {
@@ -23,6 +28,31 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "faqItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "answer": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "question",
+              "answer"
+            ],
+            "additionalProperties": false
           }
         },
         "draft": {

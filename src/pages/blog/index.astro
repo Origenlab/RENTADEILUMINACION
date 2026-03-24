@@ -235,7 +235,7 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
 
   .articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
@@ -373,6 +373,12 @@ const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
   .blog-cta .btn-primary:hover {
     background: transparent;
     color: #fff;
+  }
+
+  @media (max-width: 992px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 768px) {

@@ -23,7 +23,7 @@ const {
   btnLabel,
 } = Astro.props;
 
-const finalBtnLabel = btnLabel || title;
+const finalBtnLabel = btnLabel || `Ver ${title} →`;
 ---
 
 <article class="sc">
@@ -47,6 +47,11 @@ const finalBtnLabel = btnLabel || title;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .sc:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   .sc__img-link {

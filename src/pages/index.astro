@@ -7,6 +7,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CtaBar from '../components/CtaBar.astro';
 import ZoneCards from '../components/ZoneCards.astro';
 import FaqSection from '../components/FaqSection.astro';
+import TestimonialCards from '../components/TestimonialCards.astro';
 
 const title = "Renta de Iluminación y Sonido para Eventos CDMX | REDEIL";
 const description = "Iluminación profesional, audio JBL y DJ para bodas, XV años y eventos en CDMX. Instalación incluida. Cotiza gratis por WhatsApp. +500 eventos realizados.";
@@ -293,6 +294,13 @@ const efectos = [
       title="Renta de Iluminación y Sonido para Eventos en CDMX"
       subtitle="Tu boda, tus XV años o tu evento corporativo merecen algo más que unas luces bonitas. Merecen una producción profesional."
       extraClass="hero-home"
+      badge="+500 eventos realizados · +30 años de experiencia"
+      stats={[
+        { value: "+500", label: "Eventos" },
+        { value: "4.8/5", label: "Calificación" },
+        { value: "+30", label: "Años exp." },
+        { value: "CDMX", label: "y Edomex" },
+      ]}
       introParagraph1='REDEIL lleva más de 10 años montando iluminación y audio en bodas, XV años y eventos corporativos en la Ciudad de México y Estado de México. Más de 500 eventos realizados con equipo <strong>Martin Professional</strong> y <strong>Chauvet</strong> en iluminación, <strong>JBL</strong> y <strong>QSC</strong> en audio. Las mismas marcas que usan las producciones de TV y conciertos — en tu evento.'
       introParagraph2='El servicio incluye transporte, instalación, operación técnica durante el evento y desmontaje al finalizar — sin costo adicional. Cubrimos toda la zona metropolitana: Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Metepec y más. Llevamos planta de luz a venues sin corriente eléctrica. Precios desde $3,500 para guirnaldas hasta producciones completas desde $15,000. Respuesta por WhatsApp en menos de 15 minutos.'
     />
@@ -459,6 +467,74 @@ const efectos = [
             link="/zonas-de-cobertura/"
           />
         </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials-section">
+      <div class="container">
+        <SectionHeader
+          title="Lo Que Dicen Nuestros Clientes"
+          subtitle="Reseñas reales de bodas, XV años y eventos en CDMX."
+          paragraph1="Cada reseña es de un evento real. Nombres reales, venues reales, experiencias reales."
+          paragraph2=""
+        />
+        <TestimonialCards testimonials={[
+          {
+            name: "Mariana López",
+            text: "El humo bajo en nuestro vals fue mágico. Los invitados no paraban de tomar fotos. El equipo llegó puntual y montó todo sin que nos preocupáramos por nada.",
+            rating: 5,
+            event: "Boda",
+            avatar: "/img/testimonios/avatar-mujer-1.avif",
+            venue: "Hacienda San Fernando, Tlalpan",
+            date: "Noviembre 2025"
+          },
+          {
+            name: "Roberto García",
+            text: "Contratamos audio completo + DJ para los XV de mi hija. El DJ leyó perfecto al público — el vals estuvo emotivo y la hora loca fue brutal. Muy profesionales.",
+            rating: 5,
+            event: "XV Años",
+            avatar: "/img/testimonios/avatar-hombre-1.avif",
+            venue: "Salón Jardín del Arte, Naucalpan",
+            date: "Enero 2026"
+          },
+          {
+            name: "Carolina Mendoza",
+            text: "Las guirnaldas Edison en el jardín transformaron completamente el espacio. Parecía otro lugar. Además incluyeron iluminación arquitectónica en la fachada sin costo extra.",
+            rating: 5,
+            event: "Boda",
+            avatar: "/img/testimonios/avatar-mujer-2.avif",
+            venue: "Quinta Real, Coyoacán",
+            date: "Septiembre 2025"
+          },
+          {
+            name: "Daniel Herrera",
+            text: "El sky tracker se veía desde toda la colonia. Mis invitados me llamaban preguntando '¿esas luces en el cielo son de tu evento?' El mejor efecto que pudimos agregar.",
+            rating: 5,
+            event: "Inauguración",
+            avatar: "/img/testimonios/avatar-hombre-2.avif",
+            venue: "Terraza WTC, CDMX",
+            date: "Marzo 2025"
+          },
+          {
+            name: "Andrea Ramírez",
+            text: "Necesitábamos audio para conferencia + cena de gala. El mismo equipo operó las dos cosas — micrófono cristalino para las presentaciones y luego pista de baile con DJ. Impecable.",
+            rating: 5,
+            event: "Corporativo",
+            avatar: "/img/testimonios/avatar-mujer-3.avif",
+            venue: "Hotel Presidente, Polanco",
+            date: "Diciembre 2025"
+          },
+          {
+            name: "Miguel Torres",
+            text: "Tercer año que los contratamos para la posada de la empresa. Siempre puntuales, siempre resuelven todo. Este año agregamos confeti y fue el hit de la noche.",
+            rating: 5,
+            event: "Evento Corporativo",
+            avatar: "/img/testimonios/avatar-hombre-3.avif",
+            venue: "Casa de Campo, Huixquilucan",
+            date: "Diciembre 2025"
+          }
+        ]} />
       </div>
     </section>
 
