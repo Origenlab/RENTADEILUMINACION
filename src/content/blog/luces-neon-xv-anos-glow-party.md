@@ -5,6 +5,19 @@ image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif"
 imageAlt: "Glow party profesional con luces neón UV para XV años en CDMX"
 category: "XV Años"
 tags: ["XV años neón", "glow party", "luces UV", "fiesta neón CDMX"]
+faqItems:
+  - question: "¿Qué es una glow party para XV años?"
+    answer: "Una glow party es una fiesta temática donde se usa luz ultravioleta (UV) o luz negra para hacer brillar materiales fluorescentes en la oscuridad. Los invitados usan ropa blanca, pulseras neón y pintura facial fluorescente que brilla bajo la luz UV. Es la tendencia más fuerte en XV años en CDMX en los últimos tres años."
+  - question: "¿Cuánto cuesta una glow party profesional para XV años en CDMX?"
+    answer: "El paquete Glow Party básico con 8-12 barras UV profesionales y accesorios fluorescentes cuesta desde $8,000 + IVA. El paquete Neón Premium con letreros personalizados y body paint UV arranca en $12,000 + IVA. Una producción completa con DJ, lásers y decoración temática parte de $18,000 + IVA."
+  - question: "¿Qué incluye un paquete de luces neón para XV años?"
+    answer: "El paquete Glow Party ($8,000 + IVA) incluye 8-12 barras UV LED profesionales Chauvet/Elation, 50 pulseras y 50 collares neón, 10 kits de pintura facial fluorescente, cobertura hasta 150m² y operador técnico que coordina los momentos de UV con el DJ durante toda la noche."
+  - question: "¿Cuál es la diferencia entre luz negra y luces neón?"
+    answer: "La luz negra (UV) es una frecuencia de luz invisible que activa la fluorescencia de materiales específicos — hace que la ropa blanca y los materiales fluorescentes brillen. Las luces neón LED son letreros decorativos de colores visibles que se usan como punto focal y para fotos. En una glow party profesional se combinan ambas para el mejor efecto."
+  - question: "¿Qué edad es recomendable para una glow party?"
+    answer: "La glow party funciona perfectamente para quinceañeras (14-15 años) y sus invitados adolescentes. Es la temática favorita de este grupo de edad. También se adapta para fiestas de 18 años y eventos juveniles. Para el vals con papá, la UV se baja al 30% y se usa seguidor de luz para mantener el momento emotivo sin perder la temática."
+  - question: "¿Qué deben saber los invitados antes de una glow party?"
+    answer: "Es fundamental incluir en la invitación que el código de vestimenta es ropa blanca o colores claros con temática Glow Party. Sin esta indicación, muchos invitados llegarán de negro y no brillarán bajo la UV. También es recomendable avisar que habrá pintura facial fluorescente y accesorios neón incluidos en la fiesta."
 draft: false
 ---
 

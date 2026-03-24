@@ -5,6 +5,19 @@ image: "/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif"
 imageAlt: "Novios bailando primer vals sobre niebla baja iluminados con seguidor profesional"
 category: "Bodas"
 tags: ["vals bodas", "primer baile", "seguidor de luz", "humo bajo", "iluminación vals"]
+faqItems:
+  - question: "¿Por qué el vals de la boda necesita iluminación especial?"
+    answer: "Con las luces generales del salón encendidas, el ojo humano no tiene un punto focal — ve todo al mismo nivel de brillo. Un seguidor de luz crea un spotlight sobre los novios que hace que 150 invitados miren automáticamente al mismo punto. Todo lo demás desaparece en penumbra y las fotos se ven profesionales incluso con celular."
+  - question: "¿Qué tipos de iluminación se usan para el vals?"
+    answer: "El combo estándar profesional para el vals incluye tres elementos: humo bajo (niebla en el piso que crea nubes por 3-5 minutos), seguidor de luz (spotlight operado por técnico que sigue a los novios), y luces de ambiente en tono suave (azul o violeta bajo) para dar contexto al fondo sin competir con el spotlight."
+  - question: "¿Qué es un seguidor de luz y cómo funciona en el vals?"
+    answer: "Un seguidor de luz es un spotlight profesional operado por un técnico que sigue los movimientos de los novios durante el vals. La luz rebota en el humo bajo y crea un halo circular alrededor de ellos. Cuesta $3,000 + IVA y es lo que genera esa foto cinematográfica del primer baile que los novios enmarcan."
+  - question: "¿Cuánto cuesta la iluminación para el vals de la boda?"
+    answer: "El seguidor de luz cuesta $3,000 + IVA y el humo bajo $3,500 + IVA. Total: $6,500 + IVA por el combo vals completo. Como referencia, una sesión de fotos post-boda porque las fotos del vals no quedaron bien cuesta entre $8,000 y $15,000 pesos — y nunca se ve igual porque ya no hay emoción real ni invitados."
+  - question: "¿Cómo se coordina la iluminación del vals con el DJ?"
+    answer: "Nuestro equipo llega temprano para coordinar con el DJ exactamente qué canción es, cuánto dura y cuándo empieza. El operador del humo activa la máquina 30 segundos antes del vals. A los 10 segundos, el DJ baja la música y las luces bajan al 10%. Cuando los novios pisan la pista, el seguidor los ilumina. Todo requiere coordinación entre tres personas."
+  - question: "¿El humo bajo para el vals funciona en cualquier salón?"
+    answer: "No todos los salones son compatibles con humo bajo. Algunos tienen detectores de humo sensibles que pueden activarse. Antes de confirmar el servicio, verificamos el venue y te informamos si es compatible. En la mayoría de salones y haciendas de CDMX funciona sin problemas, y el efecto de los novios bailando sobre nubes es el más fotografiado de toda la noche."
 draft: false
 ---
 

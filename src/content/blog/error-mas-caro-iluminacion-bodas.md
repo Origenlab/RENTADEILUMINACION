@@ -5,6 +5,19 @@ image: "/img/seguidor/luz-seguidor-boda-baile-novios-salon-candil.avif"
 imageAlt: "Novios bailando su primer vals iluminados con seguidor profesional en salón con candil"
 category: "Bodas"
 tags: ["errores iluminación bodas", "bodas CDMX", "consejos iluminación"]
+faqItems:
+  - question: "¿Cuál es el error más común en la iluminación de una boda?"
+    answer: "El error más común es dejar la iluminación para el último momento o asumir que el salón la incluye. En 7 de cada 10 bodas que atendemos por primera vez, la pareja no había planeado iluminación profesional. La iluminación del venue es funcional — como la de un estacionamiento — y no crea ambiente ni favorece las fotos."
+  - question: "¿Cuánto cuesta la iluminación profesional para una boda en CDMX?"
+    answer: "Una iluminación profesional completa para boda (guirnaldas, uplighting, cascadas LED, seguidor y humo bajo) cuesta entre $25,000 y $35,000 + IVA. Esto representa entre el 5% y el 10% del presupuesto total de una boda para 150 personas, pero afecta el 100% de las fotos, el video y la experiencia de los invitados."
+  - question: "¿Qué paquete mínimo de iluminación recomiendan para una boda con presupuesto ajustado?"
+    answer: "El paquete mínimo que recomendamos incluye guirnaldas Edison (100m por $6,500 + IVA), seguidor de luz para el vals ($3,000 + IVA) y humo bajo ($3,500 + IVA). Total: $13,000 + IVA — menos que un centro de mesa floral de diseñador y con un impacto visual incomparablemente mayor."
+  - question: "¿Qué diferencia hay entre la iluminación del salón y la iluminación profesional?"
+    answer: "La iluminación incluida en el salón es funcional: focos empotrados para que la gente no se tropiece. La iluminación profesional crea ambiente, hace que las fotos se vean cinematográficas, genera el momento del vals, ilumina la fachada y proyecta elementos personalizados en la pista. La diferencia se nota en cada foto y video."
+  - question: "¿Por qué contratar profesionales en lugar de hacerlo yo mismo?"
+    answer: "Un profesional diseña la iluminación alrededor de los momentos clave de tu boda — el vestido, el vals, el brindis — y coordina con el fotógrafo y el DJ. El equipo profesional tiene la potencia, calidad de color y control DMX que el equipo casero no ofrece. Además, incluye operador técnico que ajusta la luz en tiempo real durante toda la noche."
+  - question: "¿Cómo afecta la mala iluminación a las fotos de mi boda?"
+    answer: "Sin luz profesional, el fotógrafo debe subir el ISO al máximo, lo que genera fotos con ruido y colores planos. Un seguidor de luz para el vals cuesta $3,000 + IVA y marca la diferencia entre una foto para enmarcar y un 'hice lo que pude con la luz que había'. Las fotos no se pueden arreglar en edición si la luz original no existía."
 draft: false
 ---
 

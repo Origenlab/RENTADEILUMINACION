@@ -5,6 +5,19 @@ image: "/img/guirnaldas/renta-guirnaldas-baile-novios-hacienda-guirnaldas-41.avi
 imageAlt: "Baile de novios en hacienda bajo guirnaldas Edison con iluminación profesional"
 category: "Consejos"
 tags: ["fotógrafo bodas", "iluminación fotografía eventos", "fotos bodas CDMX"]
+faqItems:
+  - question: "¿Por qué la iluminación afecta tanto las fotos de mi boda?"
+    answer: "La fotografía depende completamente de la luz. Con buena iluminación, el color de piel se ve natural, los detalles del vestido se notan y las expresiones se capturan con nitidez. Sin luz de calidad, el fotógrafo debe subir el ISO, lo que genera fotos con ruido, poca profundidad y colores planos. Lightroom puede corregir color, pero no puede inventar luz donde no existió."
+  - question: "¿Qué tipo de luz prefieren los fotógrafos de bodas?"
+    answer: "Los fotógrafos prefieren luz cálida entre 2200K y 2700K — exactamente la temperatura que producen las guirnaldas Edison. La luz cálida hace que la piel se vea dorada y saludable. La luz fría (5000K+) hace que la gente se vea pálida y cansada. Los fotógrafos de bodas odian los focos LED blancos del salón y aman las guirnaldas."
+  - question: "¿Qué es la temperatura de color y cómo afecta las fotos?"
+    answer: "La temperatura de color se mide en Kelvin (K). Valores bajos (2200K-3000K) producen luz cálida y acogedora, ideal para bodas. Valores altos (5000K+) producen luz fría y clínica. La temperatura incorrecta afecta el tono de piel en todas las fotos y puede hacer que un vestido blanco se vea amarillento o azulado."
+  - question: "¿Cómo se coordinan el fotógrafo y el equipo de iluminación?"
+    answer: "Nuestro equipo se presenta con el fotógrafo al llegar al venue. Le explicamos exactamente qué efectos vamos a usar, cuándo y en qué secuencia. Así el fotógrafo está posicionado antes de que cada efecto ocurra. Por ejemplo, un disparo de confeti dura solo 3 segundos — si el fotógrafo no está listo, se pierde la foto."
+  - question: "¿Cuánto cuesta el combo de iluminación que recomiendan los fotógrafos?"
+    answer: "El combo más recomendado por fotógrafos incluye guirnaldas Edison ($6,500 + IVA), uplighting en fachada ($6,000 + IVA), seguidor para el vals ($3,000 + IVA) y cascadas LED ($5,500 + IVA). Total: $21,000 + IVA, que es aproximadamente el 25% de lo que cuesta el paquete fotográfico — y es lo que determina si las fotos quedan para enmarcar."
+  - question: "¿Qué errores de iluminación arruinan las fotos de eventos?"
+    answer: "Los errores más comunes son: usar solo la luz del salón (plana y sin profundidad), no tener seguidor de luz para el vals (la foto del primer baile se pierde), no coordinar los efectos con el fotógrafo (se pierden momentos de 3 segundos como el confeti), y usar luz fría que hace que todos se vean pálidos en las fotos."
 draft: false
 ---
 

@@ -117,6 +117,31 @@ Para darte un precio exacto necesitamos:
 
 Mándanos esta info por WhatsApp y en menos de una hora tienes tu cotización completa con desglose.
 
+## ¿Qué incluye el precio?
+
+Cuando ves un precio de iluminación profesional, es importante saber exactamente qué estás pagando. En REDEIL, cada cotización incluye todo lo necesario para que no tengas sorpresas el día del evento:
+
+- **Equipo profesional de grado comercial** — no son luces de Amazon, son equipos Chauvet, Elation y ADJ diseñados para eventos. Tienen la potencia, el color y la confiabilidad que el equipo casero no ofrece.
+- **Transporte ida y vuelta** — llevamos el equipo al venue y lo recogemos al final. Dentro de CDMX y Zona Metropolitana no hay cargo adicional.
+- **Instalación profesional** — nuestro equipo técnico monta todo antes de que lleguen los invitados. Cables ocultos, equipos asegurados en truss, altura y ángulo calculados para cada espacio.
+- **Operador técnico certificado** — alguien que maneja la consola DMX y ajusta la iluminación en tiempo real según el momento de la noche. No es "encender y dejar" — es operación activa durante todo el evento.
+- **Coordinación con DJ y fotógrafo** — nuestro operador se presenta con el DJ y el fotógrafo para sincronizar cada efecto: el humo bajo 30 segundos antes del vals, el confeti en el momento exacto, los cambios de color entre momentos.
+- **Desmontaje al terminar** — cuando se acaba la fiesta, recogemos todo. El venue queda limpio.
+- **Seguro del equipo** — si algo se daña durante el evento, es nuestra responsabilidad. No pagas reposición de equipo dañado.
+
+Lo único que NO está incluido en el precio base es el IVA (16%) y los viáticos para venues fuera del área metropolitana.
+
+## ¿Cómo ahorrar sin sacrificar calidad?
+
+Si tu presupuesto está ajustado, hay formas inteligentes de reducir costos sin que se note en las fotos ni en la experiencia:
+
+- **Prioriza lo que se ve en las fotos.** Las guirnaldas Edison ($6,500 por 100m) y el seguidor de luz ($3,000 para el vals) son los dos servicios con mejor relación impacto-costo. Transforman las fotos completamente.
+- **Elige uplighting sobre cabezas móviles.** Si tienes que elegir entre uno u otro, el uplighting en la fachada ($6,000 por 12 unidades) genera más impacto visual constante que las cabezas móviles, que brillan sobre todo en la pista de baile.
+- **Combina servicios en un paquete.** Nuestros paquetes tienen mejor precio que sumar servicios individuales. El paquete Esencial para boda ($15,000 + IVA) ahorra entre $1,000 y $2,000 comparado con contratar cada servicio por separado.
+- **Reserva con anticipación.** En temporada baja (febrero-abril, julio-septiembre) hay más disponibilidad y mejores precios. Si tu fecha es flexible, pregunta por disponibilidad en esos meses.
+- **No recortes el operador.** Algunas empresas ofrecen "solo renta de equipo" más barato. Sin operador, nadie controla la consola DMX, nadie coordina con el DJ y nadie ajusta la luz cuando cambia el momento. El resultado se nota — y no para bien.
+- **Invierte en los momentos clave.** Si solo puedes pagar un efecto especial, que sea el combo seguidor + humo bajo para el vals ($6,500 + IVA). Es el momento que todos recuerdan y el que genera la foto que los novios enmarcan.
+
 ## La pregunta del millón: ¿vale la pena?
 
 La iluminación profesional es la diferencia entre un evento bonito y un evento que la gente recuerda. Las fotos se ven diferentes, el ambiente se siente diferente, los invitados reaccionan diferente.

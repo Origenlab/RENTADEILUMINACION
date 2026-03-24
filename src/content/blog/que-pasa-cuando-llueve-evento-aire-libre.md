@@ -5,6 +5,19 @@ image: "/img/guirnaldas/renta-guirnaldas-boda-exterior-guirnaldas-arco-floral-07
 imageAlt: "Guirnaldas Edison para boda al aire libre con arco floral en jardín"
 category: "Consejos"
 tags: ["lluvia eventos", "iluminación exterior", "eventos aire libre CDMX", "IP65"]
+faqItems:
+  - question: "¿Es seguro usar iluminación profesional bajo la lluvia?"
+    answer: "Sí, siempre que el equipo tenga certificación IP adecuada. Nuestras guirnaldas Edison tienen certificación IP65, lo que significa que resisten chorros de agua desde cualquier dirección — no solo salpicaduras. Hemos operado en bodas con aguaceros fuertes y las guirnaldas funcionaron sin problema hasta las 3 de la mañana."
+  - question: "¿Qué equipo de iluminación resiste la lluvia y cuál necesita protección?"
+    answer: "Resisten lluvia sin problema: guirnaldas Edison (IP65), uplighting inalámbrico (IP exterior), city color (IP65) y sky tracker (IP54, lluvia ligera a moderada). Necesitan techado: cascadas LED, cabezas móviles, gobos y consolas DMX. El seguidor de luz se opera desde posición cubierta y el humo bajo funciona en exteriores sin problema."
+  - question: "¿Qué protocolo siguen si llueve durante mi evento al aire libre?"
+    answer: "Siempre diseñamos dos montajes: el montaje A para noche despejada y el montaje B para lluvia, donde concentramos las guirnaldas en zonas con techado y reubicamos el equipo de interior bajo carpa. La decisión se toma el día del evento según el clima. No cobramos extra por esta planificación — es parte del servicio."
+  - question: "¿Cobran extra por proteger el equipo de la lluvia?"
+    answer: "No. Cuando contratas para un evento al aire libre en temporada de lluvias, el plan de contingencia viene incluido sin costo adicional. Nuestro equipo llega preparado para ejecutar cualquiera de los dos montajes (despejado o lluvia). Llevamos 30 años montando eventos al aire libre en CDMX donde llueve 6 meses al año."
+  - question: "¿La lluvia arruina el efecto de las luces en un evento?"
+    answer: "Al contrario — algunos efectos se ven mejor con lluvia. Las guirnaldas Edison bajo la lluvia crean un efecto de purpurina natural, los uplighters en fachada mojada hacen brillar la piedra de formas únicas, y la humedad post-lluvia intensifica el humo bajo para el vals. Muchos fotógrafos consideran que las fotos bajo lluvia con iluminación profesional son las más espectaculares."
+  - question: "¿Qué recomiendan para eventos al aire libre en temporada de lluvias en CDMX?"
+    answer: "Cuatro recomendaciones clave: asegurar techado para la recepción (carpa o salón), priorizar equipo IP65 como guirnaldas y uplighting, tener carpa transparente sobre la pista para las cabezas móviles, y no cancelar el humo bajo porque la humedad post-lluvia lo hace más denso y espectacular. La temporada de lluvias en CDMX va de mayo a octubre."
 draft: false
 ---
 
