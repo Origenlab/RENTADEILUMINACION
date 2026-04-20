@@ -32,7 +32,7 @@ const icons: Record<string, string> = {
 
 <section class="ctabar" aria-label="Tipos de evento">
   <div class="container">
-    <p class="ctabar__headline">{headline}</p>
+    {headline && <p class="ctabar__headline">{headline}</p>}
     <div class="ctabar__grid">
       {items.map((item) => (
         <a href={item.href} class="ctabar__item">
