@@ -1,0 +1,80 @@
+import { c as createComponent, b as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_D8pMnQBn.mjs';
+import 'piccolore';
+import { $ as $$BlogLayout } from '../../chunks/BlogLayout_CZyANi2n.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$IluminacionBodasCdmx2026 = createComponent(($$result, $$props, $$slots) => {
+  const title = "Iluminaci\xF3n para Bodas CDMX: Gu\xEDa Completa | REDEIL";
+  const description = "Iluminaci\xF3n para bodas en CDMX: guirnaldas, cabezas m\xF3viles, ne\xF3n, LED. Presupuesto, metros recomendados y c\xF3mo elegir seg\xFAn tu espacio.";
+  const canonical = "https://rentadeiluminacion.com/blog/iluminacion-bodas-cdmx-2026/";
+  const schemaMarkup = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Gu\xEDa completa de iluminaci\xF3n para bodas en CDMX: qu\xE9 necesitas, cu\xE1nto cuesta y c\xF3mo elegir",
+      "description": "Iluminaci\xF3n profesional para bodas en CDMX. Guirnaldas LED, cabezas m\xF3viles, cascadas LED, sky trackers y ne\xF3n. Presupuestos desde $8,000 MXN.",
+      "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+      "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+      "image": "https://rentadeiluminacion.com/img/blog/iluminacion-bodas-cdmx.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-bodas-cdmx-2026/" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "\xBFCu\xE1ntos metros de guirnaldas necesito para mi boda en CDMX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Para un jard\xEDn de 100m\xB2 necesitas 50-60 metros. Para 200m\xB2 recomendamos 80-100 metros. Para 500m\xB2 o m\xE1s, 150+ metros. Nunca menos de 50 metros (se ve disperso). Denso siempre se ve premium." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFCu\xE1nto cuesta rentar iluminaci\xF3n para boda en CDMX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Paquete b\xE1sico: $8,000-12,000 MXN (guirnaldas + sonido b\xE1sico). Paquete medio: $15,000-25,000 MXN (guirnaldas + cabezas m\xF3viles + cascada + DJ). Paquete premium: $30,000-50,000 MXN (montaje completo con sky tracker, ne\xF3n, sonido profesional)." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFNecesito operador para cabezas m\xF3viles durante la boda?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Recomendamos operador profesional que sincronice luces con la m\xFAsica y momentos clave (entrada, primer baile, corte de pastel). Sin operador, puedes programar secuencias, pero pierdes flexibilidad durante el evento." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFFuncionan las guirnaldas si llueve en la boda?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Las guirnaldas LED son impermeables y funcionan bajo lluvia. Pero evita instalarlas durante tormenta activa (riesgo el\xE9ctrico). Si hay lluvia, la iluminaci\xF3n sigue siendo espectacular \u2014 de hecho, la lluvia + luces c\xE1lidas crean efecto muy rom\xE1ntico." }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de M\xE9xico", "addressRegion": "CDMX", "addressCountry": "MX" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "150+"
+      }
+    }
+  ]);
+  const image = "/img/blog/iluminacion-bodas-cdmx.png";
+  const imageAlt = "Decoraci\xF3n con guirnaldas LED y cabezas m\xF3viles en boda CDMX";
+  const category = "Bodas";
+  return renderTemplate`${renderComponent($$result, "BlogLayout", $$BlogLayout, { "title": title, "description": description, "canonical": canonical, "image": image, "imageAlt": imageAlt, "category": category, "schemaMarkup": schemaMarkup }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p><strong>El fotógrafo es importante. El DJ es importante. La comida es importante.</strong></p> <p>Pero la luz? La luz es lo que la gente recuerda treinta años después.</p> <p>Hemos iluminado 3,000 bodas en CDMX en 30 años. Y no exagero cuando te digo que la diferencia entre una noche "linda" y una noche "que la gente no olvida" es siempre la luz. No cuánta, sino <strong>cómo</strong> se usa.</p> <p>Hace tres meses iluminamos dos bodas el mismo sábado:</p> <p><strong>Boda A (presupuesto ajustado):</strong> Guirnaldas en salón cerrado, luces estándar del lugar. En las fotos de las 8pm en adelante, nada se ve. Los novios decidieron no invertir en iluminación adicional. La novia después dijo: "quedó lindo, pero se ve oscuro en las fotos de noche."</p> <p><strong>Boda B (presupuesto flexible):</strong> 100 metros de guirnaldas + 4 cabezas móviles + 1 cascada LED. Las fotos de las 10pm salen como si fuera de día. El novio pasó la foto de portada en WhatsApp a sus amigos — no porque fuera la foto más bonita, sino porque la ILUMINACIÓN hizo la diferencia.</p> <p>La fotografía fue similar en ambas. La iluminación, no.</p> <p>Aquí va todo lo que necesitas saber para elegir iluminación para tu boda.</p> <h2>Tipos de iluminación: qué existe y cuándo usarlo</h2> <h3>1. <a href="/servicios/guirnaldas/">Guirnaldas</a> (el MVP de toda boda)</h3> <p><strong>Qué es:</strong> Líneas de luces LED suspendidas entre puntos fijos.</p> <p><strong>Dónde van:</strong> Arriba del área de celebración, entrada, pista de baile, zona de fotos.</p> <p><strong>Costo:</strong> Desde $1,500 MXN por 20 metros</p> <p><strong>Ventajas:</strong></p> <ul> <li>Crea ambiente cálido instantáneamente</li> <li>Funciona en cualquier clima</li> <li>Fácil de instalar</li> <li>Versátil (bodas, cumpleaños, corporativos)</li> </ul> <p><strong>Desventaja:</strong> Necesita puntos de anclaje (árboles, postes, estructura)</p> <p><strong>Cuántos metros necesitas:</strong></p> <ul> <li>Jardín 100m² = 50-60 metros</li> <li>Jardín 200m² = 80-100 metros</li> <li>Jardín 500m² = 150+ metros</li> </ul> <p><strong>Regla de oro: 50 metros MÍNIMO.</strong></p> <p>¿Por qué? Porque lo vemos cada fin de semana: novia contrata 30 metros de guirnaldas "para ahorrar." Resulta que cuelgan una línea por aquí, otra por allá, con hoyos negros entre ellas. En fotos sale bonito porque el fotógrafo encuadra bien. Pero en vivo durante la cena? Ves el jardín negro, luego una isla de luz, luego negro de nuevo. Se siente desconectado.</p> <p>100 metros en el mismo jardín = ambiente completo. Todo interconectado. Sin hoyos negros. Eso es lo que la gente SIENTE diferente — aunque no sepa por qué.</p> <h3>2. <a href="/servicios/cabezas-moviles/">Cabezas móviles</a> (el toque profesional)</h3> <p><strong>Qué es:</strong> Proyectores LED que rotan, cambian color, hacen efectos.</p> <p><strong>Dónde van:</strong> En los laterales, iluminando la pista de baile o entrada.</p> <p><strong>Costo:</strong> $2,500-4,500 MXN por cabeza (incluye operador básico)</p> <p><strong>Ventajas:</strong></p> <ul> <li>Efectos dinámicos (color, rotación, strobe)</li> <li>Se adapta a la música</li> <li>Versatilidad máxima</li> </ul> <p><strong>Desventaja:</strong> Necesita operador o programación. Más caro.</p> <p><strong>Cuántas necesitas:</strong></p> <ul> <li>Boda pequeña (50 personas): 2 cabezas</li> <li>Boda mediana (150 personas): 4 cabezas</li> <li>Boda grande (300+ personas): 6+ cabezas</li> </ul> <p><strong>Dato importante:</strong> Las cabezas móviles SIN DJ son un fracaso garantizado. Sin música, los efectos de luz parecen nerviosos, desconectados. Con DJ? Son magia. El DJ y las luces hablan el mismo idioma.</p> <h3>3. <a href="/servicios/luces-neon/">Luces neón</a> (para lo cool)</h3> <p><strong>Qué es:</strong> Tubo flexible que emite luz fría. Colores: blanco, azul, rosa, verde.</p> <p><strong>Dónde va:</strong> Entrada, área de fotos, barra, letrero de nombre.</p> <p><strong>Costo:</strong> $800-2,000 MXN por forma/frase</p> <p><strong>Ventajas:</strong></p> <ul> <li>Fotogénica (Instagram gold)</li> <li>Diferente, memorable</li> <li>Dura toda la noche sin mantenimiento</li> </ul> <p><strong>Desventaja:</strong> Solo uno o dos "spots" — demasiado es ruidoso visualmente.</p> <p><strong>Regla de neón:</strong> UNO O DOS, máximo. Un letrero "Mr & Mrs Fernández" en neón blanco? Icónico. La novia se va a posar para fotos 20 veces. Pero si mezclas neón en 6 lugares diferentes, la gente no sabe dónde mirar. Se siente barato aunque sea caro.</p> <h3>4. <a href="/servicios/cascadas-led/">Cascadas LED</a> (el lujo)</h3> <p><strong>Qué es:</strong> Cortina de luces LED vertical. Colores RGB (miles de tonalidades).</p> <p><strong>Dónde va:</strong> Detrás de mesa principal, área de fotos, entrada.</p> <p><strong>Costo:</strong> $3,500-6,000 MXN por cascada (2m×2m)</p> <p><strong>Ventajas:</strong></p> <ul> <li>Parece de alto presupuesto</li> <li>Fotogénica</li> <li>Versátil de color</li> </ul> <p><strong>Desventaja:</strong> Toma espacio. Necesita estructura.</p> <p><strong>Recomendación:</strong> Si tu presupuesto es flexible, 1-2 cascadas transforman el espacio.</p> <h3>5. <a href="/servicios/sky-tracker/">Sky tracker</a> (el wow factor)</h3> <p><strong>Qué es:</strong> Cañón LED gigante que proyecta rayo de luz hacia el cielo. Visible a kilómetros.</p> <p><strong>Dónde va:</strong> Atrás del salón, apuntando hacia arriba.</p> <p><strong>Costo:</strong> $4,000-7,000 MXN (incluye operador)</p> <p><strong>Ventajas:</strong></p> <ul> <li>Espectacular, memorable</li> <li>Visible desde lejos (tus invitados llegan y YA saben dónde es)</li> <li>Perfecto para entrada de novios</li> </ul> <p><strong>Desventaja:</strong> Overkill para bodas pequeñas. Necesita permiso en algunos espacios (puede molestar vecinos).</p> <p><strong>Recomendación:</strong> Usa solo para entrada de novios o momentos clave. Todo el tiempo se vuelve ruidoso.</p> <h2>Paquetes estándar según presupuesto</h2> <h3>Presupuesto ajustado (~$8,000-12,000)</h3> <p><strong>Qué incluyes:</strong> 80 metros guirnaldas LED cálidas, 2 bocinas básicas para DJ, instalación.</p> <p><strong>Lo que ves:</strong> Ambiente cálido. La gente lo nota. En fotos de noche todavía hay iluminación. La novia dice "quedó bonito." Es funcional, pero tienes limitaciones: solo guirnaldas, sin efectos dinámicos, sin cambios de color según la música.</p> <h3>Presupuesto medio (~$15,000-25,000)</h3> <p><strong>Qué incluyes:</strong> 100 metros guirnaldas, 2 cabezas móviles, 1 cascada LED, sonido profesional (DJ + 2 bocinas), instalación.</p> <p><strong>Lo que ves:</strong> Aquí es donde mágica sucede. Las cabezas móviles cambian de color con la música. La cascada detrás de la mesa de novios se ve cara — aunque sea presupuesto medio. En fotos de las 10pm todavía tienes iluminación dinámica. Esto es lo que la gente recuerda: "¡qué increíble la iluminación de la boda!"</p> <h3>Presupuesto premium (~$30,000-50,000)</h3> <p><strong>Qué incluyes:</strong> 150 metros guirnaldas, 4 cabezas móviles, 2 cascadas LED, 1 sky tracker (entrada), neón personalizado, sonido profesional completo, DJ + luces coordinadas.</p> <p><strong>Lo que ves:</strong> Espectáculo. Las luces hablan con la música. El sky tracker marca la entrada de novios. Los invitados hablan de la iluminación años después. No preguntan "¿cómo fue?" — dicen directamente "¡qué iluminación tan increíble!"</p> <h2>Cómo elegir según tu espacio</h2> <h3>Jardín abierto (parque, quinceaños)</h3> <p><strong>Mejor opción:</strong> Guirnaldas + cabezas móviles</p> <p><strong>Por qué:</strong> Aire libre necesita luz abundante. Cascadas se ven mejor indoors.</p> <p><strong>Metros recomendados:</strong> 100-150 guirnaldas</p> <h3>Salón cerrado (ballroom)</h3> <p><strong>Mejor opción:</strong> Cabezas móviles + cascadas LED</p> <p><strong>Por qué:</strong> Iluminación técnica, no necesitas guirnaldas (techo ya ilumina)</p> <p><strong>Metros recomendados:</strong> 2-4 cascadas estratégicamente</p> <h3>Sitio especial (terraza, rooftop, hacienda)</h3> <p><strong>Mejor opción:</strong> Guirnaldas + sky tracker + neón</p> <p><strong>Por qué:</strong> Quieres aprovechar la arquitectura. Sky tracker es el cherry on top.</p> <p><strong>Metros recomendados:</strong> 80-120 guirnaldas</p> <h2>Cronograma de instalación</h2> <ul> <li><strong>Día anterior:</strong> Estructuras pesadas (postes para guirnaldas)</li> <li><strong>Mañana del evento:</strong> Cableado, cabezas móviles, cascadas</li> <li><strong>2 horas antes:</strong> Prueba completa, ajuste de colores</li> <li><strong>30 min antes:</strong> Standby (todo listo, operadores a la espera)</li> <li><strong>Durante evento:</strong> Iluminación coordinada con programa (entrada, primer baile, corte de pastel)</li> <li><strong>Después:</strong> Desinstalación ordenada (1-2 horas)</li> </ul> <h2>Presupuesto: cómo calcular el tuyo</h2> <p><strong>Fórmula simple:</strong></p> <ul> <li>Guirnaldas: ($1,500 por 20m) × (metros/20) = X</li> <li>Cabezas: ($3,500 por cabeza) × (cantidad) = Y</li> <li>Extras (cascadas, neón, sky tracker): Z</li> <li>Sonido: $2,000-5,000 (DJ incluido)</li> <li>TOTAL = X + Y + Z + Sonido</li> </ul> <p><strong>Ejemplo:</strong> Boda 150 personas, jardín 200m²</p> <ul> <li>Guirnaldas: 100m = $7,500</li> <li>Cabezas: 2 = $7,000</li> <li>Cascada: 1 = $4,500</li> <li>Sonido: DJ = $3,000</li> <li><strong>TOTAL: $22,000</strong></li> </ul> <h2>Dato importante: timing de decisión</h2> <p>Cielo que iluminas: <strong>Crepúsculo = hora mágica</strong></p> <p>Si tu boda es de 18:00-22:00 horas, la iluminación es CRÍTICA. Del anochecer (18:30) en adelante, tu iluminación es lo que ve la gente.</p> <p>Si tu boda es de 14:00-18:00, necesitas menos (luz natural aún).</p> <p><strong>Pro tip:</strong> Las bodas de atardecer (18:00-20:00) son las más fotogénicas si iluminación está bien.</p> <h2>Conclusión</h2> <p>Iluminación es 30% del presupuesto de boda, pero impacta 70% de la experiencia visual.</p> <p>No la dejes para último momento. Planifica 3 meses antes. Consulta con experto que entienda tu espacio.</p> <p>En REDEIL llevamos 30 años haciendo esto. Sabemos qué funciona en Coyoacán, qué en Polanco, qué en una terraza rooftop. Sabemos sincronizar luces con música, con ceremonia, con sorpresas.</p> <p>Si tu boda es en CDMX o Edomex, cuéntanos tu visión. Hacemos que brille.</p> <p><strong>Cotiza tu iluminación de boda — asesoramiento personalizado sin costo.</strong></p> <p>WhatsApp: <a href="https://wa.me/5215530682988">55 3068 2988</a></p> <p><a href="/contacto/">O contáctanos aquí para una consulta rápida.</a></p> ` })}`;
+}, "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-bodas-cdmx-2026.astro", void 0);
+
+const $$file = "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-bodas-cdmx-2026.astro";
+const $$url = "/blog/iluminacion-bodas-cdmx-2026";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$IluminacionBodasCdmx2026,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

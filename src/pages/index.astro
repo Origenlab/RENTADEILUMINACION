@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import CtaBar from '../components/CtaBar.astro';
-import ZoneCards from '../components/ZoneCards.astro';
+import ServiceCardPackages from '../components/ServiceCardPackages.astro';
+import NavRapida from '../components/NavRapida.astro';
 import FaqSection from '../components/FaqSection.astro';
 import TestimonialCards from '../components/TestimonialCards.astro';
 
@@ -110,79 +110,134 @@ const iluminacion = [
     title: "Guirnaldas Edison",
     image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif",
     alt: "Guirnaldas con focos Edison iluminando terraza para recepción de boda",
-    description: "Focos tipo Edison con luz cálida vintage que transforman cualquier jardín, terraza o hacienda. Las más pedidas para bodas al aire libre. Instalación profesional con cableado IP65.",
-    link: "/servicios/guirnaldas/"
+    link: "/servicios/guirnaldas/",
+    packages: [
+      { label: "Básico — 50 metros", sublabel: "Terrazas y ceremonias íntimas · hasta 50 invitados", link: "/servicios/guirnaldas/paquete-50-metros/" },
+      { label: "Estándar — 100 metros", sublabel: "Jardines medianos · hasta 120 invitados", link: "/servicios/guirnaldas/paquete-100-metros/" },
+      { label: "Premium — 200 metros", sublabel: "Haciendas y fincas · 200+ invitados", link: "/servicios/guirnaldas/paquete-200-metros/" },
+      { label: "Producción — 500 metros", sublabel: "Festivales y venues de gran escala", link: "/servicios/guirnaldas/paquete-500-metros/" },
+    ]
   },
   {
     title: "Luces Neón y UV",
     image: "/img/luces-neon/renta-luces-neon-glow-party-celebracion-neon-300w.avif",
     alt: "Fiesta glow party con luces neón UV y colores vibrantes",
-    description: "Efectos fluorescentes, luz UV y glow que convierten cualquier espacio en una fiesta de colores. Perfectas para XV años, fiestas temáticas y pistas de baile.",
-    link: "/servicios/luces-neon/"
+    link: "/servicios/luces-neon/",
+    packages: [
+      { label: "UV Básico", sublabel: "Pista de baile con luz ultravioleta", link: "/servicios/luces-neon/paquete-uv-basico/" },
+      { label: "Glow Party", sublabel: "Fiesta UV completa con accesorios", link: "/servicios/luces-neon/paquete-glow-party/" },
+      { label: "Neón Premium", sublabel: "Letreros LED neón personalizados + UV", link: "/servicios/luces-neon/paquete-neon-premium/" },
+      { label: "Producción Neón", sublabel: "Shows y festivales de gran escala", link: "/servicios/luces-neon/paquete-produccion-neon/" },
+    ]
   },
   {
     title: "Luz Negra",
     image: "/img/luz-negra/luz-negra-fiesta-neon-300w.avif",
     alt: "Fiesta con luz negra UV y efectos fluorescentes",
-    description: "Iluminación UV que hace brillar todo lo blanco y fluorescente. Ideal para fiestas neón, XV años temáticos y pistas de baile con un ambiente completamente diferente.",
-    link: "/servicios/luz-negra/"
+    link: "/servicios/luz-negra/",
+    packages: [
+      { label: "Blacklight Básico", sublabel: "Pista de baile con luz negra UV", link: "/servicios/luz-negra/paquete-blacklight-basico/" },
+      { label: "Blacklight Party", sublabel: "Fiesta glow con efecto neón", link: "/servicios/luz-negra/paquete-blacklight-party/" },
+      { label: "UV Premium", sublabel: "Luz negra + letreros neón", link: "/servicios/luz-negra/paquete-uv-premium/" },
+      { label: "Producción UV", sublabel: "Show completo neón y UV", link: "/servicios/luz-negra/paquete-produccion-uv/" },
+    ]
   },
   {
     title: "Sky Tracker",
     image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif",
     alt: "Sky tracker proyectando haces de luz al cielo nocturno",
-    description: "Haces de luz xenón de 7,000W visibles a 5-7 km. El efecto que hace que tu evento se vea desde toda la colonia. Ideales para inauguraciones, XV años y lanzamientos.",
-    link: "/servicios/sky-tracker/"
+    link: "/servicios/sky-tracker/",
+    packages: [
+      { label: "1 Sky Tracker", sublabel: "Boda íntima en jardín", link: "/servicios/sky-tracker/paquete-1-sky-tracker/" },
+      { label: "2 Sky Trackers", sublabel: "Boda en hacienda", link: "/servicios/sky-tracker/paquete-2-sky-trackers/" },
+      { label: "4 Sky Trackers", sublabel: "Corporativo y gala nocturna", link: "/servicios/sky-tracker/paquete-4-sky-trackers/" },
+      { label: "Producción", sublabel: "Festival y concierto", link: "/servicios/sky-tracker/paquete-produccion-sky-tracker/" },
+    ]
   },
   {
     title: "Cabezas Móviles",
     image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif",
     alt: "Cabezas móviles LED con beams blancos en boda elegante",
-    description: "Luces robóticas con movimiento programable vía DMX. Beams, spots y wash para shows de luces en el vals, la entrada de los novios o la pista de baile.",
-    link: "/servicios/cabezas-moviles/"
+    link: "/servicios/cabezas-moviles/",
+    packages: [
+      { label: "Show Básico", sublabel: "Pista de baile · 2 cabezas móviles", link: "/servicios/cabezas-moviles/paquete-show-basico/" },
+      { label: "Show Estándar", sublabel: "Show sincronizado · 4 cabezas", link: "/servicios/cabezas-moviles/paquete-show-estandar/" },
+      { label: "Show Premium", sublabel: "Producción completa · 6 cabezas", link: "/servicios/cabezas-moviles/paquete-show-premium/" },
+      { label: "Producción", sublabel: "Festivales y shows masivos", link: "/servicios/cabezas-moviles/paquete-produccion/" },
+    ]
   },
   {
     title: "Cascadas LED",
     image: "/img/cascadas-led/cascadas-led-arco-ceremonia-luces-moradas-400w.avif",
     alt: "Cascadas de luces LED en arco de ceremonia con tonos morados",
-    description: "Cortinas de luces LED que caen como cascada creando un fondo espectacular. El complemento perfecto para la mesa de novios, el arco de ceremonia o el pastel.",
-    link: "/servicios/cascadas-led/"
+    link: "/servicios/cascadas-led/",
+    packages: [
+      { label: "1 Cortina", sublabel: "Mesa de novios o arco de ceremonia", link: "/servicios/cascadas-led/paquete-1-cortina/" },
+      { label: "2 Cortinas", sublabel: "Fondo completo para escenario", link: "/servicios/cascadas-led/paquete-2-cortinas/" },
+      { label: "4 Cortinas", sublabel: "Cobertura total del salón", link: "/servicios/cascadas-led/paquete-4-cortinas/" },
+      { label: "Producción", sublabel: "Festivales y shows masivos", link: "/servicios/cascadas-led/paquete-produccion/" },
+    ]
   },
   {
     title: "City Color",
     image: "/img/city-color/renta-luces-hacienda-boda-fuente-300w.avif",
     alt: "Iluminación City Color en hacienda para boda con fuente iluminada",
-    description: "Cañones de luz LED de alto impacto para bañar de color fachadas, escenarios y espacios grandes. Transforma por completo la atmósfera de cualquier venue con un solo equipo.",
-    link: "/servicios/city-color/"
+    link: "/servicios/city-color/",
+    packages: [
+      { label: "4 Cañones", sublabel: "Terrazas y jardines pequeños", link: "/servicios/city-color/paquete-4-canones/" },
+      { label: "8 Cañones", sublabel: "Salones y haciendas medianas", link: "/servicios/city-color/paquete-8-canones/" },
+      { label: "16 Cañones", sublabel: "Hacienda completa · eventos de gala", link: "/servicios/city-color/paquete-16-canones/" },
+      { label: "Producción", sublabel: "Festivales y venues de gran escala", link: "/servicios/city-color/paquete-produccion/" },
+    ]
   },
   {
     title: "City Light",
     image: "/img/city-light/iluminacion-profesional-bodas-cdmx-400w.avif",
     alt: "Luminarias City Light iluminando salón de eventos profesionalmente",
-    description: "Luminarias profesionales de luz potente y uniforme para iluminar espacios amplios. Perfectas para salones de eventos, carpas y venues que necesitan iluminación base de calidad.",
-    link: "/servicios/city-light/"
+    link: "/servicios/city-light/",
+    packages: [
+      { label: "8 PAR LED", sublabel: "Mesa de novios y zona lounge", link: "/servicios/city-light/paquete-8-par-led/" },
+      { label: "16 PAR LED", sublabel: "Salón completo de bodas", link: "/servicios/city-light/paquete-16-par-led/" },
+      { label: "24 PAR LED", sublabel: "Hacienda completa · eventos premium", link: "/servicios/city-light/paquete-24-par-led/" },
+      { label: "Producción", sublabel: "Venues de gran escala", link: "/servicios/city-light/paquete-produccion/" },
+    ]
   },
   {
     title: "Iluminación Arquitectónica",
     image: "/img/iluminacion-arquitectonica/boda-patio-hacienda-iluminacion-fachada-ambar-string-lights-baile-400w.avif",
     alt: "Uplighting arquitectónico en fachada de hacienda colonial tono ámbar",
-    description: "Uplighting profesional para transformar fachadas, columnas, árboles y jardines con color. Un solo equipo cambia la atmósfera completa de una hacienda o salón.",
-    link: "/servicios/iluminacion-arquitectonica/"
+    link: "/servicios/iluminacion-arquitectonica/",
+    packages: [
+      { label: "6 Uplighters", sublabel: "Fachada y arco de ceremonia", link: "/servicios/iluminacion-arquitectonica/paquete-6-uplighters/" },
+      { label: "12 Uplighters", sublabel: "Hacienda · cobertura media", link: "/servicios/iluminacion-arquitectonica/paquete-12-uplighters/" },
+      { label: "20 Uplighters", sublabel: "Hacienda completa · cobertura total", link: "/servicios/iluminacion-arquitectonica/paquete-20-uplighters/" },
+      { label: "Producción", sublabel: "Venues de gran escala", link: "/servicios/iluminacion-arquitectonica/paquete-produccion/" },
+    ]
   },
   {
     title: "Gobos",
     image: "/img/gobos/renta-gobo-monograma-pista-baile-300w.avif",
     alt: "Proyección de gobo con monograma en pista de baile para boda",
-    description: "Proyección de nombres, logos, monogramas o diseños personalizados en paredes y pisos. El detalle que nadie espera y todos recuerdan. Ideal para bodas y eventos corporativos.",
-    link: "/servicios/gobos/"
+    link: "/servicios/gobos/",
+    packages: [
+      { label: "1 Gobo", sublabel: "Proyección en pista de baile", link: "/servicios/gobos/paquete-1-gobo/" },
+      { label: "2 Gobos", sublabel: "Dos proyecciones sincronizadas", link: "/servicios/gobos/paquete-2-gobos/" },
+      { label: "4 Gobos", sublabel: "Cobertura completa del venue", link: "/servicios/gobos/paquete-4-gobos/" },
+      { label: "Producción", sublabel: "Festivales y eventos masivos", link: "/servicios/gobos/paquete-produccion/" },
+    ]
   },
   {
     title: "Seguidor",
     image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif",
     alt: "Luz de seguimiento profesional iluminando primer baile de novios",
-    description: "Spotlight profesional que sigue al festejado en el vals, brindis o entrada triunfal. El toque de producción que hace que los momentos importantes se vean espectaculares.",
-    link: "/servicios/seguidor/"
-  }
+    link: "/servicios/seguidor/",
+    packages: [
+      { label: "Momento Estelar", sublabel: "Vals o brindis · 1 seguidor", link: "/servicios/seguidor/paquete-momento-estelar/" },
+      { label: "Recepción Completa", sublabel: "Cobertura todos los momentos clave", link: "/servicios/seguidor/paquete-recepcion-completa/" },
+      { label: "2 Seguidores", sublabel: "Galas y shows con dos focos", link: "/servicios/seguidor/paquete-2-seguidores/" },
+      { label: "Producción", sublabel: "Shows masivos y conciertos", link: "/servicios/seguidor/paquete-produccion/" },
+    ]
+  },
 ];
 
 const sonido = [
@@ -190,44 +245,74 @@ const sonido = [
     title: "Audio para Eventos",
     image: "/img/bocinas/renta-bocinas-line-array-concierto-400w.avif",
     alt: "Sistema de bocinas line array JBL profesional para evento",
-    description: "Bocinas JBL y sistemas QSC dimensionados para tu espacio — desde reuniones de 50 personas hasta eventos de 2,000+. Sonido cristalino, potente, sin distorsión.",
-    link: "/servicios/bocinas/"
+    link: "/servicios/bocinas/",
+    packages: [
+      { label: "Básico", sublabel: "Reuniones y eventos hasta 100 personas", link: "/servicios/bocinas/paquete-audio-basico/" },
+      { label: "Estándar", sublabel: "Eventos medianos · 100-300 personas", link: "/servicios/bocinas/paquete-audio-estandar/" },
+      { label: "Premium — Line Array QSC", sublabel: "Eventos grandes · 300-800 personas", link: "/servicios/bocinas/paquete-audio-premium/" },
+      { label: "Producción", sublabel: "Congresos y festivales · 800+ personas", link: "/servicios/bocinas/paquete-produccion-audio/" },
+    ]
   },
   {
     title: "DJ para Fiestas y Bodas",
     image: "/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif",
     alt: "DJ profesional en cabina con consola mezclando música en evento",
-    description: "DJ con consola profesional, mezcla en vivo y repertorio adaptado. Desde el vals y la hora loca hasta el after. Solo o con paquete completo de audio e iluminación.",
-    link: "/servicios/bocinas-djs/"
+    link: "/servicios/bocinas-djs/",
+    packages: [
+      { label: "Fiesta Privada", sublabel: "DJ para reuniones íntimas", link: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+      { label: "Boda", sublabel: "Vals, hora loca y after incluidos", link: "/servicios/bocinas-djs/paquete-dj-boda/" },
+      { label: "Corporativo", sublabel: "Eventos de empresa y galas", link: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+      { label: "Festival", sublabel: "Festivales y eventos masivos", link: "/servicios/bocinas-djs/paquete-dj-festival/" },
+    ]
   },
   {
     title: "Bocinas para Bodas",
     image: "/img/bocinas-bodas/renta-bocinas-boda-primer-baile-novios-truss-300w.avif",
     alt: "Sistema de bocinas profesional montado para ceremonia y fiesta de boda",
-    description: "Audio dimensionado para cada momento de tu boda — ceremonia, coctel, vals y fiesta. Sonido claro para los votos y potente para la pista de baile.",
-    link: "/servicios/bocinas-bodas/"
+    link: "/servicios/bocinas-bodas/",
+    packages: [
+      { label: "Solo Ceremonia", sublabel: "Audio para votos y entrada", link: "/servicios/bocinas-bodas/paquete-solo-ceremonia/" },
+      { label: "Boda Completa", sublabel: "Ceremonia, recepción y fiesta", link: "/servicios/bocinas-bodas/paquete-boda-completa/" },
+      { label: "Boda con DJ", sublabel: "DJ profesional + audio completo", link: "/servicios/bocinas-bodas/paquete-boda-con-dj/" },
+      { label: "Producción Premium", sublabel: "Line array + ingeniería FOH", link: "/servicios/bocinas-bodas/paquete-produccion-boda/" },
+    ]
   },
   {
     title: "Bocinas para XV Años",
     image: "/img/bocinas-xv/renta-bocinas-xv-anos-vals-padre-hija-dj-salon-300w.avif",
     alt: "Audio profesional para fiesta de XV años con DJ en salón",
-    description: "El audio que tus XV merecen — vals con sonido cristalino, hora loca con potencia, y DJ que sabe exactamente cuándo subir el ritmo.",
-    link: "/servicios/bocinas-xv/"
+    link: "/servicios/bocinas-xv/",
+    packages: [
+      { label: "XV Básico", sublabel: "XV años íntimos · hasta 80 invitados", link: "/servicios/bocinas-xv/paquete-xv-basico/" },
+      { label: "XV Completo", sublabel: "DJ y audio · hasta 200 invitados", link: "/servicios/bocinas-xv/paquete-xv-completo/" },
+      { label: "XV DJ + Luces", sublabel: "Audio + show de luces completo", link: "/servicios/bocinas-xv/paquete-xv-dj-luces/" },
+      { label: "XV Producción", sublabel: "Producción premium completa", link: "/servicios/bocinas-xv/paquete-xv-produccion/" },
+    ]
   },
   {
     title: "Bocinas para Fiestas",
     image: "/img/bocinas-fiestas/renta-bocinas-fiestas-eventos-profesionales-300w.avif",
     alt: "Bocinas profesionales para fiesta privada con luces",
-    description: "Cumpleaños, graduaciones, posadas, reuniones. Audio profesional que se adapta al tamaño de tu fiesta — desde una reunión íntima hasta un evento de 500 personas.",
-    link: "/servicios/bocinas-fiestas/"
+    link: "/servicios/bocinas-fiestas/",
+    packages: [
+      { label: "Fiesta en Casa", sublabel: "Cumpleaños íntimos · hasta 60 personas", link: "/servicios/bocinas-fiestas/paquete-fiesta-casa/" },
+      { label: "Fiesta en Salón", sublabel: "Salones y reuniones · hasta 120 personas", link: "/servicios/bocinas-fiestas/paquete-fiesta-salon/" },
+      { label: "Fiesta en Jardín", sublabel: "Jardines y terrazas · hasta 200 personas", link: "/servicios/bocinas-fiestas/paquete-fiesta-jardin/" },
+      { label: "Fiesta Masiva", sublabel: "Eventos de 200+ personas", link: "/servicios/bocinas-fiestas/paquete-fiesta-masiva/" },
+    ]
   },
   {
     title: "Bocinas para Conferencias",
     image: "/img/bocinas-conferencias/renta-de-bocinas-para-conferencias-salon-ejecutivo-300w.avif",
     alt: "Sistema de audio profesional en salón ejecutivo para conferencia",
-    description: "Audio cristalino para presentaciones, conferencias y capacitaciones. Micrófonos inalámbricos, bocinas de línea y mezcladoras profesionales para que cada palabra se escuche.",
-    link: "/servicios/bocinas-conferencias/"
-  }
+    link: "/servicios/bocinas-conferencias/",
+    packages: [
+      { label: "Sala de Juntas", sublabel: "Presentaciones ejecutivas · hasta 30 personas", link: "/servicios/bocinas-conferencias/paquete-sala-juntas/" },
+      { label: "Conferencia en Salón", sublabel: "50-200 personas", link: "/servicios/bocinas-conferencias/paquete-conferencia-salon/" },
+      { label: "Auditorio", sublabel: "Congresos · 200-600 personas", link: "/servicios/bocinas-conferencias/paquete-auditorio/" },
+      { label: "Producción Congreso", sublabel: "Eventos de 600+ personas", link: "/servicios/bocinas-conferencias/paquete-produccion-congreso/" },
+    ]
+  },
 ];
 
 const efectos = [
@@ -235,51 +320,86 @@ const efectos = [
     title: "Humo Bajo",
     image: "/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif",
     alt: "Efecto de humo bajo creando nube a nivel de piso durante vals de boda",
-    description: "La nube mágica a nivel de piso que todo mundo quiere para el vals o la entrada de los novios. El efecto más solicitado en bodas y XV años.",
-    link: "/servicios/humo-bajo/"
+    link: "/servicios/humo-bajo/",
+    packages: [
+      { label: "Vals Único", sublabel: "Primer baile de boda", link: "/servicios/humo-bajo/paquete-vals-unico/" },
+      { label: "Recepción Completa", sublabel: "Boda o XV años completos", link: "/servicios/humo-bajo/paquete-recepcion-completa/" },
+      { label: "Doble Cobertura", sublabel: "Haciendas y salones grandes", link: "/servicios/humo-bajo/paquete-doble-cobertura/" },
+      { label: "Producción Premium", sublabel: "Humo bajo + seguidor + cabezas", link: "/servicios/humo-bajo/paquete-produccion-premium/" },
+    ]
   },
   {
     title: "Máquina de Humo",
     image: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif",
     alt: "Humo escénico en pista de baile para efecto de show de luces",
-    description: "Humo escénico para crear atmósferas en pistas de baile y shows de luces. El complemento perfecto para cabezas móviles y efectos láser.",
-    link: "/servicios/maquina-humo/"
+    link: "/servicios/maquina-humo/",
+    packages: [
+      { label: "DJ Fiesta", sublabel: "Humo escénico para pista de baile", link: "/servicios/maquina-humo/paquete-dj-fiesta/" },
+      { label: "Noche Completa", sublabel: "Shows y pistas con humo continuo", link: "/servicios/maquina-humo/paquete-noche-completa/" },
+      { label: "Show Corporativo", sublabel: "Presentaciones y galas", link: "/servicios/maquina-humo/paquete-show-corporativo/" },
+      { label: "Festival", sublabel: "Shows masivos al aire libre", link: "/servicios/maquina-humo/paquete-festival/" },
+    ]
   },
   {
     title: "Confeti",
     image: "/img/confeti/confeti-dorado-boda-novios-fiesta.avif",
     alt: "Cañón de confeti dorado lanzando papelitos en celebración de boda",
-    description: "Cañones de confeti para el brindis, la mordida del pastel o la hora loca. Confeti dorado, plateado o multicolor — tú eliges. Operación profesional incluida.",
-    link: "/servicios/confeti/"
+    link: "/servicios/confeti/",
+    packages: [
+      { label: "2 Cañones", sublabel: "Brindis o mordida del pastel", link: "/servicios/confeti/paquete-2-canones/" },
+      { label: "4 Cañones", sublabel: "Hora loca y momentos múltiples", link: "/servicios/confeti/paquete-4-canones/" },
+      { label: "Biodegradable", sublabel: "Eventos al aire libre · ecológico", link: "/servicios/confeti/paquete-confeti-biodegradable/" },
+      { label: "Producción", sublabel: "Shows y festivales masivos", link: "/servicios/confeti/paquete-produccion/" },
+    ]
   },
   {
     title: "Burbujas",
     image: "/img/burbujas/burbujas-gigantes-fiesta-cumpleanos-ninos-400w.avif",
     alt: "Máquina de burbujas gigantes en fiesta de cumpleaños para niños",
-    description: "Máquinas de burbujas para fiestas infantiles, jardines de eventos y recepciones al aire libre. Un efecto mágico que encanta a niños y adultos por igual.",
-    link: "/servicios/burbujas/"
+    link: "/servicios/burbujas/",
+    packages: [
+      { label: "Fiesta Infantil", sublabel: "Cumpleaños · 1 máquina profesional", link: "/servicios/burbujas/paquete-fiesta-infantil/" },
+      { label: "Entrada de Novios", sublabel: "2 máquinas para la recepción", link: "/servicios/burbujas/paquete-boda-entrada/" },
+      { label: "Burbujas Gigantes", sublabel: "Shows y eventos especiales", link: "/servicios/burbujas/paquete-burbujas-gigantes/" },
+      { label: "Producción", sublabel: "6 máquinas para festivales", link: "/servicios/burbujas/paquete-produccion/" },
+    ]
   },
   {
     title: "Bola Disco",
     image: "/img/bola-disco/bola-disco-dj-pista-baile-evento.avif",
     alt: "Bola disco gigante con luces LED en pista de baile",
-    description: "El clásico que nunca pasa de moda. Bola disco gigante con luces LED que llenan la pista de destellos. Perfecta para bodas, XV años y fiestas retro.",
-    link: "/servicios/bola-disco/"
+    link: "/servicios/bola-disco/",
+    packages: [
+      { label: "30 cm", sublabel: "Espacios pequeños · fiestas íntimas", link: "/servicios/bola-disco/paquete-30cm/" },
+      { label: "60 cm", sublabel: "Salones y pistas medianas", link: "/servicios/bola-disco/paquete-60cm/" },
+      { label: "90 cm", sublabel: "Salones grandes · bodas y XV años", link: "/servicios/bola-disco/paquete-90cm/" },
+      { label: "120 cm", sublabel: "Shows masivos · producciones", link: "/servicios/bola-disco/paquete-120cm/" },
+    ]
   },
   {
     title: "Pantalla Inflable",
     image: "/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif",
     alt: "Pantalla inflable gigante para cine al aire libre en jardín",
-    description: "Cine al aire libre con pantalla inflable gigante y proyector HD incluido. Ideal para jardines, roof gardens y terrazas. Perfecta después de la cena.",
-    link: "/servicios/pantalla-inflable/"
+    link: "/servicios/pantalla-inflable/",
+    packages: [
+      { label: "3 metros", sublabel: "Jardines íntimos · hasta 50 personas", link: "/servicios/pantalla-inflable/paquete-3metros/" },
+      { label: "5 metros", sublabel: "Bodas y XV años · hasta 150 personas", link: "/servicios/pantalla-inflable/paquete-5metros/" },
+      { label: "8 metros", sublabel: "Corporativos · hasta 400 personas", link: "/servicios/pantalla-inflable/paquete-8metros/" },
+      { label: "Producción 10m+", sublabel: "Festivales y eventos masivos", link: "/servicios/pantalla-inflable/paquete-produccion/" },
+    ]
   },
   {
     title: "Podium",
     image: "/img/podiums/conferencia-corporativa-podium-acrilico-auditorio-luces-azules-300w.avif",
     alt: "Podium acrílico profesional en auditorio corporativo con iluminación",
-    description: "Tarimas y podiums para DJ, músicos o presentaciones corporativas. Base firme, acabado profesional, con iluminación integrada opcional.",
-    link: "/servicios/podiums/"
-  }
+    link: "/servicios/podiums/",
+    packages: [
+      { label: "1 Podium", sublabel: "Presentaciones y brindis", link: "/servicios/podiums/paquete-1-podium/" },
+      { label: "2 Podiums", sublabel: "Ceremonias y escenarios dobles", link: "/servicios/podiums/paquete-2-podiums/" },
+      { label: "Escenario Completo", sublabel: "Show con DJ y músicos", link: "/servicios/podiums/paquete-escenario-completo/" },
+      { label: "Congreso", sublabel: "Paneles y conferencias múltiples", link: "/servicios/podiums/paquete-congreso/" },
+    ]
+  },
 ];
 ---
 
@@ -299,16 +419,6 @@ const efectos = [
       introParagraph2='El servicio incluye transporte, instalación, operación técnica durante el evento y desmontaje al finalizar — sin costo adicional. Cubrimos toda la zona metropolitana: Polanco, Santa Fe, Coyoacán, Naucalpan, Huixquilucan, Metepec y más. Llevamos planta de luz a venues sin corriente eléctrica. Precios desde $3,500 para guirnaldas hasta producciones completas desde $15,000. Respuesta por WhatsApp en menos de 15 minutos.'
     />
 
-    <!-- CTA BAR -->
-    <CtaBar
-      items={[
-        { label: "Iluminación", href: "#iluminacion", icon: "iluminacion" },
-        { label: "Sonido y DJ", href: "#sonido", icon: "sonido" },
-        { label: "Efectos Especiales", href: "#efectos", icon: "efectos" },
-        { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" },
-      ]}
-    />
-
     <!-- LO MÁS COTIZADO -->
     <section class="services-section">
       <div class="container">
@@ -319,33 +429,77 @@ const efectos = [
           paragraph2="Los precios son punto de partida. Cada cotización es personalizada según el venue, número de invitados y tipo de evento. Por WhatsApp te respondemos en menos de 15 minutos."
         />
         <div class="services-grid">
-          <ServiceCard
+          <ServiceCardPackages
             title="Guirnaldas Edison"
             image="/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif"
             alt="Guirnaldas Edison para bodas al aire libre"
-            description="Lo más pedido para bodas al aire libre. Focos vintage con luz cálida. Instalación profesional incluida. Desde $3,500 + IVA."
-            link="/servicios/guirnaldas/"
+            ctaLink="/servicios/guirnaldas/"
+            ctaLabel="Ver todos los paquetes"
+            packages={[
+              {
+                label: "Básico — 50 metros",
+                sublabel: "Terrazas y ceremonias íntimas · hasta 50 invitados",
+                price: "$3,500 + IVA",
+                link: "/servicios/guirnaldas/paquete-50-metros/"
+              },
+              {
+                label: "Estándar — 100 metros",
+                sublabel: "Jardines medianos · bodas de hasta 120 invitados",
+                price: "$6,500 + IVA",
+                link: "/servicios/guirnaldas/paquete-100-metros/"
+              },
+              {
+                label: "Premium — 200 metros",
+                sublabel: "Haciendas y fincas · eventos de 200+ invitados",
+                price: "$11,500 + IVA",
+                link: "/servicios/guirnaldas/paquete-200-metros/"
+              },
+              {
+                label: "Producción — 500 metros",
+                sublabel: "Festivales, ferias y venues de gran escala",
+                price: "$24,000 + IVA",
+                link: "/servicios/guirnaldas/paquete-500-metros/"
+              }
+            ]}
           />
-          <ServiceCard
+          <ServiceCardPackages
             title="Humo Bajo para Vals"
             image="/img/humo-bajo/efecto-nubes-piso-boda-jardin-400w.avif"
             alt="Efecto humo bajo para vals de boda"
-            description="La nube mágica a nivel de piso para el primer baile. El efecto más solicitado en bodas y XV años. Desde $4,500 + IVA."
-            link="/servicios/humo-bajo/"
+            ctaLink="/servicios/humo-bajo/"
+            ctaLabel="Ver todos los paquetes"
+            packages={[
+              { label: "Vals Único", sublabel: "Primer baile de boda", link: "/servicios/humo-bajo/paquete-vals-unico/" },
+              { label: "Recepción Completa", sublabel: "Boda o XV años completos", link: "/servicios/humo-bajo/paquete-recepcion-completa/" },
+              { label: "Doble Cobertura", sublabel: "Haciendas y salones grandes", link: "/servicios/humo-bajo/paquete-doble-cobertura/" },
+              { label: "Producción Premium", sublabel: "Humo bajo + seguidor + cabezas", link: "/servicios/humo-bajo/paquete-produccion-premium/" },
+            ]}
           />
-          <ServiceCard
+          <ServiceCardPackages
             title="DJ + Audio Completo"
             image="/img/bocinas-djs/dj-para-eventos-cdmx-cabina-profesional-300w.avif"
             alt="DJ profesional con consola para eventos CDMX"
-            description="DJ profesional con consola, bocinas JBL y repertorio listo. Vals, hora loca y after incluidos. Desde $8,500 + IVA."
-            link="/servicios/bocinas-djs/"
+            ctaLink="/servicios/bocinas-djs/"
+            ctaLabel="Ver todos los paquetes"
+            packages={[
+              { label: "Fiesta Privada", sublabel: "DJ para reuniones íntimas", link: "/servicios/bocinas-djs/paquete-dj-fiesta-privada/" },
+              { label: "Boda", sublabel: "Vals, hora loca y after incluidos", link: "/servicios/bocinas-djs/paquete-dj-boda/" },
+              { label: "Corporativo", sublabel: "Eventos de empresa y galas", link: "/servicios/bocinas-djs/paquete-dj-corporativo/" },
+              { label: "Festival", sublabel: "Festivales y eventos masivos", link: "/servicios/bocinas-djs/paquete-dj-festival/" },
+            ]}
           />
-          <ServiceCard
+          <ServiceCardPackages
             title="Pantalla Inflable"
             image="/img/pantalla-inflable/alquiler-pantalla-inflable-aniversario-boda.avif"
             alt="Pantalla inflable gigante para cine al aire libre"
-            description="Cine al aire libre con pantalla gigante y proyector HD incluido. Ideal para jardines y terrazas después de la cena. Desde $6,500 + IVA."
-            link="/servicios/pantalla-inflable/"
+            ctaLink="/servicios/pantalla-inflable/"
+            ctaLabel="Ver todos los paquetes"
+            packages={[
+              { label: "3 metros", sublabel: "Jardines íntimos · hasta 50 personas", link: "/servicios/pantalla-inflable/paquete-3metros/" },
+              { label: "5 metros", sublabel: "Bodas y XV años · hasta 150 personas", link: "/servicios/pantalla-inflable/paquete-5metros/" },
+              { label: "8 metros", sublabel: "Corporativos · hasta 400 personas", link: "/servicios/pantalla-inflable/paquete-8metros/" },
+              { label: "Producción 10m+", sublabel: "Festivales y eventos masivos", link: "/servicios/pantalla-inflable/paquete-produccion/" },
+            ]}
           />
         </div>
       </div>
@@ -362,12 +516,13 @@ const efectos = [
         />
         <div class="services-grid">
           {iluminacion.map((s) => (
-            <ServiceCard
+            <ServiceCardPackages
               title={s.title}
               image={s.image}
               alt={s.alt}
-              description={s.description}
-              link={s.link}
+              ctaLink={s.link}
+              ctaLabel="Ver todos los paquetes"
+              packages={s.packages}
             />
           ))}
         </div>
@@ -385,12 +540,13 @@ const efectos = [
         />
         <div class="services-grid">
           {sonido.map((s) => (
-            <ServiceCard
+            <ServiceCardPackages
               title={s.title}
               image={s.image}
               alt={s.alt}
-              description={s.description}
-              link={s.link}
+              ctaLink={s.link}
+              ctaLabel="Ver todos los paquetes"
+              packages={s.packages}
             />
           ))}
         </div>
@@ -408,12 +564,13 @@ const efectos = [
         />
         <div class="services-grid">
           {efectos.map((s) => (
-            <ServiceCard
+            <ServiceCardPackages
               title={s.title}
               image={s.image}
               alt={s.alt}
-              description={s.description}
-              link={s.link}
+              ctaLink={s.link}
+              ctaLabel="Ver todos los paquetes"
+              packages={s.packages}
             />
           ))}
         </div>
@@ -475,56 +632,63 @@ const efectos = [
         <TestimonialCards testimonials={[
           {
             name: "Mariana López",
-            text: "El humo bajo en nuestro vals fue mágico. Los invitados no paraban de tomar fotos. El equipo llegó puntual y montó todo sin que nos preocupáramos por nada.",
+            text: "En Eventech producimos más de 50 eventos al año — bodas, corporativos, lanzamientos. REDEIL es nuestro proveedor de iluminación y efectos de cabecera: equipo siempre en buen estado, personal puntual y cero sorpresas el día del evento. Los integramos en nuestras producciones con los ojos cerrados.",
             rating: 5,
-            event: "Boda",
+            event: "Producción Integral de Eventos",
             avatar: "/img/testimonios/avatar-mujer-1.avif",
-            venue: "Hacienda San Fernando, Tlalpan",
-            date: "Noviembre 2025"
+            company: "Eventech.mx",
+            companyUrl: "https://eventech.mx",
+            role: "Directora de Producción",
           },
           {
             name: "Roberto García",
-            text: "Contratamos audio completo + DJ para los XV de mi hija. El DJ leyó perfecto al público — el vals estuvo emotivo y la hora loca fue brutal. Muy profesionales.",
+            text: "Nosotros rentamos pantallas LED para eventos — y siempre recomendamos a REDEIL para la iluminación de escenario y efectos. La combinación de nuestras pantallas con sus cabezas móviles y city color crea un impacto visual que los clientes no olvidan. Proveedores que saben lo que hacen.",
             rating: 5,
-            event: "XV Años",
+            event: "Eventos Audiovisuales",
             avatar: "/img/testimonios/avatar-hombre-1.avif",
-            venue: "Salón Jardín del Arte, Naucalpan",
-            date: "Enero 2026"
+            company: "Pantalla LED",
+            companyUrl: "https://pantalla-led.com",
+            role: "Director Comercial",
           },
           {
             name: "Carolina Mendoza",
-            text: "Las guirnaldas Edison en el jardín transformaron completamente el espacio. Parecía otro lugar. Además incluyeron iluminación arquitectónica en la fachada sin costo extra.",
+            text: "Rentamos inflables para fiestas y eventos en CDMX y Edomex. Cuando los clientes necesitan iluminación para jardines o salones, siempre referimos a REDEIL. Las guirnaldas Edison combinan perfecto con nuestras áreas de inflables al aire libre. El complemento ideal para fiestas infantiles y eventos familiares.",
             rating: 5,
-            event: "Boda",
+            event: "Fiestas y Eventos Infantiles",
             avatar: "/img/testimonios/avatar-mujer-2.avif",
-            venue: "Quinta Real, Coyoacán",
-            date: "Septiembre 2025"
+            company: "Inflables para Fiestas",
+            companyUrl: "https://inflablesparafiestas.com.mx",
+            role: "Coordinadora de Servicios",
           },
           {
             name: "Daniel Herrera",
-            text: "El sky tracker se veía desde toda la colonia. Mis invitados me llamaban preguntando '¿esas luces en el cielo son de tu evento?' El mejor efecto que pudimos agregar.",
+            text: "Hacemos decoraciones con globos para todo tipo de eventos en CDMX. Cuando el cliente quiere un paquete completo, trabajamos de la mano con REDEIL para la iluminación. La luz correcta transforma una decoración de globos — sus uplighters y cabezas móviles hacen que nuestros arcos y estructuras cobren vida.",
             rating: 5,
-            event: "Inauguración",
+            event: "Decoración de Eventos",
             avatar: "/img/testimonios/avatar-hombre-2.avif",
-            venue: "Terraza WTC, CDMX",
-            date: "Marzo 2025"
+            company: "Fantasy Globos",
+            companyUrl: "https://fantasyglobos.com.mx",
+            role: "Director de Operaciones",
           },
           {
             name: "Andrea Ramírez",
-            text: "Necesitábamos audio para conferencia + cena de gala. El mismo equipo operó las dos cosas — micrófono cristalino para las presentaciones y luego pista de baile con DJ. Impecable.",
+            text: "Rentamos mesas picnic para bodas, fiestas y celebraciones al aire libre en toda la república. Las guirnaldas Edison de REDEIL son el complemento perfecto para nuestras mesas — crean esa atmósfera cálida que los clientes buscan en jardines y terrazas. Ya los hemos referido en decenas de eventos y nunca nos han fallado.",
             rating: 5,
-            event: "Corporativo",
+            event: "Eventos al Aire Libre",
             avatar: "/img/testimonios/avatar-mujer-3.avif",
-            venue: "Hotel Presidente, Polanco",
-            date: "Diciembre 2025"
+            company: "Mesas Picnic",
+            companyUrl: "https://mesaspicnic.com",
+            role: "Gerente de Operaciones",
           },
           {
             name: "Miguel Torres",
-            text: "Tercer año que los contratamos para la posada de la empresa. Siempre puntuales, siempre resuelven todo. Este año agregamos confeti y fue el hit de la noche.",
+            text: "En SOEVE nos especializamos en renta de sonido profesional para eventos en CDMX. Llevamos años trabajando junto a REDEIL para la iluminación — son el complemento natural de nuestro audio. El cliente contrata bocinas y DJ con nosotros, REDEIL se encarga del escenario visual. La combinación siempre funciona.",
             rating: 5,
-            event: "Evento Corporativo",
+            event: "Audio Profesional para Eventos",
             avatar: "/img/testimonios/avatar-hombre-3.avif",
-            venue: "Casa de Campo, Huixquilucan",
+            company: "Sonido para Eventos",
+            companyUrl: "https://sonidoparaeventos.com.mx",
+            role: "CEO & Fundador",
             date: "Diciembre 2025"
           }
         ]} />
@@ -573,19 +737,6 @@ const efectos = [
       </div>
     </section>
 
-    <!-- ZONAS DE COBERTURA -->
-    <section class="coverage-section">
-      <div class="container">
-        <SectionHeader
-          title="Zonas de Cobertura"
-          subtitle="CDMX y Estado de México — transporte incluido siempre."
-          paragraph1="Operamos en toda la Ciudad de México y el Estado de México. Nuestro equipo llega con todo incluido — transporte, montaje y desmontaje — sin importar la zona."
-          paragraph2="Si tu venue está en la zona metropolitana, llegamos. Contamos con plantas de luz para eventos en espacios sin instalación eléctrica."
-        />
-        <ZoneCards />
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq-section">
       <div class="container">
@@ -608,71 +759,14 @@ const efectos = [
       ]} />
     </section>
 
-    <!-- DIRECTORIO -->
-    <section class="services-section services-alt">
-      <div class="container">
-        <SectionHeader
-          title="Directorio de Proveedores"
-          subtitle="¿Necesitas comprar equipo? Te conectamos con las mejores tiendas"
-          paragraph1="Conocemos el mercado de audio e iluminación profesional en CDMX como pocos. Seleccionamos 25 tiendas bien calificadas en Google Maps que venden equipo de sonido, luces LED, consolas para DJ y más. Todas verificadas, con reseñas reales de compradores."
-          paragraph2="Nosotros rentamos equipo para tu evento. Pero si lo que buscas es comprar tu propio equipo, estas son las tiendas que recomendamos. Cada ficha tiene dirección, teléfono, horario y calificación de Google."
-        />
-        <div class="services-grid">
-          <ServiceCard
-            title="Tiendas de Audio"
-            image="/img/directorio/directorio-tienda-audio-01.avif"
-            alt="Tiendas de audio profesional en CDMX"
-            description="10 tiendas especializadas en bocinas, amplificadores, mezcladoras y micrófonos profesionales. Las mejores marcas: JBL, QSC, Yamaha, Shure."
-            link="/directorio/"
-            btnLabel="Ver directorio"
-          />
-          <ServiceCard
-            title="Tiendas de Iluminación"
-            image="/img/directorio/directorio-tienda-iluminacion-01.avif"
-            alt="Tiendas de iluminación profesional en CDMX"
-            description="10 distribuidores de luces LED, par LED, cabezas móviles y equipo de iluminación profesional para eventos. Marcas: Chauvet, Elation, ADJ."
-            link="/directorio/"
-            btnLabel="Ver directorio"
-          />
-          <ServiceCard
-            title="Equipo para DJ"
-            image="/img/directorio/directorio-equipo-dj-01.avif"
-            alt="Tiendas de equipo para DJ en CDMX"
-            description="Consolas Pioneer, controladores, tornamesas y accesorios para DJ. Las tiendas más surtidas de la Ciudad de México."
-            link="/directorio/"
-            btnLabel="Ver directorio"
-          />
-          <ServiceCard
-            title="Audio y Video"
-            image="/img/directorio/directorio-audio-video-01.avif"
-            alt="Tiendas de equipo audiovisual en CDMX"
-            description="Equipo audiovisual, pantallas, proyectores y sistemas integrados para conferencias y eventos corporativos."
-            link="/directorio/"
-            btnLabel="Ver directorio"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-content">
-          <h2>¿Cuándo es tu evento?</h2>
-          <p>Cuéntanos la fecha, el venue y cuántos invitados esperan. Te respondemos por WhatsApp con una propuesta concreta — sin rodeos y sin compromiso.</p>
-          <div class="cta-buttons">
-            <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20mi%20evento" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
-              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              WhatsApp — 55 3068 2988
-            </a>
-            <a href="tel:+525530682988" class="btn btn-primary btn-lg">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-              Llámanos — 55 3068 2988
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- NAV RÁPIDA PRE-FOOTER — mismo diseño, enlaces distintos al del hero -->
+    <NavRapida items={[
+      { label: 'Todos los Servicios', sub: 'Iluminación · Sonido · Efectos especiales', href: '/servicios/', iconKey: 'servicios' },
+      { label: 'Zonas de Cobertura', sub: 'CDMX · EDOMEX · Zona metropolitana', href: '/zonas-de-cobertura/', iconKey: 'zonas' },
+      { label: 'Eventos Corporativos', sub: 'Conferencias · Galas · Lanzamientos', href: '/contacto/', iconKey: 'corporativo' },
+      { label: 'Quiénes Somos', sub: '+30 años de experiencia en eventos', href: '/nosotros/', iconKey: 'nosotros' },
+      { label: 'Blog de Iluminación', sub: 'Guías y tips para tu evento', href: '/blog/', iconKey: 'blog' },
+      { label: 'Cotiza por WhatsApp', sub: 'Respuesta en menos de 15 min', href: 'https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento', iconKey: 'whatsapp', cta: true },
+    ]} />
 
 </BaseLayout>

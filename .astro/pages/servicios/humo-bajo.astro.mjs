@@ -1,0 +1,177 @@
+import { c as createComponent, b as renderComponent, r as renderTemplate, m as maybeRenderHead, F as Fragment } from '../../chunks/astro/server_D8pMnQBn.mjs';
+import 'piccolore';
+import { $ as $$BaseLayout, a as $$Breadcrumbs } from '../../chunks/Breadcrumbs_BkFbHGbf.mjs';
+import { $ as $$Hero } from '../../chunks/Hero_3Is3fruG.mjs';
+import { $ as $$CtaBar } from '../../chunks/CtaBar_CdFZlCZU.mjs';
+import { $ as $$SectionHeader } from '../../chunks/SectionHeader_mLKzHzNX.mjs';
+import { $ as $$ServiceCard } from '../../chunks/ServiceCard_Bli7ALj4.mjs';
+import { $ as $$Gallery4X4 } from '../../chunks/Gallery4x4_Bx6Jz45E.mjs';
+import { $ as $$PricingCards } from '../../chunks/PricingCards_CLGxK1tp.mjs';
+import { $ as $$FaqSection } from '../../chunks/FaqSection_CzcP3CIi.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$HumoBajo = createComponent(($$result, $$props, $$slots) => {
+  const title = "Renta de Humo Bajo para Bodas y XV A\xF1os en CDMX | REDEIL";
+  const description = "Efecto de niebla baja que crea nubes en el piso para el vals de bodas y XV a\xF1os. Equipo CO\u2082 profesional. Sin olor, sin residuo. Desde $3,500 + IVA en CDMX.";
+  const canonical = "https://rentadeiluminacion.com/servicios/humo-bajo/";
+  const schemaMarkup = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Renta de Humo Bajo para Bodas y Eventos",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "REDEIL",
+        "url": "https://rentadeiluminacion.com",
+        "telephone": "+525530682988",
+        "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de M\xE9xico", "addressRegion": "CDMX", "addressCountry": "MX" }
+      },
+      "description": "Servicio profesional de niebla baja (humo bajo) para el vals de bodas y XV a\xF1os en CDMX. Efecto de nubes en el piso con equipo CO\u2082 profesional, sin olor ni residuo.",
+      "areaServed": [
+        { "@type": "City", "name": "Ciudad de M\xE9xico" },
+        { "@type": "State", "name": "Estado de M\xE9xico" }
+      ],
+      "serviceType": "Renta de Humo Bajo",
+      "priceRange": "$$"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "\xBFEl humo bajo es peligroso para los invitados?", "acceptedAnswer": { "@type": "Answer", "text": "No. Usamos m\xE1quinas de niebla baja con glicol farmac\xE9utico certificado \u2014 el mismo fluido que usan los teatros y producciones de televisi\xF3n. No contiene sustancias t\xF3xicas, no mancha la ropa y se disipa en segundos sin dejar residuo en el piso." } },
+        { "@type": "Question", "name": "\xBFCu\xE1nto tiempo dura el efecto de niebla baja?", "acceptedAnswer": { "@type": "Answer", "text": "Cada carga de fluido dura entre 3 y 8 minutos de efecto continuo. Para el vals de una boda (3-4 minutos), una carga es m\xE1s que suficiente. Llevamos fluido extra para repetir el efecto si lo necesitas." } },
+        { "@type": "Question", "name": "\xBFLa niebla baja activa las alarmas de humo?", "acceptedAnswer": { "@type": "Answer", "text": "Las m\xE1quinas de niebla baja de CO\u2082 generalmente no activan detectores de humo porque el efecto permanece pegado al piso. Sin embargo, coordinamos con el venue antes del evento para verificar el tipo de detectores instalados." } },
+        { "@type": "Question", "name": "\xBFCu\xE1nto cuesta la renta de humo bajo?", "acceptedAnswer": { "@type": "Answer", "text": "El paquete para el vals de bodas arranca desde $3,500 + IVA con equipo, fluido, operador y traslado incluidos. Para cobertura de varios momentos (vals + entrada + otros), desde $5,500 + IVA." } }
+      ]
+    }
+  ]);
+  const serviciosRelacionados = [
+    { title: "Seguidor de Luz", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", alt: "Seguidor de luz en vals de novios", description: "La combinaci\xF3n m\xE1s solicitada en bodas: niebla baja en el piso + spotlight siguiendo a los novios. El vals que todos recuerdan.", link: "/servicios/seguidor/" },
+    { title: "Guirnaldas Edison", image: "/img/guirnaldas/renta-guirnaldas-edison-terraza-recepcion-02-300w.avif", alt: "Guirnaldas Edison c\xE1lidas para boda", description: "Guirnaldas c\xE1lidas sobre la pista + niebla baja en el piso. Rom\xE1ntico y espectacular para bodas al aire libre.", link: "/servicios/guirnaldas/" },
+    { title: "Cabezas M\xF3viles", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante-300w.avif", alt: "Cabezas m\xF3viles con beams en boda", description: "Los beams de las cabezas m\xF3viles se ven espectaculares cortando la niebla. El efecto de concierto en tu boda.", link: "/servicios/cabezas-moviles/" },
+    { title: "Sky Tracker", image: "/img/sky-tracker/renta-skytracker-cielo-nocturno-potente-300w.avif", alt: "Sky tracker con haz al cielo", description: "Niebla en el piso + haces de luz al cielo. Una producci\xF3n completa de arriba a abajo para eventos al aire libre.", link: "/servicios/sky-tracker/" }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "canonical": canonical, "schemaMarkup": schemaMarkup }, { "breadcrumbs": ($$result2) => renderTemplate`${renderComponent($$result2, "Fragment", Fragment, { "slot": "breadcrumbs" }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "Breadcrumbs", $$Breadcrumbs, { "items": [
+    { label: "Inicio", href: "/" },
+    { label: "Efectos Especiales", href: "/servicios/efectos-especiales/" },
+    { label: "Humo Bajo" }
+  ] })} ` })}`, "default": ($$result2) => renderTemplate`  ${renderComponent($$result2, "Hero", $$Hero, { "title": "Renta de Humo Bajo para Bodas y XV A\xF1os en CDMX", "subtitle": "Niebla baja que crea nubes en el piso para el vals. Equipo CO\u2082 profesional. Sin olor, sin residuo. Desde $3,500 + IVA.", "introParagraph1": "El humo bajo es el efecto m\xE1s pedido para bodas. Pero hay dos formas muy diferentes de hacerlo, y la mayor\xEDa de los proveedores no te explican cu\xE1l est\xE1n usando. El m\xE9todo con CO\u2082 l\xEDquido enfr\xEDa el humo y lo pega al piso de inmediato, pero dura poco (60-90 segundos) y el tanque es caro. El m\xE9todo con m\xE1quina de glicol (como la <strong>JEM ZR33</strong> o la <strong>Antari ICE-101</strong> que usamos en <strong>REDEIL</strong>) produce niebla continua durante 3-5 minutos con fluido farmac\xE9utico certificado. Sin olor, sin residuo en el piso, sin manchar vestidos. Llevamos m\xE1s de 800 bodas con este equipo en CDMX y Edo. M\xE9x.", "introParagraph2": "La diferencia contra una m\xE1quina de humo convencional es que la niebla baja no sube. Se queda a nivel del piso, a la altura de los tobillos, y se va disipando sola conforme avanza el vals. El operador activa el equipo 30 segundos antes de que los novios salgan a la pista, coordinado con el DJ o el MC. Cuando la m\xFAsica arranca, la niebla ya est\xE1 en su punto. En exteriores (jardines, haciendas) el viento la dispersa m\xE1s r\xE1pido, as\xED que usamos dos m\xE1quinas para compensar. En salones cerrados, con una sola basta. Traslado, operador y fluido incluidos." })} ${renderComponent($$result2, "CtaBar", $$CtaBar, { "headline": "\xBFPara qu\xE9 momento necesitas la niebla baja?", "items": [
+    { label: "Vals de Boda", href: "#paquetes", icon: "efectos" },
+    { label: "XV A\xF1os", href: "/eventos/xv-anos/", icon: "efectos" },
+    { label: "M\xE1s efectos", href: "/servicios/efectos-especiales/", icon: "efectos" },
+    { label: "Cotiza Gratis", href: "/contacto/", icon: "cotizar" }
+  ] })}  ${maybeRenderHead()}<section class="services-section"> <div class="container"> ${renderComponent($$result2, "SectionHeader", $$SectionHeader, { "title": "\xBFC\xF3mo se ve el humo bajo en un evento real?", "subtitle": "As\xED se ve el efecto con equipo profesional, no con hielo seco casero.", "paragraph1": "La diferencia entre hielo seco en una hielera y una m\xE1quina profesional de niebla baja es enorme. El hielo seco dura 30 segundos, no lo controlas, y si lo pisas quema. La m\xE1quina profesional produce niebla continua durante 3-5 minutos, el operador regula el caudal en tiempo real, y el fluido de glicol es completamente seguro para la piel.", "paragraph2": "El timing lo es todo. El operador espera la se\xF1al del DJ, activa el equipo 30 segundos antes de que los novios salgan, y la niebla est\xE1 en su punto cuando arranca la canci\xF3n. Si el MC se atrasa o la canci\xF3n cambia, el operador ajusta. Eso no lo puedes hacer con hielo seco." })} ${renderComponent($$result2, "Gallery4x4", $$Gallery4X4, { "images": [
+    { src: "/img/humo-bajo/primer-baile-novios-humo-bajo-seguidor.avif", alt: "Primer baile de novios sobre niebla baja con seguidor de luz" },
+    { src: "/img/humo-bajo/vals-boda-humo-bajo-iluminacion-romantica.avif", alt: "Vals de boda con humo bajo e iluminaci\xF3n rom\xE1ntica" },
+    { src: "/img/humo-bajo/humo-bajo-primer-baile-boda-romantico.avif", alt: "Primer baile rom\xE1ntico de boda con niebla baja en el piso" },
+    { src: "/img/humo-bajo/renta-humo-bajo-primer-baile-boda.avif", alt: "Renta de humo bajo para primer baile de boda" },
+    { src: "/img/humo-bajo/efecto-nubes-piso-boda-jardin.avif", alt: "Efecto de nubes en el piso de jard\xEDn para boda" },
+    { src: "/img/humo-bajo/humo-bajo-primer-vals-romantico.avif", alt: "Primer vals rom\xE1ntico con niebla baja" },
+    { src: "/img/humo-bajo/humo-bajo-vals-boda-pista-luz.avif", alt: "Pista de baile con humo bajo y luces para vals" },
+    { src: "/img/humo-bajo/humo-bajo-vals-xv-anos-quinceanos.avif", alt: "Vals de XV a\xF1os con efecto de humo bajo" },
+    { src: "/img/humo-bajo/niebla-baja-vals-quinceanos-elegante.avif", alt: "Niebla baja elegante en vals de quincea\xF1era" },
+    { src: "/img/humo-bajo/humo-bajo-entrada-quinceanos-salon.avif", alt: "Entrada de quincea\xF1era al sal\xF3n con humo bajo" },
+    { src: "/img/humo-bajo/humo-bajo-boda-salon-iluminacion.avif", alt: "Sal\xF3n de boda con humo bajo e iluminaci\xF3n profesional" },
+    { src: "/img/humo-bajo/niebla-baja-boda-hacienda-mexicana.avif", alt: "Niebla baja en boda de hacienda mexicana" },
+    { src: "/img/humo-bajo/niebla-baja-boda-terraza-romantica.avif", alt: "Terraza rom\xE1ntica de boda con niebla baja" },
+    { src: "/img/humo-bajo/renta-humo-bajo-evento-hacienda.avif", alt: "Humo bajo en evento de hacienda" },
+    { src: "/img/humo-bajo/renta-niebla-baja-pista-baile-boda.avif", alt: "Pista de baile con niebla baja para boda" },
+    { src: "/img/humo-bajo/efecto-humo-bajo-baile-novios.avif", alt: "Efecto de humo bajo durante baile de novios" }
+  ] })} </div> </section>  <section class="services-section services-alt" id="paquetes"> <div class="container"> ${renderComponent($$result2, "SectionHeader", $$SectionHeader, { "title": "\xBFCu\xE1nto cuesta rentar humo bajo en CDMX?", "subtitle": "Desde un solo vals hasta cobertura de toda la noche.", "paragraph1": "Todos los paquetes incluyen m\xE1quina profesional, fluido de glicol certificado, operador t\xE9cnico, traslado y coordinaci\xF3n directa con tu DJ o MC. El operador sabe cu\xE1ndo activar y cu\xE1ndo parar sin que nadie se lo tenga que recordar.", "paragraph2": "La combinaci\xF3n m\xE1s contratada: humo bajo + seguidor de luz. Los novios bailan sobre nubes con un spotlight encima. Si te interesa, pregunta por el paquete combinado con precio especial." })} ${renderComponent($$result2, "PricingCards", $$PricingCards, { "packages": [
+    {
+      name: "Val o Momento \xDAnico",
+      price: "$3,500",
+      priceNote: "+ IVA",
+      description: "Niebla baja para un solo momento estelar: el vals, la entrada, el corte de pastel. El efecto m\xE1s fotografiado de la noche.",
+      features: [
+        { text: "1 m\xE1quina de niebla baja profesional", included: true },
+        { text: "Fluido glicol certificado (1 carga)", included: true },
+        { text: "Operador t\xE9cnico incluido", included: true },
+        { text: "Traslado + montaje + desmontaje", included: true },
+        { text: "Coordinaci\xF3n con DJ/MC", included: true },
+        { text: "Ideal para: vals, entrada, corte pastel", included: true },
+        { text: "M\xFAltiples activaciones", included: false },
+        { text: "Segunda m\xE1quina para mayor cobertura", included: false }
+      ],
+      ctaLabel: "Cotizar vals o momento \xFAnico",
+      ctaHref: "/servicios/humo-bajo/paquete-vals-unico/"
+    },
+    {
+      name: "Recepci\xF3n Completa",
+      price: "$5,500",
+      priceNote: "+ IVA",
+      badge: "M\xE1s popular",
+      highlight: true,
+      description: "Niebla baja para todos los momentos especiales de la recepci\xF3n. Vals, entrada, brindis \u2014 el operador est\xE1 listo para cada uno.",
+      features: [
+        { text: "1 m\xE1quina de niebla baja profesional", included: true },
+        { text: "Fluido glicol ilimitado (toda la noche)", included: true },
+        { text: "Operador t\xE9cnico 4-6 horas", included: true },
+        { text: "Traslado + montaje + desmontaje", included: true },
+        { text: "Activaciones m\xFAltiples a demanda", included: true },
+        { text: "Coordinaci\xF3n completa con DJ/MC", included: true },
+        { text: "Ideal para: bodas, XV a\xF1os completos", included: true },
+        { text: "Segunda m\xE1quina", included: false }
+      ],
+      ctaLabel: "Cotizar recepci\xF3n completa",
+      ctaHref: "/servicios/humo-bajo/paquete-recepcion-completa/"
+    },
+    {
+      name: "Doble Cobertura",
+      price: "$8,500",
+      priceNote: "+ IVA",
+      description: "2 m\xE1quinas para mayor caudal de niebla y cobertura uniforme en pistas de baile grandes o venues amplios.",
+      features: [
+        { text: "2 m\xE1quinas de niebla baja", included: true },
+        { text: "Doble caudal \u2014 pista completamente cubierta", included: true },
+        { text: "Fluido ilimitado toda la noche", included: true },
+        { text: "2 operadores t\xE9cnicos", included: true },
+        { text: "Traslado + montaje + desmontaje", included: true },
+        { text: "Activaciones m\xFAltiples sincronizadas", included: true },
+        { text: "Ideal para: haciendas, salones grandes", included: true },
+        { text: "Combinable con seguidor y cabezas m\xF3viles", included: true }
+      ],
+      ctaLabel: "Cotizar doble cobertura",
+      ctaHref: "/servicios/humo-bajo/paquete-doble-cobertura/"
+    },
+    {
+      name: "Producci\xF3n Premium",
+      price: "$13,000",
+      priceNote: "+ IVA",
+      description: "Humo bajo + seguidor de luz + cabezas m\xF3viles. El paquete de iluminaci\xF3n m\xE1s solicitado para bodas de alto impacto.",
+      features: [
+        { text: "2 m\xE1quinas de niebla baja", included: true },
+        { text: "1 seguidor de luz profesional con operador", included: true },
+        { text: "4 cabezas m\xF3viles para show de luces", included: true },
+        { text: "Fluido ilimitado + fluido de larga duraci\xF3n", included: true },
+        { text: "Equipo t\xE9cnico completo", included: true },
+        { text: "Coordinaci\xF3n con DJ, MC y wedding planner", included: true },
+        { text: "Visita previa al venue", included: true },
+        { text: "Ideal para: bodas premium, producciones", included: true }
+      ],
+      ctaLabel: "Cotizar producci\xF3n premium",
+      ctaHref: "/servicios/humo-bajo/paquete-produccion-premium/"
+    }
+  ] })} </div> </section>  <section class="faq-section"> <div class="container"> ${renderComponent($$result2, "SectionHeader", $$SectionHeader, { "title": "Preguntas frecuentes sobre humo bajo", "subtitle": "Lo que nos preguntan por WhatsApp antes de cada boda.", "paragraph1": "El humo bajo genera dudas porque mucha gente lo confunde con m\xE1quina de humo o con hielo seco. No es lo mismo. Aqu\xED aclaramos las m\xE1s comunes.", "paragraph2": "Si tu venue tiene reglas espec\xEDficas sobre efectos, escr\xEDbenos y verificamos compatibilidad antes de que reserves." })} </div> ${renderComponent($$result2, "FaqSection", $$FaqSection, { "items": [
+    { question: "\xBFEs lo mismo que una m\xE1quina de humo?", answer: "No. La m\xE1quina de humo convencional llena el sal\xF3n de niebla que sube y se queda flotando en el aire. Eso dificulta la visibilidad y puede activar alarmas. La niebla baja se queda pegada al piso, a la altura de los tobillos, y se disipa sola en 3-5 minutos. Son equipos completamente diferentes." },
+    { question: "\xBFEs seguro para los invitados?", answer: "S\xED. Usamos fluido de glicol farmac\xE9utico grado alimenticio, el mismo que usan en teatros y producciones de TV. No irrita ojos ni garganta, no mancha vestidos, no deja residuo en el piso. Los invitados pueden caminar sobre la niebla sin problema. Llevamos d\xE9cadas us\xE1ndolo sin un solo incidente." },
+    { question: "\xBFActiva las alarmas de humo del sal\xF3n?", answer: "Generalmente no, porque la niebla permanece a nivel del piso y no sube hacia los detectores. Pero cada sal\xF3n tiene detectores diferentes. Antes del evento verificamos con el venue qu\xE9 tipo de sensores tienen. Si son detectores de part\xEDculas muy sensibles, los desactivamos temporalmente con autorizaci\xF3n del sal\xF3n o ajustamos el caudal." },
+    { question: "\xBFCu\xE1nto dura el efecto?", answer: "Entre 3 y 5 minutos por activaci\xF3n. Un vals dura 3-4 minutos, as\xED que una carga cubre el momento completo. El operador regula el caudal para que la niebla sea densa cuando arranca la canci\xF3n y se vaya disipando naturalmente. Si quieres repetir el efecto en otro momento (brindis, corte de pastel), llevamos fluido extra." },
+    { question: "\xBFFunciona en jardines al aire libre?", answer: "S\xED, pero el viento la dispersa m\xE1s r\xE1pido. En jardines y haciendas con brisa, la niebla dura menos y se mueve hacia un lado en vez de quedarse quieta sobre la pista. Compensamos usando dos m\xE1quinas posicionadas en lados opuestos. El efecto sigue siendo bueno, pero honestamente, en un sal\xF3n cerrado se ve m\xE1s denso y dura m\xE1s." },
+    { question: "\xBFCu\xE1nto antes llega el equipo?", answer: "1-2 horas antes. El operador monta, hace prueba de caudal, y se coordina con el DJ para definir la se\xF1al de activaci\xF3n. Necesita saber qu\xE9 canci\xF3n es el vals y acordar una se\xF1al clara (puede ser visual o por radio) para activar el equipo 30 segundos antes de que los novios salgan a la pista." }
+  ] })} </section>  <section class="services-section services-alt"> <div class="container"> ${renderComponent($$result2, "SectionHeader", $$SectionHeader, { "title": "\xBFQu\xE9 otros servicios combinan con humo bajo?", "subtitle": "Seguidor de luz + niebla baja es la combinaci\xF3n m\xE1s pedida en bodas.", "paragraph1": "La niebla cubre el piso. El seguidor ilumina a los novios desde arriba. Las guirnaldas dan el techo c\xE1lido. Cuando los tres coinciden, sale la foto que los novios van a enmarcar. Eso solo funciona bien cuando audio, luces y efectos son del mismo proveedor, porque el timing tiene que ser exacto.", "paragraph2": "Si combinas dos o m\xE1s servicios, el precio baja porque compartimos traslado y equipo t\xE9cnico." })} <div class="services-grid"> ${serviciosRelacionados.map((s) => renderTemplate`${renderComponent($$result2, "ServiceCard", $$ServiceCard, { "title": s.title, "image": s.image, "alt": s.alt, "description": s.description, "link": s.link })}`)} </div> </div> </section>  <section class="cta-section"> <div class="container"> <div class="cta-content"> <h2>¿Quieres que los novios bailen sobre nubes?</h2> <p>Cuéntanos la fecha, el venue y qué momentos quieres iluminar. Te cotizamos en minutos y te decimos si el salón es compatible con el equipo.</p> <div class="cta-buttons"> <a href="/contacto/" class="btn btn-whatsapp btn-lg">Cotiza por WhatsApp</a> <a href="tel:+525530682988" class="btn btn-primary btn-lg">Llámanos — 55 3068 2988</a> </div> </div> </div> </section> ` })}`;
+}, "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/servicios/humo-bajo.astro", void 0);
+
+const $$file = "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/servicios/humo-bajo.astro";
+const $$url = "/servicios/humo-bajo";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$HumoBajo,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -220,13 +220,6 @@ const zonas = [
     introParagraph2='Cada zona tiene características diferentes. Bodas rurales en Milpa Alta, eventos al agua en Xochimilco, XV años masivos en Tláhuac, bodas premium en Polanco. Sabemos adaptar iluminación a cada lugar. Eso es lo que pagás — experiencia específica de 30 años.'
   />
 
-  <CtaBar
-    headline="¿Necesitas iluminación en tu zona?"
-    items={[
-      { label: "Ver todas las zonas", href: "#zonas", icon: "iluminacion" },
-      { label: "Cotiza por WhatsApp", href: "https://wa.me/525530682988", icon: "cotizar" },
-    ]}
-  />
 
   <!-- Zonas Grid -->
   <section id="zonas" class="zonas-section">
@@ -346,85 +339,4 @@ const zonas = [
 
 </BaseLayout>
 
-<style>
-  .zona-category {
-    margin-bottom: 4rem;
-  }
-
-  .zona-category-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--color-text);
-  }
-
-  .zonas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .zona-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    padding: 1.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background: var(--color-bg);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .zona-card:hover {
-    border-color: var(--color-primary);
-    background: var(--color-bg-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.15);
-  }
-
-  .zona-card-content {
-    flex: 1;
-  }
-
-  .zona-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-    color: var(--color-primary);
-  }
-
-  .zona-region {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin: 0.25rem 0;
-    font-weight: 600;
-  }
-
-  .zona-description {
-    font-size: 0.95rem;
-    color: var(--color-text);
-    margin: 0.75rem 0;
-  }
-
-  .zona-keyword {
-    font-size: 0.8rem;
-    color: var(--color-text-tertiary);
-    margin: 0.5rem 0 0 0;
-    font-style: italic;
-  }
-
-  .zona-arrow {
-    flex-shrink: 0;
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    margin-left: 1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .zona-card:hover .zona-arrow {
-    transform: translateX(4px);
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

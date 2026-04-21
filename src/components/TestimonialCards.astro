@@ -1,7 +1,7 @@
 ---
 /**
- * TestimonialCards — OrigenLab Standard (REDEIL)
- * Cards de reseñas con avatar, estrellas, nombre, venue y fecha.
+ * TestimonialCards — REDEIL v2
+ * Cards de reseñas estilo empresa: avatar, company badge, estrellas, texto, rol.
  * Schema Review en cada card. CSS 100% scoped.
  */
 interface Testimonial {
@@ -10,7 +10,9 @@ interface Testimonial {
   rating: number;
   event?: string;
   avatar?: string;
-  venue?: string;
+  company?: string;
+  companyUrl?: string;
+  role?: string;
   date?: string;
 }
 
@@ -23,139 +25,58 @@ const { testimonials } = Astro.props;
 
 <div class="tc__grid">
   {testimonials.map((t) => (
-    <div class="tc__card" itemscope itemtype="https://schema.org/Review">
-      <div class="tc__header">
-        {t.avatar ? (
-          <img src={t.avatar} alt={`Foto de ${t.name}`} class="tc__avatar" width="48" height="48" loading="lazy" />
-        ) : (
-          <div class="tc__avatar-initials">{t.name.split(' ').map(n => n[0]).join('').slice(0, 2)}</div>
-        )}
-        <div class="tc__meta">
-          <span class="tc__name" itemprop="author">{t.name}</span>
-          {t.venue && <span class="tc__venue">{t.venue}</span>}
-          {t.date && <span class="tc__date">{t.date}</span>}
-        </div>
-      </div>
+    <article class="tc__card" itemscope itemtype="https://schema.org/Review">
+      <!-- Quote decorativa -->
+      <span class="tc__quote-icon" aria-hidden="true">"</span>
+
+      <!-- Texto primero — visual más limpio -->
+      <p class="tc__text" itemprop="reviewBody">{t.text}</p>
+
+      <!-- Estrellas -->
       <div class="tc__stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
         <meta itemprop="ratingValue" content={String(t.rating)} />
         <meta itemprop="bestRating" content="5" />
         {Array.from({ length: t.rating }).map(() => (
-          <span class="tc__star">★</span>
+          <span class="tc__star" aria-hidden="true">★</span>
         ))}
       </div>
-      <p class="tc__text" itemprop="reviewBody">"{t.text}"</p>
-      {t.event && <span class="tc__event" itemprop="about">{t.event}</span>}
-    </div>
+
+      <!-- Divider -->
+      <hr class="tc__divider" />
+
+      <!-- Footer: avatar + info -->
+      <div class="tc__footer">
+        <div class="tc__avatar-wrap">
+          {t.avatar ? (
+            <img src={t.avatar} alt={`Foto de ${t.name}`} class="tc__avatar" width="44" height="44" loading="lazy" />
+          ) : (
+            <div class="tc__avatar-initials">{t.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}</div>
+          )}
+        </div>
+        <div class="tc__meta">
+          <span class="tc__name" itemprop="author">{t.name}</span>
+          {t.role && <span class="tc__role">{t.role}</span>}
+          {t.company && (
+            <span class="tc__company">
+              <svg class="tc__company-icon" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <rect x="1" y="3" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M3 3V2a2 2 0 014 0v1" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+              {t.companyUrl ? (
+                <a href={t.companyUrl} target="_blank" rel="noopener noreferrer" class="tc__company-link">{t.company}</a>
+              ) : (
+                t.company
+              )}
+            </span>
+          )}
+        </div>
+        {t.event && (
+          <span class="tc__badge">{t.event}</span>
+        )}
+      </div>
+
+    </article>
   ))}
 </div>
 
-<style>
-  .tc__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .tc__card {
-    background: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tc__header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .tc__avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .tc__avatar-initials {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-secondary, #1a1a2e);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .tc__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-
-  .tc__name {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: #1a1a2e;
-  }
-
-  .tc__venue {
-    font-size: 0.75rem;
-    color: #6c757d;
-  }
-
-  .tc__date {
-    font-size: 0.6875rem;
-    color: #adb5bd;
-  }
-
-  .tc__stars {
-    display: flex;
-    gap: 0.15rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .tc__star {
-    color: #ff5722;
-    font-size: 1rem;
-  }
-
-  .tc__text {
-    font-size: 0.9375rem;
-    color: #495057;
-    line-height: 1.7;
-    font-style: italic;
-    flex: 1;
-    margin: 0 0 1rem;
-  }
-
-  .tc__event {
-    font-size: 0.75rem;
-    color: #ff5722;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  @media (max-width: 992px) {
-    .tc__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .tc__grid {
-      grid-template-columns: 1fr;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

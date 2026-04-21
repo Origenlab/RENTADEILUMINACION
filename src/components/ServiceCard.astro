@@ -1,9 +1,10 @@
 ---
 /**
- * ServiceCard — OrigenLab Standard (REDEIL)
+ * ServiceCard — REDEIL Editorial
  * ────────────────────────────────────────
- * Card de servicio con imagen 16:9, título H3, extracto SEO
- * y botón full-width con keyword. Sin animaciones.
+ * Diseño alineado con el Hero: tipografía tight,
+ * barra editorial naranja, sin animaciones en card/imagen.
+ * Solo el botón tiene transición de color.
  */
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   alt?: string;
   link: string;
   btnLabel?: string;
+  eyebrow?: string;
 }
 
 const {
@@ -21,109 +23,40 @@ const {
   alt = title,
   link,
   btnLabel,
+  eyebrow = "Servicio REDEIL",
 } = Astro.props;
 
-const finalBtnLabel = btnLabel || `Ver ${title} →`;
+const finalBtnLabel = btnLabel || title;
 ---
 
 <article class="sc">
-  <a href={link} class="sc__img-link">
+  <a href={link} class="sc__img-link" aria-label={title}>
     <div class="sc__img">
-      <img src={image} alt={alt} loading="lazy" width="400" height="225" />
+      <img src={image} alt={alt} loading="lazy" width="480" height="600" />
     </div>
   </a>
+
   <div class="sc__body">
-    <h3 class="sc__title">{title}</h3>
+    <div class="sc__eyebrow" aria-hidden="true">
+      <span class="sc__dot"></span>
+      <span>{eyebrow}</span>
+    </div>
+
+    <div class="sc__bar" aria-hidden="true"></div>
+
+    <h3 class="sc__title">
+      <a href={link} class="sc__title-link">{title}</a>
+    </h3>
+
     <p class="sc__desc">{description}</p>
-    <a href={link} class="sc__btn">{finalBtnLabel}</a>
+
+    <a href={link} class="sc__btn">
+      {finalBtnLabel}
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </div>
 </article>
 
-<style>
-  .sc {
-    background: #fff;
-    border: 1px solid var(--color-gray-200, #e9ecef);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow 0.2s ease;
-  }
-
-  .sc:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
-
-  .sc__img-link {
-    display: block;
-  }
-
-  .sc__img {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-
-  .sc__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .sc__body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .sc__title {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-secondary, #1a1a2e);
-    margin: 0 0 0.625rem;
-    line-height: 1.3;
-  }
-
-  .sc__desc {
-    font-size: 0.875rem;
-    color: var(--color-gray-600, #6c757d);
-    line-height: 1.75;
-    flex: 1;
-    margin: 0 0 1.25rem;
-  }
-
-  .sc__btn {
-    display: block;
-    width: 100%;
-    padding: 0.85rem 1rem;
-    background: var(--color-primary, #ff5722);
-    color: #fff;
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    letter-spacing: 0.01em;
-    transition: background 0.2s ease;
-  }
-
-  .sc__btn:hover {
-    background: var(--color-primary-dark, #e64a19);
-  }
-
-  @media (max-width: 480px) {
-    .sc__body {
-      padding: 1rem;
-    }
-    .sc__title {
-      font-size: 1rem;
-    }
-    .sc__desc {
-      font-size: 0.8125rem;
-      margin-bottom: 1rem;
-    }
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

@@ -1,0 +1,70 @@
+/* Self-hosted fonts with metric overrides to reduce CLS */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/montserrat-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/montserrat-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/montserrat-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/montserrat-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/open-sans-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/open-sans-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/open-sans-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat Fallback';
+  font-style: normal;
+  font-weight: 400 700;
+  src: local('Arial');
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0.0%;
+  size-adjust: 141.37%;
+}
+@font-face {
+  font-family: 'Open Sans Fallback';
+  font-style: normal;
+  font-weight: 400 600;
+  src: local('Arial');
+  ascent-override: 106.88%;
+  descent-override: 29.3%;
+  line-gap-override: 0.0%;
+  size-adjust: 116.04%;
+}

@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && node scripts/rewrite-cdn.mjs",
+    "build:no-cdn": "astro build",
+    "preview": "astro preview",
+    "rewrite:cdn": "node scripts/rewrite-cdn.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.3.1",

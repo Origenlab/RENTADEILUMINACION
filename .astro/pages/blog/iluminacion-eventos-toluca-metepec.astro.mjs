@@ -1,0 +1,94 @@
+import { c as createComponent, b as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_D8pMnQBn.mjs';
+import 'piccolore';
+import { $ as $$BlogLayout } from '../../chunks/BlogLayout_CZyANi2n.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$IluminacionEventosTolucaMetepec = createComponent(($$result, $$props, $$slots) => {
+  const title = "Iluminaci\xF3n Eventos en Toluca y Metepec | REDEIL";
+  const description = "Iluminaci\xF3n profesional para eventos en Toluca y Metepec Edomex. Guirnaldas, cabezas m\xF3viles y efectos para haciendas y salones.";
+  const canonical = "https://rentadeiluminacion.com/blog/iluminacion-eventos-toluca-metepec/";
+  const schemaMarkup = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Renta de Iluminaci\xF3n para Eventos en Toluca y Metepec \u2014 Haciendas, Salones y Corporativos",
+      "description": "Iluminaci\xF3n profesional para eventos en Toluca y Metepec Estado de M\xE9xico. Guirnaldas, cabezas m\xF3viles y efectos para haciendas, salones y centros de convenciones.",
+      "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+      "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+      "image": "https://rentadeiluminacion.com/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-toluca-metepec/" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "\xBFAtienden eventos en Toluca y Metepec desde CDMX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Cubrimos Toluca, Metepec y todo el Valle de Toluca. Nuestro equipo se traslada con todo el material necesario. El costo de traslado ya est\xE1 incluido en nuestras cotizaciones para esta zona." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFCu\xE1nto cuesta la iluminaci\xF3n para una boda en Toluca o Metepec?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Desde $5,000 MXN para guirnaldas y luces b\xE1sicas hasta $30,000+ MXN para montajes completos con cabezas m\xF3viles, sky trackers, efectos especiales y sonido. El precio incluye traslado, montaje, operaci\xF3n y desmontaje." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFLlevan planta de luz a haciendas del Valle de Toluca?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Las haciendas de Toluca y Metepec frecuentemente necesitan planta de luz. Llevamos generadores silenciosos de alta capacidad para garantizar el suministro el\xE9ctrico de todo el equipo." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFQu\xE9 tipo de iluminaci\xF3n recomiendan para haciendas en Metepec?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Para haciendas recomendamos guirnaldas Edison (100-200 metros) para jardines, city colors para fachadas de piedra, sky trackers para crear ambiente exterior y cabezas m\xF3viles para la pista de baile. Cada propuesta se adapta al espacio." }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de M\xE9xico", "addressRegion": "CDMX", "addressCountry": "MX" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "63"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Ana Karen Becerra Lozano" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Nuestra boda fue en una hacienda de Metepec y REDEIL vino desde CDMX con todo el equipo. Guirnaldas en el jard\xEDn, city colors en la fachada y cabezas m\xF3viles para la fiesta. Todo sali\xF3 perfecto, ni una falla."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Miguel \xC1ngel Reyes Ortiz" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Evento corporativo en el Centro de Convenciones de Toluca. REDEIL mont\xF3 iluminaci\xF3n profesional con truss, cabezas m\xF3viles y gobos de la empresa. Se nota que tienen experiencia en eventos grandes. Muy recomendados."
+        }
+      ]
+    }
+  ]);
+  const image = "/img/guirnaldas/renta-guirnaldas-baile-novios-boda-guirnaldas-exterior-39.avif";
+  const imageAlt = "Guirnaldas de luces en evento al aire libre en hacienda del Valle de Toluca";
+  const category = "Zonas";
+  return renderTemplate`${renderComponent($$result, "BlogLayout", $$BlogLayout, { "title": title, "description": description, "canonical": canonical, "image": image, "imageAlt": imageAlt, "category": category, "schemaMarkup": schemaMarkup }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p>Toluca y Metepec ya son de las plazas más fuertes para eventos en el Estado de México. El Valle de Toluca tiene haciendas con arquitectura colonial que impresiona, jardines enormes con volcanes de fondo, salones de banquetes con capacidades que en CDMX cuestan el triple, y un Centro de Convenciones que recibe eventos corporativos de nivel nacional. Cada temporada vemos más producción de eventos serios en esta zona, y la iluminación profesional sigue siendo lo que separa un evento común de uno que tus invitados van a recordar.</p> <p>En REDEIL cubrimos Toluca, Metepec y todo el Valle de Toluca directamente desde nuestra base en la Ciudad de México. Nuestro equipo viaja con todo el material, realiza el montaje completo, opera la iluminación durante el evento y desmonta al final. El traslado está incluido en nuestras cotizaciones para esta zona, así que no hay sorpresas.</p> <h2>Iluminación en Toluca y Metepec: Lo Que Necesitas Saber</h2> <p>Montar iluminación en el Valle de Toluca tiene particularidades que no encuentras en CDMX. Conocerlas te va a ahorrar problemas y te va a ayudar a tomar mejores decisiones.</p> <p><strong>La altitud y el frío nocturno.</strong> Toluca está a 2,680 metros sobre el nivel del mar, lo que la convierte en una de las ciudades más altas y frías de México. Las noches pueden bajar a 2-5 grados centígrados incluso en primavera. Esto tiene implicaciones directas para la iluminación: las máquinas de humo bajo rinden diferente con temperaturas bajas, ciertos equipos LED necesitan más tiempo de calentamiento, y los cables deben estar preparados para condiciones de humedad nocturna. Nosotros ya tenemos experiencia con estas condiciones y adaptamos todo el setup.</p> <p><strong>Jardines y espacios exteriores amplios.</strong> Las haciendas del Valle de Toluca tienen jardines que pueden superar los 2,000 metros cuadrados. Iluminar un espacio así requiere más equipo del que normalmente se usa en un salón cerrado de CDMX. Sky trackers, city colors de alta potencia y guirnaldas en cantidades de 150-200 metros son comunes en este tipo de montajes. No es lo mismo poner 50 metros de guirnaldas en un patio de Coyoacán que cubrir el jardín completo de una hacienda en Metepec.</p> <p><strong>Desafíos eléctricos.</strong> Muchas haciendas y fincas del Valle de Toluca tienen instalaciones eléctricas limitadas. Algunas ni siquiera cuentan con suficiente capacidad para alimentar un equipo profesional de iluminación más sonido. Por eso llevamos generadores silenciosos de alta capacidad cuando el venue lo requiere. Siempre hacemos una revisión previa del espacio, ya sea presencial o por videollamada, para confirmar las condiciones eléctricas y llevar todo lo necesario.</p> <p><strong>Traslado desde CDMX incluido.</strong> La distancia entre nuestra base en Ciudad de México y Toluca es de aproximadamente una hora por la autopista. El costo de traslado para eventos en Toluca y Metepec ya está integrado en nuestras cotizaciones estándar. No cobramos extra por esta zona.</p> <h2>Los Venues Más Populares del Valle de Toluca</h2> <p>Hemos montado iluminación en los principales venues de la zona. Cada uno tiene características que conocemos bien y que nos permiten hacer propuestas precisas desde la primera cotización.</p> <p><strong>Salón Versalles Toluca.</strong> Uno de los salones de banquetes más grandes de Toluca, con capacidad para eventos de 200-500 invitados. Los techos altos permiten instalar cabezas móviles beam que crean efectos visuales impresionantes. La estructura interior facilita la colocación de truss y equipos sin necesidad de soportes adicionales. Para este tipo de salones recomendamos paquetes con <a href="/servicios/cabezas-moviles/">cabezas móviles</a>, PAR LED perimetrales y efecto de humo bajo para momentos clave como el primer vals.</p> <p><strong>Haciendas de Metepec.</strong> Metepec tiene una concentración notable de haciendas y fincas para eventos. Las fachadas de cantera y piedra volcánica son perfectas para iluminar con <a href="/servicios/city-color/">city colors</a> que resaltan las texturas naturales. Los jardines interiores tipo claustro funcionan muy bien con guirnaldas Edison cruzadas de muro a muro. Y los patios abiertos son ideales para <a href="/servicios/sky-tracker/">sky trackers</a> que lanzan haces de luz al cielo y crean un ambiente espectacular visible desde lejos.</p> <p><strong>Quinta Los Arcos Metepec.</strong> Un venue clásico de la zona con arcos coloniales que se prestan para iluminación arquitectónica. Los arcos funcionan como marcos naturales que, bien iluminados con wash LED en tonos cálidos, transforman completamente el espacio. Aquí las <a href="/servicios/guirnaldas/">guirnaldas de luces</a> entre los arcos crean un efecto de cielo estrellado que las novias adoran.</p> <p><strong>Centro de Convenciones de Toluca.</strong> Para eventos corporativos, conferencias y expos, este centro ofrece espacios de gran formato que requieren iluminación profesional de alta potencia. Montamos estructuras de truss con cabezas móviles, iluminación de escenario con seguimiento, gobos personalizados con logos empresariales y paneles LED. La logística de montaje en este tipo de venues es diferente: requiere coordinación con el equipo técnico del centro y tiempos de carga y descarga específicos que manejamos sin problema.</p> <h2>Qué Servicios Se Contratan Más en Toluca-Metepec</h2> <p>Los eventos en el Valle de Toluca tienen su propio estilo. Espacios amplios, arquitectura colonial y clientes que quieren producciones con presencia. Eso define lo que más nos piden.</p> <p><strong>Guirnaldas Edison para haciendas y jardines.</strong> Es el servicio número uno en esta zona. Las haciendas piden entre 100 y 200 metros de <a href="/servicios/guirnaldas/">guirnaldas de luces cálidas</a> para cubrir jardines, pasillos, terrazas y áreas de cóctel. Los focos Edison con filamento visible crean el ambiente rústico-elegante que combina con la arquitectura de cantera y piedra. Instalamos con cable de uso rudo resistente a la intemperie y siempre llevamos focos de repuesto.</p> <p><strong>Cabezas móviles para la fiesta.</strong> Las <a href="/servicios/cabezas-moviles/">cabezas móviles</a> son el equipo que transforma la pista de baile. En los salones y haciendas de Toluca instalamos entre 4 y 8 cabezas móviles tipo beam y wash que un operador controla en vivo, sincronizándolas con la música. El efecto es el de un show de luces profesional que eleva la energía de la fiesta.</p> <p><strong>City colors para fachadas.</strong> Las fachadas coloniales del Valle de Toluca son perfectas para <a href="/servicios/city-color/">city colors</a>. Estos equipos de alta potencia bañan muros de piedra y cantera con colores que pueden cambiar durante la noche: tonos cálidos durante la cena, colores de la paleta de la boda durante el cóctel, y efectos más dinámicos cuando arranca la fiesta.</p> <p><strong>Sky trackers.</strong> En los eventos al aire libre de Toluca y Metepec, los <a href="/servicios/sky-tracker/">sky trackers</a> tienen un impacto brutal. Lanzan haces de luz al cielo nocturno que son visibles a kilómetros de distancia. Funcionan como señal de que algo importante está pasando, y desde adentro del evento crean una atmósfera cinematográfica.</p> <h2>Bodas en Haciendas del Valle de Toluca</h2> <p>Las bodas en haciendas son la especialidad del Valle de Toluca. El entorno natural, la arquitectura histórica y el espacio disponible permiten crear montajes de iluminación que en otros venues serían imposibles. Es una experiencia completamente distinta a una boda en un salón de la ciudad.</p> <p>Un montaje típico para una boda en hacienda del Valle de Toluca incluye varios escenarios iluminados de forma independiente. La ceremonia al aire libre generalmente se resuelve con luz natural si es antes del atardecer, o con guirnaldas y velas LED si es al anochecer. El área de cóctel lleva guirnaldas Edison colgadas entre árboles o postes, creando un techo de luces cálidas bajo el cual los invitados platican y disfrutan. La recepción y cena en la zona principal de la hacienda combina city colors en las fachadas con iluminación puntual en las mesas. Y la pista de baile se transforma con cabezas móviles, humo bajo y efectos que marcan cada momento clave de la noche.</p> <p>Lo que hace especiales las bodas en haciendas de esta zona es que la iluminación no tapa el venue: lo hace lucir más. No estás tratando de disimular un salón genérico con luces. Estás sacándole todo el jugo a muros de piedra de 200 años, jardines con árboles centenarios y patios con historia. La iluminación correcta deja que la arquitectura se luzca.</p> <p>Siempre recomendamos hacer una visita previa al venue, ya sea en persona o por videollamada detallada. Cada hacienda tiene particularidades de acceso, altura de techos, puntos de conexión eléctrica y restricciones de montaje que necesitamos conocer para entregar una propuesta realista. Una vez que conocemos el espacio, preparamos una cotización personalizada con todo lo necesario: equipo, traslado, montaje, operación, desmontaje y planta de luz si se requiere.</p> <h2>Preguntas Frecuentes</h2> <h3>¿Atienden eventos en Toluca y Metepec desde CDMX?</h3> <p>Sí. Cubrimos Toluca, Metepec y todo el Valle de Toluca. Nuestro equipo se traslada con todo el material necesario. El costo de traslado ya está incluido en nuestras cotizaciones para esta zona.</p> <h3>¿Cuánto cuesta la iluminación para una boda en Toluca o Metepec?</h3> <p>Desde $5,000 MXN para guirnaldas y luces básicas hasta $30,000+ MXN para montajes completos con cabezas móviles, sky trackers, efectos especiales y sonido. El precio incluye traslado, montaje, operación y desmontaje.</p> <h3>¿Llevan planta de luz a haciendas del Valle de Toluca?</h3> <p>Sí. Las haciendas de Toluca y Metepec frecuentemente necesitan planta de luz. Llevamos generadores silenciosos de alta capacidad para garantizar el suministro eléctrico de todo el equipo.</p> <h3>¿Qué tipo de iluminación recomiendan para haciendas en Metepec?</h3> <p>Para haciendas recomendamos guirnaldas Edison (100-200 metros) para jardines, city colors para fachadas de piedra, sky trackers para crear ambiente exterior y cabezas móviles para la pista de baile. Cada propuesta se adapta al espacio.</p> ` })}`;
+}, "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-toluca-metepec.astro", void 0);
+
+const $$file = "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-toluca-metepec.astro";
+const $$url = "/blog/iluminacion-eventos-toluca-metepec";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$IluminacionEventosTolucaMetepec,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

@@ -1,0 +1,94 @@
+import { c as createComponent, b as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_D8pMnQBn.mjs';
+import 'piccolore';
+import { $ as $$BlogLayout } from '../../chunks/BlogLayout_CZyANi2n.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$IluminacionEventosGustavoAMadero = createComponent(($$result, $$props, $$slots) => {
+  const title = "Iluminaci\xF3n Eventos Gustavo A. Madero | REDEIL";
+  const description = "Iluminaci\xF3n profesional para eventos en Gustavo A. Madero CDMX. Cabezas m\xF3viles y efectos para bodas y XV a\xF1os en Lindavista.";
+  const canonical = "https://rentadeiluminacion.com/blog/iluminacion-eventos-gustavo-a-madero/";
+  const schemaMarkup = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Renta de Iluminaci\xF3n para Eventos en Gustavo A. Madero CDMX \u2014 Lindavista, Tepeyac y M\xE1s",
+      "description": "Iluminaci\xF3n profesional para eventos en Gustavo A. Madero CDMX. Cabezas m\xF3viles, guirnaldas y efectos para bodas, XV a\xF1os y eventos en Lindavista, Tepeyac y Mart\xEDn Carrera.",
+      "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+      "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+      "image": "https://rentadeiluminacion.com/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-gustavo-a-madero/" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "\xBFCu\xE1nto cuesta rentar iluminaci\xF3n para un evento en Gustavo A. Madero?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes van desde $3,500 MXN para iluminaci\xF3n b\xE1sica con luces LED hasta $22,000+ MXN para montajes completos con cabezas m\xF3viles, seguidor, DJ y efectos especiales. Cotizamos seg\xFAn tu evento y el espacio." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFTrabajan en salones cerca de la Bas\xEDlica de Guadalupe?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Atendemos salones en la zona de la Bas\xEDlica, Tepeyac, la Villa y alrededores. Conocemos las particularidades de acceso y estacionamiento de la zona y coordinamos la log\xEDstica para que todo fluya sin problemas." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFOfrecen paquetes de iluminaci\xF3n + DJ para XV a\xF1os?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Tenemos paquetes que combinan DJ profesional con cabezas m\xF3viles, seguidor para el vals, humo bajo, confeti y bola disco. Es la opci\xF3n m\xE1s popular para XV a\xF1os en GAM." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFAtienden la colonia Lindavista y alrededores?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Claro. Cubrimos toda la alcald\xEDa GAM incluyendo Lindavista, Tepeyac, Mart\xEDn Carrera, Industrial, Arag\xF3n y la zona de la Villa. Conocemos los principales salones y espacios de eventos de cada colonia." }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de M\xE9xico", "addressRegion": "CDMX", "addressCountry": "MX" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "71"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Mar\xEDa Elena Rodr\xEDguez Cano" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Celebramos la boda de mi hijo en un sal\xF3n de Lindavista y REDEIL hizo un montaje hermoso con guirnaldas, luces LED en las mesas y cabezas m\xF3viles. El humo bajo en el primer baile fue el momento m\xE1s aplaudido de la noche."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Daniel Ochoa Vargas" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Contratamos paquete de XV a\xF1os con DJ en un sal\xF3n cerca del Tepeyac. Seguidor, confeti, bola disco y la m\xFAsica estuvo incre\xEDble. Mi hija y sus amigas no pararon de bailar. Precio justo y servicio de primera."
+        }
+      ]
+    }
+  ]);
+  const image = "/img/guirnaldas/guirnaldas-luz-calida-fiestas.avif";
+  const imageAlt = "Guirnaldas de luz c\xE1lida decorando evento en sal\xF3n de Gustavo A. Madero CDMX";
+  const category = "Zonas";
+  return renderTemplate`${renderComponent($$result, "BlogLayout", $$BlogLayout, { "title": title, "description": description, "canonical": canonical, "image": image, "imageAlt": imageAlt, "category": category, "schemaMarkup": schemaMarkup }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p><strong>Gustavo A. Madero</strong> es una de las alcaldías más grandes y pobladas de la Ciudad de México. Con colonias tan diferentes como Lindavista, Tepeyac, Martín Carrera, Industrial y la zona de la Villa, GAM tiene una cantidad enorme de salones de eventos, jardines y espacios para todo tipo de celebración. Desde bodas religiosas con recepción cerca de la <strong>Basílica de Guadalupe</strong> hasta fiestas de XV años en los salones de Lindavista, aquí la gente celebra con ganas y con tradición.</p> <p>En REDEIL llevamos años atendiendo eventos en toda la alcaldía Gustavo A. Madero. Conocemos los salones, sabemos cómo manejar la logística de acceso en zonas complicadas y tenemos claro lo que cada tipo de celebración necesita en iluminación y ambientación. Nuestro servicio incluye traslado, montaje profesional, operación técnica durante todo el evento y desmontaje. Sin costos ocultos, sin sorpresas.</p> <h2>Iluminación en GAM: Lo Que Necesitas Saber</h2> <p>GAM no es una alcaldía pareja. Cada zona tiene lo suyo y eso cambia cómo diseñamos la iluminación de un evento. Los salones de <strong>Lindavista</strong> tienden a ser espacios modernos con techos altos y buena infraestructura eléctrica, lo que nos permite montar sistemas más elaborados con múltiples cabezas móviles y barras LED sin limitaciones. En cambio, algunos salones de <strong>Martín Carrera</strong> o la zona de <strong>Industrial</strong> son espacios más compactos donde hay que sacarle el máximo provecho a cada luz sin saturar el lugar.</p> <p>La cercanía con la <strong>Basílica de Guadalupe</strong> hace que muchos eventos en GAM tengan un componente religioso importante. Es común que las familias celebren la misa en la Basílica o en alguna parroquia cercana y luego se trasladen al salón para la recepción. Esto significa que el montaje de iluminación debe estar listo antes de que lleguen los invitados desde la ceremonia religiosa, y nosotros coordinamos esos tiempos para que todo esté perfecto cuando abren las puertas del salón.</p> <p>Otra realidad de GAM es que los presupuestos varían mucho. Atendemos desde eventos íntimos con <a href="/servicios/guirnaldas/">guirnaldas</a> y luces LED ambiental hasta producciones completas con DJ, cabezas móviles, seguidor, confeti y efectos especiales. Lo que no cambia es el nivel de profesionalismo: es el mismo en un paquete chico que en uno grande.</p> <h2>Los Venues Más Populares de Gustavo A. Madero</h2> <p>La oferta de espacios para eventos en GAM es amplia y variada. En <strong>Lindavista</strong> se concentran algunos de los salones más solicitados de la alcaldía: espacios con capacidad para 200 a 500 personas, estacionamiento propio y ubicación accesible desde Insurgentes Norte y el Metrobús. Estos salones suelen tener buena altura de techo, lo que nos permite colgar estructuras de guirnaldas y posicionar cabezas móviles en truss para un efecto más envolvente.</p> <p>La <strong>zona del Tepeyac y la Villa</strong> tiene una oferta particular: salones que atienden principalmente a familias que celebran eventos religiosos. Muchos de estos espacios están a pocas cuadras de la Basílica, lo que los hace ideales para recepciones de bodas, bautizos, primeras comuniones y confirmaciones. Los accesos pueden ser más complicados por el flujo de peregrinos y visitantes, pero conocemos las rutas y horarios para que la carga y descarga de equipo se haga sin contratiempos.</p> <p>En <strong>Martín Carrera</strong> y <strong>San Juan de Aragón</strong> encontramos salones de eventos que atienden a una clientela familiar y que priorizan la relación calidad-precio. Aquí es donde nuestros paquetes intermedios funcionan mejor: iluminación LED ambiental combinada con un par de cabezas móviles para la pista y un <a href="/servicios/seguidor/">seguidor</a> para los momentos clave del evento.</p> <p>También hemos trabajado en <strong>jardines de eventos</strong> en la zona de Cuautepec y en la parte alta de GAM, donde los espacios al aire libre permiten montajes con guirnaldas cruzadas y perímetros de luz que transforman cualquier jardín en un venue de revista.</p> <h2>Qué Servicios Se Contratan Más en GAM</h2> <p>Por el tipo de eventos que se hacen en la alcaldía, los servicios que más nos piden en Gustavo A. Madero caen en tres categorías:</p> <p><strong>Paquetes de XV años</strong> — Son el producto estrella en GAM. Las familias buscan un show completo para la quinceañera: <a href="/servicios/seguidor/">seguidor</a> para la entrada y el vals, <a href="/servicios/confeti/">cañón de confeti</a> para el brindis, <a href="/servicios/bola-disco/">bola de espejos</a> girando sobre la pista, cabezas móviles para la fiesta y un <a href="/servicios/bocinas-xv/">DJ con sonido profesional</a> que mantenga la energía toda la noche. Muchos de estos paquetes incluyen también humo bajo para el vals y bengalas frías para la entrada. Con todo eso junto, cualquier salón de GAM se convierte en una fiesta de primer nivel.</p> <p><strong>Iluminación para bodas</strong> — Las bodas en GAM suelen tener un toque tradicional y elegante. Las <a href="/servicios/guirnaldas/">guirnaldas con focos Edison</a> son lo que más nos piden para darle al salón un ambiente cálido y romántico durante la cena. Ya para la fiesta, agregamos cabezas móviles y efectos de humo que le suben el nivel a la celebración. El primer baile con humo bajo y un seguidor que acompaña a los novios es un momento que siempre arranca aplausos.</p> <p><strong>Eventos religiosos y familiares</strong> — Bautizos, primeras comuniones y confirmaciones son celebraciones importantes en GAM. Para estos eventos, la iluminación suele ser más sutil: luces LED en tonos cálidos, guirnaldas decorativas y una ambientación que complementa sin dominar. Ofrecemos paquetes específicos para este tipo de celebraciones con precios accesibles y un montaje que se adapta a salones de cualquier tamaño.</p> <h2>Bodas Religiosas y la Zona de la Basílica</h2> <p>No se puede hablar de eventos en Gustavo A. Madero sin hablar de las <strong>bodas religiosas cerca de la Basílica de Guadalupe</strong>. Para muchas familias mexicanas, casarse en la Basílica o en alguna de las iglesias del Tepeyac es algo muy importante, y la recepción en un salón cercano completa una celebración que junta fe y fiesta.</p> <p>En REDEIL hemos aprendido a trabajar con los tiempos de estas celebraciones. Las ceremonias religiosas en la zona de la Basílica pueden extenderse o retrasarse por el flujo de visitantes, así que siempre tenemos el montaje listo con anticipación y mantenemos comunicación constante con la familia para ajustar el encendido de luces al momento exacto en que los invitados llegan al salón.</p> <p>Para estas bodas, la iluminación va cambiando conforme avanza la noche. Arrancamos con guirnaldas encendidas y luces LED en tonos ámbar durante la recepción y la cena, algo cálido y tranquilo. Cuando llega el primer baile, el seguidor ilumina a los novios y el humo bajo cubre la pista. Y cuando empieza la fiesta, las cabezas móviles se prenden y el salón cambia por completo.</p> <p>Los salones de la zona de la Villa suelen tener restricciones de horario por la convivencia con la comunidad, así que diseñamos montajes eficientes que aprovechan cada minuto disponible. Llegamos temprano, montamos rápido y desmontamos sin demora cuando termina el evento.</p> <h2>Preguntas Frecuentes</h2> <h3>¿Cuánto cuesta rentar iluminación para un evento en Gustavo A. Madero?</h3> <p>Los paquetes van desde $3,500 MXN para iluminación básica con luces LED hasta $22,000+ MXN para montajes completos con cabezas móviles, seguidor, DJ y efectos especiales. Cotizamos según tu evento y el espacio. Cada cotización va según tu evento porque no es lo mismo iluminar un jardín en Cuautepec que un salón de tres pisos en Lindavista.</p> <h3>¿Trabajan en salones cerca de la Basílica de Guadalupe?</h3> <p>Sí. Atendemos salones en la zona de la Basílica, Tepeyac, la Villa y alrededores. Sabemos cómo es el acceso y el estacionamiento de la zona y coordinamos la logística para que todo salga bien. Hemos trabajado en esta zona muchas veces y sabemos cómo manejar los tiempos de carga, descarga y montaje.</p> <h3>¿Ofrecen paquetes de iluminación + DJ para XV años?</h3> <p>Sí. Tenemos paquetes que combinan <a href="/servicios/bocinas-xv/">DJ profesional</a> con cabezas móviles, <a href="/servicios/seguidor/">seguidor</a> para el vals, humo bajo, <a href="/servicios/confeti/">confeti</a> y <a href="/servicios/bola-disco/">bola disco</a>. Es la opción más popular para XV años en GAM porque resuelve iluminación, sonido y efectos especiales en un solo servicio con un solo equipo de trabajo.</p> <h3>¿Atienden la colonia Lindavista y alrededores?</h3> <p>Claro. Cubrimos toda la alcaldía GAM incluyendo Lindavista, Tepeyac, Martín Carrera, Industrial, Aragón y la zona de la Villa. Conocemos los principales salones y espacios de eventos de cada colonia. El traslado está incluido en todos nuestros paquetes.</p> ` })}`;
+}, "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-gustavo-a-madero.astro", void 0);
+
+const $$file = "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-gustavo-a-madero.astro";
+const $$url = "/blog/iluminacion-eventos-gustavo-a-madero";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$IluminacionEventosGustavoAMadero,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

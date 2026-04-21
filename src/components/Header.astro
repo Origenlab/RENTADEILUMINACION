@@ -1,22 +1,12 @@
 ---
 /**
- * Header Component — Origenlab Standard
- * ─────────────────────────────────────
- * Configurable via /src/data/header.md
- * Features:
- *   - Sticky header with glassmorphism
- *   - Desktop nav with dropdown submenus
- *   - Mobile slide-in panel with accordion submenus
- *   - Active link state detection
- *   - CTA button (optional, configurable)
- *   - Scroll shadow effect
- *   - Minimal JS, semantic HTML, ARIA accessible
+ * Header Component — REDEIL
+ * Dark theme · 1400px · sticky glassmorphism
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 
-// ── Load config ──
 interface NavItem {
   label: string;
   href: string;
@@ -29,15 +19,12 @@ try {
   config = matter(raw).data;
 } catch { /* defaults below */ }
 
-const brand       = config.brand ?? 'MesPic';
-const brandAccent = config.brandAccent ?? '·';
+const brand       = config.brand ?? 'REDEIL';
 const logoHref    = config.logoHref ?? '/';
 const navLinks    = (config.nav ?? []) as NavItem[];
 const cta         = config.cta ?? { enabled: false, label: '', href: '' };
 const scrollEffect = config.scrollEffect ?? true;
-const blurBg       = config.blurBg ?? true;
 
-// ── Active link detection ──
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string, children?: { href: string }[]): boolean {
@@ -48,22 +35,25 @@ function isActive(href: string, children?: { href: string }[]): boolean {
 }
 ---
 
-<header
-  class:list={['hdr', { 'hdr--blur': blurBg }]}
-  id="hdr"
-  data-scroll={scrollEffect ? 'true' : undefined}
->
+<header class="hdr" id="hdr" data-scroll={scrollEffect ? 'true' : undefined}>
   <div class="hdr__inner">
+
     {/* ── Logo ── */}
     <a href={logoHref} class="hdr__logo" aria-label={`${brand} — Inicio`}>
-      <img src="/img/logo-redeil.avif" alt="REDEIL - Renta de Iluminación Profesional" width="160" height="50" loading="eager" decoding="async">
+      <img
+        src="/img/logo-redeil.avif"
+        alt="REDEIL - Renta de Iluminación Profesional"
+        width="192" height="60"
+        loading="eager"
+        decoding="async"
+      >
     </a>
 
-    {/* ── Desktop Navigation ── */}
+    {/* ── Desktop Nav ── */}
     <nav class="hdr__nav" aria-label="Navegación principal">
       <ul class="hdr__list" role="menubar">
         {navLinks.map((link) => (
-          <li class:list={[{ 'hdr__has-sub': !!link.children }]} role="none">
+          <li class:list={['hdr__item', { 'hdr__item--has-sub': !!link.children }]} role="none">
             <a
               href={link.href}
               role="menuitem"
@@ -73,7 +63,7 @@ function isActive(href: string, children?: { href: string }[]): boolean {
               {link.label}
               {link.children && (
                 <svg class="hdr__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               )}
             </a>
@@ -97,22 +87,23 @@ function isActive(href: string, children?: { href: string }[]): boolean {
       </ul>
     </nav>
 
-    {/* ── CTA Button ── */}
-    {cta.enabled && (
-      <a href={cta.href} class="hdr__cta btn btn-primary">{cta.label}</a>
-    )}
+    {/* ── Right side ── */}
+    <div class="hdr__right">
+      {cta.enabled && (
+        <a href={cta.href} class="hdr__cta">{cta.label}</a>
+      )}
+      <button
+        class="hdr__toggle"
+        id="hdrToggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="hdrPanel"
+      >
+        <span class="hdr__bar"></span>
+      </button>
+    </div>
 
-    {/* ── Hamburger ── */}
-    <button
-      class="hdr__toggle"
-      id="hdrToggle"
-      type="button"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-      aria-controls="hdrPanel"
-    >
-      <span class="hdr__bar"></span>
-    </button>
   </div>
 </header>
 
@@ -122,10 +113,12 @@ function isActive(href: string, children?: { href: string }[]): boolean {
 {/* ── Mobile panel ── */}
 <nav class="hdr__panel" id="hdrPanel" aria-label="Menú móvil" aria-hidden="true">
   <div class="hdr__panel-head">
-    <span class="hdr__panel-brand">{brand}<span class="hdr__logo-dot">{brandAccent}</span></span>
+    <a href="/" class="hdr__panel-brand">
+      <img src="/img/logo-redeil.avif" alt="REDEIL" width="120" height="38" loading="lazy">
+    </a>
     <button class="hdr__panel-close" id="hdrClose" type="button" aria-label="Cerrar menú">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
       </svg>
     </button>
   </div>
@@ -168,372 +161,12 @@ function isActive(href: string, children?: { href: string }[]): boolean {
 
   {cta.enabled && (
     <div class="hdr__panel-foot">
-      <a href={cta.href} class="btn btn-primary hdr__panel-cta">{cta.label}</a>
+      <a href={cta.href} class="hdr__panel-cta">{cta.label}</a>
     </div>
   )}
 </nav>
 
-<style>
-  /* ══════════════════════════════════════
-     Header — Core
-     ══════════════════════════════════════ */
-  .hdr {
-    height: var(--header-height, 70px);
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-  }
-
-  .hdr--blur {
-    background: #ffffff;
-  }
-
-  .hdr--scrolled {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-  }
-
-  .hdr__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: var(--container, 1200px);
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-
-  }
-
-  /* ── Logo ── */
-  .hdr__logo {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  .hdr__logo img {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .hdr__logo:hover { opacity: 0.85; }
-
-  /* ── Desktop Nav ── */
-  .hdr__nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .hdr__list {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .hdr__link {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--c-text, #1a1a1a);
-    transition: color 0.2s var(--ease, ease);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 0.25rem 0;
-    position: relative;
-    line-height: 1;
-  }
-
-  .hdr__link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ff5722;
-    border-radius: 1px;
-    transition: width 0.25s var(--ease, ease);
-  }
-
-  .hdr__link:hover { color: #ff5722; }
-  .hdr__link:hover::after { width: 100%; }
-  .hdr__link--active { color: #ff5722; }
-  .hdr__link--active::after { width: 100%; }
-
-  .hdr__chevron {
-    transition: transform 0.2s var(--ease, ease);
-  }
-
-  /* ── Dropdown ── */
-  .hdr__has-sub {
-    position: relative;
-    padding-bottom: 8px;
-    margin-bottom: -8px;
-  }
-
-  .hdr__dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    min-width: 230px;
-    max-height: 70vh;
-    overflow-y: auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
-    padding: 0.5rem 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%);
-    transition: opacity 0.15s ease, visibility 0.15s;
-    pointer-events: none;
-    z-index: 99999;
-  }
-
-  /* Puente invisible grande — zona segura entre link y dropdown */
-  .hdr__has-sub::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: -20px;
-    right: -20px;
-    height: 20px;
-  }
-
-  .hdr__has-sub:hover .hdr__dropdown,
-  .hdr__has-sub:focus-within .hdr__dropdown {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .hdr__has-sub:hover .hdr__chevron {
-    transform: rotate(180deg);
-  }
-
-  .hdr__drop-link {
-    display: block;
-    padding: 0.55rem 1.25rem;
-    font-size: 0.875rem;
-    color: var(--c-text, #1a1a1a);
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-
-  .hdr__drop-link:hover,
-  .hdr__drop-link--active {
-    background: #FFF4ED;
-    color: #ff5722;
-  }
-
-  /* ── CTA ── */
-  .hdr__cta {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.875rem;
-    flex-shrink: 0;
-    line-height: 1;
-  }
-
-  /* ── Hamburger ── */
-  .hdr__toggle {
-    display: none;
-    width: 44px;
-    height: 44px;
-    position: relative;
-    flex-shrink: 0;
-    cursor: pointer;
-    border: 1.5px solid #e2e8f0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hdr__bar,
-  .hdr__bar::before,
-  .hdr__bar::after {
-    width: 22px;
-    height: 2px;
-    background: var(--color-secondary, #1a1a2e);
-    border-radius: 2px;
-    transition: all 0.25s ease;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .hdr__bar { top: 50%; margin-top: -1px; }
-  .hdr__bar::before { content: ''; top: -7px; margin-top: 0; }
-  .hdr__bar::after  { content: ''; top:  7px; margin-top: 0; }
-
-  .hdr__toggle--open {
-    border-color: var(--color-primary, #ff5722);
-    background: #fff8f6;
-  }
-  .hdr__toggle--open .hdr__bar { background: transparent; }
-  .hdr__toggle--open .hdr__bar::before { top: 0; transform: translateX(-50%) rotate(45deg); }
-  .hdr__toggle--open .hdr__bar::after  { top: 0; transform: translateX(-50%) rotate(-45deg); }
-
-  /* ══════════════════════════════════════
-     Mobile Overlay
-     ══════════════════════════════════════ */
-  .hdr__overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 99998;
-    opacity: 0;
-    transition: opacity 0.3s var(--ease, ease);
-  }
-
-  .hdr__overlay--visible {
-    display: block;
-    opacity: 1;
-  }
-
-  /* ══════════════════════════════════════
-     Mobile Panel
-     ══════════════════════════════════════ */
-  .hdr__panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 85%;
-    max-width: 360px;
-    background: var(--c-bg, #fff);
-    z-index: 99999;
-    transform: translateX(100%);
-    transition: transform 0.35s var(--ease, ease);
-    display: none;
-    flex-direction: column;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .hdr__panel--open {
-    transform: translateX(0);
-  }
-
-  .hdr__panel-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.25rem;
-    height: 64px;
-    border-bottom: 1px solid var(--c-border, #e5e7eb);
-    flex-shrink: 0;
-  }
-
-  .hdr__panel-brand {
-    font-family: var(--font-primary, 'Montserrat', sans-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-primary, #ff5722);
-  }
-
-  .hdr__panel-close {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--c-text-muted, #6b7280);
-    border-radius: var(--radius-sm, 8px);
-    border: 1px solid var(--c-border, #e5e7eb);
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .hdr__panel-close:hover {
-    background: var(--c-bg-alt, #FAF8F5);
-    color: var(--c-text, #1a1a1a);
-  }
-
-  .hdr__panel-list {
-    flex: 1;
-    padding: 0.75rem 0;
-  }
-
-  .hdr__panel-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 48px;
-    padding: 0 1.5rem;
-    font-size: 0.9375rem;
-    font-weight: 400;
-    color: var(--c-text, #1a1a1a);
-    transition: background 0.15s;
-    text-align: left;
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: inherit;
-  }
-
-  .hdr__panel-link:hover { background: var(--c-bg-alt, #FAF8F5); }
-  .hdr__panel-link--active { color: var(--c-primary, #2D5016); font-weight: 600; }
-
-  .hdr__panel-chev {
-    transition: transform 0.25s var(--ease, ease);
-    flex-shrink: 0;
-    color: var(--c-text-muted, #6b7280);
-  }
-
-  .hdr__panel-subtoggle--open .hdr__panel-chev {
-    transform: rotate(180deg);
-  }
-
-  .hdr__panel-sub {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s var(--ease, ease);
-    background: var(--c-bg-alt, #FAF8F5);
-  }
-
-  .hdr__panel-sub--open { max-height: 300px; }
-
-  .hdr__panel-sublink {
-    padding-left: 2.25rem;
-    font-size: 0.875rem;
-    min-height: 44px;
-  }
-
-  .hdr__panel-foot {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--c-border, #e5e7eb);
-    flex-shrink: 0;
-  }
-
-  .hdr__panel-cta {
-    width: 100%;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9375rem;
-  }
-
-  /* ══════════════════════════════════════
-     Responsive
-     ══════════════════════════════════════ */
-  @media (max-width: 768px) {
-    .hdr__nav,
-    .hdr__cta { display: none; }
-    .hdr__toggle { display: block; }
-    .hdr__panel { display: flex; }
-  }
-
-  @media (max-width: 400px) {
-    .hdr__panel { width: 100%; max-width: none; }
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->
 
 <script is:inline>
   (function () {
@@ -544,8 +177,8 @@ function isActive(href: string, children?: { href: string }[]): boolean {
     var close   = document.getElementById('hdrClose');
     var topbar  = document.querySelector('.topbar');
 
-    /* ── Mobile menu ── */
     function open() {
+      if (!toggle || !panel || !overlay) return;
       toggle.classList.add('hdr__toggle--open');
       toggle.setAttribute('aria-expanded', 'true');
       panel.classList.add('hdr__panel--open');
@@ -555,6 +188,7 @@ function isActive(href: string, children?: { href: string }[]): boolean {
     }
 
     function shut() {
+      if (!toggle || !panel || !overlay) return;
       toggle.classList.remove('hdr__toggle--open');
       toggle.setAttribute('aria-expanded', 'false');
       panel.classList.remove('hdr__panel--open');
@@ -569,13 +203,11 @@ function isActive(href: string, children?: { href: string }[]): boolean {
     if (close)   close.addEventListener('click', shut);
     if (overlay) overlay.addEventListener('click', shut);
 
-    /* Close on link click */
     if (panel) {
       var links = panel.querySelectorAll('a');
       for (var i = 0; i < links.length; i++) links[i].addEventListener('click', shut);
     }
 
-    /* ── Accordion submenus ── */
     var subs = document.querySelectorAll('[data-sub]');
     for (var j = 0; j < subs.length; j++) {
       subs[j].addEventListener('click', function () {
@@ -585,7 +217,7 @@ function isActive(href: string, children?: { href: string }[]): boolean {
       });
     }
 
-    /* ── Scroll: hide topbar, add shadow ── */
+    /* ── Scroll: solo glassmorphism visual — el posicionamiento lo maneja .hdr-stack en CSS global ── */
     if (hdr && hdr.dataset.scroll === 'true') {
       var stack = document.querySelector('.hdr-stack');
 
@@ -600,9 +232,10 @@ function isActive(href: string, children?: { href: string }[]): boolean {
           hdr.classList.add('hdr--scrolled');
           if (stack) stack.style.top = '0';
           if (topbar) topbar.style.transform = 'translateY(-100%)';
+          if (topbar) topbar.style.transition = 'transform 0.3s ease';
         } else {
           hdr.classList.remove('hdr--scrolled');
-          if (stack) stack.style.top = topbarH + 'px';
+          if (stack) stack.style.top = '';
           if (topbar) topbar.style.transform = '';
         }
       }, { passive: true });

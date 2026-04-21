@@ -1,0 +1,81 @@
+---
+/**
+ * ServiceCardPackages — REDEIL Editorial
+ * ────────────────────────────────────────
+ * Variante de ServiceCard que reemplaza la descripción
+ * por una lista de paquetes con links individuales.
+ * Mantiene el mismo diseño editorial que ServiceCard.
+ */
+interface Package {
+  label: string;
+  sublabel?: string;
+  price: string;
+  link: string;
+}
+
+interface Props {
+  title: string;
+  image: string;
+  alt?: string;
+  eyebrow?: string;
+  packages: Package[];
+  ctaLink: string;
+  ctaLabel?: string;
+}
+
+const {
+  title,
+  image,
+  alt = title,
+  eyebrow = "Servicio REDEIL",
+  packages,
+  ctaLink,
+  ctaLabel = "Ver todos los paquetes",
+} = Astro.props;
+---
+
+<article class="sc">
+  <a href={ctaLink} class="sc__img-link" aria-label={title}>
+    <div class="sc__img">
+      <img src={image} alt={alt} loading="lazy" width="480" height="600" />
+    </div>
+  </a>
+
+  <div class="sc__body">
+    <div class="sc__eyebrow" aria-hidden="true">
+      <span class="sc__dot"></span>
+      <span>{eyebrow}</span>
+    </div>
+
+    <div class="sc__bar" aria-hidden="true"></div>
+
+    <h3 class="sc__title">
+      <a href={ctaLink} class="sc__title-link">{title}</a>
+    </h3>
+
+    <ul class="sc__packages" role="list">
+      {packages.map((pkg) => (
+        <li class="sc__pkg">
+          <a href={pkg.link} class="sc__pkg-link">
+            <span class="sc__pkg-info">
+              <span class="sc__pkg-label">{pkg.label}</span>
+              {pkg.sublabel && <span class="sc__pkg-sublabel">{pkg.sublabel}</span>}
+            </span>
+            <svg class="sc__pkg-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href={ctaLink} class="sc__btn">
+      {ctaLabel}
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</article>
+
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

@@ -1,74 +1,150 @@
 ---
 /**
- * Footer — OrigenLab Standard v2 (REDEIL)
- * Profesional, oscuro neutro, navegación completa.
- * Sin animaciones. Código limpio.
+ * Footer — REDEIL Premium v3
+ * Basado en el sistema de diseño: --color-primary #1a1a2e · --color-accent #ff5722
+ * Diseño de agencia de alta gama: trust strip · nav completa · bottom bar sólido.
  */
 const year = new Date().getFullYear();
 ---
 
 <footer class="ft">
 
-  <!-- ═══ PRINCIPAL ═══ -->
-  <div class="container ft__main">
-    <div class="ft__grid">
+  <!-- ═══ TRUST STRIP ═══ -->
+  <div class="ft__trust">
+    <div class="container ft__trust-inner">
+      <div class="ft__trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span><strong>+500</strong> eventos realizados</span>
+      </div>
+      <div class="ft__trust-sep"></div>
+      <div class="ft__trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span><strong>30+</strong> años de experiencia</span>
+      </div>
+      <div class="ft__trust-sep"></div>
+      <div class="ft__trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Respuesta en <strong>&lt;15 min</strong> vía WhatsApp</span>
+      </div>
+      <div class="ft__trust-sep"></div>
+      <div class="ft__trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Transporte incluido — <strong>toda la ZMVM</strong></span>
+      </div>
+      <div class="ft__trust-sep"></div>
+      <div class="ft__trust-item ft__trust-cta">
+        <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20mi%20evento" target="_blank" rel="noopener noreferrer" class="ft__trust-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Cotizar ahora
+        </a>
+      </div>
+    </div>
+  </div>
 
-      <!-- Marca + contacto -->
+  <!-- ═══ CUERPO PRINCIPAL ═══ -->
+  <div class="ft__body">
+    <div class="container ft__grid">
+
+      <!-- ── Columna Marca ── -->
       <div class="ft__brand">
-        <a href="/" class="ft__logo">REDEIL</a>
-        <p class="ft__tagline">Renta de iluminación, sonido y efectos especiales para bodas, XV años y eventos en Ciudad de México y Estado de México.</p>
 
-        <div class="ft__contact-list">
-          <a href="tel:+525530682988" class="ft__contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="/" class="ft__logo" aria-label="REDEIL — Inicio">
+          <span class="ft__logo-re">RE</span><span class="ft__logo-deil">DEIL</span>
+        </a>
+
+        <p class="ft__tagline">
+          Renta profesional de iluminación, sonido y efectos especiales para bodas, XV años y eventos en Ciudad de México y Estado de México.
+        </p>
+
+        <!-- Rating visual -->
+        <div class="ft__rating">
+          <div class="ft__stars" aria-label="4.8 de 5 estrellas">
+            <svg viewBox="0 0 20 20" fill="#ff5722" width="14" height="14"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#ff5722" width="14" height="14"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#ff5722" width="14" height="14"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#ff5722" width="14" height="14"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20" width="14" height="14"><defs><linearGradient id="hstar"><stop offset="80%" stop-color="#ff5722"/><stop offset="80%" stop-color="#3a3a5c"/></linearGradient></defs><path fill="url(#hstar)" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <span class="ft__rating-text"><strong>4.8</strong> / 5 · 127 reseñas</span>
+        </div>
+
+        <!-- Contacto -->
+        <div class="ft__contact">
+          <a href="tel:+525530682988" class="ft__contact-item">
+            <span class="ft__contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
             55 3068 2988
           </a>
-          <a href="https://wa.me/5530682988" target="_blank" rel="noopener" class="ft__contact-link ft__contact-wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-          <a href="mailto:hola@rentadeiluminacion.com" class="ft__contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <button type="button" data-open-chat class="ft__contact-item ft__contact-wa">
+            <span class="ft__contact-icon ft__contact-icon--wa">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </span>
+            WhatsApp — Chat directo
+          </button>
+          <a href="mailto:hola@rentadeiluminacion.com" class="ft__contact-item">
+            <span class="ft__contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
             hola@rentadeiluminacion.com
           </a>
+          <span class="ft__contact-item ft__address">
+            <span class="ft__contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            Río Amazonas 74B, Col. Renacimiento,<br>Cuauhtémoc, 06500 CDMX
+          </span>
           <span class="ft__schedule">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Lun–Dom 8:00–18:00
+            <span class="ft__contact-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            Lun – Dom · 8:00 a 20:00 h
           </span>
         </div>
+
       </div>
 
-      <!-- Iluminación -->
+      <!-- ── Iluminación ── -->
       <div class="ft__col">
-        <h4 class="ft__heading">Iluminación</h4>
-        <ul>
+        <h4 class="ft__heading">
+          <span class="ft__heading-dot"></span>
+          Iluminación
+        </h4>
+        <ul class="ft__list">
           <li><a href="/servicios/guirnaldas/">Guirnaldas Edison</a></li>
-          <li><a href="/servicios/luces-neon/">Luces Neón y UV</a></li>
-          <li><a href="/servicios/luz-negra/">Luz Negra</a></li>
+          <li><a href="/servicios/luces-neon/">Luces Neón LED</a></li>
+          <li><a href="/servicios/luz-negra/">Luz Negra UV</a></li>
           <li><a href="/servicios/sky-tracker/">Sky Tracker</a></li>
           <li><a href="/servicios/cabezas-moviles/">Cabezas Móviles</a></li>
           <li><a href="/servicios/cascadas-led/">Cascadas LED</a></li>
           <li><a href="/servicios/city-color/">City Color</a></li>
+          <li><a href="/servicios/city-light/">City Light</a></li>
           <li><a href="/servicios/iluminacion-arquitectonica/">Ilum. Arquitectónica</a></li>
-          <li><a href="/servicios/gobos/">Gobos</a></li>
-          <li><a href="/servicios/seguidor/">Seguidor</a></li>
+          <li><a href="/servicios/gobos/">Gobos Personalizados</a></li>
+          <li><a href="/servicios/seguidor/">Seguidor de Luz</a></li>
         </ul>
       </div>
 
-      <!-- Sonido + Efectos -->
+      <!-- ── Sonido + Efectos ── -->
       <div class="ft__col">
-        <h4 class="ft__heading">Sonido y DJ</h4>
-        <ul>
-          <li><a href="/servicios/bocinas/">Audio para Eventos</a></li>
+        <h4 class="ft__heading">
+          <span class="ft__heading-dot"></span>
+          Sonido y DJ
+        </h4>
+        <ul class="ft__list">
+          <li><a href="/servicios/bocinas/">Audio Profesional</a></li>
           <li><a href="/servicios/bocinas-djs/">DJ para Fiestas</a></li>
-          <li><a href="/servicios/bocinas-bodas/">Bocinas para Bodas</a></li>
-          <li><a href="/servicios/bocinas-xv/">Bocinas para XV Años</a></li>
+          <li><a href="/servicios/bocinas-bodas/">Audio para Bodas</a></li>
+          <li><a href="/servicios/bocinas-xv/">Audio para XV Años</a></li>
           <li><a href="/servicios/bocinas-fiestas/">Bocinas para Fiestas</a></li>
-          <li><a href="/servicios/bocinas-conferencias/">Conferencias</a></li>
+          <li><a href="/servicios/bocinas-conferencias/">Audio Corporativo</a></li>
         </ul>
 
-        <h4 class="ft__heading ft__heading--mt">Efectos Especiales</h4>
-        <ul>
+        <h4 class="ft__heading ft__heading--gap">
+          <span class="ft__heading-dot"></span>
+          Efectos Especiales
+        </h4>
+        <ul class="ft__list">
           <li><a href="/servicios/humo-bajo/">Humo Bajo</a></li>
           <li><a href="/servicios/confeti/">Confeti</a></li>
           <li><a href="/servicios/burbujas/">Burbujas</a></li>
@@ -78,12 +154,15 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Empresa + Cobertura -->
+      <!-- ── Empresa + Zonas ── -->
       <div class="ft__col">
-        <h4 class="ft__heading">Empresa</h4>
-        <ul>
+        <h4 class="ft__heading">
+          <span class="ft__heading-dot"></span>
+          Empresa
+        </h4>
+        <ul class="ft__list">
           <li><a href="/nosotros/">Nosotros</a></li>
-          <li><a href="/servicios/">Servicios</a></li>
+          <li><a href="/servicios/">Todos los Servicios</a></li>
           <li><a href="/directorio/">Directorio</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/contacto/">Contacto</a></li>
@@ -91,17 +170,18 @@ const year = new Date().getFullYear();
           <li><a href="/eventos/xv-anos/">XV Años</a></li>
         </ul>
 
-        <h4 class="ft__heading ft__heading--mt">Zonas</h4>
-        <ul>
+        <h4 class="ft__heading ft__heading--gap">
+          <span class="ft__heading-dot"></span>
+          Cobertura
+        </h4>
+        <ul class="ft__list">
           <li><a href="/zonas/">Todas las zonas</a></li>
           <li><a href="/zonas/coyoacan/">Coyoacán</a></li>
           <li><a href="/zonas/benito-juarez/">Benito Juárez</a></li>
           <li><a href="/zonas/miguel-hidalgo/">Miguel Hidalgo</a></li>
-          <li><a href="/zonas/cuauhtemoc/">Cuauhtémoc</a></li>
           <li><a href="/zonas/tlalpan/">Tlalpan</a></li>
-          <li><a href="/zonas/alvaro-obregon/">Álvaro Obregón</a></li>
           <li><a href="/zonas/naucalpan/">Naucalpan</a></li>
-          <li><a href="/zonas/tlalnepantla/">Tlalnepantla</a></li>
+          <li><a href="/zonas/huixquilucan/">Huixquilucan</a></li>
           <li><a href="/zonas/ecatepec/">Ecatepec</a></li>
           <li><a href="/zonas/nezahualcoyotl/">Nezahualcóyotl</a></li>
         </ul>
@@ -113,196 +193,30 @@ const year = new Date().getFullYear();
   <!-- ═══ BOTTOM BAR ═══ -->
   <div class="ft__bar">
     <div class="container ft__bar-inner">
-      <p>&copy; {year} REDEIL — Renta de Iluminación Profesional para Eventos. Todos los derechos reservados.</p>
-      <div class="ft__bar-links">
-        <a href="/aviso-privacidad/">Aviso de privacidad</a>
-        <span class="ft__bar-sep">·</span>
+
+      <p class="ft__bar-copy">
+        &copy; {year} <strong>REDEIL</strong> — Renta de Iluminación Profesional para Eventos · CDMX y Estado de México
+      </p>
+
+      <nav class="ft__bar-nav" aria-label="Pie de página legal">
+        <a href="/aviso-privacidad/">Aviso de Privacidad</a>
+        <span class="ft__bar-dot" aria-hidden="true">·</span>
         <a href="/contacto/">Contacto</a>
+        <span class="ft__bar-dot" aria-hidden="true">·</span>
+        <a href="/sitemap-index.xml" rel="nofollow">Sitemap</a>
+      </nav>
+
+      <div class="ft__bar-brands" aria-label="Marcas de equipo">
+        <span class="ft__brand-badge">Martin</span>
+        <span class="ft__brand-badge">Chauvet</span>
+        <span class="ft__brand-badge">JBL</span>
+        <span class="ft__brand-badge">QSC</span>
+        <span class="ft__brand-badge">Shure</span>
       </div>
+
     </div>
   </div>
 
 </footer>
 
-<style>
-  .ft {
-    background: #18181B;
-    color: #fff;
-  }
-
-  .ft__main {
-    padding: 4rem 0 3rem;
-  }
-
-  .ft__grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem;
-  }
-
-  /* ── Marca ── */
-  .ft__logo {
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    text-decoration: none;
-  }
-
-  .ft__logo:hover {
-    opacity: 0.85;
-  }
-
-  .ft__tagline {
-    color: #A1A1AA;
-    font-size: 0.875rem;
-    line-height: 1.65;
-    max-width: 300px;
-    margin-bottom: 1.5rem;
-  }
-
-  .ft__contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .ft__contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #D4D4D8;
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .ft__contact-link:hover { color: #fff; }
-
-  .ft__contact-link svg {
-    flex-shrink: 0;
-    opacity: 0.7;
-  }
-
-  .ft__contact-wa { color: #25D366; }
-  .ft__contact-wa:hover { color: #2ee077; }
-
-  .ft__schedule {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #71717A;
-    font-size: 0.8125rem;
-  }
-
-  .ft__schedule svg {
-    flex-shrink: 0;
-    opacity: 0.5;
-  }
-
-  /* ── Columnas ── */
-  .ft__heading {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1rem;
-    color: #FAFAFA;
-  }
-
-  .ft__heading--mt { margin-top: 1.75rem; }
-
-  .ft__col ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .ft__col li {
-    font-size: 0.8125rem;
-    color: #71717A;
-  }
-
-  .ft__col a {
-    color: #A1A1AA;
-    font-size: 0.8125rem;
-    text-decoration: none;
-  }
-
-  .ft__col a:hover { color: #fff; }
-
-  /* ── Bottom ── */
-  .ft__bar {
-    border-top: 1px solid #27272A;
-    padding: 1.25rem 0;
-  }
-
-  .ft__bar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #52525B;
-    font-size: 0.75rem;
-  }
-
-  .ft__bar-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .ft__bar-links a {
-    color: #52525B;
-    text-decoration: none;
-  }
-
-  .ft__bar-links a:hover { color: #A1A1AA; }
-
-  .ft__bar-sep { color: #3F3F46; }
-
-  /* ── Responsive ── */
-  @media (max-width: 1024px) {
-    .ft__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-    }
-
-    .ft__brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .ft__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem 1.5rem;
-    }
-
-    /* Brand ocupa el ancho completo arriba */
-    .ft__brand {
-      grid-column: 1 / -1;
-    }
-
-    /* Tagline más corta en móvil */
-    .ft__tagline {
-      max-width: 100%;
-    }
-
-    .ft__bar-inner {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .ft__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

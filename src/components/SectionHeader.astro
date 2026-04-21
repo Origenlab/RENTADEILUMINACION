@@ -2,8 +2,8 @@
 /**
  * SectionHeader Component — OrigenLab Standard
  * ─────────────────────────────────────────────
- * Título de sección en 2 columnas:
- *   Col 1: Heading (H2-H6 configurable)
+ * Título de sección en 2 columnas.
+ *   Col 1: Subtitle (eyebrow) → Heading → Divider
  *   Col 2: Dos párrafos descriptivos
  * Respeta jerarquía SEO: H1 solo en Hero, secciones usan H2+
  * Sin animaciones. Código limpio.
@@ -32,8 +32,9 @@ const Tag = tag;
 <div class:list={['sh', { 'sh--dark': dark }]}>
   <div class="container sh__grid">
     <div class="sh__col1">
+      {subtitle && <p class="sh__eyebrow">{subtitle}</p>}
       <Tag class="sh__title">{title}</Tag>
-      {subtitle && <p class="sh__subtitle">{subtitle}</p>}
+      <div class="sh__divider" aria-hidden="true"></div>
     </div>
     <div class="sh__col2">
       <p class="sh__text">{paragraph1}</p>
@@ -42,63 +43,4 @@ const Tag = tag;
   </div>
 </div>
 
-<style>
-  .sh {
-    padding-bottom: 2.5rem;
-  }
-
-  .sh__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .sh__title {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    color: var(--c-text, #1C1917);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-  }
-
-  .sh__subtitle {
-    font-size: 1rem;
-    color: var(--color-primary, #ff5722);
-    font-weight: 600;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  .sh__col2 {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .sh__text {
-    font-size: 0.9375rem;
-    color: var(--c-text-muted, #78716C);
-    line-height: 1.75;
-  }
-
-  /* ── Dark variant ── */
-  .sh--dark .sh__title {
-    color: #ffffff;
-  }
-
-  .sh--dark .sh__subtitle {
-    color: var(--color-primary, #ff5722);
-  }
-
-  .sh--dark .sh__text {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  @media (max-width: 768px) {
-    .sh__grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

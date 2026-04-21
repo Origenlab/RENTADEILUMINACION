@@ -1,9 +1,7 @@
 ---
 /**
- * Breadcrumbs Component — Origenlab Standard
- * ─────────────────────────────────────────
- * Migas de pan con Schema BreadcrumbList.
- * Se posiciona debajo del hdr-stack.
+ * Breadcrumbs Component — REDEIL
+ * Fondo oscuro contrastante con acento naranja.
  */
 interface BreadcrumbItem {
   label: string;
@@ -35,6 +33,12 @@ const breadcrumbSchema = JSON.stringify({
     <ol class="crumbs__list">
       {items.map((item, index) => (
         <li class="crumbs__item">
+          {index === 0 && (
+            <svg class="crumbs__home-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
+              <polyline points="9 21 9 12 15 12 15 21"/>
+            </svg>
+          )}
           {item.href && index < items.length - 1 ? (
             <a href={item.href} class="crumbs__link">{item.label}</a>
           ) : (
@@ -48,55 +52,4 @@ const breadcrumbSchema = JSON.stringify({
 
 <script type="application/ld+json" set:html={breadcrumbSchema} />
 
-<style>
-  .crumbs {
-    background: var(--color-gray-100, #f8f9fa);
-    border-bottom: 1px solid var(--color-gray-200, #e9ecef);
-    padding: 0.6rem 0;
-  }
-
-  .crumbs__inner {
-    max-width: var(--container-max, 1200px);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .crumbs__list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.35rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 0.8125rem;
-  }
-
-  .crumbs__item {
-    display: inline-flex;
-    align-items: center;
-    color: var(--color-gray-600, #6c757d);
-  }
-
-  .crumbs__item:not(:last-child)::after {
-    content: '›';
-    margin-left: 0.35rem;
-    color: var(--color-gray-400, #ced4da);
-    font-size: 0.875rem;
-  }
-
-  .crumbs__link {
-    color: var(--color-gray-600, #6c757d);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .crumbs__link:hover {
-    color: var(--color-primary, #ff5722);
-  }
-
-  .crumbs__current {
-    color: var(--color-gray-800, #343a40);
-    font-weight: 500;
-  }
-</style>
+<!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

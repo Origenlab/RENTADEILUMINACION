@@ -1,0 +1,94 @@
+import { c as createComponent, b as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_D8pMnQBn.mjs';
+import 'piccolore';
+import { $ as $$BlogLayout } from '../../chunks/BlogLayout_CZyANi2n.mjs';
+export { renderers } from '../../renderers.mjs';
+
+const $$IluminacionEventosIztapalapa = createComponent(($$result, $$props, $$slots) => {
+  const title = "Iluminaci\xF3n Eventos en Iztapalapa CDMX | REDEIL";
+  const description = "Iluminaci\xF3n profesional para eventos en Iztapalapa CDMX. Cabezas m\xF3viles, seguidor, confeti, bola disco y DJ para XV a\xF1os, bodas y graduaciones en salones.";
+  const canonical = "https://rentadeiluminacion.com/blog/iluminacion-eventos-iztapalapa/";
+  const schemaMarkup = JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Renta de Iluminaci\xF3n para Eventos en Iztapalapa CDMX \u2014 Salones, XV A\xF1os y Bodas",
+      "description": "Iluminaci\xF3n profesional para eventos en Iztapalapa CDMX. Cabezas m\xF3viles, seguidor, confeti, bola disco y DJ para XV a\xF1os, bodas y graduaciones en salones.",
+      "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+      "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/logo-redeil.avif" } },
+      "image": "https://rentadeiluminacion.com/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://rentadeiluminacion.com/blog/iluminacion-eventos-iztapalapa/" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "\xBFCu\xE1nto cuesta un paquete de iluminaci\xF3n para XV a\xF1os en Iztapalapa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Los paquetes para XV a\xF1os en Iztapalapa van desde $5,500 MXN (cabezas m\xF3viles + seguidor para el vals) hasta $18,000+ MXN para paquetes completos con DJ, confeti, humo bajo, bola disco y show de luces. Cotizamos seg\xFAn el sal\xF3n y tus necesidades." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFQu\xE9 incluye un paquete de XV a\xF1os con DJ en Iztapalapa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nuestros paquetes completos incluyen DJ profesional, cabezas m\xF3viles, seguidor para el vals, humo bajo, m\xE1quina de confeti, bola disco y luces LED perimetrales. Todo el equipo necesario para que la fiesta sea inolvidable." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFTrabajan en todos los salones de Iztapalapa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Conocemos los principales salones de la alcald\xEDa incluyendo Sal\xF3n Los Pinos, Sal\xF3n Versailles y los centros sociales. Nos adaptamos a las dimensiones y caracter\xEDsticas de cada espacio." }
+        },
+        {
+          "@type": "Question",
+          "name": "\xBFHacen montaje y desmontaje el mismo d\xEDa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "S\xED. Llegamos con anticipaci\xF3n para montar todo el equipo y nos quedamos durante el evento para operarlo. Al finalizar, desmontamos y retiramos todo. No necesitas preocuparte por nada." }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "REDEIL",
+      "url": "https://rentadeiluminacion.com",
+      "telephone": "+525530682988",
+      "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de M\xE9xico", "addressRegion": "CDMX", "addressCountry": "MX" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "ratingCount": "82"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Guadalupe Mart\xEDnez Salazar" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Contratamos el paquete completo para los XV de mi hija en el Sal\xF3n Los Pinos de Iztapalapa. El seguidor para el vals qued\xF3 hermoso con el humo bajo, y el DJ puso a bailar a todos. S\xFAper recomendados."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Carlos Hern\xE1ndez P\xE9rez" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Hicimos nuestra boda en un sal\xF3n sobre Ermita Iztapalapa y REDEIL nos puso cabezas m\xF3viles, guirnaldas en la entrada y bengalas fr\xEDas para nuestro primer baile. Todo funcion\xF3 perfecto y el precio fue justo."
+        }
+      ]
+    }
+  ]);
+  const image = "/img/cabezas-moviles/renta-cabezas-moviles-evento-corporativo-beams-show.avif";
+  const imageAlt = "Cabezas m\xF3viles con beams de luz en evento en Iztapalapa CDMX";
+  const category = "Zonas";
+  return renderTemplate`${renderComponent($$result, "BlogLayout", $$BlogLayout, { "title": title, "description": description, "canonical": canonical, "image": image, "imageAlt": imageAlt, "category": category, "schemaMarkup": schemaMarkup }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p>Iztapalapa es la alcaldía más poblada de la Ciudad de México. Con casi dos millones de habitantes, la demanda de servicios para eventos es enorme: cada fin de semana se celebran cientos de XV años, bodas, graduaciones y bautizos en salones de toda la demarcación. Y cuando quieres que tu evento se recuerde de verdad, la iluminación profesional es lo que separa una fiesta bonita de una fiesta espectacular.</p> <p>En REDEIL llevamos años trabajando en salones de Iztapalapa. Conocemos los espacios, sabemos qué funciona en cada tipo de venue y entendemos lo que las familias de esta zona buscan: equipo profesional a precios accesibles, con todo incluido para no tener que preocuparse de nada el día del evento.</p> <h2>Iluminación en Iztapalapa: Lo Que Necesitas Saber</h2> <p>La gran mayoría de los eventos en Iztapalapa se hacen en salones cerrados. Esto tiene sus ventajas: el ambiente se controla completamente con iluminación artificial, las <a href="/servicios/cabezas-moviles/">cabezas móviles</a> rinden al máximo porque no compiten con luz natural, y los efectos como humo bajo o confeti se contienen mejor en un espacio cerrado.</p> <p>Lo que vemos todo el tiempo es que las familias quieren un paquete completo: luces, DJ, efectos especiales y alguien que se encargue de toda la producción. Y eso tiene sentido. Cuando estás organizando los XV de tu hija o tu boda, lo último que necesitas es coordinar tres proveedores diferentes de sonido, iluminación y efectos. Por eso nuestros paquetes incluyen todo.</p> <p>Otro punto importante: muchos salones de Iztapalapa tienen restricciones de horario y de carga eléctrica. Nosotros ya conocemos esas limitaciones y llevamos equipo que se adapta. No vas a tener el problema de que se bote la luz a media fiesta porque el proveedor no calculó bien el consumo.</p> <h2>Los Venues Más Populares de Iztapalapa</h2> <p>Hemos montado iluminación en prácticamente todos los salones importantes de la alcaldía. Estos son algunos de los más solicitados:</p> <ul> <li><strong>Salón Los Pinos:</strong> Uno de los más conocidos para XV años y bodas. Tiene buena capacidad y un espacio de pista generoso donde las cabezas móviles y el seguidor lucen impresionantes.</li> <li><strong>Salón Versailles Iztapalapa:</strong> Espacio amplio con techos que permiten montajes de iluminación aérea. Ideal para eventos de 150 a 300 invitados con producción completa.</li> <li><strong>Centros sociales de la alcaldía:</strong> Opciones más accesibles en precio, donde un buen paquete de iluminación transforma completamente el espacio. Son muy populares para bautizos, primeras comuniones y fiestas familiares.</li> <li><strong>Salones sobre Ermita Iztapalapa:</strong> La avenida concentra varios salones de diferentes tamaños. La ventaja es la accesibilidad para los invitados y el estacionamiento. Hemos trabajado en muchos de ellos.</li> <li><strong>Salones sobre Calzada Ignacio Zaragoza:</strong> En la zona norte de la alcaldía, estos salones reciben eventos de Iztapalapa y de alcaldías vecinas. Suelen tener buena infraestructura eléctrica.</li> </ul> <p>Si tu evento es en un salón que no está en esta lista, no te preocupes. Nos adaptamos a cualquier espacio. Solo necesitamos saber las dimensiones y las condiciones eléctricas para armar la cotización perfecta.</p> <h2>Qué Servicios Se Contratan Más en Iztapalapa</h2> <p>Después de tantos eventos en la zona, ya sabemos bien qué es lo que más piden las familias de Iztapalapa:</p> <ul> <li><strong><a href="/servicios/seguidor/">Seguidor (follow spot):</a></strong> Es el servicio número uno para XV años. La luz que sigue a la quinceañera durante el vals, el cambio de zapatilla y el brindis. Sin seguidor, esos momentos se pierden en la oscuridad del salón. Con seguidor, se convierten en momentos cinematográficos.</li> <li><strong><a href="/servicios/confeti/">Cañón de confeti:</a></strong> El disparo de confeti al terminar el vals o durante el brindis es de esos momentos que todos graban con el celular. Es un efecto de alto impacto por un costo accesible.</li> <li><strong><a href="/servicios/bola-disco/">Bola disco:</a></strong> Para la parte de la fiesta y el baile, la bola disco sigue siendo un clásico que funciona. Los reflejos de luz por todo el salón crean un ambiente de fiesta instantáneo.</li> <li><strong><a href="/servicios/cabezas-moviles/">Cabezas móviles:</a></strong> Son el equipo profesional por excelencia. Los beams cruzándose por el salón, los cambios de color y los patrones de movimiento elevan cualquier evento al nivel de una producción profesional.</li> <li><strong><a href="/servicios/bocinas-xv/">DJ y sonido para XV años:</a></strong> Nuestros paquetes de DJ incluyen sonido profesional calibrado para el tamaño del salón, repertorio para todos los momentos del evento (vals, brindis, fiesta) y un DJ que sabe manejar los tiempos de una fiesta de XV.</li> </ul> <p>Lo ideal es combinar varios de estos servicios en un solo paquete. Así todo queda bien coordinado: la iluminación, el sonido y los efectos trabajan juntos, no cada uno por su lado.</p> <h2>XV Años en Iztapalapa: El Evento Estrella</h2> <p>Si hay un tipo de evento que define a Iztapalapa, son los XV años. La tradición sigue fuerte, y las familias invierten con orgullo en hacer una fiesta que la quinceañera recuerde toda su vida. Nosotros entendemos esa responsabilidad.</p> <p>Un paquete típico de XV años en Iztapalapa incluye todo lo que necesitas para cubrir cada momento del evento:</p> <ul> <li><strong>Para el vals:</strong> Seguidor de luz sobre la quinceañera, humo bajo para crear el efecto de nubes en la pista, iluminación en tonos suaves (rosa, lavanda, azul claro) que complementen el vestido.</li> <li><strong>Para el cambio de zapatilla:</strong> Iluminación focalizada en la silla donde se realiza el cambio, con el seguidor acompañando cada movimiento.</li> <li><strong>Para el brindis:</strong> Disparo de confeti coordinado con la música, iluminación cálida que resalte el momento.</li> <li><strong>Para la fiesta:</strong> Cabezas móviles en modo beam, bola disco, luces estroboscópicas controladas, cambios de color dinámicos. Todo operado en vivo por nuestro técnico para sincronizar con la música del DJ.</li> <li><strong>Para la última hora:</strong> Hora loca con todos los efectos al máximo, confeti extra, humo y luces a todo lo que dan.</li> </ul> <p>Los paquetes para XV años en Iztapalapa arrancan desde $5,500 MXN para un servicio básico de seguidor con cabezas móviles, y llegan hasta $18,000+ MXN para paquetes completos con DJ, confeti, humo bajo, bola disco y show de luces completo. El precio final depende del tamaño del salón y de cuántos servicios quieras incluir.</p> <p>Lo que siempre le decimos a las familias: inviertan en lo que se ve y se siente. La iluminación y el sonido son lo que convierte cuatro paredes en una fiesta inolvidable. Las fotos y los videos quedan mil veces mejor con iluminación profesional que con las luces del salón prendidas.</p> <h2>Bodas en Iztapalapa</h2> <p>Aunque los XV años son el evento más frecuente, las bodas en Iztapalapa también son un mercado fuerte. Muchas parejas eligen salones de la zona por la cercanía con la iglesia, por tradición familiar o simplemente porque hay opciones excelentes a precios razonables.</p> <p>Para bodas, la iluminación cambia un poco respecto a los XV. Se busca más elegancia y menos show: tonos cálidos, uplighting en muros y columnas, guirnaldas en la entrada, seguidor para el primer baile y un efecto especial (humo bajo o bengalas frías) para ese momento. Ya en la fiesta, las cabezas móviles y la bola disco se encargan de poner el ambiente.</p> <p>Nuestros paquetes de boda para salones de Iztapalapa van desde $8,000 MXN para iluminación ambiental básica hasta $25,000+ MXN para producciones completas con DJ, efectos y diseño de iluminación personalizado.</p> <h2>Preguntas Frecuentes</h2> <h3>¿Cuánto cuesta un paquete de iluminación para XV años en Iztapalapa?</h3> <p>Los paquetes para XV años en Iztapalapa van desde $5,500 MXN (cabezas móviles + seguidor para el vals) hasta $18,000+ MXN para paquetes completos con DJ, confeti, humo bajo, bola disco y show de luces. Cotizamos según el salón y tus necesidades.</p> <h3>¿Qué incluye un paquete de XV años con DJ en Iztapalapa?</h3> <p>Nuestros paquetes completos incluyen DJ profesional, cabezas móviles, seguidor para el vals, humo bajo, máquina de confeti, bola disco y luces LED perimetrales. Todo el equipo necesario para que la fiesta sea inolvidable.</p> <h3>¿Trabajan en todos los salones de Iztapalapa?</h3> <p>Sí. Conocemos los principales salones de la alcaldía incluyendo Salón Los Pinos, Salón Versailles y los centros sociales. Nos adaptamos a las dimensiones y características de cada espacio.</p> <h3>¿Hacen montaje y desmontaje el mismo día?</h3> <p>Sí. Llegamos con anticipación para montar todo el equipo y nos quedamos durante el evento para operarlo. Al finalizar, desmontamos y retiramos todo. No necesitas preocuparte por nada.</p> ` })}`;
+}, "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-iztapalapa.astro", void 0);
+
+const $$file = "/sessions/youthful-epic-gauss/mnt/RENTADEILUMINACION/src/pages/blog/iluminacion-eventos-iztapalapa.astro";
+const $$url = "/blog/iluminacion-eventos-iztapalapa";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$IluminacionEventosIztapalapa,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

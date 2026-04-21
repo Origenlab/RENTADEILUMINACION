@@ -4,12 +4,15 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://rentadeiluminacion.com',
   integrations: [sitemap({
-    filter: (page) => 
+    filter: (page) =>
       !page.includes('/servicios/bodas/') &&
       !page.includes('/servicios/xv-anos/') &&
       !page.includes('/servicios/confeti-papelitos/')
   })],
   build: {
     assets: '_astro'
+  },
+  vite: {
+    cacheDir: '/tmp/redeil-vite-cache'
   }
 });
