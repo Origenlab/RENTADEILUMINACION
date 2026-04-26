@@ -19,9 +19,18 @@ interface CategoryCount {
   slug: string;
 }
 
+interface DirectorioEmpresa {
+  nombre: string;
+  slug: string;
+  categoria: string;
+  zona: string;
+  rating?: number;
+}
+
 interface Props {
   categories?: CategoryCount[];
   popularArticles?: PopularArticle[];
+  directorioEmpresas?: DirectorioEmpresa[];
   activeCategory?: string;
   phone?: string;
   whatsapp?: string;
@@ -32,6 +41,7 @@ interface Props {
 const {
   categories = [],
   popularArticles = [],
+  directorioEmpresas = [],
   activeCategory = '',
   phone = "55 3068 2988",
   whatsapp = "5530682988",
@@ -100,6 +110,44 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
     </div>
   )}
 
+  {/* ── Servicios REDEIL ── */}
+  <div class="bsb__card bsb__servicios-card">
+    <h3 class="bsb__card-title">Servicios REDEIL</h3>
+    <div class="bsb__tags">
+      <a href="/servicios/iluminacion-led/" class="bsb__tag">Iluminación LED</a>
+      <a href="/servicios/cabezas-moviles/" class="bsb__tag">Cabezas Móviles</a>
+      <a href="/servicios/bocinas-pa/" class="bsb__tag">Bocinas PA</a>
+      <a href="/servicios/dj/" class="bsb__tag">DJ Profesional</a>
+      <a href="/servicios/guirnaldas/" class="bsb__tag">Guirnaldas</a>
+      <a href="/servicios/efectos-especiales/" class="bsb__tag">Efectos Especiales</a>
+      <a href="/servicios/laser/" class="bsb__tag">Láseres</a>
+      <a href="/servicios/pantallas-led/" class="bsb__tag">Pantallas LED</a>
+    </div>
+  </div>
+
+  {/* ── Proveedores Recomendados ── */}
+  {directorioEmpresas && directorioEmpresas.length > 0 && (
+    <div class="bsb__card bsb__directorio-card">
+      <h3 class="bsb__card-title">Proveedores en tu Zona</h3>
+      <ul class="bsb__dir-list">
+        {directorioEmpresas.map((empresa) => (
+          <li class="bsb__dir-item">
+            <a href={`/directorio/${empresa.slug}/`} class="bsb__dir-link">
+              <div class="bsb__dir-info">
+                <span class="bsb__dir-name">{empresa.nombre}</span>
+                <span class="bsb__dir-zona">{empresa.zona}</span>
+              </div>
+              {empresa.rating && (
+                <span class="bsb__dir-rating">⭐ {empresa.rating}</span>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="/directorio/" class="bsb__dir-all">Ver directorio completo →</a>
+    </div>
+  )}
+
   {/* ── CTA WhatsApp ── */}
   <div class="bsb__card bsb__cta-card">
     <div class="bsb__cta-icon">💡</div>
@@ -122,5 +170,118 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
     </a>
   </div>
 </aside>
+
+<style>
+  /* Servicios REDEIL - Tags */
+  .bsb__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .bsb__tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .bsb__tag:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .bsb__servicios-card {
+    /* hereda de .bsb__card */
+  }
+
+  /* Directorio - Proveedores */
+  .bsb__directorio-card {
+    /* hereda de .bsb__card */
+  }
+
+  .bsb__dir-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bsb__dir-item {
+    margin: 0;
+  }
+
+  .bsb__dir-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--color-surface, #f9fafb);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+
+  .bsb__dir-link:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .bsb__dir-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .bsb__dir-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .bsb__dir-zona {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .bsb__dir-link:hover .bsb__dir-zona {
+    opacity: 0.9;
+  }
+
+  .bsb__dir-rating {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  .bsb__dir-all {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .bsb__dir-all:hover {
+    text-decoration: underline;
+  }
+</style>
 
 <!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

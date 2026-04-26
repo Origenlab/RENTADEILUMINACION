@@ -1,0 +1,284 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+const title = "Iluminación Escénica Técnica en Centro CDMX: Lo Que Técnicos Deben Saber | REDEIL";
+const description = "PAR vs Wash vs Beam, control DMX, gelatinas, presupuesto real. 30 años asesorando técnicos en Centro. Calle Uruguay es nuestra oficina segundo hogar.";
+const canonical = "https://rentadeiluminacion.com/blog/iluminacion-escenica-tecnica-centro-cdmx-guia/";
+
+const schemaMarkup = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Iluminación Escénica: Guía de Técnico a Técnico en Centro CDMX",
+    "description": description,
+    "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" },
+    "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/directorio/directorio-tienda-iluminacion-01.avif" } },
+    "image": "https://rentadeiluminacion.com/img/directorio/directorio-tienda-iluminacion-01.avif",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "¿PAR o Wash? ¿Beam o Scanner? ¿Cómo sé qué necesito?", "acceptedAnswer": { "@type": "Answer", "text": "PAR = haz concentrado, intenso, pinta zonas específicas. Wash = haz ancho, distribuye luz uniforme. Beam/Scanner = efecto dinámico. Para presentación: 4 PAR sobre escenario. Para concierto: 8 PAR + 4 Wash + 2 Beam. Para gala corporativa: 6 PAR + 4 Wash. Regla: PAR para drama, Wash para atmósfera, Beam para movimiento." } },
+      { "@type": "Question", "name": "¿Por qué mis cables DMX fallan constantemente?", "acceptedAnswer": { "@type": "Answer", "text": "Cables baratos o mal conectados. Cable profesional (Belden, Amphenol) = impedancia 120 Ohms exacta, blindaje completo, conectores de calidad. Cable barato = impedancia variable, blindaje deficiente, soldaduras mediocres. Si cable falla durante evento, es porque NO INVIRTIÓ EN CABLE BUENO. Costo: $150-$250 por cable 10m. Vale cada peso." } },
+      { "@type": "Question", "name": "¿Halógeno o LED? ¿Cuándo cada uno?", "acceptedAnswer": { "@type": "Answer", "text": "LED: 80% menos energía, no genera calor, dura 50,000+ horas, costo inicial alto pero retorna en 18 meses. Halógeno: barato inicial ($300-$600 por lámpara), pero falla cada 300-500 horas, muy costoso operativamente. Para evento de 8 horas: halógeno es aceptable. Para instalación fija o evento de múltiples días: LED es obligatorio." } },
+      { "@type": "Question", "name": "¿Dónde en Centro Histórico CDMX compro cables DMX confiables?", "acceptedAnswer": { "@type": "Answer", "text": "Calle Uruguay (Cuauhtémoc). Iluminación Especializada Del Centro es especialista en cables DMX 3-pin y 5-pin, conectores XLR profesionales, gelatinas Lee/Rosco, lámparas halógeno, repuestos. Stock permanente. Personal que sabe técnica. Same-day si surge emergencia. Es referencia histórica de técnicos en CDMX." } }
+    ]
+  }
+]);
+const image = "/img/directorio/directorio-tienda-iluminacion-01.avif";
+const imageAlt = "Equipo técnico de iluminación escénica: PAR, Wash, Beam y consola DMX";
+const category = "Iluminación Escénica";
+
+---
+
+<BlogLayout title={title} description={description} canonical={canonical} image={image} imageAlt={imageAlt} category={category} schemaMarkup={schemaMarkup}>
+  <p>Vi a un técnico joven en Centro Histórico intentando configurar 8 PAR LED sin cables DMX de calidad, improvisando con adaptadores 3-pin a 5-pin baratos. Medio evento se cayó. Llamó a Calle Uruguay de emergencia pidiendo cables profesionales. Costo de emergencia: $4,000. Costo preventivo habría sido: $1,200. Esa lección — el equipo profesional no falla si inviertes en lo correcto — la he visto repetirse docenas de veces. Este artículo es para que TÚ no la repitas.</p>
+
+  <p>30 años asesorando técnicos de Centro, Santa Fe, Iztapalapa, Coyoacán. Conozco cada tienda en Calle Uruguay. Sé exactamente qué equipo funciona y qué no. Este artículo es técnico a técnico.</p>
+
+  <h1>Iluminación Escénica Técnica en Centro CDMX</h1>
+
+  <h2>La Ecuación de Iluminación Escénica</h2>
+
+  <p>Todo evento necesita:</p>
+
+  <p><strong>ILUMINACIÓN BASE (Wash) + DRAMA (PAR) + MOVIMIENTO (Beam) = Evento Profesional</strong></p>
+
+  <p>Si te falta cualquiera, el evento se siente incompleto. Si tienes solo Beam (movimiento), escena está oscura entre efectos. Si tienes solo PAR (drama), evento se siente estático. Si tienes solo Wash (base), es aburrido. Combina los tres.</p>
+
+  <h2>Familia de Luminarias: Especificaciones Reales</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Haz Típico</th>
+        <th>Potencia Estándar</th>
+        <th>Uso Primario</th>
+        <th>Costo Renta CDMX/día</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>PAR 64 (Halógeno)</strong></td>
+        <td>15°-60° (concentrado)</td>
+        <td>1000W halógeno</td>
+        <td>Iluminar zona específica con intensidad</td>
+        <td>$800-$1,200</td>
+      </tr>
+      <tr>
+        <td><strong>PAR LED RGB 100-200W</strong></td>
+        <td>15°-60°</td>
+        <td>100-200W LED</td>
+        <td>PAR moderno, color controlable DMX</td>
+        <td>$1,500-$2,500</td>
+      </tr>
+      <tr>
+        <td><strong>Wash Fresnel 1000W</strong></td>
+        <td>40°-150° (muy ancho)</td>
+        <td>1000W halógeno</td>
+        <td>Llenar área completa, atmósfera de color</td>
+        <td>$1,000-$1,500</td>
+      </tr>
+      <tr>
+        <td><strong>Moving Head Beam 300W</strong></td>
+        <td>Motorizado Pan/Tilt</td>
+        <td>300-500W halógeno</td>
+        <td>Efectos dinámicos sincronizados con música</td>
+        <td>$2,500-$4,000</td>
+      </tr>
+      <tr>
+        <td><strong>Scanner / Efecto</strong></td>
+        <td>Rápido, geométrico</td>
+        <td>250W halógeno</td>
+        <td>Patrones rápidos, clubs, DJ sets</td>
+        <td>$2,000-$3,500</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Control DMX: El Corazón Técnico</h2>
+
+  <p>DMX es protocolo estándar que permite consola controlar hasta 512 canales simultáneamente. Si no tienes DMX, estás controlando luces manualmente (on/off) — poco profesional.</p>
+
+  <h3>Configuración Básica</h3>
+
+  <p>Consola → Cable DMX 5-pin XLR → Luminaria 1 → Luminaria 2 → Luminaria 3 (cadena). Si una conexión se suelta, todo se cae. Por eso cables profesionales importan.</p>
+
+  <h3>Especificaciones de Cable DMX Profesional</h3>
+
+  <ul>
+    <li><strong>Impedancia:</strong> 120 Ohms ±10% (NO cable de audio, que es 50 Ohms).</li>
+    <li><strong>Blindaje:</strong> Malla de cobre 100% cobertura.</li>
+    <li><strong>Conductor:</strong> Mínimo AWG 20 (más grueso = mejor).</li>
+    <li><strong>Conector:</strong> Amphenol, Neutrik (profesional). NO conectores genéricos de $50.</li>
+    <li><strong>Marca recomendada:</strong> Belden (estándar broadcast), Procab (belga), Neutrik (premium suiza).</li>
+  </ul>
+
+  <h3>Cables vs. Adaptadores Baratos</h3>
+
+  <p>Técnico barato usa cable audio genérico + adaptador 3-pin a 5-pin barato = desastres. Costo ahorrado: $500. Costo de evento fallido: $25,000. Inversión correcta: $2,000 en cables profesionales, nunca falla.</p>
+
+  <h2>Gelatinas: Lee vs. Rosco (No Hay Perdedor)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspecto</th>
+        <th>Lee Filters</th>
+        <th>Rosco Laboratories</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Origen</strong></td>
+        <td>Londres, UK</td>
+        <td>Nueva York, USA</td>
+      </tr>
+      <tr>
+        <td><strong>Disponibilidad CDMX</strong></td>
+        <td>Calle Uruguay, menos local</td>
+        <td>Calle Uruguay, mejor distribución</td>
+      </tr>
+      <tr>
+        <td><strong>Costo por hoja 1.2m×0.6m</strong></td>
+        <td>$180-$280</td>
+        <td>$150-$220</td>
+      </tr>
+      <tr>
+        <td><strong>Durabilidad</strong></td>
+        <td>Excelente, 1000+ horas halógeno</td>
+        <td>Excelente, similar</td>
+      </tr>
+      <tr>
+        <td><strong>Diferencia de color</strong></td>
+        <td>Lee 200 (Pale Blue) ligeramente más claro</td>
+        <td>Rosco 49 ligeramente más oscuro</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Recomendación técnico a técnico:</strong> Si es nuevo proyecto, elige Rosco (distribución local mejor en CDMX). Si ya tienes experiencia con Lee, continúa con Lee. No hay razón técnica para cambiar.</p>
+
+  <h3>Gelatinas Base Que Toda Producción Necesita</h3>
+
+  <ul>
+    <li>Lee 200 / Rosco 49 (Azul Claro) — atmosfera noctural, cool.</li>
+    <li>Lee 204 / Rosco 79 (Azul Profundo) — drama, energía.</li>
+    <li>Lee 209 / Rosco 15 (Naranja Cálido) — amanecer, energía positiva.</li>
+    <li>Lee 182 / Rosco 26 (Rojo Profundo) — pasión, peligro, drama extremo.</li>
+    <li>Lee 121 / Rosco 90 (Verde) — naturaleza, crecimiento.</li>
+  </ul>
+
+  <h2>Cálculo de Iluminación por Tipo de Evento (Presupuesto Realista)</h2>
+
+  <h3>Concierto 500 Personas, Escenario 15m×10m</h3>
+
+  <ul>
+    <li>8x PAR LED 150W (color dramático): $12,000 renta.</li>
+    <li>4x Wash 1000W (atmósfera base): $6,000.</li>
+    <li>4x Moving Head Beam (sincronización música): $14,000.</li>
+    <li>1x Consola DMX profesional: $3,000 renta.</li>
+    <li>Cables DMX 50m totales: $2,000.</li>
+    <li>Gelatinas (asortidas): $1,500.</li>
+    <li>Operator técnico (8 horas): $3,000.</li>
+    <li><strong>Total: $41,500</strong></li>
+  </ul>
+
+  <h3>Gala Corporativa 300 Personas, Salón Hotel</h3>
+
+  <ul>
+    <li>6x PAR 250W (drama sutil): $8,000 renta.</li>
+    <li>4x Wash 1000W (ambientación suave): $6,000.</li>
+    <li>2x Moving Head (efectos discretos): $6,000.</li>
+    <li>Consola DMX básica: $2,000.</li>
+    <li>Cables + gelatinas: $1,500.</li>
+    <li>Operator técnico (6 horas): $2,000.</li>
+    <li><strong>Total: $25,500</strong></li>
+  </ul>
+
+  <h2>Errores de Técnicos en Centro (30 años de observación)</h2>
+
+  <h3>"Los cables pueden ser cualquiera; lo importante es que transmitan DMX"</h3>
+
+  <p>FALSO. Cable barato intermitentemente pierde señal. Luminaria parpadea, o no responde. Durante evento, es caos. Técnico corre a Calle Uruguay buscando cable de reemplazo de emergencia. Inversión preventiva en cable profesional evita 90% de problemas de campo.</p>
+
+  <h3>"No necesito consola profesional; puedo controlar luces manualmente"</h3>
+
+  <p>Técnicamente posible, pero profesionalmente inaceptable. Manual control = no sincronización con música, cambios lentos, imposible recrear escenas. Si evento requiere cambios en tempo de música, necesitas consola profesional o software de laptop que controle DMX.</p>
+
+  <h3>"Monté luces sin calcular necesidad eléctrica"</h3>
+
+  <p>8 PAR 1000W + 4 Wash 1000W = 12,000W total. Necesita circuito de 60A @120V (o múltiples circuitos de 20A). Si los técnico no calcula, carga cae, y "falla eléctrica" causa blackout. Siempre PRIMERO calcula potencia, luego solicita circuitos adecuados a venue.</p>
+
+  <h3>"Gelatinas reaproveché del evento pasado, están quemadas pero sirven"</h3>
+
+  <p>Gelatina quemada transmite luz desigualmente, creando "hot spots" de color no uniforme. Parece poco profesional. Nueva gelatina cuesta $200. Vale la diferencia.</p>
+
+  <h2>Recursos en Centro Histórico CDMX</h2>
+
+  <p><strong>Iluminación Especializada Del Centro (Calle Uruguay, Cuauhtémoc)</strong> es epicentro técnico:</p>
+
+  <ul>
+    <li>Cables DMX (3-pin antiguo, 5-pin moderno) stock permanente.</li>
+    <li>Gelatinas Lee y Rosco catálogos completos.</li>
+    <li>Lámparas halógeno todos tipos (PAR 64, Fresnel, Moving Head).</li>
+    <li>Conectores XLR nuevos y soldador para reparaciones in situ.</li>
+    <li>Soportes, truss, rigging hardware profesional.</li>
+    <li>Personal técnico experimentado que resuelve problemas raros.</li>
+    <li>Same-day si evento es mañana y falta repuesto.</li>
+  </ul>
+
+  <h2>Checklist para Técnico Antes de Evento</h2>
+
+  <ul>
+    <li>☐ ¿Cables DMX testeados? (Multímetro mide continuidad).</li>
+    <li>☐ ¿Todas las luminarias responden a consola?</li>
+    <li>☐ ¿Lámparas halógeno nuevas? (Vida útil: 300-500 horas; si evento dura 8 horas, lámparas usadas pueden fallar).</li>
+    <li>☐ ¿Potencia eléctrica calculada y circuitos asegurados?</li>
+    <li>☐ ¿Gelatinas colocadas en E-clips correctamente? (Sin arrugas).</li>
+    <li>☐ ¿Repuestos en bolsa técnica? (Cable DMX, conectores, gelatina, fusibles, solder).</li>
+    <li>☐ ¿Rigging seguro? (Si luces están colgadas, estructura soporta peso + factor seguridad 5x).</li>
+    <li>☐ ¿Consola DMX configurada? (Cada luminaria con dirección DMX asignada).</li>
+    <li>☐ ¿Test de patrones funcionando?</li>
+    <li>☐ ¿Botón emergencia de apagado fácil de acceder?</li>
+  </ul>
+
+  <h2>Preguntas frecuentes</h2>
+
+  <h3>¿Cuánto cuesta un cable DMX de calidad vs. uno barato?</h3>
+
+  <p>Barato: $80-$120 por cable 10m (impedancia variable, blindaje cuestionable). Profesional: $180-$300 (impedancia 120 Ohms exacta, blindaje certificado). Diferencia: $100-$180 por cable. Si tienes 5 cables = $500-$900 diferencia. Vale completamente; ahorra drama de evento fallido.</p>
+
+  <h3>¿Puedo usar cable de audio (micrófono) como cable DMX?</h3>
+
+  <p>Técnicamente transmite señal; prácticamente falla constantemente. Cable audio es 50 Ohms; DMX es 120 Ohms. Impedancia diferente = reflexiones de señal = pérdida intermitente. NUNCA hagas esto si evento es importante.</p>
+
+  <h3>¿Halógeno LED: cuál es mejor para concierto?</h3>
+
+  <p>LED si quieres color controlable vía DMX (cambios sutiles de color sin cambiar gelatinas). Halógeno si quieres potencia concentrada (haz muy intenso a distancia larga). Para concierto típico: 60% LED (versatilidad), 40% Halógeno (drama).</p>
+
+  <h3>¿Dónde consigo lámparas halógeno de emergencia si falla una durante evento?</h3>
+
+  <p>Calle Uruguay. Tienda Especializada abre temprano y tiene stock. Si evento es después de horas, algunos técnicos cargan lámparas de repuesto de su kit personal. Regla: NUNCA llegues a evento sin lámparas repuesto. 2x la cantidad de luminarias mínimo.</p>
+
+  <h2>Tu Evento Escénico Merece Iluminación Profesional</h2>
+
+  <p>En REDEIL llevamos 30 años trabajando técnico a técnico en Centro, Santa Fe, Polanco. Conocemos cada tienda en Calle Uruguay. Sabemos qué funciona y qué no. Si tu evento necesita iluminación escénica profesional — concierto, gala, conferencia con efectos — REDEIL ofrece equipo testeado, cables confiables, y soporte técnico durante evento.</p>
+
+  <p>Aunque Iluminación Especializada Del Centro es excelente para compra puntual de repuestos, REDEIL aporta: equipo pre-configurado, cables verificados, operador técnico durante evento, y backup de equipamiento si algo falla. 30 años de experiencia = cero downtime durante tu evento.</p>
+
+  <p>Consulta: 55 3068 2988. Web: rentadeiluminacion.com. Iluminación que enciende tu escena sin dramas.</p>
+
+<div class="blog-interlinking">
+  <h2>Artículos relacionados</h2>
+  <ul>
+    <li><a href="/blog/cables-dmx-gelatinas-repuestos-iluminacion-cdmx/">Cables DMX, Gelatinas y Repuestos: La Base de Toda Producción en CDMX</a></li>
+    <li><a href="/blog/canones-laser-rgb-eventos-fiestas-cdmx/">Cañones Láser RGB para Eventos en CDMX: Impacto Visual Que Recordarán</a></li>
+    <li><a href="/directorio/">→ Directorio completo de proveedores CDMX</a></li>
+  </ul>
+</div>
+
+</BlogLayout>

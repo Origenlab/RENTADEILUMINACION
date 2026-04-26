@@ -1,0 +1,195 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+const title = "Iluminación para tu Negocio en CDMX: El Error que te Cuesta Clientes sin que lo Sepas | REDEIL";
+const description = "Iluminación comercial para negocios. Temperatura de color por tipo de negocio. LED vs halógeno. Ahorros en electricidad. Errores comunes en restaurantes, cafeterías, tiendas.";
+const canonical = "https://rentadeiluminacion.com/blog/iluminacion-comercial-negocios-cdmx-guia/";
+const schemaMarkup = JSON.stringify([
+  { "@context": "https://schema.org", "@type": "Article", "headline": "Iluminación para tu Negocio en CDMX: El Error que te Cuesta Clientes sin que lo Sepas", "description": description, "author": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com" }, "publisher": { "@type": "Organization", "name": "REDEIL", "url": "https://rentadeiluminacion.com", "logo": { "@type": "ImageObject", "url": "https://rentadeiluminacion.com/img/directorio/directorio-fachada-tienda-01.avif" } }, "image": "https://rentadeiluminacion.com/img/directorio/directorio-fachada-tienda-01.avif", "mainEntityOfPage": { "@type": "WebPage", "@id": canonical } },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    { "@type": "Question", "name": "¿Cuál es la temperatura de color ideal para un restaurante?", "acceptedAnswer": { "@type": "Answer", "text": "3000K (blanco cálido). Genera ambiente acogedor, comida se ve apetitosa, clientes se sienten en ambiente de intimidad. 4000K (neutro) está bien para comida rápida o cafeterías. Nunca 5500K+ (frío) en restaurante — comida parece desperdicio, clientes no quieren quedarse." } },
+    { "@type": "Question", "name": "¿Cambiar focos de halógeno a LED realmente ahorra luz?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Halógeno consume 60W para luz equivalente a LED de 10W. Cambio de 50 focos de halógeno a LED = ahorro de $2,000-3,000 pesos/mes en electricidad. Inversion en reemplazo: $3,000-4,000. Se recupera en 1-2 meses. Plus: LED dura 50,000 horas vs halógeno 2,000 horas." } },
+    { "@type": "Question", "name": "¿Importa la CRI (índice de reproducción de color) en negocio comercial?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, especialmente en restaurantes y tiendas de ropa. CRI 90+ significa colores se ven naturales. CRI 70-80 es aceptable pero colores se ven ligeramente apagados. Para tienda de ropa o joyería: CRI 95+ es obligatorio. Para cafetería casual: CRI 85+ suficiente." } },
+    { "@type": "Question", "name": "¿Necesito cambiar toda la iluminación de mi negocio de una vez?", "acceptedAnswer": { "@type": "Answer", "text": "No. Cambia por zonas. Zona de entrada (impacto visual): prioritario. Zona de servicio: segundo. Zona de fondo: puede ser lo último. Por ejemplo: 20 focos entrada = $2,000 gasto inicial, recuperable en 6 semanas de ahorro eléctrico." } }
+  ]}
+]);
+const image = "/img/directorio/directorio-fachada-tienda-01.avif";
+const imageAlt = "Iluminación comercial para negocio en CDMX";
+const category = "Comercial";
+---
+<BlogLayout title={title} description={description} canonical={canonical} image={image} imageAlt={imageAlt} category={category} schemaMarkup={schemaMarkup}>
+  <p>El restaurante con la mejor comida del barrio que siempre está medio vacío tiene algo que el de enfrente no tiene: luz de techo amarilla que hace que la comida se vea del color del cartón. Lo hemos visto. El cliente entra, mira, no se sienta. La comida nunca fue el problema — la iluminación sí. Cambiar los focos puede costar menos que una semana de mesas vacías.</p>
+
+  <p>En 30+ años en CDMX, he visto negocios fracasar por problemas que no son producto ni servicio — es luz mala. He visto también negocios mediocres brillar porque invirtieron bien en iluminación comercial. Psicología simple: si se ve bien iluminado, el cliente siente que el lugar vale la pena. Si se ve oscuro o con luz artificial fea, el cliente entra y quiere salir.</p>
+
+  <h1>Iluminación Comercial para tu Negocio en CDMX</h1>
+
+  <h2>Temperatura de Color por Tipo de Negocio</h2>
+
+  <p>La temperatura de color es donde se comete el primer error.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Negocio</th>
+        <th>Temperatura Ideal</th>
+        <th>Efecto Visual</th>
+        <th>Precio Remodelación Típico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Restaurante Fine Dining</strong></td>
+        <td>2700K (ámbar cálido)</td>
+        <td>Acogedor, íntimo, comida se ve apetitosa</td>
+        <td>$8,000-15,000 (sala completa)</td>
+      </tr>
+      <tr>
+        <td><strong>Restaurante Casual</strong></td>
+        <td>3000K (blanco cálido)</td>
+        <td>Ambiente cómodo, energético sin ser frío</td>
+        <td>$5,000-10,000</td>
+      </tr>
+      <tr>
+        <td><strong>Cafetería/Comida Rápida</strong></td>
+        <td>3500-4000K (neutro cálido)</td>
+        <td>Espacioso, productivo, ánimo de compra</td>
+        <td>$4,000-7,000</td>
+      </tr>
+      <tr>
+        <td><strong>Tienda Retail</strong></td>
+        <td>4500-5000K (neutro)</td>
+        <td>Colores reales, productos se ven claros</td>
+        <td>$6,000-12,000</td>
+      </tr>
+      <tr>
+        <td><strong>Tienda de Ropa</strong></td>
+        <td>5000K + CRI 95+ (neutro + colores reales)</td>
+        <td>Ropa se ve como va a verse al aire libre</td>
+        <td>$8,000-15,000</td>
+      </tr>
+      <tr>
+        <td><strong>Oficina/Coworking</strong></td>
+        <td>4500K (neutro)</td>
+        <td>Energético, favorece productividad</td>
+        <td>$7,000-14,000</td>
+      </tr>
+      <tr>
+        <td><strong>Clínica/Hospital</strong></td>
+        <td>4000K (neutro cálido)</td>
+        <td>Profesional sin ser frío, tranquilizador</td>
+        <td>$12,000-25,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Error más común: comprar focos "por ahí" sin pensar en temperatura. Resultado: mezcla de luces (algunas 3000K, otras 5000K) que se ven desiguales y afeadas.</p>
+
+  <h2>LED vs Halógeno: La Ecuación de Costo Real</h2>
+
+  <p>Halógeno es barato al comprar ($30-80 foco). LED es caro al comprar ($80-200). Pero a largo plazo...</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Aspecto</th>
+        <th>Halógeno</th>
+        <th>LED</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Precio Foco</strong></td>
+        <td>$40-80</td>
+        <td>$120-250</td>
+      </tr>
+      <tr>
+        <td><strong>Consumo Energía</strong></td>
+        <td>50-100W</td>
+        <td>8-15W</td>
+      </tr>
+      <tr>
+        <td><strong>Vida Útil Horas</strong></td>
+        <td>2,000-4,000</td>
+        <td>50,000-100,000</td>
+      </tr>
+      <tr>
+        <td><strong>Cambios Focos/Año</strong></td>
+        <td>2-5 por posición</td>
+        <td>0-1 cada 5 años</td>
+      </tr>
+      <tr>
+        <td><strong>Calor Generado</strong></td>
+        <td>Muy alto (deteriora techo, A/C)</td>
+        <td>Muy bajo</td>
+      </tr>
+      <tr>
+        <td><strong>Costo Año (50 focos)</strong></td>
+        <td>Focos: $1,500 / Electricidad: $4,500 = $6,000</td>
+        <td>Focos: $200 / Electricidad: $800 = $1,000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Cambiar 50 focos de halógeno a LED cuesta $6,000 inicial. Ahorro anual: $5,000. Recuperación: 14 meses. Después: 8 años sin gastar en reemplazo.</p>
+
+  <h2>Errores que Hemos Visto en 30 Años en Negocios CDMX</h2>
+
+  <h3>"Instalamos luz LED pero clientes dijeron que se veía 'industrial'"</h3>
+
+  <p>Temperatura de color equivocada. Compraron LED 5000K (neutro frío) en restaurante. Se veía como oficina de seguros. Cambiaron a 3000K y clientes notaron la diferencia — ambiente se sintió más acogedor, comida se veía mejor. Temperatura es psicología, no es casualidad.</p>
+
+  <h3>"El halógeno que instalamos está quemando el techo"</h3>
+
+  <p>Foco halógeno genera 80-90°C. Techo falso de poliestireno se deforma y oscurece. A los 2 años, visible daño. LED habría sido $100 más pero sin daño. Ahora deben reparar techo ($3,000) además de cambiar luces.</p>
+
+  <h3>"Compramos LED en diferentes momentos y se notan colores diferentes"</h3>
+
+  <p>LED 3000K comprado en 2021 es diferente a LED 3000K en 2023 — fabricante cambió circuitería. Así se ven "colores diferentes" en mismo espacio. Solución: compra lotes completos a mismo tiempo, mismo fabricante. O mezcla deliberada de dos temperaturas (no intermedia, sino clara separación).</p>
+
+  <h2>Checklist: Iluminación para tu Negocio</h2>
+
+  <ul>
+    <li>☐ Definí temperatura de color según tipo de negocio (ver tabla)</li>
+    <li>☐ Mapeé todas las zonas del negocio que necesitan luz</li>
+    <li>☐ Calculé cantidad de focos por zona (regla: 500 lúmenes/m² para retail, 300 para restaurante)</li>
+    <li>☐ Elegí LED sobre halógeno (ROI en 14 meses)</li>
+    <li>☐ Verifiqué CRI 90+ mínimo (especialmente si es retail)</li>
+    <li>☐ Instalé mismo tipo/lote de LED en cada zona (evita colores diferentes)</li>
+    <li>☐ Presupuesté remodelación por fases (entrada primero, luego zonas secundarias)</li>
+    <li>☐ Instalé regulador de intensidad si presupuesto lo permite (ajustes según hora del día)</li>
+    <li>☐ Calculé ahorro mensual en electricidad para justificar inversión</li>
+    <li>☐ Contrató electricista profesional, no DIY (seguridad + código)</li>
+  </ul>
+
+  <h2>Preguntas Frecuentes</h2>
+
+  <h3>¿Puedo cambiar solo algunos focos a LED y dejar halógeno en otros?</h3>
+
+  <p>Técnicamente sí, pero se ve mal. Colores diferentes en mismo ambiente se notan mucho. Si presupuesto es limitado, cambia zona por zona completa — entrada primero, luego servicio, luego fondo.</p>
+
+  <h3>¿El LED parpadea o afecta la comida en video?</h3>
+
+  <p>LED de buena marca no parpadea (85+ CRI, 50,000+ horas). LED muy barato puede tener flicker en video. Para negocio que hace videos (redes sociales), especifica LED sin flicker en compra.</p>
+
+  <h3>¿Qué pasa si quiero cambiar temperatura de color según hora del día?</h3>
+
+  <p>Existen sistemas "tunable" que cambian 2700K-6500K con control remoto o temporizado. Costo: $300-500 por foco (5x precio LED normal). Para restaurante que quiere 3000K de día y 2700K de noche, valdría la pena.</p>
+
+  <h2>Servicios Comerciales REDEIL</h2>
+
+  <p>En REDEIL trabajamos con negocios en toda la CDMX — restaurantes en Polanco, tiendas en Satélite, cafeterías en Coyoacán. Contamos con proveedores como <a href="/directorio/brillante-iluminacion/">Brillante Iluminación</a> y <a href="/directorio/outled-mexico/">Outled México</a> para garantizar equipos de calidad profesional. Diseñamos iluminación comercial que vende. No es casualidad que algunos negocios tengan líneas de espera y otros al lado estén medio vacíos.</p>
+
+  <p><strong>Si tu negocio se siente oscuro o la luz no es atractiva, contáctanos para consulta gratuita de iluminación comercial.</strong> Teléfono: <strong>55 3068 2988</strong>. Hacemos remodelación por fases, diseño según especialidad de negocio, cálculo real de ROI. También consulta nuestras guías sobre <a href="/blog/strips-led-rgb-decoracion-eventos-cdmx/">strips LED RGB</a> y <a href="/blog/kits-iluminacion-fiestas-bodas-cdmx-guia/">kits de iluminación</a> para eventos en tu local.</p>
+
+  <p>La iluminación es inversión. Bien hecha, te trae clientes.</p>
+
+  <div class="blog-interlinking">
+    <h2>Artículos relacionados</h2>
+    <ul>
+      <li><a href="/blog/strips-led-rgb-decoracion-eventos-cdmx/">Strips LED RGB para Eventos en CDMX</a></li>
+      <li><a href="/blog/kits-iluminacion-fiestas-bodas-cdmx-guia/">Kits de Iluminación para Fiestas y Bodas</a></li>
+      <li><a href="/directorio/">→ Directorio completo de proveedores CDMX</a></li>
+    </ul>
+  </div>
+
+</BlogLayout>

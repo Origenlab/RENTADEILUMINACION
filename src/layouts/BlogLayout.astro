@@ -42,8 +42,57 @@ const popularArticles = [
   { title: "¿Cuánto Cuesta un DJ para Boda en CDMX?", slug: "cuanto-cuesta-dj-para-boda-cdmx", category: "Sonido", img: "/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif" },
 ];
 
+// Mapa de empresas del directorio por categoría
+const directorioMap: Record<string, Array<{nombre: string; slug: string; categoria: string; zona: string; rating: number}>> = {
+  "Audio": [
+    { nombre: "Audio Mundo Salvador 30", slug: "audio-mundo-salvador", categoria: "audio", zona: "Centro Histórico, CDMX", rating: 4.1 },
+    { nombre: "Audiomexican", slug: "audiomexican", categoria: "audio", zona: "Gustavo A. Madero, CDMX", rating: 5.0 },
+    { nombre: "Audiosystem Shop", slug: "audiosystem-shop", categoria: "audio", zona: "Iztapalapa, CDMX", rating: 4.8 },
+    { nombre: "Hi-Tech Audio", slug: "hi-tech-audio", categoria: "audio", zona: "CDMX", rating: 4.5 },
+    { nombre: "Forest Ingeniería de Audio", slug: "forest-ingenieria-audio", categoria: "audio", zona: "CDMX", rating: 4.3 },
+  ],
+  "Iluminación": [
+    { nombre: "Brillante Iluminación", slug: "brillante-iluminacion", categoria: "iluminacion", zona: "CDMX", rating: 4.6 },
+    { nombre: "Grupo Lighting", slug: "grupo-lighting", categoria: "iluminacion", zona: "CDMX", rating: 4.4 },
+    { nombre: "Top Show Iluminación", slug: "top-show-iluminacion", categoria: "iluminacion", zona: "CDMX", rating: 4.7 },
+    { nombre: "Outled México", slug: "outled-mexico", categoria: "iluminacion", zona: "CDMX", rating: 4.2 },
+    { nombre: "LED Colors", slug: "led-colors", categoria: "iluminacion", zona: "CDMX", rating: 4.5 },
+  ],
+  "DJ": [
+    { nombre: "DJ Shop", slug: "dj-shop", categoria: "dj", zona: "CDMX", rating: 4.3 },
+    { nombre: "Chilango eShop", slug: "chilango-eshop", categoria: "dj", zona: "CDMX", rating: 4.6 },
+    { nombre: "Music Club CDMX", slug: "music-club-cdmx", categoria: "audio", zona: "CDMX", rating: 4.4 },
+    { nombre: "Topmusic CDMX", slug: "topmusic-cdmx", categoria: "audio", zona: "CDMX", rating: 4.5 },
+  ],
+  "Efectos": [
+    { nombre: "Laser LED", slug: "laser-led", categoria: "efectos", zona: "CDMX", rating: 4.7 },
+    { nombre: "Top Show Iluminación", slug: "top-show-iluminacion", categoria: "iluminacion", zona: "CDMX", rating: 4.7 },
+    { nombre: "Grupo Lighting", slug: "grupo-lighting", categoria: "iluminacion", zona: "CDMX", rating: 4.4 },
+  ],
+  "Sonido": [
+    { nombre: "Audio Mundo Salvador 30", slug: "audio-mundo-salvador", categoria: "audio", zona: "Centro Histórico, CDMX", rating: 4.1 },
+    { nombre: "Representaciones de Audio", slug: "representaciones-de-audio", categoria: "audio", zona: "CDMX", rating: 4.3 },
+    { nombre: "Esquema Musical", slug: "esquema-musical", categoria: "audio", zona: "CDMX", rating: 4.5 },
+    { nombre: "Hi-Tech Audio", slug: "hi-tech-audio", categoria: "audio", zona: "CDMX", rating: 4.5 },
+  ],
+};
+
+const defaultDirectorio = [
+  { nombre: "Audio Mundo Salvador 30", slug: "audio-mundo-salvador", categoria: "audio", zona: "Centro Histórico, CDMX", rating: 4.1 },
+  { nombre: "Brillante Iluminación", slug: "brillante-iluminacion", categoria: "iluminacion", zona: "CDMX", rating: 4.6 },
+  { nombre: "Laser LED", slug: "laser-led", categoria: "efectos", zona: "CDMX", rating: 4.7 },
+  { nombre: "DJ Shop", slug: "dj-shop", categoria: "dj", zona: "CDMX", rating: 4.3 },
+];
+
+const directorioEmpresas = directorioMap[category] || defaultDirectorio;
+
 // Related articles by category
 const relatedByCategory: Record<string, Array<{title: string; description: string; image: string; imageAlt: string; category: string; slug: string}>> = {
+  "Audio": [
+    { title: "Audio Profesional en Neza: Guía Completa", description: "Dónde encontrar audio profesional en Nezahualcóyotl.", image: "/img/directorio/directorio-sistema-sonido-01.avif", imageAlt: "Audio Nezahualcóyotl", category: "Audio", slug: "audio-profesional-nezahualcoyotl-guia-completa" },
+    { title: "Cómo Elegir Micrófono Inalámbrico para Eventos CDMX", description: "Guía técnica para seleccionar el micrófono correcto.", image: "/img/directorio/directorio-tienda-audio-01.avif", imageAlt: "Micrófonos inalámbricos", category: "Audio", slug: "como-elegir-microfono-inalambrico-eventos-cdmx" },
+    { title: "Sistemas Line Array para Eventos de Gran Escala CDMX", description: "Cuándo y por qué usar line array en tu evento.", image: "/img/bocinas/renta-bocinas-line-array-concierto.avif", imageAlt: "Line array eventos CDMX", category: "Audio", slug: "sistemas-linea-array-eventos-gran-escala-cdmx" },
+  ],
   "Bodas": [
     { title: "Checklist de Iluminación para Boda", description: "La lista que usan los wedding planners para no olvidar nada.", image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", imageAlt: "Guirnaldas para boda", category: "Bodas", slug: "checklist-iluminacion-boda" },
     { title: "Iluminación para el Primer Vals", description: "Follow Spot, Gobo y efectos para el momento más fotogénico.", image: "/img/seguidor/renta-luz-seguidor-boda-primer-baile-hmi-1200w-300w.avif", imageAlt: "Iluminación primer vals", category: "Bodas", slug: "iluminacion-primer-vals-boda" },
@@ -53,6 +102,11 @@ const relatedByCategory: Record<string, Array<{title: string; description: strin
     { title: "Tendencias de Iluminación para XV Años 2025", description: "Neón, LED, efectos especiales y todo lo que está de moda.", image: "/img/luces-neon/renta-luces-neon-fiesta-pista-baile-colores-800w.avif", imageAlt: "Luces neón XV años", category: "XV Años", slug: "iluminacion-xv-anos-tendencias" },
     { title: "Efectos Especiales para Entrada de XV Años", description: "CO2, bengalas y sky tracker para la entrada más impactante.", image: "/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif", imageAlt: "Efectos especiales XV", category: "XV Años", slug: "entrada-xv-anos-efectos-especiales" },
     { title: "Iluminación para XV Años en Iztapalapa", description: "Equipos y efectos para salones y jardines.", image: "/img/xv-anos/iluminacion-xv-anos-vals-seguidor.avif", imageAlt: "XV años Iztapalapa", category: "Zonas", slug: "iluminacion-xv-anos-iztapalapa" },
+  ],
+  "Iluminación": [
+    { title: "Iluminación Profesional para Eventos Corporativos Polanco", description: "Qué iluminación usar en eventos corporativos.", image: "/img/directorio/directorio-tienda-iluminacion-01.avif", imageAlt: "Iluminación corporativa Polanco", category: "Iluminación", slug: "iluminacion-profesional-eventos-corporativos-polanco-cdmx" },
+    { title: "Cabezas Móviles Chauvet, Robe y ADJ: Guía de Compra CDMX", description: "Comparativa técnica de las mejores cabezas móviles.", image: "/img/cabezas-moviles/renta-cabezas-moviles-boda-beams-blancos-elegante.avif", imageAlt: "Cabezas móviles CDMX", category: "Iluminación", slug: "cabezas-moviles-chauvet-robe-adj-cdmx-guia-compra" },
+    { title: "Strips LED RGB para Decoración de Eventos CDMX", description: "Cómo usar strips LED en bodas y eventos.", image: "/img/directorio/directorio-almacen-luces-01.avif", imageAlt: "Strips LED eventos", category: "Iluminación", slug: "strips-led-rgb-decoracion-eventos-cdmx" },
   ],
   "Guirnaldas": [
     { title: "¿Cuántos Metros de Guirnaldas Necesito?", description: "Calculadora práctica por tipo de espacio e invitados.", image: "/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif", imageAlt: "Guirnaldas boda jardín", category: "Guirnaldas", slug: "cuantos-metros-guirnaldas-necesito" },
@@ -147,7 +201,7 @@ const relatedArticles = relatedByCategory[category] || defaultRelated;
 
       <!-- Sidebar -->
       <div class="blog-article-sidebar">
-        <BlogSidebar popularArticles={popularArticles} />
+        <BlogSidebar popularArticles={popularArticles} directorioEmpresas={directorioEmpresas} />
       </div>
 
     </div>

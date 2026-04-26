@@ -1,230 +1,146 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import CtaBar from '../../components/CtaBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { getCollection } from 'astro:content';
+import BlogSidebar from '../../components/BlogSidebar.astro';
+import {
+  blogArticles,
+  buildCategories,
+  getPopularArticles,
+  getPageArticles,
+  getTotalPages,
+  ARTICLES_PER_PAGE,
+} from '../../data/blog-articles';
 
-const SITE_URL = 'https://rentadeiluminacion.com';
+const currentPage = 1;
+const totalPages = getTotalPages();
+const pageArticles = getPageArticles(currentPage);
+const categories = buildCategories();
+const popularArticles = getPopularArticles();
 
-const collectionPosts = await getCollection('blog', ({ data }) => !data.draft);
-const collectionArticles = collectionPosts.map(post => ({
-  title: post.data.title,
-  description: post.data.description,
-  slug: post.id,
-  category: post.data.category,
-  image: post.data.image,
-  imageAlt: post.data.imageAlt,
+const catMap = new Map<string, number>();
+blogArticles.forEach(a => {
+  catMap.set(a.category, (catMap.get(a.category) || 0) + 1);
+});
+
+const categoryOrder = ["Audio", "DJ", "Iluminación", "Bodas", "XV Años", "Guirnaldas", "Luces Neón", "Equipos", "Efectos", "Sonido", "Corporativo", "Guía", "Comparativas", "Paquetes", "Temporadas", "Zonas"];
+
+const ctaBarItems = categories.map(cat => ({
+  label: cat.name,
+  href: `/blog/?cat=${cat.slug}`,
 }));
+
 const title = 'Blog de Iluminación para Eventos CDMX | REDEIL';
-const description = 'Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX. 30 años de experiencia. REDEIL.';
+const description = 'Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX.';
 const canonical = 'https://rentadeiluminacion.com/blog/';
 
-const articles = [
-  {
-    title: 'Iluminación para Bodas en CDMX 2026: La Guía Completa',
-    description: 'Los 4 tipos esenciales, precios reales y cuándo reservar. Todo lo que usan los wedding planners.',
-    slug: 'iluminacion-para-bodas-cdmx-2026',
-    category: 'Bodas',
-    image: '/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif',
-    imageAlt: 'Guirnaldas Edison iluminando boda en hacienda CDMX'
-  },
-  {
-    title: 'Guirnaldas para Eventos en Exterior: Guía Definitiva',
-    description: 'Edison vs LED, fórmula de metros, puntos de anclaje y los 3 errores más caros.',
-    slug: 'guirnaldas-para-eventos-exterior-guia',
-    category: 'Guirnaldas',
-    image: '/img/guirnaldas/guirnaldas-exterior-jardin-boda.avif',
-    imageAlt: 'Guirnaldas para jardín en evento exterior CDMX'
-  },
-  {
-    title: 'Sky Tracker: Todo lo que Debes Saber Antes de Rentarlo',
-    description: 'Qué es, dónde funciona, cuántos necesitas y cuánto cuesta. Sin rodeos.',
-    slug: 'sky-tracker-renta-cdmx-todo-lo-que-debes-saber',
-    category: 'Efectos',
-    image: '/img/sky-tracker/sky-tracker-evento-cdmx-noche.avif',
-    imageAlt: 'Sky tracker iluminando cielo en evento CDMX'
-  },
-  {
-    title: 'Efectos Especiales para XV Años: Bengalas, CO2 y Cascadas LED',
-    description: 'Cuáles son seguros en interiores, cuánto cuestan y la combinación perfecta por presupuesto.',
-    slug: 'efectos-especiales-xv-anos-bengalas-co2-cascadas',
-    category: 'XV Años',
-    image: '/img/cascadas-led/cascadas-led-backdrop-boda-espectacular-800w.avif',
-    imageAlt: 'Cascadas LED y efectos especiales para XV años'
-  },
-  {
-    title: 'Sonido Profesional para Eventos en CDMX',
-    description: 'Bocinas, micrófonos, DJ: qué equipo necesitas y precios reales según tamaño del evento.',
-    slug: 'sonido-profesional-eventos-bocinas-dj-cdmx',
-    category: 'Sonido',
-    image: '/img/bocinas-djs/dj-para-bodas-mezclando-musica-evento-800w.avif',
-    imageAlt: 'DJ profesional en boda CDMX con equipo de sonido'
-  },
-  {
-    title: 'Renta de Iluminación para Eventos en Tlalpan CDMX',
-    description: 'Haciendas, jardines y quintas: iluminación profesional con 30 años en la zona.',
-    slug: 'iluminacion-eventos-tlalpan',
-    category: 'Zonas',
-    image: '/img/guirnaldas/guirnaldas-edison-hacienda-boda.avif',
-    imageAlt: 'Iluminación para eventos en Tlalpan CDMX'
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog de Iluminación para Eventos — REDEIL",
+  "description": "Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX.",
+  "url": canonical,
+  "publisher": {
+    "@type": "Organization",
+    "name": "REDEIL",
+    "url": "https://rentadeiluminacion.com"
   }
-];
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Inicio',
-      item: SITE_URL
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Blog',
-      item: canonical
-    }
-  ]
-};
-
-const collectionSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: title,
-  description: description,
-  url: canonical,
-  publisher: {
-    '@type': 'Organization',
-    name: 'REDEIL',
-    url: SITE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE_URL}/img/logo.avif`
-    }
-  },
-  mainEntity: {
-    '@type': 'ItemList',
-    itemListElement: articles.map((article, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      url: `${SITE_URL}/blog/${article.slug}/`,
-      name: article.title,
-      description: article.description,
-      image: `${SITE_URL}${article.image}`
-    }))
-  }
-};
-
-const structuredData = JSON.stringify([breadcrumbSchema, collectionSchema]);
+});
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  canonical={canonical}
-  schemaMarkup={structuredData}
->
+<BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
   <Fragment slot="breadcrumbs">
-    <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Blog' }]} />
+    <Breadcrumbs items={[
+      { label: "Inicio", href: "/" },
+      { label: "Blog" }
+    ]} />
   </Fragment>
 
   <Hero
-    title="Blog REDEIL: Guías de Iluminación y Efectos para tus Eventos"
-    subtitle="Consejos, precios reales y soluciones técnicas de nuestro equipo con 30 años de experiencia."
-    introParagraph1="En REDEIL compartimos 30 años de experiencia en iluminación profesional para bodas, XV años, corporativos y eventos en CDMX. Cada guía está escrita por nuestro equipo técnico con base en situaciones reales."
-    introParagraph2="Encontrarás información práctica sobre equipos, precios, metros de guirnaldas, efectos especiales y todo lo que necesitas para tomar la mejor decisión para tu evento."
+    title="Blog de Iluminación para Eventos"
+    subtitle="Guías prácticas, precios reales y consejos de nuestro equipo técnico con más de 30 años de experiencia."
+    introParagraph1="En REDEIL compartimos más de 30 años de experiencia en iluminación para eventos. Cada artículo está escrito por nuestro equipo técnico con base en situaciones reales de bodas, XV años y corporativos en CDMX y Zona Metropolitana."
+    introParagraph2="Encontrarás información concreta sobre precios, metros de guirnaldas, diferencias entre equipos, efectos especiales y todo lo que necesitas saber para tomar la mejor decisión para tu evento. Sin tecnicismos innecesarios, con datos reales."
   />
 
-  <main>
-    <!-- Articles Grid -->
-    <section class="blog-articles">
-      <div class="container">
-        <div class="articles-grid">
-          {articles.map((article) => (
-            <article class="article-card">
-              <div class="article-card__image-wrapper">
-                <img
-                  src={article.image}
-                  alt={article.imageAlt}
-                  class="article-card__image"
-                  loading="lazy"
-                  decoding="async"
-                  width="400"
-                  height="240"
-                />
-              </div>
-              
-              <div class="article-card__content">
-                <span class="article-card__category">{article.category}</span>
-                <h2 class="article-card__title">{article.title}</h2>
-                <p class="article-card__description">{article.description}</p>
-                
-                <a href={`/blog/${article.slug}/`} class="article-card__link">
-                  Leer artículo →
+
+  {/* ──── PILLS DE CATEGORÍAS ──── */}
+  <section class="blog-filters">
+    <div class="container">
+      <div class="bf-pills">
+        <a href="/blog/" class="bf-pill">Todos</a>
+        {categoryOrder.filter(c => catMap.has(c)).map(cat => (
+          <a href={`/blog/`} class="bf-pill">{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ──── GRID + SIDEBAR ──── */}
+  <section class="blog-main">
+    <div class="container blog-main__layout">
+      <div class="blog-main__content">
+        <div class="blog-grid">
+          {pageArticles.map(article => (
+            <article class="bc">
+              <a href={`/blog/${article.slug}/`} class="bc__img-link">
+                <div class="bc__img">
+                  <img src={article.img} alt={article.title} loading="lazy" width="600" height="338" />
+                  <span class="bc__cat">{article.category}</span>
+                </div>
+              </a>
+              <div class="bc__body">
+                <h2 class="bc__title">
+                  <a href={`/blog/${article.slug}/`}>{article.title}</a>
+                </h2>
+                <p class="bc__desc">{article.excerpt}</p>
+                <a href={`/blog/${article.slug}/`} class="bc__link">
+                  Leer artículo <span aria-hidden="true">→</span>
                 </a>
               </div>
             </article>
           ))}
         </div>
-      </div>
-    </section>
 
-    <!-- Content Collection Articles -->
-    {collectionArticles.length > 0 && (
-      <section class="blog-articles blog-articles--alt">
-        <div class="container">
-          <h2 class="blog-section-title">Más guías y comparativas</h2>
-          <div class="articles-grid">
-            {collectionArticles.map((article) => (
-              <article class="article-card">
-                <div class="article-card__image-wrapper">
-                  <img
-                    src={article.image}
-                    alt={article.imageAlt}
-                    class="article-card__image"
-                    loading="lazy"
-                    decoding="async"
-                    width="400"
-                    height="240"
-                  />
-                </div>
-                <div class="article-card__content">
-                  <span class="article-card__category">{article.category}</span>
-                  <h3 class="article-card__title">{article.title}</h3>
-                  <p class="article-card__description">{article.description}</p>
-                  <a href={`/blog/${article.slug}/`} class="article-card__link">
-                    Leer artículo →
-                  </a>
-                </div>
-              </article>
+        {/* ──── PAGINACIÓN ──── */}
+        <nav class="pagination" aria-label="Páginas del blog">
+          <div class="pagination__pages">
+            <a href="/blog/" class="pagination__page pagination__page--active" aria-current="page">1</a>
+            {Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map(p => (
+              <a
+                href={`/blog/pagina/${p}/`}
+                class="pagination__page"
+              >{p}</a>
             ))}
           </div>
-        </div>
-      </section>
-    )}
 
-    <!-- CTA Final -->
-    <section class="blog-cta">
-      <div class="container">
-        <div class="blog-cta__inner">
-          <h2>¿Listo para cotizar tu evento?</h2>
-          <p>Nuestro equipo técnico responde en máximo 2 horas.</p>
-          <div class="blog-cta__buttons">
-            <a
-              href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20quiero%20cotizar%20iluminaci%C3%B3n%20para%20mi%20evento"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary"
-            >
-              Cotizar por WhatsApp →
-            </a>
-          </div>
-        </div>
+          {totalPages > 1 && (
+            <a href={`/blog/pagina/2/`} class="pagination__next">Siguiente →</a>
+          )}
+        </nav>
       </div>
-    </section>
-  </main>
+
+      <aside class="blog-main__sidebar">
+        <BlogSidebar
+          categories={categories}
+          popularArticles={popularArticles}
+        />
+      </aside>
+    </div>
+  </section>
+
+  {/* ──── CTA FINAL ──── */}
+  <section class="blog-cta-final">
+    <div class="container blog-cta-final__inner">
+      <h2>¿No encuentras lo que buscas?</h2>
+      <p>Nuestro equipo técnico tiene la respuesta. Cotiza sin compromiso o pregúntanos directamente por WhatsApp.</p>
+      <div class="blog-cta-final__btns">
+        <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Gratis →</a>
+        <a href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminación." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">WhatsApp</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->
