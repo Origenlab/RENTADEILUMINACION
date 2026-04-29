@@ -1,10 +1,9 @@
 ---
 /**
- * BlogSidebar — REDEIL Blog Professional
+ * BlogSidebar — REDEIL Blog Professional v2
  * ─────────────────────────────────────────
- * Sidebar sticky para blog: categorías, artículos populares, CTA WhatsApp.
- * Reutilizable en index y artículos individuales.
- * Sin animaciones. Código limpio.
+ * Sidebar editorial con widgets de interlinking real.
+ * Reutilizable en index, paginación y artículos individuales.
  */
 interface PopularArticle {
   title: string;
@@ -36,6 +35,7 @@ interface Props {
   whatsapp?: string;
   waMessage?: string;
   showSearch?: boolean;
+  currentSlug?: string;
 }
 
 const {
@@ -44,33 +44,105 @@ const {
   directorioEmpresas = [],
   activeCategory = '',
   phone = "55 3068 2988",
-  whatsapp = "5530682988",
+  whatsapp = "5215530682988",
   waMessage = "Hola REDEIL, vi su blog y quiero cotizar iluminación para mi evento.",
   showSearch = true,
+  currentSlug = '',
 } = Astro.props;
 
 const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`;
+
+// ── Servicios destacados (slugs reales) ──
+const servicios = [
+  { name: "Iluminación Completa", href: "/servicios/iluminacion/" },
+  { name: "Cabezas Móviles", href: "/servicios/cabezas-moviles/" },
+  { name: "Guirnaldas Edison", href: "/servicios/guirnaldas/" },
+  { name: "Luces Neón LED", href: "/servicios/luces-neon/" },
+  { name: "Cascadas LED", href: "/servicios/cascadas-led/" },
+  { name: "Sky Tracker", href: "/servicios/sky-tracker/" },
+  { name: "City Color", href: "/servicios/city-color/" },
+  { name: "Pantallas LED", href: "/servicios/pantallas-led/" },
+  { name: "DJ Profesional", href: "/servicios/dj/" },
+  { name: "Bocinas JBL/QSC", href: "/servicios/bocinas/" },
+  { name: "Humo Bajo", href: "/servicios/humo-bajo/" },
+  { name: "Bengalas Frías", href: "/servicios/sparklers/" },
+  { name: "Confeti", href: "/servicios/confeti/" },
+  { name: "Luz Negra UV", href: "/servicios/luz-negra/" },
+];
+
+// ── Zonas de cobertura (con artículos asociados) ──
+const zonas = [
+  { name: "Polanco", href: "/blog/iluminacion-eventos-polanco/" },
+  { name: "Coyoacán", href: "/blog/iluminacion-bodas-coyoacan/" },
+  { name: "Naucalpan", href: "/blog/iluminacion-eventos-naucalpan/" },
+  { name: "Huixquilucan", href: "/blog/iluminacion-eventos-huixquilucan/" },
+  { name: "Tlalpan", href: "/blog/iluminacion-bodas-tlalpan/" },
+  { name: "Satélite", href: "/blog/iluminacion-bodas-satelite/" },
+  { name: "Toluca / Metepec", href: "/blog/iluminacion-eventos-toluca-metepec/" },
+  { name: "Iztapalapa", href: "/blog/iluminacion-eventos-iztapalapa/" },
+  { name: "Benito Juárez", href: "/blog/iluminacion-eventos-benito-juarez/" },
+  { name: "Centro Histórico", href: "/blog/iluminacion-eventos-centro-historico-cdmx/" },
+  { name: "Álvaro Obregón", href: "/blog/iluminacion-eventos-alvaro-obregon/" },
+  { name: "Xochimilco", href: "/blog/iluminacion-eventos-xochimilco/" },
+];
+
+// ── Por tipo de evento ──
+const tipos = [
+  { name: "Bodas", href: "/blog/iluminacion-para-bodas-cdmx-2026/", icon: "💍" },
+  { name: "XV Años", href: "/blog/iluminacion-xv-anos-tendencias/", icon: "👑" },
+  { name: "Corporativo", href: "/blog/iluminacion-eventos-corporativos-cdmx/", icon: "🏢" },
+  { name: "Garden Party", href: "/blog/iluminacion-garden-party-cdmx/", icon: "🌿" },
+  { name: "Conferencias", href: "/blog/audiovisual-conferencias-cdmx/", icon: "🎤" },
+  { name: "Glow Party", href: "/blog/glow-party-ideas-cdmx/", icon: "✨" },
+];
 ---
 
 <aside class="bsb">
-  {/* ── Search ── */}
+  {/* ── Buscador ── */}
   {showSearch && (
     <div class="bsb__card bsb__search-card">
       <div class="bsb__search-box">
-        <svg class="bsb__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" class="bsb__search-input" placeholder="Buscar artículos..." id="blogSearch" />
+        <svg class="bsb__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" class="bsb__search-input" placeholder="Buscar en el blog…" id="blogSearch" aria-label="Buscar artículos" />
       </div>
+      <div class="bsb__search-results" id="blogSearchResults" hidden></div>
     </div>
   )}
 
-  {/* ── Categories ── */}
+  {/* ── Top artículos (numerados) ── */}
+  {popularArticles.length > 0 && (
+    <div class="bsb__card">
+      <h3 class="bsb__card-title">
+        <span class="bsb__card-title-bar" aria-hidden="true"></span>
+        Más leídos
+      </h3>
+      <ol class="bsb__top-list">
+        {popularArticles.map((art, i) => (
+          <li class="bsb__top-item">
+            <a href={`/blog/${art.slug}/`} class="bsb__top-link">
+              <span class="bsb__top-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div class="bsb__top-text">
+                <span class="bsb__top-cat">{art.category}</span>
+                <span class="bsb__top-title">{art.title}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )}
+
+  {/* ── Categorías ── */}
   {categories.length > 0 && (
     <div class="bsb__card">
-      <h3 class="bsb__card-title">Categorías</h3>
+      <h3 class="bsb__card-title">
+        <span class="bsb__card-title-bar" aria-hidden="true"></span>
+        Categorías
+      </h3>
       <ul class="bsb__cat-list">
         <li>
           <a href="/blog/" class:list={['bsb__cat-link', { 'bsb__cat-link--active': !activeCategory }]}>
-            <span>Todos</span>
+            <span>Todos los artículos</span>
             <span class="bsb__cat-count">{categories.reduce((sum, c) => sum + c.count, 0)}</span>
           </a>
         </li>
@@ -86,49 +158,89 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
     </div>
   )}
 
-  {/* ── Popular Articles ── */}
-  {popularArticles.length > 0 && (
-    <div class="bsb__card">
-      <h3 class="bsb__card-title">Artículos Populares</h3>
-      <ul class="bsb__pop-list">
-        {popularArticles.map((art, i) => (
-          <li class="bsb__pop-item">
-            <a href={`/blog/${art.slug}/`} class="bsb__pop-link">
-              {art.img && (
-                <div class="bsb__pop-img">
-                  <img src={art.img} alt={art.title} loading="lazy" width="80" height="60" />
-                </div>
-              )}
-              <div class="bsb__pop-text">
-                <span class="bsb__pop-cat">{art.category}</span>
-                <span class="bsb__pop-title">{art.title}</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )}
+  {/* ── Por tipo de evento ── */}
+  <div class="bsb__card">
+    <h3 class="bsb__card-title">
+      <span class="bsb__card-title-bar" aria-hidden="true"></span>
+      Por tipo de evento
+    </h3>
+    <ul class="bsb__event-list">
+      {tipos.map((t) => (
+        <li>
+          <a href={t.href} class="bsb__event-link">
+            <span class="bsb__event-icon" aria-hidden="true">{t.icon}</span>
+            <span class="bsb__event-name">{t.name}</span>
+            <span class="bsb__event-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* ── CTA WhatsApp ── */}
+  <div class="bsb__card bsb__cta-card">
+    <div class="bsb__cta-icon" aria-hidden="true">💡</div>
+    <h3 class="bsb__cta-title">Cotiza tu evento</h3>
+    <p class="bsb__cta-text">Diseñamos tu iluminación con base en tu venue, invitados y presupuesto. Respuesta en menos de 1 hora.</p>
+    <a href={waHref} target="_blank" rel="noopener noreferrer" class="bsb__cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Cotizar por WhatsApp
+    </a>
+    <a href={`tel:+${whatsapp}`} class="bsb__cta-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      {phone}
+    </a>
+  </div>
 
   {/* ── Servicios REDEIL ── */}
-  <div class="bsb__card bsb__servicios-card">
-    <h3 class="bsb__card-title">Servicios REDEIL</h3>
+  <div class="bsb__card">
+    <h3 class="bsb__card-title">
+      <span class="bsb__card-title-bar" aria-hidden="true"></span>
+      Servicios REDEIL
+    </h3>
     <div class="bsb__tags">
-      <a href="/servicios/iluminacion-led/" class="bsb__tag">Iluminación LED</a>
-      <a href="/servicios/cabezas-moviles/" class="bsb__tag">Cabezas Móviles</a>
-      <a href="/servicios/bocinas-pa/" class="bsb__tag">Bocinas PA</a>
-      <a href="/servicios/dj/" class="bsb__tag">DJ Profesional</a>
-      <a href="/servicios/guirnaldas/" class="bsb__tag">Guirnaldas</a>
-      <a href="/servicios/efectos-especiales/" class="bsb__tag">Efectos Especiales</a>
-      <a href="/servicios/laser/" class="bsb__tag">Láseres</a>
-      <a href="/servicios/pantallas-led/" class="bsb__tag">Pantallas LED</a>
+      {servicios.map((s) => (
+        <a href={s.href} class="bsb__tag">{s.name}</a>
+      ))}
+    </div>
+    <a href="/servicios/" class="bsb__more-link">Ver todos los servicios →</a>
+  </div>
+
+  {/* ── Zonas de cobertura ── */}
+  <div class="bsb__card">
+    <h3 class="bsb__card-title">
+      <span class="bsb__card-title-bar" aria-hidden="true"></span>
+      Zonas de cobertura
+    </h3>
+    <div class="bsb__tags bsb__tags--zonas">
+      {zonas.map((z) => (
+        <a href={z.href} class="bsb__tag bsb__tag--zona">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {z.name}
+        </a>
+      ))}
+    </div>
+    <a href="/zonas-de-cobertura/" class="bsb__more-link">Ver todas las zonas →</a>
+  </div>
+
+  {/* ── Newsletter / contacto ── */}
+  <div class="bsb__card bsb__news-card">
+    <div class="bsb__news-badge">REDEIL · 30 años</div>
+    <h3 class="bsb__news-title">¿Necesitas asesoría técnica?</h3>
+    <p class="bsb__news-text">Nuestro equipo lleva más de 30 años montando bodas, XV y corporativos en CDMX. Te ayudamos a planear sin compromiso.</p>
+    <div class="bsb__news-actions">
+      <a href="/contacto/" class="bsb__news-btn">Cotiza gratis →</a>
+      <a href="/nosotros/" class="bsb__news-link">Conoce REDEIL</a>
     </div>
   </div>
 
-  {/* ── Proveedores Recomendados ── */}
+  {/* ── Proveedores Recomendados (opcional) ── */}
   {directorioEmpresas && directorioEmpresas.length > 0 && (
     <div class="bsb__card bsb__directorio-card">
-      <h3 class="bsb__card-title">Proveedores en tu Zona</h3>
+      <h3 class="bsb__card-title">
+        <span class="bsb__card-title-bar" aria-hidden="true"></span>
+        Proveedores en tu zona
+      </h3>
       <ul class="bsb__dir-list">
         {directorioEmpresas.map((empresa) => (
           <li class="bsb__dir-item">
@@ -144,144 +256,60 @@ const waHref = `https://wa.me/${whatsapp}?text=${encodeURIComponent(waMessage)}`
           </li>
         ))}
       </ul>
-      <a href="/directorio/" class="bsb__dir-all">Ver directorio completo →</a>
+      <a href="/directorio/" class="bsb__more-link">Ver directorio completo →</a>
     </div>
   )}
-
-  {/* ── CTA WhatsApp ── */}
-  <div class="bsb__card bsb__cta-card">
-    <div class="bsb__cta-icon">💡</div>
-    <h3 class="bsb__cta-title">¿Tienes un evento?</h3>
-    <p class="bsb__cta-text">Cotiza tu iluminación en menos de 2 minutos. Sin compromiso.</p>
-    <button type="button" data-open-chat class="bsb__cta-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Cotizar ahora
-    </button>
-    <button type="button" data-open-chat class="bsb__cta-link">Chatear con asesor →</button>
-  </div>
-
-  {/* ── Newsletter / Contact ── */}
-  <div class="bsb__card">
-    <h3 class="bsb__card-title">¿Necesitas ayuda?</h3>
-    <p class="bsb__help-text">Nuestro equipo técnico tiene más de 30 años de experiencia en iluminación para eventos.</p>
-    <a href={`tel:+52${whatsapp}`} class="bsb__help-phone">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      {phone}
-    </a>
-  </div>
 </aside>
 
-<style>
-  /* Servicios REDEIL - Tags */
-  .bsb__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+<script is:inline>
+  // Buscador en sidebar: filtra tarjetas visibles del listado actual.
+  (function () {
+    const input = document.getElementById('blogSearch');
+    if (!input) return;
+    const grid = document.querySelector('.blog-grid');
+    const featured = document.querySelector('.bc-feat');
+    const sectionHead = document.querySelector('.blog-section-head');
+    const pagination = document.querySelector('.pagination');
 
-  .bsb__tag {
-    display: inline-block;
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    border-radius: 20px;
-    background: var(--color-surface, #f9fafb);
-    border: 1px solid var(--color-border, #e5e7eb);
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
+    let emptyMsg = null;
+    function ensureEmpty() {
+      if (emptyMsg) return emptyMsg;
+      emptyMsg = document.createElement('p');
+      emptyMsg.className = 'blog-search-empty';
+      emptyMsg.textContent = 'Sin resultados en esta página. Prueba navegar a otra página o cambiar el término.';
+      emptyMsg.style.cssText = 'padding:1.5rem;text-align:center;color:#6c757d;font-size:0.9rem;background:#fafbfc;border:1px dashed #e7eaee;border-radius:10px;margin-top:1rem;';
+      grid && grid.parentNode && grid.parentNode.insertBefore(emptyMsg, grid.nextSibling);
+      return emptyMsg;
+    }
 
-  .bsb__tag:hover {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-  }
+    function norm(s) {
+      return (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
 
-  .bsb__servicios-card {
-    /* hereda de .bsb__card */
-  }
+    input.addEventListener('input', function () {
+      const q = norm(input.value.trim());
+      if (!grid) return;
+      const cards = grid.querySelectorAll('.bc');
+      let visible = 0;
 
-  /* Directorio - Proveedores */
-  .bsb__directorio-card {
-    /* hereda de .bsb__card */
-  }
+      // Featured: ocultar al filtrar
+      if (featured) featured.style.display = q ? 'none' : '';
+      if (sectionHead) sectionHead.style.display = q ? 'none' : '';
+      if (pagination) pagination.style.display = q ? 'none' : '';
 
-  .bsb__dir-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+      cards.forEach(function (card) {
+        const t = norm(card.querySelector('.bc__title')?.textContent);
+        const d = norm(card.querySelector('.bc__desc')?.textContent);
+        const c = norm(card.querySelector('.bc__cat')?.textContent);
+        const match = !q || t.includes(q) || d.includes(q) || c.includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
 
-  .bsb__dir-item {
-    margin: 0;
-  }
-
-  .bsb__dir-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 12px;
-    background: var(--color-surface, #f9fafb);
-    border: 1px solid var(--color-border, #e5e7eb);
-    border-radius: 6px;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.2s ease;
-  }
-
-  .bsb__dir-link:hover {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
-  }
-
-  .bsb__dir-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    flex: 1;
-  }
-
-  .bsb__dir-name {
-    display: block;
-    font-weight: 600;
-    font-size: 0.875rem;
-  }
-
-  .bsb__dir-zona {
-    display: block;
-    font-size: 0.75rem;
-    opacity: 0.7;
-  }
-
-  .bsb__dir-link:hover .bsb__dir-zona {
-    opacity: 0.9;
-  }
-
-  .bsb__dir-rating {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    white-space: nowrap;
-    margin-left: 8px;
-  }
-
-  .bsb__dir-all {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .bsb__dir-all:hover {
-    text-decoration: underline;
-  }
-</style>
+      const msg = ensureEmpty();
+      msg.style.display = q && visible === 0 ? '' : 'none';
+    });
+  })();
+</script>
 
 <!-- Estilos en /css/style.css (global) — evita FOUC en dev mode -->

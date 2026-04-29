@@ -1,52 +1,68 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Hero from '../../components/Hero.astro';
-import CtaBar from '../../components/CtaBar.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import BlogSidebar from '../../components/BlogSidebar.astro';
+import Hero from '../../components/Hero.astro';
 import {
   blogArticles,
   buildCategories,
   getPopularArticles,
   getPageArticles,
   getTotalPages,
-  ARTICLES_PER_PAGE,
 } from '../../data/blog-articles';
 
 const currentPage = 1;
 const totalPages = getTotalPages();
-const pageArticles = getPageArticles(currentPage);
+const allPageArticles = getPageArticles(currentPage);
+const featured = allPageArticles[0];
+const pageArticles = allPageArticles.slice(1);
 const categories = buildCategories();
 const popularArticles = getPopularArticles();
+
+const totalArticles = blogArticles.length;
+const totalCategories = categories.length;
 
 const catMap = new Map<string, number>();
 blogArticles.forEach(a => {
   catMap.set(a.category, (catMap.get(a.category) || 0) + 1);
 });
 
-const categoryOrder = ["Audio", "DJ", "Iluminación", "Bodas", "XV Años", "Guirnaldas", "Luces Neón", "Equipos", "Efectos", "Sonido", "Corporativo", "Guía", "Comparativas", "Paquetes", "Temporadas", "Zonas"];
+const categoryOrder = ["Bodas", "XV Años", "Iluminación", "Sonido", "Audio", "DJ", "Guirnaldas", "Luces Neón", "Efectos", "Equipos", "Corporativo", "Comparativas", "Paquetes", "Temporadas", "Zonas", "Guía"];
 
-const ctaBarItems = categories.map(cat => ({
-  label: cat.name,
-  href: `/blog/?cat=${cat.slug}`,
-}));
-
-const title = 'Blog de Iluminación para Eventos CDMX | REDEIL';
-const description = 'Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX.';
+const title = 'Blog REDEIL | Iluminación, Sonido y Efectos para Eventos CDMX';
+const description = 'Guías editoriales escritas por nuestro equipo técnico: precios reales, comparativas, checklists y casos de bodas, XV años y eventos corporativos en CDMX y Zona Metropolitana.';
 const canonical = 'https://rentadeiluminacion.com/blog/';
 
 const schemaMarkup = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Blog de Iluminación para Eventos — REDEIL",
-  "description": "Guías de iluminación, sonido y efectos para bodas, XV años y eventos CDMX.",
+  "name": "Blog REDEIL — Iluminación para Eventos CDMX",
+  "description": description,
   "url": canonical,
   "publisher": {
     "@type": "Organization",
     "name": "REDEIL",
-    "url": "https://rentadeiluminacion.com"
-  }
+    "url": "https://rentadeiluminacion.com",
+    "logo": "https://rentadeiluminacion.com/icon.png"
+  },
+  "blogPost": blogArticles.slice(0, 12).map(a => ({
+    "@type": "BlogPosting",
+    "headline": a.title,
+    "url": `https://rentadeiluminacion.com/blog/${a.slug}/`,
+    "image": `https://rentadeiluminacion.com${a.img}`,
+    "description": a.excerpt
+  }))
 });
+
+// Estimación de lectura
+const readTime = (s: string) => Math.max(4, Math.min(9, Math.ceil(s.length / 35)));
+
+// Slug helper (mismo criterio que buildCategories)
+const slugify = (s: string) =>
+  s.toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/\s+/g, '-');
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schemaMarkup={schemaMarkup}>
@@ -57,30 +73,79 @@ const schemaMarkup = JSON.stringify({
     ]} />
   </Fragment>
 
+  {/* ──── HERO ──── */}
   <Hero
     title="Blog de Iluminación para Eventos"
     subtitle="Guías prácticas, precios reales y consejos de nuestro equipo técnico con más de 30 años de experiencia."
-    introParagraph1="En REDEIL compartimos más de 30 años de experiencia en iluminación para eventos. Cada artículo está escrito por nuestro equipo técnico con base en situaciones reales de bodas, XV años y corporativos en CDMX y Zona Metropolitana."
-    introParagraph2="Encontrarás información concreta sobre precios, metros de guirnaldas, diferencias entre equipos, efectos especiales y todo lo que necesitas saber para tomar la mejor decisión para tu evento. Sin tecnicismos innecesarios, con datos reales."
+    hideCtas={true}
+    stats={[
+      { value: `${totalArticles}+`, label: "Artículos publicados" },
+      { value: `${totalCategories}`, label: "Categorías editoriales" },
+      { value: "+30", label: "Años de experiencia" },
+      { value: "CDMX", label: "Y zona metropolitana" }
+    ]}
+    introParagraph1='En REDEIL compartimos más de 30 años de experiencia en iluminación, sonido y efectos para eventos. Cada artículo está escrito por nuestro equipo técnico con base en situaciones reales de <strong>bodas, XV años y corporativos</strong> en CDMX y Zona Metropolitana.'
+    introParagraph2='Encontrarás información concreta sobre <strong>precios, metros de guirnaldas, comparativas de equipos, efectos especiales</strong> y todo lo que necesitas para tomar la mejor decisión para tu evento. Sin tecnicismos innecesarios, con datos reales del campo.'
   />
 
-
   {/* ──── PILLS DE CATEGORÍAS ──── */}
-  <section class="blog-filters">
+  <section class="blog-filters" aria-label="Filtrar por categoría">
     <div class="container">
       <div class="bf-pills">
-        <a href="/blog/" class="bf-pill">Todos</a>
+        <a href="/blog/" class="bf-pill bf-pill--active">
+          Todos <span class="bf-pill__count">{totalArticles}</span>
+        </a>
         {categoryOrder.filter(c => catMap.has(c)).map(cat => (
-          <a href={`/blog/`} class="bf-pill">{cat} <span class="bf-pill__count">{catMap.get(cat)}</span></a>
+          <a href={`/blog/?cat=${slugify(cat)}`} class="bf-pill">
+            {cat} <span class="bf-pill__count">{catMap.get(cat)}</span>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  {/* ──── GRID + SIDEBAR ──── */}
+  {/* ──── FEATURED + GRID + SIDEBAR ──── */}
   <section class="blog-main">
     <div class="container blog-main__layout">
       <div class="blog-main__content">
+
+        {/* Artículo destacado */}
+        {featured && (
+          <article class="bc-feat">
+            <a href={`/blog/${featured.slug}/`} class="bc-feat__img-link">
+              <div class="bc-feat__img">
+                <img src={featured.img} alt={featured.title} loading="eager" fetchpriority="high" width="1280" height="720" />
+                <span class="bc-feat__badge">Artículo destacado</span>
+              </div>
+            </a>
+            <div class="bc-feat__body">
+              <div class="bc-feat__meta">
+                <span class="bc-feat__cat">{featured.category}</span>
+                <span class="bc-feat__sep" aria-hidden="true">·</span>
+                <span class="bc-feat__read">{readTime(featured.excerpt)} min de lectura</span>
+              </div>
+              <h2 class="bc-feat__title">
+                <a href={`/blog/${featured.slug}/`}>{featured.title}</a>
+              </h2>
+              <p class="bc-feat__desc">{featured.excerpt}</p>
+              <div class="bc-feat__actions">
+                <a href={`/blog/${featured.slug}/`} class="bc-feat__cta">
+                  Leer artículo completo
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <span class="bc-feat__author">Equipo Técnico REDEIL</span>
+              </div>
+            </div>
+          </article>
+        )}
+
+        {/* Header de listado */}
+        <div class="blog-section-head">
+          <h2 class="blog-section-head__title">Últimas guías editoriales</h2>
+          <p class="blog-section-head__sub">Página {currentPage} de {totalPages} · {pageArticles.length + 1} artículos en esta página</p>
+        </div>
+
+        {/* Grid de tarjetas */}
         <div class="blog-grid">
           {pageArticles.map(article => (
             <article class="bc">
@@ -91,32 +156,37 @@ const schemaMarkup = JSON.stringify({
                 </div>
               </a>
               <div class="bc__body">
-                <h2 class="bc__title">
+                <div class="bc__meta">
+                  <span class="bc__read">{readTime(article.excerpt)} min</span>
+                  <span class="bc__sep" aria-hidden="true">·</span>
+                  <span class="bc__by">REDEIL</span>
+                </div>
+                <h3 class="bc__title">
                   <a href={`/blog/${article.slug}/`}>{article.title}</a>
-                </h2>
+                </h3>
                 <p class="bc__desc">{article.excerpt}</p>
                 <a href={`/blog/${article.slug}/`} class="bc__link">
-                  Leer artículo <span aria-hidden="true">→</span>
+                  Leer artículo
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
               </div>
             </article>
           ))}
         </div>
 
-        {/* ──── PAGINACIÓN ──── */}
+        {/* Paginación */}
         <nav class="pagination" aria-label="Páginas del blog">
           <div class="pagination__pages">
             <a href="/blog/" class="pagination__page pagination__page--active" aria-current="page">1</a>
             {Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map(p => (
-              <a
-                href={`/blog/pagina/${p}/`}
-                class="pagination__page"
-              >{p}</a>
+              <a href={`/blog/pagina/${p}/`} class="pagination__page">{p}</a>
             ))}
           </div>
-
           {totalPages > 1 && (
-            <a href={`/blog/pagina/2/`} class="pagination__next">Siguiente →</a>
+            <a href={`/blog/pagina/2/`} class="pagination__next">
+              Siguiente
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           )}
         </nav>
       </div>
@@ -133,11 +203,12 @@ const schemaMarkup = JSON.stringify({
   {/* ──── CTA FINAL ──── */}
   <section class="blog-cta-final">
     <div class="container blog-cta-final__inner">
-      <h2>¿No encuentras lo que buscas?</h2>
-      <p>Nuestro equipo técnico tiene la respuesta. Cotiza sin compromiso o pregúntanos directamente por WhatsApp.</p>
+      <div class="blog-cta-final__badge">REDEIL · Producción integral</div>
+      <h2>¿No encuentras la respuesta a tu evento?</h2>
+      <p>Cuéntanos qué venue, cuántos invitados y qué fecha. Te respondemos con un plan técnico y un estimado real en menos de 1 hora.</p>
       <div class="blog-cta-final__btns">
         <a href="/contacto/" class="btn btn-primary btn-lg">Cotizar Gratis →</a>
-        <a href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminación." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">WhatsApp</a>
+        <a href="https://wa.me/5215530682988?text=Hola%20REDEIL%2C%20tengo%20una%20pregunta%20sobre%20iluminaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">WhatsApp directo</a>
       </div>
     </div>
   </section>
