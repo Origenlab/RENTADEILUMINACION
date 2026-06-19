@@ -303,96 +303,24 @@ import Footer from '../components/Footer.astro';
         : startObserver();
     })();
   </script>
-  <!-- DMChamp Chat Widget -->
-  <script is:inline src="https://api.dmchamp.com/v1/chat-widget/T1ascJwdozIT8qo0YtQh"></script>
-  <!-- Global helper: abre el chat DMChamp desde cualquier parte del sitio -->
-  <script is:inline>
-  window.openDmchampChat = function() {
-    var bubble = document.querySelector('.wai-chat-bubble');
-    if (bubble) { bubble.click(); return; }
-    var container = document.querySelector('.wai-widget-container');
-    if (container) {
-      var btn = container.querySelector('button') || container.firstElementChild;
-      if (btn) { btn.click(); return; }
-    }
-  };
-  // Delegación global: cualquier elemento con data-open-chat abre el widget
-  document.addEventListener('click', function(e) {
-    var el = e.target.closest('[data-open-chat]');
-    if (el) { e.preventDefault(); window.openDmchampChat(); }
-  });
-  </script>
-  <!-- DMChamp i18n — traducir textos del widget al español via MutationObserver -->
+  <!-- Contacto directo por WhatsApp (cualquier botón con data-open-chat) -->
   <script is:inline>
   (function() {
-    var translations = {
-      "Hi there! 👋 How can we help you today?": "¡Hola! 👋 ¿En qué podemos ayudarte?",
-      "Let's chat": "Chatear ahora",
-      "Maybe later": "Quizás después",
-      "I need more info": "Necesito más información",
-      "Online": "En línea",
-      "Sound": "Sonido",
-      "Notifications": "Notificaciones",
-      "Clear conversation": "Limpiar conversación",
-      "Type a message...": "Escribe un mensaje...",
-      "Send a message...": "Escribe un mensaje...",
-      "Type your message...": "Escribe un mensaje...",
-      "Send": "Enviar",
-      "Close": "Cerrar",
-      "Powered by": "Desarrollado por"
+    var WA_PHONE = '525530682988';
+    var WA_DEFAULT = 'Hola REDEIL, quiero cotizar iluminación para mi evento.';
+    window.openWhatsApp = function(text) {
+      var msg = (text && text.trim()) ? text : WA_DEFAULT;
+      window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     };
-
-    function translateAll() {
-      // Buscar en TODO el body — no depender de selectores específicos del widget
-      var allElements = document.body.querySelectorAll('*');
-      for (var i = 0; i < allElements.length; i++) {
-        var el = allElements[i];
-        // Traducir texto visible (solo nodos hoja)
-        if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-          var trimmed = el.textContent.trim();
-          if (translations[trimmed]) {
-            el.textContent = translations[trimmed];
-          }
-        }
-        // Traducir placeholders
-        if (el.placeholder && translations[el.placeholder]) {
-          el.placeholder = translations[el.placeholder];
-        }
-        // Traducir aria-label
-        if (el.getAttribute && el.getAttribute('aria-label')) {
-          var ariaLabel = el.getAttribute('aria-label').trim();
-          if (translations[ariaLabel]) {
-            el.setAttribute('aria-label', translations[ariaLabel]);
-          }
-        }
-        // Traducir title
-        if (el.title && translations[el.title.trim()]) {
-          el.title = translations[el.title.trim()];
-        }
+    // Delegación global: cualquier elemento con data-open-chat abre WhatsApp.
+    // Soporta mensaje personalizado vía atributo data-wa-text.
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('[data-open-chat]');
+      if (el) {
+        e.preventDefault();
+        window.openWhatsApp(el.getAttribute('data-wa-text'));
       }
-    }
-
-    // Observer que traduce cada vez que el DOM cambia
-    var observer = new MutationObserver(function() {
-      translateAll();
     });
-
-    function init() {
-      observer.observe(document.body, { childList: true, subtree: true, characterData: true });
-      // Traducir periódicamente los primeros 10 segundos (por si el widget carga tarde)
-      var count = 0;
-      var interval = setInterval(function() {
-        translateAll();
-        count++;
-        if (count >= 20) clearInterval(interval);
-      }, 500);
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
   })();
   </script>
 </body>
