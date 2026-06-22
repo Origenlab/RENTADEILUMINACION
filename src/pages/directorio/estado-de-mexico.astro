@@ -80,7 +80,7 @@ const municipios = [...new Set(empresas.map(e => e.data.alcaldia_municipio))];
                   telefono={empresa.data.telefono}
                   rating={empresa.data.rating}
                   resenas={empresa.data.resenas}
-                  slug={empresa.slug}
+                  slug={empresa.id}
                 />
               ))}
             </div>

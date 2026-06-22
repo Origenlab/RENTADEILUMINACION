@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBar from '../../components/CtaBar.astro';
@@ -11,7 +11,7 @@ import FaqSection from '../../components/FaqSection.astro';
 export async function getStaticPaths() {
   const empresas = await getCollection('directorio', ({ data }) => data.activo !== false);
   return empresas.map((empresa) => ({
-    params: { slug: empresa.slug },
+    params: { slug: empresa.id },
     props: { empresa },
   }));
 }
@@ -21,13 +21,13 @@ interface Props {
 }
 
 const { empresa } = Astro.props;
-const { Content } = await empresa.render();
+const { Content } = await render(empresa);
 const d = empresa.data;
 
 // Fetch other companies of the same category
 const todasLasEmpresas = await getCollection('directorio', ({ data }) => data.activo !== false);
 const otrasEmpresas = todasLasEmpresas
-  .filter(e => e.slug !== empresa.slug && e.data.categoria === d.categoria)
+  .filter(e => e.id !== empresa.id && e.data.categoria === d.categoria)
   .sort((a, b) => (b.data.resenas ?? 0) - (a.data.resenas ?? 0))
   .slice(0, 4);
 
@@ -225,7 +225,7 @@ const localBusinessSchema = JSON.stringify({
 <BaseLayout
   title={`${d.nombre} — ${categoriaLabel[d.categoria] ?? d.categoria} en ${d.alcaldia_municipio} | Directorio REDEIL`}
   description={`${d.nombre} en ${d.alcaldia_municipio}. ${d.rating ? `⭐${d.rating} (${d.resenas} reseñas).` : ''} Equipo de ${categoriaLabel[d.categoria] ?? d.categoria} para eventos en ${zonaLabel[d.zona] ?? d.zona}.`}
-  canonical={`https://rentadeiluminacion.com/directorio/${empresa.slug}/`}
+  canonical={`https://rentadeiluminacion.com/directorio/${empresa.id}/`}
   schemaMarkup={localBusinessSchema}
 >
   <Breadcrumbs
@@ -542,7 +542,7 @@ const localBusinessSchema = JSON.stringify({
               telefono={e.data.telefono}
               rating={e.data.rating}
               resenas={e.data.resenas}
-              slug={e.slug}
+              slug={e.id}
             />
           ))}
         </div>

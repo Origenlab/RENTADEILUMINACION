@@ -39,7 +39,7 @@ const schemaMarkup = JSON.stringify({
     "@type": "ListItem",
     "position": i + 1,
     "name": e.data.nombre,
-    "url": `https://rentadeiluminacion.com/directorio/${e.slug}/`
+    "url": `https://rentadeiluminacion.com/directorio/${e.id}/`
   }))
 });
 
@@ -130,7 +130,7 @@ const faqItems = [
                 telefono={empresa.data.telefono}
                 rating={empresa.data.rating}
                 resenas={empresa.data.resenas}
-                slug={empresa.slug}
+                slug={empresa.id}
               />
             </div>
           ))}
@@ -145,7 +145,7 @@ const faqItems = [
           <ul class="dir-sidebar__list">
             {topEmpresas.map(e => (
               <li class="dir-sidebar__item">
-                <a href={`/directorio/${e.slug}/`}>
+                <a href={`/directorio/${e.id}/`}>
                   <span class="dir-sidebar__name">{e.data.nombre}</span>
                   <span class="dir-sidebar__meta">⭐ {e.data.rating} ({e.data.resenas})</span>
                 </a>

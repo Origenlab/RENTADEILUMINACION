@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string().max(60),
     description: z.string().max(155),
@@ -20,7 +21,7 @@ const blog = defineCollection({
 });
 
 const directorio = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/directorio' }),
   schema: z.object({
     nombre: z.string(),
     categoria: z.enum(['audio', 'iluminacion', 'audio-video', 'dj', 'efectos']),
