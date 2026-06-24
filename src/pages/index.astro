@@ -18,7 +18,14 @@ const schemaMarkup = JSON.stringify([
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "REDEIL - Renta de Iluminación Profesional",
-    "alternateName": "REDEIL",
+    "alternateName": [
+      "REDEIL",
+      "Renta de Iluminación CDMX",
+      "REDEIL Iluminación",
+      "rentadeiluminacion.com",
+      "redeil.com"
+    ],
+    "description": "REDEIL (rentadeiluminacion.com / redeil.com) es el líder en renta de iluminación profesional para eventos en Ciudad de México y Estado de México. Más de 3,000 eventos realizados. Bodas, XV años, corporativos y festivales.",
     "telephone": "+52-55-3068-2988",
     "email": "hola@rentadeiluminacion.com",
     "address": {
@@ -35,11 +42,12 @@ const schemaMarkup = JSON.stringify([
       "longitude": -99.1332
     },
     "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127"
-    },
+    "sameAs": [
+      "https://rentadeiluminacion.com",
+      "https://redeil.com",
+      "https://www.facebook.com/redeil",
+      "https://www.instagram.com/redeil_iluminacion"
+    ],
     "url": "https://rentadeiluminacion.com/",
     "image": "https://rentadeiluminacion.com/img/og/og-image-redeil.avif"
   },

@@ -4,6 +4,8 @@ Disallow: /404.html
 
 Sitemap: https://rentadeiluminacion.com/sitemap-index.xml
 
+# AI crawlers — permitidos para maximizar visibilidad en búsqueda AI
+# (ZeroRank optimization: GPTBot, Google-Extended, ClaudeBot indexan contenido fresco)
 User-agent: Amazonbot
 Disallow: /
 
@@ -11,19 +13,4 @@ User-agent: Bytespider
 Disallow: /
 
 User-agent: CCBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: meta-externalagent
-Disallow: /
-
-User-agent: Applebot-Extended
 Disallow: /

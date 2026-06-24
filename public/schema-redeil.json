@@ -5,7 +5,13 @@
       "@type": "LocalBusiness",
       "@id": "https://rentadeiluminacion.com/#organization",
       "name": "REDEIL - Renta de Iluminación Profesional",
-      "alternateName": "REDEIL",
+      "alternateName": [
+        "REDEIL",
+        "Renta de Iluminación CDMX",
+        "REDEIL Iluminación",
+        "rentadeiluminacion.com",
+        "redeil.com"
+      ],
       "description": "Empresa líder en renta de iluminación profesional para bodas, XV años y eventos corporativos en Ciudad de México y Estado de México. Más de 30 años de experiencia transformando eventos con tecnología de primer nivel.",
       "url": "https://rentadeiluminacion.com",
       "logo": {
@@ -82,6 +88,8 @@
         }
       ],
       "sameAs": [
+        "https://rentadeiluminacion.com",
+        "https://redeil.com",
         "https://www.facebook.com/redeil",
         "https://www.instagram.com/redeil_iluminacion",
         "https://wa.me/525530682988"
@@ -142,39 +150,11 @@
           }
         ]
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "María González"
-          },
-          "reviewBody": "Excelente servicio para nuestra boda. Las guirnaldas quedaron perfectas y el equipo fue muy profesional con la instalación."
-        },
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "EventosPro CDMX"
-          },
-          "reviewBody": "Trabajamos con REDEIL para múltiples eventos corporativos. Siempre puntuales y con equipo de primera calidad."
-        }
-      ]
+      "brand": {
+        "@type": "Brand",
+        "name": "REDEIL",
+        "alternateName": "Renta de Iluminación CDMX"
+      }
     },
     {
       "@type": "WebSite",
