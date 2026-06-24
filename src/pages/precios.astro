@@ -1,0 +1,574 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import PricingCards from '../components/PricingCards.astro';
+import FaqSection from '../components/FaqSection.astro';
+import NavRapida from '../components/NavRapida.astro';
+
+const title = "Precios de Renta de Iluminación y Sonido en CDMX | REDEIL";
+const description = "Precios de renta de iluminación, audio y efectos para eventos en CDMX. Guirnaldas desde $3,500 MXN. Producciones completas desde $15,000 MXN. Cotiza por WhatsApp gratis.";
+const canonical = "https://rentadeiluminacion.com/precios/";
+
+const paquetesIluminacion = [
+  {
+    name: "Básico",
+    price: "Desde $3,500",
+    priceNote: "+ IVA",
+    description: "Iluminación sencilla para eventos íntimos. Ideal para terrazas, jardines pequeños y reuniones hasta 80 invitados.",
+    highlight: false,
+    features: [
+      { text: "50 metros de guirnaldas Edison", included: true },
+      { text: "Transporte e instalación incluidos", included: true },
+      { text: "Operador técnico durante el evento", included: true },
+      { text: "Desmontaje al finalizar", included: true },
+      { text: "Cobertura CDMX y zona metropolitana", included: true },
+      { text: "Efectos especiales (humo, confeti)", included: false },
+      { text: "Audio y DJ", included: false },
+    ],
+    ctaLabel: "Cotizar Básico",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20el%20paquete%20básico%20de%20iluminación"
+  },
+  {
+    name: "Boda / XV",
+    badge: "Más Solicitado",
+    price: "Desde $8,500",
+    priceNote: "+ IVA",
+    description: "Paquete completo para bodas y XV años. Guirnaldas + uplighting + efecto humo bajo para el vals. Hasta 200 invitados.",
+    highlight: true,
+    features: [
+      { text: "100 metros de guirnaldas Edison", included: true },
+      { text: "Uplighting arquitectónico (12 cañones)", included: true },
+      { text: "Humo bajo para vals o vals sorpresa", included: true },
+      { text: "Transporte, instalación y operación", included: true },
+      { text: "Desmontaje al finalizar", included: true },
+      { text: "Cobertura CDMX y zona metropolitana", included: true },
+      { text: "DJ y audio (cotización aparte)", included: false },
+    ],
+    ctaLabel: "Cotizar Boda / XV",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20boda%20o%20XV%20años"
+  },
+  {
+    name: "Corporativo",
+    price: "Desde $12,000",
+    priceNote: "+ IVA",
+    description: "Iluminación y audio para eventos corporativos: lanzamientos, galas, conferencias y cenas de fin de año. Factura disponible.",
+    highlight: false,
+    features: [
+      { text: "Iluminación arquitectónica completa", included: true },
+      { text: "Gobos personalizados con logo", included: true },
+      { text: "Audio para presentaciones (JBL/QSC)", included: true },
+      { text: "Transporte, instalación y operación", included: true },
+      { text: "Factura CFDI disponible", included: true },
+      { text: "Cobertura CDMX y zona metropolitana", included: true },
+      { text: "DJ (cotización aparte)", included: false },
+    ],
+    ctaLabel: "Cotizar Corporativo",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20evento%20corporativo"
+  },
+  {
+    name: "Producción Completa",
+    price: "Desde $25,000",
+    priceNote: "+ IVA",
+    description: "Producción integral para festivales, conciertos, galas de gran escala o bodas de 300+ invitados. Equipo Martin Professional y QSC.",
+    highlight: false,
+    features: [
+      { text: "Iluminación completa (cabezas móviles + sky trackers)", included: true },
+      { text: "Line array JBL/QSC (300-800 personas)", included: true },
+      { text: "DJ profesional con consola Pioneer", included: true },
+      { text: "Efectos especiales (humo, confeti, cascadas LED)", included: true },
+      { text: "Pantalla inflable opcional", included: true },
+      { text: "Transporte, instalación y operación completa", included: true },
+      { text: "Factura CFDI disponible", included: true },
+    ],
+    ctaLabel: "Cotizar Producción",
+    ctaHref: "https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20una%20producción%20completa%20de%20iluminación%20y%20audio"
+  }
+];
+
+const preciosPorServicio = [
+  { servicio: "Guirnaldas Edison 50m", precio: "Desde $3,500", nota: "Terrazas íntimas · hasta 50 invitados" },
+  { servicio: "Guirnaldas Edison 100m", precio: "Desde $6,500", nota: "Jardines medianos · hasta 120 invitados" },
+  { servicio: "Guirnaldas Edison 200m", precio: "Desde $11,500", nota: "Haciendas · 200+ invitados" },
+  { servicio: "Humo bajo para vals", precio: "Cotización", nota: "Consultar según tipo de boda" },
+  { servicio: "Sky Tracker (1 unidad)", precio: "Cotización", nota: "Boda íntima en jardín" },
+  { servicio: "Cabezas Móviles (paquete show)", precio: "Cotización", nota: "2-6 cabezas según show" },
+  { servicio: "Audio básico (hasta 100 personas)", precio: "Cotización", nota: "Bocinas JBL" },
+  { servicio: "Audio premium Line Array", precio: "Cotización", nota: "300-800 personas · QSC" },
+  { servicio: "DJ profesional + consola", precio: "Cotización", nota: "Pioneer CDJ, repertorio incluido" },
+  { servicio: "Iluminación arquitectónica (6 uplighters)", precio: "Cotización", nota: "Fachada y arco de ceremonia" },
+  { servicio: "Producción completa (luz + audio)", precio: "Desde $15,000", nota: "Boda o XV completo" },
+];
+
+const faqsPrecios = [
+  {
+    question: "¿Cuánto cuesta rentar iluminación para una boda en CDMX?",
+    answer: "Un paquete básico de guirnaldas para jardín arranca desde $3,500 + IVA. Una producción completa con iluminación, audio y efectos para boda va desde $15,000 + IVA. El precio exacto depende del venue, número de invitados y equipos requeridos. Cotiza por WhatsApp y te respondemos en menos de 15 minutos con un presupuesto personalizado."
+  },
+  {
+    question: "¿Los precios incluyen instalación y desmontaje?",
+    answer: "Sí, todos los precios incluyen transporte del equipo a tu venue, instalación profesional antes del evento, operación técnica durante el evento y desmontaje al finalizar. No hay cobros ocultos ni cargos extras por instalación."
+  },
+  {
+    question: "¿Tienen precios para eventos corporativos con factura?",
+    answer: "Sí. Los paquetes corporativos arrancan desde $12,000 + IVA e incluyen factura CFDI para personas físicas y morales. Trabajamos con empresas que requieren cotización formal y órdenes de compra. Escríbenos por WhatsApp con el brief de tu evento."
+  },
+  {
+    question: "¿Qué pasa si quiero un paquete personalizado?",
+    answer: "El 80% de nuestros eventos son cotizaciones personalizadas. No tienes que contratar paquetes predefinidos. Cuéntanos tu venue, tipo de evento, número de invitados y presupuesto aproximado — armamos la propuesta ideal para ti."
+  },
+  {
+    question: "¿Tienen opciones económicas para eventos con presupuesto ajustado?",
+    answer: "Sí. El servicio más accesible son las guirnaldas Edison: desde $3,500 + IVA para terrazas y espacios íntimos. También podemos armar combinaciones reducidas de equipo que se ajusten a tu presupuesto. Lo importante es decírnoslo — preferimos hacer algo bien con presupuesto limitado que venderte más de lo que necesitas."
+  },
+  {
+    question: "¿Cubren eventos en el Estado de México y tienen precio de traslado?",
+    answer: "Operamos en toda la zona metropolitana: Naucalpan, Huixquilucan, Tlalnepantla, Metepec, Toluca y más. El transporte está incluido en el precio del servicio para toda la ZMVM — no hay cargo adicional por traslado dentro de la zona metropolitana."
+  },
+  {
+    question: "¿Cuánto cuesta rentar iluminación para un evento corporativo de fin de año?",
+    answer: "Para cenas de fin de año corporativas en CDMX, los paquetes van desde $12,000 + IVA (iluminación ambientales + audio para presentaciones) hasta producciones completas de $30,000+ para galas grandes. Incluyen factura CFDI. Contáctanos con el brief de tu evento para cotización exacta."
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar y cómo es el proceso?",
+    answer: "Idealmente 2-4 semanas antes. En temporada alta (noviembre-enero, mayo-junio) reserva con 6-8 semanas de anticipación porque los fines de semana se agotan. El proceso: cotización por WhatsApp → propuesta personalizada en 24h → contrato y anticipo del 50% → confirmación de fecha."
+  }
+];
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Renta de Iluminación y Sonido para Eventos — REDEIL",
+  "description": "Servicio profesional de renta de iluminación, audio y efectos para eventos en Ciudad de México y Estado de México. Guirnaldas, cabezas móviles, sky trackers, DJ y producción completa.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://rentadeiluminacion.com/#organization",
+    "name": "REDEIL",
+    "telephone": "+52-55-3068-2988",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ciudad de México",
+      "addressCountry": "MX"
+    }
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Ciudad de México"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Paquete Básico — Guirnaldas 50m",
+      "price": "3500",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "3500",
+        "priceCurrency": "MXN",
+        "valueAddedTaxIncluded": false
+      },
+      "availability": "https://schema.org/InStock",
+      "description": "50 metros de guirnaldas Edison para eventos íntimos hasta 80 invitados. Incluye instalación, operación y desmontaje."
+    },
+    {
+      "@type": "Offer",
+      "name": "Paquete Boda / XV — Iluminación completa",
+      "price": "8500",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "8500",
+        "priceCurrency": "MXN",
+        "valueAddedTaxIncluded": false
+      },
+      "availability": "https://schema.org/InStock",
+      "description": "100m guirnaldas + uplighting + humo bajo para boda o XV años hasta 200 invitados. Incluye instalación completa."
+    },
+    {
+      "@type": "Offer",
+      "name": "Paquete Corporativo — Iluminación y Audio",
+      "price": "12000",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "12000",
+        "priceCurrency": "MXN",
+        "valueAddedTaxIncluded": false
+      },
+      "availability": "https://schema.org/InStock",
+      "description": "Iluminación arquitectónica, gobos y audio para eventos corporativos en CDMX. Factura CFDI incluida."
+    },
+    {
+      "@type": "Offer",
+      "name": "Producción Completa",
+      "price": "25000",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "25000",
+        "priceCurrency": "MXN",
+        "valueAddedTaxIncluded": false
+      },
+      "availability": "https://schema.org/InStock",
+      "description": "Producción integral: iluminación completa, line array QSC, DJ profesional y efectos especiales para festivales y bodas 300+ invitados."
+    }
+  ]
+});
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqsPrecios.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+---
+
+<BaseLayout {title} {description} {canonical}>
+  <script type="application/ld+json" is:inline set:html={serviceSchema} slot="head" />
+  <script type="application/ld+json" is:inline set:html={faqSchema} slot="head" />
+
+  <Breadcrumbs items={[{ label: "Precios" }]} />
+
+  <!-- HERO -->
+  <section class="precios-hero">
+    <div class="container">
+      <div class="precios-hero__content">
+        <p class="precios-hero__label">Transparencia de precios</p>
+        <h1 class="precios-hero__title">Precios de Renta de<br><strong>Iluminación y Sonido</strong><br>en CDMX</h1>
+        <p class="precios-hero__subtitle">Desde guirnaldas Edison a <strong>$3,500 MXN</strong> hasta producciones completas desde <strong>$15,000 MXN</strong>. Incluye instalación, operación y desmontaje. Cotiza por WhatsApp en menos de 15 minutos.</p>
+        <div class="precios-hero__ctas">
+          <a href="https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20mi%20evento" class="btn-primary">Cotizar por WhatsApp →</a>
+          <a href="#paquetes" class="btn-secondary">Ver paquetes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMEN RÁPIDO -->
+  <section class="resumen-precios">
+    <div class="container">
+      <div class="resumen-grid">
+        <div class="resumen-item">
+          <span class="resumen-desde">Desde</span>
+          <span class="resumen-precio">$3,500</span>
+          <span class="resumen-concepto">Guirnaldas Edison</span>
+        </div>
+        <div class="resumen-item resumen-item--highlight">
+          <span class="resumen-desde">Desde</span>
+          <span class="resumen-precio">$8,500</span>
+          <span class="resumen-concepto">Boda / XV Años</span>
+        </div>
+        <div class="resumen-item">
+          <span class="resumen-desde">Desde</span>
+          <span class="resumen-precio">$12,000</span>
+          <span class="resumen-concepto">Corporativo</span>
+        </div>
+        <div class="resumen-item">
+          <span class="resumen-desde">Desde</span>
+          <span class="resumen-precio">$15,000</span>
+          <span class="resumen-concepto">Producción Completa</span>
+        </div>
+      </div>
+      <p class="resumen-nota">Todos los precios en MXN + IVA. Incluyen transporte, instalación y operación técnica. <strong>Sin cargos ocultos.</strong></p>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section class="paquetes-section" id="paquetes">
+    <div class="container">
+      <SectionHeader
+        title="Paquetes de Renta de Iluminación"
+        subtitle="Elige el paquete que se adapta a tu evento o cotiza uno personalizado."
+        paragraph1="Cada paquete incluye transporte del equipo, instalación profesional, operación técnica durante el evento y desmontaje. No hay costos adicionales por instalación dentro de la ZMVM."
+        paragraph2="¿Tu evento no encaja en ningún paquete? El 80% de nuestros clientes terminan con propuestas personalizadas. Cuéntanos qué necesitas por WhatsApp."
+      />
+      <PricingCards packages={paquetesIluminacion} />
+    </div>
+  </section>
+
+  <!-- TABLA DE PRECIOS POR SERVICIO -->
+  <section class="tabla-section">
+    <div class="container">
+      <SectionHeader
+        title="Precios por Servicio Individual"
+        subtitle="¿Necesitas un servicio específico? Consulta los rangos orientativos."
+        paragraph1="Los precios marcados como 'Cotización' dependen del venue, número de invitados y configuración específica. Escríbenos por WhatsApp con los detalles de tu evento y te respondemos con precio exacto en menos de 24 horas."
+        paragraph2=""
+      />
+      <div class="tabla-precios">
+        <div class="tabla-header">
+          <span>Servicio</span>
+          <span>Precio orientativo</span>
+          <span>Aplica para</span>
+        </div>
+        {preciosPorServicio.map(item => (
+          <div class="tabla-row">
+            <span class="tabla-servicio">{item.servicio}</span>
+            <span class="tabla-precio">{item.precio}</span>
+            <span class="tabla-nota">{item.nota}</span>
+          </div>
+        ))}
+      </div>
+      <p class="tabla-disclaimer">Precios en MXN + IVA. Válidos para CDMX y zona metropolitana. Sujetos a disponibilidad de fechas.</p>
+    </div>
+  </section>
+
+  <!-- FAQ PRECIOS -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionHeader
+        title="Preguntas Frecuentes sobre Precios"
+        subtitle="Lo que todos preguntan antes de cotizar."
+        paragraph1="Si no encuentras la respuesta que buscas, escríbenos directamente por WhatsApp y te respondemos en menos de 15 minutos."
+        paragraph2=""
+      />
+    </div>
+    <FaqSection items={faqsPrecios.map(f => ({ question: f.question, answer: f.answer }))} />
+  </section>
+
+  <NavRapida items={[
+    { label: 'Ver Todos los Servicios', sub: 'Iluminación · Sonido · Efectos especiales', href: '/servicios/', iconKey: 'servicios' },
+    { label: 'Cotizar por WhatsApp', sub: 'Respuesta en menos de 15 min', href: 'https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20iluminación%20para%20mi%20evento', iconKey: 'whatsapp', cta: true },
+    { label: 'Zonas de Cobertura', sub: 'CDMX · EDOMEX · Zona metropolitana', href: '/zonas-de-cobertura/', iconKey: 'zonas' },
+    { label: 'Eventos Corporativos', sub: 'Conferencias · Galas · Lanzamientos', href: '/contacto/', iconKey: 'corporativo' },
+  ]} />
+
+</BaseLayout>
+
+<style>
+  .precios-hero {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0d0d2b 100%);
+    padding: 100px 0 80px;
+    color: #fff;
+  }
+
+  .precios-hero__content {
+    max-width: 680px;
+  }
+
+  .precios-hero__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7c83ff;
+    margin: 0 0 16px;
+  }
+
+  .precios-hero__title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    color: #fff;
+  }
+
+  .precios-hero__title strong {
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .precios-hero__subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    margin: 0 0 36px;
+  }
+
+  .precios-hero__ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: #25D366;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+  /* RESUMEN */
+  .resumen-precios {
+    padding: 60px 0 40px;
+    background: #f8f9ff;
+  }
+
+  .resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .resumen-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    border: 2px solid #eef0ff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .resumen-item--highlight {
+    background: linear-gradient(135deg, #1a1a3e 0%, #2d2d6e 100%);
+    border-color: transparent;
+    box-shadow: 0 8px 32px rgba(26,26,62,0.25);
+  }
+
+  .resumen-desde {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 500;
+  }
+
+  .resumen-item--highlight .resumen-desde { color: rgba(255,255,255,0.6); }
+
+  .resumen-precio {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #1a1a3e;
+    line-height: 1;
+  }
+
+  .resumen-item--highlight .resumen-precio { color: #fff; }
+
+  .resumen-concepto {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .resumen-item--highlight .resumen-concepto { color: rgba(255,255,255,0.85); }
+
+  .resumen-nota {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }
+
+  /* PAQUETES */
+  .paquetes-section {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  /* TABLA */
+  .tabla-section {
+    padding: 80px 0;
+    background: #f8f9ff;
+  }
+
+  .tabla-precios {
+    max-width: 900px;
+    margin: 40px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eef0ff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .tabla-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    background: linear-gradient(135deg, #1a1a3e 0%, #2d2d6e 100%);
+    padding: 16px 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tabla-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 14px 20px;
+    background: #fff;
+    border-bottom: 1px solid #f0f2ff;
+    align-items: center;
+  }
+
+  .tabla-row:nth-child(even) { background: #fafbff; }
+  .tabla-row:last-child { border-bottom: none; }
+
+  .tabla-servicio {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1a1a3e;
+  }
+
+  .tabla-precio {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1a1a3e;
+  }
+
+  .tabla-nota {
+    font-size: 0.82rem;
+    color: #666;
+  }
+
+  .tabla-disclaimer {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #888;
+    margin: 16px 0 0;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .resumen-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .precios-hero { padding: 72px 0 60px; }
+    .tabla-header, .tabla-row { grid-template-columns: 1fr 1fr; }
+    .tabla-nota { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .resumen-grid { grid-template-columns: 1fr 1fr; }
+    .precios-hero__ctas { flex-direction: column; }
+    .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+  }
+</style>
